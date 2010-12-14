@@ -1,8 +1,4 @@
-require 'rubygems'
-require 'forwardable'
-require 'oauth'
-require 'oauth/signature/rsa/sha1'
-require 'lib/xeroizer/oauth'
+require 'lib/xeroizer.rb'
 
 client = Xeroizer::OAuth.new('M2M4ZTRHOWNIYTLINDJMMJHIZJEYNW', 'RX0ZVVCWDJR6HGX2JKHICHCKYZ21O5', {
   :site => 'https://api-partner.network.xero.com',
