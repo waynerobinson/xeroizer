@@ -25,6 +25,7 @@ module Xeroizer
       }.freeze
     end
     
+    # Mixin real OAuth methods for consumer.
     extend Forwardable
     def_delegators :access_token, :get, :post, :put, :delete
     
@@ -35,31 +36,45 @@ module Xeroizer
       @consumer_options = XERO_CONSUMER_OPTIONS.merge(options)
     end
     
+    # OAuth consumer creator.
     def consumer
       @consumer ||= create_consumer
     end
     
+    # RequestToken for PUBLIC/PARTNER authorisation 
+    # (used to redirect to Xero for authentication).
     def request_token(params = {})
       @request_token ||= consumer.get_request_token(params)
     end
     
+    # Create an AccessToken from a PUBLIC/PARTNER authorisation.
     def authorize_from_request(rtoken, rsecret, params = {})
-      request_token     = ::OAuth::RequestToken.new(consumer, rtoken, rsecret)
-      get_access_token(params)
+      request_token = ::OAuth::RequestToken.new(consumer, rtoken, rsecret)
+      access_token = request_token.get_access_token(params)
+      update_attributes_from_token(access_token)
     end
     
+    # AccessToken created from authorize_from_access method.
     def access_token
       @access_token ||= ::OAuth::AccessToken.new(consumer, @atoken, @asecret)
     end
     
+    # Used for PRIVATE applications where the AccessToken uses the 
+    # token/secret from Xero which would normally be used in the request.
+    # No request authorisation necessary.
     def authorize_from_access(atoken, asecret)
       @atoken, @asecret = atoken, asecret
     end
     
+    # Renew an access token from a previously authorised token for a
+    # PARTNER application.
     def renew_access_token(atoken = nil, asecret = nil, session_handle = nil)
       old_token = ::OAuth::RequestToken.new(consumer, atoken || @atoken, asecret || @secret)
-      params = {:oauth_session_handle => (session_handle || @session_handle), :token => old_token}
-      get_access_token(params, old_token)
+      access_token = old_token.get_access_token({
+        :oauth_session_handle => (session_handle || @session_handle), 
+        :token => old_token
+      })
+      update_attributes_from_token(access_token)
     end
     
     private 
@@ -73,8 +88,7 @@ module Xeroizer
         consumer
       end
       
-      def get_access_token(params, token_for_request = nil)
-        access_token = (token_for_request || request_token).get_access_token(params)
+      def update_attributes_from_token(access_token)
         @expires_in = access_token.params[:oauth_expires_in]
         @authorization_expires_in = access_token.params[:oauth_authorization_expires_in]
         @session_handle = access_token.params[:oauth_session_handle]
