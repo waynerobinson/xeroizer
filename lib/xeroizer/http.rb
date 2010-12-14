@@ -85,14 +85,15 @@ module Xeroizer
         
         # Xero Gateway API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
         # So let's ignore that :)
-        raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+        # raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
         
-        doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
+        # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
+        doc = Nokogiri::XML(raw_response)
         
         if doc.root.name == "ApiException"
 
-          raise ApiException.new(doc.root.elements["Type"].text, 
-                                 doc.root.elements["Message"].text, 
+          raise ApiException.new(doc.root.xpath("Type").text, 
+                                 doc.root.xpath("Message").text, 
                                  raw_response)
 
         else

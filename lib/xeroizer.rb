@@ -6,6 +6,7 @@ require 'nokogiri'
 
 $: << File.expand_path(File.dirname(__FILE__)) 
 
+require 'xeroizer/nokogiri_utils'
 require 'xeroizer/oauth'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'

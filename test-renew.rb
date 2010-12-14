@@ -14,3 +14,4 @@ token = OAuth::Token.new(ARGV[0], ARGV[1])
 access_token = request_token.get_access_token(:oauth_session_handle => ARGV[2], :token => token)
 
 puts access_token.inspect
+
