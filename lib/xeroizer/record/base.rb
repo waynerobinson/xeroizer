@@ -12,6 +12,11 @@ module Xeroizer
       
       class << self
         
+        # Method to allow override of the default controller name used 
+        # in the API URLs. 
+        #
+        # Default: pluaralized model name (e.g. if the controller name is
+        # Invoice then the default is Invoices.
         def set_api_controller_name(controller_name)
           self.api_controller_name = controller_name
         end
@@ -25,24 +30,33 @@ module Xeroizer
           @model_name = model_name
         end
         
+        # Retrieve the controller name.
+        #
+        # Default: pluaralized model name (e.g. if the controller name is
+        # Invoice then the default is Invoices.
         def api_controller_name
           self.class.api_controller_name || model_name.pluralize
         end
-        
+
+        # URL end-point for this model.
         def url
           @application.xero_url + '/' + api_controller_name
         end
         
+        # Retreive full record list for this model. 
         def all(options = {})
           response_xml = @application.http_get(@application.client, "#{url}", options)
           parse_response(response_xml, options)
         end
         
+        # Helper method to retrieve just the first element from
+        # the full record list.
         def first(options = {})
           result = all(options)
           result.first if result.is_a?(Array)
         end
         
+        # Retrieve record matching the passed in ID.
         def find(id, options = {})
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
           puts response_xml
@@ -52,6 +66,7 @@ module Xeroizer
                 
       protected
       
+        # Parse the response retreived during any request.
         def parse_response(raw_response, request = {}, options = {})
           @response = Xeroizer::Response.new
           
@@ -80,6 +95,7 @@ module Xeroizer
           @response.response_items
         end
         
+        # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(elements)
           @response.response_items = []
           elements.each do | element |
@@ -99,6 +115,7 @@ module Xeroizer
       
       class << self
         
+        # Helper methods used to define the fields this model has.
         def string(field_name, options = {});     define_simple_attribute(field_name, :string, options); end
         def boolean(field_name, options = {});    define_simple_attribute(field_name, :boolean, options); end
         def integer(field_name, options = {});    define_simple_attribute(field_name, :integer, options); end
@@ -108,6 +125,11 @@ module Xeroizer
         def belongs_to(field_name, options = {}); define_simple_attribute(field_name, :belongs_to, options); end
         def has_many(field_name, options = {});   define_simple_attribute(field_name, :has_many, options); end
         
+        # Helper method to simplify field definition. 
+        # Creates an accessor and reader for the field.
+        # Options:
+        #   :internal_name => allows the specification of an internal field name differing from the API's field name.
+        #   :type => type of field
         def define_simple_attribute(field_name, field_type, options)
           internal_field_name = options[:internal_name] || field_name
           self.fields[field_name] = options.merge(:internal_name => internal_field_name, :type => field_type)
@@ -119,11 +141,11 @@ module Xeroizer
           end
         end
         
+        # Build a record instance from the XML node.
         def build_from_node(node)
           record = new
           node.elements.each do | element |
-            internal_name = element.name.to_s.underscore.to_sym
-            field = self.fields[internal_name]
+            field = self.fields[element.name.to_s.underscore.to_sym]
             if field
               record.send("#{field[:internal_name]}=", case field[:type]
                 when :string      then element.text
