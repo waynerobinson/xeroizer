@@ -29,7 +29,8 @@ module Xeroizer
     extend Forwardable
     def_delegators :access_token, :get, :post, :put, :delete
     
-    attr_reader :ctoken, :csecret, :consumer_options, :expires_in, :authorization_expires_in, :session_handle
+    attr_reader :ctoken, :csecret, :consumer_options, :expires_at, :authorization_expires_at
+    attr_accessor :session_handle
     
     def initialize(ctoken, csecret, options = {})
       @ctoken, @csecret = ctoken, csecret
@@ -92,8 +93,8 @@ module Xeroizer
       
       # Update instance variables with those from the AccessToken.
       def update_attributes_from_token(access_token)
-        @expires_in = access_token.params[:oauth_expires_in]
-        @authorization_expires_in = access_token.params[:oauth_authorization_expires_in]
+        @expires_at = Time.now + access_token.params[:oauth_expires_in].to_i
+        @authorization_expires_at = Time.now + access_token.params[:oauth_authorization_expires_in].to_i
         @session_handle = access_token.params[:oauth_session_handle]
         @atoken, @asecret = access_token.token, access_token.secret
       end

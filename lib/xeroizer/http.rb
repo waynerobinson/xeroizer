@@ -83,7 +83,7 @@ module Xeroizer
         
         raw_response = response.plain_body
         
-        # Xero Gateway API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
+        # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
         # So let's ignore that :)
         # raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
         

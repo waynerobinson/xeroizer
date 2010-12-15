@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ApiException xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ErrorNumber>10</ErrorNumber>
+  <Type>ValidationException</Type>
+  <Message>A validation exception occurred</Message>
+  <Elements>
+    <DataContractBase xsi:type="Invoice">
+      <ValidationErrors>
+        <ValidationError>
+          <Message>Users Organisation is not subscribed to currency NZD</Message>
+        </ValidationError>
+      </ValidationErrors>
+      <Warnings />
+      <Reference>Ref:SMITHK</Reference>
+      <Type>ACCREC</Type>
+      <Contact>
+        <ValidationErrors />
+        <Warnings />
+        <ContactID>00000000-0000-0000-0000-000000000000</ContactID>
+        <ContactNumber>0006841301</ContactNumber>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Ariki Properties</Name>
+        <FirstName>Simon</FirstName>
+        <LastName>Greenville</LastName>
+        <EmailAddress>emailaddress@yourdomain.com</EmailAddress>
+        <SkypeUserName>Skype Name/Number</SkypeUserName>
+        <BankAccountDetails>Bank Account Details</BankAccountDetails>
+        <TaxNumber>Tax ID Number</TaxNumber>
+        <AccountsPayableTaxType>INPUT</AccountsPayableTaxType>
+        <Addresses>
+          <Address>
+            <ValidationErrors />
+            <Warnings />
+            <AddressType>STREET</AddressType>
+            <AddressLine1>Level 71</AddressLine1>
+            <AddressLine2>30 Rockefeller plaza</AddressLine2>
+            <AddressLine3 />
+            <AddressLine4 />
+            <City>New York</City>
+            <Region>New York State</Region>
+            <PostalCode>10112</PostalCode>
+            <Country>USA</Country>
+            <AttentionTo>Simon G.</AttentionTo>
+          </Address>
+          <Address>
+            <ValidationErrors />
+            <Warnings />
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>PO Box 10112</AddressLine1>
+            <AddressLine2 />
+            <AddressLine3 />
+            <AddressLine4 />
+            <City>New York</City>
+            <Region>New York State</Region>
+            <PostalCode>10112</PostalCode>
+            <Country>USA</Country>
+            <AttentionTo>Simon G.</AttentionTo>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <ValidationErrors />
+            <Warnings />
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>5996999</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <ValidationErrors />
+            <Warnings />
+            <PhoneType>DDI</PhoneType>
+            <PhoneNumber>1234567</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <ValidationErrors />
+            <Warnings />
+            <PhoneType>FAX</PhoneType>
+            <PhoneNumber>7654321</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <ValidationErrors />
+            <Warnings />
+            <PhoneType>MOBILE</PhoneType>
+            <PhoneNumber>5555555</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC xsi:nil="true" />
+        <ContactGroups />
+        <IsSupplier xsi:nil="true" />
+        <IsCustomer xsi:nil="true" />
+        <DefaultCurrency>USD</DefaultCurrency>
+      </Contact>
+      <Date>2009-09-08T00:00:00</Date>
+      <DueDate>2009-10-20T00:00:00</DueDate>
+      <Status>SUBMITTED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <ValidationErrors />
+          <Warnings />
+          <Description>3 copies of OS X 10.6 Snow Leopard</Description>
+          <Quantity>3.0000</Quantity>
+          <UnitAmount>59.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>19.67</TaxAmount>
+          <LineAmount>177.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <ValidationErrors />
+              <Warnings />
+              <TrackingCategoryID>e2f2f732-e92a-4f3a-9c4d-ee4da0182a13</TrackingCategoryID>
+              <Name>Region</Name>
+              <Option>North</Option>
+              <Options />
+            </TrackingCategory>
+          </Tracking>
+        </LineItem>
+        <LineItem>
+          <ValidationErrors />
+          <Warnings />
+          <Description>Returned Apple Keyboard with Numeric Keypad (faulty)</Description>
+          <Quantity>1.0000</Quantity>
+          <UnitAmount>-79.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>-8.78</TaxAmount>
+          <LineAmount>-79.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking />
+        </LineItem>
+      </LineItems>
+      <SubTotal>87.11</SubTotal>
+      <TotalTax>10.90</TotalTax>
+      <Total>98.00</Total>
+      <UpdatedDateUTC xsi:nil="true" />
+      <CurrencyCode>NZD</CurrencyCode>
+      <FullyPaidOnDate xsi:nil="true" />
+      <InvoiceID>00000000-0000-0000-0000-000000000000</InvoiceID>
+      <InvoiceNumber>OIT:01065</InvoiceNumber>
+      <Payments />
+      <AmountDue xsi:nil="true" />
+      <AmountPaid xsi:nil="true" />
+      <AmountCredited xsi:nil="true" />
+    </DataContractBase>
+  </Elements>
+</ApiException>

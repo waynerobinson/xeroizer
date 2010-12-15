@@ -1,0 +1,16 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>244a1123-ca58-4ab8-9893-74bb87b54307</Id>
+  <Status>OK</Status>
+  <ProviderName>Xero Gateway Test</ProviderName>
+  <DateTimeUTC>2009-10-04T03:28:12.048587Z</DateTimeUTC>
+  <Currencies>
+    <Currency>
+      <Code>NZD</Code>
+      <Description>New Zealand Dollar</Description>
+    </Currency>
+    <Currency>
+      <Code>USD</Code>
+      <Description>United States Dollar</Description>
+    </Currency>
+  </Currencies>
+</Response>

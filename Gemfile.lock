@@ -1,0 +1,22 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.0.3)
+    builder (3.0.0)
+    mocha (0.9.10)
+      rake
+    nokogiri (1.4.4)
+    oauth (0.4.4)
+    rake (0.8.7)
+    shoulda (2.11.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  builder (>= 2.1.2)
+  mocha
+  nokogiri
+  oauth (>= 0.3.6)
+  shoulda

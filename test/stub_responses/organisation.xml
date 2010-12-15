@@ -1,0 +1,14 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>e3431899-bf76-41e8-a919-4c8c923feb12</Id>
+  <Status>OK</Status>
+  <DateTimeUTC>2009-10-04T03:26:26.6994434Z</DateTimeUTC>
+  <Organisations>
+    <Organisation>
+      <Name>Demo Company (NZ)</Name>
+      <LegalName>Demo Company (NZ)</LegalName>
+      <PaysTax>true</PaysTax>
+      <Version>NZ</Version>
+      <BaseCurrency>NZD</BaseCurrency>
+    </Organisation>
+  </Organisations>
+</Response>

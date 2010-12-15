@@ -1,0 +1,104 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>3de66ac9-30da-489d-8214-6a0757e899a7</Id>
+  <Status>OK</Status>
+  <ProviderName>Xero API Previewer</ProviderName>
+  <DateTimeUTC>2010-10-14T02:49:54.4475976Z</DateTimeUTC>
+  <CreditNotes>
+    <CreditNote>
+      <Reference>{reference}</Reference>
+      <Type>ACCPAYCREDIT</Type>
+      <Contact>
+        <ContactID>cd848c63-235e-4b9d-a9aa-97d24c1a5bd3</ContactID>
+        <ContactNumber>0006841301</ContactNumber>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Ariki Properties</Name>
+        <FirstName>Simon</FirstName>
+        <LastName>Greenville</LastName>
+        <EmailAddress>emailaddress@yourdomain.com</EmailAddress>
+        <SkypeUserName>Skype Name/Number</SkypeUserName>
+        <BankAccountDetails>Bank Account Details</BankAccountDetails>
+        <TaxNumber>Tax ID Number</TaxNumber>
+        <AccountsReceivableTaxType>OUTPUT</AccountsReceivableTaxType>
+        <AccountsPayableTaxType>INPUT</AccountsPayableTaxType>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>PO Box 10112</AddressLine1>
+            <City>New York</City>
+            <Region>New York State</Region>
+            <PostalCode>10112</PostalCode>
+            <Country>USA</Country>
+            <AttentionTo>Simon G.</AttentionTo>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+            <AddressLine1>Level 71</AddressLine1>
+            <AddressLine2>30 Rockefeller plaza</AddressLine2>
+            <City>New York</City>
+            <Region>New York State</Region>
+            <PostalCode>10112</PostalCode>
+            <Country>USA</Country>
+            <AttentionTo>Simon G.</AttentionTo>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+            <PhoneNumber>5555555</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+            <PhoneNumber>1234567</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>5996999</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+            <PhoneNumber>7654321</PhoneNumber>
+            <PhoneAreaCode>877</PhoneAreaCode>
+            <PhoneCountryCode>0001</PhoneCountryCode>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-10-14T02:49:52.697</UpdatedDateUTC>
+      </Contact>
+      <Date>2009-08-25T00:00:00</Date>
+      <Status>SUBMITTED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Credit on overcharge last month as discussed</Description>
+          <Quantity>2.0000</Quantity>
+          <UnitAmount>180.00</UnitAmount>
+          <TaxType>NONE</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>360.00</LineAmount>
+          <AccountCode>200</AccountCode>
+        </LineItem>
+        <LineItem>
+          <Description>Distounct on credit on overcharge last month as discussed</Description>
+          <Quantity>0.2000</Quantity>
+          <UnitAmount>180.00</UnitAmount>
+          <TaxType>NONE</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>36.00</LineAmount>
+          <AccountCode>200</AccountCode>
+        </LineItem>
+      </LineItems>
+      <SubTotal>396.00</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>396.00</Total>
+      <UpdatedDateUTC>2010-10-14T02:49:52.197</UpdatedDateUTC>
+      <CurrencyCode>NZD</CurrencyCode>
+      <CreditNoteID>80d246a5-f298-4708-aac2-e12cce4038fe</CreditNoteID>
+      <CreditNoteNumber>CN-0153</CreditNoteNumber>
+    </CreditNote>
+  </CreditNotes>
+</Response>
