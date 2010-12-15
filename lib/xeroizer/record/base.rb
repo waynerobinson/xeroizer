@@ -129,6 +129,7 @@ module Xeroizer
         # Creates an accessor and reader for the field.
         # Options:
         #   :internal_name => allows the specification of an internal field name differing from the API's field name.
+        #   :model_name => allows class used for children to be different from it's ndoe name in the XML.
         #   :type => type of field
         def define_simple_attribute(field_name, field_type, options)
           internal_field_name = options[:internal_name] || field_name
