@@ -9,9 +9,16 @@ module Xeroizer
     extend Forwardable
     def_delegators :client, :access_token
     
-    record :Organisation
-    record :TrackingCategory
+    record :Account
+    record :BrandingTheme
     record :Contact
+    record :CreditNote
+    record :Currency
+    record :Invoice
+    record :Journal
+    record :Organisation
+    record :TaxRate
+    record :TrackingCategory
         
     public
     

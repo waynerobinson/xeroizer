@@ -21,6 +21,9 @@ puts contact.name
 puts contact.addresses.first.line1
 puts contact.phones[1].number
 
+tax_rates = gw.TaxRate.all
+pp tax_rates
+
 # response_xml = gw.http_get(gw.client, "#{gw.xero_url}/Invoice/a1d04a14-96a8-4067-a0ff-8136990a354f")
 # 
 # doc = Nokogiri::XML(response_xml)

@@ -2,7 +2,9 @@ module Xeroizer
   module Record
     
     class OrganisationClass < BaseClass
-            
+    
+      set_api_controller_name 'Organisation'
+      
     end
     
     class Organisation < Base

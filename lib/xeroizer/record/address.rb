@@ -7,6 +7,12 @@ module Xeroizer
     
     class Address < Base
       
+      ADDRESS_TYPE = {
+        'STREET' =>     'Street',
+        'POBOX' =>      'PO Box',
+        'DEFAULT' =>    'Default address type'
+      } unless defined?(ADDRESS_TYPE)
+      
       string :address_type, :internal_name => :type
       string :address_line1, :internal_name => :line1
       string :address_line2, :internal_name => :line2

@@ -7,6 +7,11 @@ module Xeroizer
     
     class Contact < Base
       
+      CONTACT_STATUS = {
+        'ACTIVE' =>     'Active',
+        'DELETED' =>    'Deleted'
+      } unless defined?(CONTACT_STATUS)
+      
       string    :contact_id
       string    :contact_status
       string    :name

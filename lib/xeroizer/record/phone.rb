@@ -6,6 +6,13 @@ module Xeroizer
     end
     
     class Phone < Base
+      
+      PHONE_TYPE = {
+        'DEFAULT' =>    'Default',
+        'DDI' =>        'Direct Dial-In',
+        'MOBILE' =>     'Mobile',
+        'FAX' =>        'Fax'
+      } unless defined?(PHONE_TYPE)
 
       string :phone_type, :internal_name => :type
       string :phone_number, :internal_name => :number

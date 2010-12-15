@@ -2,6 +2,8 @@ module Xeroizer
   module Record
     
     class TrackingCategoryClass < BaseClass
+      
+      set_api_controller_name 'TrackingCategory'
             
     end
     
