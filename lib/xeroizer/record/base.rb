@@ -81,19 +81,20 @@ module Xeroizer
       
       class << self
         
-        def string(field_name);     define_simple_attribute(field_name, :string); end
-        def boolean(field_name);    define_simple_attribute(field_name, :boolean); end
-        def decimal(field_name);    define_simple_attribute(field_name, :decimal); end
-        def datetime(field_name);   define_simple_attribute(field_name, :datetime); end
-        def belongs_to(field_name); define_simple_attribute(field_name, :belongs_to); end
-        def has_many(field_name);   define_simple_attribute(field_name, :has_many); end
+        def string(field_name, internal_field_name = nil);     define_simple_attribute(field_name, internal_field_name, :string); end
+        def boolean(field_name, internal_field_name = nil);    define_simple_attribute(field_name, internal_field_name, :boolean); end
+        def decimal(field_name, internal_field_name = nil);    define_simple_attribute(field_name, internal_field_name, :decimal); end
+        def datetime(field_name, internal_field_name = nil);   define_simple_attribute(field_name, internal_field_name, :datetime); end
+        def belongs_to(field_name, internal_field_name = nil); define_simple_attribute(field_name, internal_field_name, :belongs_to); end
+        def has_many(field_name, internal_field_name = nil);   define_simple_attribute(field_name, internal_field_name, :has_many); end
         
-        def define_simple_attribute(field_name, field_type)
-          @@fields[field_name] = field_type
-          define_method field_name do 
+        def define_simple_attribute(field_name, internal_field_name, field_type)
+          internal_field_name = field_name if internal_field_name.nil?
+          @@fields[field_name] = {:type => field_type, :internal_name => internal_field_name}
+          define_method internal_field_name do 
             @attributes[field_name]
           end
-          define_method "#{field_name}=".to_sym do | value | 
+          define_method "#{internal_field_name}=".to_sym do | value | 
             @attributes[field_name] = value
           end
         end
@@ -103,7 +104,7 @@ module Xeroizer
           node.elements.each do | element |
             internal_name = element.name.to_s.underscore.to_sym
             if @@fields[internal_name]
-              record.send("#{internal_name}=", case @@fields[internal_name]
+              record.send("#{@@fields[internal_name][:internal_name]}=", case @@fields[internal_name][:type]
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :decimal     then BigDecimal.new(element.text)                  
