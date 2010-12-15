@@ -111,11 +111,9 @@ module Xeroizer
                 when :datetime    then Time.parse(element.text)
                 when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element)
                 when :has_many    
-                  record_list = []
-                  element.children.each do | element |
-                    record_list << Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element)
+                  element.children.inject([]) do | list, element |
+                    list << Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element)
                   end
-                  record_list
                         
               end)
             end
