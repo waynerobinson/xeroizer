@@ -7,11 +7,11 @@ module Xeroizer
     
     class Address < Base
       
-      string :address_type, :type
-      string :address_line1, :line1
-      string :address_line2, :line2
-      string :address_line3, :line3
-      string :address_line4, :line4
+      string :address_type, :internal_name => :type
+      string :address_line1, :internal_name => :line1
+      string :address_line2, :internal_name => :line2
+      string :address_line3, :internal_name => :line3
+      string :address_line4, :internal_name => :line4
       string :city
       string :region
       string :postal_code

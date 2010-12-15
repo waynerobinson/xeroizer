@@ -7,10 +7,10 @@ module Xeroizer
     
     class Phone < Base
 
-      string :phone_type, :type
-      string :phone_number, :number
-      string :phone_area_code, :area_code
-      string :phone_country_code, :country_code
+      string :phone_type, :internal_name => :type
+      string :phone_number, :internal_name => :number
+      string :phone_area_code, :internal_name => :area_code
+      string :phone_country_code, :internal_name => :country_code
       
     end
     

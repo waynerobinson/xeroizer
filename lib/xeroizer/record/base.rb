@@ -81,16 +81,16 @@ module Xeroizer
       
       class << self
         
-        def string(field_name, internal_field_name = nil);     define_simple_attribute(field_name, internal_field_name, :string); end
-        def boolean(field_name, internal_field_name = nil);    define_simple_attribute(field_name, internal_field_name, :boolean); end
-        def decimal(field_name, internal_field_name = nil);    define_simple_attribute(field_name, internal_field_name, :decimal); end
-        def datetime(field_name, internal_field_name = nil);   define_simple_attribute(field_name, internal_field_name, :datetime); end
-        def belongs_to(field_name, internal_field_name = nil); define_simple_attribute(field_name, internal_field_name, :belongs_to); end
-        def has_many(field_name, internal_field_name = nil);   define_simple_attribute(field_name, internal_field_name, :has_many); end
+        def string(field_name, options = {});     define_simple_attribute(field_name, :string, options); end
+        def boolean(field_name, options = {});    define_simple_attribute(field_name, :boolean, options); end
+        def decimal(field_name, options = {});    define_simple_attribute(field_name, :decimal, options); end
+        def datetime(field_name, options = {});   define_simple_attribute(field_name, :datetime, options); end
+        def belongs_to(field_name, options = {}); define_simple_attribute(field_name, :belongs_to, options); end
+        def has_many(field_name, options = {});   define_simple_attribute(field_name, :has_many, options); end
         
-        def define_simple_attribute(field_name, internal_field_name, field_type)
-          internal_field_name = field_name if internal_field_name.nil?
-          @@fields[field_name] = {:type => field_type, :internal_name => internal_field_name}
+        def define_simple_attribute(field_name, field_type, options)
+          internal_field_name = options[:internal_name] || field_name
+          @@fields[field_name] = options.merge(:internal_name => internal_field_name, :type => field_type)
           define_method internal_field_name do 
             @attributes[field_name]
           end
