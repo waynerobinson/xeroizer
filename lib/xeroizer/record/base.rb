@@ -103,7 +103,7 @@ module Xeroizer
           node.elements.each do | element |
             internal_name = element.name.to_s.underscore.to_sym
             if @@fields[internal_name]
-              record.attributes[internal_name] = case @@fields[internal_name]
+              record.send("#{internal_name}=", case @@fields[internal_name]
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :decimal     then BigDecimal.new(element.text)                  
@@ -116,7 +116,7 @@ module Xeroizer
                   end
                   record_list
                         
-              end
+              end)
             end
           end
           
