@@ -3,6 +3,8 @@ module Xeroizer
     
     class PaymentClass < BaseClass
         
+      set_permissions :write
+      
     end
     
     class Payment < Base

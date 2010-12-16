@@ -3,6 +3,8 @@ module Xeroizer
     
     class ContactClass < BaseClass
             
+      set_permissions :read, :write, :update
+      
     end
     
     class Contact < Base

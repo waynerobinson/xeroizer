@@ -3,6 +3,8 @@ module Xeroizer
     
     class CurrencyClass < BaseClass
         
+      set_permissions :read
+      
     end
     
     class Currency < Base

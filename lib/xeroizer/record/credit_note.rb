@@ -3,6 +3,8 @@ module Xeroizer
     
     class CreditNoteClass < BaseClass
         
+      set_permissions :read, :write, :update
+      
     end
     
     class CreditNote < Base

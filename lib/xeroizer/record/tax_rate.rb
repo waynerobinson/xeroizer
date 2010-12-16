@@ -3,6 +3,8 @@ module Xeroizer
     
     class TaxRateClass < BaseClass
             
+      set_permissions :read
+      
     end
     
     class TaxRate < Base

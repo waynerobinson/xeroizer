@@ -17,6 +17,7 @@ module Xeroizer
     record :Invoice
     record :Journal
     record :Organisation
+    record :Payment
     record :TaxRate
     record :TrackingCategory
         

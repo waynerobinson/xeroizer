@@ -40,4 +40,18 @@ module Xeroizer
   class InvoiceNotFoundError < StandardError; end
 
   class CreditNoteNotFoundError < StandardError; end
+  
+  class MethodNotAllowed < StandardError
+    
+    def initialize(klass, method)
+      @klass = klass
+      @method = method
+    end
+    
+    def message
+      "Method #{@method} not allowed on #{@klass}"
+    end
+    
+  end
+  
 end

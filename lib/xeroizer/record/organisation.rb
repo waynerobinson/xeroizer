@@ -4,6 +4,7 @@ module Xeroizer
     class OrganisationClass < BaseClass
     
       set_api_controller_name 'Organisation'
+      set_permissions :read
       
     end
     

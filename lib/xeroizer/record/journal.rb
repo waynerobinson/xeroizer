@@ -3,6 +3,8 @@ module Xeroizer
     
     class JournalClass < BaseClass
         
+      set_permissions :read
+      
     end
     
     class Journal < Base

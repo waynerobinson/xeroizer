@@ -3,6 +3,8 @@ module Xeroizer
     
     class InvoiceClass < BaseClass
         
+      set_permissions :read, :write, :update
+      
     end
     
     class Invoice < Base

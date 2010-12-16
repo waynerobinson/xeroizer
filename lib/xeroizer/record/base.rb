@@ -5,6 +5,11 @@ module Xeroizer
       
       include ClassLevelInheritableAttributes
       inheritable_attributes :api_controller_name
+      
+      class InvaidPermissionError < StandardError; end
+      ALLOWED_PERMISSIONS = [:read, :write, :update]
+      inheritable_attributes :permissions
+      @permissions = {}
 
       attr_reader :application
       attr_reader :model_name
@@ -19,6 +24,18 @@ module Xeroizer
         # Invoice then the default is Invoices.
         def set_api_controller_name(controller_name)
           self.api_controller_name = controller_name
+        end
+        
+        # Set the permissions allowed for this class type.
+        # There are no permissions set by default.
+        # Valid permissions are :read, :write, :update.
+        def set_permissions(*args)
+          self.permissions = {}
+          args.each do | permission |
+            raise InvaidPermissionError.new("Permission #{permission} is invalid.") unless ALLOWED_PERMISSIONS.include?(permission)
+            self.permissions[permission] = true
+          end
+          puts "Permissions: #{self.name} (#{self.permissions.keys.join(", ")})"
         end
         
       end
@@ -45,6 +62,7 @@ module Xeroizer
         
         # Retreive full record list for this model. 
         def all(options = {})
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = @application.http_get(@application.client, "#{url}", options)
           parse_response(response_xml, options)
         end
@@ -52,12 +70,14 @@ module Xeroizer
         # Helper method to retrieve just the first element from
         # the full record list.
         def first(options = {})
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           result = all(options)
           result.first if result.is_a?(Array)
         end
         
         # Retrieve record matching the passed in ID.
         def find(id, options = {})
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
           puts response_xml
           result = parse_response(response_xml, options)
@@ -106,16 +126,16 @@ module Xeroizer
     end
     
     class Base
-     
+      
       include ClassLevelInheritableAttributes
       inheritable_attributes :fields
       @fields = {}
-     
+                 
       attr_reader :attributes
       attr_reader :model_class
       
       class << self
-        
+                
         # Helper methods used to define the fields this model has.
         def string(field_name, options = {});     define_simple_attribute(field_name, :string, options); end
         def boolean(field_name, options = {});    define_simple_attribute(field_name, :boolean, options); end

@@ -4,7 +4,8 @@ module Xeroizer
     class TrackingCategoryClass < BaseClass
       
       set_api_controller_name 'TrackingCategory'
-            
+      set_permissions :read
+                  
     end
     
     class TrackingCategory < Base

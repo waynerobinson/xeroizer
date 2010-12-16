@@ -3,6 +3,8 @@ module Xeroizer
     
     class BrandingThemeClass < BaseClass
     
+      set_permissions :read
+    
     end
     
     class BrandingTheme < Base
@@ -11,7 +13,7 @@ module Xeroizer
       string    :name
       integer   :sort_order
       datetime  :created_date_utc
-      
+
     end
     
   end

@@ -3,6 +3,8 @@ module Xeroizer
     
     class AccountClass < BaseClass
         
+        set_permissions :read
+        
     end
     
     class Account < Base
@@ -38,7 +40,7 @@ module Xeroizer
         'RROUTPUT' =>         'Reduced rate VAT on sales (UK Only)',
         'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)'
       } unless defined?(TAX_TYPE)
-      
+            
       string  :account_id
       string  :code
       string  :name
