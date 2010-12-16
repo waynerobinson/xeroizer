@@ -40,6 +40,7 @@ puts "\n\n"
 
 invoice = gw.Invoice.build({:type => 'ACCREC', :date => Time.now, :due_date => Time.now + (30 * 3600 * 24), :line_amount_types => 'Exclusive', :invoice_number => 'TEST001'})
 invoice.build_contact({:name => "Test Company", :first_name => "Wayne", :last_name => "Robinson"})
+invoice.add_line_item(:description => "Test line 1", :quantity => 2, :unit_amount => 50.50, :account_code => '100')
 puts invoice.to_xml
 
 

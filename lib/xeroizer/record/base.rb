@@ -317,7 +317,14 @@ module Xeroizer
             when :string      then b.tag!(field[:api_name], value)
             when :boolean     then b.tag!(field[:api_name], value ? 'true' : 'false')
             when :integer     then b.tag!(field[:api_name], value.to_i)
-            when :decimal     then b.tag!(field[:api_name], value.to_s("F"))
+            when :decimal   
+              real_value = case value
+                when BigDecimal   then value.to_s('F')
+                when String       then BigDecimal.new(value).to_f('F')
+                else              value
+              end
+              b.tag!(field[:api_name], real_value)
+              
             when :date        then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%d"))
             when :datetime    then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%dT%H:%M:%S"))
             when :belongs_to  
