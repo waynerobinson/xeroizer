@@ -26,7 +26,7 @@ module Xeroizer
       string    :email_address
       string    :contact_groups
       string    :default_currency
-      datetime  :updated_date_utc
+      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean   :is_supplier
       boolean   :is_customer
       has_many  :addresses

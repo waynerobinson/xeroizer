@@ -20,7 +20,7 @@ module Xeroizer
     record :Payment
     record :TaxRate
     record :TrackingCategory
-        
+    
     public
     
       def initialize(consumer_key, consumer_secret, options = {})

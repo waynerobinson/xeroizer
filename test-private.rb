@@ -27,9 +27,20 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # journals = gw.Journal.all
 # pp journals
 
-contacts = gw.Contact.all
-puts "Size: #{contacts.size}"
-puts "#{contacts.first.parent.class.name}"
+# contacts = gw.Contact.all
+# puts "Size: #{contacts.size}"
+# puts "#{contacts.first.parent.class.name}"
+
+contact = gw.Contact.build({:name => "Test Company", :first_name => "Wayne", :last_name => "Robinson"})
+contact.add_address({:type => 'STREET', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210'}, {:type => 'POBOX', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210'})
+# contact.addresses = [contact.build_address(:type => 'STREET', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210')]
+puts contact.to_xml
+
+puts "\n\n"
+
+invoice = gw.Invoice.build({:type => 'ACCREC', :date => Time.now, :due_date => Time.now + (30 * 3600 * 24), :line_amount_types => 'Exclusive', :invoice_number => 'TEST001'})
+invoice.build_contact({:name => "Test Company", :first_name => "Wayne", :last_name => "Robinson"})
+puts invoice.to_xml
 
 
 # response_xml = gw.http_get(gw.client, "#{gw.xero_url}/Invoice/a1d04a14-96a8-4067-a0ff-8136990a354f")

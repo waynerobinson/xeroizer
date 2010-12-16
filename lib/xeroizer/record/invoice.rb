@@ -39,7 +39,7 @@ module Xeroizer
       decimal   :amount_due
       decimal   :amount_paid
       decimal   :amount_credited
-      datetime  :updated_date_utc
+      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string    :currency_code
       datetime  :fully_paid_on_date
       

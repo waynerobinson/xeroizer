@@ -33,7 +33,7 @@ module Xeroizer
       decimal   :sub_total
       decimal   :total_tax
       decimal   :total
-      datetime  :updated_date_utc
+      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string    :currency_code
       datetime  :fully_paid_on_date
       
