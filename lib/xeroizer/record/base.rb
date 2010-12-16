@@ -260,10 +260,10 @@ module Xeroizer
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
                 when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, parent)
-                when :has_many    
+                when :has_many
+                  sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
+                  sub_parent = Xeroizer::Record.const_get("#{sub_field_name}Class".to_sym).new(parent.application, sub_field_name.to_s)
                   element.children.inject([]) do | list, element |
-                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
-                    sub_parent = Xeroizer::Record.const_get("#{sub_field_name}Class".to_sym).new(parent.application, sub_field_name.to_s)
                     list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
                   end
                         
