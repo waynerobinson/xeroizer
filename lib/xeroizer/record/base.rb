@@ -59,6 +59,18 @@ module Xeroizer
           @application.xero_url + '/' + api_controller_name
         end
         
+        def http_get(extra_params = {})
+          application.http_get(application.client, url, extra_params)
+        end
+        
+        def http_put(xml, extra_params = {})
+          application.http_put(application.client, url, xml, extra_params)
+        end
+
+        def http_post(xml, extra_params = {})
+          application.http_post(application.client, url, xml, extra_params)
+        end
+        
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
           Xeroizer::Record.const_get(model_name.to_sym).build(attributes, self)
@@ -67,7 +79,7 @@ module Xeroizer
         # Retreive full record list for this model. 
         def all(options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
-          response_xml = @application.http_get(@application.client, "#{url}", options)
+          response_xml = http_get(options)
           parse_response(response_xml, options)
         end
         
@@ -83,13 +95,10 @@ module Xeroizer
         def find(id, options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
-          puts response_xml
           result = parse_response(response_xml, options)
           result.first if result.is_a?(Array)
         end
-                
-      protected
-      
+        
         # Parse the response retreived during any request.
         def parse_response(raw_response, request = {}, options = {})
           @response = Xeroizer::Response.new
@@ -119,6 +128,9 @@ module Xeroizer
           @response.response_items
         end
         
+      protected
+      
+        
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(elements)
           @response.response_items = []
@@ -136,7 +148,7 @@ module Xeroizer
       @fields = {}
                  
       attr_reader :attributes
-      attr_reader :new_record
+      attr_accessor :new_record
       attr_reader :parent
       
       class << self
@@ -250,7 +262,9 @@ module Xeroizer
                 when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, parent)
                 when :has_many    
                   element.children.inject([]) do | list, element |
-                    list << Xeroizer::Record.const_get(field[:model_name] ? field[:model_name].to_sym : element.name.to_sym).build_from_node(element, parent)
+                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
+                    sub_parent = Xeroizer::Record.const_get("#{sub_field_name}Class".to_sym).new(parent.application, sub_field_name.to_s)
+                    list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
                   end
                         
               end)
@@ -306,10 +320,21 @@ module Xeroizer
       protected
       
         def create
-          response_xml = @application.http_put(@application.client, "#{@parent.url}", to_xml, {})
+          parse_save_response(parent.http_put(to_xml))
         end
         
         def update
+          parse_save_response(parent.http_post(to_xml))
+        end
+        
+        def parse_save_response(response_xml)
+          record = parent.parse_response(response_xml)
+          record = record.first if record.is_a?(Array)
+          if record && record.is_a?(self.class)
+            @attributes = record.attributes.dup
+            @new_record = false
+          end
+          self
         end
         
         # Format a attribute for use in the XML passed to Xero.

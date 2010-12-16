@@ -7,7 +7,7 @@ module Xeroizer
     
     class JournalLine < Base
       
-       string   :journal_line_id
+       string   :journal_line_id, :api_name => 'JournalLineID'
        string   :account_id
        string   :account_code
        string   :account_type

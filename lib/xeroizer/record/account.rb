@@ -41,7 +41,7 @@ module Xeroizer
         'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)'
       } unless defined?(TAX_TYPE)
             
-      string  :account_id
+      string  :account_id, :api_name => 'AccountID'
       string  :code
       string  :name
       string  :type

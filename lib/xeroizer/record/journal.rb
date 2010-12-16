@@ -9,7 +9,7 @@ module Xeroizer
     
     class Journal < Base
       
-      string    :journal_id
+      string    :journal_id, :api_name => 'JournalID'
       date      :journal_date, :internal_name => :date
       string    :journal_number
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'

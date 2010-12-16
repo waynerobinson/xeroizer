@@ -14,7 +14,8 @@ module Xeroizer
         'DELETED' =>    'Deleted'
       } unless defined?(CONTACT_STATUS)
       
-      string    :contact_id
+      string    :contact_id, :api_name => 'ContactID'
+      string    :contact_number
       string    :contact_status
       string    :name
       string    :tax_number

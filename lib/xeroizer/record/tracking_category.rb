@@ -10,7 +10,7 @@ module Xeroizer
     
     class TrackingCategory < Base
       
-      string :tracking_category_id
+      string :tracking_category_id, :api_name => 'TrackingCategoryID'
       string :name
       has_many :options
       
