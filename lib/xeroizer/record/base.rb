@@ -35,7 +35,6 @@ module Xeroizer
             raise InvaidPermissionError.new("Permission #{permission} is invalid.") unless ALLOWED_PERMISSIONS.include?(permission)
             self.permissions[permission] = true
           end
-          puts "Permissions: #{self.name} (#{self.permissions.keys.join(", ")})"
         end
         
       end
@@ -132,7 +131,7 @@ module Xeroizer
       @fields = {}
                  
       attr_reader :attributes
-      attr_reader :model_class
+      attr_reader :parent
       
       class << self
                 
@@ -164,8 +163,8 @@ module Xeroizer
         end
         
         # Build a record instance from the XML node.
-        def build_from_node(node, model_class)
-          record = new(model_class)
+        def build_from_node(node, parent)
+          record = new(parent)
           node.elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field
@@ -176,10 +175,10 @@ module Xeroizer
                 when :decimal     then BigDecimal.new(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
-                when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, model_class)
+                when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, parent)
                 when :has_many    
                   element.children.inject([]) do | list, element |
-                    list << Xeroizer::Record.const_get(field[:model_name] ? field[:model_name].to_sym : element.name.to_sym).build_from_node(element, model_class)
+                    list << Xeroizer::Record.const_get(field[:model_name] ? field[:model_name].to_sym : element.name.to_sym).build_from_node(element, parent)
                   end
                         
               end)
@@ -194,8 +193,8 @@ module Xeroizer
       
       public
       
-        def initialize(model_class)
-          @model_class = model_class
+        def initialize(parent)
+          @parent = parent
           @attributes = {}
         end
      
