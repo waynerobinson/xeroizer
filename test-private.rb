@@ -24,8 +24,12 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # tax_rates = gw.TaxRate.all
 # pp tax_rates
 
-journals = gw.Journal.all
-pp journals
+# journals = gw.Journal.all
+# pp journals
+
+contacts = gw.Contact.all
+puts "Size: #{contacts.size}"
+puts "#{contacts.first.model_class.class.name}"
 
 # response_xml = gw.http_get(gw.client, "#{gw.xero_url}/Invoice/a1d04a14-96a8-4067-a0ff-8136990a354f")
 # 

@@ -99,7 +99,7 @@ module Xeroizer
         def parse_records(elements)
           @response.response_items = []
           elements.each do | element |
-            @response.response_items << Xeroizer::Record.const_get(model_name.to_sym).build_from_node(element)
+            @response.response_items << Xeroizer::Record.const_get(model_name.to_sym).build_from_node(element, self)
           end
         end
         
@@ -112,6 +112,7 @@ module Xeroizer
       @fields = {}
      
       attr_reader :attributes
+      attr_reader :model_class
       
       class << self
         
@@ -143,8 +144,8 @@ module Xeroizer
         end
         
         # Build a record instance from the XML node.
-        def build_from_node(node)
-          record = new
+        def build_from_node(node, model_class)
+          record = new(model_class)
           node.elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field
@@ -155,10 +156,10 @@ module Xeroizer
                 when :decimal     then BigDecimal.new(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
-                when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element)
+                when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, model_class)
                 when :has_many    
                   element.children.inject([]) do | list, element |
-                    list << Xeroizer::Record.const_get(field[:model_name] ? field[:model_name].to_sym : element.name.to_sym).build_from_node(element)
+                    list << Xeroizer::Record.const_get(field[:model_name] ? field[:model_name].to_sym : element.name.to_sym).build_from_node(element, model_class)
                   end
                         
               end)
@@ -173,7 +174,8 @@ module Xeroizer
       
       public
       
-        def initialize
+        def initialize(model_class)
+          @model_class = model_class
           @attributes = {}
         end
      
