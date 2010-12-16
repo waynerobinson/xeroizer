@@ -312,6 +312,7 @@ module Xeroizer
         def update
         end
         
+        # Format a attribute for use in the XML passed to Xero.
         def xml_value_from_field(b, field, value)
           case field[:type]
             when :string      then b.tag!(field[:api_name], value)
