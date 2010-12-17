@@ -18,6 +18,7 @@ require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
 require 'xeroizer/exceptions'
 
+require 'xeroizer/record/base_class'
 require 'xeroizer/record/base'
 require 'xeroizer/record/tracking_category_child'
 require 'xeroizer/record/account'
