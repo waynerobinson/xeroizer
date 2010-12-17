@@ -23,24 +23,10 @@ require 'xeroizer/record/record_association_helper'
 require 'xeroizer/record/xml_helper'
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/base'
-require 'xeroizer/record/tracking_category_child'
-require 'xeroizer/record/account'
-require 'xeroizer/record/phone'
-require 'xeroizer/record/address'
-require 'xeroizer/record/branding_theme'
-require 'xeroizer/record/contact'
-require 'xeroizer/record/payment'
-require 'xeroizer/record/line_item'
-require 'xeroizer/record/credit_note'
-require 'xeroizer/record/currency'
-require 'xeroizer/record/invoice'
-require 'xeroizer/record/journal_line'
-require 'xeroizer/record/journal'
-require 'xeroizer/record/organisation'
-require 'xeroizer/record/tax_rate'
-require 'xeroizer/record/option'
-require 'xeroizer/record/tracking_category'
 require 'xeroizer/record/application_helper'
+
+# Include models
+Dir.foreach(File.join(File.dirname(__FILE__), 'xeroizer/models/')) { | file | require "xeroizer/models/#{file}" if file =~ /\.rb$/ }
 
 require 'xeroizer/response'
 
