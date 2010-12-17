@@ -104,8 +104,6 @@ module Xeroizer
           @response = Xeroizer::Response.new
           @response.response_xml = raw_response
           
-          puts raw_response
-          
           doc = Nokogiri::XML(raw_response) { | cfg | cfg.noblanks }
           
           # check for responses we don't understand
