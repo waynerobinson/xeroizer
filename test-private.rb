@@ -15,12 +15,12 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # puts "Options:"
 # pp tracking_category.options
 
-contact = gw.Contact.find('860B99A9-0958-4C8D-A98F-BB1F092B16BB')
+# contact = gw.Contact.find('860B99A9-0958-4C8D-A98F-BB1F092B16BB')
 # pp contact
-puts contact.contact_id
-puts contact.name
-puts contact.addresses.first.line1
-puts contact.phones[1].number
+# puts contact.contact_id
+# puts contact.name
+# puts contact.addresses.first.line1
+# puts contact.phones[1].number
 # 
 # tax_rates = gw.TaxRate.all
 # pp tax_rates
@@ -34,11 +34,11 @@ puts contact.phones[1].number
 
 contact = gw.Contact.build({:name => "Test Company #{rand(1000000000)}", :first_name => "Wayne", :last_name => "Robinson"})
 contact.save
-# puts "New Record: #{contact.new_record?}"
-
+# # puts "New Record: #{contact.new_record?}"
+# 
 contact.name = "Test Company Changed #{rand(1000000000)}"
 contact.save
-# puts contact.attributes.inspect
+# # puts contact.attributes.inspect
 puts "ID: #{contact.contact_id}"
 puts "Name: #{contact.name}"
 
@@ -60,6 +60,7 @@ puts "Name: #{contact.name}"
 # org = doc.xpath("/Response/Invoices/Invoice").last
 # pp Hash.xml_node_to_hash(org)
 # 
+
   
 end_time = Time.now
 puts "Completed in #{end_time - start_time} seconds."

@@ -3,7 +3,7 @@ module Xeroizer
     
     class AccountModel < BaseModel
         
-        set_permissions :read
+      set_permissions :read
         
     end
     

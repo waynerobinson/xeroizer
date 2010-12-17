@@ -4,16 +4,16 @@ module Xeroizer
     class Base
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :fields, :possible_primary_keys
-      @fields = {}
-      @possible_primary_keys = []
+      inheritable_attributes :fields, :possible_primary_keys, :validators
                  
       attr_reader :attributes
       attr_accessor :new_record
       attr_reader :parent
+      attr_accessor :errors
       
       include ModelDefinitionHelper
       include RecordAssociationHelper
+      include ValidationHelper
       include XmlHelper
       
       class << self
@@ -70,7 +70,7 @@ module Xeroizer
         
         # Attempt to update an existing record.
         def update
-          if self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
+          if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
           

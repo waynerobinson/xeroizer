@@ -36,6 +36,8 @@ module Xeroizer
       has_many  :addresses
       has_many  :phones
       
+      validates_presence_of :name
+      
     end
     
   end

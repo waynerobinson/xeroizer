@@ -30,6 +30,8 @@ module Xeroizer
         #   :model_name => allows class used for children to be different from it's ndoe name in the XML.
         #   :type => type of field
         def define_simple_attribute(field_name, field_type, options)
+          self.fields ||= {}
+          
           internal_field_name = options[:internal_name] || field_name
           self.fields[field_name] = options.merge({
             :internal_name  => internal_field_name, 
