@@ -28,6 +28,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   class TestRecord < Xeroizer::Record::Base
     
     string    :xml_name, :api_name => 'ApiNameHere', :internal_name => :internal_name_here
+    string    :name
     
   end
     
@@ -58,6 +59,29 @@ class ModelDefinitionsTest < Test::Unit::TestCase
       assert(@record.respond_to?(:internal_name_here), "Internal name should be internal_name_here")
       assert(@record.class.fields.keys.include?(:xml_name), "Field key name should be xml_name")
       assert_equal('ApiNameHere', @record.class.fields[:xml_name][:api_name])
+    end
+    
+    should "define reader/writer methods" do
+      assert(@record.respond_to?(:name), "FirstRecord#name should exist.")
+      assert(@record.respond_to?(:name=), "FirstRecord#name= should exist.")
+      
+      value = "TEST NAME"
+      @record.attributes[:name] = value
+      assert_equal(value, @record.attributes[:name])
+      assert_equal(value, @record[:name])
+      assert_equal(value, @record.name)
+      
+      value = "TEST DIFFERENT"
+      @record.name = value
+      assert_equal(value, @record.attributes[:name])
+      assert_equal(value, @record[:name])
+      assert_equal(value, @record.name)
+      
+      value = "TEST DIFFERENT AGAIN"
+      @record[:name] = value
+      assert_equal(value, @record.attributes[:name])
+      assert_equal(value, @record[:name])
+      assert_equal(value, @record.name)
     end
 
   end
