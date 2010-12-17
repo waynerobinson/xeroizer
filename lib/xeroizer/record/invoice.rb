@@ -49,6 +49,18 @@ module Xeroizer
       has_many    :line_items
       has_many    :payments
       
+      public
+      
+        # Helper method to check if the invoice is accounts payable.
+        def accounts_payable?
+          type == 'ACCPAY'
+        end
+
+        # Helper method to check if the invoice is accounts receivable.
+        def accounts_receivable?
+          type == 'ACCREC'
+        end
+      
     end
     
   end
