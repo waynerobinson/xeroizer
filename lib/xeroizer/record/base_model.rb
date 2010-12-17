@@ -13,12 +13,12 @@ module Xeroizer
       attr_reader :parent
       
       class << self
-        
+                
         def set_possible_primary_keys(*args)
           args = [args] unless args.is_a?(Array)
           self.possible_primary_keys = args
         end
-                
+              
         # Helper methods used to define the fields this model has.
         def string(field_name, options = {});     define_simple_attribute(field_name, :string, options); end
         def boolean(field_name, options = {});    define_simple_attribute(field_name, :boolean, options); end
@@ -26,42 +26,42 @@ module Xeroizer
         def decimal(field_name, options = {});    define_simple_attribute(field_name, :decimal, options); end
         def date(field_name, options = {});       define_simple_attribute(field_name, :date, options); end
         def datetime(field_name, options = {});   define_simple_attribute(field_name, :datetime, options); end
-        
+      
         def belongs_to(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
           define_simple_attribute(field_name, :belongs_to, options)
-          
+        
           # Create a #build_record_name method to build the record.
           define_method "build_#{internal_singular_field_name}" do | *args |
             attributes = args.size == 1 ? args.first : {}
-            
+          
             # The name of the record model.
             model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
-            
+          
             # The record's parent instance for this current application.
-            model_parent = Xeroizer::Record.const_get("#{model_name}Class".to_sym).new(parent.application, model_name.to_s)
-            
+            model_parent = new_model_class(model_name)
+          
             # Create a new record, binding it to it's parent instance.
             record = Xeroizer::Record.const_get(model_name).build(attributes, model_parent)
             self.attributes[field_name] = record
           end
         end
-        
+      
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
-          
+        
           define_simple_attribute(field_name, :has_many, options)
-                    
+                  
           # Create an #add_record_name method to build the record and add to the attributes.
           define_method "add_#{internal_singular_field_name}" do | *args |
             # The name of the record model.
             model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
 
             # The record's parent instance for this current application.
-            model_parent = Xeroizer::Record.const_get("#{model_name}Class".to_sym).new(parent.application, model_name.to_s)
-            
+            model_parent = new_model_class(model_name)
+          
             # The class of this record.
             record_class = Xeroizer::Record.const_get(model_name)
 
@@ -78,7 +78,7 @@ module Xeroizer
             else
               raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
             end
-            
+          
             # Add each record.
             records.each do | record |
               record = record_class.build(record, model_parent) if record.is_a?(Hash)
@@ -87,6 +87,7 @@ module Xeroizer
               self.attributes[field_name] << record
             end
           end
+          
         end
         
         # Helper method to simplify field definition. 
@@ -128,7 +129,7 @@ module Xeroizer
                 when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, parent)
                 when :has_many
                   sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
-                  sub_parent = Xeroizer::Record.const_get("#{sub_field_name}Class".to_sym).new(parent.application, sub_field_name.to_s)
+                  sub_parent = record.new_model_class(sub_field_name)
                   element.children.inject([]) do | list, element |
                     list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
                   end
@@ -190,6 +191,10 @@ module Xeroizer
             end
           }
         end
+        
+        def new_model_class(model_name)
+          Xeroizer::Record.const_get("#{model_name}Model".to_sym).new(parent.application, model_name.to_s)
+        end
                 
       protected
       
@@ -245,7 +250,7 @@ module Xeroizer
             
           end
         end
-     
+             
     end
     
   end

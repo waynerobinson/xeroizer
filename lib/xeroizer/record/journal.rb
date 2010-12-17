@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class JournalClass < BaseClass
+    class JournalModel < BaseModel
         
       set_permissions :read
       

@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class OrganisationClass < BaseClass
+    class OrganisationModel < BaseModel
     
       set_api_controller_name 'Organisation'
       set_permissions :read

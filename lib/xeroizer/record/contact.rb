@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class ContactClass < BaseClass
+    class ContactModel < BaseModel
             
       set_permissions :read, :write, :update
       

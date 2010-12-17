@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class TaxRateClass < BaseClass
+    class TaxRateModel < BaseModel
             
       set_permissions :read
       

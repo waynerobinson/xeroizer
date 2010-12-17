@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class AccountClass < BaseClass
+    class AccountModel < BaseModel
         
         set_permissions :read
         

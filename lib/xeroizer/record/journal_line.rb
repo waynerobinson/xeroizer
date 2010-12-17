@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class JournalLineClass < BaseClass
+    class JournalLineModel < BaseModel
         
     end
     

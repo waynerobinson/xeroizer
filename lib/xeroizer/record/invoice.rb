@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class InvoiceClass < BaseClass
+    class InvoiceModel < BaseModel
         
       set_permissions :read, :write, :update
       

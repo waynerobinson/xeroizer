@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class LineItemClass < BaseClass
+    class LineItemModel < BaseModel
         
     end
     

@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class BrandingThemeClass < BaseClass
+    class BrandingThemeModel < BaseModel
     
       set_permissions :read
     

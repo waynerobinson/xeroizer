@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class CurrencyClass < BaseClass
+    class CurrencyModel < BaseModel
         
       set_permissions :read
       

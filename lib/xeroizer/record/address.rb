@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class AddressClass < BaseClass
+    class AddressModel < BaseModel
             
     end
     

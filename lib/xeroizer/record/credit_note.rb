@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class CreditNoteClass < BaseClass
+    class CreditNoteModel < BaseModel
         
       set_permissions :read, :write, :update
       

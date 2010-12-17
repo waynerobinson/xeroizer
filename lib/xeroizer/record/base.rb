@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class BaseClass
+    class BaseModel
       
       include ClassLevelInheritableAttributes
       inheritable_attributes :api_controller_name

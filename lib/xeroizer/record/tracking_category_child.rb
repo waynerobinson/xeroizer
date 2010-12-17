@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class TrackingCategoryChildClass < BaseClass
+    class TrackingCategoryChildModel < BaseModel
                   
     end
     

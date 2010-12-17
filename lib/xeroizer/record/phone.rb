@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class PhoneClass < BaseClass
+    class PhoneModel < BaseModel
             
     end
     

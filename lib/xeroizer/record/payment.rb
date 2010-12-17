@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class PaymentClass < BaseClass
+    class PaymentModel < BaseModel
         
       set_permissions :write
       

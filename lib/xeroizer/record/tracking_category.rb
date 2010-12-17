@@ -1,7 +1,7 @@
 module Xeroizer
   module Record
     
-    class TrackingCategoryClass < BaseClass
+    class TrackingCategoryModel < BaseModel
       
       set_api_controller_name 'TrackingCategory'
       set_permissions :read
