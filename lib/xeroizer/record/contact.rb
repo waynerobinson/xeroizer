@@ -14,6 +14,8 @@ module Xeroizer
         'DELETED' =>    'Deleted'
       } unless defined?(CONTACT_STATUS)
       
+      set_possible_primary_keys :contact_id, :contact_number
+      
       string    :contact_id, :api_name => 'ContactID'
       string    :contact_number
       string    :contact_status
@@ -30,6 +32,7 @@ module Xeroizer
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean   :is_supplier
       boolean   :is_customer
+      
       has_many  :addresses
       has_many  :phones
       

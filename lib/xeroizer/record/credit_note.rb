@@ -23,6 +23,8 @@ module Xeroizer
         'ACCPAYCREDIT' =>           'Accounts Payable'
       } unless defined?(CREDIT_NOTE_TYPE)
       
+      set_possible_primary_keys :credit_note_id, :credit_note_number
+      
       string    :credit_note_id, :api_name => 'CreditNoteID'
       string    :credit_note_number
       string    :reference

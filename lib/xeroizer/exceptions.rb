@@ -54,4 +54,16 @@ module Xeroizer
     
   end
   
+  class RecordKeyMustBeDefined < StandardError
+    
+    def initialize(possible_keys)
+      @possible_keys = possible_keys
+    end
+    
+    def message
+      "One of the keys #{@possible_keys.join(', ')} need to be defined to update the record."
+    end
+    
+  end
+  
 end

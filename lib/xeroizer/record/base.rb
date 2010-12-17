@@ -144,14 +144,20 @@ module Xeroizer
     class Base
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :fields
+      inheritable_attributes :fields, :possible_primary_keys
       @fields = {}
+      @possible_primary_keys = []
                  
       attr_reader :attributes
       attr_accessor :new_record
       attr_reader :parent
       
       class << self
+        
+        def set_possible_primary_keys(*args)
+          args = [args] unless args.is_a?(Array)
+          self.possible_primary_keys = args
+        end
                 
         # Helper methods used to define the fields this model has.
         def string(field_name, options = {});     define_simple_attribute(field_name, :string, options); end
@@ -294,6 +300,14 @@ module Xeroizer
           @new_record = true
         end
         
+        def [](attribute)
+          self.send(attribute)
+        end
+        
+        def []=(attribute, value)
+          self.send("#{attribute}=", value)
+        end
+        
         def new_record?
           !!@new_record
         end
@@ -324,6 +338,10 @@ module Xeroizer
         end
         
         def update
+          if self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
+            raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
+          end
+          
           parse_save_response(parent.http_post(to_xml))
         end
         

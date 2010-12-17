@@ -23,6 +23,8 @@ module Xeroizer
         'VOID' =>             'Approved invoices that are voided'
       } unless defined?(INVOICE_STATUS)
       
+      set_possible_primary_keys :invoice_id, :invoice_number
+      
       string    :invoice_id, :api_name => 'InvoiceID'
       string    :invoice_number
       string    :reference
