@@ -1,34 +1,12 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>ace3dea1-4025-48cf-a91f-50759c32653e</Id>
+  <Id>709354d1-321b-4ed5-ae30-478dd343ceeb</Id>
   <Status>OK</Status>
-  <ProviderName>Xero Gateway Test</ProviderName>
-  <DateTimeUTC>2009-10-04T03:29:54.6788414Z</DateTimeUTC>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:52:20.4089404Z</DateTimeUTC>
   <TaxRates>
     <TaxRate>
-      <Name>GST on Expenses</Name>
-      <TaxType>INPUT</TaxType>
-      <CanApplyToAssets>true</CanApplyToAssets>
-      <CanApplyToEquity>true</CanApplyToEquity>
-      <CanApplyToExpenses>true</CanApplyToExpenses>
-      <CanApplyToLiabilities>true</CanApplyToLiabilities>
-      <CanApplyToRevenue>false</CanApplyToRevenue>
-      <DisplayTaxRate>12.5000</DisplayTaxRate>
-      <EffectiveRate>12.5000</EffectiveRate>
-    </TaxRate>
-    <TaxRate>
-      <Name>GST on Income</Name>
-      <TaxType>OUTPUT</TaxType>
-      <CanApplyToAssets>true</CanApplyToAssets>
-      <CanApplyToEquity>true</CanApplyToEquity>
-      <CanApplyToExpenses>false</CanApplyToExpenses>
-      <CanApplyToLiabilities>true</CanApplyToLiabilities>
-      <CanApplyToRevenue>true</CanApplyToRevenue>
-      <DisplayTaxRate>12.5000</DisplayTaxRate>
-      <EffectiveRate>12.5000</EffectiveRate>
-    </TaxRate>
-    <TaxRate>
-      <Name>No GST</Name>
-      <TaxType>NONE</TaxType>
+      <Name>GST Exempt</Name>
+      <TaxType>EXEMPTINPUT</TaxType>
       <CanApplyToAssets>true</CanApplyToAssets>
       <CanApplyToEquity>true</CanApplyToEquity>
       <CanApplyToExpenses>true</CanApplyToExpenses>
@@ -38,12 +16,100 @@
       <EffectiveRate>0.0000</EffectiveRate>
     </TaxRate>
     <TaxRate>
-      <Name>Zero Rated</Name>
-      <TaxType>ZERORATED</TaxType>
+      <Name>GST Free Exports</Name>
+      <TaxType>EXEMPTEXPORT</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>false</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>true</CanApplyToRevenue>
+      <DisplayTaxRate>0.0000</DisplayTaxRate>
+      <EffectiveRate>0.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST Free Income</Name>
+      <TaxType>EXEMPTOUTPUT</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>false</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>true</CanApplyToRevenue>
+      <DisplayTaxRate>0.0000</DisplayTaxRate>
+      <EffectiveRate>0.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST on Capital</Name>
+      <TaxType>CAPEXINPUT</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>true</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>false</CanApplyToRevenue>
+      <DisplayTaxRate>10.0000</DisplayTaxRate>
+      <EffectiveRate>10.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST on Capital Imports</Name>
+      <TaxType>GSTONCAPIMPORTS</TaxType>
       <CanApplyToAssets>false</CanApplyToAssets>
       <CanApplyToEquity>false</CanApplyToEquity>
       <CanApplyToExpenses>false</CanApplyToExpenses>
-      <CanApplyToLiabilities>false</CanApplyToLiabilities>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>false</CanApplyToRevenue>
+      <DisplayTaxRate>0.0000</DisplayTaxRate>
+      <EffectiveRate>0.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST on Expenses</Name>
+      <TaxType>INPUT</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>true</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>false</CanApplyToRevenue>
+      <DisplayTaxRate>10.0000</DisplayTaxRate>
+      <EffectiveRate>10.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST on Imports</Name>
+      <TaxType>GSTONIMPORTS</TaxType>
+      <CanApplyToAssets>false</CanApplyToAssets>
+      <CanApplyToEquity>false</CanApplyToEquity>
+      <CanApplyToExpenses>false</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>false</CanApplyToRevenue>
+      <DisplayTaxRate>0.0000</DisplayTaxRate>
+      <EffectiveRate>0.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>GST on Income</Name>
+      <TaxType>OUTPUT</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>false</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>true</CanApplyToRevenue>
+      <DisplayTaxRate>10.0000</DisplayTaxRate>
+      <EffectiveRate>10.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>Input Taxed</Name>
+      <TaxType>INPUTTAXED</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>true</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>true</CanApplyToRevenue>
+      <DisplayTaxRate>0.0000</DisplayTaxRate>
+      <EffectiveRate>0.0000</EffectiveRate>
+    </TaxRate>
+    <TaxRate>
+      <Name>No GST</Name>
+      <TaxType>NONE</TaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>true</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>

@@ -1,79 +1,26 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>a2b4370d-efd2-440d-894e-082f21d0b10a</Id>
+  <Id>52eed3e2-7728-40b3-826f-7be657ab6d2d</Id>
   <Status>OK</Status>
-  <ProviderName>Xero API Previewer</ProviderName>
-  <DateTimeUTC>2010-10-14T01:33:19.3305848Z</DateTimeUTC>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:52:09.5332444Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
-      <Type>ACCRECCREDIT</Type>
       <Contact>
-        <ContactID>b9a772bb-e5b2-4811-9954-d7ac37c5afad</ContactID>
-        <ContactStatus>ACTIVE</ContactStatus>
-        <Name>Ridgeway University</Name>
-        <Addresses>
-          <Address>
-            <AddressType>STREET</AddressType>
-          </Address>
-          <Address>
-            <AddressType>POBOX</AddressType>
-            <AddressLine1>Finance Dept</AddressLine1>
-            <AddressLine2>P O Box 89 114</AddressLine2>
-            <City>Ridgeway</City>
-            <PostalCode>98001</PostalCode>
-          </Address>
-        </Addresses>
-        <Phones>
-          <Phone>
-            <PhoneType>DDI</PhoneType>
-          </Phone>
-          <Phone>
-            <PhoneType>MOBILE</PhoneType>
-          </Phone>
-          <Phone>
-            <PhoneType>DEFAULT</PhoneType>
-            <PhoneNumber>4389376</PhoneNumber>
-            <PhoneAreaCode>0800</PhoneAreaCode>
-          </Phone>
-          <Phone>
-            <PhoneType>FAX</PhoneType>
-          </Phone>
-        </Phones>
-        <UpdatedDateUTC>2011-03-03T21:05:16.86</UpdatedDateUTC>
+        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <Name>Hamilton Smith Pty</Name>
       </Contact>
-      <Date>2010-08-23T00:00:00</Date>
+      <Date>2010-09-17T00:00:00</Date>
+      <DueDate>2010-09-17T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <LineItems>
-        <LineItem>
-          <Description>Refund - charged for full month in error when was not onsite for 1 day that month (Inv OIT00530).</Description>
-          <Quantity>1.0000</Quantity>
-          <UnitAmount>500.00</UnitAmount>
-          <TaxType>OUTPUT</TaxType>
-          <TaxAmount>62.50</TaxAmount>
-          <LineAmount>500.00</LineAmount>
-          <AccountCode>200</AccountCode>
-          <Tracking>
-            <TrackingCategory>
-              <Name>Region</Name>
-              <Option>Central</Option>
-              <TrackingCategoryID>e2f2f732-e92a-4f3a-9c4d-ee4da0182a13</TrackingCategoryID>
-            </TrackingCategory>
-            <TrackingCategory>
-              <Name>Consultant/Sales person</Name>
-              <Option>Felix Wilson</Option>
-              <TrackingCategoryID>dd3e1a50-1d45-47f1-b8c0-3dd6424fc160</TrackingCategoryID>
-            </TrackingCategory>
-          </Tracking>
-        </LineItem>
-      </LineItems>
       <SubTotal>500.00</SubTotal>
-      <TotalTax>62.50</TotalTax>
-      <Total>562.50</Total>
-      <UpdatedDateUTC>2010-09-18T04:00:51.597</UpdatedDateUTC>
-      <CurrencyCode>NZD</CurrencyCode>
-      <FullyPaidOnDate>2011-06-08T00:00:00</FullyPaidOnDate>
-      <CreditNoteID>80d246a5-f298-4708-aac2-e12cce4038fe</CreditNoteID>
-      <CreditNoteNumber>CN-0153</CreditNoteNumber>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2010-11-26T01:57:46.237</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-09-17T00:00:00</FullyPaidOnDate>
+      <CreditNoteID>371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1</CreditNoteID>
+      <CreditNoteNumber>CR1003</CreditNoteNumber>
     </CreditNote>
   </CreditNotes>
 </Response>

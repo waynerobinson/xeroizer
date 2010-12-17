@@ -1,1 +1,589 @@
-<?xml version="1.0"?><Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Id>d62f3999-2d56-4f7d-9b3d-6c9a3b2e9325</Id><Status>OK</Status><ProviderName>Xero API Previewer</ProviderName><DateTimeUTC>2010-10-13T21:30:30.896341Z</DateTimeUTC><Accounts><Account><AccountID>5040915e-8ce7-4177-8d08-fde416232f18</AccountID><Code>200</Code><Name>Sales</Name><Status>ACTIVE</Status><Type>REVENUE</Type><TaxType>OUTPUT2</TaxType><Description>Income from any normal business activity</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>5652e895-0576-4cd9-922d-f420f65ab3e3</AccountID><Code>260</Code><Name>Other Revenue</Name><Status>ACTIVE</Status><Type>REVENUE</Type><TaxType>OUTPUT2</TaxType><Description>Any other income that does not relate to normal business activities and is not recurring</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>e9482110-7245-4a76-bfe2-14500495a076</AccountID><Code>270</Code><Name>Interest Income</Name><Status>ACTIVE</Status><Type>REVENUE</Type><TaxType>NONE</TaxType><Description>Gross interest income (i.e. before deducting Residential Withholding Tax), such as bank interest</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>eaf54b74-2d28-4d5c-8295-4aaeec93c862</AccountID><Code>300</Code><Name>Purchases</Name><Status>ACTIVE</Status><Type>DIRECTCOSTS</Type><TaxType>INPUT2</TaxType><Description>Goods purchased with the intention of selling these to customers</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>57cedda9-ad06-4d52-aa34-fefaec4725a9</AccountID><Code>400</Code><Name>Advertising</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred for advertising while trying to increase sales</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>80583b1c-5ce9-4f78-aa05-f3b424f5a4b7</AccountID><Code>404</Code><Name>Bank Fees</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>Fees charged by your bank for transactions regarding your bank account(s)</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>842b45a5-1475-4b37-a0e4-509eaa310aaf</AccountID><Code>408</Code><Name>Cleaning</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred for cleaning  business property.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>3aeaca91-5439-4b65-bd20-8993110fa600</AccountID><Code>412</Code><Name>Consulting &amp; Accounting</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses related to paying consultants</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>28e84d9c-ed30-4162-bb11-4c65630e4cf5</AccountID><Code>416</Code><Name>Depreciation</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>The amount of the asset's cost (based on the useful life) that was consumed during the period</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>4c5c00fd-faf2-44e9-91de-52076af7748d</AccountID><Code>420</Code><Name>Entertainment</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>50% of the total expense relating to business-related entertainment. E.g. shouting clients or employees  a drink or a meal etc.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>7c9bd75c-42c8-4ab9-8d34-b6b592cd916a</AccountID><Code>424</Code><Name>Entertainment - Non deductible</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>Expenses paid by company for the business but are not deductable for income tax purposes.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>a45cdc16-47bd-47ed-b03c-2cf8d407478b</AccountID><Code>425</Code><Name>Freight &amp; Courier</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred on courier &amp; freight costs</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>7ea5357c-5ae5-4473-a1bf-f1173c44885c</AccountID><Code>429</Code><Name>General Expenses</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>General expenses related to the running of the business.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>c000f4a5-7c1f-475c-afe0-33f0f5a835f0</AccountID><Code>433</Code><Name>Insurance</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred for insuring the business' assets</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>d1a3d687-b746-4886-be75-61c6185da039</AccountID><Code>437</Code><Name>Interest Expense</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>Any interest expenses paid to IRD, business bank accounts or credit card accounts.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>1c7d372f-0074-4ec5-995e-7370b7b35aae</AccountID><Code>441</Code><Name>Legal expenses</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred on any legal matters</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>fe22f737-c83c-4b9f-aa51-d85d06990617</AccountID><Code>445</Code><Name>Light, Power, Heating</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred for lighting, powering or heating the premises</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>340c3655-75bc-4d93-831b-e7aa92c65d92</AccountID><Code>449</Code><Name>Motor Vehicle Expenses</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred on the running of company motor vehicles</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>6dff3810-372d-4b2b-850a-23b5ad169244</AccountID><Code>453</Code><Name>Office Expenses</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>General expenses related to the running of the business office.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>f906a809-34a5-49c1-84ab-dfd9dcb7661f</AccountID><Code>461</Code><Name>Printing &amp; Stationery</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred by the entity as a result of printing and stationery</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>926402f8-5e6f-427e-9bf5-b44b7fbd2b7b</AccountID><Code>469</Code><Name>Rent</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>The payment to lease a building or area.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>c5e2476c-fbc1-4da8-a32a-6e45adbcfc99</AccountID><Code>473</Code><Name>Repairs and Maintenance</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred on a damaged or run down asset that will bring the asset back to its original condition.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>cb76fc29-bf61-4d14-a5ad-a1468d531b75</AccountID><Code>477</Code><Name>Salaries</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>Payment to employees in exchange for their resources</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>3355581f-9052-4778-95ca-b693555224f7</AccountID><Code>478</Code><Name>Commission</Name><Status>ACTIVE</Status><Type>DIRECTCOSTS</Type><TaxType>NONE</TaxType><Description>For commission costs associated with sales.</Description><EnablePaymentsToAccount>true</EnablePaymentsToAccount></Account><Account><AccountID>62843cb1-ba59-4917-b7ca-3861a0486cbe</AccountID><Code>485</Code><Name>Subscriptions</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>E.g. Magazines, professional bodies.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>3143bd42-7235-4025-bd99-f8c8a90c77eb</AccountID><Code>489</Code><Name>Telephone &amp; Internet</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenditure incurred from any business-related phone calls, phone lines, or internet connections</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>457cc690-a9a2-4d31-9d6d-c9b775b58e55</AccountID><Code>492</Code><Name>Travel - Local</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>For all local taxi and shuttle travel; carparking building when on customer site etc</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>a0e7be00-8f4e-42b1-a3d2-acfa0dd616b0</AccountID><Code>493</Code><Name>Travel - National</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>INPUT2</TaxType><Description>Expenses incurred from domestic travel which has a business purpose</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>c3a4639d-6cb4-4a34-8b6e-68f45bd3da73</AccountID><Code>494</Code><Name>Travel - International</Name><Status>ACTIVE</Status><Type>OVERHEADS</Type><TaxType>NONE</TaxType><Description>Expenses incurred from international travel which has a business purpose</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>ae2d1314-691c-40ee-9ec7-9a14e347a69a</AccountID><Code>497</Code><Name>Bank Revaluations</Name><Status>ARCHIVED</Status><Type>EXPENSE</Type><TaxType>NONE</TaxType><Description>Bank account revaluations due for foreign exchange rate changes</Description><SystemAccount>BANKCURRENCYGAIN</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>ebcc4b9e-5067-418d-a824-d06b7193e4d0</AccountID><Code>498</Code><Name>Unrealised Currency Gains</Name><Status>ARCHIVED</Status><Type>EXPENSE</Type><TaxType>NONE</TaxType><Description>Unrealised currency gains on outstanding items</Description><SystemAccount>UNREALISEDCURRENCYGAIN</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>0b671ca4-5ec0-47f3-99e1-5b0dcde983ba</AccountID><Code>499</Code><Name>Realised Currency Gains</Name><Status>ARCHIVED</Status><Type>EXPENSE</Type><TaxType>NONE</TaxType><Description>Gains or losses made due to currency exchange rate changes</Description><SystemAccount>REALISEDCURRENCYGAIN</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>8b2e35b0-eeac-418b-9343-f2797b99984f</AccountID><Code>505</Code><Name>Income Tax Expense</Name><Status>ACTIVE</Status><Type>EXPENSE</Type><TaxType>NONE</TaxType><Description>A percentage of total earnings paid to the government.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>297c2dc5-cc47-4afd-8ec8-74990b8761e9</AccountID><Code>601</Code><Name>BNZ Cheque Account</Name><Status>ACTIVE</Status><Type>BANK</Type><TaxType>NONE</TaxType><EnablePaymentsToAccount>false</EnablePaymentsToAccount><BankAccountNumber>0201020345678000</BankAccountNumber><CurrencyCode>NZD</CurrencyCode></Account><Account><AccountID>a65b0dac-b444-4b41-959b-c1580cd6268f</AccountID><Code>602</Code><Name>Kiwibank Savings Account</Name><Status>ACTIVE</Status><Type>BANK</Type><TaxType>NONE</TaxType><EnablePaymentsToAccount>false</EnablePaymentsToAccount><BankAccountNumber>3809087654321050</BankAccountNumber><CurrencyCode>NZD</CurrencyCode></Account><Account><AccountID>240c0528-24ef-42f6-82ed-dab806c79440</AccountID><Code>610</Code><Name>Accounts Receivable</Name><Status>ACTIVE</Status><Type>CURRENT</Type><TaxType>NONE</TaxType><Description>Outstanding invoices the company has issued out to the client but has not yet received in cash at balance date.</Description><SystemAccount>DEBTORS</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>7bd56f0b-cd13-4673-ba8b-752926f994a7</AccountID><Code>611</Code><Name>less Provision for Doubtful Debts</Name><Status>ACTIVE</Status><Type>CURRENT</Type><TaxType>NONE</TaxType><Description>A provision anticipating that some of the accounts receivables will become bad debts.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>4a9998c7-b076-41af-babb-25f2b1bc22dc</AccountID><Code>620</Code><Name>Prepayments</Name><Status>ACTIVE</Status><Type>CURRENT</Type><TaxType>NONE</TaxType><Description>An expenditure that has been paid for in advance.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>e93d0f0c-0231-444b-8894-ab25dd027c23</AccountID><Code>625</Code><Name>Withholding tax paid</Name><Status>ACTIVE</Status><Type>CURRENT</Type><TaxType>NONE</TaxType><Description>Withholding tax paid</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>e8d91044-b767-441c-be31-af3bc73f6792</AccountID><Code>710</Code><Name>Office Equipment</Name><Status>ACTIVE</Status><Type>FIXED</Type><TaxType>INPUT2</TaxType><Description>Office equipment that is owned and controlled by the business</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>e167b614-903f-407f-a738-41d2139b3bab</AccountID><Code>711</Code><Name>Less Accumulated Depreciation on Office Equipment</Name><Status>ACTIVE</Status><Type>FIXED</Type><TaxType>NONE</TaxType><Description>The total amount of office equipment cost that has been consumed by the entity (based on the useful life)</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>0f72dadf-2a55-4074-a505-6ede42d3109f</AccountID><Code>720</Code><Name>Computer Equipment</Name><Status>ACTIVE</Status><Type>FIXED</Type><TaxType>INPUT2</TaxType><Description>Computer equipment that is owned and controlled by the business</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>4c5521a1-26d7-4ce8-9863-bfbaf223bef3</AccountID><Code>721</Code><Name>Less Accumulated Depreciation on Computer Equipment</Name><Status>ACTIVE</Status><Type>FIXED</Type><TaxType>NONE</TaxType><Description>The total amount of computer equipment cost that has been consumed by the business (based on the useful life)</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>cd03a8a6-2357-45d1-892e-b110cbd8152d</AccountID><Code>800</Code><Name>Accounts Payable</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>Outstanding invoices the company has received from suppliers but has not yet paid at balance date</Description><SystemAccount>CREDITORS</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>2ffe935a-fadd-4be2-80bb-845d8ce5b386</AccountID><Code>801</Code><Name>Unpaid Expense Claims</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>Expense claims typically made by employees/shareholder employees still outstanding.</Description><SystemAccount>UNPAIDEXPCLM</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>3c45186b-8e33-4166-8dbb-c85216fddf25</AccountID><Code>805</Code><Name>Accrued Liabilities</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>9fef6d9d-4bce-4bcc-8679-f50e5ebd12e5</AccountID><Code>820</Code><Name>GST</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>The balance in this account represents GST owing to or from the IRD. At the end of the GST period, it is this account that should be used to code against either the 'refunds from' or 'payments to' the IRD that will appear on the bank statement. Xero has been designed to use only one GST account to track GST on income and expenses, so there is no need to add any new GST accounts to Xero.</Description><SystemAccount>GST</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>2384388f-bb54-4cd2-a63b-10a6f768c807</AccountID><Code>825</Code><Name>PAYE Payable</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>The amount of PAYE tax that is due to be paid</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>9ec5fe16-971e-445f-902f-73b64bd619e2</AccountID><Code>830</Code><Name>Income Tax</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>The amount of income tax that is due to be paid, also resident withholding tax paid on interest received.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>bf9e2f66-e08f-4533-989e-42a8fc6124f8</AccountID><Code>840</Code><Name>Historical Adjustment</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>For accountant adjustments</Description><SystemAccount>HISTORICAL</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>11d257be-6e9d-437d-9bb5-cef8cc837f6e</AccountID><Code>850</Code><Name>Suspense</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>An entry that allows an unknown transaction to be entered, so the accounts can still be worked on in balance and the entry can be dealt with later.</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>5d4cbbff-5ccc-4f5d-a9a2-e261fc9776ef</AccountID><Code>860</Code><Name>Rounding</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>An adjustment entry to allow for rounding</Description><SystemAccount>ROUNDING</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>3ed0d0c0-da4e-43a8-a0be-33434e9937ca</AccountID><Code>877</Code><Name>Tracking Transfers</Name><Status>ACTIVE</Status><Type>CURRLIAB</Type><TaxType>NONE</TaxType><Description>Transfers between tracking categories</Description><SystemAccount>TRACKINGTRANSFERS</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>66fa618a-d6d6-4747-b849-174e4e954c21</AccountID><Code>900</Code><Name>Loan</Name><Status>ACTIVE</Status><Type>TERMLIAB</Type><TaxType>NONE</TaxType><Description>Money that has been borrowed from a creditor</Description><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>ae234660-b0c1-4247-b858-d32355be4647</AccountID><Code>960</Code><Name>Retained Earnings</Name><Status>ACTIVE</Status><Type>EQUITY</Type><TaxType>NONE</TaxType><Description>Do not Use</Description><SystemAccount>RETAINEDEARNINGS</SystemAccount><EnablePaymentsToAccount>false</EnablePaymentsToAccount></Account><Account><AccountID>6ea3b4b8-27fe-400c-93b0-ad8fd6f6c563</AccountID><Code>970</Code><Name>Owner A Funds Introduced</Name><Status>ACTIVE</Status><Type>EQUITY</Type><TaxType>NONE</TaxType><Description>Funds contributed by the owner</Description><EnablePaymentsToAccount>true</EnablePaymentsToAccount></Account><Account><AccountID>b0e1e6fe-0f3b-4979-9cbb-b76f0e9c15a4</AccountID><Code>980</Code><Name>Owner A Drawings</Name><Status>ACTIVE</Status><Type>EQUITY</Type><TaxType>NONE</TaxType><Description>Withdrawals by the owners</Description><EnablePaymentsToAccount>true</EnablePaymentsToAccount></Account></Accounts></Response>
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>68feba0b-2f99-411c-a882-abc3dde5b4a6</Id>
+  <Status>OK</Status>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:51:59.3450924Z</DateTimeUTC>
+  <Accounts>
+    <Account>
+      <AccountID>13918178-849a-4823-9a31-57b7eac713d7</AccountID>
+      <Name>ANZ Business Account</Name>
+      <Status>ACTIVE</Status>
+      <Type>BANK</Type>
+      <TaxType>NONE</TaxType>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <BankAccountNumber>01023412345678</BankAccountNumber>
+      <CurrencyCode>AUD</CurrencyCode>
+    </Account>
+    <Account>
+      <AccountID>26028d3a-f981-44d6-a9ed-a522198870f8</AccountID>
+      <Code>099</Code>
+      <Name>Ridgeway Savings</Name>
+      <Status>ACTIVE</Status>
+      <Type>BANK</Type>
+      <TaxType>NONE</TaxType>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <BankAccountNumber>0932107654321</BankAccountNumber>
+      <CurrencyCode>AUD</CurrencyCode>
+    </Account>
+    <Account>
+      <AccountID>e2bacdc6-2006-43c2-a5da-3c0e5f43b452</AccountID>
+      <Code>200</Code>
+      <Name>Sales</Name>
+      <Status>ACTIVE</Status>
+      <Type>REVENUE</Type>
+      <TaxType>OUTPUT</TaxType>
+      <Description>Income from any normal business activity</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>39987591-5a9a-4513-8072-828069a65f9c</AccountID>
+      <Code>260</Code>
+      <Name>Other Revenue</Name>
+      <Status>ACTIVE</Status>
+      <Type>REVENUE</Type>
+      <TaxType>OUTPUT</TaxType>
+      <Description>Any other income that does not relate to normal business activities and is not recurring</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>1335b8b2-4d63-4af8-937f-04087ae2e36e</AccountID>
+      <Code>270</Code>
+      <Name>Interest Income</Name>
+      <Status>ACTIVE</Status>
+      <Type>REVENUE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Interest income</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>ee30a086-d381-4bd6-ba47-7af927d25825</AccountID>
+      <Code>300</Code>
+      <Name>Purchases</Name>
+      <Status>ACTIVE</Status>
+      <Type>DIRECTCOSTS</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Goods purchased with the intention of selling these to customers</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <ReportingCode>EXP</ReportingCode>
+      <ReportingCodeName>Expense</ReportingCodeName>
+    </Account>
+    <Account>
+      <AccountID>d392fe47-c99d-499e-a200-46709dd6b6e7</AccountID>
+      <Code>400</Code>
+      <Name>Advertising</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred for advertising while trying to increase sales</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>959af5f4-9925-44e8-b283-7ddf4b427238</AccountID>
+      <Code>404</Code>
+      <Name>Bank Fees</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Fees charged by your bank for transactions regarding your bank account(s).</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>ff09eac3-5b17-44fb-9eea-e2e9375e91b4</AccountID>
+      <Code>408</Code>
+      <Name>Cleaning</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred for cleaning  business property.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>6db51cfa-0326-4e63-a743-c78c4d99aba4</AccountID>
+      <Code>412</Code>
+      <Name>Consulting &amp; Accounting</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses related to paying consultants</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>7f940c53-bae5-41a8-a3a3-c841227fee01</AccountID>
+      <Code>416</Code>
+      <Name>Depreciation</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The amount of the asset's cost (based on the useful life) that was consumed during the period</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>18e27517-81e0-437c-bc21-fbba8e30d6bb</AccountID>
+      <Code>420</Code>
+      <Name>Entertainment</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Expenses paid by company for the business but are not deductable for income tax purposes.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>c4a9d449-ef04-43a7-9af8-49c6558b361e</AccountID>
+      <Code>425</Code>
+      <Name>Freight &amp; Courier</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred on courier &amp; freight costs</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>94882296-5acf-4350-8c5b-82bc9370ab78</AccountID>
+      <Code>429</Code>
+      <Name>General Expenses</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>General expenses related to the running of the business.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>48a193e4-f1e3-49b8-8ff3-74137575f087</AccountID>
+      <Code>433</Code>
+      <Name>Insurance</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred for insuring the business' assets</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>a29e26fb-06ec-4aad-8a6f-6cadc52291f8</AccountID>
+      <Code>437</Code>
+      <Name>Interest Expense</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Any interest expenses paid to ATO, business bank accounts or credit card accounts.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>1b83b470-95ae-4b0b-a84e-8c407d5ea2ae</AccountID>
+      <Code>441</Code>
+      <Name>Legal expenses</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred on any legal matters</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>42a56c1a-6141-4bf2-913d-916dc1a35cfd</AccountID>
+      <Code>445</Code>
+      <Name>Light, Power, Heating</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred for lighting, powering or heating the premises</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>005f380d-4a9c-497f-b9d7-817f0f02790e</AccountID>
+      <Code>449</Code>
+      <Name>Motor Vehicle Expenses</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred on the running of company motor vehicles</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>8ab9d684-f897-4168-b5d1-2279bf74bb82</AccountID>
+      <Code>453</Code>
+      <Name>Office Expenses</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>General expenses related to the running of the business office.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>b18eaea6-4d11-462c-ac30-7975108b5859</AccountID>
+      <Code>461</Code>
+      <Name>Printing &amp; Stationery</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred by the entity as a result of printing and stationery</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>f5f05ee3-f9cd-4bf9-9423-ed81de96b537</AccountID>
+      <Code>469</Code>
+      <Name>Rent</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>The payment to lease a building or area.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>e91eee7a-340e-4203-8af8-14db5121af35</AccountID>
+      <Code>473</Code>
+      <Name>Repairs and Maintenance</Name>
+      <Status>ARCHIVED</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred on a damaged or run down asset that will bring the asset back to its original condition.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>c4f12f09-846e-4f6f-b39c-dff3be3e49a7</AccountID>
+      <Code>477</Code>
+      <Name>Wages and Salaries</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>EXEMPTINPUT</TaxType>
+      <Description>Payment to employees in exchange for their resources</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>479252dc-1e01-4a86-a452-9552a191453f</AccountID>
+      <Code>478</Code>
+      <Name>Superannuation</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>EXEMPTINPUT</TaxType>
+      <Description>Superannuation contributions</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <ReportingCode>EXP</ReportingCode>
+      <ReportingCodeName>Expense</ReportingCodeName>
+    </Account>
+    <Account>
+      <AccountID>98154d6b-0424-42f7-9aff-678db4ff62ba</AccountID>
+      <Code>479</Code>
+      <Name>Commission</Name>
+      <Status>ACTIVE</Status>
+      <Type>DIRECTCOSTS</Type>
+      <TaxType>NONE</TaxType>
+      <Description>% to staff for consultancy work invoiced to them</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>b3742a53-0f64-4765-b5cc-3ece843b2e91</AccountID>
+      <Code>485</Code>
+      <Name>Subscriptions</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>E.g. Magazines, professional bodies.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>266f40cc-5aa1-4f6c-b078-eb615171d6de</AccountID>
+      <Code>489</Code>
+      <Name>Telephone &amp; Internet</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenditure incurred from any business-related phone calls, phone lines, or internet connections</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>25717024-5b50-4320-93b7-280c0614a613</AccountID>
+      <Code>493</Code>
+      <Name>Travel - National</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>INPUT</TaxType>
+      <Description>Expenses incurred from domestic travel which has a business purpose</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>eaa06c90-21e6-4176-9333-8ab4c23f0004</AccountID>
+      <Code>494</Code>
+      <Name>Travel - International</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Expenses incurred from international travel which has a business purpose</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>d290c7f4-df33-46f0-917b-d188c6f517dc</AccountID>
+      <Code>497</Code>
+      <Name>Bank Revaluations</Name>
+      <Status>ARCHIVED</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Bank account revaluations due for foreign exchange rate changes</Description>
+      <SystemAccount>BANKCURRENCYGAIN</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>09ef3689-6913-4f31-aeca-81646680e623</AccountID>
+      <Code>498</Code>
+      <Name>Unrealised Currency Gains</Name>
+      <Status>ARCHIVED</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Unrealised currency gains on outstanding items</Description>
+      <SystemAccount>UNREALISEDCURRENCYGAIN</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>e0b4f130-7fb7-4e29-9a85-1e002ea5cc31</AccountID>
+      <Code>499</Code>
+      <Name>Realised Currency Gains</Name>
+      <Status>ARCHIVED</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Gains or losses made due to currency exchange rate changes</Description>
+      <SystemAccount>REALISEDCURRENCYGAIN</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>53bee866-8d31-4669-bd62-69026afcc86d</AccountID>
+      <Code>505</Code>
+      <Name>Income Tax Expense</Name>
+      <Status>ACTIVE</Status>
+      <Type>EXPENSE</Type>
+      <TaxType>EXEMPTINPUT</TaxType>
+      <Description>A percentage of total earnings paid to the government.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <ReportingCode>EXP</ReportingCode>
+      <ReportingCodeName>Expense</ReportingCodeName>
+    </Account>
+    <Account>
+      <AccountID>3dd5c80d-e109-4313-8c61-41648e33704f</AccountID>
+      <Code>610</Code>
+      <Name>Accounts Receivable</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRENT</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Outstanding invoices the company has issued out to the client but has not yet received in cash at balance date.</Description>
+      <SystemAccount>DEBTORS</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>26a3ec3b-0aa8-4cbe-b0b1-20c6277a55ad</AccountID>
+      <Code>620</Code>
+      <Name>Prepayments</Name>
+      <Status>ARCHIVED</Status>
+      <Type>CURRENT</Type>
+      <TaxType>NONE</TaxType>
+      <Description>An expenditure that has been paid for in advance.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>2d69b4ee-37d4-4f67-b950-32cbdd5765ed</AccountID>
+      <Code>710</Code>
+      <Name>Office Equipment</Name>
+      <Status>ACTIVE</Status>
+      <Type>FIXED</Type>
+      <TaxType>CAPEXINPUT</TaxType>
+      <Description>Office equipment that is owned and controlled by the business</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>24d010bf-5e4b-42dd-9aa3-a5484dd0686f</AccountID>
+      <Code>711</Code>
+      <Name>Less Accumulated Depreciation on Office Equipment</Name>
+      <Status>ACTIVE</Status>
+      <Type>FIXED</Type>
+      <TaxType>EXEMPTINPUT</TaxType>
+      <Description>The total amount of office equipment cost that has been consumed by the entity (based on the useful life)</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <ReportingCode>ASS</ReportingCode>
+      <ReportingCodeName>Assets</ReportingCodeName>
+    </Account>
+    <Account>
+      <AccountID>75bbcb81-6b3d-4ca9-8522-3b582cb5c21a</AccountID>
+      <Code>720</Code>
+      <Name>Computer Equipment</Name>
+      <Status>ACTIVE</Status>
+      <Type>FIXED</Type>
+      <TaxType>CAPEXINPUT</TaxType>
+      <Description>Computer equipment that is owned and controlled by the business</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>44ef13ab-a913-4688-b6f0-52877b670ad4</AccountID>
+      <Code>721</Code>
+      <Name>Less Accumulated Depreciation on Computer Equipment</Name>
+      <Status>ACTIVE</Status>
+      <Type>FIXED</Type>
+      <TaxType>EXEMPTINPUT</TaxType>
+      <Description>The total amount of computer equipment cost that has been consumed by the business (based on the useful life)</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+      <ReportingCode>ASS</ReportingCode>
+      <ReportingCodeName>Assets</ReportingCodeName>
+    </Account>
+    <Account>
+      <AccountID>8e9c5166-d3fe-4e21-827a-f42753568e80</AccountID>
+      <Code>800</Code>
+      <Name>Accounts Payable</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Outstanding invoices the company has received from suppliers but has not yet paid at balance date</Description>
+      <SystemAccount>CREDITORS</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>c11b84a9-e90a-4094-83d7-b8494d195ecc</AccountID>
+      <Code>801</Code>
+      <Name>Unpaid Expense Claims</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Expense claims typically made by employees/shareholder employees still outstanding.</Description>
+      <SystemAccount>UNPAIDEXPCLM</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>38b7b812-d334-46eb-872e-67c4cfb87538</AccountID>
+      <Code>805</Code>
+      <Name>Accrued Liabilities</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>66e60a82-99d8-47d1-956b-5baea404acba</AccountID>
+      <Code>820</Code>
+      <Name>GST</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The balance in this account represents GST owing to or from the ATO. At the end of the GST period, it is this account that should be used to code against either the 'refunds from' or 'payments to' the ATO that will appear on the bank statement. Xero has been designed to use only one GST account to track GST on income and expenses, so there is no need to add any new GST accounts to Xero.</Description>
+      <SystemAccount>GST</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>4d111d55-1c71-46b4-8cbc-d8b54d8d54c5</AccountID>
+      <Code>825</Code>
+      <Name>PAYG Withholdings Payable</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The amount of PAYE tax that is due to be paid</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>a47d1f5b-5297-484a-8a8a-64a75053e4f4</AccountID>
+      <Code>826</Code>
+      <Name>Superannuation Payable</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The amount of superannuation that is due to be paid</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>eba8b619-8e5d-43df-bd0a-08c328021003</AccountID>
+      <Code>830</Code>
+      <Name>Income Tax Payable</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The amount of income tax that is due to be paid, also resident withholding tax paid on interest received.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>305b05b3-01f3-4f47-a45d-edfa66ea03e7</AccountID>
+      <Code>840</Code>
+      <Name>Historical Adjustment</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>For accountant adjustments</Description>
+      <SystemAccount>HISTORICAL</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>50031b5d-828f-4090-b1f1-d5eb591d8b18</AccountID>
+      <Code>850</Code>
+      <Name>Suspense</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>An entry that allows an unknown transaction to be entered, so the accounts can still be worked on in balance and the entry can be dealt with later.</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>37441137-cfe3-4c2b-a569-ef75e6b66ae4</AccountID>
+      <Code>860</Code>
+      <Name>Rounding</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>An adjustment entry to allow for rounding</Description>
+      <SystemAccount>ROUNDING</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>a94c9633-aeb1-4b13-a96b-7998d887b770</AccountID>
+      <Code>877</Code>
+      <Name>Tracking Transfers</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Transfers between tracking categories</Description>
+      <SystemAccount>TRACKINGTRANSFERS</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>64ddb541-7e5f-4ded-a072-2f59d8898a8c</AccountID>
+      <Code>880</Code>
+      <Name>Owner A Drawings</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Withdrawals by the owners</Description>
+      <EnablePaymentsToAccount>true</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>16e01c0e-4fbd-4488-b4c3-e399903306aa</AccountID>
+      <Code>881</Code>
+      <Name>Owner A Funds Introduced</Name>
+      <Status>ACTIVE</Status>
+      <Type>CURRLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Funds contributed by the owner</Description>
+      <EnablePaymentsToAccount>true</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>c1de1295-c39c-444c-abfa-447b2263563f</AccountID>
+      <Code>900</Code>
+      <Name>Loan</Name>
+      <Status>ARCHIVED</Status>
+      <Type>TERMLIAB</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Money that has been borrowed from a creditor</Description>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>e2eda5d3-a80f-45ff-af4c-74472fd904d4</AccountID>
+      <Code>960</Code>
+      <Name>Retained Earnings</Name>
+      <Status>ACTIVE</Status>
+      <Type>EQUITY</Type>
+      <TaxType>NONE</TaxType>
+      <Description>Do not Use</Description>
+      <SystemAccount>RETAINEDEARNINGS</SystemAccount>
+      <EnablePaymentsToAccount>false</EnablePaymentsToAccount>
+    </Account>
+    <Account>
+      <AccountID>dfe8ba15-3324-4d29-b4e2-2f23c05e8532</AccountID>
+      <Code>970</Code>
+      <Name>Owner A Share Capital</Name>
+      <Status>ACTIVE</Status>
+      <Type>EQUITY</Type>
+      <TaxType>NONE</TaxType>
+      <Description>The value of shares purchased by the shareholders</Description>
+      <EnablePaymentsToAccount>true</EnablePaymentsToAccount>
+    </Account>
+  </Accounts>
+</Response>

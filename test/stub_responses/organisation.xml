@@ -1,14 +1,16 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>e3431899-bf76-41e8-a919-4c8c923feb12</Id>
+  <Id>204553b4-f573-48f4-b1c6-7c5be6c8e799</Id>
   <Status>OK</Status>
-  <DateTimeUTC>2009-10-04T03:26:26.6994434Z</DateTimeUTC>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:52:18.1900484Z</DateTimeUTC>
   <Organisations>
     <Organisation>
-      <Name>Demo Company (NZ)</Name>
-      <LegalName>Demo Company (NZ)</LegalName>
+      <Name>Demo Company (AU)</Name>
+      <LegalName>Demo Company (AU)</LegalName>
       <PaysTax>true</PaysTax>
-      <Version>NZ</Version>
-      <BaseCurrency>NZD</BaseCurrency>
+      <Version>AU</Version>
+      <OrganisationType>COMPANY</OrganisationType>
+      <BaseCurrency>AUD</BaseCurrency>
     </Organisation>
   </Organisations>
 </Response>

@@ -30,6 +30,7 @@ module Xeroizer
       string    :reference
       string    :type
       date      :date
+      date      :due_date
       string    :status
       string    :line_amount_types
       decimal   :sub_total

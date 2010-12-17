@@ -1,0 +1,20 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>3bf98398-171e-47c9-82d5-fc09aa90a224</Id>
+  <Status>OK</Status>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:52:02.8140644Z</DateTimeUTC>
+  <BrandingThemes>
+    <BrandingTheme>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Name>Standard</Name>
+      <SortOrder>0</SortOrder>
+      <CreatedDateUTC>2010-06-29T18:16:36.27</CreatedDateUTC>
+    </BrandingTheme>
+    <BrandingTheme>
+      <BrandingThemeID>dfe23d27-a3a6-4ef3-a5ca-b9e02b142dde</BrandingThemeID>
+      <Name>Special Projects</Name>
+      <SortOrder>1</SortOrder>
+      <CreatedDateUTC>2000-01-01T00:00:00</CreatedDateUTC>
+    </BrandingTheme>
+  </BrandingThemes>
+</Response>

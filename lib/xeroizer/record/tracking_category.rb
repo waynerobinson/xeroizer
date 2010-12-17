@@ -12,6 +12,8 @@ module Xeroizer
       
       string :tracking_category_id, :api_name => 'TrackingCategoryID'
       string :name
+      string :status
+      
       has_many :options
       
     end

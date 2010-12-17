@@ -1,1 +1,48 @@
-<?xml version="1.0"?><Response xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><ID>a99a9aaa-9999-99a9-9aa9-aaaaaa9a9999</ID><Status>OK</Status><ProviderName>YOUR PROVIDER</ProviderName><DateTimeUTC>2008-10-09T02:40:54.3997437Z</DateTimeUTC><Contact><ContactID>e8d9ecd8-c17a-49c4-a445-708875ccb042</ContactID><ContactNumber>12345</ContactNumber><Name>CONTACT NAME</Name><EmailAddress>bob@example.com</EmailAddress><Addresses><Address><AddressType>DEFAULT</AddressType><AddressLine1>LINE 1 OF THE ADDRESS</AddressLine1><AddressLine2>LINE 2 OF THE ADDRESS</AddressLine2><AddressLine3>LINE 3 OF THE ADDRESS</AddressLine3><AddressLine4>LINE 4 OF THE ADDRESS</AddressLine4><City>WELLINGTON</City><Region>WELLINGTON</Region><PostalCode>6021</PostalCode><Country>NEW ZEALAND</Country></Address></Addresses><Phones><Phone><PhoneType>DEFAULT</PhoneType><PhoneNumber>12345</PhoneNumber></Phone></Phones></Contact></Response>
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>041f5aae-b1d3-43e9-aad8-43cf1167b6b3</Id>
+  <Status>OK</Status>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2010-12-17T00:52:06.3299144Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>City Limousines</Name>
+      <FirstName>Scott</FirstName>
+      <LastName>Mercer</LastName>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>13 Waverly Park Rd</AddressLine1>
+          <City>Melbourne</City>
+          <Region>VIC</Region>
+          <PostalCode>3313</PostalCode>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>30330003</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+          <PhoneNumber>3033000</PhoneNumber>
+          <PhoneAreaCode>0444</PhoneAreaCode>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

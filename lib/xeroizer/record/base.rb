@@ -102,6 +102,9 @@ module Xeroizer
         # Parse the response retreived during any request.
         def parse_response(raw_response, request = {}, options = {})
           @response = Xeroizer::Response.new
+          @response.response_xml = raw_response
+          
+          puts raw_response
           
           doc = Nokogiri::XML(raw_response) { | cfg | cfg.noblanks }
           
