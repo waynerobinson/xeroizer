@@ -15,11 +15,12 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # puts "Options:"
 # pp tracking_category.options
 
-# contact = gw.Contact.find('860B99A9-0958-4C8D-A98F-BB1F092B16BB')
+contact = gw.Contact.find('860B99A9-0958-4C8D-A98F-BB1F092B16BB')
 # pp contact
-# puts contact.name
-# puts contact.addresses.first.line1
-# puts contact.phones[1].number
+puts contact.contact_id
+puts contact.name
+puts contact.addresses.first.line1
+puts contact.phones[1].number
 # 
 # tax_rates = gw.TaxRate.all
 # pp tax_rates
@@ -37,7 +38,7 @@ contact.save
 
 contact.name = "Test Company Changed #{rand(1000000000)}"
 contact.save
-puts contact.attributes.inspect
+# puts contact.attributes.inspect
 puts "ID: #{contact.contact_id}"
 puts "Name: #{contact.name}"
 

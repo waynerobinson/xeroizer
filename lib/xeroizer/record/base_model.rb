@@ -198,10 +198,12 @@ module Xeroizer
                 
       protected
       
+        # Attempt to create a new record.
         def create
           parse_save_response(parent.http_put(to_xml))
         end
         
+        # Attempt to update an existing record.
         def update
           if self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
@@ -210,11 +212,12 @@ module Xeroizer
           parse_save_response(parent.http_post(to_xml))
         end
         
+        # Parse the response from a create/update request.
         def parse_save_response(response_xml)
           record = parent.parse_response(response_xml)
           record = record.first if record.is_a?(Array)
           if record && record.is_a?(self.class)
-            @attributes = record.attributes.dup
+            @attributes = record.attributes
             @new_record = false
           end
           self
