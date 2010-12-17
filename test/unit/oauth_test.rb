@@ -18,7 +18,7 @@ class OAuthTest < Test::Unit::TestCase
     end
     
     should "handle invalid request tokens" do
-      Xeroizer::OAuth.any_instance.stubs(:http_get).returns(stub(:plain_body => get_file_as_string("invalid_request_token"), :code => "401"))
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invalid_request_token"), :code => "401"))
       
       assert_raises Xeroizer::OAuth::TokenInvalid do
         @client.Organisation.first
@@ -26,7 +26,7 @@ class OAuthTest < Test::Unit::TestCase
     end
     
     should "handle invalid consumer key" do
-      Xeroizer::OAuth.any_instance.stubs(:http_get).returns(stub(:plain_body => get_file_as_string("invalid_consumer_key"), :code => "401"))
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invalid_consumer_key"), :code => "401"))
       
       assert_raises Xeroizer::OAuth::TokenInvalid do
         @client.Organisation.first
@@ -49,21 +49,25 @@ class OAuthTest < Test::Unit::TestCase
       end
     end
     
-    # should "handle ApiExceptions" do
-    #   Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_file_as_string("api_exception.xml"), :code => "400"))
-    #   
-    #   assert_raises Xeroizer::ApiException do
-    #     @client.create_invoice(Xeroizer::Invoice.new)
-    #   end
-    # end
-    # 
-    # should "handle random root elements" do
-    #   Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => "<RandomRootElement></RandomRootElement>", :code => "200"))
-    #   
-    #   assert_raises Xeroizer::UnparseableResponse do
-    #     @client.create_invoice(Xeroizer::Invoice.new)
-    #   end      
-    # end
+    should "handle ApiExceptions" do
+      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_file_as_string("api_exception.xml"), :code => "400"))
+      
+      assert_raises Xeroizer::ApiException do
+        invoice = @client.Invoice.build(:type => 'ACCREC')
+        invoice.build_contact(:name => 'Test Contact')
+        invoice.save
+      end
+    end
+    
+    should "handle random root elements" do
+      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => "<RandomRootElement></RandomRootElement>", :code => "200"))
+      
+      assert_raises Xeroizer::UnparseableResponse do
+        invoice = @client.Invoice.build(:type => 'ACCREC')
+        invoice.build_contact(:name => 'Test Contact')
+        invoice.save
+      end      
+    end
     
   end
   
