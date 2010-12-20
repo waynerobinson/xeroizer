@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../test_helper.rb')
+require File.join(File.dirname(__FILE__), '../../test_helper.rb')
 
 class ModelDefinitionsTest < Test::Unit::TestCase
   include TestHelper
@@ -37,6 +37,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     @first = FirstRecord.new(@client)
     @second = SecondRecord.new(@client)
     @record = TestRecord.build({}, @client.Contact)
+    @contact = @client.Contact.build
   end
   
   context "record field definition" do
@@ -61,6 +62,18 @@ class ModelDefinitionsTest < Test::Unit::TestCase
       assert_equal('ApiNameHere', @record.class.fields[:xml_name][:api_name])
     end
     
+    should "have shortcut reader/writer" do 
+      assert_nil(@first.string1)
+      value = 'TEST VALUE'
+      @first.string1 = value
+      assert_equal(value, @first.attributes[:string1])
+      assert_equal(value, @first[:string1])
+
+      value = 'TEST VALUE 2'
+      @first[:string1] = value
+      assert_equal(value, @first.attributes[:string1])
+    end
+        
     should "define reader/writer methods" do
       assert(@record.respond_to?(:name), "FirstRecord#name should exist.")
       assert(@record.respond_to?(:name=), "FirstRecord#name= should exist.")
@@ -83,7 +96,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
       assert_equal(value, @record[:name])
       assert_equal(value, @record.name)
     end
-
+    
   end
   
 end

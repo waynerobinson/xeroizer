@@ -7,7 +7,6 @@ module Xeroizer
       inheritable_attributes :fields, :possible_primary_keys, :validators
                  
       attr_reader :attributes
-      attr_accessor :new_record
       attr_reader :parent
       attr_accessor :errors
       
@@ -34,7 +33,6 @@ module Xeroizer
         def initialize(parent)
           @parent = parent
           @attributes = {}
-          @new_record = true
         end
         
         def new_model_class(model_name)
@@ -50,7 +48,7 @@ module Xeroizer
         end
         
         def new_record?
-          !!@new_record
+          self.class.possible_primary_keys.all? { | key | @attributes[key].nil? }
         end
         
         def save
@@ -83,7 +81,6 @@ module Xeroizer
           record = record.first if record.is_a?(Array)
           if record && record.is_a?(self.class)
             @attributes = record.attributes
-            @new_record = false
           end
           self
         end

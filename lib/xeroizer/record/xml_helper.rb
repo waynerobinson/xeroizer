@@ -12,7 +12,6 @@ module Xeroizer
         # Build a record instance from the XML node.
         def build_from_node(node, parent)
           record = new(parent)
-          record.new_record = false
           node.elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field

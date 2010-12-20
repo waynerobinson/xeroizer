@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../test_helper.rb')
+require File.join(File.dirname(__FILE__), '../../test_helper.rb')
 
 class ValidatorsTest < Test::Unit::TestCase
   include TestHelper
