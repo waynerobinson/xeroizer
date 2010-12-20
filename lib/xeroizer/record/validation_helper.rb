@@ -23,6 +23,10 @@ module Xeroizer
           validates_with_validator(Validator::PresenceOfValidator, args)
         end
         
+        def validates_inclusion_of(*args)
+          validates_with_validator(Validator::InclusionOfValidator, args)
+        end
+        
       end
       
       module InstanceMethods

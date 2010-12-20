@@ -8,17 +8,69 @@ class ValidatorsTest < Test::Unit::TestCase
     string  :name
     string  :name_conditional_if
     string  :name_conditional_unless
+    string  :type
+    string  :type_blank
     integer :value
 
     validates_presence_of :name, :message => "blank"
     validates_presence_of :name_conditional_if, :if => Proc.new { | record | record.value == 10 }, :message => "blank_if_10"
     validates_presence_of :name_conditional_unless, :unless => Proc.new { | record | record.value == 20 }, :message => "blank_unless_20"
-        
+    validates_inclusion_of :type, :in => %w(phone fax mobile), :message => "not_included"
+    validates_inclusion_of :type_blank, :in => %w(phone fax mobile), :message => "not_included_blank", :allow_blank => true
   end
   
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
     @record = TestRecord.new(@client)
+  end
+  
+  context "inclusion validator" do
+    
+    should "be included in list" do
+      # Nil type
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:type).first
+      assert_not_nil(error)
+      assert_equal('not_included', error[1])
+      
+      # Invalid type
+      @record.type = 'phone not valid'
+      @record.valid?
+      error = @record.errors_for(:type).first
+      assert_not_nil(error)
+      assert_equal('not_included', error[1])
+      
+      # Valid type
+      %w(phone fax mobile).each do | valid_type |
+        @record.type = valid_type
+        @record.valid?
+        error = @record.errors_for(:type).first
+        assert_nil(error)
+      end
+    end
+    
+    should "be included in list unless allowed to be blank" do
+      # Nil type_blank
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:type_blank).first
+      assert_nil(error)
+      
+      # Invalid type_blank
+      @record.type_blank = 'phone not valid'
+      @record.valid?
+      error = @record.errors_for(:type_blank).first
+      assert_not_nil(error)
+      assert_equal('not_included_blank', error[1])
+      
+      # Valid type_blank
+      %w(phone fax mobile).each do | valid_type |
+        @record.type_blank = valid_type
+        @record.valid?
+        error = @record.errors_for(:type_blank).first
+        assert_nil(error)
+      end
+    end
+    
   end
   
   context "presence validator" do
