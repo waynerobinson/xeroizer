@@ -1,7 +1,7 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>0642dd56-2d39-4567-8e7c-4732d94799c1</Id>
   <Status>OK</Status>
-  <ProviderName>Appcordion Private</ProviderName>
+  <ProviderName>Test Provider Name</ProviderName>
   <DateTimeUTC>2010-12-20T04:13:56.6112862Z</DateTimeUTC>
   <Invoices>
     <Invoice>
