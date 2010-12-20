@@ -6,6 +6,13 @@ base_path = File.expand_path(File.dirname(__FILE__))
 %w(Account BrandingTheme Contact CreditNote Currency Invoice Organisation TaxRate TrackingCategory).each do | model_name |
   model = client.send(model_name.to_sym)
   
+  # List
   records = model.all
   File.open("#{base_path}/#{model_name.underscore.pluralize}.xml", "w") { | fp | fp.write model.response.response_xml }
+  
+  if %w(Contact CreditNote Invoice).include?(model_name)
+    # Singular
+    record = model.find(records.first.id)
+    File.open("#{base_path}/#{model_name.underscore}.xml", "w") { | fp | fp.write model.response.response_xml }
+  end
 end

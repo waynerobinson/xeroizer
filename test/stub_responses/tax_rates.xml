@@ -1,8 +1,8 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>709354d1-321b-4ed5-ae30-478dd343ceeb</Id>
+  <Id>f08b8691-aab8-45e0-a5ae-e1c59d3d8864</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-17T00:52:20.4089404Z</DateTimeUTC>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-20T04:14:00.3301314Z</DateTimeUTC>
   <TaxRates>
     <TaxRate>
       <Name>GST Exempt</Name>

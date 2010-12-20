@@ -1,18 +1,61 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>52eed3e2-7728-40b3-826f-7be657ab6d2d</Id>
+  <Id>e1cbda82-62a0-4493-96c0-2dc1de206b2d</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-17T00:52:09.5332444Z</DateTimeUTC>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-20T04:13:48.673583Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
         <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
         <Name>Hamilton Smith Pty</Name>
+        <EmailAddress>info@hsg.co</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>3 Park Street Industrial Village
+</AddressLine1>
+            <AddressLine2>Southbank</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3331</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3189080</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
       </Contact>
       <Date>2010-09-17T00:00:00</Date>
       <DueDate>2010-09-17T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Duplicate invoice sent in error for last month - fully credited</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>

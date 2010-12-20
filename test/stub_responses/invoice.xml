@@ -1,23 +1,77 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>1fac3e10-d92e-40ec-864f-befd10b45a92</Id>
+  <Id>0642dd56-2d39-4567-8e7c-4732d94799c1</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-17T00:52:14.4085564Z</DateTimeUTC>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-20T04:13:56.6112862Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
         <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
         <Name>Hamilton Smith Pty</Name>
+        <EmailAddress>info@hsg.co</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>3 Park Street Industrial Village
+</AddressLine1>
+            <AddressLine2>Southbank</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3331</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3189080</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
+        <ContactGroups>
+          <ContactGroup>
+            <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
+            <Name>Support Clients (monthly)</Name>
+            <Status>ACTIVE</Status>
+          </ContactGroup>
+        </ContactGroups>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
       </Contact>
       <Date>2010-10-09T00:00:00</Date>
       <DueDate>2010-10-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Desktop/network support via email &amp; phone.
+Per month fixed fee for minimum 20 hours/month.</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
       <UpdatedDateUTC>2010-12-02T17:14:39.943</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-10-18T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>b2c02d0b-41a8-4d4d-97d7-014c78b3547d</InvoiceID>
       <InvoiceNumber>ORC1016</InvoiceNumber>
@@ -31,6 +85,7 @@
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>550.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
     </Invoice>
   </Invoices>
 </Response>

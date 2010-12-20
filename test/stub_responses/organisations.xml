@@ -1,0 +1,16 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>7ffd30cb-41e4-429c-8dcf-da71e284833c</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-20T04:13:58.4550834Z</DateTimeUTC>
+  <Organisations>
+    <Organisation>
+      <Name>Demo Company (AU)</Name>
+      <LegalName>Demo Company (AU)</LegalName>
+      <PaysTax>true</PaysTax>
+      <Version>AU</Version>
+      <OrganisationType>COMPANY</OrganisationType>
+      <BaseCurrency>AUD</BaseCurrency>
+    </Organisation>
+  </Organisations>
+</Response>
