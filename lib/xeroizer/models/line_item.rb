@@ -7,11 +7,12 @@ module Xeroizer
     
     class LineItem < Base
       
-      LINE_AMOUNT_TYPES = {
+      LINE_AMOUNT_TYPE = {
         "Inclusive" =>        'CreditNote lines are inclusive tax',
         "Exclusive" =>        'CreditNote lines are exclusive of tax (default)',
         "NoTax"     =>        'CreditNotes lines have no tax'
-      } unless defined?(LINE_AMOUNT_TYPES)
+      } unless defined?(LINE_AMOUNT_TYPE)
+      LINE_AMOUNT_TYPES = LINE_AMOUNT_TYPE.keys.sort
       
       TAX_TYPE = Account::TAX_TYPE unless defined?(TAX_TYPE)
       

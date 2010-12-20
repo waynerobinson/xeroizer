@@ -13,6 +13,7 @@ module Xeroizer
         'ACCREC' =>           'Accounts Receivable',
         'ACCPAY' =>           'Accounts Payable'
       } unless defined?(INVOICE_TYPE)
+      INVOICE_TYPES = INVOICE_TYPE.keys.sort
 
       INVOICE_STATUS = {
         'AUTHORISED' =>       'Approved invoices awaiting payment',
@@ -22,6 +23,14 @@ module Xeroizer
         'SUBMITTED' =>        'Invoices entered by an employee awaiting approval',
         'VOID' =>             'Approved invoices that are voided'
       } unless defined?(INVOICE_STATUS)
+      INVOICE_STATUSES = INVOICE_STATUS.keys.sort
+      
+      LINE_AMOUNT_TYPE = {
+        "Inclusive" =>        'CreditNote lines are inclusive tax',
+        "Exclusive" =>        'CreditNote lines are exclusive of tax (default)',
+        "NoTax"     =>        'CreditNotes lines have no tax'
+      } unless defined?(LINE_AMOUNT_TYPE)
+      LINE_AMOUNT_TYPES = LINE_AMOUNT_TYPE.keys.sort
       
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
@@ -51,8 +60,15 @@ module Xeroizer
       has_many    :line_items
       has_many    :payments
       
-      public
+      validates_presence_of :date, :due_date
+      validates_inclusion_of :type, :in => INVOICE_TYPES
+      validates_inclusion_of :status, :in => INVOICE_STATUSES
+      validates_inclusion_of :line_amount_types, :in => LINE_AMOUNT_TYPES
+      validates_associated :contact
+      validates_associated :line_items
       
+      public
+            
         # Helper method to check if the invoice is accounts payable.
         def accounts_payable?
           type == 'ACCPAY'
