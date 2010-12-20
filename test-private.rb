@@ -32,15 +32,15 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # puts "Size: #{contacts.size}"
 # puts "#{contacts.first.parent.class.name}"
 
-contact = gw.Contact.build({:name => "Test Company #{rand(1000000000)}", :first_name => "Wayne", :last_name => "Robinson"})
-contact.save
+# contact = gw.Contact.build({:name => "Test Company #{rand(1000000000)}", :first_name => "Wayne", :last_name => "Robinson"})
+# contact.save
 # # puts "New Record: #{contact.new_record?}"
 # 
-contact.name = "Test Company Changed #{rand(1000000000)}"
-contact.save
+# contact.name = "Test Company Changed #{rand(1000000000)}"
+# contact.save
 # # puts contact.attributes.inspect
-puts "ID: #{contact.contact_id}"
-puts "Name: #{contact.name}"
+# puts "ID: #{contact.contact_id}"
+# puts "Name: #{contact.name}"
 
 # contact.add_address({:type => 'STREET', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210'}, {:type => 'POBOX', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210'})
 # contact.addresses = [contact.build_address(:type => 'STREET', :line1 => '22 Lambert Drive', :city => "Maudsland", :region => 'QLD', :postal_code => '4210')]
@@ -61,6 +61,12 @@ puts "Name: #{contact.name}"
 # pp Hash.xml_node_to_hash(org)
 # 
 
+credit_note = gw.CreditNote.find('371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1')
+puts "Total: #{credit_note.total}"
+puts "LineItems: "
+credit_note.line_items.each_with_index do | line_item, index |
+  puts "\t#{index + 1}: #{line_item.description}: #{line_item.line_amount}"
+end
   
 end_time = Time.now
 puts "Completed in #{end_time - start_time} seconds."

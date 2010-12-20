@@ -40,6 +40,8 @@ module Xeroizer
         'RROUTPUT' =>         'Reduced rate VAT on sales (UK Only)',
         'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)'
       } unless defined?(TAX_TYPE)
+      
+      set_primary_key :account_id
             
       string  :account_id, :api_name => 'AccountID'
       string  :code

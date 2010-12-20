@@ -5,6 +5,9 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   
   class FirstRecord < Xeroizer::Record::Base
     
+    set_primary_key :primary_key_id
+    
+    string    :primary_key_id
     string    :string1
     boolean   :boolean1
     integer   :integer1
@@ -16,6 +19,9 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   
   class SecondRecord < Xeroizer::Record::Base
 
+    set_primary_key :primary_key_id
+    
+    string    :primary_key_id
     string    :string2
     boolean   :boolean2
     integer   :integer2
@@ -42,14 +48,22 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   
   context "record field definition" do
     
+    should "define primary key" do
+      assert_nil(@first.id)
+      value = "PRIMARY KEY VALUE"
+      @first.primary_key_id = value
+      assert_equal(value, @first.primary_key_id)
+      assert_equal(value, @first.id)
+    end
+    
     should "only have proper fields" do
-      fieldset = [:string1, :boolean1, :integer1, :decimal1, :date1, :datetime1]
+      fieldset = [:primary_key_id, :string1, :boolean1, :integer1, :decimal1, :date1, :datetime1]
       fieldset.each do | field |
         assert(@first.class.fields.keys.include?(field), "#{field} not in FirstRecord.fields")
       end
       assert_equal(fieldset.size, @first.class.fields.size)
 
-      fieldset = [:string2, :boolean2, :integer2, :decimal2, :date2, :datetime2]
+      fieldset = [:primary_key_id, :string2, :boolean2, :integer2, :decimal2, :date2, :datetime2]
       fieldset.each do | field |
         assert(@second.class.fields.keys.include?(field), "#{field} not in SecondRecord.fields")
       end

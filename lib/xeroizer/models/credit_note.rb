@@ -25,6 +25,7 @@ module Xeroizer
       } unless defined?(CREDIT_NOTE_TYPE)
       CREDIT_NOTE_TYPES = CREDIT_NOTE_TYPE.keys.sort
       
+      set_primary_key :credit_note_id
       set_possible_primary_keys :credit_note_id, :credit_note_number
       
       string    :credit_note_id, :api_name => 'CreditNoteID'
@@ -59,7 +60,7 @@ module Xeroizer
       
         # Calculate sub_total from line_items.
         def sub_total
-          if new_record? || (!new_record? && line_items && line_items.size > 0)
+          if new_record? || complete_record_downloaded?
             (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
           else
             attributes[:sub_total]
@@ -68,7 +69,7 @@ module Xeroizer
       
         # Calculate total_tax from line_items.
         def total_tax
-          if new_record? || (!new_record? && line_items && line_items.size > 0)
+          if new_record? || complete_record_downloaded?
             (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.tax_amount }
           else
             attributes[:total_tax]
@@ -79,7 +80,7 @@ module Xeroizer
         def total
           sub_total + total_tax
         end
-      
+              
     end
     
   end

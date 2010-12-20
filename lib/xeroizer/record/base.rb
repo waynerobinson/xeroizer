@@ -4,11 +4,12 @@ module Xeroizer
     class Base
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :fields, :possible_primary_keys, :validators
+      inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :validators
                  
       attr_reader :attributes
       attr_reader :parent
       attr_accessor :errors
+      attr_accessor :complete_record_downloaded
       
       include ModelDefinitionHelper
       include RecordAssociationHelper
@@ -49,6 +50,18 @@ module Xeroizer
         
         def new_record?
           self.class.possible_primary_keys.all? { | key | @attributes[key].nil? }
+        end
+        
+        # Check to see if the complete record is downloaded.
+        def complete_record_downloaded?
+          !!complete_record_downloaded
+        end
+        
+        # Downloads the complete record if we only have a summary of the record.
+        def download_complete_record!
+          record = self.class.find(self.id)
+          self.attributes = record.attributes
+          self
         end
         
         def save

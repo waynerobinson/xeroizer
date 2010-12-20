@@ -14,6 +14,7 @@ module Xeroizer
         'DELETED' =>    'Deleted'
       } unless defined?(CONTACT_STATUS)
       
+      set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number
       
       string    :contact_id, :api_name => 'ContactID'

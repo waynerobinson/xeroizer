@@ -9,6 +9,8 @@ module Xeroizer
     
     class BrandingTheme < Base
       
+      set_primary_key :branding_theme_id
+      
       string    :branding_theme_id, :api_name => 'BrandingThemeID'
       string    :name
       integer   :sort_order

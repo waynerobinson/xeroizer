@@ -4,6 +4,7 @@ module Xeroizer
       
       def self.included(base)
         base.extend(ClassMethods)
+        base.send :include, InstanceMethods
       end
       
       module ClassMethods
@@ -12,6 +13,10 @@ module Xeroizer
         def set_possible_primary_keys(*args)
           args = [args] unless args.is_a?(Array)
           self.possible_primary_keys = args
+        end
+        
+        def set_primary_key(primary_key_name)
+          self.primary_key_name = primary_key_name
         end
               
         # Helper methods used to define the fields this model has.
@@ -44,6 +49,14 @@ module Xeroizer
           define_method "#{internal_field_name}=".to_sym do | value | 
             @attributes[field_name] = value
           end
+        end
+        
+      end
+      
+      module InstanceMethods
+        
+        def id
+          self[self.class.primary_key_name]
         end
         
       end

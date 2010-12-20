@@ -8,7 +8,9 @@ module Xeroizer
     end
     
     class Payment < Base
-            
+      
+      set_primary_key :payment_id
+      
       string    :payment_id, :api_name => 'PaymentID'
       date      :date
       decimal   :amount

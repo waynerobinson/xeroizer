@@ -96,7 +96,9 @@ module Xeroizer
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
           result = parse_response(response_xml, options)
-          result.first if result.is_a?(Array)
+          result = result.first if result.is_a?(Array)
+          result.complete_record_downloaded = true
+          result
         end
         
         # Parse the response retreived during any request.
