@@ -43,6 +43,9 @@ module Xeroizer
       belongs_to  :contact
       has_many    :line_items
       
+      validates_inclusion_of :type, :in => CREDIT_NOTE_TYPE.keys
+      validates_associated :contact
+      
     end
     
   end

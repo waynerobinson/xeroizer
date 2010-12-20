@@ -3,7 +3,10 @@ require File.join(File.dirname(__FILE__), '../../test_helper.rb')
 class ValidatorsTest < Test::Unit::TestCase
   include TestHelper
   
-  class TestRecord < Xeroizer::Record::Base
+  class Xeroizer::Record::TestModel < Xeroizer::Record::BaseModel
+  end
+  
+  class Xeroizer::Record::Test < Xeroizer::Record::Base
     
     string  :name
     string  :name_conditional_if
@@ -11,17 +14,66 @@ class ValidatorsTest < Test::Unit::TestCase
     string  :type
     string  :type_blank
     integer :value
+    
+    belongs_to :contact
+    has_many :addresses
 
     validates_presence_of :name, :message => "blank"
     validates_presence_of :name_conditional_if, :if => Proc.new { | record | record.value == 10 }, :message => "blank_if_10"
     validates_presence_of :name_conditional_unless, :unless => Proc.new { | record | record.value == 20 }, :message => "blank_unless_20"
     validates_inclusion_of :type, :in => %w(phone fax mobile), :message => "not_included"
-    validates_inclusion_of :type_blank, :in => %w(phone fax mobile), :message => "not_included_blank", :allow_blank => true
+    validates_inclusion_of :type_blank, :in => %w(phone fax mobile), :message => "not_included_blank", :allow_blanks => true
+    validates_associated :contact, :message => "association_invalid"
+    validates_associated :addresses, :message => "association_invalid_blank", :allow_blanks => true
   end
   
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    @record = TestRecord.new(@client)
+    @record = Xeroizer::Record::TestModel.new(@client, 'Test').build
+  end
+  
+  context "associated validator" do
+    
+    should "exist and be valid" do
+      # Nil contact
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:contact).first
+      assert_not_nil(error)
+      assert_equal('association_invalid', error[1])
+      
+      # Valid contact
+      @record.build_contact({:name => 'VALID NAME'})
+      @record.valid?
+      error = @record.errors_for(:contact).first
+      assert_nil(error)
+    end
+    
+    should "exist and be valid unless allowed to be blank" do
+      # Nil address
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:addresses).first
+      assert_nil(error)
+      
+      # Valid address
+      @record.add_address(:type => 'STREET')
+      @record.valid?
+      error = @record.errors_for(:addresses).first
+      assert_nil(error)
+      
+      # Invalid address
+      @record.addresses[0].type = "INVALID TYPE"
+      @record.valid?
+      error = @record.errors_for(:addresses).first
+      assert_equal('association_invalid_blank', error[1])
+      
+      # One invalid address
+      @record.add_address(:type => 'STREET')
+      assert_equal(2, @record.addresses.size)
+      @record.valid?
+      error = @record.errors_for(:addresses).first
+      assert_equal('association_invalid_blank', error[1])      
+    end
+    
   end
   
   context "inclusion validator" do

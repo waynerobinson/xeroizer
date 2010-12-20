@@ -23,6 +23,8 @@ module Xeroizer
       string :postal_code
       string :country
       
+      validates_inclusion_of :type, :in => ADDRESS_TYPE.keys
+      
     end
     
   end

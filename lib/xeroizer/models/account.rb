@@ -51,7 +51,7 @@ module Xeroizer
       string  :description
       string  :system_account
       boolean :enable_payments_to_account
-            
+      
     end
     
   end

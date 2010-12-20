@@ -11,6 +11,7 @@ module Xeroizer
       
       module ClassMethods
         
+        # Adds a validator config for each attribute specified in args.
         def validates_with_validator(validator, args)
           options = args.extract_options!
           self.validators ||= []
@@ -19,13 +20,17 @@ module Xeroizer
           end
         end
         
-        def validates_presence_of(*args)
-          validates_with_validator(Validator::PresenceOfValidator, args)
+        def validates_associated(*args)
+          validates_with_validator(Validator::AssociatedValidator, args)
         end
         
         def validates_inclusion_of(*args)
           validates_with_validator(Validator::InclusionOfValidator, args)
         end
+
+        def validates_presence_of(*args)
+          validates_with_validator(Validator::PresenceOfValidator, args)
+        end        
         
       end
       
