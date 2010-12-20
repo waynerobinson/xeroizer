@@ -15,7 +15,7 @@ module Xeroizer
           node.elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field
-              record.send("#{field[:internal_name]}=", case field[:type]
+              value = case field[:type]
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :integer     then element.text.to_i
@@ -30,7 +30,12 @@ module Xeroizer
                     list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
                   end
                         
-              end)
+              end
+              if field[:calculated]
+                record.attributes[field[:internal_name]] = value
+              else
+                record.send("#{field[:internal_name]}=", value)
+              end
             end
           end
           
@@ -65,7 +70,7 @@ module Xeroizer
               when :integer     then b.tag!(field[:api_name], value.to_i)
               when :decimal   
                 real_value = case value
-                  when BigDecimal   then value.to_s('F')
+                  when BigDecimal   then value.to_s
                   when String       then BigDecimal.new(value).to_f('F')
                   else              value
                 end

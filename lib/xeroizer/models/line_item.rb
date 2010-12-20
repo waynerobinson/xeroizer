@@ -21,10 +21,18 @@ module Xeroizer
       string  :account_code
       string  :tax_type
       decimal :tax_amount
-      decimal :line_amount
+      decimal :line_amount, :calculated => true
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
-       
+      
+      # Swallow assignment of attributes that should only be calculated automatically.
+      def line_amount=(value);  raise SettingTotalDirectlyNotSupported.new(:line_amount);   end
+      
+      # Calculate the line_total.
+      def line_amount
+        quantity * unit_amount
+      end
+      
     end
     
   end

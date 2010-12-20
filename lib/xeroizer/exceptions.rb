@@ -65,5 +65,17 @@ module Xeroizer
     end
     
   end
+
+  class SettingTotalDirectlyNotSupported < StandardError
+    
+    def initialize(attribute_name)
+      @attribute_name = attribute_name
+    end
+    
+    def message
+      "Can't set the total #{@attribute_name} directly as this is calculated automatically."
+    end
+    
+  end
   
 end
