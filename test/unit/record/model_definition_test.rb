@@ -37,13 +37,48 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     string    :name
     
   end
+  
+  class SummaryOnlyRecord < Xeroizer::Record::Base
     
+    list_contains_summary_only true
+    set_possible_primary_keys :primary_key_id
+    set_primary_key :primary_key_id
+    
+    string :primary_key_id
+    string :name
+  end
+  
+  class SummaryOnlyOffRecord < Xeroizer::Record::Base
+    
+    set_possible_primary_keys :primary_key_id
+    set_primary_key :primary_key_id
+    
+    string :primary_key_id
+    string :name
+  end
+  
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
     @first = FirstRecord.new(@client)
     @second = SecondRecord.new(@client)
     @record = TestRecord.build({}, @client.Contact)
     @contact = @client.Contact.build
+  end
+  
+  context "list contains summary only test" do
+    
+    should "show download complete if not summary record and id set" do
+      record = SummaryOnlyRecord.build({}, @client.Contact)
+      record.id = "NOTBLANK"
+      assert_equal(false, record.new_record?)
+      assert_equal(false, record.complete_record_downloaded?)
+      
+      record = SummaryOnlyOffRecord.build({}, @client.Contact)
+      record.id = "NOTBLANK"
+      assert_equal(false, record.new_record?)
+      assert_equal(true, record.complete_record_downloaded?)
+    end
+    
   end
   
   context "record field definition" do

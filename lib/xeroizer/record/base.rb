@@ -4,7 +4,7 @@ module Xeroizer
     class Base
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :validators
+      inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :summary_only, :validators
                  
       attr_reader :attributes
       attr_reader :parent
@@ -54,7 +54,11 @@ module Xeroizer
         
         # Check to see if the complete record is downloaded.
         def complete_record_downloaded?
-          !!complete_record_downloaded
+          if !!self.class.list_contains_summary_only?
+            !!complete_record_downloaded
+          else
+            true
+          end
         end
         
         # Downloads the complete record if we only have a summary of the record.

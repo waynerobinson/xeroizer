@@ -15,8 +15,24 @@ module Xeroizer
           self.possible_primary_keys = args
         end
         
+        # Set the actual Xero primary key for this record.
         def set_primary_key(primary_key_name)
           self.primary_key_name = primary_key_name
+        end
+        
+        # Whether this record type's list results contain summary data only.
+        #
+        # Records like invoices, when returning a list, only show summary data for
+        # certain types of associations (like the contact record) and do not return
+        # any data for line items.
+        #
+        # Default: false
+        def list_contains_summary_only(status)
+          self.summary_only = status
+        end
+        
+        def list_contains_summary_only?
+          !!summary_only
         end
               
         # Helper methods used to define the fields this model has.
@@ -55,8 +71,14 @@ module Xeroizer
       
       module InstanceMethods
         
+        # Returns the value of the Xero primary key for this record if it exists.
         def id
           self[self.class.primary_key_name]
+        end
+
+        # Sets the value of the Xero primary key for this record if it exists.
+        def id=(new_id)
+          self[self.class.primary_key_name] = new_id
         end
         
       end

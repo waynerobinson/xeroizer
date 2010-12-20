@@ -27,6 +27,7 @@ module Xeroizer
       
       set_primary_key :credit_note_id
       set_possible_primary_keys :credit_note_id, :credit_note_number
+      list_contains_summary_only true
       
       string    :credit_note_id, :api_name => 'CreditNoteID'
       string    :credit_note_number
