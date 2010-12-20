@@ -11,12 +11,16 @@ module Xeroizer
       
       module ClassMethods
         
-        def validates_presence_of(*args)
+        def validates_with_validator(validator, args)
           options = args.extract_options!
           self.validators ||= []
           args.flatten.each do | attribute |
-            self.validators << Validator::PresenceOfValidator.new(attribute, options)
+            self.validators << validator.new(attribute, options)
           end
+        end
+        
+        def validates_presence_of(*args)
+          validates_with_validator(Validator::PresenceOfValidator, args)
         end
         
       end
