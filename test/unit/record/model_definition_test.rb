@@ -83,12 +83,20 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   
   context "record field definition" do
     
-    should "define primary key" do
+    should "define primary key with real name" do
       assert_nil(@first.id)
       value = "PRIMARY KEY VALUE"
       @first.primary_key_id = value
       assert_equal(value, @first.primary_key_id)
       assert_equal(value, @first.id)
+    end
+    
+    should "define primary key with shortcut #id method" do
+      assert_nil(@first.id)
+      value = "PRIMARKY KEY VALUE"
+      @first.id = value
+      assert_equal(value, @first.id)
+      assert_equal(value, @first.primary_key_id)
     end
     
     should "only have proper fields" do
