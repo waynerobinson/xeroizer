@@ -62,7 +62,11 @@ module Xeroizer
         # Calculate sub_total from line_items.
         def sub_total
           if new_record? || complete_record_downloaded?
-            (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
+            sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
+            
+            # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
+            sum -= total_tax if line_amount_types == 'Inclusive' 
+            sum
           else
             attributes[:sub_total]
           end
