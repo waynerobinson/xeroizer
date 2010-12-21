@@ -1,0 +1,43 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>dc3ddaf5-54bd-4cef-be53-8ae723612e59</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:35.9830063Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>PC Complete</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>18 Little Flinders Street</AddressLine1>
+          <City>Melbourne</City>
+          <PostalCode>3313</PostalCode>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>4389376</PhoneNumber>
+          <PhoneAreaCode>0800</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-23T23:41:00.857</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

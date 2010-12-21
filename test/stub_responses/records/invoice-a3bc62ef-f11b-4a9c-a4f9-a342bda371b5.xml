@@ -1,0 +1,65 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>781abc40-7886-41e4-ab27-2304a307a2a4</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:04:29.0560807Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>efdb3600-f233-42e2-8f18-ce7e2a95e4b1</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Princes Highway Motors</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:50:16.687</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-12-08T00:00:00</Date>
+      <DueDate>2010-12-20T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Annual service corp car</Description>
+          <UnitAmount>950.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>95.00</TaxAmount>
+          <LineAmount>950.00</LineAmount>
+          <AccountCode>449</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>950.00</SubTotal>
+      <TotalTax>95.00</TotalTax>
+      <Total>1045.00</Total>
+      <UpdatedDateUTC>2010-12-10T05:51:26.217</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>a3bc62ef-f11b-4a9c-a4f9-a342bda371b5</InvoiceID>
+      <AmountDue>1045.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

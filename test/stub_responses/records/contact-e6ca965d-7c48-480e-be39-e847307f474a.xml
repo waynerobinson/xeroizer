@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>51290816-b495-403d-a50a-a750808a4da8</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:47.6597881Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>e6ca965d-7c48-480e-be39-e847307f474a</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Woolworths</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-16T05:08:08.41</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

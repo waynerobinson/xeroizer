@@ -1,0 +1,39 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>134e7e9f-3193-42ec-89f9-3466fa47d12c</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:09.5166507Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>4bb77692-42d4-4565-85a0-8849eb85e039</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>7-Eleven</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2012-09-07T21:09:32.69</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+      <DefaultCurrency>AUD</DefaultCurrency>
+    </Contact>
+  </Contacts>
+</Response>

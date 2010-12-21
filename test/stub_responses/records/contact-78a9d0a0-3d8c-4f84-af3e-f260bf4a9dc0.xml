@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>4000250f-d6f4-4b11-9c74-7f87ad9098bc</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:55.1756055Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>78a9d0a0-3d8c-4f84-af3e-f260bf4a9dc0</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Tramway's Coffe House</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-03T00:05:23.49</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

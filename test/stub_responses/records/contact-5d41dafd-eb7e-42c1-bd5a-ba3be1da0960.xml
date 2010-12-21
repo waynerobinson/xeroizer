@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>490ccc54-0412-4c49-892c-aec89de1ecc6</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:40.8924539Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>5d41dafd-eb7e-42c1-bd5a-ba3be1da0960</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Victoria Property Agency</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-16T06:00:37.42</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

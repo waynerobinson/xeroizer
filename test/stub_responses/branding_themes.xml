@@ -1,8 +1,8 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>d4cf9183-1fc0-40aa-af9f-64740bc0db88</Id>
+  <Id>c4e22f4a-c927-4b00-8db8-aff44d849e90</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-20T04:13:39.3295938Z</DateTimeUTC>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:01.6071263Z</DateTimeUTC>
   <BrandingThemes>
     <BrandingTheme>
       <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>

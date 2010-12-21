@@ -1,0 +1,44 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>701a8816-0633-4efc-805d-f19984ab31f3</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:24.3779421Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Bank West</Name>
+      <EmailAddress>procteam@bwb.co</EmailAddress>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>Procurement
+</AddressLine1>
+          <AddressLine2>GPO 1234</AddressLine2>
+          <City>Melbourne</City>
+          <PostalCode>3313</PostalCode>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-24T21:11:54.647</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

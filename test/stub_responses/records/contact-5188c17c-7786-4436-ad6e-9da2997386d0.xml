@@ -1,0 +1,40 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>e2d0c63c-4e7a-4fe1-9f3c-e75eae7b1f48</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:17.9074905Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>5188c17c-7786-4436-ad6e-9da2997386d0</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Test Company Changed 632520491</Name>
+      <FirstName>Wayne</FirstName>
+      <LastName>Robinson</LastName>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-16T15:13:31.877</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

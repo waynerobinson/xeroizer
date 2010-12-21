@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>62eceb76-dd8e-476a-8c98-d2f7a2922bec</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:58:12.3589375Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>baeed0f3-7989-4874-99b3-59f23032cb73</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Vodafone</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-16T06:28:19.283</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

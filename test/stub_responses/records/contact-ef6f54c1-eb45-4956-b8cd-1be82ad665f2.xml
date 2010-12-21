@@ -1,0 +1,43 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>7db6de45-8a7b-4177-ab4b-357ee2e40bc1</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:21.0920001Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>ef6f54c1-eb45-4956-b8cd-1be82ad665f2</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Maddox Publishing Group</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>L9 BWA Tower
+</AddressLine1>
+          <AddressLine2>150 Bourke Street</AddressLine2>
+          <City>Melbourne</City>
+          <PostalCode>3133</PostalCode>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-30T23:55:12.14</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

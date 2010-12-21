@@ -1,0 +1,96 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>df30a82f-cab1-4723-9992-ed466e191acd</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:45.6174687Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>DIISR - Small Business Services</Name>
+        <FirstName>Sheree</FirstName>
+        <LastName>Bond</LastName>
+        <EmailAddress>accounts@diisr.govt</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+            <AddressLine1>Melbourne Regional Office
+</AddressLine1>
+            <AddressLine2>L3, Southbank House
+</AddressLine2>
+            <AddressLine3>13 Gallery Ave</AddressLine3>
+            <City>Melbourne</City>
+            <PostalCode>3131</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>Melbourne Regional Office
+</AddressLine1>
+            <AddressLine2>L3, Southbank House
+</AddressLine2>
+            <AddressLine3>13 Gallery Ave</AddressLine3>
+            <City>Melbourne</City>
+            <PostalCode>3131</PostalCode>
+            <AttentionTo>Accounts Dept.</AttentionTo>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+            <PhoneNumber>4389379</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-11-23T00:00:00</Date>
+      <DueDate>2010-12-13T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Project Management - onsite daily rate</Description>
+          <UnitAmount>700.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>350.00</TaxAmount>
+          <LineAmount>3500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>5.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>3500.00</SubTotal>
+      <TotalTax>350.00</TotalTax>
+      <Total>3850.00</Total>
+      <UpdatedDateUTC>2010-12-09T14:09:32.247</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>4602eda6-abe9-448e-b65f-ae6bea21f0eb</InvoiceID>
+      <InvoiceNumber>ORC1033</InvoiceNumber>
+      <Reference>Portal proj</Reference>
+      <AmountDue>3850.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

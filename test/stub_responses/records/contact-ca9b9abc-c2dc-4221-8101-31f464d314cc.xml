@@ -1,0 +1,44 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>0c425f66-8ed8-4e82-9557-f6c69ca89198</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:40.6550009Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>ca9b9abc-c2dc-4221-8101-31f464d314cc</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Carruthers &amp; Smale</Name>
+      <SkypeUserName>+123demo</SkypeUserName>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>P O Box 3331
+</AddressLine1>
+          <AddressLine2>GPO</AddressLine2>
+          <City>Melbourne</City>
+          <PostalCode>3113</PostalCode>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2011-01-21T20:05:14.11</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

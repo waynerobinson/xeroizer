@@ -1,0 +1,84 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>063142eb-22b5-405e-b4cb-fbb51d709746</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:22.7887593Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>69d3e538-44b3-4e00-a5f6-7dddcb6e0656</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Blue Winn Polytechnic</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3036543</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:29:28.747</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-10-12T00:00:00</Date>
+      <DueDate>2010-10-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Development work - developer onsite per day</Description>
+          <UnitAmount>650.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>325.00</TaxAmount>
+          <LineAmount>3250.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Odette Garrison</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>5.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>3250.00</SubTotal>
+      <TotalTax>325.00</TotalTax>
+      <Total>3575.00</Total>
+      <UpdatedDateUTC>2010-12-03T11:12:26.197</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-11-08T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>4b9afceb-f7c7-4e64-8aac-7b009971fd52</InvoiceID>
+      <InvoiceNumber>ORC1013</InvoiceNumber>
+      <Reference>BWP p.o. R22987</Reference>
+      <Payments>
+        <Payment>
+          <Date>2010-11-08T00:00:00</Date>
+          <Amount>3575.00</Amount>
+          <PaymentID>d3abafa8-b7fa-4edb-b050-3a8485cf44be</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>3575.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

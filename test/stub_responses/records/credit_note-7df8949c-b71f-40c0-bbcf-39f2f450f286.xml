@@ -1,0 +1,73 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>dfe35dda-e3d8-4817-9f03-2912229f5e15</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:11.2853929Z</DateTimeUTC>
+  <CreditNotes>
+    <CreditNote>
+      <Contact>
+        <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>PC Complete</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>18 Little Flinders Street</AddressLine1>
+            <City>Melbourne</City>
+            <PostalCode>3313</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-23T23:41:00.857</UpdatedDateUTC>
+      </Contact>
+      <Date>2010-09-22T00:00:00</Date>
+      <DueDate>2010-09-22T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Internal DVD drive couldn't be supplied, backorder (Oliver laptop)</Description>
+          <UnitAmount>199.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>19.90</TaxAmount>
+          <LineAmount>199.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>199.00</SubTotal>
+      <TotalTax>19.90</TotalTax>
+      <Total>218.90</Total>
+      <UpdatedDateUTC>2010-11-23T23:40:09.45</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <CreditNoteID>7df8949c-b71f-40c0-bbcf-39f2f450f286</CreditNoteID>
+      <CreditNoteNumber>03391</CreditNoteNumber>
+    </CreditNote>
+  </CreditNotes>
+</Response>

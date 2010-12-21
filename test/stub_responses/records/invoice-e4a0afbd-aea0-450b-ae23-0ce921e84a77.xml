@@ -1,0 +1,99 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>cf87f4da-1a28-497a-9c44-663ba2ea198d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:53.7552301Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Boom FM</Name>
+        <EmailAddress>boom@radiooz.co</EmailAddress>
+        <SkypeUserName>+123demo</SkypeUserName>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+            <AddressLine1>Radio OZ House
+</AddressLine1>
+            <AddressLine2>43 Ballarat Highway
+</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3133</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>Radio OZ House
+</AddressLine1>
+            <AddressLine2>P O Box 5768</AddressLine2>
+            <City>Melbourne</City>
+            <Region>VIC</Region>
+            <PostalCode>3133</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3314321</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-01-21T20:06:00.75</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-11-28T00:00:00</Date>
+      <DueDate>2010-12-08T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Half day training - Microsoft Office - Admin session</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+        <LineItem>
+          <Description>Half day training - Microsoft Office - DJ session</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+        <LineItem>
+          <Description>Course booklets</Description>
+          <UnitAmount>19.95</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>11.97</TaxAmount>
+          <LineAmount>119.70</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>6.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>1119.70</SubTotal>
+      <TotalTax>111.97</TotalTax>
+      <Total>1231.67</Total>
+      <UpdatedDateUTC>2011-11-19T05:41:09.657</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>e4a0afbd-aea0-450b-ae23-0ce921e84a77</InvoiceID>
+      <InvoiceNumber>ORC01025</InvoiceNumber>
+      <AmountDue>1231.67</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+  </Invoices>
+</Response>

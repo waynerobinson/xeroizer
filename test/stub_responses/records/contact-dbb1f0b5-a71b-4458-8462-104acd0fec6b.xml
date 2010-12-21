@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>6ccf4831-0f6d-4e6f-9c35-7445b45dedca</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:11.9511411Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>MCO Cleaning Services</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-16T06:44:23.14</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

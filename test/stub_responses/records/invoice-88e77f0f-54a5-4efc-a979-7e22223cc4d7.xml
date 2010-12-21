@@ -1,0 +1,65 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>9fe63a33-6fca-46be-9346-a13ba0effb23</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:03.1476315Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>e1826204-cc0a-42a5-a6d0-4b352d9d5953</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Carlton Technical Books</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3786543</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:31:18.733</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-12-08T00:00:00</Date>
+      <DueDate>2010-12-08T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Brand You &amp; Think Big for office</Description>
+          <UnitAmount>115.20</UnitAmount>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>115.20</LineAmount>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>115.20</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>115.20</Total>
+      <UpdatedDateUTC>2010-12-10T05:48:24.467</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>88e77f0f-54a5-4efc-a979-7e22223cc4d7</InvoiceID>
+      <AmountDue>115.20</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

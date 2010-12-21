@@ -1,0 +1,76 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>fa485f20-2b19-443e-9f49-669dac11b4e0</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:17.9105625Z</DateTimeUTC>
+  <CreditNotes>
+    <CreditNote>
+      <Contact>
+        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>City Limousines</Name>
+        <FirstName>Scott</FirstName>
+        <LastName>Mercer</LastName>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>13 Waverly Park Rd</AddressLine1>
+            <City>Melbourne</City>
+            <Region>VIC</Region>
+            <PostalCode>3313</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>30330003</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+            <PhoneNumber>3033000</PhoneNumber>
+            <PhoneAreaCode>0444</PhoneAreaCode>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+      </Contact>
+      <Date>2010-11-07T00:00:00</Date>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Credit on overcharge for work last month as discussed</Description>
+          <UnitAmount>55.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>5.50</TaxAmount>
+          <LineAmount>55.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Odette Garrison</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>55.00</SubTotal>
+      <TotalTax>5.50</TotalTax>
+      <Total>60.50</Total>
+      <UpdatedDateUTC>2011-01-18T22:42:56.203</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <CreditNoteID>b356e488-2678-4be4-ad4b-d294df2d48d6</CreditNoteID>
+      <CreditNoteNumber>ORC-C-1037</CreditNoteNumber>
+    </CreditNote>
+  </CreditNotes>
+</Response>

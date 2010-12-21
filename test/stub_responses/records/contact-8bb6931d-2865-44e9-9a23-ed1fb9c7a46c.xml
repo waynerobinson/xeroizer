@@ -1,0 +1,40 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>e746cd63-382b-4db4-8b7d-55f2814c72f4</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:52.8630463Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>8bb6931d-2865-44e9-9a23-ed1fb9c7a46c</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Central Documentation Services</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>3798892</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-09T19:30:51.763</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

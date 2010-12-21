@@ -1,0 +1,81 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>66ef02fd-a3fc-41d3-b8d5-9b392c960f20</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:41.8970875Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Yarra Transport</Name>
+        <EmailAddress>rayong@yarratransport.co</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>P O Box 5678</AddressLine1>
+            <City>Melbourne</City>
+            <PostalCode>3133</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>12344321</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-26T01:20:55.38</UpdatedDateUTC>
+        <ContactGroups>
+          <ContactGroup>
+            <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
+            <Name>Support Clients (monthly)</Name>
+            <Status>ACTIVE</Status>
+          </ContactGroup>
+        </ContactGroups>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-12-08T00:00:00</Date>
+      <DueDate>2010-12-23T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Desktop/network support via email &amp; phone.
+Per month fixed fee for minimum 20 hours/month.</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2010-12-09T12:20:23.663</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>ab63738a-370a-43a5-bfa3-620d684e66d0</InvoiceID>
+      <InvoiceNumber>ORC1029</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <AmountDue>550.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

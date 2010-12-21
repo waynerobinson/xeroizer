@@ -1,0 +1,66 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>5cf7946b-21af-4638-8000-8574b91116a8</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:05:24.9637619Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>e8e9a2c2-3e7e-48ed-8528-c3d61b28f276</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Bayside Wholesale</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2012-12-06T04:29:04.393</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+        <DefaultCurrency>AUD</DefaultCurrency>
+      </Contact>
+      <Date>2010-12-08T00:00:00</Date>
+      <DueDate>2010-12-23T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Golf balls - white single</Description>
+          <UnitAmount>4.20</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>76.36</TaxAmount>
+          <LineAmount>840.00</LineAmount>
+          <AccountCode>300</AccountCode>
+          <Quantity>200.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>763.64</SubTotal>
+      <TotalTax>76.36</TotalTax>
+      <Total>840.00</Total>
+      <UpdatedDateUTC>2012-12-06T14:37:23.297</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>7e862d93-8dab-4856-8b0c-d844e09d750f</InvoiceID>
+      <InvoiceNumber>GB1-White</InvoiceNumber>
+      <AmountDue>840.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+  </Invoices>
+</Response>

@@ -1,0 +1,38 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>846f3d94-6b04-4fa1-a8f8-8ec97f95586d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:02.9696081Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>3fc1fc6c-e5ff-4e40-b6f3-7eb535637d87</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Kinnet &amp; Jones</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-24T04:39:33.84</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

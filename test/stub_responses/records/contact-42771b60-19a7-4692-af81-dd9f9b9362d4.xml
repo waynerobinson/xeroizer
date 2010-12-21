@@ -1,0 +1,43 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>218287e4-5194-4678-a602-7d6e96078a88</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:30.4562227Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>42771b60-19a7-4692-af81-dd9f9b9362d4</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>ABC Furniture</Name>
+      <FirstName>Trish</FirstName>
+      <LastName>Rawlings</LastName>
+      <EmailAddress>info@abfl.com</EmailAddress>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>124578</PhoneNumber>
+          <PhoneAreaCode>0800</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-07T01:23:53.513</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

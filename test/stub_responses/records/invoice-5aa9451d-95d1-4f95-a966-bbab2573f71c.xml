@@ -1,0 +1,73 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>bb373f0f-3a5b-401a-9dc7-46cb091b0a9b</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:04:04.0241899Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>936c9759-01da-4063-b472-424ab9f48212</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Mitchell River Lodge</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:53:23.39</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-12-09T00:00:00</Date>
+      <DueDate>2010-12-15T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Half day training - Microsoft Office</Description>
+          <UnitAmount>400.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>40.00</TaxAmount>
+          <LineAmount>400.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Tracy Green</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>400.00</SubTotal>
+      <TotalTax>40.00</TotalTax>
+      <Total>440.00</Total>
+      <UpdatedDateUTC>2010-12-10T12:53:21.74</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>5aa9451d-95d1-4f95-a966-bbab2573f71c</InvoiceID>
+      <InvoiceNumber>ORC1036</InvoiceNumber>
+      <AmountDue>440.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

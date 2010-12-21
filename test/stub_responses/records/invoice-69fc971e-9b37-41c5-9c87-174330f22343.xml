@@ -1,0 +1,65 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>0edced59-eb2f-4c38-a2e3-4c477beb7385</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:01.5835555Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>cc4db604-9ed8-4eef-8a29-51b5b70496a0</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Bankrock Station</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:43:49.76</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-12-09T00:00:00</Date>
+      <DueDate>2010-12-15T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Cases Shiraz</Description>
+          <UnitAmount>160.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>32.00</TaxAmount>
+          <LineAmount>320.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Quantity>2.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>320.00</SubTotal>
+      <TotalTax>32.00</TotalTax>
+      <Total>352.00</Total>
+      <UpdatedDateUTC>2010-12-10T05:43:49.79</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>69fc971e-9b37-41c5-9c87-174330f22343</InvoiceID>
+      <AmountDue>352.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

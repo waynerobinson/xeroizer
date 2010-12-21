@@ -1,0 +1,83 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>12cbebbb-2015-4558-bbcf-f9fccbc0149d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:35.0687877Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>ad24c33b-256b-4157-ad56-cbcf0e8db7b1</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Pinnacle Management</Name>
+        <FirstName>Nick</FirstName>
+        <LastName>Wakefield</LastName>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>P O Box 456</AddressLine1>
+            <City>Melbourne GPO</City>
+            <Region>VIC</Region>
+            <PostalCode>3331</PostalCode>
+            <AttentionTo>Nick Wakefield</AttentionTo>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3014556</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-11-18T23:27:15.683</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-11-28T00:00:00</Date>
+      <DueDate>2010-12-18T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Project Management for restructure - onsite daily rate</Description>
+          <UnitAmount>700.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>280.00</TaxAmount>
+          <LineAmount>2800.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Odette Garrison</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>4.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>2800.00</SubTotal>
+      <TotalTax>280.00</TotalTax>
+      <Total>3080.00</Total>
+      <UpdatedDateUTC>2010-12-09T14:09:32.293</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>86d6e00f-ef56-49f7-9a54-796ccd5ca057</InvoiceID>
+      <InvoiceNumber>ORC1034</InvoiceNumber>
+      <Reference>PO403/CSD</Reference>
+      <AmountDue>3080.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

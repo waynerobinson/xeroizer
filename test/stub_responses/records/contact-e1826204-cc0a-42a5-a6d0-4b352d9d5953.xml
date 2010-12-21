@@ -1,0 +1,40 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>4021fe1e-bc34-47a1-8637-284d00b6d799</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:58:02.2180529Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>e1826204-cc0a-42a5-a6d0-4b352d9d5953</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Carlton Technical Books</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>3786543</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-09T19:31:18.733</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

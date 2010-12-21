@@ -1,0 +1,48 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>0f3cc013-9856-41f7-a578-3552ef02b277</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:02.3007879Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>City Limousines</Name>
+      <FirstName>Scott</FirstName>
+      <LastName>Mercer</LastName>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>13 Waverly Park Rd</AddressLine1>
+          <City>Melbourne</City>
+          <Region>VIC</Region>
+          <PostalCode>3313</PostalCode>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>30330003</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+          <PhoneNumber>3033000</PhoneNumber>
+          <PhoneAreaCode>0444</PhoneAreaCode>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

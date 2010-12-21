@@ -1,0 +1,39 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>b3f10ba9-0e58-4877-a7fa-5fb3af61f90d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:58:37.5939585Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>3e776c4b-ea9e-4bb1-96be-6b0c7a71a37f</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Bayside Club</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2012-12-06T04:31:39.377</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+      <DefaultCurrency>AUD</DefaultCurrency>
+    </Contact>
+  </Contacts>
+</Response>

@@ -1,0 +1,66 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>44386555-aab4-4817-ba3a-f81d67e03a23</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:22.9591027Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>fb078879-5d6d-474f-825f-61dc90689349</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Heritage Trust</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:47:09.557</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-12-09T00:00:00</Date>
+      <DueDate>2010-12-17T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Annual corporate subscription</Description>
+          <UnitAmount>120.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>12.00</TaxAmount>
+          <LineAmount>120.00</LineAmount>
+          <AccountCode>485</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>120.00</SubTotal>
+      <TotalTax>12.00</TotalTax>
+      <Total>132.00</Total>
+      <UpdatedDateUTC>2010-12-10T05:47:09.59</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>b1e53910-473c-46a3-b3cb-38ece571220e</InvoiceID>
+      <InvoiceNumber>Sub</InvoiceNumber>
+      <AmountDue>132.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

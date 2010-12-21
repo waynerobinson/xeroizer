@@ -1,0 +1,62 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>e75fbca3-50c0-411d-b616-c080f90fe7a4</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:43.1174047Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Swanston Security</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-16T06:35:43.133</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Our monthly share building security</Description>
+          <UnitAmount>69.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>6.90</TaxAmount>
+          <LineAmount>69.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>69.00</SubTotal>
+      <TotalTax>6.90</TotalTax>
+      <Total>75.90</Total>
+      <UpdatedDateUTC>2010-12-02T15:45:55.003</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>95ef3000-c764-4ba9-a66a-b6e2d161f839</InvoiceID>
+      <AmountDue>75.90</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+  </Invoices>
+</Response>

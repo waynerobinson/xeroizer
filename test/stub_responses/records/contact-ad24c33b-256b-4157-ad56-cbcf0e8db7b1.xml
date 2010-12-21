@@ -1,0 +1,47 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>9d2b5319-45c3-4db9-b589-0f9c7f6e4f2d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:06.3774813Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>ad24c33b-256b-4157-ad56-cbcf0e8db7b1</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Pinnacle Management</Name>
+      <FirstName>Nick</FirstName>
+      <LastName>Wakefield</LastName>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>P O Box 456</AddressLine1>
+          <City>Melbourne GPO</City>
+          <Region>VIC</Region>
+          <PostalCode>3331</PostalCode>
+          <AttentionTo>Nick Wakefield</AttentionTo>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>3014556</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2011-11-18T23:27:15.683</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

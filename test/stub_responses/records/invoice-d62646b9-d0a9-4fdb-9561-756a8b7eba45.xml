@@ -1,0 +1,63 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>dfc6a938-db13-4b4e-8077-78800ba1bb8d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:32.8499809Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Net Connect</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-16T06:19:05.357</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>ADSL monthly</Description>
+          <UnitAmount>32.50</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>3.25</TaxAmount>
+          <LineAmount>32.50</LineAmount>
+          <AccountCode>489</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>32.50</SubTotal>
+      <TotalTax>3.25</TotalTax>
+      <Total>35.75</Total>
+      <UpdatedDateUTC>2010-12-02T15:27:58.147</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>d62646b9-d0a9-4fdb-9561-756a8b7eba45</InvoiceID>
+      <InvoiceNumber>O721-002</InvoiceNumber>
+      <AmountDue>35.75</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+  </Invoices>
+</Response>

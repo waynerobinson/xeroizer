@@ -1,0 +1,66 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>97e30d59-3cc5-4ef5-9c7a-738d9be8d5e7</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:02:44.3346499Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>8a154a19-6c6c-404b-bbc9-6deae2d18251</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>SMART Agency</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T02:03:42.917</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-10-28T00:00:00</Date>
+      <DueDate>2010-11-11T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Design concepts for advertising material</Description>
+          <UnitAmount>2000.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>181.82</TaxAmount>
+          <LineAmount>2000.00</LineAmount>
+          <AccountCode>400</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>1818.18</SubTotal>
+      <TotalTax>181.82</TotalTax>
+      <Total>2000.00</Total>
+      <UpdatedDateUTC>2010-12-09T12:03:42.977</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>76bcb361-f93b-4513-b312-5a4af306d276</InvoiceID>
+      <InvoiceNumber>70135</InvoiceNumber>
+      <AmountDue>2000.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

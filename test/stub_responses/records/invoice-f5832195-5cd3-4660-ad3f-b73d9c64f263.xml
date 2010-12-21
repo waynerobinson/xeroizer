@@ -1,0 +1,83 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>c5c6bf51-77f8-49b4-bddf-2e79ea474573</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:04:45.5721285Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>City Limousines</Name>
+        <FirstName>Scott</FirstName>
+        <LastName>Mercer</LastName>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>13 Waverly Park Rd</AddressLine1>
+            <City>Melbourne</City>
+            <Region>VIC</Region>
+            <PostalCode>3313</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>30330003</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+            <PhoneNumber>3033000</PhoneNumber>
+            <PhoneAreaCode>0444</PhoneAreaCode>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-10-07T00:00:00</Date>
+      <DueDate>2010-10-23T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Project management &amp; implementation - website revamp workshop with your team to incorporate new brand and mission statement</Description>
+          <UnitAmount>300.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>60.00</TaxAmount>
+          <LineAmount>600.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Odette Garrison</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>2.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>600.00</SubTotal>
+      <TotalTax>60.00</TotalTax>
+      <Total>660.00</Total>
+      <UpdatedDateUTC>2010-11-30T15:53:45.74</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>f5832195-5cd3-4660-ad3f-b73d9c64f263</InvoiceID>
+      <InvoiceNumber>ORC1012</InvoiceNumber>
+      <AmountDue>660.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

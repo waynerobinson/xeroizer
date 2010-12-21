@@ -1,0 +1,85 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>387e6137-1bd3-428f-9a8c-81263870b51b</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:50.7707787Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>PC Complete</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>18 Little Flinders Street</AddressLine1>
+            <City>Melbourne</City>
+            <PostalCode>3313</PostalCode>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-23T23:41:00.857</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
+      </Contact>
+      <Date>2010-09-21T00:00:00</Date>
+      <DueDate>2010-09-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Laptop (oliver)</Description>
+          <UnitAmount>1085.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>108.50</TaxAmount>
+          <LineAmount>1085.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>1085.00</SubTotal>
+      <TotalTax>108.50</TotalTax>
+      <Total>1193.50</Total>
+      <UpdatedDateUTC>2010-11-24T10:45:13.79</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>673dd7cc-beb7-4697-83d4-0c47cb400cc2</InvoiceID>
+      <Payments>
+        <Payment>
+          <Date>2010-09-27T00:00:00</Date>
+          <Amount>974.60</Amount>
+          <PaymentID>4d06f609-5200-4364-9c8b-d4379a945252</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>974.60</AmountPaid>
+      <AmountCredited>218.90</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

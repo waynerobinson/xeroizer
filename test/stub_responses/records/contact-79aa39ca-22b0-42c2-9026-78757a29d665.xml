@@ -1,0 +1,42 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>a89a9ce8-5a9d-4c32-9991-e6ec646bd798</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:58:49.9849007Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>79aa39ca-22b0-42c2-9026-78757a29d665</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>City Ambassadors Association</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>P O Box 4321</AddressLine1>
+          <AddressLine2>Central Mailing Centre</AddressLine2>
+          <City>Melbourne</City>
+          <PostalCode>3133</PostalCode>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-24T21:25:38.247</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

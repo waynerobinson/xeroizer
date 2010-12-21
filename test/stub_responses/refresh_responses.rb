@@ -11,8 +11,9 @@ base_path = File.expand_path(File.dirname(__FILE__))
   File.open("#{base_path}/#{model_name.underscore.pluralize}.xml", "w") { | fp | fp.write model.response.response_xml }
   
   if %w(Contact CreditNote Invoice).include?(model_name)
-    # Singular
-    record = model.find(records.first.id)
-    File.open("#{base_path}/#{model_name.underscore}.xml", "w") { | fp | fp.write model.response.response_xml }
+    records.each do | summary_record |
+      record = model.find(summary_record.id)
+      File.open("#{base_path}/records/#{model_name.underscore}-#{record.id}.xml", "w") { | fp | fp.write model.response.response_xml }
+    end    
   end
 end

@@ -1,0 +1,80 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>18644fea-d402-401b-a1b4-702d33133034</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:05:17.3541921Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Bank West</Name>
+        <EmailAddress>procteam@bwb.co</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>Procurement
+</AddressLine1>
+            <AddressLine2>GPO 1234</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3313</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-24T21:11:54.647</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-09-22T00:00:00</Date>
+      <DueDate>2010-10-02T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Half day training - Microsoft Office</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Tracy Green</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2010-11-25T06:52:49.03</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-09-22T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>b75b3928-ab72-4424-8b93-9cdbbde4cd72</InvoiceID>
+      <InvoiceNumber>ORC1005</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <AmountCredited>550.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

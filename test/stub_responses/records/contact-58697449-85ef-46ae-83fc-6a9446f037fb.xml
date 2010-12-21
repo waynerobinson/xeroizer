@@ -1,0 +1,40 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>b990ee7d-272a-488f-86b8-ee8fa398c179</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:58:35.5626565Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>58697449-85ef-46ae-83fc-6a9446f037fb</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>132 Collins</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>3699876</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-09T19:30:14.45</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

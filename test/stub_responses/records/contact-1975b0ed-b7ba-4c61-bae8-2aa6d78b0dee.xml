@@ -1,0 +1,39 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>830dfaaa-4b56-4071-867a-23686876e70d</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:57:33.7641995Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>1975b0ed-b7ba-4c61-bae8-2aa6d78b0dee</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Marine Systems</Name>
+      <Addresses>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-07T05:41:06.73</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+      <DefaultCurrency>AUD</DefaultCurrency>
+    </Contact>
+  </Contacts>
+</Response>

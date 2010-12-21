@@ -1,0 +1,49 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>ce587157-b1ea-476b-bf78-b5e16b5d2faf</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:26.2202033Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>c135f994-01e4-427b-9e15-acfe8a477c16</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Cube Land</Name>
+      <EmailAddress>info@cubeland.co</EmailAddress>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>13 Matilda Ave
+</AddressLine1>
+          <AddressLine2>Southbank</AddressLine2>
+          <City>Melbourne</City>
+          <Region>VIC</Region>
+          <PostalCode>3113</PostalCode>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>3981894</PhoneNumber>
+          <PhoneAreaCode>03</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+          <PhoneNumber>213243</PhoneNumber>
+          <PhoneAreaCode>4444</PhoneAreaCode>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-09T19:25:05.307</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>true</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

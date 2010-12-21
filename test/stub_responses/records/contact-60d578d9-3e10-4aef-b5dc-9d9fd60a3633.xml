@@ -1,0 +1,47 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>6d67f817-2c37-4e33-a715-7c71f2ddbd16</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T00:59:15.7511853Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>60d578d9-3e10-4aef-b5dc-9d9fd60a3633</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Macdonnell Spring and Associates</Name>
+      <EmailAddress>info@msa.co</EmailAddress>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+          <AddressLine1>123 Bourke Way
+</AddressLine1>
+          <City>Melbourne</City>
+          <PostalCode>3213</PostalCode>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>123456</PhoneNumber>
+          <PhoneAreaCode>0800</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+          <PhoneNumber>123123</PhoneNumber>
+          <PhoneAreaCode>0444</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-11-17T21:43:39.59</UpdatedDateUTC>
+      <IsSupplier>false</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+    </Contact>
+  </Contacts>
+</Response>

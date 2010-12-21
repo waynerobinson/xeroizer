@@ -1,0 +1,85 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>9c450951-03c9-419c-b2d3-d2a35ce0b1e5</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:04:54.2442255Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>79aa39ca-22b0-42c2-9026-78757a29d665</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>City Ambassadors Association</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>P O Box 4321</AddressLine1>
+            <AddressLine2>Central Mailing Centre</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3133</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-24T21:25:38.247</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-09-21T00:00:00</Date>
+      <DueDate>2010-10-01T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Project management &amp; implementation - branding workshop with your team</Description>
+          <UnitAmount>250.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>25.00</TaxAmount>
+          <LineAmount>250.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Odette Garrison</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>250.00</SubTotal>
+      <TotalTax>25.00</TotalTax>
+      <Total>275.00</Total>
+      <UpdatedDateUTC>2010-11-25T07:30:06.707</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>290ef4c4-baec-492b-b4dd-c102826470ae</InvoiceID>
+      <InvoiceNumber>ORC1004</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <Date>2010-09-27T00:00:00</Date>
+          <Amount>275.00</Amount>
+          <PaymentID>97ee2016-ac5a-4619-a515-46a954932daa</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>275.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

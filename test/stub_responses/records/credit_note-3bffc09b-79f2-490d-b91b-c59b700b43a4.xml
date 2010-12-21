@@ -1,0 +1,91 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>c119d3de-6cad-4e8c-b21e-118df075af65</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:27.6920629Z</DateTimeUTC>
+  <CreditNotes>
+    <CreditNote>
+      <Contact>
+        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>DIISR - Small Business Services</Name>
+        <FirstName>Sheree</FirstName>
+        <LastName>Bond</LastName>
+        <EmailAddress>accounts@diisr.govt</EmailAddress>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+            <AddressLine1>Melbourne Regional Office
+</AddressLine1>
+            <AddressLine2>L3, Southbank House
+</AddressLine2>
+            <AddressLine3>13 Gallery Ave</AddressLine3>
+            <City>Melbourne</City>
+            <PostalCode>3131</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>Melbourne Regional Office
+</AddressLine1>
+            <AddressLine2>L3, Southbank House
+</AddressLine2>
+            <AddressLine3>13 Gallery Ave</AddressLine3>
+            <City>Melbourne</City>
+            <PostalCode>3131</PostalCode>
+            <AttentionTo>Accounts Dept.</AttentionTo>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+            <PhoneNumber>4389379</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+      </Contact>
+      <Date>2010-10-07T00:00:00</Date>
+      <DueDate>2010-10-07T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Credit for hourly rate review.
+Reduction of $1.50 NOW $83.50/h down from $85.00/hr</Description>
+          <UnitAmount>24.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>2.40</TaxAmount>
+          <LineAmount>24.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>24.00</SubTotal>
+      <TotalTax>2.40</TotalTax>
+      <Total>26.40</Total>
+      <UpdatedDateUTC>2010-11-24T21:35:37.3</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-10-09T00:00:00</FullyPaidOnDate>
+      <CreditNoteID>3bffc09b-79f2-490d-b91b-c59b700b43a4</CreditNoteID>
+      <CreditNoteNumber>CR1001</CreditNoteNumber>
+    </CreditNote>
+  </CreditNotes>
+</Response>

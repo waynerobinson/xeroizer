@@ -1,0 +1,41 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>eb8a390c-61b9-47b9-b8f3-1e0578e0d479</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:00:08.6431643Z</DateTimeUTC>
+  <Contacts>
+    <Contact>
+      <ContactID>72dd6a02-396e-42a2-a4d6-cc3fa75dfece</ContactID>
+      <ContactStatus>ACTIVE</ContactStatus>
+      <Name>Capital Cab Co</Name>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>235689</PhoneNumber>
+          <PhoneAreaCode>0800</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+      </Phones>
+      <UpdatedDateUTC>2010-12-07T06:07:18.137</UpdatedDateUTC>
+      <IsSupplier>true</IsSupplier>
+      <IsCustomer>false</IsCustomer>
+      <DefaultCurrency>AUD</DefaultCurrency>
+    </Contact>
+  </Contacts>
+</Response>

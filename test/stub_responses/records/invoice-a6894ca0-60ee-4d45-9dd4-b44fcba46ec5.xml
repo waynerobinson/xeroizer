@@ -1,0 +1,88 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>fafa40b8-9f19-440d-9b1b-e3ff60762af5</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:04:14.3057031Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>64eedbc9-1fa0-485a-837f-705f23188161</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Quantum Consultants</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-01T00:07:01.197</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-10-28T00:00:00</Date>
+      <DueDate>2010-11-08T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>WEBSITE REDESIGN PROJECT
+========================
+- Initial analysis &amp; summary of current site
+
+- Brainstorm site outcomes with your team
+- Identify audience &amp; key stakeholders
+- Review content ideas currently not catered for
+
+- Presentation of initial analysis &amp; feedback session
+- Brainstorm improvements to current content
+
+- Group structure discussion
+- Actions list for follow up
+
+- Notes from session presented for your Exec Team</Description>
+          <UnitAmount>300.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>120.00</TaxAmount>
+          <LineAmount>1200.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>4.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>1200.00</SubTotal>
+      <TotalTax>120.00</TotalTax>
+      <Total>1320.00</Total>
+      <UpdatedDateUTC>2010-12-03T11:12:28.37</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-11-08T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>a6894ca0-60ee-4d45-9dd4-b44fcba46ec5</InvoiceID>
+      <InvoiceNumber>ORC1015</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <Date>2010-11-08T00:00:00</Date>
+          <Amount>1320.00</Amount>
+          <PaymentID>940b1a13-4fba-457e-8831-afd804620a4f</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1320.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

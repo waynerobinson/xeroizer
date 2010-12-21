@@ -1,0 +1,92 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>5b707f98-5e28-4656-ace5-b444379dacca</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:19.7418063Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>ef6f54c1-eb45-4956-b8cd-1be82ad665f2</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Maddox Publishing Group</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>L9 BWA Tower
+</AddressLine1>
+            <AddressLine2>150 Bourke Street</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3133</PostalCode>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-30T23:55:12.14</UpdatedDateUTC>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-10-18T00:00:00</Date>
+      <DueDate>2010-10-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Project Management - onsite daily rate - your CRM integration project</Description>
+          <UnitAmount>700.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>420.00</TaxAmount>
+          <LineAmount>4200.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+          <Quantity>6.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>4200.00</SubTotal>
+      <TotalTax>420.00</TotalTax>
+      <Total>4620.00</Total>
+      <UpdatedDateUTC>2010-12-03T11:12:24.48</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-11-08T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>aa0173af-8707-4e7f-8dde-4c7a357bd312</InvoiceID>
+      <InvoiceNumber>ORC1014</InvoiceNumber>
+      <Reference>Yr ref H008-346</Reference>
+      <Payments>
+        <Payment>
+          <Date>2010-10-28T00:00:00</Date>
+          <Amount>2500.00</Amount>
+          <PaymentID>2c6ce9e5-8987-41fe-b642-96846ff44089</PaymentID>
+        </Payment>
+        <Payment>
+          <Date>2010-11-08T00:00:00</Date>
+          <Amount>1735.00</Amount>
+          <PaymentID>678a497f-9cc2-411e-a480-57d94c5fd4c4</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>4235.00</AmountPaid>
+      <AmountCredited>385.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>

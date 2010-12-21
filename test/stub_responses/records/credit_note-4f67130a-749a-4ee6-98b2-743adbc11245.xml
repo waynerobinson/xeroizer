@@ -1,0 +1,60 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>49197f04-b766-4b95-b967-28e2cb34c90e</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:01:15.8636351Z</DateTimeUTC>
+  <CreditNotes>
+    <CreditNote>
+      <Contact>
+        <ContactID>0f471ca5-15c9-405e-a1b9-7cc35194b673</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Party Hire</Name>
+        <Addresses>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-11-26T23:32:25.04</UpdatedDateUTC>
+      </Contact>
+      <Date>2010-11-11T00:00:00</Date>
+      <DueDate>2010-11-11T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Refund bond for return of clean</Description>
+          <UnitAmount>200.00</UnitAmount>
+          <TaxType>NONE</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>200.00</LineAmount>
+          <AccountCode>420</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>200.00</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>200.00</Total>
+      <UpdatedDateUTC>2010-11-26T23:33:28.027</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-10-25T00:00:00</FullyPaidOnDate>
+      <CreditNoteID>4f67130a-749a-4ee6-98b2-743adbc11245</CreditNoteID>
+    </CreditNote>
+  </CreditNotes>
+</Response>

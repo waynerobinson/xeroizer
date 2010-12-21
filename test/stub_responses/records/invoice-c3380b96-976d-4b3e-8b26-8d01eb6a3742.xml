@@ -1,0 +1,85 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>d8512066-1ad6-4b2c-a773-758a0b506f31</Id>
+  <Status>OK</Status>
+  <ProviderName>Appcordion Private</ProviderName>
+  <DateTimeUTC>2010-12-21T01:03:14.7416783Z</DateTimeUTC>
+  <Invoices>
+    <Invoice>
+      <Contact>
+        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
+        <ContactStatus>ACTIVE</ContactStatus>
+        <Name>Port Phillip Freight</Name>
+        <Addresses>
+          <Address>
+            <AddressType>POBOX</AddressType>
+          </Address>
+          <Address>
+            <AddressType>STREET</AddressType>
+          </Address>
+        </Addresses>
+        <Phones>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>3784141</PhoneNumber>
+            <PhoneAreaCode>03</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>FAX</PhoneType>
+          </Phone>
+          <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+        </Phones>
+        <UpdatedDateUTC>2010-12-09T19:32:00.767</UpdatedDateUTC>
+        <ContactGroups>
+          <ContactGroup>
+            <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
+            <Name>Support Clients (monthly)</Name>
+            <Status>ACTIVE</Status>
+          </ContactGroup>
+        </ContactGroups>
+        <IsSupplier>false</IsSupplier>
+        <IsCustomer>true</IsCustomer>
+      </Contact>
+      <Date>2010-10-09T00:00:00</Date>
+      <DueDate>2010-10-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Desktop/network support via email &amp; phone.
+Per month fixed fee for minimum 20 hours/month.</Description>
+          <UnitAmount>500.00</UnitAmount>
+          <TaxType>OUTPUT</TaxType>
+          <TaxAmount>50.00</TaxAmount>
+          <LineAmount>500.00</LineAmount>
+          <AccountCode>200</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2010-12-02T17:10:54.443</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2010-10-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>c3380b96-976d-4b3e-8b26-8d01eb6a3742</InvoiceID>
+      <InvoiceNumber>ORC1018</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <Date>2010-10-18T00:00:00</Date>
+          <Amount>550.00</Amount>
+          <PaymentID>4d31d5f3-3c27-4eca-aad7-d59ca5abb22e</PaymentID>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <AmountCredited>0.00</AmountCredited>
+    </Invoice>
+  </Invoices>
+</Response>
