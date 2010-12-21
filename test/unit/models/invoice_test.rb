@@ -39,13 +39,7 @@ class InvoiceTest < Test::Unit::TestCase
         @invoice.total = 100.0
       end
     end
-    
-    should "total up amounts correctly" do
-      assert_equal(500, @invoice.sub_total)
-      assert_equal(50, @invoice.total_tax)
-      assert_equal(550, @invoice.total)
-    end
-    
+        
     should "large-scale testing from API XML" do
       invoices = @client.Invoice.all
       invoices.each do | invoice |
