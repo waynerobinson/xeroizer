@@ -45,7 +45,7 @@ class InvoiceTest < Test::Unit::TestCase
     end
     
     should "large-scale testing from API XML" do
-      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invoices.xml"), :code => "200"))
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:invoices), :code => "200"))
       invoices = @client.Invoice.all
       invoices.each do | invoice |
         assert_equal(invoice.attributes[:sub_total], invoice.sub_total)

@@ -26,14 +26,14 @@ class RecordBaseTest < Test::Unit::TestCase
   context "new_record? states" do
   
     should "new_record? should be false when loading data" do
-      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("contact.xml"), :code => '200'))
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       contact = @client.Contact.find('TESTID')
       assert_kind_of(Xeroizer::Record::Contact, contact)
       assert_equal(false, contact.new_record?)
     end
     
     should "new_record? should be false after successfully creating a record" do 
-      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_file_as_string("contact.xml"), :code => '200'))
+      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       assert_equal(true, @contact.new_record?)
       assert_nil(@contact.contact_id)
       @contact.save

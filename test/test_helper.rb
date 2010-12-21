@@ -31,4 +31,12 @@ module TestHelper
     File.read(File.dirname(__FILE__) + "/stub_responses/" + filename)
   end
   
+  def get_record_xml(type, id = nil)
+    if id.nil?
+      get_file_as_string("#{type}.xml")
+    else
+      get_file_as_string("records/#{type}-#{id}.xml")
+    end
+  end
+  
 end

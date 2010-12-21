@@ -31,7 +31,7 @@ class CreditNoteTest < Test::Unit::TestCase
     end
     
     should "large-scale testing from API XML" do
-      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("credit_notes.xml"), :code => "200"))
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:credit_notes), :code => "200"))
       credit_notes = @client.CreditNote.all
       credit_notes.each do | credit_note |
         assert_equal(credit_note.attributes[:sub_total], credit_note.sub_total)

@@ -15,5 +15,8 @@ base_path = File.expand_path(File.dirname(__FILE__))
       record = model.find(summary_record.id)
       File.open("#{base_path}/records/#{model_name.underscore}-#{record.id}.xml", "w") { | fp | fp.write model.response.response_xml }
     end    
+    
+    record = model.find(records.first.id)
+    File.open("#{base_path}/#{model_name.underscore.singularize}.xml", "w") { | fp | fp.write model.response.response_xml }
   end
 end
