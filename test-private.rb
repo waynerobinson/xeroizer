@@ -74,6 +74,12 @@ puts "All invoices: #{invoices.size}"
 after_date = Time.parse("2010-11-10 10:00:00")
 invoices = gw.Invoice.all(:where => "Date>=DateTime.parse(\"#{after_date.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")")
 puts "Invoices after #{after_date}: #{invoices.size}"
+
+
+after_date = Time.parse("2010-11-30 10:00:00")
+invoices = gw.Invoice.all(:modified_since => after_date)
+puts "Invoices modified after #{after_date}: #{invoices.size}"
+
   
 end_time = Time.now
 puts "Completed in #{end_time - start_time} seconds."
