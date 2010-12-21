@@ -6,10 +6,7 @@ class CreditNoteTest < Test::Unit::TestCase
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
     
-    @client.stubs(:http_get).with {|client, url, params| url =~ /CreditNotes$/ }.returns(get_record_xml(:credit_notes))
-    @client.CreditNote.all.each do | credit_note |
-      @client.stubs(:http_get).with {|client, url, params| url =~ /CreditNotes\/#{credit_note.id}$/ }.returns(get_record_xml(:credit_note, credit_note.id))
-    end
+    mock_api("CreditNotes")
     @credit_note = @client.CreditNote.first
   end
   
