@@ -61,12 +61,19 @@ gw = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S
 # pp Hash.xml_node_to_hash(org)
 # 
 
-credit_note = gw.CreditNote.find('371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1')
-puts "Total: #{credit_note.total}"
-puts "LineItems: "
-credit_note.line_items.each_with_index do | line_item, index |
-  puts "\t#{index + 1}: #{line_item.description}: #{line_item.line_amount}"
-end
+# credit_note = gw.CreditNote.find('371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1')
+# puts "Total: #{credit_note.total}"
+# puts "LineItems: "
+# credit_note.line_items.each_with_index do | line_item, index |
+#   puts "\t#{index + 1}: #{line_item.description}: #{line_item.line_amount}"
+# end
+
+invoices = gw.Invoice.all
+puts "All invoices: #{invoices.size}"
+
+after_date = Time.parse("2010-11-10 10:00:00")
+invoices = gw.Invoice.all(:where => "Date>=DateTime.parse(\"#{after_date.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")")
+puts "Invoices after #{after_date}: #{invoices.size}"
   
 end_time = Time.now
 puts "Completed in #{end_time - start_time} seconds."

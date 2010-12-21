@@ -79,7 +79,7 @@ module Xeroizer
         # Retreive full record list for this model. 
         def all(options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
-          response_xml = http_get(options)
+          response_xml = http_get(parse_params(options))
           parse_response(response_xml, options)
         end
         
@@ -133,6 +133,13 @@ module Xeroizer
         
       protected
       
+        def parse_params(options)
+          params = {}
+          params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]          
+          params[:OrderBy]        = options[:order] if options[:order]
+          params[:where]          = options[:where] if options[:where]
+          params
+        end
         
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(elements)
