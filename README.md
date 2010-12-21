@@ -86,8 +86,8 @@ Private applications require a private RSA keypair which is used to sign each re
 generate this keypair on Mac OSX or Linux with OpenSSL. For example:
 
 	openssl genrsa -out privatekey.pem 1024
-	penssl req –newkey rsa:1024 –x509 –key privatekey.pem –out publickey.cer –days 365
-  openssl pkcs12 –export –out public_privatekey.pfx –inkey privatekey.pem –in publickey.cer
+	openssl req -newkey rsa:1024 -x509 -key privatekey.pem -out publickey.cer -days 365
+	openssl pkcs12 -export -out public_privatekey.pfx -inkey privatekey.pem -in publickey.cer
 
 You need to upload this public_privatekey.pfx file to your private application in [http://api.xero.com](http://api.xero.com).
 

@@ -128,9 +128,9 @@ register another private application if you have multiple organisations. </p>
 generate this keypair on Mac OSX or Linux with OpenSSL. For example:</p>
 
 <pre class="code"><span class='openssl identifier id'>openssl</span> <span class='genrsa identifier id'>genrsa</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='integer val'>1024</span>
-<span class='penssl identifier id'>penssl</span> <span class='req identifier id'>req</span> </pre>
-
-<p>openssl pkcs12 –export –out public_privatekey.pfx –inkey privatekey.pem –in publickey.cer</p>
+<span class='openssl identifier id'>openssl</span> <span class='req identifier id'>req</span> <span class='minus op'>-</span><span class='newkey identifier id'>newkey</span> <span class='rsa identifier id'>rsa</span><span class='symbol val'>:1024</span> <span class='minus op'>-</span><span class='x509 identifier id'>x509</span> <span class='minus op'>-</span><span class='key identifier id'>key</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='cer identifier id'>cer</span> <span class='minus op'>-</span><span class='days identifier id'>days</span> <span class='integer val'>365</span>
+<span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='export identifier id'>export</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='public_privatekey identifier id'>public_privatekey</span><span class='dot token'>.</span><span class='pfx identifier id'>pfx</span> <span class='minus op'>-</span><span class='inkey identifier id'>inkey</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='cer identifier id'>cer</span>
+</pre>
 
 <p>You need to upload this public_privatekey.pfx file to your private application in <a href="http://api.xero.com">http://api.xero.com</a>.</p>
 
@@ -153,7 +153,7 @@ certificate.</p>
 access the partner application in a similar way to public applications.</p></div></div>
     
     <div id="footer">
-  Generated on Tue Dec 21 20:07:36 2010 by 
+  Generated on Wed Dec 22 00:24:33 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
