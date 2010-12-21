@@ -26,7 +26,7 @@ lib/xeroizer/models/journal_line.rb ed3d3fb1c88247e0c2cf5c225474ead8f4f54e77
 lib/xeroizer/record/base_model.rb 95ef26f2d857f7a088bbf153746407ed83c75cbd
 lib/big_decimal_to_s.rb c6b2d028d74bdeeff6e5224e2e97c092faab2225
 lib/nokogiri_utils.rb 51c401f54830cae5a79680e0fdf3053b580c0073
-lib/xeroizer/oauth.rb 3963472b92f1a48857d81e65a00d8c750dbe8604
+lib/xeroizer/oauth.rb 8a36d92e282ffbd942bfbcc3ce2006404abe22c9
 lib/xeroizer/record/record_association_helper.rb 9e0cb8cad9994ebbcd8b870b0bb86586ac03aa6b
 lib/xeroizer/models/currency.rb a99e775c07805ccbe40e3c8726ec87d362e142b9
 lib/xeroizer/models/address.rb ca8a714465f13f5a3e2cba9c5c36740b8800d082
@@ -36,6 +36,6 @@ lib/xeroizer/generic_application.rb 0cc1e703403774b0387d0931ab362f637ff24bdf
 lib/xeroizer/models/contact.rb 2f10d53b413222c479f5520c7012976dd4350883
 lib/xeroizer/record/validators/presence_of_validator.rb e98eb14941ad8cfea0749cbd88733f37a70f198b
 lib/xeroizer/record/validation_helper.rb 6840a1f32a491ce370bec94c913cb1aca333b496
-lib/xeroizer/public_application.rb 21adfeb138496308568106ddc63447ba523bec10
+lib/xeroizer/public_application.rb 66f704796f30adcfd989692ea6ddc4f8e5db4f60
 lib/xeroizer/models/organisation.rb 7b1caa4319d35b385dd6f51580e69157b2795cf6
 lib/xeroizer/models/line_item.rb 879890a292e28efadcb8b8f585b6ae14da4f7fc2

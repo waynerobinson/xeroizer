@@ -66,6 +66,8 @@ module Xeroizer
     
     # RequestToken for PUBLIC/PARTNER authorisation 
     # (used to redirect to Xero for authentication).
+    #
+    # @option params [String] :oauth_callback URL to redirect user to when they have authenticated your application with Xero. If not specified, the user will be shown an authorisation code on the screen that they need to get into your application.
     def request_token(params = {})
       @request_token ||= consumer.get_request_token(params)
     end

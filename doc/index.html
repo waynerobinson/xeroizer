@@ -41,10 +41,119 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'></div></div>
+    <div id="content"><div id='filecontents'><h1>Xeroizer API Library</h1>
+
+<p><strong>Homepage</strong>:       <a href="http://github.com/kondro/xeroizer">http://github.com/kondro/xeroizer</a>
+<strong>Git</strong>:                    <a href="https://github.com/kondro/xero_gateway.git">https://github.com/kondro/xero_gateway.git</a>
+<strong>Author</strong>:             Wayne Robinson
+<strong>Contributors</strong>: See Contributors section below<br/>
+<strong>Copyright</strong>:    2007-2010 
+<strong>License</strong>:      MIT License </p>
+
+<h2>Introduction</h2>
+
+<p>This library is designed to help ruby/rails based applications communicate with the publicly available API for Xero.</p>
+
+<p>If you are unfamiliar with the Xero API, you should first read the documentation located at http://developer.xero.com.</p>
+
+<h2>Basic Usage</h2>
+
+<pre class="code"><span class='require identifier id'>require</span> <span class='string val'>'xeroizer'</span>
+
+<span class='comment val'># Create client (used to communicate with the API).</span>
+<span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+
+<span class='comment val'># Retrieve list of contacts (note: all communication must be made through the client).</span>
+<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
+</pre>
+
+<h2>Authentication</h2>
+
+<p>Xero uses OAuth to authenticate API clients. The OAuth gem (with minor modification) by John Nunemaker (<a href="http://github.com/jnunemaker/twitter">http://github.com/jnunemaker/twitter</a>) is used in this library. If you've used this before, things will all seem very familar.</p>
+
+<p>There are three methods of authentication detailed below:</p>
+
+<h3>All: Consumer Key/Secret</h3>
+
+<p>All methods of authentication require your OAuth consumer key and secret. This can be found for your application 
+in the API management console at <a href="http://api.xero.com">http://api.xero.com</a>.</p>
+
+<h3>Public Applications</h3>
+
+<p>Public applications use a 3-legged authorisation process. A user will need to authorise your 
+application against each organisation that you want access to. Your application can have access 
+to many organisations at once by going through the authorisation process for each organisation.</p>
+
+<p>The access token received will expire after 30 minutes. If you want access for longer you will need
+the user to re-authorise your application.</p>
+
+<p>Authentication occcurs in 3 steps:</p>
+
+<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+
+<span class='comment val'># 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to</span>
+<span class='comment val'>#    after they have authenticated your application.</span>
+<span class='comment val'>#</span>
+<span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in [http://api.xero.com](http://api.xero.com)</span>
+<span class='comment val'>#          otherwise the user will not be redirected and only be shown the authentication code.</span>
+<span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
+
+<span class='comment val'># 2. Redirect the user to the URL specified by the RequestToken.</span>
+<span class='comment val'>#    </span>
+<span class='comment val'>#    Note: example uses redirect_to method defined in Rails controllers.</span>
+<span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
+
+<span class='comment val'># 3. Exchange RequestToken for AccessToken.</span>
+<span class='comment val'>#    This access token will be used for all subsequent requests but it is stored within the client</span>
+<span class='comment val'>#    application so you don't have to record it. </span>
+<span class='comment val'>#</span>
+<span class='comment val'>#    Note: This example assumes the callback URL is a Rails action.</span>
+<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+</pre>
+
+<p>You can now use the client to access the Xero API methods, e.g.</p>
+
+<pre class="code"><span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span>
+</pre>
+
+<h3>Private Applications</h3>
+
+<p>Private applications use a 2-legged authorisation process. When you register your application, you will select 
+the organisation that is authorised to your application. This cannot be changed afterwards, although you can 
+register another private application if you have multiple organisations. </p>
+
+<p>Note: You can only register organisations you are authorised to yourself.</p>
+
+<p>Private applications require a private RSA keypair which is used to sign each request to the API. You can
+generate this keypair on Mac OSX or Linux with OpenSSL. For example:</p>
+
+<pre class="code"><span class='openssl identifier id'>openssl</span> <span class='genrsa identifier id'>genrsa</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='integer val'>1024</span>
+<span class='penssl identifier id'>penssl</span> <span class='req identifier id'>req</span> </pre>
+
+<p>openssl pkcs12 –export –out public_privatekey.pfx –inkey privatekey.pem –in publickey.cer</p>
+
+<p>You need to upload this public_privatekey.pfx file to your private application in <a href="http://api.xero.com">http://api.xero.com</a>.</p>
+
+<p>Example usage:</p>
+
+<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PrivateApplication constant id'>PrivateApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> <span class='string val'>&quot;/path/to/privatekey.pem&quot;</span><span class='rparen token'>)</span>
+<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span>
+</pre>
+
+<h3>Partner Applications</h3>
+
+<p>Partner applications use a combination of 3-legged authorisation, private key message signing and client-side SSL
+certificate signing.</p>
+
+<p>Partner applications are only in beta testing via the Xero API and you will need to contact Xero (network@xero.com) to 
+get permission to create a partner application and for them to send you information on obtaining your client-side SSL
+certificate.</p>
+
+<p>After you have followed the instructions provided by Xero for partner applications and uploaded your certificate you can
+access the partner application in a similar way to public applications.</p></div></div>
     
     <div id="footer">
-  Generated on Tue Dec 21 17:35:20 2010 by 
+  Generated on Tue Dec 21 20:07:36 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

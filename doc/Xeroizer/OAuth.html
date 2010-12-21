@@ -975,12 +975,12 @@ AccessToken created from authorize_from_access method.
       <pre class="lines">
 
 
-81
-82
-83</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 83</span>
 
 <span class='def def kw'>def</span> <span class='access_token identifier id'>access_token</span>
   <span class='@access_token ivar id'>@access_token</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='AccessToken constant id'>AccessToken</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='@asecret ivar id'>@asecret</span><span class='rparen token'>)</span>
@@ -1017,12 +1017,12 @@ authorisation necessary.
       <pre class="lines">
 
 
-88
-89
-90</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 90</span>
 
 <span class='def def kw'>def</span> <span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='atoken identifier id'>atoken</span><span class='comma token'>,</span> <span class='asecret identifier id'>asecret</span><span class='rparen token'>)</span>
   <span class='@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='@asecret ivar id'>@asecret</span> <span class='assign token'>=</span> <span class='atoken identifier id'>atoken</span><span class='comma token'>,</span> <span class='asecret identifier id'>asecret</span>
@@ -1057,14 +1057,14 @@ Create an AccessToken from a PUBLIC/PARTNER authorisation.
       <pre class="lines">
 
 
-74
-75
 76
 77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 76</span>
 
 <span class='def def kw'>def</span> <span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='rtoken identifier id'>rtoken</span><span class='comma token'>,</span> <span class='rsecret identifier id'>rsecret</span><span class='comma token'>,</span> <span class='params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='RequestToken constant id'>RequestToken</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='rtoken identifier id'>rtoken</span><span class='comma token'>,</span> <span class='rsecret identifier id'>rsecret</span><span class='rparen token'>)</span>
@@ -1161,17 +1161,17 @@ Create an OAuth consumer with the SSL client key if specified in
       <pre class="lines">
 
 
-107
-108
 109
 110
 111
 112
 113
-114</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='create_consumer identifier id'>create_consumer</span>
   <span class='consumer identifier id'>consumer</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='Consumer constant id'>Consumer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@ctoken ivar id'>@ctoken</span><span class='comma token'>,</span> <span class='@csecret ivar id'>@csecret</span><span class='comma token'>,</span> <span class='consumer_options identifier id'>consumer_options</span><span class='rparen token'>)</span>
@@ -1212,17 +1212,17 @@ application.
       <pre class="lines">
 
 
-94
-95
 96
 97
 98
 99
 100
-101</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 96</span>
 
 <span class='def def kw'>def</span> <span class='renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='atoken identifier id'>atoken</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='asecret identifier id'>asecret</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='session_handle identifier id'>session_handle</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='old_token identifier id'>old_token</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='RequestToken constant id'>RequestToken</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='atoken identifier id'>atoken</span> <span class='orop op'>||</span> <span class='@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='asecret identifier id'>asecret</span> <span class='orop op'>||</span> <span class='@secret ivar id'>@secret</span><span class='rparen token'>)</span>
@@ -1256,19 +1256,65 @@ authentication).
   </div>
 </div>
 <div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
   
+    <li>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <span class='name'>params</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+a customizable set of options
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="name">:oauth_callback</span>
+          <span class="default">
+            
+          </span>
+          &mdash; <div class='inline'><p>
+URL to redirect user to when they have authenticated your application with
+Xero. If not specified, the user will be shown an authorisation code on the
+screen that they need to get into your application.
+</p>
+</div>
+        </tr>
+      
+    </ul>
+  
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-69
-70
-71</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 71</span>
 
 <span class='def def kw'>def</span> <span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@request_token ivar id'>@request_token</span> <span class='opasgn op'>||=</span> <span class='consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='get_request_token identifier id'>get_request_token</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
@@ -1303,15 +1349,15 @@ Update instance variables with those from the AccessToken.
       <pre class="lines">
 
 
-117
-118
 119
 120
 121
-122</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 119</span>
 
 <span class='def def kw'>def</span> <span class='update_attributes_from_token identifier id'>update_attributes_from_token</span><span class='lparen token'>(</span><span class='access_token identifier id'>access_token</span><span class='rparen token'>)</span>
   <span class='@expires_at ivar id'>@expires_at</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span> <span class='plus op'>+</span> <span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_expires_in</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
@@ -1330,7 +1376,7 @@ Update instance variables with those from the AccessToken.
 </div>
     
     <div id="footer">
-  Generated on Tue Dec 21 17:35:24 2010 by 
+  Generated on Tue Dec 21 20:07:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
