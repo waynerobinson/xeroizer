@@ -102,8 +102,8 @@ module Xeroizer
     
     private 
     
-      # Create an OAuth consumer with the SSL client key if specified in 
-      # @consumer_options when this instance was created.
+      # Create an OAuth consumer with the SSL client key if specified in @consumer_options when
+      # this instance was created.
       def create_consumer
         consumer = ::OAuth::Consumer.new(@ctoken, @csecret, consumer_options)
         if @consumer_options[:ssl_client_cert] && @consumer_options[:ssl_client_key]

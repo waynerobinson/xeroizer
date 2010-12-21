@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Xeroizer::Record::RecordAssociationHelper::ClassMethods</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../../Xeroizer.html" title="Xeroizer (module)">Xeroizer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Record.html" title="Xeroizer::Record (module)">Record</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../RecordAssociationHelper.html" title="Xeroizer::Record::RecordAssociationHelper (module)">RecordAssociationHelper</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Xeroizer::Record::RecordAssociationHelper::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/xeroizer/record/record_association_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#belongs_to-instance_method" title="#belongs_to (instance method)">- (Object) <strong>belongs_to</strong>(field_name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define_association_attribute-instance_method" title="#define_association_attribute (instance method)">- (Object) <strong>define_association_attribute</strong>(field_name, internal_field_name, association_type, options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_many-instance_method" title="#has_many (instance method)">- (Object) <strong>has_many</strong>(field_name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="belongs_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>belongs_to</strong>(field_name, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 11</span>
+
+<span class='def def kw'>def</span> <span class='belongs_to identifier id'>belongs_to</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='internal_field_name identifier id'>internal_field_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:internal_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='field_name identifier id'>field_name</span>
+  <span class='internal_singular_field_name identifier id'>internal_singular_field_name</span> <span class='assign token'>=</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span>
+  
+  <span class='define_association_attribute identifier id'>define_association_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='internal_singular_field_name identifier id'>internal_singular_field_name</span><span class='comma token'>,</span> <span class='symbol val'>:belongs_to</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Create a #build_record_name method to build the record.</span>
+  <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;build_#{internal_singular_field_name}&quot;</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='mult op'>*</span><span class='args identifier id'>args</span> <span class='bitor op'>|</span>
+    <span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='eq op'>==</span> <span class='integer val'>1</span> <span class='question op'>?</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='colon op'>:</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  
+    <span class='comment val'># The name of the record model.</span>
+    <span class='model_name identifier id'>model_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='colon op'>:</span> <span class='field_name identifier id'>field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span><span class='dot token'>.</span><span class='camelize identifier id'>camelize</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+  
+    <span class='comment val'># The record's parent instance for this current application.</span>
+    <span class='model_parent identifier id'>model_parent</span> <span class='assign token'>=</span> <span class='new_model_class identifier id'>new_model_class</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span>
+  
+    <span class='comment val'># Create a new record, binding it to it's parent instance.</span>
+    <span class='record identifier id'>record</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='model_parent identifier id'>model_parent</span><span class='rparen token'>)</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='record identifier id'>record</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define_association_attribute-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define_association_attribute</strong>(field_name, internal_field_name, association_type, options) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 75</span>
+
+<span class='def def kw'>def</span> <span class='define_association_attribute identifier id'>define_association_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='comma token'>,</span> <span class='association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+  <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Override reader for this association if this association belongs</span>
+  <span class='comment val'># to a summary-typed record. This will automatically attempt to download</span>
+  <span class='comment val'># the complete version of the record before accessing the association.</span>
+  <span class='if if kw'>if</span> <span class='list_contains_summary_only? fid id'>list_contains_summary_only?</span>
+    <span class='define_method identifier id'>define_method</span> <span class='internal_field_name identifier id'>internal_field_name</span> <span class='do do kw'>do</span>
+      <span class='download_complete_record! fid id'>download_complete_record!</span> <span class='unless unless_mod kw'>unless</span> <span class='complete_record_downloaded? fid id'>complete_record_downloaded?</span>
+      <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="has_many-instance_method">
+  
+    - (<tt>Object</tt>) <strong>has_many</strong>(field_name, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='has_many identifier id'>has_many</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='internal_field_name identifier id'>internal_field_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:internal_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='field_name identifier id'>field_name</span>
+  <span class='internal_singular_field_name identifier id'>internal_singular_field_name</span> <span class='assign token'>=</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span>
+
+  <span class='define_association_attribute identifier id'>define_association_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='comma token'>,</span> <span class='symbol val'>:has_many</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+          
+  <span class='comment val'># Create an #add_record_name method to build the record and add to the attributes.</span>
+  <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;add_#{internal_singular_field_name}&quot;</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='mult op'>*</span><span class='args identifier id'>args</span> <span class='bitor op'>|</span>
+    <span class='comment val'># The name of the record model.</span>
+    <span class='model_name identifier id'>model_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='colon op'>:</span> <span class='field_name identifier id'>field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span><span class='dot token'>.</span><span class='camelize identifier id'>camelize</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+
+    <span class='comment val'># The record's parent instance for this current application.</span>
+    <span class='model_parent identifier id'>model_parent</span> <span class='assign token'>=</span> <span class='new_model_class identifier id'>new_model_class</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span>
+  
+    <span class='comment val'># The class of this record.</span>
+    <span class='record_class identifier id'>record_class</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Parse the *args variable so that we can use this method like:</span>
+    <span class='comment val'>#   add_record({fields}, {fields}, ...)</span>
+    <span class='comment val'>#   add_record(record_one, record_two, ...)</span>
+    <span class='comment val'>#   add_record([{fields}, {fields}], ...)</span>
+    <span class='comment val'>#   add_record(key =&gt; val, key2 =&gt; val)</span>
+    <span class='records identifier id'>records</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='if if kw'>if</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='eq op'>==</span> <span class='integer val'>1</span> <span class='andop op'>&amp;&amp;</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Array constant id'>Array</span><span class='rparen token'>)</span>
+      <span class='records identifier id'>records</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+    <span class='elsif elsif kw'>elsif</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span> 
+      <span class='records identifier id'>records</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span>
+    <span class='else else kw'>else</span>
+      <span class='raise identifier id'>raise</span> <span class='StandardError constant id'>StandardError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).&quot;</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  
+    <span class='comment val'># Add each record.</span>
+    <span class='records identifier id'>records</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='record identifier id'>record</span> <span class='bitor op'>|</span>
+      <span class='record identifier id'>record</span> <span class='assign token'>=</span> <span class='record_class identifier id'>record_class</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='record identifier id'>record</span><span class='comma token'>,</span> <span class='model_parent identifier id'>model_parent</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='record identifier id'>record</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Hash constant id'>Hash</span><span class='rparen token'>)</span>
+      <span class='raise identifier id'>raise</span> <span class='StandardError constant id'>StandardError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Record #{record.class.name} is not a #{record_class.name}.&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='record identifier id'>record</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='record_class identifier id'>record_class</span><span class='rparen token'>)</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='record identifier id'>record</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Dec 21 17:35:22 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
