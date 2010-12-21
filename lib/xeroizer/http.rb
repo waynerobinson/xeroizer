@@ -1,14 +1,31 @@
 module Xeroizer
   module Http
-        
+    
+    # Shortcut method for #http_request with `method` = :get.
+    #
+    # @param [OAuth] client OAuth client
+    # @param [String] url URL of request
+    # @param [Hash] extra_params extra query string parameters.
     def http_get(client, url, extra_params = {})
       http_request(client, :get, url, nil, extra_params)
     end
 
+    # Shortcut method for #http_request with `method` = :post.
+    #
+    # @param [OAuth] client OAuth client
+    # @param [String] url URL of request
+    # @param [String] body XML message to post.
+    # @param [Hash] extra_params extra query string parameters.
     def http_post(client, url, body, extra_params = {})
       http_request(client, :post, url, body, extra_params)
     end
 
+    # Shortcut method for #http_request with `method` = :put.
+    #
+    # @param [OAuth] client OAuth client
+    # @param [String] url URL of request
+    # @param [String] body XML message to put.
+    # @param [Hash] extra_params extra query string parameters.
     def http_put(client, url, body, extra_params = {})
       http_request(client, :put, url, body, extra_params)
     end

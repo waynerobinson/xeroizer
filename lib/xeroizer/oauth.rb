@@ -29,15 +29,37 @@ module Xeroizer
     extend Forwardable
     def_delegators :access_token, :get, :post, :put, :delete
     
+    # @attr_reader [String] ctoken consumer key/token from application developer (found at http://api.xero.com for your application).
+    # @attr_reader [String] csecret consumer secret from application developer (found at http://api.xero.com for your application).
+    # @attr_reader [Time] expires_at time the AccessToken expires if using the PartnerApplication mode (usually 30 minutes for Xero).
+    # @attr_reader [Time] authorization_expires_at time the session expires if using the ParnterApplication mode (usually 365 days for Xero).
     attr_reader :ctoken, :csecret, :consumer_options, :expires_at, :authorization_expires_at
-    attr_accessor :session_handle
     
+    # @attr_reader [String] session_handle session handle used to renew AccessToken if using the PartnerApplication mode.
+    # @attr_writer [String] session_handle session handle used to renew AccessToken if using the PartnerApplication mode.
+    attr_accessor :session_handle
+
+    # OAuth constructor.
+    #
+    # @param [String] ctoken consumer key/token from application developer (found at http://api.xero.com for your application).
+    # @param [String] csecret consumer secret from application developer (found at http://api.xero.com for your application).
+    # @option options [String] :access_token_path base URL path for getting an AccessToken (default: "/oauth/AccessToken")
+    # @option options [String] :authorize_path base URL path for authorising (default: "/oauth/Authorize")
+    # @option options [String] :ca_file file containing SSL root certificates (default: "lib/xeroizer/ca-certificates.crt")
+    # @option options [String] :private_key_file private key used when :signature_method set to RSA-SHA1 (used for PartnerApplication and PrivateApplication modes)
+    # @option options [String] :request_token_path base URL path for getting a RequestToken (default: "/oauth/RequestToken")
+    # @option options [String] :signature_method method usd to sign requests (default: OAuth library default)
+    # @option options [String] :site base site for API requests (default: "https://api.xero.com")
+    # @option options [OpenSSL:X509::Certificate] :ssl_client_cert client-side SSL certificate to use for requests (used for PartnerApplication mode)
+    # @option options [OpenSSL::PKey::RSA] :ssl_client_key client-side SSL private key to use for requests (used for PartnerApplication mode)
     def initialize(ctoken, csecret, options = {})
       @ctoken, @csecret = ctoken, csecret
       @consumer_options = XERO_CONSUMER_OPTIONS.merge(options)
     end
     
     # OAuth consumer creator.
+    # 
+    # @return [OAuth::Consumer] consumer object for GET/POST/PUT methods.
     def consumer
       @consumer ||= create_consumer
     end

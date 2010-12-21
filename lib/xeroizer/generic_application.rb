@@ -23,6 +23,10 @@ module Xeroizer
     
     public
     
+      # Never used directly. Use sub-classes instead.
+      # @see PublicApplication
+      # @see PrivateApplication
+      # @see PartnerApplication
       def initialize(consumer_key, consumer_secret, options = {})
         @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
         @client   = OAuth.new(consumer_key, consumer_secret, options)

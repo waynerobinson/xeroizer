@@ -6,6 +6,17 @@ module Xeroizer
     
     public
     
+      # Partner applications allow for public AccessToken's received via the stanard OAuth
+      # authentication process to be renewed up until the session's expiry. The default session
+      # expiry for Xero is 365 days and the default AccessToken expiry is 30 minutes.
+      # 
+      # @param [String] consumer_key consumer key/token from application developer (found at http://api.xero.com for your application).
+      # @param [String] consumer_secret consumer secret from application developer (found at http://api.xero.com for your application).
+      # @param [String] path_to_private_key application's private key for message signing (uploaded to http://api.xero.com)
+      # @param [String] path_to_ssl_client_cert client-side SSL certificate file to use for requests
+      # @param [String] path_to_ssl_client_key client-side SSL privat key to use for requests
+      # @param [Hash] options other options to pass to the GenericApplication constructor
+      # @return [PartnerApplication] instance of PrivateApplication
       def initialize(consumer_key, consumer_secret, path_to_private_key, path_to_ssl_client_cert, path_to_ssl_client_key, options = {})
         options.merge!(
           :xero_url => 'https://api-partner.network.xero.com/api.xro/2.0',
