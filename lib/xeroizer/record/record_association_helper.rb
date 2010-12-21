@@ -11,7 +11,8 @@ module Xeroizer
         def belongs_to(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
-          define_simple_attribute(field_name, :belongs_to, options)
+          
+          define_association_attribute(field_name, internal_singular_field_name, :belongs_to, options)
         
           # Create a #build_record_name method to build the record.
           define_method "build_#{internal_singular_field_name}" do | *args |
@@ -33,7 +34,7 @@ module Xeroizer
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
         
-          define_simple_attribute(field_name, :has_many, options)
+          define_association_attribute(field_name, internal_field_name, :has_many, options)
                   
           # Create an #add_record_name method to build the record and add to the attributes.
           define_method "add_#{internal_singular_field_name}" do | *args |
@@ -69,6 +70,20 @@ module Xeroizer
             end
           end
           
+        end
+        
+        def define_association_attribute(field_name, internal_field_name, association_type, options)
+          define_simple_attribute(field_name, association_type, options)
+
+          # Override reader for this association if this association belongs
+          # to a summary-typed record. This will automatically attempt to download
+          # the complete version of the record before accessing the association.
+          if list_contains_summary_only?
+            define_method internal_field_name do
+              download_complete_record! unless complete_record_downloaded?
+              @attributes[field_name]
+            end
+          end
         end
         
       end

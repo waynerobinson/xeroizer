@@ -5,9 +5,11 @@ class InvoiceTest < Test::Unit::TestCase
   
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    @invoice = @client.Invoice.build
-    @invoice.add_line_item(:description => "First Line", :quantity => 1, :unit_amount => 10, :account_code => '100', :tax_amount => 10, :tax_type => 'OUTPUT')
-    @invoice.add_line_item(:description => "Second Line", :quantity => 2, :unit_amount => 20, :account_code => '100', :tax_amount => 20, :tax_type => 'OUTPUT')
+    @client.stubs(:http_get).with {|client, url, params| url =~ /Invoices$/ }.returns(get_record_xml(:invoices))
+    @client.Invoice.all.each do | invoice |
+      @client.stubs(:http_get).with {|client, url, params| url =~ /Invoices\/#{invoice.id}$/ }.returns(get_record_xml(:invoice, invoice.id))
+    end
+    @invoice = @client.Invoice.first
   end
   
   context "invoice types" do
@@ -39,13 +41,12 @@ class InvoiceTest < Test::Unit::TestCase
     end
     
     should "total up amounts correctly" do
-      assert_equal(50, @invoice.sub_total)
-      assert_equal(30, @invoice.total_tax)
-      assert_equal(80, @invoice.total)
+      assert_equal(500, @invoice.sub_total)
+      assert_equal(50, @invoice.total_tax)
+      assert_equal(550, @invoice.total)
     end
     
     should "large-scale testing from API XML" do
-      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:invoices), :code => "200"))
       invoices = @client.Invoice.all
       invoices.each do | invoice |
         assert_equal(invoice.attributes[:sub_total], invoice.sub_total)
