@@ -6,7 +6,6 @@ class InvoiceTest < Test::Unit::TestCase
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
     mock_api('Invoices')
-    # @client.stubs(:http_get).with {|client, url, params| url =~ /Invoices$/ }.returns(get_record_xml(:invoices))
     @invoice = @client.Invoice.first
   end
   

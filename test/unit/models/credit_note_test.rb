@@ -4,8 +4,7 @@ class CreditNoteTest < Test::Unit::TestCase
   include TestHelper
   
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    
+    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)    
     mock_api("CreditNotes")
     @credit_note = @client.CreditNote.first
   end
