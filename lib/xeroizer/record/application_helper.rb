@@ -2,6 +2,11 @@ module Xeroizer
   module Record
     module ApplicationHelper
       
+      # Factory for new BaseModel instances with the class name `record_type`.
+      # Only creates the instance if one doesn't already exist.
+      #
+      # @param [Symbol] record_type Symbol of the record type (e.g. :Invoice)
+      # @return [BaseModel] instance of BaseModel subclass matching `record_type`
       def record(record_type)
         define_method record_type do
           var_name = "@#{record_type}_cache".to_sym
