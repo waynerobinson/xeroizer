@@ -43,12 +43,12 @@
     
     <div id="content"><div id='filecontents'><h1>Xeroizer API Library</h1>
 
-<p><strong>Homepage</strong>:       <a href="http://github.com/kondro/xeroizer">http://github.com/kondro/xeroizer</a>
-<strong>Git</strong>:                    <a href="https://github.com/kondro/xero_gateway.git">https://github.com/kondro/xero_gateway.git</a>
-<strong>Author</strong>:             Wayne Robinson
+<p><strong>Homepage</strong>:       <a href="http://github.com/kondro/xeroizer">http://github.com/kondro/xeroizer</a><br/>
+<strong>Git</strong>:                    <a href="https://github.com/kondro/xero_gateway.git">https://github.com/kondro/xero_gateway.git</a><br/>
+<strong>Author</strong>:             Wayne Robinson<br/>
 <strong>Contributors</strong>: See Contributors section below<br/>
 <strong>Copyright</strong>:    2007-2010 
-<strong>License</strong>:      MIT License </p>
+<strong>License</strong>:      MIT License   </p>
 
 <h2>Introduction</h2>
 
@@ -94,7 +94,7 @@ the user to re-authorise your application.</p>
 <span class='comment val'># 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to</span>
 <span class='comment val'>#    after they have authenticated your application.</span>
 <span class='comment val'>#</span>
-<span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in [http://api.xero.com](http://api.xero.com)</span>
+<span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com</span>
 <span class='comment val'>#          otherwise the user will not be redirected and only be shown the authentication code.</span>
 <span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
 
@@ -116,6 +116,67 @@ the user to re-authorise your application.</p>
 <pre class="code"><span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span>
 </pre>
 
+<h4>Example Rails Controller</h4>
+
+<pre class="code"><span class='class class kw'>class</span> <span class='XeroSessionController constant id'>XeroSessionController</span> <span class='lt op'>&lt;</span> <span class='ApplicationController constant id'>ApplicationController</span>
+
+    <span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:get_xero_client</span>
+
+    <span class='public identifier id'>public</span>
+
+        <span class='def def kw'>def</span> <span class='new identifier id'>new</span>
+            <span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/xero_session/create'</span><span class='rparen token'>)</span>
+            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
+            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+
+            <span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
+        <span class='end end kw'>end</span>
+
+        <span class='def def kw'>def</span> <span class='create identifier id'>create</span>
+            <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span>
+                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
+
+            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
+                    <span class='symbol val'>:access_token</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:access_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='key identifier id'>key</span> <span class='rbrace token'>}</span>
+
+            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_token</span><span class='rparen token'>)</span>
+            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_secret</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
+
+        <span class='def def kw'>def</span> <span class='destroy identifier id'>destroy</span>
+            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:xero_auth</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
+
+    <span class='private identifier id'>private</span>
+
+        <span class='def def kw'>def</span> <span class='get_xero_client identifier id'>get_xero_client</span>
+            <span class='@xero_client ivar id'>@xero_client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+
+            <span class='comment val'># Add AccessToken if authorised previously.</span>
+            <span class='if if kw'>if</span> <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span>
+                <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span>
+                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
+            <span class='end end kw'>end</span>
+        <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+
+<h4>Storing AccessToken</h4>
+
+<p>You can store the access token/secret pair so you can access the API again without user intervention. Currently these
+tokens are only valid for 30 minutes and will raise a <code>Xeroizer::OAuth::TokenExpired</code> exception if you try to access
+the API beyond the token's expiry time.</p>
+
+<p>If you want API access for longer consider creating a PartnerApplication which will allow you to renew tokens.</p>
+
+<pre class="code"><span class='access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
+<span class='access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+</pre>
+
 <h3>Private Applications</h3>
 
 <p>Private applications use a 2-legged authorisation process. When you register your application, you will select 
@@ -132,7 +193,7 @@ generate this keypair on Mac OSX or Linux with OpenSSL. For example:</p>
 <span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='export identifier id'>export</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='public_privatekey identifier id'>public_privatekey</span><span class='dot token'>.</span><span class='pfx identifier id'>pfx</span> <span class='minus op'>-</span><span class='inkey identifier id'>inkey</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='cer identifier id'>cer</span>
 </pre>
 
-<p>You need to upload this public_privatekey.pfx file to your private application in <a href="http://api.xero.com">http://api.xero.com</a>.</p>
+<p>You need to upload this <code>public_privatekey.pfx</code> file to your private application in <a href="http://api.xero.com">http://api.xero.com</a>.</p>
 
 <p>Example usage:</p>
 
@@ -149,11 +210,86 @@ certificate signing.</p>
 get permission to create a partner application and for them to send you information on obtaining your client-side SSL
 certificate.</p>
 
+<p>Ruby's OpenSSL library rqeuires the certificate and private key to be extracted from the <code>entrust-client.p12</code> file
+downloaded via Xero's instructions. To extract:</p>
+
+<pre class="code"><span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='client identifier id'>client</span><span class='dot token'>.</span><span class='p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='clcerts identifier id'>clcerts</span> <span class='minus op'>-</span><span class='nokeys identifier id'>nokeys</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='cert identifier id'>cert</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
+<span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='client identifier id'>client</span><span class='dot token'>.</span><span class='p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='nocerts identifier id'>nocerts</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
+<span class='openssl identifier id'>openssl</span> <span class='rsa identifier id'>rsa</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='minus op'>-</span><span class='nopass identifier id'>nopass</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
+
+<span class='comment val'># This last step removes the password that you added to the private key</span>
+<span class='comment val'># when it was exported.</span>
+</pre>
+
 <p>After you have followed the instructions provided by Xero for partner applications and uploaded your certificate you can
-access the partner application in a similar way to public applications.</p></div></div>
+access the partner application in a similar way to public applications.</p>
+
+<p>Authentication occcurs in 3 steps:</p>
+
+<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PartnerApplication constant id'>PartnerApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span>
+                    <span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
+                    <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> 
+                    <span class='string val'>&quot;/path/to/privatekey.pem&quot;</span><span class='comma token'>,</span>
+                    <span class='string val'>&quot;/path/to/entrust-cert.pem&quot;</span><span class='comma token'>,</span>
+                    <span class='string val'>&quot;/path/to/entrust-private-nopass.pem&quot;</span><span class='comma token'>,</span>
+                    <span class='ENTRUST_PRIVATE_KEY_PASSWORD constant id'>ENTRUST_PRIVATE_KEY_PASSWORD</span>
+                    <span class='rparen token'>)</span>
+
+<span class='comment val'># 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to</span>
+<span class='comment val'>#    after they have authenticated your application.</span>
+<span class='comment val'>#</span>
+<span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com</span>
+<span class='comment val'>#          otherwise the user will not be redirected and only be shown the authentication code.</span>
+<span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
+
+<span class='comment val'># 2. Redirect the user to the URL specified by the RequestToken.</span>
+<span class='comment val'>#    </span>
+<span class='comment val'>#    Note: example uses redirect_to method defined in Rails controllers.</span>
+<span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
+
+<span class='comment val'># 3. Exchange RequestToken for AccessToken.</span>
+<span class='comment val'>#    This access token will be used for all subsequent requests but it is stored within the client</span>
+<span class='comment val'>#    application so you don't have to record it. </span>
+<span class='comment val'>#</span>
+<span class='comment val'>#    Note: This example assumes the callback URL is a Rails action.</span>
+<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+</pre>
+
+<p>This AccessToken will last for 30 minutes however, when using the partner application API you can
+renew this token. To be able to renew this token, you need to save the following data from this organisation's
+AccessToken:</p>
+
+<pre class="code"><span class='session_handle identifier id'>session_handle</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='session_handle identifier id'>session_handle</span>
+<span class='access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
+<span class='access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+</pre>
+
+<p>Two other interesting attributes of the PartnerApplication client are:</p>
+
+<blockquote>
+    <p><strong><code>#expires_at</code></strong>:                                Time this AccessToken will expire (usually 30 minutes into the future).<br/>
+    <strong><code>#authorization_expires_at</code></strong>:  How long this organisation has authorised you to access their data (usually 365 days into the future).      </p>
+</blockquote>
+
+<h4>AccessToken Renewal</h4>
+
+<p>Renewal of an access token requires knowledge of the previous access token generated for this organisation. To renew:</p>
+
+<pre class="code"><span class='comment val'># If you still have a client instance.</span>
+<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='renew_access_token identifier id'>renew_access_token</span>
+
+<span class='comment val'># If you are renewing from stored token/session details.</span>
+<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='access_key identifier id'>access_key</span><span class='comma token'>,</span> <span class='access_secret identifier id'>access_secret</span><span class='comma token'>,</span> <span class='session_handle identifier id'>session_handle</span><span class='rparen token'>)</span>
+</pre>
+
+<p>This will invalidate the previous token and refresh the <code>access_key</code> and <code>access_secret</code> as specified in the
+initial authorisation process. You must always know the previous token's details to renew access to this
+session.</p>
+
+<p>If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.</p></div></div>
     
     <div id="footer">
-  Generated on Wed Dec 22 00:24:33 2010 by 
+  Generated on Wed Dec 22 10:13:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
