@@ -566,13 +566,13 @@ A new instance of BaseModel
       <pre class="lines">
 
 
+43
 44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 43</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='comma token'>,</span> <span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span>
   <span class='@application ivar id'>@application</span> <span class='assign token'>=</span> <span class='application identifier id'>application</span>
@@ -616,12 +616,12 @@ Returns the value of attribute application
       <pre class="lines">
 
 
+13
 14
-15
-16</pre>
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 13</span>
 
 <span class='def def kw'>def</span> <span class='application identifier id'>application</span>
   <span class='@application ivar id'>@application</span>
@@ -659,12 +659,12 @@ Returns the value of attribute model_name
       <pre class="lines">
 
 
+14
 15
-16
-17</pre>
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 14</span>
 
 <span class='def def kw'>def</span> <span class='model_name identifier id'>model_name</span>
   <span class='@model_name ivar id'>@model_name</span>
@@ -702,12 +702,12 @@ Returns the value of attribute response
       <pre class="lines">
 
 
+15
 16
-17
-18</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 15</span>
 
 <span class='def def kw'>def</span> <span class='response identifier id'>response</span>
   <span class='@response ivar id'>@response</span>
@@ -754,12 +754,12 @@ then the default is Invoices.
       <pre class="lines">
 
 
+24
 25
-26
-27</pre>
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 24</span>
 
 <span class='def def kw'>def</span> <span class='set_api_controller_name identifier id'>set_api_controller_name</span><span class='lparen token'>(</span><span class='controller_name identifier id'>controller_name</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='api_controller_name identifier id'>api_controller_name</span> <span class='assign token'>=</span> <span class='controller_name identifier id'>controller_name</span>
@@ -795,16 +795,16 @@ set by default. Valid permissions are :read, :write, :update.
       <pre class="lines">
 
 
+31
 32
 33
 34
 35
 36
-37
-38</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 31</span>
 
 <span class='def def kw'>def</span> <span class='set_permissions identifier id'>set_permissions</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='permissions identifier id'>permissions</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -862,14 +862,14 @@ Retreive full record list for this model.
       <pre class="lines">
 
 
+79
 80
 81
 82
-83
-84</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 79</span>
 
 <span class='def def kw'>def</span> <span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='raise identifier id'>raise</span> <span class='MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
@@ -910,12 +910,12 @@ then the default is Invoices.
       <pre class="lines">
 
 
+52
 53
-54
-55</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='api_controller_name identifier id'>api_controller_name</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='api_controller_name identifier id'>api_controller_name</span> <span class='orop op'>||</span> <span class='model_name identifier id'>model_name</span><span class='dot token'>.</span><span class='pluralize identifier id'>pluralize</span>
@@ -950,12 +950,12 @@ Build a record with attributes set to the value of attributes.
       <pre class="lines">
 
 
+74
 75
-76
-77</pre>
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 74</span>
 
 <span class='def def kw'>def</span> <span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -1003,17 +1003,17 @@ Retrieve record matching the passed in ID.
       <pre class="lines">
 
 
+94
 95
 96
 97
 98
 99
 100
-101
-102</pre>
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 94</span>
 
 <span class='def def kw'>def</span> <span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='raise identifier id'>raise</span> <span class='MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
@@ -1066,14 +1066,14 @@ Helper method to retrieve just the first element from the full record list.
       <pre class="lines">
 
 
+87
 88
 89
 90
-91
-92</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 87</span>
 
 <span class='def def kw'>def</span> <span class='first identifier id'>first</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='raise identifier id'>raise</span> <span class='MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
@@ -1099,12 +1099,12 @@ Helper method to retrieve just the first element from the full record list.
       <pre class="lines">
 
 
+61
 62
-63
-64</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 61</span>
 
 <span class='def def kw'>def</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
@@ -1128,12 +1128,12 @@ Helper method to retrieve just the first element from the full record list.
       <pre class="lines">
 
 
+69
 70
-71
-72</pre>
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 69</span>
 
 <span class='def def kw'>def</span> <span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
@@ -1157,12 +1157,12 @@ Helper method to retrieve just the first element from the full record list.
       <pre class="lines">
 
 
+65
 66
-67
-68</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 65</span>
 
 <span class='def def kw'>def</span> <span class='http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
@@ -1210,6 +1210,7 @@ Parse the response retreived during any request.
       <pre class="lines">
 
 
+104
 105
 106
 107
@@ -1236,11 +1237,10 @@ Parse the response retreived during any request.
 128
 129
 130
-131
-132</pre>
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 104</span>
 
 <span class='def def kw'>def</span> <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='raw_response identifier id'>raw_response</span><span class='comma token'>,</span> <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@response ivar id'>@response</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Response constant id'>Response</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
@@ -1300,12 +1300,12 @@ URL end-point for this model.
       <pre class="lines">
 
 
+57
 58
-59
-60</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 57</span>
 
 <span class='def def kw'>def</span> <span class='url identifier id'>url</span>
   <span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='xero_url identifier id'>xero_url</span> <span class='plus op'>+</span> <span class='string val'>'/'</span> <span class='plus op'>+</span> <span class='api_controller_name identifier id'>api_controller_name</span>
@@ -1321,7 +1321,7 @@ URL end-point for this model.
 </div>
     
     <div id="footer">
-  Generated on Wed Dec 22 09:33:15 2010 by 
+  Generated on Wed Dec 22 11:40:38 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

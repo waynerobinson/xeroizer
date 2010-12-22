@@ -78,7 +78,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inheritable_attributes-instance_method" title="#inheritable_attributes (instance method)">- (Object) <strong>inheritable_attributes</strong>(*args) </a>
+      <a href="#class_inheritable_attributes-instance_method" title="#class_inheritable_attributes (instance method)">- (Object) <strong>class_inheritable_attributes</strong>(*args) </a>
     
 
     
@@ -127,9 +127,9 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="inheritable_attributes-instance_method">
+  <p class="signature first" id="class_inheritable_attributes-instance_method">
   
-    - (<tt>Object</tt>) <strong>inheritable_attributes</strong>(*args) 
+    - (<tt>Object</tt>) <strong>class_inheritable_attributes</strong>(*args) 
   
 
   
@@ -153,15 +153,15 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/class_level_inheritable_attributes.rb', line 7</span>
 
-<span class='def def kw'>def</span> <span class='inheritable_attributes identifier id'>inheritable_attributes</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
-  <span class='@inheritable_attributes ivar id'>@inheritable_attributes</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='symbol val'>:inheritable_attributes</span><span class='rbrack token'>]</span>
-  <span class='@inheritable_attributes ivar id'>@inheritable_attributes</span> <span class='opasgn op'>+=</span> <span class='args identifier id'>args</span>
+<span class='def def kw'>def</span> <span class='class_inheritable_attributes identifier id'>class_inheritable_attributes</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='@xeroizer_inheritable_attributes ivar id'>@xeroizer_inheritable_attributes</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='symbol val'>:inheritable_attributes</span><span class='rbrack token'>]</span>
+  <span class='@xeroizer_inheritable_attributes ivar id'>@xeroizer_inheritable_attributes</span> <span class='opasgn op'>+=</span> <span class='args identifier id'>args</span>
   <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='arg identifier id'>arg</span><span class='bitor op'>|</span>
     <span class='class_eval identifier id'>class_eval</span> <span class='dstring node'>%(
       class &lt;&lt; self; attr_accessor :#{arg} end
     )</span>
   <span class='end end kw'>end</span>
-  <span class='@inheritable_attributes ivar id'>@inheritable_attributes</span>
+  <span class='@xeroizer_inheritable_attributes ivar id'>@xeroizer_inheritable_attributes</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -193,7 +193,7 @@
       <pre class="code"><span class="info file"># File 'lib/class_level_inheritable_attributes.rb', line 18</span>
 
 <span class='def def kw'>def</span> <span class='inherited identifier id'>inherited</span><span class='lparen token'>(</span><span class='subclass identifier id'>subclass</span><span class='rparen token'>)</span>
-  <span class='@inheritable_attributes ivar id'>@inheritable_attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='inheritable_attribute identifier id'>inheritable_attribute</span><span class='bitor op'>|</span>
+  <span class='@xeroizer_inheritable_attributes ivar id'>@xeroizer_inheritable_attributes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='inheritable_attribute identifier id'>inheritable_attribute</span><span class='bitor op'>|</span>
     <span class='instance_var identifier id'>instance_var</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{inheritable_attribute}&quot;</span>
     <span class='subclass identifier id'>subclass</span><span class='dot token'>.</span><span class='instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='instance_var identifier id'>instance_var</span><span class='comma token'>,</span> <span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='instance_var identifier id'>instance_var</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
@@ -209,7 +209,7 @@
 </div>
     
     <div id="footer">
-  Generated on Wed Dec 22 09:33:16 2010 by 
+  Generated on Wed Dec 22 11:40:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

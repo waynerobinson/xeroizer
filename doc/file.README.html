@@ -286,10 +286,173 @@ AccessToken:</p>
 initial authorisation process. You must always know the previous token's details to renew access to this
 session.</p>
 
-<p>If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.</p></div></div>
+<p>If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.</p>
+
+<h2>Retrieving Data</h2>
+
+<p>Each of the below record types is implemented within this library. To allow for multiple access tokens to be used at the same
+time in a single application, the model classes are accessed from the instance of PublicApplication, PrivateApplication
+or PartnerApplication. All class-level operations occur on this singleton. For example:</p>
+
+<pre class="code"><span class='xero identifier id'>xero</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+<span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
+
+<span class='new_contact identifier id'>new_contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Development'</span><span class='rparen token'>)</span>
+<span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='new_contact identifier id'>new_contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+</pre>
+
+<h3>#all(options = {})</h3>
+
+<p>Retrieves list of all records with matching options. </p>
+
+<p><strong>Note:</strong> Some records (Invoice, CreditNote) only return summary information for the contact and no line items
+when returning them this list operation. This library takes care of automatically retrieving the 
+contact and line items from Xero on first access however, this first access has a large performance penalty
+and will count as an extra query towards your 1,000/day and 60/minute request per organisation limit.</p>
+
+<p>Valid options are:</p>
+
+<blockquote>
+    <p><strong>:modified_since</strong></p>
+    
+    <p>Records modified after this <code>Time</code> (must be specified in UTC).</p>
+    
+    <p><strong>:order</strong></p>
+    
+    <p>Field to order by. Should be formatted as Xero-based field (e.g. 'Name', 'ContactID', etc)</p>
+    
+    <p><strong>:where</strong></p>
+    
+    <p>Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
+    in the resulting response, including all nested XML elements.</p>
+    
+    <p><strong>Example 1: Retrieve all invoices for a specific contact ID:</strong></p>
+
+<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.ContactID.ToString()==&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;'</span><span class='rparen token'>)</span>
+</pre>
+    
+    <p><strong>Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:</strong></p>
+
+<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.Name==&quot;Basket Case&quot; &amp;&amp; Type==&quot;ACCREC&quot; &amp;&amp; AmountDue&lt;&gt;0'</span><span class='rparen token'>)</span>
+</pre>
+    
+    <p><strong>Example 3: Retrieve all Invoices PAID between certain dates</strong></p>
+
+<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FullyPaidOnDate&gt;=DateTime.Parse(&quot;2010-01-01T00:00:00&quot;)&amp;&amp;FullyPaidOnDate&lt;=DateTime.Parse(&quot;2010-01-08T00:00:00&quot;)'</span><span class='rparen token'>)</span>
+</pre>
+    
+    <p><strong>Example 4: Retrieve all Bank Accounts:</strong></p>
+
+<pre class="code">  <span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Account constant id'>Account</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Type==&quot;BANK&quot;'</span><span class='rparen token'>)</span>
+</pre>
+    
+    <p><strong>Example 5: Retrieve all DELETED or VOIDED Invoices:</strong></p>
+
+<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Status==&quot;VOIDED&quot; OR Status==&quot;DELETED&quot;'</span><span class='rparen token'>)</span>
+</pre>
+    
+    <p><strong>Example 6: Retrieve all contacts with specific text in the contact name:</strong></p>
+
+<pre class="code">  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.Contains(&quot;Peter&quot;)'</span><span class='rparen token'>)</span>
+  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.StartsWith(&quot;Pet&quot;)'</span><span class='rparen token'>)</span>
+  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.EndsWith(&quot;er&quot;)'</span><span class='rparen token'>)</span>
+</pre>
+</blockquote>
+
+<h3>#first(options = {})</h3>
+
+<p>This is a shortcut method for <code>all</code> and actually runs all however, this method only returns the
+first entry returned by all and never an array.</p>
+
+<h3>#find(id)</h3>
+
+<p>Looks up a single record matching <code>id</code>. This ID can either be the internal GUID Xero uses for the record
+or, in the case of Invoice, CreditNote and Contact records, your own custom reference number used when
+creating these records.</p>
+
+<h2>Associations</h2>
+
+<p>Records may be associated with each other via two different methods, <code>has_many</code> and <code>belongs_to</code>.</p>
+
+<p><strong>has_many example:</strong></p>
+
+<pre class="code"><span class='invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
+<span class='invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='line_item identifier id'>line_item</span> <span class='bitor op'>|</span>
+    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Line Description: #{line_item.description}&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+
+<p><strong>belongs_to example:</strong></p>
+
+<pre class="code"><span class='invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
+<span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Invoice Contact Name: #{invoice.contact.name}&quot;</span>
+</pre>
+
+<h2>Creating/Updating Data</h2>
+
+<h3>Creating</h3>
+
+<p>New records can be created like:</p>
+
+<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact Name'</span><span class='rparen token'>)</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='first_name identifier id'>first_name</span> <span class='assign token'>=</span> <span class='string val'>'Joe'</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='last_name identifier id'>last_name</span> <span class='assign token'>=</span> <span class='string val'>'Bloggs'</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'DEFAULT'</span><span class='comma token'>,</span> <span class='symbol val'>:area_code</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'07'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'3033 1234'</span><span class='rparen token'>)</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'MOBILE'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'0412 123 456'</span><span class='rparen token'>)</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+</pre>
+
+<p>To add to a <code>has_many</code> association use the <code>add_{association}</code> method. For example:</p>
+
+<pre class="code"><span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
+</pre>
+
+<p>To add to a <code>belongs_to</code> association use the <code>build_{association}</code> method. For example:</p>
+
+<pre class="code"><span class='invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='build_contact identifier id'>build_contact</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Company'</span><span class='rparen token'>)</span>
+</pre>
+
+<h3>Updating</h3>
+
+<p>If the primary GUID for the record is present, the library will attempt to update the record instead of
+creating it. It is important that this record is downloaded from the Xero API first before attempting
+an update. For example:</p>
+
+<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;</span><span class='rparen token'>)</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='assign token'>=</span> <span class='string val'>&quot;Another Name Change&quot;</span>
+<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+</pre>
+
+<p>Have a look at the models in <code>lib/xeroizer/models/</code> to see the valid attributes, associations and 
+minimum validation requirements for each of the record types.</p>
+
+<h3>Errors</h3>
+
+<p>If a record doesn't match it's internal validation requirements the <code>#save</code> method will return
+<code>false</code> and the <code>#errors</code> attribute will be populated with what went wrong.</p>
+
+<p>For example:</p>
+
+<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span>
+<span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+
+<span class='comment val'># contact.errors will contain [[:name, &quot;can't be blank&quot;]]</span>
+</pre>
+
+<p>#errors_for(:attribute_name) is a helper method to return just the errors associated with
+that attribute. For example:</p>
+
+<pre class="code"><span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='errors_for identifier id'>errors_for</span><span class='lparen token'>(</span><span class='symbol val'>:name</span><span class='rparen token'>)</span> <span class='comment val'># will contain [&quot;can't be blank&quot;]</span>
+</pre>
+
+<p>If something goes really wrong and the particular validation isn't handled by the internal
+validators then the library may raise a <code>Xeroizer::ApiException</code>.</p></div></div>
     
     <div id="footer">
-  Generated on Wed Dec 22 10:13:30 2010 by 
+  Generated on Wed Dec 22 11:40:36 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

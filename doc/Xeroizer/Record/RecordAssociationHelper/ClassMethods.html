@@ -250,7 +250,7 @@
   <span class='comment val'># the complete version of the record before accessing the association.</span>
   <span class='if if kw'>if</span> <span class='list_contains_summary_only? fid id'>list_contains_summary_only?</span>
     <span class='define_method identifier id'>define_method</span> <span class='internal_field_name identifier id'>internal_field_name</span> <span class='do do kw'>do</span>
-      <span class='download_complete_record! fid id'>download_complete_record!</span> <span class='unless unless_mod kw'>unless</span> <span class='complete_record_downloaded? fid id'>complete_record_downloaded?</span>
+      <span class='download_complete_record! fid id'>download_complete_record!</span> <span class='unless unless_mod kw'>unless</span> <span class='new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='complete_record_downloaded? fid id'>complete_record_downloaded?</span>
       <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
@@ -371,7 +371,7 @@
 </div>
     
     <div id="footer">
-  Generated on Wed Dec 22 09:33:15 2010 by 
+  Generated on Wed Dec 22 11:40:38 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

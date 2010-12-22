@@ -249,4 +249,138 @@ or PartnerApplication. All class-level operations occur on this singleton. For e
 	contacts = xero.Contact.all(:order => 'Name')
 	
 	new_contact = xero.Contact.build(:name => 'ABC Development')
-	new_contact.save
+	saved = new_contact.save
+
+### \#all(options = {})
+
+Retrieves list of all records with matching options. 
+
+**Note:** Some records (Invoice, CreditNote) only return summary information for the contact and no line items
+when returning them this list operation. This library takes care of automatically retrieving the 
+contact and line items from Xero on first access however, this first access has a large performance penalty
+and will count as an extra query towards your 1,000/day and 60/minute request per organisation limit.
+
+Valid options are:
+
+> **:modified\_since**
+
+> Records modified after this `Time` (must be specified in UTC).
+
+> **:order**
+
+> Field to order by. Should be formatted as Xero-based field (e.g. 'Name', 'ContactID', etc)
+
+> **:where**
+
+> Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
+> in the resulting response, including all nested XML elements.
+> 
+> **Example 1: Retrieve all invoices for a specific contact ID:**
+> 
+> 		invoices = xero.Invoice.all(:where => 'Contact.ContactID.ToString()=="cd09aa49-134d-40fb-a52b-b63c6a91d712"')
+> 	
+> **Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:**
+> 	
+> 		invoices = xero.Invoice.all(:where => 'Contact.Name=="Basket Case" && Type=="ACCREC" && AmountDue<>0')
+> 	
+> **Example 3: Retrieve all Invoices PAID between certain dates**
+> 	
+> 		invoices = xero.Invoice.all(:where => 'FullyPaidOnDate>=DateTime.Parse("2010-01-01T00:00:00")&&FullyPaidOnDate<=DateTime.Parse("2010-01-08T00:00:00")')
+> 	
+> **Example 4: Retrieve all Bank Accounts:**
+> 	
+> 		accounts = xero.Account.all(:where => 'Type=="BANK"')
+> 	
+> **Example 5: Retrieve all DELETED or VOIDED Invoices:**
+> 	
+> 		invoices = xero.Invoice.all(:where => 'Status=="VOIDED" OR Status=="DELETED"')
+> 	
+> **Example 6: Retrieve all contacts with specific text in the contact name:**
+> 
+> 		contacts = xero.Contact.all(:where => 'Name.Contains("Peter")')
+> 		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
+> 		contacts = xero.Contact.all(:where => 'Name.EndsWith("er")')
+
+### \#first(options = {})
+
+This is a shortcut method for `all` and actually runs all however, this method only returns the
+first entry returned by all and never an array.
+
+### \#find(id)
+
+Looks up a single record matching `id`. This ID can either be the internal GUID Xero uses for the record
+or, in the case of Invoice, CreditNote and Contact records, your own custom reference number used when
+creating these records.
+
+Associations
+------------
+
+Records may be associated with each other via two different methods, `has_many` and `belongs_to`.
+
+**has\_many example:**
+
+	invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+	invoice.line_items.each do | line_item |
+		puts "Line Description: #{line_item.description}"
+	end
+	
+**belongs\_to example:**
+
+	invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+	puts "Invoice Contact Name: #{invoice.contact.name}"
+
+Creating/Updating Data
+----------------------
+
+### Creating
+
+New records can be created like:
+
+	contact = xero.Contact.build(:name => 'Contact Name')
+	contact.first_name = 'Joe'
+	contact.last_name = 'Bloggs'
+	contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
+	contact.add_phone(:type => 'DEFAULT', :area_code => '07', :number => '3033 1234')
+	contact.add_phone(:type => 'MOBILE', :number => '0412 123 456')
+	contact.save
+	
+To add to a `has_many` association use the `add_{association}` method. For example:
+
+	contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
+	
+To add to a `belongs_to` association use the `build_{association}` method. For example:
+	
+	invoice.build_contact(:name => 'ABC Company')
+
+### Updating
+	
+If the primary GUID for the record is present, the library will attempt to update the record instead of
+creating it. It is important that this record is downloaded from the Xero API first before attempting
+an update. For example:
+
+	contact = xero.Contact.find("cd09aa49-134d-40fb-a52b-b63c6a91d712")
+	contact.name = "Another Name Change"
+	contact.save
+	
+Have a look at the models in `lib/xeroizer/models/` to see the valid attributes, associations and 
+minimum validation requirements for each of the record types.
+
+### Errors
+
+If a record doesn't match it's internal validation requirements the `#save` method will return
+`false` and the `#errors` attribute will be populated with what went wrong.
+
+For example:
+
+	contact = xero.Contact.build
+	saved = contact.save
+	
+	# contact.errors will contain [[:name, "can't be blank"]]
+	
+\#errors\_for(:attribute\_name) is a helper method to return just the errors associated with
+that attribute. For example:
+
+	contact.errors_for(:name) # will contain ["can't be blank"]
+
+If something goes really wrong and the particular validation isn't handled by the internal
+validators then the library may raise a `Xeroizer::ApiException`.
