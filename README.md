@@ -1,8 +1,8 @@
 Xeroizer API Library
 ====================
 
-**Homepage**: 		[http://github.com/kondro/xeroizer](http://github.com/kondro/xeroizer)	
-**Git**: 					[https://github.com/kondro/xero_gateway.git](https://github.com/kondro/xero_gateway.git)	
+**Homepage**: 		[http://github.com/waynerobinson/xeroizer](http://github.com/kondro/xeroizer)	
+**Git**: 					[https://github.com/waynerobinson/xero_gateway.git](https://github.com/kondro/xero_gateway.git)	
 **Author**: 			Wayne Robinson	
 **Contributors**: See Contributors section below	
 **Copyright**:    2007-2010		
