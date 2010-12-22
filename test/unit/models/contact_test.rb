@@ -14,7 +14,7 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(false, @contact.valid?)
       blank_error = @contact.errors_for(:name).first
       assert_not_nil(blank_error)
-      assert_equal("can't be blank", blank_error[1])
+      assert_equal("can't be blank", blank_error)
       
       @contact.name = "SOMETHING"
       assert_equal(true, @contact.valid?)

@@ -39,7 +39,7 @@ class ValidatorsTest < Test::Unit::TestCase
       assert_equal(false, @record.valid?)
       error = @record.errors_for(:contact).first
       assert_not_nil(error)
-      assert_equal('association_invalid', error[1])
+      assert_equal('association_invalid', error)
       
       # Valid contact
       @record.build_contact({:name => 'VALID NAME'})
@@ -64,14 +64,14 @@ class ValidatorsTest < Test::Unit::TestCase
       @record.addresses[0].type = "INVALID TYPE"
       @record.valid?
       error = @record.errors_for(:addresses).first
-      assert_equal('association_invalid_blank', error[1])
+      assert_equal('association_invalid_blank', error)
       
       # One invalid address
       @record.add_address(:type => 'STREET')
       assert_equal(2, @record.addresses.size)
       @record.valid?
       error = @record.errors_for(:addresses).first
-      assert_equal('association_invalid_blank', error[1])      
+      assert_equal('association_invalid_blank', error)      
     end
     
   end
@@ -83,14 +83,14 @@ class ValidatorsTest < Test::Unit::TestCase
       assert_equal(false, @record.valid?)
       error = @record.errors_for(:type).first
       assert_not_nil(error)
-      assert_equal('not_included', error[1])
+      assert_equal('not_included', error)
       
       # Invalid type
       @record.type = 'phone not valid'
       @record.valid?
       error = @record.errors_for(:type).first
       assert_not_nil(error)
-      assert_equal('not_included', error[1])
+      assert_equal('not_included', error)
       
       # Valid type
       %w(phone fax mobile).each do | valid_type |
@@ -112,7 +112,7 @@ class ValidatorsTest < Test::Unit::TestCase
       @record.valid?
       error = @record.errors_for(:type_blank).first
       assert_not_nil(error)
-      assert_equal('not_included_blank', error[1])
+      assert_equal('not_included_blank', error)
       
       # Valid type_blank
       %w(phone fax mobile).each do | valid_type |
@@ -131,7 +131,7 @@ class ValidatorsTest < Test::Unit::TestCase
       assert_equal(false, @record.valid?)
       error = @record.errors_for(:name).first
       assert_not_nil(error)
-      assert_equal('blank', error[1])
+      assert_equal('blank', error)
       
       @record.name = "NOT BLANK"
       @record.valid?
@@ -143,7 +143,7 @@ class ValidatorsTest < Test::Unit::TestCase
       @record.value = 10
       assert_equal(false, @record.valid?)
       error = @record.errors_for(:name_conditional_if).first
-      assert_equal('blank_if_10', error[1])
+      assert_equal('blank_if_10', error)
       
       @record.name_conditional_if = "NOT BLANK"
       @record.valid?
@@ -161,7 +161,7 @@ class ValidatorsTest < Test::Unit::TestCase
       @record.value = 50
       assert_equal(false, @record.valid?)
       error = @record.errors_for(:name_conditional_unless).first
-      assert_equal('blank_unless_20', error[1])
+      assert_equal('blank_unless_20', error)
       
       @record.name_conditional_unless = "NOT BLANK"
       @record.valid?
