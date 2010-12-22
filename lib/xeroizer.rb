@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'forwardable'
 require "active_support/inflector"
+# require "active_support/core_ext"
 require 'oauth'
 require 'oauth/signature/rsa/sha1'
 require 'nokogiri'

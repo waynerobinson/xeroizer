@@ -53,9 +53,8 @@ class OAuthTest < Test::Unit::TestCase
       Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_file_as_string("api_exception.xml"), :code => "400"))
       
       assert_raises Xeroizer::ApiException do
-        invoice = @client.Invoice.build(:type => 'ACCREC')
-        invoice.build_contact(:name => 'Test Contact')
-        invoice.save
+        contact = @client.Contact.build(:name => 'Test Contact')
+        contact.save
       end
     end
     
@@ -63,9 +62,8 @@ class OAuthTest < Test::Unit::TestCase
       Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => "<RandomRootElement></RandomRootElement>", :code => "200"))
       
       assert_raises Xeroizer::UnparseableResponse do
-        invoice = @client.Invoice.build(:type => 'ACCREC')
-        invoice.build_contact(:name => 'Test Contact')
-        invoice.save
+        contact = @client.Contact.build(:name => 'Test Contact')
+        contact.save
       end      
     end
     

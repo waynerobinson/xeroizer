@@ -15,11 +15,13 @@ module Xeroizer
               
             when :has_many
               return true if options[:allow_blanks] && (record[attribute].nil? || (record[attribute].is_a?(Array) && record[attribute].size == 0))
-              record.errors << [attribute, "must have one or more records"] unless record[attribute].is_a?(Array) && record[attribute].size > 0
-              unless record[attribute].all? { | r | r.is_a?(Xeroizer::Record::Base) && r.valid? }
-                record.errors << [attribute, options[:message] || "must all be valid"]
+              if record[attribute].is_a?(Array) && record[attribute].size > 0
+                unless record[attribute].all? { | r | r.is_a?(Xeroizer::Record::Base) && r.valid? }
+                  record.errors << [attribute, options[:message] || "must all be valid"]
+                end
+              else
+                record.errors << [attribute, "must have one or more records"] 
               end
-              
           end
         end
         

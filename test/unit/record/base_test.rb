@@ -5,7 +5,7 @@ class RecordBaseTest < Test::Unit::TestCase
 
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    @contact = @client.Contact.build
+    @contact = @client.Contact.build(:name => 'Test Contact Name ABC')
   end
   
   context "base record" do
@@ -36,7 +36,7 @@ class RecordBaseTest < Test::Unit::TestCase
       Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       assert_equal(true, @contact.new_record?)
       assert_nil(@contact.contact_id)
-      @contact.save
+      assert_equal(true, @contact.save, "Error saving contact: #{@contact.errors.inspect}")
       assert_equal(false, @contact.new_record?)
       assert(@contact.contact_id =~ GUID_REGEX, "@contact.contact_id is not a GUID, it is '#{@contact.contact_id}'")
     end

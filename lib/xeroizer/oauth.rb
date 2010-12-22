@@ -87,6 +87,9 @@ module Xeroizer
     # Used for PRIVATE applications where the AccessToken uses the 
     # token/secret from Xero which would normally be used in the request.
     # No request authorisation necessary.
+    #
+    # For PUBLIC/PARTNER applications this is used to recreate a client
+    # from a stored AccessToken key/secret.
     def authorize_from_access(atoken, asecret)
       @atoken, @asecret = atoken, asecret
     end

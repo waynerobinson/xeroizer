@@ -80,7 +80,7 @@ module Xeroizer
           # the complete version of the record before accessing the association.
           if list_contains_summary_only?
             define_method internal_field_name do
-              download_complete_record! unless complete_record_downloaded?
+              download_complete_record! unless new_record? || complete_record_downloaded?
               @attributes[field_name]
             end
           end

@@ -4,7 +4,7 @@ module Xeroizer
     class Base
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :summary_only, :validators
+      class_inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :summary_only, :validators
                  
       attr_reader :attributes
       attr_reader :parent
@@ -70,11 +70,13 @@ module Xeroizer
         end
         
         def save
+          return false unless valid?
           if new_record?
             create
           else
             update
           end
+          true
         end
                 
       protected

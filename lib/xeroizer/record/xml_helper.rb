@@ -76,7 +76,13 @@ module Xeroizer
                 end
                 b.tag!(field[:api_name], real_value)
 
-              when :date        then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%d"))
+              when :date
+                real_value = case value
+                  when Date         then 
+                  when Time         then value.utc.strftime("%Y-%m-%d")
+                end
+                b.tag!(field[:api_name], real_value)
+                
               when :datetime    then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%dT%H:%M:%S"))
               when :belongs_to  
                 value.to_xml(b)

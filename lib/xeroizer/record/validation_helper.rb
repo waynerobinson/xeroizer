@@ -38,8 +38,10 @@ module Xeroizer
       
         def valid?
           @errors = []
-          self.class.validators.each do | validator |
-            validator.validate(self)
+          if self.class.validators
+            self.class.validators.each do | validator |
+              validator.validate(self)
+            end
           end
           @errors.size == 0
         end

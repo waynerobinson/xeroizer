@@ -4,12 +4,11 @@ module Xeroizer
     class BaseModel
       
       include ClassLevelInheritableAttributes
-      inheritable_attributes :api_controller_name
+      class_inheritable_attributes :api_controller_name
       
       class InvaidPermissionError < StandardError; end
       ALLOWED_PERMISSIONS = [:read, :write, :update]
-      inheritable_attributes :permissions
-      @permissions = {}
+      class_inheritable_attributes :permissions
 
       attr_reader :application
       attr_reader :model_name
