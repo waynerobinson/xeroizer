@@ -36,10 +36,10 @@ module Xeroizer
       set_possible_primary_keys :invoice_id, :invoice_number
       list_contains_summary_only true
       
-      string    :invoice_id, :api_name => 'InvoiceID'
+      guid      :invoice_id
       string    :invoice_number
       string    :reference
-      string    :branding_theme_id
+      guid      :branding_theme_id
       string    :url
       string    :type
       date      :date

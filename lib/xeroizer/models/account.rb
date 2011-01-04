@@ -43,7 +43,7 @@ module Xeroizer
       
       set_primary_key :account_id
             
-      string  :account_id, :api_name => 'AccountID'
+      guid    :account_id
       string  :code
       string  :name
       string  :type

@@ -16,6 +16,7 @@ module Xeroizer
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field
               value = case field[:type]
+                when :guid        then element.text
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :integer     then element.text.to_i
@@ -65,6 +66,7 @@ module Xeroizer
           # Format a attribute for use in the XML passed to Xero.
           def xml_value_from_field(b, field, value)
             case field[:type]
+              when :guid        then b.tag!(field[:api_name], value)
               when :string      then b.tag!(field[:api_name], value)
               when :boolean     then b.tag!(field[:api_name], value ? 'true' : 'false')
               when :integer     then b.tag!(field[:api_name], value.to_i)

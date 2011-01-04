@@ -77,5 +77,18 @@ module Xeroizer
     end
     
   end
+
+  class InvalidAttributeInWhere < StandardError
+    
+    def initialize(model_name, attribute_name)
+      @model_name = model_name
+      @attribute_name = attribute_name
+    end
+    
+    def message
+      "#{@attribute_name} is not an attribute of #{@model_name}."
+    end
+    
+  end
   
 end

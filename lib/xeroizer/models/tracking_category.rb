@@ -12,7 +12,7 @@ module Xeroizer
       
       set_primary_key :tracking_category_id
       
-      string :tracking_category_id, :api_name => 'TrackingCategoryID'
+      guid   :tracking_category_id
       string :name
       string :status
       

@@ -11,7 +11,7 @@ module Xeroizer
       
       set_primary_key :branding_theme_id
       
-      string    :branding_theme_id, :api_name => 'BrandingThemeID'
+      guid      :branding_theme_id
       string    :name
       integer   :sort_order
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'

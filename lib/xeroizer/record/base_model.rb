@@ -16,6 +16,7 @@ module Xeroizer
 
       attr_reader :application
       attr_reader :model_name
+      attr :model_class
       attr_reader :response
       
       class << self
@@ -57,9 +58,13 @@ module Xeroizer
           self.class.api_controller_name || model_name.pluralize
         end
         
+        def model_class
+          @model_class ||= Xeroizer::Record.const_get(model_name.to_sym)
+        end
+        
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
-          Xeroizer::Record.const_get(model_name.to_sym).build(attributes, self)
+          model_class.build(attributes, self)
         end
         
         # Retreive full record list for this model. 
@@ -118,20 +123,12 @@ module Xeroizer
         end
         
       protected
-      
-        def parse_params(options)
-          params = {}
-          params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]          
-          params[:OrderBy]        = options[:order] if options[:order]
-          params[:where]          = options[:where] if options[:where]
-          params
-        end
         
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(elements)
           @response.response_items = []
           elements.each do | element |
-            @response.response_items << Xeroizer::Record.const_get(model_name.to_sym).build_from_node(element, self)
+            @response.response_items << model_class.build_from_node(element, self)
           end
         end
         

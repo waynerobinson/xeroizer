@@ -7,7 +7,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     
     set_primary_key :primary_key_id
     
-    string    :primary_key_id
+    guid      :primary_key_id
     string    :string1
     boolean   :boolean1
     integer   :integer1
@@ -21,7 +21,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
 
     set_primary_key :primary_key_id
     
-    string    :primary_key_id
+    guid      :primary_key_id
     string    :string2
     boolean   :boolean2
     integer   :integer2

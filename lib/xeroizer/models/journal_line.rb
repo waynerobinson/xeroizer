@@ -9,8 +9,8 @@ module Xeroizer
       
       set_primary_key :journal_line_id
       
-      string   :journal_line_id, :api_name => 'JournalLineID'
-      string   :account_id
+      guid     :journal_line_id
+      guid     :account_id
       string   :account_code
       string   :account_type
       string   :account_name

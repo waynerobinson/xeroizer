@@ -17,7 +17,7 @@ module Xeroizer
       set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number
       
-      string    :contact_id, :api_name => 'ContactID'
+      guid      :contact_id
       string    :contact_number
       string    :contact_status
       string    :name

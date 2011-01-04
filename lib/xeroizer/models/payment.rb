@@ -11,13 +11,13 @@ module Xeroizer
       
       set_primary_key :payment_id
       
-      string    :payment_id, :api_name => 'PaymentID'
+      guid      :payment_id
       date      :date
       decimal   :amount
       
-      string    :invoice_id, :api_name => 'InvoiceID'
+      guid      :invoice_id
       string    :invoice_number
-      string    :account_id, :api_name => 'AccountID'
+      guid      :account_id
       string    :code
       
       belongs_to  :account
