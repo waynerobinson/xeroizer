@@ -272,7 +272,7 @@ Valid options are:
 
 > **:where**
 
-> __See :where filters section below.__
+> __See *Where Filters* section below.__
 
 ### \#first(options = {})
 
@@ -285,9 +285,9 @@ Looks up a single record matching `id`. This ID can either be the internal GUID 
 or, in the case of Invoice, CreditNote and Contact records, your own custom reference number used when
 creating these records.
 
-### :where filters
+### Where filters
 
-#### by Hash
+#### Hash
 
 You can specify find filters by providing the :where option with a hash. For example:
 
@@ -311,7 +311,7 @@ by modifying the postfix of the attribute name (as you can see for the :amount\_
 **Note:** Currently, the hash-conversion library only allows for AND-based criteria and doesn't
 take into account associations. For these, please use the custom filter method below.
 
-#### by custom Xero-formatted string
+#### Custom Xero-formatted string
 
 Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
 in the resulting response, including all nested XML elements.
