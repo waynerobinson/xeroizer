@@ -186,6 +186,27 @@ Helper method to simplify field definition.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#guid-instance_method" title="#guid (instance method)">- (Object) <strong>guid</strong>(field_name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#integer-instance_method" title="#integer (instance method)">- (Object) <strong>integer</strong>(field_name, options = {}) </a>
     
 
@@ -461,12 +482,6 @@ for the field. Options:
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
-58
 59
 60
 61
@@ -476,10 +491,16 @@ for the field. Options:
 65
 66
 67
-68</pre>
+68
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 59</span>
 
 <span class='def def kw'>def</span> <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='field_type identifier id'>field_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='fields identifier id'>fields</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -496,6 +517,39 @@ for the field. Options:
   <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='value identifier id'>value</span> <span class='bitor op'>|</span> 
     <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
   <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="guid-instance_method">
+  
+    - (<tt>Object</tt>) <strong>guid</strong>(field_name, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='guid identifier id'>guid</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='comment val'># Ensure all automated Id conversions are changed to ID.</span>
+  <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:api_name</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='field_name identifier id'>field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelize identifier id'>camelize</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/Id/</span><span class='comma token'>,</span> <span class='string val'>'ID'</span><span class='rparen token'>)</span>
+  <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:guid</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -750,7 +804,7 @@ Helper methods used to define the fields this model has.
 </div>
     
     <div id="footer">
-  Generated on Wed Dec 22 12:17:27 2010 by 
+  Generated on Tue Jan  4 12:24:16 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

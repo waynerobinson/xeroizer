@@ -3,16 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: ClassLevelInheritableAttributes</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>Module: Xeroizer::Record::BaseModelHttpProxy</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '';
+  relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
 
   </head>
   <body>
@@ -23,10 +23,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index (C)</a> &raquo; 
-    
-    
-    <span class="title">ClassLevelInheritableAttributes</span>
+    <a href="../../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Xeroizer.html" title="Xeroizer (module)">Xeroizer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Record.html" title="Xeroizer::Record (module)">Record</a></span></span>
+     &raquo; 
+    <span class="title">BaseModelHttpProxy</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -43,7 +43,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Module: ClassLevelInheritableAttributes
+    <div id="content"><h1>Module: Xeroizer::Record::BaseModelHttpProxy
   
   
   
@@ -58,12 +58,12 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="Xeroizer/Record/Base.html" title="Xeroizer::Record::Base (class)">Xeroizer::Record::Base</a></span>, <span class='object_link'><a href="Xeroizer/Record/BaseModel.html" title="Xeroizer::Record::BaseModel (class)">Xeroizer::Record::BaseModel</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="BaseModel.html" title="Xeroizer::Record::BaseModel (class)">BaseModel</a></span></dd>
     
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/class_level_inheritable_attributes.rb</dd>
+    <dd class="r2 last">lib/xeroizer/record/base_model_http_proxy.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -72,7 +72,7 @@
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="ClassLevelInheritableAttributes/ClassMethods.html" title="ClassLevelInheritableAttributes::ClassMethods (module)">ClassMethods</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="BaseModelHttpProxy/InstanceMethods.html" title="Xeroizer::Record::BaseModelHttpProxy::InstanceMethods (module)">InstanceMethods</a></span>
     
    
     
@@ -132,15 +132,15 @@
       <pre class="lines">
 
 
-2
-3
-4</pre>
+5
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/class_level_inheritable_attributes.rb', line 2</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model_http_proxy.rb', line 5</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='included identifier id'>included</span><span class='lparen token'>(</span><span class='base identifier id'>base</span><span class='rparen token'>)</span>
-  <span class='base identifier id'>base</span><span class='dot token'>.</span><span class='extend identifier id'>extend</span><span class='lparen token'>(</span><span class='ClassMethods constant id'>ClassMethods</span><span class='rparen token'>)</span>    
+  <span class='base identifier id'>base</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='symbol val'>:include</span><span class='comma token'>,</span> <span class='InstanceMethods constant id'>InstanceMethods</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -153,7 +153,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Jan  4 12:24:14 2011 by 
+  Generated on Tue Jan  4 12:24:16 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

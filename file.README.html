@@ -325,40 +325,7 @@ and will count as an extra query towards your 1,000/day and 60/minute request pe
     
     <p><strong>:where</strong></p>
     
-    <p>Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
-    in the resulting response, including all nested XML elements.</p>
-    
-    <p><strong>Example 1: Retrieve all invoices for a specific contact ID:</strong></p>
-
-<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.ContactID.ToString()==&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;'</span><span class='rparen token'>)</span>
-</pre>
-    
-    <p><strong>Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:</strong></p>
-
-<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.Name==&quot;Basket Case&quot; &amp;&amp; Type==&quot;ACCREC&quot; &amp;&amp; AmountDue&lt;&gt;0'</span><span class='rparen token'>)</span>
-</pre>
-    
-    <p><strong>Example 3: Retrieve all Invoices PAID between certain dates</strong></p>
-
-<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FullyPaidOnDate&gt;=DateTime.Parse(&quot;2010-01-01T00:00:00&quot;)&amp;&amp;FullyPaidOnDate&lt;=DateTime.Parse(&quot;2010-01-08T00:00:00&quot;)'</span><span class='rparen token'>)</span>
-</pre>
-    
-    <p><strong>Example 4: Retrieve all Bank Accounts:</strong></p>
-
-<pre class="code">  <span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Account constant id'>Account</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Type==&quot;BANK&quot;'</span><span class='rparen token'>)</span>
-</pre>
-    
-    <p><strong>Example 5: Retrieve all DELETED or VOIDED Invoices:</strong></p>
-
-<pre class="code">  <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Status==&quot;VOIDED&quot; OR Status==&quot;DELETED&quot;'</span><span class='rparen token'>)</span>
-</pre>
-    
-    <p><strong>Example 6: Retrieve all contacts with specific text in the contact name:</strong></p>
-
-<pre class="code">  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.Contains(&quot;Peter&quot;)'</span><span class='rparen token'>)</span>
-  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.StartsWith(&quot;Pet&quot;)'</span><span class='rparen token'>)</span>
-  <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.EndsWith(&quot;er&quot;)'</span><span class='rparen token'>)</span>
-</pre>
+    <p><strong>See <em>Where Filters</em> section below.</strong></p>
 </blockquote>
 
 <h3>#first(options = {})</h3>
@@ -371,6 +338,72 @@ first entry returned by all and never an array.</p>
 <p>Looks up a single record matching <code>id</code>. This ID can either be the internal GUID Xero uses for the record
 or, in the case of Invoice, CreditNote and Contact records, your own custom reference number used when
 creating these records.</p>
+
+<h3>Where filters</h3>
+
+<h4>Hash</h4>
+
+<p>You can specify find filters by providing the :where option with a hash. For example:</p>
+
+<pre class="code"><span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='Xero constant id'>Xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ACCREC'</span><span class='comma token'>,</span> <span class='symbol val'>:amount_due_is_not</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+</pre>
+
+<p>will automatically create the Xero string:</p>
+
+<pre class="code"><span class='Type constant id'>Type</span><span class='eq op'>==</span><span class='string val'>&quot;ACCREC&quot;</span><span class='andop op'>&amp;&amp;</span><span class='AmountDue constant id'>AmountDue</span><span class='lt op'>&lt;</span><span class='gt op'>&gt;</span><span class='integer val'>0</span>
+</pre>
+
+<p>The default method for filtering is the equality '==' operator however, these can be overridden
+by modifying the postfix of the attribute name (as you can see for the :amount_due field above).</p>
+
+<pre class="code"><span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_not identifier id'>_is_not</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;&gt;'</span>
+<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_greater_than identifier id'>_is_greater_than</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&gt;'</span>
+<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_greater_than_or_equal_to identifier id'>_is_greater_than_or_equal_to</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&gt;='</span>
+<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_less_than identifier id'>_is_less_than</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;'</span>
+<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_less_than_or_equal_to identifier id'>_is_less_than_or_equal_to</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;='</span>
+
+<span class='The constant id'>The</span> <span class='default identifier id'>default</span> <span class='is identifier id'>is</span> <span class='string val'>'=='</span>
+</pre>
+
+<p><strong>Note:</strong> Currently, the hash-conversion library only allows for AND-based criteria and doesn't
+take into account associations. For these, please use the custom filter method below.</p>
+
+<h4>Custom Xero-formatted string</h4>
+
+<p>Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
+in the resulting response, including all nested XML elements.</p>
+
+<p><strong>Example 1: Retrieve all invoices for a specific contact ID:</strong></p>
+
+<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.ContactID.ToString()==&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;'</span><span class='rparen token'>)</span>
+</pre>
+
+<p><strong>Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:</strong></p>
+
+<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.Name==&quot;Basket Case&quot; &amp;&amp; Type==&quot;ACCREC&quot; &amp;&amp; AmountDue&lt;&gt;0'</span><span class='rparen token'>)</span>
+</pre>
+
+<p><strong>Example 3: Retrieve all Invoices PAID between certain dates</strong></p>
+
+<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FullyPaidOnDate&gt;=DateTime.Parse(&quot;2010-01-01T00:00:00&quot;)&amp;&amp;FullyPaidOnDate&lt;=DateTime.Parse(&quot;2010-01-08T00:00:00&quot;)'</span><span class='rparen token'>)</span>
+</pre>
+
+<p><strong>Example 4: Retrieve all Bank Accounts:</strong></p>
+
+<pre class="code">    <span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Account constant id'>Account</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Type==&quot;BANK&quot;'</span><span class='rparen token'>)</span>
+</pre>
+
+<p><strong>Example 5: Retrieve all DELETED or VOIDED Invoices:</strong></p>
+
+<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Status==&quot;VOIDED&quot; OR Status==&quot;DELETED&quot;'</span><span class='rparen token'>)</span>
+</pre>
+
+<p><strong>Example 6: Retrieve all contacts with specific text in the contact name:</strong></p>
+
+<pre class="code">    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.Contains(&quot;Peter&quot;)'</span><span class='rparen token'>)</span>
+    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.StartsWith(&quot;Pet&quot;)'</span><span class='rparen token'>)</span>
+    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.EndsWith(&quot;er&quot;)'</span><span class='rparen token'>)</span>
+</pre>
 
 <h2>Associations</h2>
 
@@ -452,7 +485,7 @@ that attribute. For example:</p>
 validators then the library may raise a <code>Xeroizer::ApiException</code>.</p></div></div>
     
     <div id="footer">
-  Generated on Wed Dec 22 12:17:26 2010 by 
+  Generated on Tue Jan  4 12:24:13 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
