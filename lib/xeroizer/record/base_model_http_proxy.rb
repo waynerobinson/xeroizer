@@ -60,7 +60,7 @@ module Xeroizer
               if field
                 conditions << where_condition_part(field, expression, value)                
               else
-                raise InvalidAttributeInWhere.new(model_name, attribute)
+                raise InvalidAttributeInWhere.new(model_name, attribute_name)
               end
             end
             escaped_where = CGI.escape(conditions.map { | (attr, expression, value) | "#{attr}#{expression}#{value}"}.join('&&'))
@@ -72,31 +72,37 @@ module Xeroizer
           # @return [Array] containing [actual_attribute_name, expression]
           def extract_expression_from_attribute_name(key)
             case key.to_s
-              when /(_is_greater_than|>)$/
+              when /(_is_not|\<\>)$/
                 [
-                  key.to_s.gsub(/(_is_greater_than|>)$/, '').to_sym,
+                  key.to_s.gsub(/(_is_not|\<\>)$/, '').to_sym,
+                  '<>'
+                ]
+              
+              when /(_is_greater_than|\>)$/
+                [
+                  key.to_s.gsub(/(_is_greater_than|\>)$/, '').to_sym,
                   '>'
                 ]
               
-              when /(_is_greater_than_or_equal_to|>=)$/
+              when /(_is_greater_than_or_equal_to|\>\=)$/
                 [
-                  key.to_s.gsub(/(_is_greater_than_or_equal_to|>=)$/, '').to_sym,
+                  key.to_s.gsub(/(_is_greater_than_or_equal_to|\>\=)$/, '').to_sym,
                   '>='
                 ]
               
-              when /(_is_less_than|<)$/
+              when /(_is_less_than|\<)$/
                 [
-                  key.to_s.gsub(/(_is_less_than|<)$/, '').to_sym,
+                  key.to_s.gsub(/(_is_less_than|\<)$/, '').to_sym,
                   '<'
                 ]
               
-              when /(_is_less_than_or_equal_to|<=)$/
+              when /(_is_less_than_or_equal_to|\<\=)$/
                 [
-                  key.to_s.gsub(/(_is_less_than_or_equal_to|<=)$/, '').to_sym,
+                  key.to_s.gsub(/(_is_less_than_or_equal_to|\<\=)$/, '').to_sym,
                   '<='
                 ]
-              
-              else                                           
+                              
+              else
                 [key, '==']
               
             end

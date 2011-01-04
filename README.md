@@ -272,34 +272,7 @@ Valid options are:
 
 > **:where**
 
-> Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
-> in the resulting response, including all nested XML elements.
-> 
-> **Example 1: Retrieve all invoices for a specific contact ID:**
-> 
-> 		invoices = xero.Invoice.all(:where => 'Contact.ContactID.ToString()=="cd09aa49-134d-40fb-a52b-b63c6a91d712"')
-> 	
-> **Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:**
-> 	
-> 		invoices = xero.Invoice.all(:where => 'Contact.Name=="Basket Case" && Type=="ACCREC" && AmountDue<>0')
-> 	
-> **Example 3: Retrieve all Invoices PAID between certain dates**
-> 	
-> 		invoices = xero.Invoice.all(:where => 'FullyPaidOnDate>=DateTime.Parse("2010-01-01T00:00:00")&&FullyPaidOnDate<=DateTime.Parse("2010-01-08T00:00:00")')
-> 	
-> **Example 4: Retrieve all Bank Accounts:**
-> 	
-> 		accounts = xero.Account.all(:where => 'Type=="BANK"')
-> 	
-> **Example 5: Retrieve all DELETED or VOIDED Invoices:**
-> 	
-> 		invoices = xero.Invoice.all(:where => 'Status=="VOIDED" OR Status=="DELETED"')
-> 	
-> **Example 6: Retrieve all contacts with specific text in the contact name:**
-> 
-> 		contacts = xero.Contact.all(:where => 'Name.Contains("Peter")')
-> 		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
-> 		contacts = xero.Contact.all(:where => 'Name.EndsWith("er")')
+> __See :where filters section below.__
 
 ### \#first(options = {})
 
@@ -311,6 +284,63 @@ first entry returned by all and never an array.
 Looks up a single record matching `id`. This ID can either be the internal GUID Xero uses for the record
 or, in the case of Invoice, CreditNote and Contact records, your own custom reference number used when
 creating these records.
+
+### :where filters
+
+#### by Hash
+
+You can specify find filters by providing the :where option with a hash. For example:
+
+	invoices = Xero.Invoice.all(:where => {:type => 'ACCREC', :amount_due_is_not => 0})
+	
+will automatically create the Xero string:
+
+	Type=="ACCREC"&&AmountDue<>0
+	
+The default method for filtering is the equality '==' operator however, these can be overridden
+by modifying the postfix of the attribute name (as you can see for the :amount\_due field above).
+
+	\{attribute_name}_is_not will use '<>'
+	\{attribute_name}_is_greater_than will use '>'
+	\{attribute_name}_is_greater_than_or_equal_to will use '>='
+	\{attribute_name}_is_less_than will use '<'
+	\{attribute_name}_is_less_than_or_equal_to will use '<='
+	
+	The default is '=='
+	
+**Note:** Currently, the hash-conversion library only allows for AND-based criteria and doesn't
+take into account associations. For these, please use the custom filter method below.
+
+#### by custom Xero-formatted string
+
+Xero allows advanced custom filters to be added to a request. The where parameter can reference any XML element
+in the resulting response, including all nested XML elements.
+
+**Example 1: Retrieve all invoices for a specific contact ID:**
+
+		invoices = xero.Invoice.all(:where => 'Contact.ContactID.ToString()=="cd09aa49-134d-40fb-a52b-b63c6a91d712"')
+	
+**Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:**
+	
+		invoices = xero.Invoice.all(:where => 'Contact.Name=="Basket Case" && Type=="ACCREC" && AmountDue<>0')
+	
+**Example 3: Retrieve all Invoices PAID between certain dates**
+	
+		invoices = xero.Invoice.all(:where => 'FullyPaidOnDate>=DateTime.Parse("2010-01-01T00:00:00")&&FullyPaidOnDate<=DateTime.Parse("2010-01-08T00:00:00")')
+	
+**Example 4: Retrieve all Bank Accounts:**
+	
+		accounts = xero.Account.all(:where => 'Type=="BANK"')
+	
+**Example 5: Retrieve all DELETED or VOIDED Invoices:**
+	
+		invoices = xero.Invoice.all(:where => 'Status=="VOIDED" OR Status=="DELETED"')
+	
+**Example 6: Retrieve all contacts with specific text in the contact name:**
+
+		contacts = xero.Contact.all(:where => 'Name.Contains("Peter")')
+		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
+		contacts = xero.Contact.all(:where => 'Name.EndsWith("er")')
 
 Associations
 ------------

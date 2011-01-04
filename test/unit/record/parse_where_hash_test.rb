@@ -47,6 +47,8 @@ class ParseWhereHashTest < Test::Unit::TestCase
     
     should 'have valid expression components' do
       assert_equal('String1=="abc"', CGI.unescape(@model.send(:parse_where_hash, {:string1 => 'abc'})))
+      assert_equal('String1<>"abc"', CGI.unescape(@model.send(:parse_where_hash, {:string1_is_not => 'abc'})))
+      assert_equal('String1<>"abc"', CGI.unescape(@model.send(:parse_where_hash, {:"string1<>" => 'abc'})))
       assert_equal('String1>"abc"', CGI.unescape(@model.send(:parse_where_hash, {:string1_is_greater_than => 'abc'})))
       assert_equal('String1>"abc"', CGI.unescape(@model.send(:parse_where_hash, {:"string1>" => 'abc'})))
       assert_equal('String1>="abc"', CGI.unescape(@model.send(:parse_where_hash, {:string1_is_greater_than_or_equal_to => 'abc'})))
