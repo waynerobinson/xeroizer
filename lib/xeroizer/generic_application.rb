@@ -1,3 +1,5 @@
+require 'xeroizer/record/application_helper'
+
 module Xeroizer
   class GenericApplication
     

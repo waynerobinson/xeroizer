@@ -20,13 +20,8 @@ require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
 require 'xeroizer/exceptions'
 
-require 'xeroizer/record/model_definition_helper'
-require 'xeroizer/record/record_association_helper'
-require 'xeroizer/record/xml_helper'
-require 'xeroizer/record/validation_helper'
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/base'
-require 'xeroizer/record/application_helper'
 
 # Include models
 Dir.foreach(File.join(File.dirname(__FILE__), 'xeroizer/models/')) { | file | require "xeroizer/models/#{file}" if file =~ /\.rb$/ }
