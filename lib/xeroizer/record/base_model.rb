@@ -1,3 +1,5 @@
+require 'xeroizer/record/base_model_http_proxy'
+
 module Xeroizer
   module Record
     
@@ -9,6 +11,8 @@ module Xeroizer
       class InvaidPermissionError < StandardError; end
       ALLOWED_PERMISSIONS = [:read, :write, :update]
       class_inheritable_attributes :permissions
+      
+      include BaseModelHttpProxy
 
       attr_reader :application
       attr_reader :model_name
@@ -51,23 +55,6 @@ module Xeroizer
         # Invoice then the default is Invoices.
         def api_controller_name
           self.class.api_controller_name || model_name.pluralize
-        end
-
-        # URL end-point for this model.
-        def url
-          @application.xero_url + '/' + api_controller_name
-        end
-        
-        def http_get(extra_params = {})
-          application.http_get(application.client, url, extra_params)
-        end
-        
-        def http_put(xml, extra_params = {})
-          application.http_put(application.client, url, xml, extra_params)
-        end
-
-        def http_post(xml, extra_params = {})
-          application.http_post(application.client, url, xml, extra_params)
         end
         
         # Build a record with attributes set to the value of attributes.
