@@ -2,7 +2,8 @@ Xeroizer API Library
 ====================
 
 **Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)		
-**Git**: 					[https://github.com/waynerobinson/xero_gateway.git](https://github.com/waynerobinson/xero_gateway.git)		
+**Git**: 					[git://github.com/waynerobinson/xeroizer.git](git://github.com/waynerobinson/xeroizer.git)		
+**Github**: 			[https://github.com/waynerobinson/xeroizer](https://github.com/waynerobinson/xeroizer)		
 **Author**: 			Wayne Robinson [http://www.wayne-robinson.com](http://www.wayne-robinson.com)		
 **Contributors**: See Contributors section below	
 **Copyright**:    2007-2010		
