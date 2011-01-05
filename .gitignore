@@ -2,3 +2,4 @@ certs
 .yardoc
 test*.rb
 doc/
+.redcar
