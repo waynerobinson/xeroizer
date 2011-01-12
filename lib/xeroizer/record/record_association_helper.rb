@@ -73,7 +73,8 @@ module Xeroizer
         end
         
         def define_association_attribute(field_name, internal_field_name, association_type, options)
-          define_simple_attribute(field_name, association_type, options)
+          value_if_nil = (association_type == :has_many) ? [] : nil
+          define_simple_attribute(field_name, association_type, options, value_if_nil)
 
           # Override reader for this association if this association belongs
           # to a summary-typed record. This will automatically attempt to download
@@ -81,7 +82,7 @@ module Xeroizer
           if list_contains_summary_only?
             define_method internal_field_name do
               download_complete_record! unless new_record? || complete_record_downloaded?
-              @attributes[field_name]
+              @attributes[field_name] || value_if_nil
             end
           end
         end
