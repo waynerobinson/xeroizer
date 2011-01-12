@@ -2,7 +2,7 @@ module Xeroizer
   class PublicApplication < GenericApplication
     
     extend Forwardable
-    def_delegators :client, :request_token, :authorize_from_request
+    def_delegators :client, :request_token, :authorize_from_request, :authorize_from_access
 
     public
     

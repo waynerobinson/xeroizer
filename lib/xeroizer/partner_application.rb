@@ -2,7 +2,7 @@ module Xeroizer
   class PartnerApplication < GenericApplication
     
     extend Forwardable
-    def_delegators :client, :request_token, :authorize_from_request, :renew_access_token, :expires_at, :authorization_expires_at, :session_handle
+    def_delegators :client, :request_token, :authorize_from_request, :renew_access_token, :expires_at, :authorization_expires_at, :session_handle, :authorize_from_access
     
     public
     
