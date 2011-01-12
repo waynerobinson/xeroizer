@@ -3,7 +3,6 @@ module Xeroizer
     
     class TrackingCategoryModel < BaseModel
       
-      set_api_controller_name 'TrackingCategory'
       set_permissions :read
                   
     end
