@@ -69,7 +69,7 @@ module Xeroizer
         # Downloads the complete record if we only have a summary of the record.
         def download_complete_record!
           record = self.parent.find(self.id)
-          @attributes = record.attributes
+          @attributes = record.attributes if record
           @complete_record_downloaded = true
           self
         end
