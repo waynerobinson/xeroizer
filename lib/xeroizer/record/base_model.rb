@@ -88,7 +88,7 @@ module Xeroizer
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
           result = parse_response(response_xml, options)
           result = result.first if result.is_a?(Array)
-          result.complete_record_downloaded = true
+          result.complete_record_downloaded = true if result
           result
         end
         
