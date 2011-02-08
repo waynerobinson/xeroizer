@@ -71,7 +71,7 @@ module Xeroizer
         def all(options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = http_get(parse_params(options))
-          parse_response(response_xml, options)
+          parse_response(response_xml, options) || []
         end
         
         # Helper method to retrieve just the first element from
