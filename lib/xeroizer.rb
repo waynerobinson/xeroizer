@@ -24,7 +24,23 @@ require 'xeroizer/record/base_model'
 require 'xeroizer/record/base'
 
 # Include models
-Dir.foreach(File.join(File.dirname(__FILE__), 'xeroizer/models/')) { | file | require "xeroizer/models/#{file}" if file =~ /\.rb$/ }
+require 'xeroizer/models/account'
+require 'xeroizer/models/address'
+require 'xeroizer/models/branding_theme'
+require 'xeroizer/models/contact'
+require 'xeroizer/models/credit_note'
+require 'xeroizer/models/currency'
+require 'xeroizer/models/invoice'
+require 'xeroizer/models/journal'
+require 'xeroizer/models/journal_line'
+require 'xeroizer/models/line_item'
+require 'xeroizer/models/option'
+require 'xeroizer/models/organisation'
+require 'xeroizer/models/payment'
+require 'xeroizer/models/phone'
+require 'xeroizer/models/tax_rate'
+require 'xeroizer/models/tracking_category'
+require 'xeroizer/models/tracking_category_child'
 
 require 'xeroizer/response'
 
