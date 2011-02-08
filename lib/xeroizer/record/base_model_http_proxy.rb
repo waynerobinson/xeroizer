@@ -40,6 +40,7 @@ module Xeroizer
                                   when Hash     then parse_where_hash(options[:where])
                                 end
             end
+            params[:offset] = options[:offset] if options[:offset]
             params
           end
         
