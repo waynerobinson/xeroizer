@@ -1,3 +1,5 @@
+require 'xeroizer/models/account'
+
 module Xeroizer
   module Record
     
