@@ -185,8 +185,7 @@ Authentication occcurs in 3 steps:
 						YOUR_OAUTH_CONSUMER_SECRET, 
 						"/path/to/privatekey.pem",
 						"/path/to/entrust-cert.pem",
-						"/path/to/entrust-private-nopass.pem",
-						:password => ENTRUST_PRIVATE_KEY_PASSWORD
+						"/path/to/entrust-private-nopass.pem"
 						)
 	
 	# 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to
