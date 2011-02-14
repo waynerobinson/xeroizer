@@ -450,7 +450,7 @@ optional filename to store the PDF in instead of returning the data.
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/credit_note.rb', line 106</span>
 
 <span class='def def kw'>def</span> <span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='@_cache_pdf_data ivar id'>@_cache_pdf_data</span> <span class='opasgn op'>||=</span> <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+  <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -749,7 +749,7 @@ Calculate total_tax from line_items.
 </div>
     
     <div id="footer">
-  Generated on Mon Feb 14 12:10:50 2011 by 
+  Generated on Mon Feb 14 12:35:03 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
