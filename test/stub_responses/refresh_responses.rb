@@ -1,16 +1,23 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'xeroizer')
 
-client = Xeroizer::PrivateApplication.new('NDLINGM4YTGWMJYXNGVLZGFKN2M0ZG', 'YK1WI2S1QLWHCNTXA1KYO0DFEC7SC3', '/Users/waynerobinson/ac/apps/xero_keys/xeropk.pem')
+client = Xeroizer::PrivateApplication.new(ARGV[0], ARGV[1], ARGV[2])
 
 base_path = File.expand_path(File.dirname(__FILE__))
-%w(Account BrandingTheme Contact CreditNote Currency Invoice Organisation TaxRate TrackingCategory).each do | model_name |
+
+if ARGV[3]
+  models = [ARGV[3]]
+else
+  models = %w(Account BrandingTheme Contact CreditNote Currency Invoice Organisation TaxRate TrackingCategory ManualJournal)
+end
+
+models.each do | model_name |
   model = client.send(model_name.to_sym)
   
   # List
   records = model.all
   File.open("#{base_path}/#{model_name.underscore.pluralize}.xml", "w") { | fp | fp.write model.response.response_xml }
   
-  if %w(Contact CreditNote Invoice).include?(model_name)
+  if %w(Contact CreditNote Invoice ManualJournal).include?(model_name)
     records.each do | summary_record |
       record = model.find(summary_record.id)
       File.open("#{base_path}/records/#{model_name.underscore}-#{record.id}.xml", "w") { | fp | fp.write model.response.response_xml }
