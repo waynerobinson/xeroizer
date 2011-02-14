@@ -14,6 +14,7 @@ module Xeroizer
       guid      :payment_id
       date      :date
       decimal   :amount
+      string    :reference
       
       guid      :invoice_id
       string    :invoice_number
