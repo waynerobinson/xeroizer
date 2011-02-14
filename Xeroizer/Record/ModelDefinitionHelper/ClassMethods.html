@@ -162,7 +162,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#define_simple_attribute-instance_method" title="#define_simple_attribute (instance method)">- (Object) <strong>define_simple_attribute</strong>(field_name, field_type, options) </a>
+      <a href="#define_simple_attribute-instance_method" title="#define_simple_attribute (instance method)">- (Object) <strong>define_simple_attribute</strong>(field_name, field_type, options, value_if_nil = nil) </a>
     
 
     
@@ -444,7 +444,7 @@ Helper methods used to define the fields this model has.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 42</span>
 
-<span class='def def kw'>def</span> <span class='decimal identifier id'>decimal</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>    <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:decimal</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='end end kw'>end</span>
+<span class='def def kw'>def</span> <span class='decimal identifier id'>decimal</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>    <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:decimal</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='integer val'>.0</span><span class='rparen token'>)</span> <span class='end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -454,7 +454,7 @@ Helper methods used to define the fields this model has.
       <div class="method_details ">
   <p class="signature " id="define_simple_attribute-instance_method">
   
-    - (<tt>Object</tt>) <strong>define_simple_attribute</strong>(field_name, field_type, options) 
+    - (<tt>Object</tt>) <strong>define_simple_attribute</strong>(field_name, field_type, options, value_if_nil = nil) 
   
 
   
@@ -502,7 +502,7 @@ for the field. Options:
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 59</span>
 
-<span class='def def kw'>def</span> <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='field_type identifier id'>field_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+<span class='def def kw'>def</span> <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='field_type identifier id'>field_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='value_if_nil identifier id'>value_if_nil</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='fields identifier id'>fields</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
   
   <span class='internal_field_name identifier id'>internal_field_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:internal_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='field_name identifier id'>field_name</span>
@@ -512,7 +512,7 @@ for the field. Options:
     <span class='symbol val'>:type</span>           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='field_type identifier id'>field_type</span>
   <span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='define_method identifier id'>define_method</span> <span class='internal_field_name identifier id'>internal_field_name</span> <span class='do do kw'>do</span> 
-    <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span>
+    <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='value_if_nil identifier id'>value_if_nil</span>
   <span class='end end kw'>end</span>
   <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='value identifier id'>value</span> <span class='bitor op'>|</span> 
     <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
@@ -575,7 +575,7 @@ for the field. Options:
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 41</span>
 
-<span class='def def kw'>def</span> <span class='integer identifier id'>integer</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>    <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:integer</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='end end kw'>end</span>
+<span class='def def kw'>def</span> <span class='integer identifier id'>integer</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>    <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:integer</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='rparen token'>)</span> <span class='end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -804,7 +804,7 @@ Helper methods used to define the fields this model has.
 </div>
     
     <div id="footer">
-  Generated on Thu Jan  6 08:05:04 2011 by 
+  Generated on Mon Feb 14 11:22:30 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

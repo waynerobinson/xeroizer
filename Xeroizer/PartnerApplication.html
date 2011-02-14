@@ -86,6 +86,9 @@
 <div class="clear"></div>
 
 
+  <h2>Constant Summary</h2>
+  
+
 
   
   
@@ -101,6 +104,9 @@
   
   
   
+  <h3 class="inherited">Constants included from <span class='object_link'><a href="Http.html" title="Xeroizer::Http (module)">Http</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Http.html#ACCEPT_MIME_MAP-constant" title="Xeroizer::Http::ACCEPT_MIME_MAP (constant)">ACCEPT_MIME_MAP</a></span></p>
+
 
   
     <h2>
@@ -343,7 +349,7 @@ other options to pass to the GenericApplication constructor
     <span class='symbol val'>:signature_method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'RSA-SHA1'</span><span class='comma token'>,</span>
     <span class='symbol val'>:private_key_file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='path_to_private_key identifier id'>path_to_private_key</span><span class='comma token'>,</span>
     <span class='symbol val'>:ssl_client_cert</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='X509 constant id'>X509</span><span class='colon2 op'>::</span><span class='Certificate constant id'>Certificate</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='path_to_ssl_client_cert identifier id'>path_to_ssl_client_cert</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='symbol val'>:ssl_client_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='PKey constant id'>PKey</span><span class='colon2 op'>::</span><span class='RSA constant id'>RSA</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='path_to_ssl_client_key identifier id'>path_to_ssl_client_key</span><span class='rparen token'>)</span>
+    <span class='symbol val'>:ssl_client_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='PKey constant id'>PKey</span><span class='colon2 op'>::</span><span class='RSA constant id'>RSA</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='path_to_ssl_client_key identifier id'>path_to_ssl_client_key</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rparen token'>)</span>
   <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
   
@@ -369,7 +375,7 @@ other options to pass to the GenericApplication constructor
 </div>
     
     <div id="footer">
-  Generated on Thu Jan  6 08:05:02 2011 by 
+  Generated on Mon Feb 14 11:22:32 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

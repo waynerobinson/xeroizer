@@ -224,6 +224,30 @@ Helper method to check if the invoice is accounts receivable.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#pdf-instance_method" title="#pdf (instance method)">- (Object) <strong>pdf</strong>(filename = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Retrieve the PDF version of this invoice.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#sub_total-instance_method" title="#sub_total (instance method)">- (Object) <strong>sub_total</strong> </a>
     
 
@@ -472,12 +496,12 @@ Helper method to check if the invoice is accounts payable.
       <pre class="lines">
 
 
-73
-74
-75</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 88</span>
 
 <span class='def def kw'>def</span> <span class='accounts_payable? fid id'>accounts_payable?</span>
   <span class='type identifier id'>type</span> <span class='eq op'>==</span> <span class='string val'>'ACCPAY'</span>
@@ -525,15 +549,78 @@ Helper method to check if the invoice is accounts receivable.
       <pre class="lines">
 
 
-78
-79
-80</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 93</span>
 
 <span class='def def kw'>def</span> <span class='accounts_receivable? fid id'>accounts_receivable?</span>
   <span class='type identifier id'>type</span> <span class='eq op'>==</span> <span class='string val'>'ACCREC'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pdf-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pdf</strong>(filename = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Retrieve the PDF version of this invoice.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+optional filename to store the PDF in instead of returning the data.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 131</span>
+
+<span class='def def kw'>def</span> <span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='@_cache_pdf_data ivar id'>@_cache_pdf_data</span> <span class='opasgn op'>||=</span> <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -565,20 +652,20 @@ Calculate sub_total from line_items.
       <pre class="lines">
 
 
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 103</span>
 
 <span class='def def kw'>def</span> <span class='sub_total identifier id'>sub_total</span>
   <span class='if if kw'>if</span> <span class='new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
@@ -635,10 +722,10 @@ automatically.
       <pre class="lines">
 
 
-83</pre>
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 98</span>
 
 <span class='def def kw'>def</span> <span class='sub_total= identifier id'>sub_total=</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>  <span class='raise identifier id'>raise</span> <span class='SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:sub_total</span><span class='rparen token'>)</span>   <span class='end end kw'>end</span>
 </pre>
@@ -671,12 +758,12 @@ Calculate the total from line_items.
       <pre class="lines">
 
 
-110
-111
-112</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 125</span>
 
 <span class='def def kw'>def</span> <span class='total identifier id'>total</span>
   <span class='sub_total identifier id'>sub_total</span> <span class='plus op'>+</span> <span class='total_tax identifier id'>total_tax</span>
@@ -721,10 +808,10 @@ Calculate the total from line_items.
       <pre class="lines">
 
 
-85</pre>
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 100</span>
 
 <span class='def def kw'>def</span> <span class='total= identifier id'>total=</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>      <span class='raise identifier id'>raise</span> <span class='SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total</span><span class='rparen token'>)</span>       <span class='end end kw'>end</span>
 </pre>
@@ -757,16 +844,16 @@ Calculate total_tax from line_items.
       <pre class="lines">
 
 
-101
-102
-103
-104
-105
-106
-107</pre>
+116
+117
+118
+119
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 116</span>
 
 <span class='def def kw'>def</span> <span class='total_tax identifier id'>total_tax</span>
   <span class='if if kw'>if</span> <span class='new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
@@ -815,10 +902,10 @@ Calculate total_tax from line_items.
       <pre class="lines">
 
 
-84</pre>
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 99</span>
 
 <span class='def def kw'>def</span> <span class='total_tax= identifier id'>total_tax=</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>  <span class='raise identifier id'>raise</span> <span class='SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total_tax</span><span class='rparen token'>)</span>   <span class='end end kw'>end</span>
 </pre>
@@ -832,7 +919,7 @@ Calculate total_tax from line_items.
 </div>
     
     <div id="footer">
-  Generated on Thu Jan  6 08:05:05 2011 by 
+  Generated on Mon Feb 14 11:22:32 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

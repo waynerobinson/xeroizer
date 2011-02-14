@@ -871,7 +871,7 @@ Retreive full record list for this model.
 <span class='def def kw'>def</span> <span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='raise identifier id'>raise</span> <span class='MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
   <span class='response_xml identifier id'>response_xml</span> <span class='assign token'>=</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='parse_params identifier id'>parse_params</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+  <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1017,7 +1017,7 @@ Retrieve record matching the passed in ID.
   <span class='response_xml identifier id'>response_xml</span> <span class='assign token'>=</span> <span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{url}/#{CGI.escape(id)}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='if if_mod kw'>if</span> <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Array constant id'>Array</span><span class='rparen token'>)</span>
-  <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='complete_record_downloaded identifier id'>complete_record_downloaded</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+  <span class='result identifier id'>result</span><span class='dot token'>.</span><span class='complete_record_downloaded identifier id'>complete_record_downloaded</span> <span class='assign token'>=</span> <span class='true true kw'>true</span> <span class='if if_mod kw'>if</span> <span class='result identifier id'>result</span>
   <span class='result identifier id'>result</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -1191,7 +1191,7 @@ Parse the response retreived during any request.
 </div>
     
     <div id="footer">
-  Generated on Thu Jan  6 08:05:04 2011 by 
+  Generated on Mon Feb 14 11:22:31 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
