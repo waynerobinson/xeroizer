@@ -18,6 +18,7 @@ module Xeroizer
     record :Currency
     record :Invoice
     record :Journal
+    record :ManualJournal
     record :Organisation
     record :Payment
     record :TaxRate
