@@ -1,0 +1,38 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>74336441-59c9-49a4-b935-b5c95ed4fbbd</Id>
+  <Status>OK</Status>
+  <ProviderName>Test App</ProviderName>
+  <DateTimeUTC>2011-02-14T01:54:37.1319148Z</DateTimeUTC>
+  <ManualJournals>
+    <ManualJournal>
+      <Date>2010-10-17T00:00:00</Date>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>NoTax</LineAmountTypes>
+      <ManualJournalID>4765d07b-aa03-4e56-9166-50661958c864</ManualJournalID>
+      <Narration>Accrued liabilities for current month</Narration>
+      <JournalLines>
+        <JournalLine>
+          <Description>Printer purchase High Street Computing, not yet invoiced</Description>
+          <TaxType>CAPEXINPUT</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>679.00</LineAmount>
+          <AccountCode>720</AccountCode>
+        </JournalLine>
+        <JournalLine>
+          <Description>Audit services from OPC Ltd, not yet invoiced</Description>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>190.00</LineAmount>
+          <AccountCode>412</AccountCode>
+        </JournalLine>
+        <JournalLine>
+          <Description>Accrued expenses</Description>
+          <TaxType>NONE</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>-869.00</LineAmount>
+          <AccountCode>805</AccountCode>
+        </JournalLine>
+      </JournalLines>
+    </ManualJournal>
+  </ManualJournals>
+</Response>

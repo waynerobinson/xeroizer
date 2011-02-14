@@ -1,0 +1,45 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>e0784364-c48a-4600-a49d-fcb5c6a0d5c5</Id>
+  <Status>OK</Status>
+  <ProviderName>Test App</ProviderName>
+  <DateTimeUTC>2011-02-14T01:54:34.725557Z</DateTimeUTC>
+  <ManualJournals>
+    <ManualJournal>
+      <Date>2010-10-30T00:00:00</Date>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <ManualJournalID>f00a355b-7374-445c-886b-0437bea4095c</ManualJournalID>
+      <Narration>Computer expenses incorrectly coded</Narration>
+      <JournalLines>
+        <JournalLine>
+          <Description>Laptop to wrong expense account</Description>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>-108.50</TaxAmount>
+          <LineAmount>-1085.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+        </JournalLine>
+        <JournalLine>
+          <Description>Laptop to correct expense account</Description>
+          <TaxType>CAPEXINPUT</TaxType>
+          <TaxAmount>108.50</TaxAmount>
+          <LineAmount>1085.00</LineAmount>
+          <AccountCode>720</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
+        </JournalLine>
+      </JournalLines>
+    </ManualJournal>
+  </ManualJournals>
+</Response>

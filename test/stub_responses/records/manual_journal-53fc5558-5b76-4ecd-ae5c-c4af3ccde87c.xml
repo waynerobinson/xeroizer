@@ -1,0 +1,31 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>705a3a05-cfb4-4671-948f-f82028223836</Id>
+  <Status>OK</Status>
+  <ProviderName>Test App</ProviderName>
+  <DateTimeUTC>2011-02-14T01:54:42.2415187Z</DateTimeUTC>
+  <ManualJournals>
+    <ManualJournal>
+      <Date>2010-10-16T00:00:00</Date>
+      <Status>VOIDED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <ManualJournalID>53fc5558-5b76-4ecd-ae5c-c4af3ccde87c</ManualJournalID>
+      <Narration>Being depreciation on office equipment</Narration>
+      <JournalLines>
+        <JournalLine>
+          <Description>Office equipment depreciation</Description>
+          <TaxType>CAPEXINPUT</TaxType>
+          <TaxAmount>25.00</TaxAmount>
+          <LineAmount>250.00</LineAmount>
+          <AccountCode>710</AccountCode>
+        </JournalLine>
+        <JournalLine>
+          <Description>Office equipment depreciation</Description>
+          <TaxType>EXEMPTINPUT</TaxType>
+          <TaxAmount>0.00</TaxAmount>
+          <LineAmount>-275.00</LineAmount>
+          <AccountCode>711</AccountCode>
+        </JournalLine>
+      </JournalLines>
+    </ManualJournal>
+  </ManualJournals>
+</Response>

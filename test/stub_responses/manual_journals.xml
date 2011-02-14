@@ -1,0 +1,40 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a70214d6-fbee-4a3a-89d6-57cfdb387a69</Id>
+  <Status>OK</Status>
+  <ProviderName>Test App</ProviderName>
+  <DateTimeUTC>2011-02-14T01:54:32.2566964Z</DateTimeUTC>
+  <ManualJournals>
+    <ManualJournal>
+      <Date>2010-10-30T00:00:00</Date>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <UpdatedDateUTC>2010-12-29T15:04:00.37</UpdatedDateUTC>
+      <ManualJournalID>f00a355b-7374-445c-886b-0437bea4095c</ManualJournalID>
+      <Narration>Computer expenses incorrectly coded</Narration>
+    </ManualJournal>
+    <ManualJournal>
+      <Date>2010-10-17T00:00:00</Date>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>NoTax</LineAmountTypes>
+      <UpdatedDateUTC>2010-12-29T10:12:29.57</UpdatedDateUTC>
+      <ManualJournalID>4765d07b-aa03-4e56-9166-50661958c864</ManualJournalID>
+      <Narration>Accrued liabilities for current month</Narration>
+    </ManualJournal>
+    <ManualJournal>
+      <Date>2010-11-16T00:00:00</Date>
+      <Status>POSTED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <UpdatedDateUTC>2010-12-29T10:20:40.217</UpdatedDateUTC>
+      <ManualJournalID>bb6cfcfc-4500-4475-bd3a-93ee512428e0</ManualJournalID>
+      <Narration>Being depreciation on office equipment</Narration>
+    </ManualJournal>
+    <ManualJournal>
+      <Date>2010-10-16T00:00:00</Date>
+      <Status>VOIDED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <UpdatedDateUTC>2010-12-29T15:07:10.857</UpdatedDateUTC>
+      <ManualJournalID>53fc5558-5b76-4ecd-ae5c-c4af3ccde87c</ManualJournalID>
+      <Narration>Being depreciation on office equipment</Narration>
+    </ManualJournal>
+  </ManualJournals>
+</Response>
