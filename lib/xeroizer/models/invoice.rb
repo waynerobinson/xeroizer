@@ -5,6 +5,21 @@ module Xeroizer
         
       set_permissions :read, :write, :update
       
+      public
+      
+        # Retrieve the PDF version of the invoice matching the `id`.
+        # @param [String] id invoice's ID.
+        # @param [String] filename optional filename to store the PDF in instead of returning the data.
+        def pdf(id, filename = nil)
+          pdf_data = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", :response => :pdf)
+          if filename
+            File.open(filename, "w") { | fp | fp.write pdf_data }
+            nil
+          else
+            pdf_data
+          end
+        end
+      
     end
     
     class Invoice < Base
@@ -109,6 +124,12 @@ module Xeroizer
         # Calculate the total from line_items.
         def total
           sub_total + total_tax
+        end
+        
+        # Retrieve the PDF version of this invoice.
+        # @param [String] filename optional filename to store the PDF in instead of returning the data.
+        def pdf(filename = nil)
+          @_cache_pdf_data ||= parent.pdf(id, filename)
         end
       
     end

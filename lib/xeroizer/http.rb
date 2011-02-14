@@ -1,6 +1,11 @@
 module Xeroizer
   module Http
     
+    ACCEPT_MIME_MAP = {
+      :pdf  => 'application/pdf',
+      :json => 'application/json'
+    }
+    
     # Shortcut method for #http_request with `method` = :get.
     #
     # @param [OAuth] client OAuth client
@@ -43,7 +48,17 @@ module Xeroizer
 
         # HAX.  Xero completely misuse the If-Modified-Since HTTP header.
         headers['If-Modified-Since'] = params.delete(:ModifiedAfter).utc.strftime("%Y-%m-%dT%H:%M:%S") if params[:ModifiedAfter]
-
+        
+        # Allow 'Accept' header to be specified with :accept parameter.
+        # Valid values are :pdf or :json.
+        if params[:response]
+          response_type = params.delete(:response)
+          headers['Accept'] = case response_type
+            when Symbol then  ACCEPT_MIME_MAP[response_type]
+            else              response_type
+          end
+        end
+        
         if params.any?
           url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
         end
