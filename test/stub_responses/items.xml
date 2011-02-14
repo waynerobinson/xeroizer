@@ -1,0 +1,112 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>2742465e-b735-4842-9c19-b3201dfea76b</Id>
+  <Status>OK</Status>
+  <DateTimeUTC>2011-02-14T02:40:14.4734162Z</DateTimeUTC>
+  <Items>
+    <Item>
+      <ItemID>c27221d7-8290-4204-9f3d-0cfb7c5a3d6f</ItemID>
+      <Code>DevD</Code>
+      <Description>Development work - developer onsite per day</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>650.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>5d3eebfb-9066-41a2-bd53-3cd632c01a0e</ItemID>
+      <Code>PMWe</Code>
+      <Description>Project management &amp; implementation - website revamp workshop with your team</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>300.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>3e772ebe-0aa6-458f-a913-73e09fafeed1</ItemID>
+      <Code>PMDD</Code>
+      <Description>Project management &amp; implementation - 'due diligence' stocktake of your project scope/schedule/implementation plan/outcome measures (hourly rate as agreed)</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>105.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>9a8e168a-98d4-45d6-a08c-a852ecc49c59</ItemID>
+      <Code>PMBr</Code>
+      <Description>Project management &amp; implementation - branding workshop with your team</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>250.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>0b190a96-8fa9-4870-b703-ac925fd4e272</ItemID>
+      <Code>Support-M</Code>
+      <Description>Desktop/network support via email &amp; phone.
+Per month fixed fee for minimum 20 hours/month.</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>500.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>32147268-0576-46db-9c3b-adfd311035f5</ItemID>
+      <Code>Train-MS</Code>
+      <Description>Half day training - Microsoft Office</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>500.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>1cc24561-dd72-4519-86e3-e73530bee955</ItemID>
+      <Code>DevH</Code>
+      <Description>Development work (per hour)</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>90.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>a1173989-626f-4667-b0de-ffc712327fdb</ItemID>
+      <Code>PMD</Code>
+      <Description>Project Management - onsite daily rate</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <SalesDetails>
+        <UnitPrice>700.00</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+    <Item>
+      <ItemID>423e19a2-3172-430e-9790-a906c8d5c796</ItemID>
+      <Code>GB1-White</Code>
+      <Description>Golf balls - white single</Description>
+      <UpdatedDateUTC>1970-01-01T00:00:00</UpdatedDateUTC>
+      <PurchaseDetails>
+        <UnitPrice>4.20</UnitPrice>
+        <AccountCode>300</AccountCode>
+        <TaxType>INPUT</TaxType>
+      </PurchaseDetails>
+      <SalesDetails>
+        <UnitPrice>5.60</UnitPrice>
+        <AccountCode>200</AccountCode>
+        <TaxType>OUTPUT</TaxType>
+      </SalesDetails>
+    </Item>
+  </Items>
+</Response>
