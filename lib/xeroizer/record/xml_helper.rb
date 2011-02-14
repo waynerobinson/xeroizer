@@ -23,7 +23,10 @@ module Xeroizer
                 when :decimal     then BigDecimal.new(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
-                when :belongs_to  then Xeroizer::Record.const_get(element.name.to_sym).build_from_node(element, parent)
+                when :belongs_to  
+                  model_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
+                  Xeroizer::Record.const_get(model_name).build_from_node(element, parent)
+                  
                 when :has_many
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
