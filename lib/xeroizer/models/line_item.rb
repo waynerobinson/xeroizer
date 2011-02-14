@@ -18,6 +18,7 @@ module Xeroizer
       
       TAX_TYPE = Account::TAX_TYPE unless defined?(TAX_TYPE)
       
+      string  :item_code
       string  :description
       decimal :quantity
       decimal :unit_amount
