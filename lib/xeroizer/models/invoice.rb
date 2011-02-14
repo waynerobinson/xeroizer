@@ -129,7 +129,7 @@ module Xeroizer
         # Retrieve the PDF version of this invoice.
         # @param [String] filename optional filename to store the PDF in instead of returning the data.
         def pdf(filename = nil)
-          @_cache_pdf_data ||= parent.pdf(id, filename)
+          parent.pdf(id, filename)
         end
       
     end
