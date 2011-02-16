@@ -57,9 +57,15 @@
 
 <p>If you are unfamiliar with the Xero API, you should first read the documentation located at http://developer.xero.com.</p>
 
+<h2>Installation</h2>
+
+<pre class="code"><span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='xeroizer identifier id'>xeroizer</span>
+</pre>
+
 <h2>Basic Usage</h2>
 
-<pre class="code"><span class='require identifier id'>require</span> <span class='string val'>'xeroizer'</span>
+<pre class="code"><span class='require identifier id'>require</span> <span class='string val'>'rubygems'</span>
+<span class='require identifier id'>require</span> <span class='string val'>'xeroizer'</span>
 
 <span class='comment val'># Create client (used to communicate with the API).</span>
 <span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
@@ -485,7 +491,7 @@ that attribute. For example:</p>
 validators then the library may raise a <code>Xeroizer::ApiException</code>.</p></div></div>
     
     <div id="footer">
-  Generated on Mon Feb 14 12:39:58 2011 by 
+  Generated on Wed Feb 16 16:28:06 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
