@@ -10,7 +10,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "xeroizer"
   gem.homepage = "http://github.com/waynerobinson/xeroizer"
   gem.license = "MIT"
-  gem.summary = %Q{Ruby library for the Xero accounting system API.}
+  gem.summary = %Q{Xero library}
   gem.description = %Q{Ruby library for the Xero accounting system API.}
   gem.email = "wayne.robinson@gmail.com"
   gem.authors = ["Wayne Robinson"]
