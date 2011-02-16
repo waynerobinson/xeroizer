@@ -3,3 +3,4 @@ certs
 test*.rb
 doc/
 .redcar
+pkg/
