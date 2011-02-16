@@ -4,6 +4,7 @@ gem 'builder', '>= 2.1.2'
 gem 'oauth',   '>= 0.3.6'
 gem 'activesupport'
 gem 'nokogiri'
+gem "jeweler", "~> 1.5.2"
 
 group :test do
   gem 'mocha'
