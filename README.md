@@ -16,9 +16,15 @@ This library is designed to help ruby/rails based applications communicate with 
 
 If you are unfamiliar with the Xero API, you should first read the documentation located at http://developer.xero.com.
 
+Installation
+------------
+
+	gem install xeroizer
+
 Basic Usage
 -----------
 
+	require 'rubygems'
 	require 'xeroizer'
 	
 	# Create client (used to communicate with the API).

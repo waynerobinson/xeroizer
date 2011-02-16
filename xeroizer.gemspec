@@ -306,7 +306,8 @@ Gem::Specification.new do |s|
     "test/unit/record/model_definition_test.rb",
     "test/unit/record/parse_where_hash_test.rb",
     "test/unit/record/record_association_test.rb",
-    "test/unit/record/validators_test.rb"
+    "test/unit/record/validators_test.rb",
+    "xeroizer.gemspec"
   ]
   s.homepage = %q{http://github.com/waynerobinson/xeroizer}
   s.licenses = ["MIT"]
