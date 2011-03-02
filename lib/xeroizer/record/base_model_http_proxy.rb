@@ -64,8 +64,7 @@ module Xeroizer
                 raise InvalidAttributeInWhere.new(model_name, attribute_name)
               end
             end
-            escaped_where = CGI.escape(conditions.map { | (attr, expression, value) | "#{attr}#{expression}#{value}"}.join('&&'))
-            escaped_where
+            conditions.map { | (attr, expression, value) | "#{attr}#{expression}#{value}"}.join('&&')
           end
         
           # Extract the attribute name and expression from the attribute.
