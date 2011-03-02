@@ -1,4 +1,4 @@
-Xeroizer API Library
+Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/xeroizer.png)
 ====================
 
 **Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)		
