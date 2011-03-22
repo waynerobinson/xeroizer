@@ -1,4 +1,5 @@
 require 'xeroizer/record/base_model_http_proxy'
+require 'xeroizer/response_parser'
 
 module Xeroizer
   module Record
@@ -92,43 +93,21 @@ module Xeroizer
           result
         end
         
-        # Parse the response retreived during any request.
-        def parse_response(raw_response, request = {}, options = {})
-          @response = Xeroizer::Response.new
-          @response.response_xml = raw_response
-          
-          doc = Nokogiri::XML(raw_response) { | cfg | cfg.noblanks }
-          
-          # check for responses we don't understand
-          raise Xeroizer::UnparseableResponse.new(doc.root.name) unless doc.root.name == 'Response'
-          
-          doc.root.elements.each do | element |
-                        
-            # Text element
-            if element.children && element.children.size == 1 && element.children.first.text?
-              case element.name
-                when 'Id'           then @response.id = element.text
-                when 'Status'       then @response.status = element.text
-                when 'ProviderName' then @response.provider = element.text
-                when 'DateTimeUTC'  then @response.date_time = Time.parse(element.text)
-              end
-              
-            # Records in response
-            elsif element.children && element.children.size > 0 && element.children.first.name == model_name
-              parse_records(element.children)
+        def parse_response(response_xml, options = {})
+          ResponseParser.parse_response(response_xml, options) do | response, elements, response_model_name |
+            if model_name == response_model_name
+              parse_records(response, elements)
             end
           end
-          
-          @response.response_items
         end
-        
+                
       protected
         
         # Parse the records part of the XML response and builds model instances as necessary.
-        def parse_records(elements)
-          @response.response_items = []
+        def parse_records(response, elements)
+          response.response_items = []
           elements.each do | element |
-            @response.response_items << model_class.build_from_node(element, self)
+            response.response_items << model_class.build_from_node(element, self)
           end
         end
         
