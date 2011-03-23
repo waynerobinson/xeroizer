@@ -17,7 +17,8 @@ module Xeroizer
             case row_type
               when 'Header'
                 row = HeaderRow.new(report);
-                report.header = row
+                parent.header = row if parent
+                report.header ||= row
                 
               when 'Section'
                 row = SectionRow.new(report)
