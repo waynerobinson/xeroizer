@@ -1,5 +1,4 @@
 require 'xeroizer/record/base_model_http_proxy'
-require 'xeroizer/response_parser'
 
 module Xeroizer
   module Record
@@ -94,7 +93,7 @@ module Xeroizer
         end
         
         def parse_response(response_xml, options = {})
-          ResponseParser.parse_response(response_xml, options) do | response, elements, response_model_name |
+          Response.parse(response_xml, options) do | response, elements, response_model_name |
             if model_name == response_model_name
               parse_records(response, elements)
             end
@@ -105,7 +104,6 @@ module Xeroizer
         
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(response, elements)
-          response.response_items = []
           elements.each do | element |
             response.response_items << model_class.build_from_node(element, self)
           end
