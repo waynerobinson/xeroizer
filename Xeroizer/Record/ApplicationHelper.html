@@ -103,6 +103,27 @@ Factory for new BaseModel instances with the class name `record_type`.
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#report-instance_method" title="#report (instance method)">- (Object) <strong>report</strong>(report_type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -205,12 +226,53 @@ instance of BaseModel subclass matching `record_type`
 </table>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="report-instance_method">
+  
+    - (<tt>Object</tt>) <strong>report</strong>(report_type) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/application_helper.rb', line 20</span>
+
+<span class='def def kw'>def</span> <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='report_type identifier id'>report_type</span><span class='rparen token'>)</span>
+  <span class='define_method identifier id'>define_method</span> <span class='report_type identifier id'>report_type</span> <span class='do do kw'>do</span>
+    <span class='var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{report_type}_cache&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+    <span class='unless unless kw'>unless</span> <span class='instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+      <span class='instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='comma token'>,</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='Factory constant id'>Factory</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='report_type identifier id'>report_type</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+    <span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Wed Feb 16 16:28:09 2011 by 
+  Generated on Wed Mar 23 12:28:01 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

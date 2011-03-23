@@ -449,7 +449,7 @@ A new instance of BaseModel.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parse_response-instance_method" title="#parse_response (instance method)">- (Object) <strong>parse_response</strong>(raw_response, request = {}, options = {}) </a>
+      <a href="#parse_response-instance_method" title="#parse_response (instance method)">- (Object) <strong>parse_response</strong>(response_xml, options = {}) </a>
     
 
     
@@ -462,10 +462,7 @@ A new instance of BaseModel.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Parse the response retreived during any request.
-</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1086,99 +1083,33 @@ Helper method to retrieve just the first element from the full record list.
       <div class="method_details ">
   <p class="signature " id="parse_response-instance_method">
   
-    - (<tt>Object</tt>) <strong>parse_response</strong>(raw_response, request = {}, options = {}) 
+    - (<tt>Object</tt>) <strong>parse_response</strong>(response_xml, options = {}) 
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Parse the response retreived during any request.
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Raises:</h3>
-<ul class="raise">
-  
-    <li>
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../UnparseableResponse.html" title="Xeroizer::UnparseableResponse (class)">Xeroizer::UnparseableResponse</a></span></tt>)</span>
-      
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+95
 96
 97
 98
 99
 100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123</pre>
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 95</span>
 
-<span class='def def kw'>def</span> <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='raw_response identifier id'>raw_response</span><span class='comma token'>,</span> <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='@response ivar id'>@response</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Response constant id'>Response</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
-  <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='response_xml identifier id'>response_xml</span> <span class='assign token'>=</span> <span class='raw_response identifier id'>raw_response</span>
-  
-  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Nokogiri constant id'>Nokogiri</span><span class='colon2 op'>::</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='raw_response identifier id'>raw_response</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='cfg identifier id'>cfg</span> <span class='bitor op'>|</span> <span class='cfg identifier id'>cfg</span><span class='dot token'>.</span><span class='noblanks identifier id'>noblanks</span> <span class='rbrace token'>}</span>
-  
-  <span class='comment val'># check for responses we don't understand</span>
-  <span class='raise identifier id'>raise</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='UnparseableResponse constant id'>UnparseableResponse</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='root identifier id'>root</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='root identifier id'>root</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='string val'>'Response'</span>
-  
-  <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='root identifier id'>root</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='element identifier id'>element</span> <span class='bitor op'>|</span>
-                
-    <span class='comment val'># Text element</span>
-    <span class='if if kw'>if</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span> <span class='andop op'>&amp;&amp;</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='eq op'>==</span> <span class='integer val'>1</span> <span class='andop op'>&amp;&amp;</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='text? fid id'>text?</span>
-      <span class='case case kw'>case</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
-        <span class='when when kw'>when</span> <span class='string val'>'Id'</span>           <span class='then then kw'>then</span> <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='id identifier id'>id</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-        <span class='when when kw'>when</span> <span class='string val'>'Status'</span>       <span class='then then kw'>then</span> <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='status identifier id'>status</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-        <span class='when when kw'>when</span> <span class='string val'>'ProviderName'</span> <span class='then then kw'>then</span> <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='provider identifier id'>provider</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-        <span class='when when kw'>when</span> <span class='string val'>'DateTimeUTC'</span>  <span class='then then kw'>then</span> <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='date_time identifier id'>date_time</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span><span class='rparen token'>)</span>
-      <span class='end end kw'>end</span>
-      
-    <span class='comment val'># Records in response</span>
-    <span class='elsif elsif kw'>elsif</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span> <span class='andop op'>&amp;&amp;</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span> <span class='andop op'>&amp;&amp;</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='eq op'>==</span> <span class='model_name identifier id'>model_name</span>
-      <span class='parse_records identifier id'>parse_records</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='dot token'>.</span><span class='children identifier id'>children</span><span class='rparen token'>)</span>
+<span class='def def kw'>def</span> <span class='parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='Response constant id'>Response</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='response identifier id'>response</span><span class='comma token'>,</span> <span class='elements identifier id'>elements</span><span class='comma token'>,</span> <span class='response_model_name identifier id'>response_model_name</span> <span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='model_name identifier id'>model_name</span> <span class='eq op'>==</span> <span class='response_model_name identifier id'>response_model_name</span>
+      <span class='parse_records identifier id'>parse_records</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='comma token'>,</span> <span class='elements identifier id'>elements</span><span class='rparen token'>)</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
-  
-  <span class='@response ivar id'>@response</span><span class='dot token'>.</span><span class='response_items identifier id'>response_items</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1191,7 +1122,7 @@ Parse the response retreived during any request.
 </div>
     
     <div id="footer">
-  Generated on Wed Feb 16 16:28:09 2011 by 
+  Generated on Wed Mar 23 12:27:56 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>

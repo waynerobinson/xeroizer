@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Xeroizer::ApplicationHttpProxy::InstanceMethods</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (I)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Xeroizer.html" title="Xeroizer (module)">Xeroizer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ApplicationHttpProxy.html" title="Xeroizer::ApplicationHttpProxy (module)">ApplicationHttpProxy</a></span></span>
+     &raquo; 
+    <span class="title">InstanceMethods</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Xeroizer::ApplicationHttpProxy::InstanceMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/xeroizer/application_http_proxy.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_get-instance_method" title="#http_get (instance method)">- (Object) <strong>http_get</strong>(extra_params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_post-instance_method" title="#http_post (instance method)">- (Object) <strong>http_post</strong>(xml, extra_params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#http_put-instance_method" title="#http_put (instance method)">- (Object) <strong>http_put</strong>(xml, extra_params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#url-instance_method" title="#url (instance method)">- (Object) <strong>url</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+URL end-point for this model.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="http_get-instance_method">
+  
+    - (<tt>Object</tt>) <strong>http_get</strong>(extra_params = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/application_http_proxy.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="http_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>http_post</strong>(xml, extra_params = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/application_http_proxy.rb', line 23</span>
+
+<span class='def def kw'>def</span> <span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="http_put-instance_method">
+  
+    - (<tt>Object</tt>) <strong>http_put</strong>(xml, extra_params = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/application_http_proxy.rb', line 19</span>
+
+<span class='def def kw'>def</span> <span class='http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='application identifier id'>application</span><span class='dot token'>.</span><span class='http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="url-instance_method">
+  
+    - (<tt>Object</tt>) <strong>url</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+URL end-point for this model.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/application_http_proxy.rb', line 11</span>
+
+<span class='def def kw'>def</span> <span class='url identifier id'>url</span>
+  <span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='xero_url identifier id'>xero_url</span> <span class='plus op'>+</span> <span class='string val'>'/'</span> <span class='plus op'>+</span> <span class='api_controller_name identifier id'>api_controller_name</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Mar 23 12:28:03 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

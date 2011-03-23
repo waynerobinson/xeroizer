@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Module: Xeroizer::Report::RowXmlHelper::ClassMethods</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../../Xeroizer.html" title="Xeroizer (module)">Xeroizer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Report.html" title="Xeroizer::Report (module)">Report</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../RowXmlHelper.html" title="Xeroizer::Report::RowXmlHelper (module)">RowXmlHelper</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Xeroizer::Report::RowXmlHelper::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/xeroizer/report/row/xml_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_from_node-instance_method" title="#build_from_node (instance method)">- (Object) <strong>build_from_node</strong>(node, report, parent = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="build_from_node-instance_method">
+  
+    - (<tt>Object</tt>) <strong>build_from_node</strong>(node, report, parent = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/xml_helper.rb', line 14</span>
+
+<span class='def def kw'>def</span> <span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='comma token'>,</span> <span class='report identifier id'>report</span><span class='comma token'>,</span> <span class='parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='row_type identifier id'>row_type</span> <span class='assign token'>=</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='xpath identifier id'>xpath</span><span class='lparen token'>(</span><span class='string val'>'RowType'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
+  <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+  <span class='case case kw'>case</span> <span class='row_type identifier id'>row_type</span>
+    <span class='when when kw'>when</span> <span class='string val'>'Header'</span>
+      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='HeaderRow constant id'>HeaderRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
+      <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
+      
+    <span class='when when kw'>when</span> <span class='string val'>'Section'</span>
+      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='SectionRow constant id'>SectionRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span>
+      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
+      <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='sections identifier id'>sections</span> <span class='lshft op'>&lt;&lt;</span> <span class='row identifier id'>row</span>
+      
+    <span class='when when kw'>when</span> <span class='string val'>'SummaryRow'</span>
+      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='SummaryRow constant id'>SummaryRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
+      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
+      <span class='if if kw'>if</span> <span class='parent identifier id'>parent</span>
+        <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
+        
+        <span class='comment val'># Also add this summary row to the report if the section</span>
+        <span class='comment val'># title is blank and the report doesn't already have one.</span>
+        <span class='if if kw'>if</span> <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='title identifier id'>title</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='string val'>''</span> <span class='andop op'>&amp;&amp;</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+          <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
+        <span class='end end kw'>end</span>
+      <span class='else else kw'>else</span>
+        <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
+      <span class='end end kw'>end</span>
+      
+    <span class='else else kw'>else</span>
+      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span>
+      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
+      
+  <span class='end end kw'>end</span>
+  <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='parent identifier id'>parent</span>
+  
+  <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='element identifier id'>element</span> <span class='bitor op'>|</span>
+    <span class='case case kw'>case</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+      <span class='when when kw'>when</span> <span class='string val'>'RowType'</span>  <span class='then then kw'>then</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='type identifier id'>type</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
+      <span class='when when kw'>when</span> <span class='string val'>'Title'</span>    <span class='then then kw'>then</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='title identifier id'>title</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
+      <span class='when when kw'>when</span> <span class='string val'>'Rows'</span>
+        <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row_node identifier id'>row_node</span> <span class='bitor op'>|</span>
+          <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span> <span class='lshft op'>&lt;&lt;</span> <span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='row_node identifier id'>row_node</span><span class='comma token'>,</span> <span class='report identifier id'>report</span><span class='comma token'>,</span> <span class='row identifier id'>row</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
+        
+      <span class='when when kw'>when</span> <span class='string val'>'Cells'</span>
+        <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='cell_node identifier id'>cell_node</span> <span class='bitor op'>|</span>
+          <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span> <span class='lshft op'>&lt;&lt;</span> <span class='Cell constant id'>Cell</span><span class='dot token'>.</span><span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='cell_node identifier id'>cell_node</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
+        
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+              
+  <span class='row identifier id'>row</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Mar 23 12:27:57 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
