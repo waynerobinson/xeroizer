@@ -488,10 +488,55 @@ that attribute. For example:</p>
 </pre>
 
 <p>If something goes really wrong and the particular validation isn't handled by the internal
-validators then the library may raise a <code>Xeroizer::ApiException</code>.</p></div></div>
+validators then the library may raise a <code>Xeroizer::ApiException</code>.</p>
+
+<h2>Reports</h2>
+
+<p>All Xero reports except GST report can be accessed through Xeroizer.</p>
+
+<p>Currently, only generic report access functionality exists. This will be extended
+to provide a more report-specific version of the data in the future (public submissions
+are welcome).</p>
+
+<p>Reports are accessed like the following example:</p>
+
+<pre class="code"><span class='trial_balance identifier id'>trial_balance</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='TrialBalance constant id'>TrialBalance</span><span class='dot token'>.</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:date</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'2011-03-21'</span><span class='rparen token'>)</span>
+
+<span class='comment val'># Array containing report headings.</span>
+<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='header identifier id'>header</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='rbrace token'>}</span>
+
+<span class='comment val'># Report rows by section</span>
+<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='sections identifier id'>sections</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='section identifier id'>section</span> <span class='bitor op'>|</span>
+    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Section Title: #{section.title}&quot;</span>
+    <span class='section identifier id'>section</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span>
+        <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;\t#{row.cells.map { | cell | cell.value }.join(&quot;\t&quot;)}&quot;</span>
+    <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+
+<span class='comment val'># Summary row (if only one on the report)</span>
+<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='rbrace token'>}</span>
+
+<span class='comment val'># All report rows (including HeaderRow, SectionRow, Row and SummaryRow)</span>
+<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span>
+    <span class='case case kw'>case</span> <span class='row identifier id'>row</span>
+        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='HeaderRow constant id'>HeaderRow</span>
+            <span class='comment val'># do something with header</span>
+
+        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='SectionRow constant id'>SectionRow</span>
+            <span class='comment val'># do something with section, will need to step into the rows for this section</span>
+
+        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span>
+            <span class='comment val'># do something for standard report rows</span>
+
+        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='SummaryRow constant id'>SummaryRow</span>
+            <span class='comment val'># do something for summary rows</span>
+
+    <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre></div></div>
     
     <div id="footer">
-  Generated on Wed Mar 23 12:27:55 2011 by 
+  Generated on Wed Mar 23 15:16:27 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.3 (ruby-1.8.7).
 </div>
