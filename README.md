@@ -420,3 +420,49 @@ that attribute. For example:
 
 If something goes really wrong and the particular validation isn't handled by the internal
 validators then the library may raise a `Xeroizer::ApiException`.
+
+Reports
+-------
+
+All Xero reports except GST report can be accessed through Xeroizer.
+
+Currently, only generic report access functionality exists. This will be extended
+to provide a more report-specific version of the data in the future (public submissions
+are welcome).
+
+Reports are accessed like the following example:
+
+	trial_balance = xero.TrialBalance.get(:date => '2011-03-21')
+	
+	# Array containing report headings.
+	trial_balance.header.cells.map { | cell | cell.value }
+	
+	# Report rows by section
+	trial_balance.sections.each do | section |
+		puts "Section Title: #{section.title}"
+		section.rows.each do | row |
+			puts "\t#{row.cells.map { | cell | cell.value }.join("\t")}"
+		end
+	end
+	
+	# Summary row (if only one on the report)
+	trial_balance.summary.cells.map { | cell | cell.value }
+	
+	# All report rows (including HeaderRow, SectionRow, Row and SummaryRow)
+	trial_balance.rows.each do | row |
+		case row
+			when Xeroizer::Report::HeaderRow
+				# do something with header
+				
+			when Xeroizer::Report::SectionRow
+				# do something with section, will need to step into the rows for this section
+				
+			when Xeroizer::Report::Row
+				# do something for standard report rows
+				
+			when Xeroizer::Report::SummaryRow
+				# do something for summary rows
+				
+		end
+	end
+	
