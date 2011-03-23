@@ -17,6 +17,16 @@ module Xeroizer
         end  
       end
       
+      def report(report_type)
+        define_method report_type do
+          var_name = "@#{report_type}_cache".to_sym
+          unless instance_variable_defined?(var_name)
+            instance_variable_set(var_name, Xeroizer::Report::Factory.new(self, report_type.to_s))
+          end
+          instance_variable_get(var_name)
+        end
+      end
+      
     end
   end
 end

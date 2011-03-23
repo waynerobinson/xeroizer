@@ -39,11 +39,19 @@ module TestHelper
     end
   end
   
+  def get_report_xml(report_type)
+    get_file_as_string("reports/#{report_type.underscore}.xml")
+  end
+  
   def mock_api(model_name)
     @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml("#{model_name.underscore.pluralize}".to_sym))
     @client.send("#{model_name.singularize}".to_sym).all.each do | record |
       @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name.underscore.singularize}".to_sym, record.id))
     end
+  end
+  
+  def mock_report_api(report_type)
+    @client.stubs(:http_get).with { | client, url, params | url =~ /Report\/#{report_type}$/ }.returns(get_report_xml(report_type))
   end
     
 end

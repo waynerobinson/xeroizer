@@ -25,6 +25,16 @@ module Xeroizer
     record :TaxRate
     record :TrackingCategory
     
+    report :AgedPayablesByContact
+    report :AgedReceivablesByContact
+    report :BalanceSheet
+    report :BankStatement
+    report :BankSummary
+    report :BudgetSummary
+    report :ExecutiveSummary
+    report :ProfitAndLoss
+    report :TrialBalance
+    
     public
     
       # Never used directly. Use sub-classes instead.

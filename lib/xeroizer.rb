@@ -47,6 +47,8 @@ require 'xeroizer/models/tax_rate'
 require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
 
+require 'xeroizer/report/factory'
+
 require 'xeroizer/response'
 
 require 'xeroizer/generic_application'
