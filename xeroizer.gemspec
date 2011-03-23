@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{xeroizer}
-  s.version = "0.1.3"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2011-03-02}
+  s.date = %q{2011-03-23}
   s.description = %q{Ruby library for the Xero accounting system API.}
   s.email = %q{wayne.robinson@gmail.com}
   s.extra_rdoc_files = [
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/class_level_inheritable_attributes.rb",
     "lib/nokogiri_utils.rb",
     "lib/xeroizer.rb",
+    "lib/xeroizer/application_http_proxy.rb",
     "lib/xeroizer/ca-certificates.crt",
     "lib/xeroizer/exceptions.rb",
     "lib/xeroizer/generic_application.rb",
@@ -71,6 +72,16 @@ Gem::Specification.new do |s|
     "lib/xeroizer/record/validators/presence_of_validator.rb",
     "lib/xeroizer/record/validators/validator.rb",
     "lib/xeroizer/record/xml_helper.rb",
+    "lib/xeroizer/report/base.rb",
+    "lib/xeroizer/report/cell.rb",
+    "lib/xeroizer/report/cell_xml_helper.rb",
+    "lib/xeroizer/report/factory.rb",
+    "lib/xeroizer/report/row/header.rb",
+    "lib/xeroizer/report/row/row.rb",
+    "lib/xeroizer/report/row/section.rb",
+    "lib/xeroizer/report/row/summary.rb",
+    "lib/xeroizer/report/row/xml_helper.rb",
+    "lib/xeroizer/report/xml_helper.rb",
     "lib/xeroizer/response.rb",
     "test/stub_responses/accounts.xml",
     "test/stub_responses/api_exception.xml",
@@ -291,6 +302,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/records/manual_journal-bb6cfcfc-4500-4475-bd3a-93ee512428e0.xml",
     "test/stub_responses/records/manual_journal-f00a355b-7374-445c-886b-0437bea4095c.xml",
     "test/stub_responses/refresh_responses.rb",
+    "test/stub_responses/reports/trial_balance.xml",
     "test/stub_responses/tax_rates.xml",
     "test/stub_responses/token_expired",
     "test/stub_responses/tracking_categories.xml",
@@ -307,6 +319,9 @@ Gem::Specification.new do |s|
     "test/unit/record/parse_where_hash_test.rb",
     "test/unit/record/record_association_test.rb",
     "test/unit/record/validators_test.rb",
+    "test/unit/record_definition_test.rb",
+    "test/unit/report_definition_test.rb",
+    "test/unit/report_test.rb",
     "xeroizer.gemspec"
   ]
   s.homepage = %q{http://github.com/waynerobinson/xeroizer}
@@ -327,7 +342,10 @@ Gem::Specification.new do |s|
     "test/unit/record/model_definition_test.rb",
     "test/unit/record/parse_where_hash_test.rb",
     "test/unit/record/record_association_test.rb",
-    "test/unit/record/validators_test.rb"
+    "test/unit/record/validators_test.rb",
+    "test/unit/record_definition_test.rb",
+    "test/unit/report_definition_test.rb",
+    "test/unit/report_test.rb"
   ]
 
   if s.respond_to? :specification_version then
