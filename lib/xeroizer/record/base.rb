@@ -83,6 +83,13 @@ module Xeroizer
           end
           true
         end
+
+        def inspect
+          attribute_string = self.attributes.collect do |attr, value|
+            "#{attr.inspect}: #{value.inspect}"
+          end.join(", ")
+          "#<#{self.class} #{attribute_string}>"
+        end
                 
       protected
       
