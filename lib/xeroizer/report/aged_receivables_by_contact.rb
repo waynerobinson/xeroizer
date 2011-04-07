@@ -5,19 +5,19 @@ module Xeroizer
       public
 
         def total
-          @_total_cache ||= sum(:Total)
+          @_total_cache ||= summary.cell(:Total).value 
         end
 
         def total_paid
-          @_total_paid_cache ||= sum(:Paid)
+          @_total_paid_cache ||= summary.cell(:Paid).value
         end
 
         def total_credited
-          @_total_credited_cache ||= sum(:Credited)
+          @_total_credited_cache ||= summary.cell(:Credited).value
         end
 
         def total_due
-          @_total_due_cache ||= sum(:Due)
+          @_total_due_cache ||= summary.cell(:Due).value
         end
 
         def total_overdue
