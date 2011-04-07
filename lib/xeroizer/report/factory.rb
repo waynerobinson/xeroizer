@@ -1,5 +1,6 @@
 require 'xeroizer/application_http_proxy' 
 require 'xeroizer/report/base'
+require 'xeroizer/report/aged_receivables_by_contact'
 
 module Xeroizer
   module Report
@@ -30,11 +31,20 @@ module Xeroizer
           "Report/#{report_type}"
         end
 
+        def klass
+          return @_klass_cache if @_klass_cache
+          begin
+            @_klass_cache ||= Xeroizer::Report.const_get(report_type)
+          rescue NameError => ex # use default class
+            @_klass_cache ||= Base
+          end
+        end
+
       protected
               
         def parse_reports(response, elements)
           elements.each do | element |
-            response.response_items << Base.build_from_node(element, self)
+            response.response_items << klass.build_from_node(element, self)
           end
         end
         

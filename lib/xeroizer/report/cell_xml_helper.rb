@@ -32,7 +32,7 @@ module Xeroizer
             cell = new
             node.elements.each do | element |
               case element.name.to_s
-                when 'Value' then cell.value = potentially_convert_to_number(element.text)
+                when 'Value' then cell.value = parse_value(element.text)
                 when 'Attributes'
                   element.elements.each do | attribute_node |
                     (id, value) = parse_attribute(attribute_node)
@@ -44,12 +44,15 @@ module Xeroizer
           end
           
         protected
-        
-          # If a cell's value is a valid number then return it is as BigDecimal.
-          def potentially_convert_to_number(value)
-            value =~ /^[-]?\d+(\.\d+)?$/ ? BigDecimal.new(value) : value
+
+          def parse_value(value)
+            case value
+              when /^[-]?\d+(\.\d+)?$/                      then BigDecimal.new(value)
+              when /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/  then Time.xmlschema(value)
+              else                                          value
+            end
           end
-          
+        
           def parse_attribute(attribute_node)
             id = nil
             value = nil

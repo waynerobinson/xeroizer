@@ -37,7 +37,12 @@ module Xeroizer
         def parent?
           rows.size > 0
         end
-        
+
+        def cell(column_name)
+          index = header.column_index(column_name)
+          cells[index] if index >= 0
+        end
+
     end
   end
 end
