@@ -61,7 +61,7 @@ module Xeroizer
     # 
     # @return [OAuth::Consumer] consumer object for GET/POST/PUT methods.
     def consumer
-      @consumer ||= create_consumer
+      create_consumer
     end
     
     # RequestToken for PUBLIC/PARTNER authorisation 
@@ -69,7 +69,7 @@ module Xeroizer
     #
     # @option params [String] :oauth_callback URL to redirect user to when they have authenticated your application with Xero. If not specified, the user will be shown an authorisation code on the screen that they need to get into your application.
     def request_token(params = {})
-      @request_token ||= consumer.get_request_token(params)
+      consumer.get_request_token(params)
     end
     
     # Create an AccessToken from a PUBLIC/PARTNER authorisation.
@@ -81,7 +81,7 @@ module Xeroizer
     
     # AccessToken created from authorize_from_access method.
     def access_token
-      @access_token ||= ::OAuth::AccessToken.new(consumer, @atoken, @asecret)
+      ::OAuth::AccessToken.new(consumer, @atoken, @asecret)
     end
     
     # Used for PRIVATE applications where the AccessToken uses the 
