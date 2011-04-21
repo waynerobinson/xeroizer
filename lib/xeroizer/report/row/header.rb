@@ -1,11 +1,11 @@
 module Xeroizer
   module Report
     class HeaderRow < Row
-            
+
         def column_index(column_name)
-          @_column_index_cache ||= {} 
-          @_column_index_cache[column_name.to_sym] ||= cells.find_index { | cell | cell.value == column_name.to_s }
+          cells.find_index { | cell | cell.value == column_name.to_s }
         end
+        memoize :column_index
         
     end
   end

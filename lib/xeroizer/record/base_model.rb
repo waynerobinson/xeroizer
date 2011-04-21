@@ -4,6 +4,8 @@ module Xeroizer
   module Record
     
     class BaseModel
+
+      extend ActiveSupport::Memoizable
       
       include ClassLevelInheritableAttributes
       class_inheritable_attributes :api_controller_name
@@ -59,8 +61,9 @@ module Xeroizer
         end
         
         def model_class
-          @model_class ||= Xeroizer::Record.const_get(model_name.to_sym)
+          Xeroizer::Record.const_get(model_name.to_sym)
         end
+        memoize :model_class
         
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
