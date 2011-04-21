@@ -2,27 +2,29 @@ module Xeroizer
   module Report
     class AgedReceivablesByContact < Base
 
+      extend ActiveSupport::Memoizable
+
       public
 
         def total
-          @_total_cache ||= summary.cell(:Total).value 
+          summary.cell(:Total).value 
         end
 
         def total_paid
-          @_total_paid_cache ||= summary.cell(:Paid).value
+          summary.cell(:Paid).value
         end
 
         def total_credited
-          @_total_credited_cache ||= summary.cell(:Credited).value
+          summary.cell(:Credited).value
         end
 
         def total_due
-          @_total_due_cache ||= summary.cell(:Due).value
+          summary.cell(:Due).value
         end
 
         def total_overdue
           now = Time.now
-          @_total_overdue_cache ||= sum(:Due) do | row | 
+          sum(:Due) do | row | 
             due_date = row.cell('Due Date').value
             due_date && due_date < now
           end
@@ -35,6 +37,7 @@ module Xeroizer
             sum
           end
         end
+        memoize :total, :total_paid, :total_credited, :total_due, :total_overdue, :sum
       
     end
   end
