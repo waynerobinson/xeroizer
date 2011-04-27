@@ -51,7 +51,7 @@ module TestHelper
   end
   
   def mock_report_api(report_type)
-    @client.stubs(:http_get).with { | client, url, params | url =~ /Report\/#{report_type}$/ }.returns(get_report_xml(report_type))
+    @client.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
   end
     
 end

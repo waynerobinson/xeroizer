@@ -17,7 +17,7 @@ class FactoryTest < Test::Unit::TestCase
         :BudgetSummary, :ExecutiveSummary, :ProfitAndLoss, :TrialBalance
       ].each do | report_type |
         report_factory = @client.send(report_type)
-        assert_equal("Report/#{report_type}", report_factory.api_controller_name)
+        assert_equal("Reports/#{report_type}", report_factory.api_controller_name)
       end
     end
     
