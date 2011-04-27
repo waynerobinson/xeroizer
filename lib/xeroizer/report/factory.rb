@@ -29,7 +29,7 @@ module Xeroizer
         end
       
         def api_controller_name
-          "Report/#{report_type}"
+          "Reports/#{report_type}"
         end
 
         def klass
