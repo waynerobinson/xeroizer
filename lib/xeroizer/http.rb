@@ -64,34 +64,48 @@ module Xeroizer
         end
 
         uri   = URI.parse(url)
-        
-        logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{uri.request_uri} ") if self.logger
-        
-        response = case method
-          when :get   then    client.get(uri.request_uri, headers)
-          when :post  then    client.post(uri.request_uri, { :xml => body }, headers)
-          when :put   then    client.put(uri.request_uri, { :xml => body }, headers)
-        end
-        
-        if self.logger
-          logger.info("== [#{Time.now.to_s}] XeroGateway Response (#{response.code})")
-          
-          unless response.code.to_i == 200
-            logger.info("== #{uri.request_uri} Response Body \n\n #{response.plain_body} \n == End Response Body")
+
+        attempts = 0
+
+        begin
+          attempts += 1
+          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{uri.request_uri} ") if self.logger
+
+          response = case method
+            when :get   then    client.get(uri.request_uri, headers)
+            when :post  then    client.post(uri.request_uri, { :xml => body }, headers)
+            when :put   then    client.put(uri.request_uri, { :xml => body }, headers)
           end
-        end
-        
-        case response.code.to_i
-          when 200
-            response.plain_body
-          when 400
-            handle_error!(response, body)  
-          when 401
-            handle_oauth_error!(response)
-          when 404
-            handle_object_not_found!(response, url)
+
+          if self.logger
+            logger.info("== [#{Time.now.to_s}] XeroGateway Response (#{response.code})")
+
+            unless response.code.to_i == 200
+              logger.info("== #{uri.request_uri} Response Body \n\n #{response.plain_body} \n == End Response Body")
+            end
+          end
+
+          case response.code.to_i
+            when 200
+              response.plain_body
+            when 400
+              handle_error!(response, body)
+            when 401
+              handle_oauth_error!(response)
+            when 404
+              handle_object_not_found!(response, url)
+            else
+              raise "Unknown response code: #{response.code.to_i}"
+          end
+        rescue Xeroizer::OAuth::RateLimitExceeded
+          if self.rate_limit_sleep
+            raise if attempts > 5
+            logger.info("== Rate limit exceeded, retrying") if self.logger
+            sleep_for(self.rate_limit_sleep)
+            retry
           else
-            raise "Unknown response code: #{response.code.to_i}"
+            raise
+          end
         end
       end
        
@@ -143,6 +157,10 @@ module Xeroizer
           when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
           else raise ObjectNotFound.new(request_url)
         end
+      end
+
+      def sleep_for(seconds = 1)
+        sleep seconds
       end
       
   end
