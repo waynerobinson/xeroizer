@@ -54,7 +54,7 @@ module Xeroizer
         end
         
         def new_record?
-          self.class.possible_primary_keys.all? { | key | @attributes[key].nil? }
+          id.nil?
         end
         
         # Check to see if the complete record is downloaded.
