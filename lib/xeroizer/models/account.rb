@@ -35,10 +35,12 @@ module Xeroizer
         'RRINPUT' =>          'Reduced rate VAT on expenses (UK Only)', 
         'EXEMPTOUTPUT' =>     'VAT on sales exempt from VAT (UK only)',
         'OUTPUT' =>           'OUTPUT',
+        'OUTPUT2' =>          'OUTPUT2',
         'SROUTPUT' =>         'SROUTPUT',
         'ZERORATEDOUTPUT' =>  'Sales made from overseas (UK only)',
         'RROUTPUT' =>         'Reduced rate VAT on sales (UK Only)',
-        'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)'
+        'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)',
+        'ECZROUTPUT' =>       'Zero-rated EC Income (UK only)'
       } unless defined?(TAX_TYPE)
       
       set_primary_key :account_id
