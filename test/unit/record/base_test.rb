@@ -41,12 +41,12 @@ class RecordBaseTest < Test::Unit::TestCase
       assert(@contact.contact_id =~ GUID_REGEX, "@contact.contact_id is not a GUID, it is '#{@contact.contact_id}'")
     end
     
-    should "new_record? should be false if we have specifid a primary key" do
+    should "new_record? should be false if we have specified a primary key" do
       contact = @client.Contact.build(:contact_id => 'ABC')
       assert_equal(false, contact.new_record?)
       
       contact = @client.Contact.build(:contact_number => 'CDE')
-      assert_equal(false, contact.new_record?)
+      assert_equal(true, contact.new_record?)
       
       contact = @client.Contact.build(:name => 'TEST NAME')
       assert_equal(true, contact.new_record?)
