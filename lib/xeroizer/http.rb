@@ -85,7 +85,7 @@ module Xeroizer
           when 200
             response.plain_body
           when 400
-            handle_error!(response)  
+            handle_error!(response, body)  
           when 401
             handle_oauth_error!(response)
           when 404
@@ -111,7 +111,7 @@ module Xeroizer
         end
       end
       
-      def handle_error!(response)
+      def handle_error!(response, request_body)
         
         raw_response = response.plain_body
         
@@ -126,7 +126,8 @@ module Xeroizer
 
           raise ApiException.new(doc.root.xpath("Type").text, 
                                  doc.root.xpath("Message").text, 
-                                 raw_response)
+                                 raw_response,
+                                 request_body)
 
         else
           
