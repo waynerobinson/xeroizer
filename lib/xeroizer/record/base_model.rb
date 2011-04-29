@@ -61,9 +61,8 @@ module Xeroizer
         end
         
         def model_class
-          Xeroizer::Record.const_get(model_name.to_sym)
+          @model_class ||= Xeroizer::Record.const_get(model_name.to_sym)
         end
-        memoize :model_class
         
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
