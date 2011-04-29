@@ -36,6 +36,7 @@ module Xeroizer
       
       has_many  :addresses
       has_many  :phones
+      has_many  :contact_groups
       
       validates_presence_of :name
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
