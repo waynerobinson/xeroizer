@@ -99,7 +99,7 @@ module Xeroizer
           end
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
-            raise if attempts > 5
+            raise if attempts > rate_limit_max_attempts
             logger.info("== Rate limit exceeded, retrying") if self.logger
             sleep_for(self.rate_limit_sleep)
             retry
