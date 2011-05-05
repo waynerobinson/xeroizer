@@ -33,11 +33,36 @@ class OAuthTest < Test::Unit::TestCase
       end
     end
       
-    should "handle rate limit exceeded" do
+    should "raise rate limit exceeded" do
       Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("rate_limit_exceeded"), :code => "401"))
       
       assert_raises Xeroizer::OAuth::RateLimitExceeded do
         @client.Organisation.first
+      end
+    end
+
+    should "automatically handle rate limit exceeded" do
+      auto_rate_limit_client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET, :rate_limit_sleep => 1)
+
+      # Return rate limit exceeded on first call, OK on the second
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(
+        stub(:plain_body => get_file_as_string("rate_limit_exceeded"), :code => "401"),
+        stub(:plain_body => get_record_xml(:organisation), :code => '200')
+      )
+
+      auto_rate_limit_client.expects(:sleep_for).with(1).returns(1)
+
+      auto_rate_limit_client.Organisation.first
+    end
+
+    should "only retry rate limited request a configurable number of times" do
+      auto_rate_limit_client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET, :rate_limit_sleep => 1, :rate_limit_max_attempts => 4)
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("rate_limit_exceeded"), :code => "401"))
+
+      auto_rate_limit_client.expects(:sleep_for).with(1).times(4).returns(1)
+
+      assert_raises Xeroizer::OAuth::RateLimitExceeded do
+        auto_rate_limit_client.Organisation.first
       end
     end
       
