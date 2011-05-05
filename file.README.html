@@ -309,7 +309,8 @@ or PartnerApplication. All class-level operations occur on this singleton. For e
 <span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='new_contact identifier id'>new_contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
 </pre>
 
-<h3>#all(options = 
+<h3>#all([options])</h3>
+
 <p>Retrieves list of all records with matching options. </p>
 
 <p><strong>Note:</strong> Some records (Invoice, CreditNote) only return summary information for the contact and no line items
@@ -333,7 +334,7 @@ and will count as an extra query towards your 1,000/day and 60/minute request pe
     <p><strong>See <em>Where Filters</em> section below.</strong></p>
 </blockquote>
 
-<h3>#first(options = {)</h3>
+<h3>#first([options])</h3>
 
 <p>This is a shortcut method for <code>all</code> and actually runs all however, this method only returns the
 first entry returned by all and never an array.</p>
@@ -557,7 +558,7 @@ You can set this option when initializing an application:</p>
 </pre></div></div>
     
     <div id="footer">
-  Generated on Thu May  5 11:33:08 2011 by 
+  Generated on Thu May  5 11:44:55 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>
