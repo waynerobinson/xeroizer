@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Xeroizer::Report::Factory</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -68,23 +68,28 @@
   
   
     
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">ActiveSupport::Memoizable</dd>
+      
+    
   
     
-      <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="../ApplicationHttpProxy.html" title="Xeroizer::ApplicationHttpProxy (module)">ApplicationHttpProxy</a></span></dd>
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="../ApplicationHttpProxy.html" title="Xeroizer::ApplicationHttpProxy (module)">ApplicationHttpProxy</a></span></dd>
       
     
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/xeroizer/report/factory.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/xeroizer/report/factory.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
 
 
+  
   
   
   
@@ -229,10 +234,32 @@ A new instance of Factory.
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#klass-instance_method" title="#klass (instance method)">- (Object) <strong>klass</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
 
+  
   
   
   
@@ -269,13 +296,13 @@ A new instance of Factory
       <pre class="lines">
 
 
-15
-16
 17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 17</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='application identifier id'>application</span><span class='comma token'>,</span> <span class='report_type identifier id'>report_type</span><span class='rparen token'>)</span>
   <span class='@application ivar id'>@application</span> <span class='assign token'>=</span> <span class='application identifier id'>application</span>
@@ -319,12 +346,12 @@ Returns the value of attribute application
       <pre class="lines">
 
 
-10
-11
-12</pre>
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='application identifier id'>application</span>
   <span class='@application ivar id'>@application</span>
@@ -362,12 +389,12 @@ Returns the value of attribute report_type
       <pre class="lines">
 
 
-11
-12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 13</span>
 
 <span class='def def kw'>def</span> <span class='report_type identifier id'>report_type</span>
   <span class='@report_type ivar id'>@report_type</span>
@@ -398,15 +425,15 @@ Returns the value of attribute report_type
       <pre class="lines">
 
 
-29
-30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 31</span>
 
 <span class='def def kw'>def</span> <span class='api_controller_name identifier id'>api_controller_name</span>
-  <span class='dstring node'>&quot;Report/#{report_type}&quot;</span>
+  <span class='dstring node'>&quot;Reports/#{report_type}&quot;</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -439,15 +466,15 @@ query-string parameters to pass to the API.
       <pre class="lines">
 
 
-22
-23
 24
 25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 24</span>
 
 <span class='def def kw'>def</span> <span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='response_xml identifier id'>response_xml</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_file</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_file</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>          
@@ -461,14 +488,51 @@ query-string parameters to pass to the API.
 </table>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="klass-instance_method">
+  
+    - (<tt>Object</tt>) <strong>klass</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 35</span>
+
+<span class='def def kw'>def</span> <span class='klass identifier id'>klass</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='report_type identifier id'>report_type</span><span class='rparen token'>)</span>
+  <span class='rescue rescue kw'>rescue</span> <span class='NameError constant id'>NameError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='ex identifier id'>ex</span> <span class='comment val'># use default class</span>
+    <span class='Base constant id'>Base</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:31 2011 by 
+  Generated on Thu May  5 11:33:15 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

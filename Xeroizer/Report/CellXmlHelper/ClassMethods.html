@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Xeroizer::Report::CellXmlHelper::ClassMethods</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -174,7 +174,7 @@ Return a hash like:
   <span class='cell identifier id'>cell</span> <span class='assign token'>=</span> <span class='new identifier id'>new</span>
   <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='element identifier id'>element</span> <span class='bitor op'>|</span>
     <span class='case case kw'>case</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
-      <span class='when when kw'>when</span> <span class='string val'>'Value'</span> <span class='then then kw'>then</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='potentially_convert_to_number identifier id'>potentially_convert_to_number</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span><span class='rparen token'>)</span>
+      <span class='when when kw'>when</span> <span class='string val'>'Value'</span> <span class='then then kw'>then</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='parse_value identifier id'>parse_value</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span><span class='rparen token'>)</span>
       <span class='when when kw'>when</span> <span class='string val'>'Attributes'</span>
         <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='attribute_node identifier id'>attribute_node</span> <span class='bitor op'>|</span>
           <span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='assign token'>=</span> <span class='parse_attribute identifier id'>parse_attribute</span><span class='lparen token'>(</span><span class='attribute_node identifier id'>attribute_node</span><span class='rparen token'>)</span>
@@ -195,9 +195,9 @@ Return a hash like:
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:31 2011 by 
+  Generated on Thu May  5 11:33:08 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

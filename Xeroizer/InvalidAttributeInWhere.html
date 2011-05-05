@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Exception: Xeroizer::InvalidAttributeInWhere</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -171,13 +171,13 @@ A new instance of InvalidAttributeInWhere
       <pre class="lines">
 
 
-83
-84
-85
-86</pre>
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 86</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='comma token'>,</span> <span class='attribute_name identifier id'>attribute_name</span><span class='rparen token'>)</span>
   <span class='@model_name ivar id'>@model_name</span> <span class='assign token'>=</span> <span class='model_name identifier id'>model_name</span>
@@ -209,12 +209,12 @@ A new instance of InvalidAttributeInWhere
       <pre class="lines">
 
 
-88
-89
-90</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 91</span>
 
 <span class='def def kw'>def</span> <span class='message identifier id'>message</span>
   <span class='dstring node'>&quot;#{@attribute_name} is not an attribute of #{@model_name}.&quot;</span>
@@ -230,9 +230,9 @@ A new instance of InvalidAttributeInWhere
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:29 2011 by 
+  Generated on Thu May  5 11:33:09 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

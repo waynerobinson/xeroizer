@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Xeroizer::GenericApplication</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -168,6 +168,60 @@ Returns the value of attribute logger.
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#rate_limit_max_attempts-instance_method" title="#rate_limit_max_attempts (instance method)">- (Object) <strong>rate_limit_max_attempts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute rate_limit_max_attempts.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rate_limit_sleep-instance_method" title="#rate_limit_sleep (instance method)">- (Object) <strong>rate_limit_sleep</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute rate_limit_sleep.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#xero_url-instance_method" title="#xero_url (instance method)">- (Object) <strong>xero_url</strong> </a>
     
 
@@ -294,13 +348,17 @@ Never used directly. Use sub-classes instead.
 44
 45
 46
-47</pre>
+47
+48
+49</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/generic_application.rb', line 44</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@xero_url ivar id'>@xero_url</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_url</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>&quot;https://api.xero.com/api.xro/2.0&quot;</span>
+  <span class='@rate_limit_sleep ivar id'>@rate_limit_sleep</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:rate_limit_sleep</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='false false kw'>false</span>
+  <span class='@rate_limit_max_attempts ivar id'>@rate_limit_max_attempts</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:rate_limit_max_attempts</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='integer val'>5</span>
   <span class='@client ivar id'>@client</span>   <span class='assign token'>=</span> <span class='OAuth constant id'>OAuth</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -402,6 +460,92 @@ Returns the value of attribute logger
     
       
       <span id=""></span>
+      <span id="rate_limit_max_attempts-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="rate_limit_max_attempts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rate_limit_max_attempts</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute rate_limit_max_attempts
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/generic_application.rb', line 9</span>
+
+<span class='def def kw'>def</span> <span class='rate_limit_max_attempts identifier id'>rate_limit_max_attempts</span>
+  <span class='@rate_limit_max_attempts ivar id'>@rate_limit_max_attempts</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="rate_limit_sleep-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="rate_limit_sleep-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rate_limit_sleep</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute rate_limit_sleep
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/generic_application.rb', line 9</span>
+
+<span class='def def kw'>def</span> <span class='rate_limit_sleep identifier id'>rate_limit_sleep</span>
+  <span class='@rate_limit_sleep ivar id'>@rate_limit_sleep</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
       <span id="xero_url-instance_method"></span>
       <div class="method_details ">
   <p class="signature " id="xero_url-instance_method">
@@ -449,9 +593,9 @@ Returns the value of attribute xero_url
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:34 2011 by 
+  Generated on Thu May  5 11:33:11 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

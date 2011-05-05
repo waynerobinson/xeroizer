@@ -2,8 +2,8 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
-<title>Documentation by YARD 0.6.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documentation by YARD 0.6.8</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -309,8 +309,7 @@ or PartnerApplication. All class-level operations occur on this singleton. For e
 <span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='new_contact identifier id'>new_contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
 </pre>
 
-<h3>#all(options = {})</h3>
-
+<h3>#all(options = 
 <p>Retrieves list of all records with matching options. </p>
 
 <p><strong>Note:</strong> Some records (Invoice, CreditNote) only return summary information for the contact and no line items
@@ -334,7 +333,7 @@ and will count as an extra query towards your 1,000/day and 60/minute request pe
     <p><strong>See <em>Where Filters</em> section below.</strong></p>
 </blockquote>
 
-<h3>#first(options = {})</h3>
+<h3>#first(options = {)</h3>
 
 <p>This is a shortcut method for <code>all</code> and actually runs all however, this method only returns the
 first entry returned by all and never an array.</p>
@@ -533,12 +532,34 @@ are welcome).</p>
 
     <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
+</pre>
+
+<h2>Xero API Rate Limits</h2>
+
+<p>The Xero API imposes the following limits on calls per organisation:</p>
+
+<ul>
+<li>A limit of 60 API calls in any 60 second period</li>
+<li>A limit of 1000 API calls in any 24 hour period</li>
+</ul>
+
+<p>By default, the library will raise a <code>Xeroizer::OAuth::RateLimitExceeded</code>
+exception when one of these limits is exceeded.</p>
+
+<p>If required, the library can handle these exceptions internally by sleeping
+for a configurable number of seconds and then repeating the last request.
+You can set this option when initializing an application:</p>
+
+<pre class="code"><span class='comment val'># Sleep for 2 seconds every time the rate limit is exceeded.</span>
+<span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
+                                         <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span>
+                                         <span class='symbol val'>:rate_limit_sleep</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>2</span><span class='rparen token'>)</span>
 </pre></div></div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:27 2011 by 
+  Generated on Thu May  5 11:33:07 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

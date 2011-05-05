@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Exception: Xeroizer::ApiException</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -84,6 +84,119 @@
 
 
   
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message-instance_method" title="#message (instance method)">- (Object) <strong>message</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute message.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#request_body-instance_method" title="#request_body (instance method)">- (Object) <strong>request_body</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute request_body.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-instance_method" title="#type (instance method)">- (Object) <strong>type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute type.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xml-instance_method" title="#xml (instance method)">- (Object) <strong>xml</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute xml.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
 
   
     <h2>
@@ -96,7 +209,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ApiException) <strong>initialize</strong>(type, message, xml) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ApiException) <strong>initialize</strong>(type, message, xml, request_body) </a>
     
 
     
@@ -119,27 +232,6 @@ A new instance of ApiException.
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#message-instance_method" title="#message (instance method)">- (Object) <strong>message</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -150,7 +242,7 @@ A new instance of ApiException.
     <div class="method_details first">
   <p class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Xeroizer::ApiException (class)">ApiException</a></span></tt>) <strong>initialize</strong>(type, message, xml) 
+    - (<tt><span class='object_link'><a href="" title="Xeroizer::ApiException (class)">ApiException</a></span></tt>) <strong>initialize</strong>(type, message, xml, request_body) 
   
 
   
@@ -171,19 +263,21 @@ A new instance of ApiException
       <pre class="lines">
 
 
-4
-5
 6
 7
-8</pre>
+8
+9
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 4</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 6</span>
 
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='comma token'>,</span> <span class='message identifier id'>message</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='rparen token'>)</span>
-  <span class='@type ivar id'>@type</span>     <span class='assign token'>=</span> <span class='type identifier id'>type</span>
-  <span class='@message ivar id'>@message</span>  <span class='assign token'>=</span> <span class='message identifier id'>message</span>
-  <span class='@xml ivar id'>@xml</span>      <span class='assign token'>=</span> <span class='xml identifier id'>xml</span>
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='comma token'>,</span> <span class='message identifier id'>message</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='request_body identifier id'>request_body</span><span class='rparen token'>)</span>
+  <span class='@type ivar id'>@type</span>         <span class='assign token'>=</span> <span class='type identifier id'>type</span>
+  <span class='@message ivar id'>@message</span>      <span class='assign token'>=</span> <span class='message identifier id'>message</span>
+  <span class='@xml ivar id'>@xml</span>          <span class='assign token'>=</span> <span class='xml identifier id'>xml</span>
+  <span class='@request_body ivar id'>@request_body</span> <span class='assign token'>=</span> <span class='request_body identifier id'>request_body</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -193,30 +287,42 @@ A new instance of ApiException
   
 </div>
 
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
     
-    
+      
+      <span id=""></span>
+      <span id="message-instance_method"></span>
       <div class="method_details first">
   <p class="signature first" id="message-instance_method">
   
-    - (<tt>Object</tt>) <strong>message</strong> 
+    - (<tt>Object</tt>) <strong>message</strong>  <span class="extras">(readonly)</span>
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute message
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+4
+5
+6</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 4</span>
 
 <span class='def def kw'>def</span> <span class='message identifier id'>message</span>
   <span class='dstring node'>&quot;#{@type}: #{@message} \n Generated by the following XML: \n #{@xml}&quot;</span>
@@ -227,14 +333,144 @@ A new instance of ApiException
 </table>
 </div>
     
+      
+      <span id=""></span>
+      <span id="request_body-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="request_body-instance_method">
+  
+    - (<tt>Object</tt>) <strong>request_body</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute request_body
+</p>
+
+
   </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='request_body identifier id'>request_body</span>
+  <span class='@request_body ivar id'>@request_body</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="type-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>type</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute type
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='type identifier id'>type</span>
+  <span class='@type ivar id'>@type</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="xml-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="xml-instance_method">
+  
+    - (<tt>Object</tt>) <strong>xml</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute xml
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='xml identifier id'>xml</span>
+  <span class='@xml ivar id'>@xml</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:29 2011 by 
+  Generated on Thu May  5 11:33:11 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

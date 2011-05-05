@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Xeroizer::OAuth</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -983,7 +983,7 @@ AccessToken created from authorize_from_access method.
       <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 83</span>
 
 <span class='def def kw'>def</span> <span class='access_token identifier id'>access_token</span>
-  <span class='@access_token ivar id'>@access_token</span> <span class='opasgn op'>||=</span> <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='AccessToken constant id'>AccessToken</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='@asecret ivar id'>@asecret</span><span class='rparen token'>)</span>
+  <span class='colon3 op'>::</span><span class='OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='AccessToken constant id'>AccessToken</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='@asecret ivar id'>@asecret</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1132,7 +1132,7 @@ consumer object for GET/POST/PUT methods.
       <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 63</span>
 
 <span class='def def kw'>def</span> <span class='consumer identifier id'>consumer</span>
-  <span class='@consumer ivar id'>@consumer</span> <span class='opasgn op'>||=</span> <span class='create_consumer identifier id'>create_consumer</span>
+  <span class='create_consumer identifier id'>create_consumer</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1321,7 +1321,7 @@ screen that they need to get into your application.
       <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 71</span>
 
 <span class='def def kw'>def</span> <span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='@request_token ivar id'>@request_token</span> <span class='opasgn op'>||=</span> <span class='consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='get_request_token identifier id'>get_request_token</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
+  <span class='consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='get_request_token identifier id'>get_request_token</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1380,9 +1380,9 @@ Update instance variables with those from the AccessToken.
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:32 2011 by 
+  Generated on Thu May  5 11:33:13 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>

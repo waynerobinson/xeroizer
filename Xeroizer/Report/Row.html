@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Xeroizer::Report::Row</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -68,17 +68,21 @@
   
   
     
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">ActiveSupport::Memoizable</dd>
+      
+    
   
     
-      <dt class="r2">Includes:</dt>
-      <dd class="r2"><span class='object_link'><a href="RowXmlHelper.html" title="Xeroizer::Report::RowXmlHelper (module)">RowXmlHelper</a></span></dd>
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="RowXmlHelper.html" title="Xeroizer::Report::RowXmlHelper (module)">RowXmlHelper</a></span></dd>
       
     
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/xeroizer/report/row/row.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/xeroizer/report/row/row.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -89,6 +93,7 @@
 </div>
 
 
+  
   
   
   
@@ -299,6 +304,27 @@ Returns the value of attribute type.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#cell-instance_method" title="#cell (instance method)">- (Object) <strong>cell</strong>(column_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#child%3F-instance_method" title="#child? (instance method)">- (Boolean) <strong>child?</strong> </a>
     
 
@@ -459,6 +485,7 @@ A new instance of Row.
   
   
   
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="RowXmlHelper.html" title="Xeroizer::Report::RowXmlHelper (module)">RowXmlHelper</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="RowXmlHelper.html#included-class_method" title="Xeroizer::Report::RowXmlHelper.included (method)">included</a></span></p>
 <div id="constructor_details" class="method_details_list">
@@ -488,14 +515,14 @@ A new instance of Row
       <pre class="lines">
 
 
-22
 23
 24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 23</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span>
   <span class='@rows ivar id'>@rows</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -540,12 +567,12 @@ Returns the value of attribute cells
       <pre class="lines">
 
 
-14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 15</span>
 
 <span class='def def kw'>def</span> <span class='cells identifier id'>cells</span>
   <span class='@cells ivar id'>@cells</span>
@@ -583,12 +610,12 @@ Returns the value of attribute header
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 19</span>
 
 <span class='def def kw'>def</span> <span class='header identifier id'>header</span>
   <span class='@header ivar id'>@header</span>
@@ -626,12 +653,12 @@ Returns the value of attribute parent
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 17</span>
 
 <span class='def def kw'>def</span> <span class='parent identifier id'>parent</span>
   <span class='@parent ivar id'>@parent</span>
@@ -669,12 +696,12 @@ Returns the value of attribute report
       <pre class="lines">
 
 
-9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 10</span>
 
 <span class='def def kw'>def</span> <span class='report identifier id'>report</span>
   <span class='@report ivar id'>@report</span>
@@ -712,12 +739,12 @@ Returns the value of attribute rows
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 14</span>
 
 <span class='def def kw'>def</span> <span class='rows identifier id'>rows</span>
   <span class='@rows ivar id'>@rows</span>
@@ -755,12 +782,12 @@ Returns the value of attribute title
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 13</span>
 
 <span class='def def kw'>def</span> <span class='title identifier id'>title</span>
   <span class='@title ivar id'>@title</span>
@@ -798,12 +825,12 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='type identifier id'>type</span>
   <span class='@type ivar id'>@type</span>
@@ -822,7 +849,38 @@ Returns the value of attribute type
     
     
       <div class="method_details first">
-  <p class="signature first" id="child?-instance_method">
+  <p class="signature first" id="cell-instance_method">
+  
+    - (<tt>Object</tt>) <strong>cell</strong>(column_name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 42</span>
+
+<span class='def def kw'>def</span> <span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='rparen token'>)</span>
+  <span class='index identifier id'>index</span> <span class='assign token'>=</span> <span class='header identifier id'>header</span><span class='dot token'>.</span><span class='column_index identifier id'>column_index</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='rparen token'>)</span>
+  <span class='cells identifier id'>cells</span><span class='lbrack token'>[</span><span class='index identifier id'>index</span><span class='rbrack token'>]</span> <span class='if if_mod kw'>if</span> <span class='index identifier id'>index</span> <span class='geq op'>&gt;=</span> <span class='integer val'>0</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="child?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>child?</strong> 
   
@@ -855,12 +913,12 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='child? fid id'>child?</span>
   <span class='notop op'>!</span><span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -905,10 +963,10 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-28</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 29</span>
 
 <span class='def def kw'>def</span> <span class='header? fid id'>header?</span><span class='semicolon token'>;</span>  <span class='@type ivar id'>@type</span> <span class='eq op'>==</span> <span class='string val'>'Header'</span>      <span class='end end kw'>end</span>
 </pre>
@@ -951,12 +1009,12 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 38</span>
 
 <span class='def def kw'>def</span> <span class='parent? fid id'>parent?</span>
   <span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
@@ -1001,10 +1059,10 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-31</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='row? fid id'>row?</span><span class='semicolon token'>;</span>     <span class='@type ivar id'>@type</span> <span class='eq op'>==</span> <span class='string val'>'Row'</span>         <span class='end end kw'>end</span>
 </pre>
@@ -1047,10 +1105,10 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-30</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 31</span>
 
 <span class='def def kw'>def</span> <span class='section? fid id'>section?</span><span class='semicolon token'>;</span> <span class='@type ivar id'>@type</span> <span class='eq op'>==</span> <span class='string val'>'Section'</span>     <span class='end end kw'>end</span>
 </pre>
@@ -1093,10 +1151,10 @@ Returns the value of attribute type
       <pre class="lines">
 
 
-29</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/row.rb', line 30</span>
 
 <span class='def def kw'>def</span> <span class='summary? fid id'>summary?</span><span class='semicolon token'>;</span> <span class='@type ivar id'>@type</span> <span class='eq op'>==</span> <span class='string val'>'SummaryRow'</span>  <span class='end end kw'>end</span>
 </pre>
@@ -1110,9 +1168,9 @@ Returns the value of attribute type
 </div>
     
     <div id="footer">
-  Generated on Wed Mar 23 15:16:30 2011 by 
+  Generated on Thu May  5 11:33:14 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.3 (ruby-1.8.7).
+  0.6.8 (ruby-1.8.7).
 </div>
 
   </body>
