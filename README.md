@@ -257,7 +257,7 @@ or PartnerApplication. All class-level operations occur on this singleton. For e
 	new_contact = xero.Contact.build(:name => 'ABC Development')
 	saved = new_contact.save
 
-### \#all(options = {})
+### \#all([options])
 
 Retrieves list of all records with matching options. 
 
@@ -280,7 +280,7 @@ Valid options are:
 
 > __See *Where Filters* section below.__
 
-### \#first(options = {})
+### \#first([options])
 
 This is a shortcut method for `all` and actually runs all however, this method only returns the
 first entry returned by all and never an array.
