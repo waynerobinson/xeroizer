@@ -257,7 +257,7 @@ or PartnerApplication. All class-level operations occur on this singleton. For e
 	new_contact = xero.Contact.build(:name => 'ABC Development')
 	saved = new_contact.save
 
-### \#all(options = {})
+### \#all([options])
 
 Retrieves list of all records with matching options. 
 
@@ -280,7 +280,7 @@ Valid options are:
 
 > __See *Where Filters* section below.__
 
-### \#first(options = {})
+### \#first([options])
 
 This is a shortcut method for `all` and actually runs all however, this method only returns the
 first entry returned by all and never an array.
@@ -465,4 +465,23 @@ Reports are accessed like the following example:
 				
 		end
 	end
-	
+
+Xero API Rate Limits
+--------------------
+
+The Xero API imposes the following limits on calls per organisation:
+
+* A limit of 60 API calls in any 60 second period
+* A limit of 1000 API calls in any 24 hour period
+
+By default, the library will raise a `Xeroizer::OAuth::RateLimitExceeded`
+exception when one of these limits is exceeded.
+
+If required, the library can handle these exceptions internally by sleeping
+for a configurable number of seconds and then repeating the last request.
+You can set this option when initializing an application:
+
+    # Sleep for 2 seconds every time the rate limit is exceeded.
+    client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
+                                             YOUR_OAUTH_CONSUMER_SECRET,
+                                             :rate_limit_sleep => 2)
