@@ -14,6 +14,9 @@ module Xeroizer
       ALLOWED_PERMISSIONS = [:read, :write, :update]
       class_inheritable_attributes :permissions
       
+      class_inheritable_attributes :xml_root_name
+      class_inheritable_attributes :xml_node_name
+      
       include BaseModelHttpProxy
 
       attr_reader :application
@@ -41,6 +44,19 @@ module Xeroizer
             raise InvaidPermissionError.new("Permission #{permission} is invalid.") unless ALLOWED_PERMISSIONS.include?(permission)
             self.permissions[permission] = true
           end
+        end
+        
+        # Method to allow override of the default XML node name.
+        #
+        # Default: singularized model name in camel-case.
+        def set_xml_node_name(node_name)
+          self.xml_node_name = node_name
+        end
+        
+        # Method to allow override of the default XML root name to use
+        # in has_many associations.
+        def set_xml_root_name(root_name)
+          self.xml_root_name = root_name
         end
         
       end
