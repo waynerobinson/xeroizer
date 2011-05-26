@@ -94,4 +94,17 @@ module Xeroizer
     
   end
   
+  class AssociationTypeMismatch < StandardError
+    
+    def initialize(model_class, actual_class)
+      @model_class = model_class
+      @actual_class = actual_class
+    end
+  
+    def message
+      "#{@model_class} expected, got #{@actual_class}"
+    end
+    
+  end
+  
 end

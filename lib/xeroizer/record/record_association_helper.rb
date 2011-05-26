@@ -73,16 +73,52 @@ module Xeroizer
         end
         
         def define_association_attribute(field_name, internal_field_name, association_type, options)
-          value_if_nil = (association_type == :has_many) ? [] : nil
-          define_simple_attribute(field_name, association_type, options, value_if_nil)
-
+          define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), ((association_type == :has_many) ? [] : nil))
+          
+          internal_field_name = options[:internal_name] || field_name
+          internal_singular_field_name = internal_field_name.to_s.singularize
+          model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
+    
+          define_method "#{internal_field_name}=".to_sym do | value | 
+            record_class = Xeroizer::Record.const_get(model_name)
+            case value
+              when Hash 
+                self.attributes[field_name] = ((association_type == :has_many) ? [] : nil)
+                case association_type
+                  when :has_many  
+                    self.attributes[field_name] = []
+                    self.send("add_#{internal_singular_field_name}".to_sym, value)
+                    
+                  when :belongs_to  
+                    self.attributes[field_name] = Xeroizer::Record.const_get(model_name).build(value, new_model_class(model_name))
+                    
+                end
+                
+              when Array
+                self.attributes[field_name] = ((association_type == :has_many) ? [] : nil)
+                value.each do | single_value |
+                  case single_value
+                    when Hash         then send("add_#{internal_singular_field_name}".to_sym, single_value)
+                    when record_class then self.attributes[field_name] << single_value
+                    else                   raise AssociationTypeMismatch.new(record_class, single_value.class)
+                  end
+                end
+                
+              when record_class
+                self.attributes[field_name] = ((association_type == :has_many) ? [value] : value)
+                
+              else
+                raise AssociationTypeMismatch.new(record_class, value.class)
+            end
+          end
+          
           # Override reader for this association if this association belongs
           # to a summary-typed record. This will automatically attempt to download
           # the complete version of the record before accessing the association.
           if list_contains_summary_only?
             define_method internal_field_name do
               download_complete_record! unless new_record? || complete_record_downloaded?
-              @attributes[field_name] || value_if_nil
+              self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
             end
           end
         end

@@ -56,6 +56,7 @@ module Xeroizer
         #   :api_name => allows the API name to be specified if it can't be properly converted from camelize.
         #   :model_name => allows class used for children to be different from it's ndoe name in the XML.
         #   :type => type of field
+        #   :skip_writer => skip the writer method
         def define_simple_attribute(field_name, field_type, options, value_if_nil = nil)
           self.fields ||= {}
           
@@ -68,8 +69,11 @@ module Xeroizer
           define_method internal_field_name do 
             @attributes[field_name] || value_if_nil
           end
-          define_method "#{internal_field_name}=".to_sym do | value | 
-            @attributes[field_name] = value
+          
+          unless options[:skip_writer]
+            define_method "#{internal_field_name}=".to_sym do | value | 
+              @attributes[field_name] = value
+            end
           end
         end
         
