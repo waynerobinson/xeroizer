@@ -16,6 +16,7 @@ module Xeroizer
     record :Contact
     record :CreditNote
     record :Currency
+    record :Employee
     record :Invoice
     record :Item
     record :Journal

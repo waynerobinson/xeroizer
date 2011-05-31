@@ -1,3 +1,5 @@
+require 'xeroizer/models/external_link'
+
 module Xeroizer
   module Record
     

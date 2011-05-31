@@ -1,0 +1,29 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a9496838-0f19-49b2-8f2d-fa949465b411</Id>
+  <Status>OK</Status>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:18:04.1105867Z</DateTimeUTC>
+  <Employees>
+    <Employee>
+      <EmployeeID>02c3b6cf-4720-4aae-a6b9-100a35b8f09e</EmployeeID>
+      <Status>ACTIVE</Status>
+      <FirstName>Odette</FirstName>
+      <LastName>Garrison</LastName>
+      <UpdatedDateUTC>2013-11-06T23:04:34.827</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>7adc8254-055d-4b30-99c9-10dcd2ca2cda</EmployeeID>
+      <Status>ACTIVE</Status>
+      <FirstName>Oliver</FirstName>
+      <LastName>Gray</LastName>
+      <UpdatedDateUTC>2013-11-06T22:07:12.187</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>755b85eb-8e33-4af9-a07e-a2a4e780704d</EmployeeID>
+      <Status>ACTIVE</Status>
+      <FirstName>Tracy</FirstName>
+      <LastName>Green</LastName>
+      <UpdatedDateUTC>2013-11-06T22:06:00.857</UpdatedDateUTC>
+    </Employee>
+  </Employees>
+</Response>

@@ -5,7 +5,7 @@ module Xeroizer
                 
     end
     
-    class ExternalLinkModel < Base
+    class ExternalLink < Base
           
       string :url
       string :description
