@@ -3,7 +3,7 @@ module Xeroizer
     
     class PaymentModel < BaseModel
         
-      set_permissions :write
+      set_permissions :read, :write
       
     end
     

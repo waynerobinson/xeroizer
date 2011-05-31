@@ -7,7 +7,7 @@ base_path = File.expand_path(File.dirname(__FILE__))
 if ARGV[3]
   models = [ARGV[3]]
 else
-  models = %w(Account BrandingTheme Contact CreditNote Currency Invoice Item ManualJournal Organisation TaxRate TrackingCategory Employee)
+  models = %w(Account BrandingTheme Contact CreditNote Currency Employee Invoice Item ManualJournal Organisation Payment TaxRate TrackingCategory)
 end
 
 models.each do | model_name |
