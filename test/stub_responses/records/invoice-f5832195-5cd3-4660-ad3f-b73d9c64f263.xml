@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>c5c6bf51-77f8-49b4-bddf-2e79ea474573</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>0a9e7627-81bb-496d-ac5e-4bc260faf7eb</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:04:45.5721285Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:54.1480899Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -41,12 +41,12 @@
             <PhoneAreaCode>0444</PhoneAreaCode>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:31:54.467</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-10-07T00:00:00</Date>
-      <DueDate>2010-10-23T00:00:00</DueDate>
+      <Date>2011-03-17T00:00:00</Date>
+      <DueDate>2011-04-02T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -64,13 +64,14 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>PMWe</ItemCode>
           <Quantity>2.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>600.00</SubTotal>
       <TotalTax>60.00</TotalTax>
       <Total>660.00</Total>
-      <UpdatedDateUTC>2010-11-30T15:53:45.74</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-22T15:53:45.74</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>f5832195-5cd3-4660-ad3f-b73d9c64f263</InvoiceID>
@@ -78,6 +79,7 @@
       <AmountDue>660.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

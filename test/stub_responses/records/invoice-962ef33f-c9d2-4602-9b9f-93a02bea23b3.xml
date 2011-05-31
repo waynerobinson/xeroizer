@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>9045c3e6-e1a7-4547-9717-1007d17ca80d</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>95127563-f7c1-47e5-b20d-e0ce479a18ea</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:04:17.7589165Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:42.8038317Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -41,12 +41,12 @@
             <PhoneAreaCode>0444</PhoneAreaCode>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:31:54.467</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-09-17T00:00:00</Date>
-      <DueDate>2010-09-27T00:00:00</DueDate>
+      <Date>2011-02-25T00:00:00</Date>
+      <DueDate>2011-03-07T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -64,27 +64,30 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>PMBr</ItemCode>
           <Quantity>4.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>1000.00</SubTotal>
       <TotalTax>100.00</TotalTax>
       <Total>1100.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:46:04.917</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-18T12:46:04.917</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>962ef33f-c9d2-4602-9b9f-93a02bea23b3</InvoiceID>
       <InvoiceNumber>ORC1002</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-09-27T00:00:00</Date>
-          <Amount>850.00</Amount>
           <PaymentID>3bc87a62-34f7-45ff-bcd8-be59e06be7eb</PaymentID>
+          <Date>2011-03-07T00:00:00</Date>
+          <Amount>850.00</Amount>
+          <Reference>Part</Reference>
         </Payment>
       </Payments>
       <AmountDue>250.00</AmountDue>
       <AmountPaid>850.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>7828c976-24a2-4ba8-82e3-a33517008a9a</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>14b0625b-4a0c-4547-b413-4518bf05a646</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:22.3950523Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:23.3600849Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
@@ -39,10 +39,10 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-19T19:28:52.123</UpdatedDateUTC>
       </Contact>
-      <Date>2010-09-17T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
+      <Date>2011-02-25T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -53,17 +53,21 @@
           <TaxAmount>50.00</TaxAmount>
           <LineAmount>500.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>Support-M</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T01:57:46.237</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T09:39:19.657</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-17T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Monthly Support</Reference>
       <CreditNoteID>371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1</CreditNoteID>
       <CreditNoteNumber>CR1003</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

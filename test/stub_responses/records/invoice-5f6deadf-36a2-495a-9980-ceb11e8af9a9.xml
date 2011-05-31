@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>2c333085-ead0-4089-aa60-6f6f4552392a</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>45d9b9a2-36a8-4527-9770-e5d25503a587</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:04:48.4784529Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:37.6031616Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -39,7 +39,7 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-19T19:28:52.123</UpdatedDateUTC>
         <ContactGroups>
           <ContactGroup>
             <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
@@ -50,8 +50,8 @@
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -63,13 +63,14 @@ Per month fixed fee for minimum 20 hours/month.</Description>
           <TaxAmount>50.00</TaxAmount>
           <LineAmount>500.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>Support-M</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:23:42.707</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T11:23:42.707</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>5f6deadf-36a2-495a-9980-ceb11e8af9a9</InvoiceID>
@@ -78,6 +79,7 @@ Per month fixed fee for minimum 20 hours/month.</Description>
       <AmountDue>550.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

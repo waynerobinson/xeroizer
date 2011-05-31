@@ -1,69 +1,75 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>e1cbda82-62a0-4493-96c0-2dc1de206b2d</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>ae48e58e-9b28-4030-b3ac-01870e7eaab0</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-20T04:13:48.673583Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:36.3294159Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
         <ContactStatus>ACTIVE</ContactStatus>
-        <Name>Hamilton Smith Pty</Name>
-        <EmailAddress>info@hsg.co</EmailAddress>
+        <Name>PC Complete</Name>
         <Addresses>
           <Address>
             <AddressType>STREET</AddressType>
           </Address>
           <Address>
             <AddressType>POBOX</AddressType>
-            <AddressLine1>3 Park Street Industrial Village
-</AddressLine1>
-            <AddressLine2>Southbank</AddressLine2>
+            <AddressLine1>18 Little Flinders Street</AddressLine1>
             <City>Melbourne</City>
-            <PostalCode>3331</PostalCode>
+            <PostalCode>3313</PostalCode>
           </Address>
         </Addresses>
         <Phones>
           <Phone>
-            <PhoneType>DDI</PhoneType>
-          </Phone>
-          <Phone>
             <PhoneType>FAX</PhoneType>
           </Phone>
           <Phone>
+            <PhoneType>DDI</PhoneType>
+          </Phone>
+          <Phone>
             <PhoneType>DEFAULT</PhoneType>
-            <PhoneNumber>3189080</PhoneNumber>
-            <PhoneAreaCode>03</PhoneAreaCode>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
           </Phone>
           <Phone>
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-03T23:41:00.857</UpdatedDateUTC>
       </Contact>
-      <Date>2010-09-17T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
         <LineItem>
-          <Description>Duplicate invoice sent in error for last month - fully credited</Description>
-          <UnitAmount>500.00</UnitAmount>
-          <TaxType>OUTPUT</TaxType>
-          <TaxAmount>50.00</TaxAmount>
-          <LineAmount>500.00</LineAmount>
-          <AccountCode>200</AccountCode>
+          <Description>Internal DVD drive couldn't be supplied, backorder (Oliver laptop)</Description>
+          <UnitAmount>199.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>19.90</TaxAmount>
+          <LineAmount>199.00</LineAmount>
+          <AccountCode>453</AccountCode>
+          <Tracking>
+            <TrackingCategory>
+              <Name>Consultant</Name>
+              <Option>Oliver Gray</Option>
+              <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
+            </TrackingCategory>
+          </Tracking>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T01:57:46.237</UpdatedDateUTC>
+      <SubTotal>199.00</SubTotal>
+      <TotalTax>19.90</TotalTax>
+      <Total>218.90</Total>
+      <UpdatedDateUTC>2008-09-16T09:40:09.467</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-17T00:00:00</FullyPaidOnDate>
-      <CreditNoteID>371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1</CreditNoteID>
-      <CreditNoteNumber>CR1003</CreditNoteNumber>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAYCREDIT</Type>
+      <CreditNoteID>7df8949c-b71f-40c0-bbcf-39f2f450f286</CreditNoteID>
+      <CreditNoteNumber>03391</CreditNoteNumber>
+      <SentToContact>false</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

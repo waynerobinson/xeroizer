@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>c0224480-897e-446e-9887-821130650832</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>15cc4604-8d38-4b4a-b4aa-77949830f75b</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:03:05.7414479Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:48.1634468Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -37,12 +37,12 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-24T21:11:54.647</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-04T21:11:54.647</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-09-14T00:00:00</Date>
-      <DueDate>2010-09-27T00:00:00</DueDate>
+      <Date>2011-02-22T00:00:00</Date>
+      <DueDate>2011-03-07T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -60,6 +60,7 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
         <LineItem>
@@ -76,6 +77,7 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
         <LineItem>
@@ -92,28 +94,30 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>1350.00</SubTotal>
       <TotalTax>135.00</TotalTax>
       <Total>1485.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:49:33.933</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-18T12:49:33.933</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>e3d96555-2876-4364-a46a-7551a4f52611</InvoiceID>
       <InvoiceNumber>ORC1006</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-09-27T00:00:00</Date>
-          <Amount>1485.00</Amount>
           <PaymentID>f41fd62d-48d2-4bab-975b-c770d1541014</PaymentID>
+          <Date>2011-03-07T00:00:00</Date>
+          <Amount>1485.00</Amount>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>1485.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

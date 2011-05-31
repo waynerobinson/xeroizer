@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>d10c0580-5b51-496b-9f0c-d1adf370ae51</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>def8e2ac-3cad-4495-9bf9-e7b242346181</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:04:51.4629043Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:32:33.9650615Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -37,7 +37,7 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-26T01:20:55.38</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-06T01:20:55.38</UpdatedDateUTC>
         <ContactGroups>
           <ContactGroup>
             <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
@@ -48,8 +48,8 @@
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -61,29 +61,31 @@ Per month fixed fee for minimum 20 hours/month.</Description>
           <TaxAmount>50.00</TaxAmount>
           <LineAmount>500.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>Support-M</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:31:19.187</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T14:31:19.187</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-11-28T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-05-08T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>3b28bf11-ed2f-4cf4-8e9e-fcae730cc292</InvoiceID>
       <InvoiceNumber>ORC1021</InvoiceNumber>
       <Reference>Monthly support</Reference>
       <Payments>
         <Payment>
-          <Date>2010-11-28T00:00:00</Date>
-          <Amount>550.00</Amount>
           <PaymentID>440877a7-7780-4000-8c53-670f1ed7d1ed</PaymentID>
+          <Date>2011-05-08T00:00:00</Date>
+          <Amount>550.00</Amount>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>550.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

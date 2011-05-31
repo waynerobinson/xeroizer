@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>868f34fa-8a0b-468e-be9d-dcf1e795c266</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>74c0516c-010e-4ea1-b0a1-19b5b2ff68f3</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:03:58.6021761Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:11.5055546Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -53,12 +53,12 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:28:25.387</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-09-27T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
+      <Date>2011-03-07T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -76,29 +76,39 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>PMDD</ItemCode>
           <Quantity>16.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>1360.00</SubTotal>
       <TotalTax>136.00</TotalTax>
       <Total>1496.00</Total>
-      <UpdatedDateUTC>2010-11-25T07:36:27.537</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-17T07:36:27.537</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-09T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-19T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>f571c38b-5be1-41e1-ad5a-ff6184284beb</InvoiceID>
       <InvoiceNumber>ORC1001</InvoiceNumber>
       <Reference>Portal proj</Reference>
       <Payments>
         <Payment>
-          <Date>2010-10-09T00:00:00</Date>
-          <Amount>1469.60</Amount>
           <PaymentID>8ebc072b-b7cd-431c-972d-66ce0c3fde69</PaymentID>
+          <Date>2011-03-19T00:00:00</Date>
+          <Amount>1469.60</Amount>
         </Payment>
       </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-03-17T00:00:00</Date>
+          <Total>26.40</Total>
+          <CreditNoteID>3bffc09b-79f2-490d-b91b-c59b700b43a4</CreditNoteID>
+          <CreditNoteNumber>CR1001</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>1469.60</AmountPaid>
       <AmountCredited>26.40</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

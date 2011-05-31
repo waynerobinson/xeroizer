@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>c119d3de-6cad-4e8c-b21e-118df075af65</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>80a7c4c9-c581-4c44-b1c6-673c8153b22b</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:27.6920629Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:27.5321468Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
@@ -53,10 +53,10 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:28:25.387</UpdatedDateUTC>
       </Contact>
-      <Date>2010-10-07T00:00:00</Date>
-      <DueDate>2010-10-07T00:00:00</DueDate>
+      <Date>2011-03-17T00:00:00</Date>
+      <DueDate>2011-03-17T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -75,17 +75,21 @@ Reduction of $1.50 NOW $83.50/h down from $85.00/hr</Description>
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>PMDD</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>24.00</SubTotal>
       <TotalTax>2.40</TotalTax>
       <Total>26.40</Total>
-      <UpdatedDateUTC>2010-11-24T21:35:37.3</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-17T07:37:09.397</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-09T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-19T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Portal proj</Reference>
       <CreditNoteID>3bffc09b-79f2-490d-b91b-c59b700b43a4</CreditNoteID>
       <CreditNoteNumber>CR1001</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

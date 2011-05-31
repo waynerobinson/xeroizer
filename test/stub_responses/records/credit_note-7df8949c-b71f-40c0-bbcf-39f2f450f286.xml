@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>dfe35dda-e3d8-4817-9f03-2912229f5e15</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>f4e25747-5e02-468b-a771-16501d59d4f5</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:11.2853929Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:17.2504362Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
@@ -36,10 +36,10 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-23T23:41:00.857</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-03T23:41:00.857</UpdatedDateUTC>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-09-22T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -63,11 +63,13 @@
       <SubTotal>199.00</SubTotal>
       <TotalTax>19.90</TotalTax>
       <Total>218.90</Total>
-      <UpdatedDateUTC>2010-11-23T23:40:09.45</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-16T09:40:09.467</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAYCREDIT</Type>
       <CreditNoteID>7df8949c-b71f-40c0-bbcf-39f2f450f286</CreditNoteID>
       <CreditNoteNumber>03391</CreditNoteNumber>
+      <SentToContact>false</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

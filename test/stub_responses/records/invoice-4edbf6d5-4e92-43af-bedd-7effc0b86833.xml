@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>95a0318e-8a4f-4b64-84e0-36e73b734ba4</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>21cb79d0-c51e-470f-8e4f-d9b33fe2bc65</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:03:37.9766481Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:33:18.6545635Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,13 +31,13 @@
             <PhoneType>FAX</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2012-12-06T04:31:39.377</UpdatedDateUTC>
+        <UpdatedDateUTC>2013-05-16T04:31:39.377</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
         <DefaultCurrency>AUD</DefaultCurrency>
       </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-27T00:00:00</DueDate>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-06-06T00:00:00</DueDate>
       <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Inclusive</LineAmountTypes>
@@ -49,13 +49,14 @@
           <TaxAmount>20.36</TaxAmount>
           <LineAmount>224.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>GB1-White</ItemCode>
           <Quantity>40.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>203.64</SubTotal>
       <TotalTax>20.36</TotalTax>
       <Total>224.00</Total>
-      <UpdatedDateUTC>2012-12-06T14:31:39.39</UpdatedDateUTC>
+      <UpdatedDateUTC>2010-09-29T14:31:39.39</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>4edbf6d5-4e92-43af-bedd-7effc0b86833</InvoiceID>
@@ -63,6 +64,7 @@
       <Reference>GB1-White</Reference>
       <AmountDue>224.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

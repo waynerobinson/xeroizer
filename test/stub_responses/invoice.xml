@@ -1,91 +1,84 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>0642dd56-2d39-4567-8e7c-4732d94799c1</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>88a803a8-b301-470d-978f-516efbfd6eac</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-20T04:13:56.6112862Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:33:42.1556163Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <ContactID>d6a384fb-f46f-41a3-8ac7-b7bc9e0b5efa</ContactID>
         <ContactStatus>ACTIVE</ContactStatus>
-        <Name>Hamilton Smith Pty</Name>
-        <EmailAddress>info@hsg.co</EmailAddress>
+        <Name>Melrose Parking</Name>
         <Addresses>
           <Address>
-            <AddressType>STREET</AddressType>
+            <AddressType>POBOX</AddressType>
+            <AddressLine1>Parking Administration
+</AddressLine1>
+            <AddressLine2>P O Box 123
+</AddressLine2>
+            <City>Melbourne</City>
+            <PostalCode>3333</PostalCode>
           </Address>
           <Address>
-            <AddressType>POBOX</AddressType>
-            <AddressLine1>3 Park Street Industrial Village
-</AddressLine1>
-            <AddressLine2>Southbank</AddressLine2>
-            <City>Melbourne</City>
-            <PostalCode>3331</PostalCode>
+            <AddressType>STREET</AddressType>
           </Address>
         </Addresses>
         <Phones>
           <Phone>
-            <PhoneType>DDI</PhoneType>
+            <PhoneType>DEFAULT</PhoneType>
+            <PhoneNumber>4389376</PhoneNumber>
+            <PhoneAreaCode>0800</PhoneAreaCode>
+          </Phone>
+          <Phone>
+            <PhoneType>MOBILE</PhoneType>
           </Phone>
           <Phone>
             <PhoneType>FAX</PhoneType>
           </Phone>
           <Phone>
-            <PhoneType>DEFAULT</PhoneType>
-            <PhoneNumber>3189080</PhoneNumber>
-            <PhoneAreaCode>03</PhoneAreaCode>
-          </Phone>
-          <Phone>
-            <PhoneType>MOBILE</PhoneType>
+            <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-09T19:28:52.123</UpdatedDateUTC>
-        <ContactGroups>
-          <ContactGroup>
-            <ContactGroupID>26fcca8d-a03b-4968-a80a-a463d5bf30ee</ContactGroupID>
-            <Name>Support Clients (monthly)</Name>
-            <Status>ACTIVE</Status>
-          </ContactGroup>
-        </ContactGroups>
-        <IsSupplier>false</IsSupplier>
-        <IsCustomer>true</IsCustomer>
+        <UpdatedDateUTC>2011-05-03T23:28:09.993</UpdatedDateUTC>
+        <IsSupplier>true</IsSupplier>
+        <IsCustomer>false</IsCustomer>
       </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
         <LineItem>
-          <Description>Desktop/network support via email &amp; phone.
-Per month fixed fee for minimum 20 hours/month.</Description>
-          <UnitAmount>500.00</UnitAmount>
-          <TaxType>OUTPUT</TaxType>
-          <TaxAmount>50.00</TaxAmount>
-          <LineAmount>500.00</LineAmount>
-          <AccountCode>200</AccountCode>
+          <Description>Company car park (month in advance)</Description>
+          <UnitAmount>135.00</UnitAmount>
+          <TaxType>INPUT</TaxType>
+          <TaxAmount>13.50</TaxAmount>
+          <LineAmount>135.00</LineAmount>
+          <AccountCode>449</AccountCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-02T17:14:39.943</UpdatedDateUTC>
+      <SubTotal>135.00</SubTotal>
+      <TotalTax>13.50</TotalTax>
+      <Total>148.50</Total>
+      <UpdatedDateUTC>2008-09-16T10:28:51.5</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-18T00:00:00</FullyPaidOnDate>
-      <Type>ACCREC</Type>
-      <InvoiceID>b2c02d0b-41a8-4d4d-97d7-014c78b3547d</InvoiceID>
-      <InvoiceNumber>ORC1016</InvoiceNumber>
-      <Reference>Monthly support</Reference>
+      <FullyPaidOnDate>2011-02-24T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>0032f627-3156-4d30-9b1c-4d3b994dc921</InvoiceID>
+      <InvoiceNumber>9871</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-10-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>26c6252a-2759-48a8-824c-e6589a292140</PaymentID>
+          <PaymentID>22974891-3689-4694-9ee7-fd2ba917af55</PaymentID>
+          <Date>2011-02-24T00:00:00</Date>
+          <Amount>148.50</Amount>
+          <Reference>Chq 409</Reference>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
+      <AmountPaid>148.50</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

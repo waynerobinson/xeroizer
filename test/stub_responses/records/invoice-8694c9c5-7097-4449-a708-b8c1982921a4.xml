@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>8ea05ac1-06f1-4b77-8684-8f1349fc3ce1</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>e4210d2f-e9b1-409e-bacf-ac62587b040f</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:05:22.5574503Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:43.9315701Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,13 +31,13 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-07T05:41:06.73</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-17T05:41:06.73</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
         <DefaultCurrency>AUD</DefaultCurrency>
       </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
       <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Inclusive</LineAmountTypes>
@@ -55,7 +55,7 @@
       <SubTotal>360.00</SubTotal>
       <TotalTax>36.00</TotalTax>
       <Total>396.00</Total>
-      <UpdatedDateUTC>2010-12-07T15:41:06.73</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-29T15:41:06.73</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>8694c9c5-7097-4449-a708-b8c1982921a4</InvoiceID>
@@ -63,6 +63,7 @@
       <Reference>Ref MK815</Reference>
       <AmountDue>396.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

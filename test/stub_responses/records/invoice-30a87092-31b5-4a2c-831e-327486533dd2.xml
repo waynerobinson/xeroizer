@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>873620b7-03e7-4b0f-90e9-dc7c78338973</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>55079f95-7cf4-4bbc-8a9f-36e7a04e786a</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:02:20.0059021Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:32:19.0737694Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -42,12 +42,12 @@
             <PhoneAreaCode>4444</PhoneAreaCode>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-09T19:25:05.307</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-19T19:25:05.307</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -58,13 +58,14 @@
           <TaxAmount>45.00</TaxAmount>
           <LineAmount>450.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>PMWe</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>450.00</SubTotal>
       <TotalTax>45.00</TotalTax>
       <Total>495.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:09:32.34</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T14:09:32.34</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>30a87092-31b5-4a2c-831e-327486533dd2</InvoiceID>
@@ -72,6 +73,7 @@
       <AmountDue>495.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

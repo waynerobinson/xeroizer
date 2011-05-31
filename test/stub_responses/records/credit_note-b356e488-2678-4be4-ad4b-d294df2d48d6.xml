@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>fa485f20-2b19-443e-9f49-669dac11b4e0</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>1f43fcfe-eca1-487a-9f62-acb923f430e6</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:17.9105625Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:21.4850009Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
@@ -41,9 +41,9 @@
             <PhoneAreaCode>0444</PhoneAreaCode>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:31:54.467</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:31:54.467</UpdatedDateUTC>
       </Contact>
-      <Date>2010-11-07T00:00:00</Date>
+      <Date>2011-04-17T00:00:00</Date>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -67,10 +67,12 @@
       <SubTotal>55.00</SubTotal>
       <TotalTax>5.50</TotalTax>
       <Total>60.50</Total>
-      <UpdatedDateUTC>2011-01-18T22:42:56.203</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-11-11T09:43:46.187</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCRECCREDIT</Type>
       <CreditNoteID>b356e488-2678-4be4-ad4b-d294df2d48d6</CreditNoteID>
       <CreditNoteNumber>ORC-C-1037</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

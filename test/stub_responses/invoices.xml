@@ -1,847 +1,24 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>b08d1cc8-9f93-4465-918e-d7eaf1e999eb</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a9526c39-d4b9-4885-86a9-fbef75042ff4</Id>
   <Status>OK</Status>
-  <ProviderName>Appcordion Private</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:39.8486241Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:29:53.3641169Z</DateTimeUTC>
   <Invoices>
-    <Invoice>
-      <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
-        <Name>Hamilton Smith Pty</Name>
-      </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-02T17:14:39.943</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>b2c02d0b-41a8-4d4d-97d7-014c78b3547d</InvoiceID>
-      <InvoiceNumber>ORC1016</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>26c6252a-2759-48a8-824c-e6589a292140</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
-        <Name>MCO Cleaning Services</Name>
-      </Contact>
-      <Date>2010-10-08T00:00:00</Date>
-      <DueDate>2010-10-23T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>155.00</SubTotal>
-      <TotalTax>15.50</TotalTax>
-      <Total>170.50</Total>
-      <UpdatedDateUTC>2010-12-02T16:12:35.093</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>387db692-26ac-47e6-b6cc-015343809bda</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>170.50</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
-        <Name>PC Complete</Name>
-      </Contact>
-      <Date>2010-09-21T00:00:00</Date>
-      <DueDate>2010-09-28T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1085.00</SubTotal>
-      <TotalTax>108.50</TotalTax>
-      <Total>1193.50</Total>
-      <UpdatedDateUTC>2010-11-24T10:45:13.79</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>673dd7cc-beb7-4697-83d4-0c47cb400cc2</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>974.60</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
-        <Name>Boom FM</Name>
-      </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1119.70</SubTotal>
-      <TotalTax>111.97</TotalTax>
-      <Total>1231.67</Total>
-      <UpdatedDateUTC>2011-11-19T05:41:09.657</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>e4a0afbd-aea0-450b-ae23-0ce921e84a77</InvoiceID>
-      <InvoiceNumber>ORC01025</InvoiceNumber>
-      <AmountDue>1231.67</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>fe61ead1-8afc-4f0b-beda-066620227aad</ContactID>
-        <Name>Xero</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>49.00</SubTotal>
-      <TotalTax>4.90</TotalTax>
-      <Total>53.90</Total>
-      <UpdatedDateUTC>2010-12-09T16:05:11.397</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>024d7994-a26c-4c20-9894-13934840fc31</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>53.90</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
-        <Name>Rex Media Group</Name>
-      </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:31:10.92</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>bcd8a71f-aa31-4d0f-8a01-13ea26363ddf</InvoiceID>
-      <InvoiceNumber>ORC1023</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-11-28T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>bf4828d8-a198-4b74-9e4d-3a238200610e</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>cc4db604-9ed8-4eef-8a29-51b5b70496a0</ContactID>
-        <Name>Bankrock Station</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>320.00</SubTotal>
-      <TotalTax>32.00</TotalTax>
-      <Total>352.00</Total>
-      <UpdatedDateUTC>2010-12-10T05:43:49.79</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>69fc971e-9b37-41c5-9c87-174330f22343</InvoiceID>
-      <AmountDue>352.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>0f471ca5-15c9-405e-a1b9-7cc35194b673</ContactID>
-        <Name>Party Hire</Name>
-      </Contact>
-      <Date>2010-10-10T00:00:00</Date>
-      <DueDate>2010-10-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>450.00</SubTotal>
-      <TotalTax>0.00</TotalTax>
-      <Total>450.00</Total>
-      <UpdatedDateUTC>2010-12-02T16:15:18.42</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>7dae876a-b424-436b-a4e6-17b3fdeec80c</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>250.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>e8b98c13-a424-41d2-ba0e-7b7621411e7a</ContactID>
-        <Name>Qantas</Name>
-      </Contact>
-      <Date>2010-09-09T00:00:00</Date>
-      <DueDate>2010-09-16T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>199.00</SubTotal>
-      <TotalTax>19.90</TotalTax>
-      <Total>218.90</Total>
-      <UpdatedDateUTC>2010-11-26T11:45:11.227</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>52ee4d67-cae4-462c-adb2-182c39017f3d</InvoiceID>
-      <InvoiceNumber>ICT 08</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>218.90</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
-        <Name>Net Connect</Name>
-      </Contact>
-      <Date>2010-10-26T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>32.50</SubTotal>
-      <TotalTax>3.25</TotalTax>
-      <Total>35.75</Total>
-      <UpdatedDateUTC>2010-12-03T10:20:01.86</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>766d1289-b440-4675-a656-1a0612ecac77</InvoiceID>
-      <InvoiceNumber>O721-002</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>35.75</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
-        <Name>DIISR - Small Business Services</Name>
-      </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-28T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>6500.00</SubTotal>
-      <TotalTax>650.00</TotalTax>
-      <Total>7150.00</Total>
-      <UpdatedDateUTC>2010-12-09T15:05:42.57</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>77b338ef-ecc0-4b95-a0d7-2617b0054611</InvoiceID>
-      <InvoiceNumber>ORC1026</InvoiceNumber>
-      <Reference>Portal proj</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-12-06T00:00:00</Date>
-          <Amount>2145.00</Amount>
-          <PaymentID>03223cae-aa49-46e2-9d24-a7bc96a26675</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>3850.00</AmountDue>
-      <AmountPaid>2145.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>c135f994-01e4-427b-9e15-acfe8a477c16</ContactID>
-        <Name>Cube Land</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>450.00</SubTotal>
-      <TotalTax>45.00</TotalTax>
-      <Total>495.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:09:32.34</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>30a87092-31b5-4a2c-831e-327486533dd2</InvoiceID>
-      <InvoiceNumber>ORC1032</InvoiceNumber>
-      <AmountDue>495.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>fb078879-5d6d-474f-825f-61dc90689349</ContactID>
-        <Name>Heritage Trust</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-17T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>120.00</SubTotal>
-      <TotalTax>12.00</TotalTax>
-      <Total>132.00</Total>
-      <UpdatedDateUTC>2010-12-10T05:47:09.59</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>b1e53910-473c-46a3-b3cb-38ece571220e</InvoiceID>
-      <InvoiceNumber>Sub</InvoiceNumber>
-      <AmountDue>132.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
-        <Name>Port Phillip Freight</Name>
-      </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:11:48.903</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>5613938b-9e27-472e-92ae-3b038b669d10</InvoiceID>
-      <InvoiceNumber>ORC1010</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-09-17T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>84f0f27e-add2-48ca-8cab-1013a9b171b6</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
-        <Name>PowerDirect</Name>
-      </Contact>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>295.00</SubTotal>
-      <TotalTax>29.50</TotalTax>
-      <Total>324.50</Total>
-      <UpdatedDateUTC>2010-12-02T15:24:08.957</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>666f8dbb-bc9a-476c-8ec4-4665d7f83190</InvoiceID>
-      <InvoiceNumber>3203</InvoiceNumber>
-      <AmountDue>324.50</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>fe61ead1-8afc-4f0b-beda-066620227aad</ContactID>
-        <Name>Xero</Name>
-      </Contact>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>49.00</SubTotal>
-      <TotalTax>4.90</TotalTax>
-      <Total>53.90</Total>
-      <UpdatedDateUTC>2010-12-04T13:57:47.23</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>9a448e9b-a9fa-4a8b-98f5-6dc892a37374</InvoiceID>
-      <AmountDue>53.90</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
-        <Name>Net Connect</Name>
-      </Contact>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>32.50</SubTotal>
-      <TotalTax>3.25</TotalTax>
-      <Total>35.75</Total>
-      <UpdatedDateUTC>2010-12-02T15:27:58.147</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>d62646b9-d0a9-4fdb-9561-756a8b7eba45</InvoiceID>
-      <InvoiceNumber>O721-002</InvoiceNumber>
-      <AmountDue>35.75</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>ad24c33b-256b-4157-ad56-cbcf0e8db7b1</ContactID>
-        <Name>Pinnacle Management</Name>
-      </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-18T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>2800.00</SubTotal>
-      <TotalTax>280.00</TotalTax>
-      <Total>3080.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:09:32.293</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>86d6e00f-ef56-49f7-9a54-796ccd5ca057</InvoiceID>
-      <InvoiceNumber>ORC1034</InvoiceNumber>
-      <Reference>PO403/CSD</Reference>
-      <AmountDue>3080.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
-        <Name>Hamilton Smith Pty</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:20:23.553</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>9868b472-1983-48e9-8edf-7e81ddf2c03a</InvoiceID>
-      <InvoiceNumber>ORC1028</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <AmountDue>550.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
-        <Name>Port Phillip Freight</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:20:23.727</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>66fbe37f-49b1-43fd-97ed-85114022cd2f</InvoiceID>
-      <InvoiceNumber>ORC1030</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <AmountDue>550.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
-        <Name>Yarra Transport</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:20:23.663</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>ab63738a-370a-43a5-bfa3-620d684e66d0</InvoiceID>
-      <InvoiceNumber>ORC1029</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <AmountDue>550.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>8a154a19-6c6c-404b-bbc9-6deae2d18251</ContactID>
-        <Name>SMART Agency</Name>
-      </Contact>
-      <Date>2010-10-28T00:00:00</Date>
-      <DueDate>2010-11-11T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Inclusive</LineAmountTypes>
-      <SubTotal>1818.18</SubTotal>
-      <TotalTax>181.82</TotalTax>
-      <Total>2000.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:03:42.977</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>76bcb361-f93b-4513-b312-5a4af306d276</InvoiceID>
-      <InvoiceNumber>70135</InvoiceNumber>
-      <AmountDue>2000.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
-        <Name>Net Connect</Name>
-      </Contact>
-      <Date>2010-09-25T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>32.50</SubTotal>
-      <TotalTax>3.25</TotalTax>
-      <Total>35.75</Total>
-      <UpdatedDateUTC>2010-11-26T11:44:23.603</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>00c9511b-24b9-4190-a90a-8abf2fe9f4a0</InvoiceID>
-      <InvoiceNumber>O721-001</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>35.75</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
-        <Name>Rex Media Group</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:20:23.773</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>64cd559e-8e03-46af-b461-8555285cee71</InvoiceID>
-      <InvoiceNumber>ORC1031</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <AmountDue>550.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
-        <Name>PowerDirect</Name>
-      </Contact>
-      <Date>2010-11-22T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>301.00</SubTotal>
-      <TotalTax>30.10</TotalTax>
-      <Total>331.10</Total>
-      <UpdatedDateUTC>2010-12-09T16:05:05.71</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>dba2f021-f149-4191-a126-5351d587ab0e</InvoiceID>
-      <InvoiceNumber>3395</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>331.10</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
-        <Name>Yarra Transport</Name>
-      </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-02T17:14:37.663</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>3fcb9847-b350-412e-ab90-7d9d774ad881</InvoiceID>
-      <InvoiceNumber>ORC1017</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>22cf5c38-40d6-4c56-a442-00b147f550d0</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
-        <Name>PowerDirect</Name>
-      </Contact>
-      <Date>2010-10-22T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>295.00</SubTotal>
-      <TotalTax>29.50</TotalTax>
-      <Total>324.50</Total>
-      <UpdatedDateUTC>2010-12-03T10:20:24.657</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>e9cb9ecb-58ef-43a8-bd20-69a85338142d</InvoiceID>
-      <InvoiceNumber>3203</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>324.50</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>e1826204-cc0a-42a5-a6d0-4b352d9d5953</ContactID>
-        <Name>Carlton Technical Books</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>DRAFT</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>115.20</SubTotal>
-      <TotalTax>0.00</TotalTax>
-      <Total>115.20</Total>
-      <UpdatedDateUTC>2010-12-10T05:48:24.467</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>88e77f0f-54a5-4efc-a979-7e22223cc4d7</InvoiceID>
-      <AmountDue>115.20</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
-        <Name>Bank West</Name>
-      </Contact>
-      <Date>2010-09-14T00:00:00</Date>
-      <DueDate>2010-09-27T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1350.00</SubTotal>
-      <TotalTax>135.00</TotalTax>
-      <Total>1485.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:49:33.933</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>e3d96555-2876-4364-a46a-7551a4f52611</InvoiceID>
-      <InvoiceNumber>ORC1006</InvoiceNumber>
-      <Payments>
-        <Payment>
-          <Date>2010-09-27T00:00:00</Date>
-          <Amount>1485.00</Amount>
-          <PaymentID>f41fd62d-48d2-4bab-975b-c770d1541014</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>1485.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
-        <Name>PowerDirect</Name>
-      </Contact>
-      <Date>2010-10-22T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>DELETED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>0.00</SubTotal>
-      <TotalTax>0.00</TotalTax>
-      <Total>0.00</Total>
-      <UpdatedDateUTC>2010-11-25T14:28:05.153</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>c963f2b0-cbe1-4abd-9ccc-7e512c942068</InvoiceID>
-      <InvoiceNumber>32051</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
-        <Name>Rex Media Group</Name>
-      </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-02T17:10:45.567</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>ec9a6f67-7128-4a63-8ba3-5e516f455f9b</InvoiceID>
-      <InvoiceNumber>ORC1019</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>1456bc70-f6a0-4ffd-9ba4-4d8a901efd4e</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
-        <Name>Net Connect</Name>
-      </Contact>
-      <Date>2010-11-26T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>32.50</SubTotal>
-      <TotalTax>3.25</TotalTax>
-      <Total>35.75</Total>
-      <UpdatedDateUTC>2010-12-09T15:01:59.897</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>86102312-aa3f-438c-9938-6840f4d8dda6</InvoiceID>
-      <InvoiceNumber>O721-003</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>35.75</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
-        <Name>Port Phillip Freight</Name>
-      </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-02T17:10:54.443</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>c3380b96-976d-4b3e-8b26-8d01eb6a3742</InvoiceID>
-      <InvoiceNumber>ORC1018</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>4d31d5f3-3c27-4eca-aad7-d59ca5abb22e</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>3fc1fc6c-e5ff-4e40-b6f3-7eb535637d87</ContactID>
-        <Name>Kinnet &amp; Jones</Name>
-      </Contact>
-      <Date>2010-09-27T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1050.00</SubTotal>
-      <TotalTax>105.00</TotalTax>
-      <Total>1155.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:49:30.167</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>803f70b0-56d9-4157-9787-41df271777a0</InvoiceID>
-      <InvoiceNumber>ORC1000</InvoiceNumber>
-      <Reference>RAC project</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-02T00:00:00</Date>
-          <Amount>1155.00</Amount>
-          <PaymentID>d8780cf7-a585-4998-a83a-29ab0c970c04</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>1155.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>ef6f54c1-eb45-4956-b8cd-1be82ad665f2</ContactID>
-        <Name>Maddox Publishing Group</Name>
-      </Contact>
-      <Date>2010-10-18T00:00:00</Date>
-      <DueDate>2010-10-28T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>4200.00</SubTotal>
-      <TotalTax>420.00</TotalTax>
-      <Total>4620.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:12:24.48</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>aa0173af-8707-4e7f-8dde-4c7a357bd312</InvoiceID>
-      <InvoiceNumber>ORC1014</InvoiceNumber>
-      <Reference>Yr ref H008-346</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-11-08T00:00:00</Date>
-          <Amount>1735.00</Amount>
-          <PaymentID>678a497f-9cc2-411e-a480-57d94c5fd4c4</PaymentID>
-        </Payment>
-        <Payment>
-          <Date>2010-10-28T00:00:00</Date>
-          <Amount>2500.00</Amount>
-          <PaymentID>2c6ce9e5-8987-41fe-b642-96846ff44089</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>4235.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>69d3e538-44b3-4e00-a5f6-7dddcb6e0656</ContactID>
-        <Name>Blue Winn Polytechnic</Name>
-      </Contact>
-      <Date>2010-10-12T00:00:00</Date>
-      <DueDate>2010-10-28T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>3250.00</SubTotal>
-      <TotalTax>325.00</TotalTax>
-      <Total>3575.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:12:26.197</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>4b9afceb-f7c7-4e64-8aac-7b009971fd52</InvoiceID>
-      <InvoiceNumber>ORC1013</InvoiceNumber>
-      <Reference>BWP p.o. R22987</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-11-08T00:00:00</Date>
-          <Amount>3575.00</Amount>
-          <PaymentID>d3abafa8-b7fa-4edb-b050-3a8485cf44be</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>3575.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
-        <Name>Hamilton Smith Pty</Name>
-      </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T11:56:55.33</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>4fad1af2-b871-4ac5-a15a-3c5e32d2e2c4</InvoiceID>
-      <InvoiceNumber>ORC1003</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
     <Invoice>
       <Contact>
         <ContactID>d6a384fb-f46f-41a3-8ac7-b7bc9e0b5efa</ContactID>
         <Name>Melrose Parking</Name>
       </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>135.00</SubTotal>
       <TotalTax>13.50</TotalTax>
       <Total>148.50</Total>
-      <UpdatedDateUTC>2010-11-24T10:28:51.5</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-16T10:28:51.5</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-24T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>0032f627-3156-4d30-9b1c-4d3b994dc921</InvoiceID>
       <InvoiceNumber>9871</InvoiceNumber>
@@ -853,79 +30,135 @@
         <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
         <Name>PC Complete</Name>
       </Contact>
-      <Date>2010-12-03T00:00:00</Date>
-      <DueDate>2010-12-28T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
+      <Date>2011-03-01T00:00:00</Date>
+      <DueDate>2011-03-08T00:00:00</DueDate>
+      <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1969.99</SubTotal>
-      <TotalTax>197.00</TotalTax>
-      <Total>2166.99</Total>
-      <UpdatedDateUTC>2011-05-25T11:16:38.36</UpdatedDateUTC>
+      <SubTotal>1085.00</SubTotal>
+      <TotalTax>108.50</TotalTax>
+      <Total>1193.50</Total>
+      <UpdatedDateUTC>2008-09-16T10:45:13.79</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>673dd7cc-beb7-4697-83d4-0c47cb400cc2</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>974.60</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
+        <Name>Bank West</Name>
+      </Contact>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-12T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-17T06:52:49.03</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-02T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>b75b3928-ab72-4424-8b93-9cdbbde4cd72</InvoiceID>
+      <InvoiceNumber>ORC1005</InvoiceNumber>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-03-02T00:00:00</Date>
+          <Total>550.00</Total>
+          <CreditNoteID>50e98404-2fba-4031-af67-8ba4bb227c44</CreditNoteID>
+          <CreditNoteNumber>CR1005</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>79aa39ca-22b0-42c2-9026-78757a29d665</ContactID>
+        <Name>City Ambassadors Association</Name>
+      </Contact>
+      <Date>2011-03-01T00:00:00</Date>
+      <DueDate>2011-03-11T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>250.00</SubTotal>
+      <TotalTax>25.00</TotalTax>
+      <Total>275.00</Total>
+      <UpdatedDateUTC>2008-09-17T07:30:06.707</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>290ef4c4-baec-492b-b4dd-c102826470ae</InvoiceID>
+      <InvoiceNumber>ORC1004</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>97ee2016-ac5a-4619-a515-46a954932daa</PaymentID>
+          <Date>2011-03-07T00:00:00</Date>
+          <Amount>275.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>275.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
+        <Name>DIISR - Small Business Services</Name>
+      </Contact>
+      <Date>2011-03-07T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1360.00</SubTotal>
+      <TotalTax>136.00</TotalTax>
+      <Total>1496.00</Total>
+      <UpdatedDateUTC>2008-09-17T07:36:27.537</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-19T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>f571c38b-5be1-41e1-ad5a-ff6184284beb</InvoiceID>
+      <InvoiceNumber>ORC1001</InvoiceNumber>
+      <Reference>Portal proj</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>8ebc072b-b7cd-431c-972d-66ce0c3fde69</PaymentID>
+          <Date>2011-03-19T00:00:00</Date>
+          <Amount>1469.60</Amount>
+        </Payment>
+      </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-03-17T00:00:00</Date>
+          <Total>26.40</Total>
+          <CreditNoteID>3bffc09b-79f2-490d-b91b-c59b700b43a4</CreditNoteID>
+          <CreditNoteNumber>CR1001</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1469.60</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
+        <Name>PowerDirect</Name>
+      </Contact>
+      <Date>2011-04-01T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>DELETED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>0.00</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>0.00</Total>
+      <UpdatedDateUTC>2008-09-17T14:28:05.153</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCPAY</Type>
-      <InvoiceID>c12aff7e-12bf-4185-8702-460929f19674</InvoiceID>
-      <AmountDue>2166.99</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>72dd6a02-396e-42a2-a4d6-cc3fa75dfece</ContactID>
-        <Name>Capital Cab Co</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Inclusive</LineAmountTypes>
-      <SubTotal>38.18</SubTotal>
-      <TotalTax>3.82</TotalTax>
-      <Total>42.00</Total>
-      <UpdatedDateUTC>2010-12-07T16:05:02.413</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>30dbd181-72a8-43df-b392-4241bf43d5fc</InvoiceID>
-      <InvoiceNumber>CS815</InvoiceNumber>
-      <AmountDue>42.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>3e776c4b-ea9e-4bb1-96be-6b0c7a71a37f</ContactID>
-        <Name>Bayside Club</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-27T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Inclusive</LineAmountTypes>
-      <SubTotal>203.64</SubTotal>
-      <TotalTax>20.36</TotalTax>
-      <Total>224.00</Total>
-      <UpdatedDateUTC>2012-12-06T14:31:39.39</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>4edbf6d5-4e92-43af-bedd-7effc0b86833</InvoiceID>
-      <InvoiceNumber>ORC1039</InvoiceNumber>
-      <Reference>GB1-White</Reference>
-      <AmountDue>224.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
-        <Name>Boom FM</Name>
-      </Contact>
-      <Date>2010-12-14T00:00:00</Date>
-      <DueDate>2010-12-28T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>520.00</SubTotal>
-      <TotalTax>52.00</TotalTax>
-      <Total>572.00</Total>
-      <UpdatedDateUTC>2010-12-14T23:28:59.627</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>a1d04a14-96a8-4067-a0ff-8136990a354f</InvoiceID>
-      <InvoiceNumber>ORC1040</InvoiceNumber>
-      <AmountDue>572.00</AmountDue>
+      <InvoiceID>c963f2b0-cbe1-4abd-9ccc-7e512c942068</InvoiceID>
+      <InvoiceNumber>32051</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
     </Invoice>
     <Invoice>
@@ -933,72 +166,388 @@
         <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
         <Name>Swanston Security</Name>
       </Contact>
-      <Status>AUTHORISED</Status>
+      <Date>2011-03-07T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
+      <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>69.00</SubTotal>
       <TotalTax>6.90</TotalTax>
       <Total>75.90</Total>
-      <UpdatedDateUTC>2010-12-02T15:45:55.003</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-18T11:43:31.57</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-18T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
-      <InvoiceID>95ef3000-c764-4ba9-a66a-b6e2d161f839</InvoiceID>
-      <AmountDue>75.90</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
+      <InvoiceID>166f0588-d0ba-458c-b28a-8edd4c8fc463</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>75.90</AmountPaid>
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
-        <Name>DIISR - Small Business Services</Name>
+        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
+        <Name>Net Connect</Name>
       </Contact>
-      <Date>2010-11-23T00:00:00</Date>
-      <DueDate>2010-12-13T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>3500.00</SubTotal>
-      <TotalTax>350.00</TotalTax>
-      <Total>3850.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:09:32.247</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>4602eda6-abe9-448e-b65f-ae6bea21f0eb</InvoiceID>
-      <InvoiceNumber>ORC1033</InvoiceNumber>
-      <Reference>Portal proj</Reference>
-      <AmountDue>3850.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>fe61ead1-8afc-4f0b-beda-066620227aad</ContactID>
-        <Name>Xero</Name>
-      </Contact>
-      <Date>2010-11-08T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
+      <Date>2011-03-05T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>49.00</SubTotal>
-      <TotalTax>4.90</TotalTax>
-      <Total>53.90</Total>
-      <UpdatedDateUTC>2010-12-09T14:28:14.65</UpdatedDateUTC>
+      <SubTotal>32.50</SubTotal>
+      <TotalTax>3.25</TotalTax>
+      <Total>35.75</Total>
+      <UpdatedDateUTC>2008-09-18T11:44:23.603</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-18T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
-      <InvoiceID>935fc854-8037-4111-8d91-993010c331cc</InvoiceID>
+      <InvoiceID>00c9511b-24b9-4190-a90a-8abf2fe9f4a0</InvoiceID>
+      <InvoiceNumber>O721-001</InvoiceNumber>
       <AmountDue>0.00</AmountDue>
-      <AmountPaid>53.90</AmountPaid>
+      <AmountPaid>35.75</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
+        <Name>PowerDirect</Name>
+      </Contact>
+      <Date>2011-03-01T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>350.00</SubTotal>
+      <TotalTax>35.00</TotalTax>
+      <Total>385.00</Total>
+      <UpdatedDateUTC>2008-09-18T11:44:47.197</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>f9c857eb-64cd-4235-a078-d04b52c77ea7</InvoiceID>
+      <InvoiceNumber>31901</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>385.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>e8b98c13-a424-41d2-ba0e-7b7621411e7a</ContactID>
+        <Name>Qantas</Name>
+      </Contact>
+      <Date>2011-02-17T00:00:00</Date>
+      <DueDate>2011-02-24T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>199.00</SubTotal>
+      <TotalTax>19.90</TotalTax>
+      <Total>218.90</Total>
+      <UpdatedDateUTC>2008-09-18T11:45:11.227</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>52ee4d67-cae4-462c-adb2-182c39017f3d</InvoiceID>
+      <InvoiceNumber>ICT 08</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>218.90</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <Name>Hamilton Smith Pty</Name>
+      </Contact>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-18T11:56:55.33</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>4fad1af2-b871-4ac5-a15a-3c5e32d2e2c4</InvoiceID>
+      <InvoiceNumber>ORC1003</InvoiceNumber>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-02-25T00:00:00</Date>
+          <Total>550.00</Total>
+          <CreditNoteID>371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1</CreditNoteID>
+          <CreditNoteNumber>CR1003</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <Name>Hamilton Smith Pty</Name>
+      </Contact>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:11:04.013</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>1d1ba340-afa2-4f4c-8ff7-a147bda9a47b</InvoiceID>
+      <InvoiceNumber>ORC1008</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>11730d01-ce3b-4770-93ca-e3cb868cbe21</PaymentID>
+          <Date>2011-02-25T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
+        <Name>Yarra Transport</Name>
+      </Contact>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:11:14.06</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>76e3f056-479f-417c-a72b-f3d767899b87</InvoiceID>
+      <InvoiceNumber>ORC1009</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>3f13f41e-f6cc-4d1e-b6df-370e357c37c7</PaymentID>
+          <Date>2011-02-25T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
+        <Name>Rex Media Group</Name>
+      </Contact>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:11:41.797</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>33e4123e-7cdd-4f05-9a0a-eb8adeb2b868</InvoiceID>
+      <InvoiceNumber>ORC1011</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>f90d8ff2-d761-40a7-a434-7d748928cf4d</PaymentID>
+          <Date>2011-02-25T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
+        <Name>Port Phillip Freight</Name>
+      </Contact>
+      <Date>2011-02-16T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:11:48.903</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>5613938b-9e27-472e-92ae-3b038b669d10</InvoiceID>
+      <InvoiceNumber>ORC1010</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>84f0f27e-add2-48ca-8cab-1013a9b171b6</PaymentID>
+          <Date>2011-02-25T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+        <Name>City Limousines</Name>
+      </Contact>
+      <Date>2011-02-25T00:00:00</Date>
+      <DueDate>2011-03-07T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1000.00</SubTotal>
+      <TotalTax>100.00</TotalTax>
+      <Total>1100.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:46:04.917</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>962ef33f-c9d2-4602-9b9f-93a02bea23b3</InvoiceID>
+      <InvoiceNumber>ORC1002</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>3bc87a62-34f7-45ff-bcd8-be59e06be7eb</PaymentID>
+          <Date>2011-03-07T00:00:00</Date>
+          <Amount>850.00</Amount>
+          <Reference>Part</Reference>
+        </Payment>
+      </Payments>
+      <AmountDue>250.00</AmountDue>
+      <AmountPaid>850.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>3fc1fc6c-e5ff-4e40-b6f3-7eb535637d87</ContactID>
+        <Name>Kinnet &amp; Jones</Name>
+      </Contact>
+      <Date>2011-03-07T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1050.00</SubTotal>
+      <TotalTax>105.00</TotalTax>
+      <Total>1155.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:49:30.167</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-12T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>803f70b0-56d9-4157-9787-41df271777a0</InvoiceID>
+      <InvoiceNumber>ORC1000</InvoiceNumber>
+      <Reference>RAC project</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>d8780cf7-a585-4998-a83a-29ab0c970c04</PaymentID>
+          <Date>2011-03-12T00:00:00</Date>
+          <Amount>1155.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1155.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
+        <Name>Bank West</Name>
+      </Contact>
+      <Date>2011-02-22T00:00:00</Date>
+      <DueDate>2011-03-07T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1350.00</SubTotal>
+      <TotalTax>135.00</TotalTax>
+      <Total>1485.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:49:33.933</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>e3d96555-2876-4364-a46a-7551a4f52611</InvoiceID>
+      <InvoiceNumber>ORC1006</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>f41fd62d-48d2-4bab-975b-c770d1541014</PaymentID>
+          <Date>2011-03-07T00:00:00</Date>
+          <Amount>1485.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1485.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>9d12a994-9640-4b75-95cc-3de1e9d0ef09</ContactID>
+        <Name>Petrie McLoud Watson &amp; Associates</Name>
+      </Contact>
+      <Date>2011-03-07T00:00:00</Date>
+      <DueDate>2011-03-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>5600.00</SubTotal>
+      <TotalTax>560.00</TotalTax>
+      <Total>6160.00</Total>
+      <UpdatedDateUTC>2008-09-18T12:49:48.59</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>7be9956d-5316-4f6b-a66a-d355b3f159b2</InvoiceID>
+      <InvoiceNumber>ORC1007</InvoiceNumber>
+      <Reference>CSD0845</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>f346e968-4b38-4a8b-89f0-21449e7d6751</PaymentID>
+          <Date>2011-03-18T00:00:00</Date>
+          <Amount>6160.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>6160.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
+        <Name>City Limousines</Name>
+      </Contact>
+      <Date>2011-03-17T00:00:00</Date>
+      <DueDate>2011-04-02T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>600.00</SubTotal>
+      <TotalTax>60.00</TotalTax>
+      <Total>660.00</Total>
+      <UpdatedDateUTC>2008-09-22T15:53:45.74</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>f5832195-5cd3-4660-ad3f-b73d9c64f263</InvoiceID>
+      <InvoiceNumber>ORC1012</InvoiceNumber>
+      <AmountDue>660.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
     </Invoice>
     <Invoice>
       <Contact>
         <ContactID>8bb6931d-2865-44e9-9a23-ed1fb9c7a46c</ContactID>
         <Name>Central Documentation Services</Name>
       </Contact>
-      <Date>2010-10-18T00:00:00</Date>
-      <DueDate>2010-10-25T00:00:00</DueDate>
+      <Date>2011-03-28T00:00:00</Date>
+      <DueDate>2011-04-04T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>95.00</SubTotal>
       <TotalTax>9.50</TotalTax>
       <Total>104.50</Total>
-      <UpdatedDateUTC>2010-12-02T16:11:21.233</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-24T16:11:21.233</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>625ffe1b-f5d8-438e-a376-981de5f5a733</InvoiceID>
       <AmountDue>0.00</AmountDue>
@@ -1009,385 +558,36 @@
         <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
         <Name>MCO Cleaning Services</Name>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>155.00</SubTotal>
-      <TotalTax>15.50</TotalTax>
-      <Total>170.50</Total>
-      <UpdatedDateUTC>2010-12-09T12:26:49.497</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>8b0ccb6a-d9b7-4da5-8360-ef7fb157b5aa</InvoiceID>
-      <AmountDue>170.50</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
-        <Name>DIISR - Small Business Services</Name>
-      </Contact>
-      <Date>2010-09-27T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1360.00</SubTotal>
-      <TotalTax>136.00</TotalTax>
-      <Total>1496.00</Total>
-      <UpdatedDateUTC>2010-11-25T07:36:27.537</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>f571c38b-5be1-41e1-ad5a-ff6184284beb</InvoiceID>
-      <InvoiceNumber>ORC1001</InvoiceNumber>
-      <Reference>Portal proj</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-09T00:00:00</Date>
-          <Amount>1469.60</Amount>
-          <PaymentID>8ebc072b-b7cd-431c-972d-66ce0c3fde69</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>1469.60</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
-        <Name>Boom FM</Name>
-      </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>VOIDED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1000.00</SubTotal>
-      <TotalTax>100.00</TotalTax>
-      <Total>1100.00</Total>
-      <UpdatedDateUTC>2011-11-19T05:40:43.417</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>46441f63-873f-4cdc-a278-b8fe516f3abb</InvoiceID>
-      <InvoiceNumber>ORC1025</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>936c9759-01da-4063-b472-424ab9f48212</ContactID>
-        <Name>Mitchell River Lodge</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>400.00</SubTotal>
-      <TotalTax>40.00</TotalTax>
-      <Total>440.00</Total>
-      <UpdatedDateUTC>2010-12-10T12:53:21.74</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>5aa9451d-95d1-4f95-a966-bbab2573f71c</InvoiceID>
-      <InvoiceNumber>ORC1036</InvoiceNumber>
-      <AmountDue>440.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
-        <Name>Yarra Transport</Name>
-      </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:11:14.06</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>76e3f056-479f-417c-a72b-f3d767899b87</InvoiceID>
-      <InvoiceNumber>ORC1009</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-09-17T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>3f13f41e-f6cc-4d1e-b6df-370e357c37c7</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
-        <Name>Swanston Security</Name>
-      </Contact>
-      <Date>2010-10-28T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>69.00</SubTotal>
-      <TotalTax>6.90</TotalTax>
-      <Total>75.90</Total>
-      <UpdatedDateUTC>2010-12-03T10:19:44.953</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>15e88e57-2554-4496-a18e-eb3f5c622345</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>75.90</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
-        <Name>Rex Media Group</Name>
-      </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:11:41.797</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>33e4123e-7cdd-4f05-9a0a-eb8adeb2b868</InvoiceID>
-      <InvoiceNumber>ORC1011</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-09-17T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>f90d8ff2-d761-40a7-a434-7d748928cf4d</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>64eedbc9-1fa0-485a-837f-705f23188161</ContactID>
-        <Name>Quantum Consultants</Name>
-      </Contact>
-      <Date>2010-10-28T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1200.00</SubTotal>
-      <TotalTax>120.00</TotalTax>
-      <Total>1320.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:12:28.37</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>a6894ca0-60ee-4d45-9dd4-b44fcba46ec5</InvoiceID>
-      <InvoiceNumber>ORC1015</InvoiceNumber>
-      <Payments>
-        <Payment>
-          <Date>2010-11-08T00:00:00</Date>
-          <Amount>1320.00</Amount>
-          <PaymentID>940b1a13-4fba-457e-8831-afd804620a4f</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>1320.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
-        <Name>City Limousines</Name>
-      </Contact>
-      <Date>2010-09-17T00:00:00</Date>
-      <DueDate>2010-09-27T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1000.00</SubTotal>
-      <TotalTax>100.00</TotalTax>
-      <Total>1100.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:46:04.917</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>962ef33f-c9d2-4602-9b9f-93a02bea23b3</InvoiceID>
-      <InvoiceNumber>ORC1002</InvoiceNumber>
-      <Payments>
-        <Payment>
-          <Date>2010-09-27T00:00:00</Date>
-          <Amount>850.00</Amount>
-          <PaymentID>3bc87a62-34f7-45ff-bcd8-be59e06be7eb</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>250.00</AmountDue>
-      <AmountPaid>850.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>936c9759-01da-4063-b472-424ab9f48212</ContactID>
-        <Name>Mitchell River Lodge</Name>
-      </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>VOIDED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-10T12:53:35.227</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>70e6db69-e5a4-42c7-a397-aa3212c2945f</InvoiceID>
-      <InvoiceNumber>ORC1035</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>9d12a994-9640-4b75-95cc-3de1e9d0ef09</ContactID>
-        <Name>Petrie McLoud Watson &amp; Associates</Name>
-      </Contact>
-      <Date>2010-09-27T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>5600.00</SubTotal>
-      <TotalTax>560.00</TotalTax>
-      <Total>6160.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:49:48.59</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>7be9956d-5316-4f6b-a66a-d355b3f159b2</InvoiceID>
-      <InvoiceNumber>ORC1007</InvoiceNumber>
-      <Reference>CSD0845</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-10-08T00:00:00</Date>
-          <Amount>6160.00</Amount>
-          <PaymentID>f346e968-4b38-4a8b-89f0-21449e7d6751</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>6160.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>efdb3600-f233-42e2-8f18-ce7e2a95e4b1</ContactID>
-        <Name>Princes Highway Motors</Name>
-      </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-20T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>950.00</SubTotal>
-      <TotalTax>95.00</TotalTax>
-      <Total>1045.00</Total>
-      <UpdatedDateUTC>2010-12-10T05:51:26.217</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>a3bc62ef-f11b-4a9c-a4f9-a342bda371b5</InvoiceID>
-      <AmountDue>1045.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
-        <Name>MCO Cleaning Services</Name>
-      </Contact>
-      <Date>2010-11-08T00:00:00</Date>
-      <DueDate>2010-11-23T00:00:00</DueDate>
+      <Date>2011-03-18T00:00:00</Date>
+      <DueDate>2011-04-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>155.00</SubTotal>
       <TotalTax>15.50</TotalTax>
       <Total>170.50</Total>
-      <UpdatedDateUTC>2010-12-09T14:29:27.933</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-24T16:12:35.093</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
-      <InvoiceID>4ad1ec01-f4a3-41d7-bbb4-d2ab2fec8e65</InvoiceID>
+      <InvoiceID>387db692-26ac-47e6-b6cc-015343809bda</InvoiceID>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>170.50</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6a384fb-f46f-41a3-8ac7-b7bc9e0b5efa</ContactID>
-        <Name>Melrose Parking</Name>
-      </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>135.00</SubTotal>
-      <TotalTax>13.50</TotalTax>
-      <Total>148.50</Total>
-      <UpdatedDateUTC>2010-12-03T10:20:45.72</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>b0344791-5a8a-40dd-a208-d99a461a6c10</InvoiceID>
-      <InvoiceNumber>9901</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>148.50</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
-        <Name>Hamilton Smith Pty</Name>
-      </Contact>
-      <Date>2010-09-08T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T12:11:04.013</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>1d1ba340-afa2-4f4c-8ff7-a147bda9a47b</InvoiceID>
-      <InvoiceNumber>ORC1008</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-09-17T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>11730d01-ce3b-4770-93ca-e3cb868cbe21</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
-        <Name>PowerDirect</Name>
-      </Contact>
-      <Date>2010-09-21T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>350.00</SubTotal>
-      <TotalTax>35.00</TotalTax>
-      <Total>385.00</Total>
-      <UpdatedDateUTC>2010-11-26T11:44:47.197</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>f9c857eb-64cd-4235-a078-d04b52c77ea7</InvoiceID>
-      <InvoiceNumber>31901</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>385.00</AmountPaid>
     </Invoice>
     <Invoice>
       <Contact>
         <ContactID>baeed0f3-7989-4874-99b3-59f23032cb73</ContactID>
         <Name>Vodafone</Name>
       </Contact>
-      <Date>2010-10-09T00:00:00</Date>
-      <DueDate>2010-10-23T00:00:00</DueDate>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-04-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>125.35</SubTotal>
       <TotalTax>12.54</TotalTax>
       <Total>137.89</Total>
-      <UpdatedDateUTC>2010-12-02T16:14:18.797</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-24T16:14:18.797</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>de5d9c29-21b3-4342-958b-ed72c4bd7ab0</InvoiceID>
       <InvoiceNumber>97781</InvoiceNumber>
@@ -1396,37 +596,343 @@
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
-        <Name>City Limousines</Name>
+        <ContactID>0f471ca5-15c9-405e-a1b9-7cc35194b673</ContactID>
+        <Name>Party Hire</Name>
       </Contact>
-      <Date>2010-10-07T00:00:00</Date>
-      <DueDate>2010-10-23T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
+      <Date>2011-03-20T00:00:00</Date>
+      <DueDate>2011-03-27T00:00:00</DueDate>
+      <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>600.00</SubTotal>
-      <TotalTax>60.00</TotalTax>
-      <Total>660.00</Total>
-      <UpdatedDateUTC>2010-11-30T15:53:45.74</UpdatedDateUTC>
+      <SubTotal>450.00</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>450.00</Total>
+      <UpdatedDateUTC>2008-09-24T16:15:18.42</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>7dae876a-b424-436b-a4e6-17b3fdeec80c</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>250.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
+        <Name>Rex Media Group</Name>
+      </Contact>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-03-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-24T17:10:45.567</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-28T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
-      <InvoiceID>f5832195-5cd3-4660-ad3f-b73d9c64f263</InvoiceID>
-      <InvoiceNumber>ORC1012</InvoiceNumber>
-      <AmountDue>660.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
+      <InvoiceID>ec9a6f67-7128-4a63-8ba3-5e516f455f9b</InvoiceID>
+      <InvoiceNumber>ORC1019</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>1456bc70-f6a0-4ffd-9ba4-4d8a901efd4e</PaymentID>
+          <Date>2011-03-28T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
+        <Name>Port Phillip Freight</Name>
+      </Contact>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-03-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-24T17:10:54.443</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-28T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>c3380b96-976d-4b3e-8b26-8d01eb6a3742</InvoiceID>
+      <InvoiceNumber>ORC1018</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>4d31d5f3-3c27-4eca-aad7-d59ca5abb22e</PaymentID>
+          <Date>2011-03-28T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
+        <Name>Yarra Transport</Name>
+      </Contact>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-03-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-24T17:14:37.663</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-28T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>3fcb9847-b350-412e-ab90-7d9d774ad881</InvoiceID>
+      <InvoiceNumber>ORC1017</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>22cf5c38-40d6-4c56-a442-00b147f550d0</PaymentID>
+          <Date>2011-03-28T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
     </Invoice>
     <Invoice>
       <Contact>
         <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
         <Name>Hamilton Smith Pty</Name>
       </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-03-28T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-09-24T17:14:39.943</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-03-28T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>b2c02d0b-41a8-4d4d-97d7-014c78b3547d</InvoiceID>
+      <InvoiceNumber>ORC1016</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>26c6252a-2759-48a8-824c-e6589a292140</PaymentID>
+          <Date>2011-03-28T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
+        <Name>Swanston Security</Name>
+      </Contact>
+      <Date>2011-04-07T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>69.00</SubTotal>
+      <TotalTax>6.90</TotalTax>
+      <Total>75.90</Total>
+      <UpdatedDateUTC>2008-09-25T10:19:44.953</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>15e88e57-2554-4496-a18e-eb3f5c622345</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>75.90</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
+        <Name>Net Connect</Name>
+      </Contact>
+      <Date>2011-04-05T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>32.50</SubTotal>
+      <TotalTax>3.25</TotalTax>
+      <Total>35.75</Total>
+      <UpdatedDateUTC>2008-09-25T10:20:01.86</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>766d1289-b440-4675-a656-1a0612ecac77</InvoiceID>
+      <InvoiceNumber>O721-002</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>35.75</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
+        <Name>PowerDirect</Name>
+      </Contact>
+      <Date>2011-04-01T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>295.00</SubTotal>
+      <TotalTax>29.50</TotalTax>
+      <Total>324.50</Total>
+      <UpdatedDateUTC>2008-09-25T10:20:24.657</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>e9cb9ecb-58ef-43a8-bd20-69a85338142d</InvoiceID>
+      <InvoiceNumber>3203</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>324.50</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>d6a384fb-f46f-41a3-8ac7-b7bc9e0b5efa</ContactID>
+        <Name>Melrose Parking</Name>
+      </Contact>
+      <Date>2011-03-19T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>135.00</SubTotal>
+      <TotalTax>13.50</TotalTax>
+      <Total>148.50</Total>
+      <UpdatedDateUTC>2008-09-25T10:20:45.72</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>b0344791-5a8a-40dd-a208-d99a461a6c10</InvoiceID>
+      <InvoiceNumber>9901</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>148.50</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>ef6f54c1-eb45-4956-b8cd-1be82ad665f2</ContactID>
+        <Name>Maddox Publishing Group</Name>
+      </Contact>
+      <Date>2011-03-28T00:00:00</Date>
+      <DueDate>2011-04-07T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>4200.00</SubTotal>
+      <TotalTax>420.00</TotalTax>
+      <Total>4620.00</Total>
+      <UpdatedDateUTC>2008-09-25T11:12:24.48</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>aa0173af-8707-4e7f-8dde-4c7a357bd312</InvoiceID>
+      <InvoiceNumber>ORC1014</InvoiceNumber>
+      <Reference>Yr ref H008-346</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>678a497f-9cc2-411e-a480-57d94c5fd4c4</PaymentID>
+          <Date>2011-04-18T00:00:00</Date>
+          <Amount>1735.00</Amount>
+        </Payment>
+        <Payment>
+          <PaymentID>2c6ce9e5-8987-41fe-b642-96846ff44089</PaymentID>
+          <Date>2011-04-07T00:00:00</Date>
+          <Amount>2500.00</Amount>
+          <Reference>Part 1</Reference>
+        </Payment>
+      </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-04-05T00:00:00</Date>
+          <Total>385.00</Total>
+          <CreditNoteID>482c018b-d329-4e05-9b4f-7a4cfc695aa0</CreditNoteID>
+          <CreditNoteNumber>CR1014</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>4235.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>69d3e538-44b3-4e00-a5f6-7dddcb6e0656</ContactID>
+        <Name>Blue Winn Polytechnic</Name>
+      </Contact>
+      <Date>2011-03-22T00:00:00</Date>
+      <DueDate>2011-04-07T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>3250.00</SubTotal>
+      <TotalTax>325.00</TotalTax>
+      <Total>3575.00</Total>
+      <UpdatedDateUTC>2008-09-25T11:12:26.197</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>4b9afceb-f7c7-4e64-8aac-7b009971fd52</InvoiceID>
+      <InvoiceNumber>ORC1013</InvoiceNumber>
+      <Reference>BWP p.o. R22987</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>d3abafa8-b7fa-4edb-b050-3a8485cf44be</PaymentID>
+          <Date>2011-04-18T00:00:00</Date>
+          <Amount>3575.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>3575.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>64eedbc9-1fa0-485a-837f-705f23188161</ContactID>
+        <Name>Quantum Consultants</Name>
+      </Contact>
+      <Date>2011-04-07T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1200.00</SubTotal>
+      <TotalTax>120.00</TotalTax>
+      <Total>1320.00</Total>
+      <UpdatedDateUTC>2008-09-25T11:12:28.37</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>a6894ca0-60ee-4d45-9dd4-b44fcba46ec5</InvoiceID>
+      <InvoiceNumber>ORC1015</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>940b1a13-4fba-457e-8831-afd804620a4f</PaymentID>
+          <Date>2011-04-18T00:00:00</Date>
+          <Amount>1320.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1320.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <Name>Hamilton Smith Pty</Name>
+      </Contact>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:23:42.707</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T11:23:42.707</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>5f6deadf-36a2-495a-9980-ceb11e8af9a9</InvoiceID>
@@ -1434,172 +940,49 @@
       <Reference>Monthly support</Reference>
       <AmountDue>550.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
-        <Name>Yarra Transport</Name>
+        <ContactID>42771b60-19a7-4692-af81-dd9f9b9362d4</ContactID>
+        <Name>ABC Furniture</Name>
       </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
+      <Date>2011-05-06T00:00:00</Date>
+      <DueDate>2011-05-06T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:31:19.187</UpdatedDateUTC>
+      <SubTotal>6300.00</SubTotal>
+      <TotalTax>630.00</TotalTax>
+      <Total>6930.00</Total>
+      <UpdatedDateUTC>2008-09-29T14:44:18.91</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>3b28bf11-ed2f-4cf4-8e9e-fcae730cc292</InvoiceID>
-      <InvoiceNumber>ORC1021</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-11-28T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>440877a7-7780-4000-8c53-670f1ed7d1ed</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>79aa39ca-22b0-42c2-9026-78757a29d665</ContactID>
-        <Name>City Ambassadors Association</Name>
-      </Contact>
-      <Date>2010-09-21T00:00:00</Date>
-      <DueDate>2010-10-01T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>250.00</SubTotal>
-      <TotalTax>25.00</TotalTax>
-      <Total>275.00</Total>
-      <UpdatedDateUTC>2010-11-25T07:30:06.707</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>290ef4c4-baec-492b-b4dd-c102826470ae</InvoiceID>
-      <InvoiceNumber>ORC1004</InvoiceNumber>
-      <Payments>
-        <Payment>
-          <Date>2010-09-27T00:00:00</Date>
-          <Amount>275.00</Amount>
-          <PaymentID>97ee2016-ac5a-4619-a515-46a954932daa</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>275.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>ca9b9abc-c2dc-4221-8101-31f464d314cc</ContactID>
-        <Name>Carruthers &amp; Smale</Name>
-      </Contact>
-      <Date>2010-11-08T00:00:00</Date>
-      <DueDate>2010-10-18T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:28:28.48</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCREC</Type>
-      <InvoiceID>5aadcd34-01a9-4b8d-a2bb-d7cc1de9fa45</InvoiceID>
-      <InvoiceNumber>ORC1024</InvoiceNumber>
-      <Payments>
-        <Payment>
-          <Date>2010-11-18T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>573f4bfd-31ca-47ad-aa75-8da946bf147b</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
-        <Name>Swanston Security</Name>
-      </Contact>
-      <Date>2010-09-27T00:00:00</Date>
-      <DueDate>2010-10-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>69.00</SubTotal>
-      <TotalTax>6.90</TotalTax>
-      <Total>75.90</Total>
-      <UpdatedDateUTC>2010-11-26T11:43:31.57</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-13T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
-      <InvoiceID>166f0588-d0ba-458c-b28a-8edd4c8fc463</InvoiceID>
+      <InvoiceID>ed0f2587-84fc-4aef-bc4b-b1a262e24484</InvoiceID>
+      <InvoiceNumber>MKT-08123</InvoiceNumber>
       <AmountDue>0.00</AmountDue>
-      <AmountPaid>75.90</AmountPaid>
+      <AmountPaid>6930.00</AmountPaid>
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
-        <Name>Swanston Security</Name>
+        <ContactID>1975b0ed-b7ba-4c61-bae8-2aa6d78b0dee</ContactID>
+        <Name>Marine Systems</Name>
       </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>69.00</SubTotal>
-      <TotalTax>6.90</TotalTax>
-      <Total>75.90</Total>
-      <UpdatedDateUTC>2010-12-09T16:05:09.883</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>f362ca53-8ade-4047-865a-bb64bee5863d</InvoiceID>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>75.90</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
-        <Name>Port Phillip Freight</Name>
-      </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-22T00:00:00</DueDate>
-      <Status>PAID</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>500.00</SubTotal>
-      <TotalTax>50.00</TotalTax>
-      <Total>550.00</Total>
-      <UpdatedDateUTC>2010-12-09T14:51:39.263</UpdatedDateUTC>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>360.00</SubTotal>
+      <TotalTax>36.00</TotalTax>
+      <Total>396.00</Total>
+      <UpdatedDateUTC>2008-09-29T15:41:06.73</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
-      <InvoiceID>a9f765e6-b9bc-4505-a47b-fb3ecb327e7b</InvoiceID>
-      <InvoiceNumber>ORC1022</InvoiceNumber>
-      <Reference>Monthly support</Reference>
-      <Payments>
-        <Payment>
-          <Date>2010-12-05T00:00:00</Date>
-          <Amount>550.00</Amount>
-          <PaymentID>490926d3-9fad-4fd3-968a-254595f8ebcd</PaymentID>
-        </Payment>
-      </Payments>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>550.00</AmountPaid>
-    </Invoice>
-    <Invoice>
-      <Contact>
-        <ContactID>4ab343ad-1ebb-4afe-9d48-1814a93c2081</ContactID>
-        <Name>ABPA</Name>
-      </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-13T00:00:00</DueDate>
-      <Status>SUBMITTED</Status>
-      <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>1350.00</SubTotal>
-      <TotalTax>135.00</TotalTax>
-      <Total>1485.00</Total>
-      <UpdatedDateUTC>2010-12-10T05:48:00.013</UpdatedDateUTC>
-      <CurrencyCode>AUD</CurrencyCode>
-      <Type>ACCPAY</Type>
-      <InvoiceID>bfbb7c45-de02-45e7-b065-d9863ecfb0d8</InvoiceID>
-      <AmountDue>1485.00</AmountDue>
+      <InvoiceID>8694c9c5-7097-4449-a708-b8c1982921a4</InvoiceID>
+      <InvoiceNumber>ORC1038</InvoiceNumber>
+      <Reference>Ref MK815</Reference>
+      <AmountDue>396.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
     </Invoice>
     <Invoice>
@@ -1607,14 +990,34 @@
         <ContactID>8a154a19-6c6c-404b-bbc9-6deae2d18251</ContactID>
         <Name>SMART Agency</Name>
       </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-11T00:00:00</DueDate>
+      <Date>2011-04-07T00:00:00</Date>
+      <DueDate>2011-04-21T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>1818.18</SubTotal>
+      <TotalTax>181.82</TotalTax>
+      <Total>2000.00</Total>
+      <UpdatedDateUTC>2008-10-01T12:03:42.977</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>76bcb361-f93b-4513-b312-5a4af306d276</InvoiceID>
+      <InvoiceNumber>70135</InvoiceNumber>
+      <AmountDue>2000.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>8a154a19-6c6c-404b-bbc9-6deae2d18251</ContactID>
+        <Name>SMART Agency</Name>
+      </Contact>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-21T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Inclusive</LineAmountTypes>
       <SubTotal>2272.73</SubTotal>
       <TotalTax>227.27</TotalTax>
       <Total>2500.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:04:42.68</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T12:04:42.68</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCPAY</Type>
       <InvoiceID>54585f46-c1a0-4432-bd4f-c1fae2fba59b</InvoiceID>
@@ -1627,14 +1030,14 @@
         <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
         <Name>DIISR - Small Business Services</Name>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-28T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-07T00:00:00</DueDate>
       <Status>SUBMITTED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>750.00</SubTotal>
       <TotalTax>75.00</TotalTax>
       <Total>825.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:18:17.207</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T12:18:17.207</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>0e64a623-c2a1-446a-93ed-eb897f118cbc</InvoiceID>
@@ -1645,63 +1048,650 @@
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
-        <Name>Bank West</Name>
+        <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
+        <Name>Hamilton Smith Pty</Name>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-10-02T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T12:20:23.553</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>9868b472-1983-48e9-8edf-7e81ddf2c03a</InvoiceID>
+      <InvoiceNumber>ORC1028</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <AmountDue>550.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
+        <Name>Yarra Transport</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T12:20:23.663</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>ab63738a-370a-43a5-bfa3-620d684e66d0</InvoiceID>
+      <InvoiceNumber>ORC1029</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <AmountDue>550.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
+        <Name>Port Phillip Freight</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T12:20:23.727</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>66fbe37f-49b1-43fd-97ed-85114022cd2f</InvoiceID>
+      <InvoiceNumber>ORC1030</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <AmountDue>550.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
+        <Name>Rex Media Group</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T12:20:23.773</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>64cd559e-8e03-46af-b461-8555285cee71</InvoiceID>
+      <InvoiceNumber>ORC1031</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <AmountDue>550.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
+        <Name>MCO Cleaning Services</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>155.00</SubTotal>
+      <TotalTax>15.50</TotalTax>
+      <Total>170.50</Total>
+      <UpdatedDateUTC>2008-10-01T12:26:49.497</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>8b0ccb6a-d9b7-4da5-8360-ef7fb157b5aa</InvoiceID>
+      <AmountDue>170.50</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
+        <Name>DIISR - Small Business Services</Name>
+      </Contact>
+      <Date>2011-05-03T00:00:00</Date>
+      <DueDate>2011-05-23T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>3500.00</SubTotal>
+      <TotalTax>350.00</TotalTax>
+      <Total>3850.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:09:32.247</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>4602eda6-abe9-448e-b65f-ae6bea21f0eb</InvoiceID>
+      <InvoiceNumber>ORC1033</InvoiceNumber>
+      <Reference>Portal proj</Reference>
+      <AmountDue>3850.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>ad24c33b-256b-4157-ad56-cbcf0e8db7b1</ContactID>
+        <Name>Pinnacle Management</Name>
+      </Contact>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-28T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>2800.00</SubTotal>
+      <TotalTax>280.00</TotalTax>
+      <Total>3080.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:09:32.293</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>86d6e00f-ef56-49f7-9a54-796ccd5ca057</InvoiceID>
+      <InvoiceNumber>ORC1034</InvoiceNumber>
+      <Reference>PO403/CSD</Reference>
+      <AmountDue>3080.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>c135f994-01e4-427b-9e15-acfe8a477c16</ContactID>
+        <Name>Cube Land</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>450.00</SubTotal>
+      <TotalTax>45.00</TotalTax>
+      <Total>495.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:09:32.34</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>30a87092-31b5-4a2c-831e-327486533dd2</InvoiceID>
+      <InvoiceNumber>ORC1032</InvoiceNumber>
+      <AmountDue>495.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>fe61ead1-8afc-4f0b-beda-066620227aad</ContactID>
+        <Name>Xero</Name>
+      </Contact>
+      <Date>2011-04-18T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>49.00</SubTotal>
+      <TotalTax>4.90</TotalTax>
+      <Total>53.90</Total>
+      <UpdatedDateUTC>2008-10-01T14:28:14.65</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-19T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>935fc854-8037-4111-8d91-993010c331cc</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>53.90</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>ca9b9abc-c2dc-4221-8101-31f464d314cc</ContactID>
+        <Name>Carruthers &amp; Smale</Name>
+      </Contact>
+      <Date>2011-04-18T00:00:00</Date>
+      <DueDate>2011-03-28T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-25T06:52:49.03</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T14:28:28.48</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-04-28T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>5aadcd34-01a9-4b8d-a2bb-d7cc1de9fa45</InvoiceID>
+      <InvoiceNumber>ORC1024</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>573f4bfd-31ca-47ad-aa75-8da946bf147b</PaymentID>
+          <Date>2011-04-28T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>dbb1f0b5-a71b-4458-8462-104acd0fec6b</ContactID>
+        <Name>MCO Cleaning Services</Name>
+      </Contact>
+      <Date>2011-04-18T00:00:00</Date>
+      <DueDate>2011-05-03T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>155.00</SubTotal>
+      <TotalTax>15.50</TotalTax>
+      <Total>170.50</Total>
+      <UpdatedDateUTC>2008-10-01T14:29:27.933</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-03T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>4ad1ec01-f4a3-41d7-bbb4-d2ab2fec8e65</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>170.50</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>6de0b0cf-560c-4503-aab3-e1543c329deb</ContactID>
+        <Name>Rex Media Group</Name>
+      </Contact>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:31:10.92</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-08T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>bcd8a71f-aa31-4d0f-8a01-13ea26363ddf</InvoiceID>
+      <InvoiceNumber>ORC1023</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>bf4828d8-a198-4b74-9e4d-3a238200610e</PaymentID>
+          <Date>2011-05-08T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>755f1475-d255-43a8-bedc-5ea7fd26c71f</ContactID>
+        <Name>Yarra Transport</Name>
+      </Contact>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:31:19.187</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-08T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>3b28bf11-ed2f-4cf4-8e9e-fcae730cc292</InvoiceID>
+      <InvoiceNumber>ORC1021</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>440877a7-7780-4000-8c53-670f1ed7d1ed</PaymentID>
+          <Date>2011-05-08T00:00:00</Date>
+          <Amount>550.00</Amount>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>13cd4c47-baa6-4f07-93f6-6442310df4bf</ContactID>
+        <Name>Port Phillip Freight</Name>
+      </Contact>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-02T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-01T14:51:39.263</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-15T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>a9f765e6-b9bc-4505-a47b-fb3ecb327e7b</InvoiceID>
+      <InvoiceNumber>ORC1022</InvoiceNumber>
+      <Reference>Monthly support</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>490926d3-9fad-4fd3-968a-254595f8ebcd</PaymentID>
+          <Date>2011-05-15T00:00:00</Date>
+          <Amount>550.00</Amount>
+          <Reference>Dep 81002</Reference>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>550.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>abf272dd-6b1d-4829-af88-c57bf55855e3</ContactID>
+        <Name>Net Connect</Name>
+      </Contact>
+      <Date>2011-05-06T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>32.50</SubTotal>
+      <TotalTax>3.25</TotalTax>
+      <Total>35.75</Total>
+      <UpdatedDateUTC>2008-10-01T15:01:59.897</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-17T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>86102312-aa3f-438c-9938-6840f4d8dda6</InvoiceID>
+      <InvoiceNumber>O721-003</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>35.75</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
+        <Name>DIISR - Small Business Services</Name>
+      </Contact>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-08T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>6500.00</SubTotal>
+      <TotalTax>650.00</TotalTax>
+      <Total>7150.00</Total>
+      <UpdatedDateUTC>2008-10-01T15:05:42.57</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
-      <InvoiceID>b75b3928-ab72-4424-8b93-9cdbbde4cd72</InvoiceID>
-      <InvoiceNumber>ORC1005</InvoiceNumber>
+      <InvoiceID>77b338ef-ecc0-4b95-a0d7-2617b0054611</InvoiceID>
+      <InvoiceNumber>ORC1026</InvoiceNumber>
+      <Reference>Portal proj</Reference>
+      <Payments>
+        <Payment>
+          <PaymentID>03223cae-aa49-46e2-9d24-a7bc96a26675</PaymentID>
+          <Date>2011-05-16T00:00:00</Date>
+          <Amount>2145.00</Amount>
+          <Reference>Part 1</Reference>
+        </Payment>
+      </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-05-18T00:00:00</Date>
+          <Total>1155.00</Total>
+          <CreditNoteID>43c678ee-f357-48e2-b192-b6e3634762f9</CreditNoteID>
+          <CreditNoteNumber>1026C</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
+      <AmountDue>3850.00</AmountDue>
+      <AmountPaid>2145.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>d6851dc2-9ed9-4515-bc0b-810b09c06a6a</ContactID>
+        <Name>PowerDirect</Name>
+      </Contact>
+      <Date>2011-05-02T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>301.00</SubTotal>
+      <TotalTax>30.10</TotalTax>
+      <Total>331.10</Total>
+      <UpdatedDateUTC>2008-10-01T16:05:05.71</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-16T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>dba2f021-f149-4191-a126-5351d587ab0e</InvoiceID>
+      <InvoiceNumber>3395</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>331.10</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>416ab20c-5357-4beb-a740-e8d175d71efb</ContactID>
+        <Name>Swanston Security</Name>
+      </Contact>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>69.00</SubTotal>
+      <TotalTax>6.90</TotalTax>
+      <Total>75.90</Total>
+      <UpdatedDateUTC>2008-10-01T16:05:09.883</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>f362ca53-8ade-4047-865a-bb64bee5863d</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>75.90</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>fe61ead1-8afc-4f0b-beda-066620227aad</ContactID>
+        <Name>Xero</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>49.00</SubTotal>
+      <TotalTax>4.90</TotalTax>
+      <Total>53.90</Total>
+      <UpdatedDateUTC>2008-10-01T16:05:11.397</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>024d7994-a26c-4c20-9894-13934840fc31</InvoiceID>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>53.90</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>cc4db604-9ed8-4eef-8a29-51b5b70496a0</ContactID>
+        <Name>Bankrock Station</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>320.00</SubTotal>
+      <TotalTax>32.00</TotalTax>
+      <Total>352.00</Total>
+      <UpdatedDateUTC>2008-10-02T05:43:49.79</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>69fc971e-9b37-41c5-9c87-174330f22343</InvoiceID>
+      <AmountDue>352.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>4ab343ad-1ebb-4afe-9d48-1814a93c2081</ContactID>
+        <Name>ABPA</Name>
+      </Contact>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-23T00:00:00</DueDate>
+      <Status>SUBMITTED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1350.00</SubTotal>
+      <TotalTax>135.00</TotalTax>
+      <Total>1485.00</Total>
+      <UpdatedDateUTC>2008-10-02T05:48:00.013</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>bfbb7c45-de02-45e7-b065-d9863ecfb0d8</InvoiceID>
+      <AmountDue>1485.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>e1826204-cc0a-42a5-a6d0-4b352d9d5953</ContactID>
+        <Name>Carlton Technical Books</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>115.20</SubTotal>
+      <TotalTax>0.00</TotalTax>
+      <Total>115.20</Total>
+      <UpdatedDateUTC>2008-10-02T05:48:24.467</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>88e77f0f-54a5-4efc-a979-7e22223cc4d7</InvoiceID>
+      <AmountDue>115.20</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>efdb3600-f233-42e2-8f18-ce7e2a95e4b1</ContactID>
+        <Name>Princes Highway Motors</Name>
+      </Contact>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-30T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>950.00</SubTotal>
+      <TotalTax>95.00</TotalTax>
+      <Total>1045.00</Total>
+      <UpdatedDateUTC>2008-10-02T05:51:26.217</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCPAY</Type>
+      <InvoiceID>a3bc62ef-f11b-4a9c-a4f9-a342bda371b5</InvoiceID>
+      <AmountDue>1045.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>936c9759-01da-4063-b472-424ab9f48212</ContactID>
+        <Name>Mitchell River Lodge</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>400.00</SubTotal>
+      <TotalTax>40.00</TotalTax>
+      <Total>440.00</Total>
+      <UpdatedDateUTC>2008-10-02T12:53:21.74</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>5aa9451d-95d1-4f95-a966-bbab2573f71c</InvoiceID>
+      <InvoiceNumber>ORC1036</InvoiceNumber>
+      <AmountDue>440.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>936c9759-01da-4063-b472-424ab9f48212</ContactID>
+        <Name>Mitchell River Lodge</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>VOIDED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>500.00</SubTotal>
+      <TotalTax>50.00</TotalTax>
+      <Total>550.00</Total>
+      <UpdatedDateUTC>2008-10-02T12:53:35.227</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>70e6db69-e5a4-42c7-a397-aa3212c2945f</InvoiceID>
+      <InvoiceNumber>ORC1035</InvoiceNumber>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>42771b60-19a7-4692-af81-dd9f9b9362d4</ContactID>
-        <Name>ABC Furniture</Name>
+        <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
+        <Name>PC Complete</Name>
       </Contact>
-      <Date>2010-11-26T00:00:00</Date>
-      <DueDate>2010-11-26T00:00:00</DueDate>
-      <Status>PAID</Status>
+      <Date>2011-05-13T00:00:00</Date>
+      <DueDate>2011-06-07T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
-      <SubTotal>6300.00</SubTotal>
-      <TotalTax>630.00</TotalTax>
-      <Total>6930.00</Total>
-      <UpdatedDateUTC>2010-12-07T14:44:18.91</UpdatedDateUTC>
+      <SubTotal>1969.99</SubTotal>
+      <TotalTax>197.00</TotalTax>
+      <Total>2166.99</Total>
+      <UpdatedDateUTC>2009-03-17T11:16:38.36</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCPAY</Type>
-      <InvoiceID>ed0f2587-84fc-4aef-bc4b-b1a262e24484</InvoiceID>
-      <InvoiceNumber>MKT-08123</InvoiceNumber>
-      <AmountDue>0.00</AmountDue>
-      <AmountPaid>6930.00</AmountPaid>
+      <InvoiceID>c12aff7e-12bf-4185-8702-460929f19674</InvoiceID>
+      <AmountDue>2166.99</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
     </Invoice>
     <Invoice>
       <Contact>
-        <ContactID>1975b0ed-b7ba-4c61-bae8-2aa6d78b0dee</ContactID>
-        <Name>Marine Systems</Name>
+        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
+        <Name>Boom FM</Name>
       </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
-      <LineAmountTypes>Inclusive</LineAmountTypes>
-      <SubTotal>360.00</SubTotal>
-      <TotalTax>36.00</TotalTax>
-      <Total>396.00</Total>
-      <UpdatedDateUTC>2010-12-07T15:41:06.73</UpdatedDateUTC>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>VOIDED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1000.00</SubTotal>
+      <TotalTax>100.00</TotalTax>
+      <Total>1100.00</Total>
+      <UpdatedDateUTC>2009-09-11T05:40:43.417</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
-      <InvoiceID>8694c9c5-7097-4449-a708-b8c1982921a4</InvoiceID>
-      <InvoiceNumber>ORC1038</InvoiceNumber>
-      <Reference>Ref MK815</Reference>
-      <AmountDue>396.00</AmountDue>
+      <InvoiceID>46441f63-873f-4cdc-a278-b8fe516f3abb</InvoiceID>
+      <InvoiceNumber>ORC1025</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>41a42865-f15a-4fa1-b643-47877608f557</ContactID>
+        <Name>Boom FM</Name>
+      </Contact>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>1119.70</SubTotal>
+      <TotalTax>111.97</TotalTax>
+      <Total>1231.67</Total>
+      <UpdatedDateUTC>2009-09-11T05:41:09.657</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>e4a0afbd-aea0-450b-ae23-0ce921e84a77</InvoiceID>
+      <InvoiceNumber>ORC01025</InvoiceNumber>
+      <AmountDue>1231.67</AmountDue>
+      <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>3e776c4b-ea9e-4bb1-96be-6b0c7a71a37f</ContactID>
+        <Name>Bayside Club</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-06-06T00:00:00</DueDate>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>203.64</SubTotal>
+      <TotalTax>20.36</TotalTax>
+      <Total>224.00</Total>
+      <UpdatedDateUTC>2010-09-29T14:31:39.39</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCREC</Type>
+      <InvoiceID>4edbf6d5-4e92-43af-bedd-7effc0b86833</InvoiceID>
+      <InvoiceNumber>ORC1039</InvoiceNumber>
+      <Reference>GB1-White</Reference>
+      <AmountDue>224.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
     </Invoice>
     <Invoice>
@@ -1709,20 +1699,155 @@
         <ContactID>e8e9a2c2-3e7e-48ed-8528-c3d61b28f276</ContactID>
         <Name>Bayside Wholesale</Name>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-23T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-02T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Inclusive</LineAmountTypes>
       <SubTotal>763.64</SubTotal>
       <TotalTax>76.36</TotalTax>
       <Total>840.00</Total>
-      <UpdatedDateUTC>2012-12-06T14:37:23.297</UpdatedDateUTC>
+      <UpdatedDateUTC>2010-09-29T14:37:23.297</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCPAY</Type>
       <InvoiceID>7e862d93-8dab-4856-8b0c-d844e09d750f</InvoiceID>
       <InvoiceNumber>GB1-White</InvoiceNumber>
       <AmountDue>840.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>fb078879-5d6d-474f-825f-61dc90689349</ContactID>
+        <Name>Heritage Trust</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-27T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Exclusive</LineAmountTypes>
+      <SubTotal>120.00</SubTotal>
+      <TotalTax>12.00</TotalTax>
+      <Total>132.00</Total>
+      <UpdatedDateUTC>2011-05-23T02:27:02.573</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-23T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>b1e53910-473c-46a3-b3cb-38ece571220e</InvoiceID>
+      <InvoiceNumber>Sub</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>132.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>72dd6a02-396e-42a2-a4d6-cc3fa75dfece</ContactID>
+        <Name>Capital Cab Co</Name>
+      </Contact>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>PAID</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>38.18</SubTotal>
+      <TotalTax>3.82</TotalTax>
+      <Total>42.00</Total>
+      <UpdatedDateUTC>2011-05-23T02:30:00.98</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-23T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAY</Type>
+      <InvoiceID>30dbd181-72a8-43df-b392-4241bf43d5fc</InvoiceID>
+      <InvoiceNumber>CS815</InvoiceNumber>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>42.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>26ac3afa-9d2b-4049-a7ba-3ce9463ea453</ContactID>
+        <Name>Bob Test</Name>
+      </Contact>
+      <Date>2011-05-27T00:00:00</Date>
+      <DueDate>2011-05-27T00:00:00</DueDate>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Status>PAID</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>1363.64</SubTotal>
+      <TotalTax>136.36</TotalTax>
+      <Total>1500.00</Total>
+      <UpdatedDateUTC>2011-05-27T07:23:32.067</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>440613e4-4785-4eff-9ba1-c432816cf8c7</InvoiceID>
+      <InvoiceNumber>ORC1040</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>980553a5-6310-4a1b-9538-bc9cc688f0ae</PaymentID>
+          <Date>2011-05-27T00:00:00</Date>
+          <Amount>1500.00</Amount>
+          <Reference>BOB</Reference>
+          <CurrencyRate>1.000000</CurrencyRate>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1500.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>84150343-986d-4289-8fde-c69e03c82ef6</ContactID>
+        <Name>Last Someone</Name>
+      </Contact>
+      <Date>2011-05-27T00:00:00</Date>
+      <DueDate>2011-05-27T00:00:00</DueDate>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Status>PAID</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>1363.64</SubTotal>
+      <TotalTax>136.36</TotalTax>
+      <Total>1500.00</Total>
+      <UpdatedDateUTC>2011-05-27T07:24:34.033</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>a77268ce-74b2-483d-a2b3-70dbdc9e49d2</InvoiceID>
+      <InvoiceNumber>ORC1042</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>e1fa3ace-43ff-4c0c-99cb-06b91f166dbc</PaymentID>
+          <Date>2011-05-27T00:00:00</Date>
+          <Amount>1500.00</Amount>
+          <Reference>BOB</Reference>
+          <CurrencyRate>1.000000</CurrencyRate>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1500.00</AmountPaid>
+    </Invoice>
+    <Invoice>
+      <Contact>
+        <ContactID>f308fdd0-9cf3-4f24-ae28-9ad57ae71310</ContactID>
+        <Name>Someone Else</Name>
+      </Contact>
+      <Date>2011-05-27T00:00:00</Date>
+      <DueDate>2011-05-27T00:00:00</DueDate>
+      <BrandingThemeID>aefae6d5-7bbe-4e2e-aadc-302cd07a0fc1</BrandingThemeID>
+      <Status>PAID</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>1363.64</SubTotal>
+      <TotalTax>136.36</TotalTax>
+      <Total>1500.00</Total>
+      <UpdatedDateUTC>2011-05-27T07:25:01.63</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCREC</Type>
+      <InvoiceID>cba46b29-3788-4158-b668-ab10160ccbfe</InvoiceID>
+      <InvoiceNumber>ORC1041</InvoiceNumber>
+      <Payments>
+        <Payment>
+          <PaymentID>80ab3fa2-eab1-40d8-a057-e29244eb0185</PaymentID>
+          <Date>2011-05-27T00:00:00</Date>
+          <Amount>1500.00</Amount>
+          <Reference>BOB</Reference>
+          <CurrencyRate>1.000000</CurrencyRate>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>1500.00</AmountPaid>
     </Invoice>
   </Invoices>
 </Response>

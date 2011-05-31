@@ -1,14 +1,15 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>fd49f287-7349-4339-891f-16782cd86a38</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>0d7fed80-cb08-42d2-bb87-023fb38c9a49</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:03:33.8827933Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:33:29.8581904Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
         <ContactID>72dd6a02-396e-42a2-a4d6-cc3fa75dfece</ContactID>
         <ContactStatus>ACTIVE</ContactStatus>
         <Name>Capital Cab Co</Name>
+        <BankAccountDetails>484-333 123456</BankAccountDetails>
         <Addresses>
           <Address>
             <AddressType>STREET</AddressType>
@@ -33,14 +34,14 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-07T06:07:18.137</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-23T02:30:00.823</UpdatedDateUTC>
         <IsSupplier>true</IsSupplier>
         <IsCustomer>false</IsCustomer>
         <DefaultCurrency>AUD</DefaultCurrency>
       </Contact>
-      <Date>2010-12-09T00:00:00</Date>
-      <DueDate>2010-12-15T00:00:00</DueDate>
-      <Status>AUTHORISED</Status>
+      <Date>2011-05-19T00:00:00</Date>
+      <DueDate>2011-05-25T00:00:00</DueDate>
+      <Status>PAID</Status>
       <LineAmountTypes>Inclusive</LineAmountTypes>
       <LineItems>
         <LineItem>
@@ -56,13 +57,23 @@
       <SubTotal>38.18</SubTotal>
       <TotalTax>3.82</TotalTax>
       <Total>42.00</Total>
-      <UpdatedDateUTC>2010-12-07T16:05:02.413</UpdatedDateUTC>
+      <UpdatedDateUTC>2011-05-23T02:30:00.98</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <FullyPaidOnDate>2011-05-23T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>30dbd181-72a8-43df-b392-4241bf43d5fc</InvoiceID>
       <InvoiceNumber>CS815</InvoiceNumber>
-      <AmountDue>42.00</AmountDue>
-      <AmountPaid>0.00</AmountPaid>
+      <Payments>
+        <Payment>
+          <PaymentID>8110b1d0-3cd3-451f-b0ab-b6f23ca3e3ad</PaymentID>
+          <Date>2011-05-23T00:00:00</Date>
+          <Amount>42.00</Amount>
+          <CurrencyRate>1.000000</CurrencyRate>
+        </Payment>
+      </Payments>
+      <AmountDue>0.00</AmountDue>
+      <AmountPaid>42.00</AmountPaid>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

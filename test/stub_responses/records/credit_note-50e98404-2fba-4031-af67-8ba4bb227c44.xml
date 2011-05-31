@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>1a679ec0-82ab-4de3-98c7-46959d76f0e6</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>893c1876-661e-44cd-913a-beb42fa75e50</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:24.6607353Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:25.3601745Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
@@ -37,10 +37,10 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-24T21:11:54.647</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-04T21:11:54.647</UpdatedDateUTC>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-09-22T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -58,17 +58,20 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-24T20:58:31.893</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T09:39:19.627</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-22T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-02T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
       <CreditNoteID>50e98404-2fba-4031-af67-8ba4bb227c44</CreditNoteID>
       <CreditNoteNumber>CR1005</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

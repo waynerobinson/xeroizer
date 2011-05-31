@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>9d97de59-62da-4d99-a095-f75d4f358516</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>21112803-6fe8-4b68-82e9-ea114e0d413e</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:03:12.7103763Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:32:39.3090509Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,12 +31,12 @@
             <PhoneType>DEFAULT</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-16T06:19:05.357</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-04-26T06:19:05.357</UpdatedDateUTC>
         <IsSupplier>true</IsSupplier>
         <IsCustomer>false</IsCustomer>
       </Contact>
-      <Date>2010-11-26T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
+      <Date>2011-05-06T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -53,22 +53,23 @@
       <SubTotal>32.50</SubTotal>
       <TotalTax>3.25</TotalTax>
       <Total>35.75</Total>
-      <UpdatedDateUTC>2010-12-09T15:01:59.897</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T15:01:59.897</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-12-07T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-05-17T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>86102312-aa3f-438c-9938-6840f4d8dda6</InvoiceID>
       <InvoiceNumber>O721-003</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-12-07T00:00:00</Date>
-          <Amount>35.75</Amount>
           <PaymentID>6f7d9ce5-8304-42e6-909f-942278b3c775</PaymentID>
+          <Date>2011-05-17T00:00:00</Date>
+          <Amount>35.75</Amount>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>35.75</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

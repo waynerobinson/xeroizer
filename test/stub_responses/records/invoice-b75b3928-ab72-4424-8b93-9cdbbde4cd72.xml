@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>18644fea-d402-401b-a1b4-702d33133034</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>ca49ad62-fff0-4f9d-b34b-85dbf01c4032</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:05:17.3541921Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:03.098928Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -37,12 +37,12 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-24T21:11:54.647</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-04T21:11:54.647</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-10-02T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-12T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -60,21 +60,31 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-25T06:52:49.03</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-17T06:52:49.03</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-22T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-02T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>b75b3928-ab72-4424-8b93-9cdbbde4cd72</InvoiceID>
       <InvoiceNumber>ORC1005</InvoiceNumber>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-03-02T00:00:00</Date>
+          <Total>550.00</Total>
+          <CreditNoteID>50e98404-2fba-4031-af67-8ba4bb227c44</CreditNoteID>
+          <CreditNoteNumber>CR1005</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
       <AmountCredited>550.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

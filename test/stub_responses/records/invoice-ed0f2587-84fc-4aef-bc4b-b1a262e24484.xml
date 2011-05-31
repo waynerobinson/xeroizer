@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>67cd86e6-653f-4bd5-bcb7-1db46a722789</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a70264af-f2a0-4700-87cf-4212fffbe8b8</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:05:20.3855197Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:40.6189217Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -36,12 +36,12 @@
             <PhoneType>FAX</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-07T01:23:53.513</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-17T01:23:53.513</UpdatedDateUTC>
         <IsSupplier>true</IsSupplier>
         <IsCustomer>false</IsCustomer>
       </Contact>
-      <Date>2010-11-26T00:00:00</Date>
-      <DueDate>2010-11-26T00:00:00</DueDate>
+      <Date>2011-05-06T00:00:00</Date>
+      <DueDate>2011-05-06T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -58,21 +58,24 @@
       <SubTotal>6300.00</SubTotal>
       <TotalTax>630.00</TotalTax>
       <Total>6930.00</Total>
-      <UpdatedDateUTC>2010-12-07T14:44:18.91</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-29T14:44:18.91</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-12-03T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-05-13T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>ed0f2587-84fc-4aef-bc4b-b1a262e24484</InvoiceID>
       <InvoiceNumber>MKT-08123</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-12-03T00:00:00</Date>
-          <Amount>6930.00</Amount>
           <PaymentID>689303c3-ca71-47d3-a04a-0a8945815be7</PaymentID>
+          <Date>2011-05-13T00:00:00</Date>
+          <Amount>6930.00</Amount>
+          <Reference>CHQ00012</Reference>
+          <CurrencyRate>1.000000</CurrencyRate>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>6930.00</AmountPaid>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

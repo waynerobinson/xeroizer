@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>8411ec06-9aae-434a-8d6a-e2fcaa0ebe40</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>7b152638-322f-40dc-ac47-4bbe92e4ba37</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:02:17.2402063Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:32:41.9341685Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -53,12 +53,12 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:28:25.387</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-11-09T00:00:00</Date>
-      <DueDate>2010-11-28T00:00:00</DueDate>
+      <Date>2011-04-19T00:00:00</Date>
+      <DueDate>2011-05-08T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -76,13 +76,14 @@
               <TrackingCategoryID>093af706-c2aa-4d97-a4ce-2d205a017eac</TrackingCategoryID>
             </TrackingCategory>
           </Tracking>
+          <ItemCode>DevD</ItemCode>
           <Quantity>10.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>6500.00</SubTotal>
       <TotalTax>650.00</TotalTax>
       <Total>7150.00</Total>
-      <UpdatedDateUTC>2010-12-09T15:05:42.57</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T15:05:42.57</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>77b338ef-ecc0-4b95-a0d7-2617b0054611</InvoiceID>
@@ -90,14 +91,24 @@
       <Reference>Portal proj</Reference>
       <Payments>
         <Payment>
-          <Date>2010-12-06T00:00:00</Date>
-          <Amount>2145.00</Amount>
           <PaymentID>03223cae-aa49-46e2-9d24-a7bc96a26675</PaymentID>
+          <Date>2011-05-16T00:00:00</Date>
+          <Amount>2145.00</Amount>
+          <Reference>Part 1</Reference>
         </Payment>
       </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-05-18T00:00:00</Date>
+          <Total>1155.00</Total>
+          <CreditNoteID>43c678ee-f357-48e2-b192-b6e3634762f9</CreditNoteID>
+          <CreditNoteNumber>1026C</CreditNoteNumber>
+        </CreditNote>
+      </CreditNotes>
       <AmountDue>3850.00</AmountDue>
       <AmountPaid>2145.00</AmountPaid>
       <AmountCredited>1155.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

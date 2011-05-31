@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>7794a33a-ecf4-4193-8686-397c88dc3cd6</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>8dfb3078-721a-431f-8ada-c0d3e1c2bf87</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:02:10.8337923Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:30:24.8811538Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,12 +31,12 @@
             <PhoneType>FAX</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-20T05:49:48.123</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-04-30T05:49:48.123</UpdatedDateUTC>
         <IsSupplier>true</IsSupplier>
         <IsCustomer>false</IsCustomer>
       </Contact>
-      <Date>2010-09-09T00:00:00</Date>
-      <DueDate>2010-09-16T00:00:00</DueDate>
+      <Date>2011-02-17T00:00:00</Date>
+      <DueDate>2011-02-24T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -60,22 +60,24 @@
       <SubTotal>199.00</SubTotal>
       <TotalTax>19.90</TotalTax>
       <Total>218.90</Total>
-      <UpdatedDateUTC>2010-11-26T11:45:11.227</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-18T11:45:11.227</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-10T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-02-18T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>52ee4d67-cae4-462c-adb2-182c39017f3d</InvoiceID>
       <InvoiceNumber>ICT 08</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-09-10T00:00:00</Date>
-          <Amount>218.90</Amount>
           <PaymentID>a826f56f-52b0-49cd-974f-dc6697fb33ca</PaymentID>
+          <Date>2011-02-18T00:00:00</Date>
+          <Amount>218.90</Amount>
+          <Reference>DD 111093</Reference>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>218.90</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>fafa40b8-9f19-440d-9b1b-e3ff60762af5</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>e9cc5c77-d1bb-4e3e-8ad1-82ef517d18e9</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:04:14.3057031Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:35.7437033Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,12 +31,12 @@
             <PhoneType>FAX</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-12-01T00:07:01.197</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-11T00:07:01.197</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-10-28T00:00:00</Date>
-      <DueDate>2010-11-08T00:00:00</DueDate>
+      <Date>2011-04-07T00:00:00</Date>
+      <DueDate>2011-04-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -61,28 +61,30 @@
           <TaxAmount>120.00</TaxAmount>
           <LineAmount>1200.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>PMWe</ItemCode>
           <Quantity>4.0000</Quantity>
         </LineItem>
       </LineItems>
       <SubTotal>1200.00</SubTotal>
       <TotalTax>120.00</TotalTax>
       <Total>1320.00</Total>
-      <UpdatedDateUTC>2010-12-03T11:12:28.37</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T11:12:28.37</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-11-08T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
       <Type>ACCREC</Type>
       <InvoiceID>a6894ca0-60ee-4d45-9dd4-b44fcba46ec5</InvoiceID>
       <InvoiceNumber>ORC1015</InvoiceNumber>
       <Payments>
         <Payment>
-          <Date>2010-11-08T00:00:00</Date>
-          <Amount>1320.00</Amount>
           <PaymentID>940b1a13-4fba-457e-8831-afd804620a4f</PaymentID>
+          <Date>2011-04-18T00:00:00</Date>
+          <Amount>1320.00</Amount>
         </Payment>
       </Payments>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>1320.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>c51b2cf5-1d2b-4088-977f-41d655361fbf</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>813c46f6-08f8-4905-a9c0-f5a2beceeb3e</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:02:06.3336771Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:06.1955046Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -31,12 +31,12 @@
             <PhoneType>MOBILE</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2010-11-26T23:32:25.04</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-05-06T23:32:25.04</UpdatedDateUTC>
         <IsSupplier>true</IsSupplier>
         <IsCustomer>false</IsCustomer>
       </Contact>
-      <Date>2010-10-10T00:00:00</Date>
-      <DueDate>2010-10-17T00:00:00</DueDate>
+      <Date>2011-03-20T00:00:00</Date>
+      <DueDate>2011-03-27T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -62,21 +62,30 @@
       <SubTotal>450.00</SubTotal>
       <TotalTax>0.00</TotalTax>
       <Total>450.00</Total>
-      <UpdatedDateUTC>2010-12-02T16:15:18.42</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-24T16:15:18.42</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-25T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
       <Type>ACCPAY</Type>
       <InvoiceID>7dae876a-b424-436b-a4e6-17b3fdeec80c</InvoiceID>
       <Payments>
         <Payment>
-          <Date>2010-10-25T00:00:00</Date>
-          <Amount>250.00</Amount>
           <PaymentID>4662b9f6-7ed0-4f2a-b3a2-107c1d66b4ce</PaymentID>
+          <Date>2011-04-04T00:00:00</Date>
+          <Amount>250.00</Amount>
+          <Reference>DD Ref 112974</Reference>
         </Payment>
       </Payments>
+      <CreditNotes>
+        <CreditNote>
+          <Date>2011-04-21T00:00:00</Date>
+          <Total>200.00</Total>
+          <CreditNoteID>4f67130a-749a-4ee6-98b2-743adbc11245</CreditNoteID>
+        </CreditNote>
+      </CreditNotes>
       <AmountDue>0.00</AmountDue>
       <AmountPaid>250.00</AmountPaid>
       <AmountCredited>200.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

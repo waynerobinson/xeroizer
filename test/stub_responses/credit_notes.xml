@@ -1,149 +1,169 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>f7ad1646-e90f-4ec6-bb62-903abd8eba7f</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>726cf5de-51bc-468d-a7a1-f1e267f8751a</Id>
   <Status>OK</Status>
-  <ProviderName>Appcordion Private</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:09.0353353Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:28:13.9846649Z</DateTimeUTC>
   <CreditNotes>
     <CreditNote>
       <Contact>
         <ContactID>d0cd2c4f-18a0-4f7c-a32a-2db00f29d298</ContactID>
         <Name>PC Complete</Name>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-09-22T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>199.00</SubTotal>
       <TotalTax>19.90</TotalTax>
       <Total>218.90</Total>
-      <UpdatedDateUTC>2010-11-23T23:40:09.45</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-16T09:40:09.467</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-27T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-07T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAYCREDIT</Type>
       <CreditNoteID>7df8949c-b71f-40c0-bbcf-39f2f450f286</CreditNoteID>
       <CreditNoteNumber>03391</CreditNoteNumber>
+      <SentToContact>false</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>0f471ca5-15c9-405e-a1b9-7cc35194b673</ContactID>
         <Name>Party Hire</Name>
       </Contact>
-      <Date>2010-11-11T00:00:00</Date>
-      <DueDate>2010-11-11T00:00:00</DueDate>
+      <Date>2011-04-21T00:00:00</Date>
+      <DueDate>2011-04-21T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>200.00</SubTotal>
       <TotalTax>0.00</TotalTax>
       <Total>200.00</Total>
-      <UpdatedDateUTC>2010-11-26T23:33:28.027</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-19T09:33:28.073</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-25T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-04-04T00:00:00</FullyPaidOnDate>
+      <Type>ACCPAYCREDIT</Type>
       <CreditNoteID>4f67130a-749a-4ee6-98b2-743adbc11245</CreditNoteID>
+      <SentToContact>false</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>0a4cf37b-a1a8-4753-9ee2-f9207f63a8ff</ContactID>
         <Name>City Limousines</Name>
       </Contact>
-      <Date>2010-11-07T00:00:00</Date>
+      <Date>2011-04-17T00:00:00</Date>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>55.00</SubTotal>
       <TotalTax>5.50</TotalTax>
       <Total>60.50</Total>
-      <UpdatedDateUTC>2011-01-18T22:42:56.203</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-11-11T09:43:46.187</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
+      <Type>ACCRECCREDIT</Type>
       <CreditNoteID>b356e488-2678-4be4-ad4b-d294df2d48d6</CreditNoteID>
       <CreditNoteNumber>ORC-C-1037</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>1b2be6e9-8d58-4da9-aaf8-4fe5471b653c</ContactID>
         <Name>Hamilton Smith Pty</Name>
       </Contact>
-      <Date>2010-09-17T00:00:00</Date>
-      <DueDate>2010-09-17T00:00:00</DueDate>
+      <Date>2011-02-25T00:00:00</Date>
+      <DueDate>2011-02-25T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-26T01:57:46.237</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T09:39:19.657</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-17T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-02-25T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Monthly Support</Reference>
       <CreditNoteID>371cd138-1e5c-4ec1-a8c6-a1c10e8bdab1</CreditNoteID>
       <CreditNoteNumber>CR1003</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>571a2414-81ff-4f8f-8498-d91d83793131</ContactID>
         <Name>Bank West</Name>
       </Contact>
-      <Date>2010-09-22T00:00:00</Date>
-      <DueDate>2010-09-22T00:00:00</DueDate>
+      <Date>2011-03-02T00:00:00</Date>
+      <DueDate>2011-03-02T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>500.00</SubTotal>
       <TotalTax>50.00</TotalTax>
       <Total>550.00</Total>
-      <UpdatedDateUTC>2010-11-24T20:58:31.893</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T09:39:19.627</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-09-22T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-02T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
       <CreditNoteID>50e98404-2fba-4031-af67-8ba4bb227c44</CreditNoteID>
       <CreditNoteNumber>CR1005</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
         <Name>DIISR - Small Business Services</Name>
       </Contact>
-      <Date>2010-10-07T00:00:00</Date>
-      <DueDate>2010-10-07T00:00:00</DueDate>
+      <Date>2011-03-17T00:00:00</Date>
+      <DueDate>2011-03-17T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>24.00</SubTotal>
       <TotalTax>2.40</TotalTax>
       <Total>26.40</Total>
-      <UpdatedDateUTC>2010-11-24T21:35:37.3</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-17T07:37:09.397</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-10-09T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-03-19T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Portal proj</Reference>
       <CreditNoteID>3bffc09b-79f2-490d-b91b-c59b700b43a4</CreditNoteID>
       <CreditNoteNumber>CR1001</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>ef6f54c1-eb45-4956-b8cd-1be82ad665f2</ContactID>
         <Name>Maddox Publishing Group</Name>
       </Contact>
-      <Date>2010-10-26T00:00:00</Date>
-      <DueDate>2010-10-26T00:00:00</DueDate>
+      <Date>2011-04-05T00:00:00</Date>
+      <DueDate>2011-04-05T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>350.00</SubTotal>
       <TotalTax>35.00</TotalTax>
       <Total>385.00</Total>
-      <UpdatedDateUTC>2010-12-01T02:26:10.383</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-09-25T09:39:40.737</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2010-11-08T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-04-18T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Yr ref H008-346</Reference>
       <CreditNoteID>482c018b-d329-4e05-9b4f-7a4cfc695aa0</CreditNoteID>
       <CreditNoteNumber>CR1014</CreditNoteNumber>
+      <SentToContact>true</SentToContact>
     </CreditNote>
     <CreditNote>
       <Contact>
         <ContactID>860b99a9-0958-4c8d-a98f-bb1f092b16bb</ContactID>
         <Name>DIISR - Small Business Services</Name>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
       <Status>PAID</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <SubTotal>1050.00</SubTotal>
       <TotalTax>105.00</TotalTax>
       <Total>1155.00</Total>
-      <UpdatedDateUTC>2010-12-09T05:24:57.07</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T15:24:57.1</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
-      <FullyPaidOnDate>2011-01-17T00:00:00</FullyPaidOnDate>
+      <FullyPaidOnDate>2011-06-27T00:00:00</FullyPaidOnDate>
+      <Type>ACCRECCREDIT</Type>
+      <Reference>Portal proj</Reference>
       <CreditNoteID>43c678ee-f357-48e2-b192-b6e3634762f9</CreditNoteID>
       <CreditNoteNumber>1026C</CreditNoteNumber>
+      <SentToContact>false</SentToContact>
     </CreditNote>
   </CreditNotes>
 </Response>

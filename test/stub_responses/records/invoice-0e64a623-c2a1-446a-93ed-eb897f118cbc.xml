@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>5d6e1643-2398-4717-9239-a6030b6bf863</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a38864e3-0d36-4f4f-b472-751f0ca222c5</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:05:14.8385027Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:31:51.4944089Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -53,12 +53,12 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-11-18T23:28:25.387</UpdatedDateUTC>
+        <UpdatedDateUTC>2012-04-27T23:28:25.387</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-12-08T00:00:00</Date>
-      <DueDate>2010-12-28T00:00:00</DueDate>
+      <Date>2011-05-18T00:00:00</Date>
+      <DueDate>2011-06-07T00:00:00</DueDate>
       <Status>SUBMITTED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -82,7 +82,7 @@
       <SubTotal>750.00</SubTotal>
       <TotalTax>75.00</TotalTax>
       <Total>825.00</Total>
-      <UpdatedDateUTC>2010-12-09T12:18:17.207</UpdatedDateUTC>
+      <UpdatedDateUTC>2008-10-01T12:18:17.207</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>0e64a623-c2a1-446a-93ed-eb897f118cbc</InvoiceID>
@@ -91,6 +91,7 @@
       <AmountDue>825.00</AmountDue>
       <AmountPaid>0.00</AmountPaid>
       <AmountCredited>0.00</AmountCredited>
+      <SentToContact>false</SentToContact>
     </Invoice>
   </Invoices>
 </Response>

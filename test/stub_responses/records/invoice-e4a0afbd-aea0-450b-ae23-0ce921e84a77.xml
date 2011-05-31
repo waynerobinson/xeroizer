@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>cf87f4da-1a28-497a-9c44-663ba2ea198d</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>cf808f10-6f34-40a5-8136-e01262c45213</Id>
   <Status>OK</Status>
-  <ProviderName>Test Provider Name</ProviderName>
-  <DateTimeUTC>2010-12-21T01:01:53.7552301Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:33:15.4044179Z</DateTimeUTC>
   <Invoices>
     <Invoice>
       <Contact>
@@ -47,12 +47,12 @@
             <PhoneType>DDI</PhoneType>
           </Phone>
         </Phones>
-        <UpdatedDateUTC>2011-01-21T20:06:00.75</UpdatedDateUTC>
+        <UpdatedDateUTC>2011-07-01T20:06:00.75</UpdatedDateUTC>
         <IsSupplier>false</IsSupplier>
         <IsCustomer>true</IsCustomer>
       </Contact>
-      <Date>2010-11-28T00:00:00</Date>
-      <DueDate>2010-12-08T00:00:00</DueDate>
+      <Date>2011-05-08T00:00:00</Date>
+      <DueDate>2011-05-18T00:00:00</DueDate>
       <Status>AUTHORISED</Status>
       <LineAmountTypes>Exclusive</LineAmountTypes>
       <LineItems>
@@ -63,6 +63,7 @@
           <TaxAmount>50.00</TaxAmount>
           <LineAmount>500.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
         <LineItem>
@@ -72,6 +73,7 @@
           <TaxAmount>50.00</TaxAmount>
           <LineAmount>500.00</LineAmount>
           <AccountCode>200</AccountCode>
+          <ItemCode>Train-MS</ItemCode>
           <Quantity>1.0000</Quantity>
         </LineItem>
         <LineItem>
@@ -87,13 +89,14 @@
       <SubTotal>1119.70</SubTotal>
       <TotalTax>111.97</TotalTax>
       <Total>1231.67</Total>
-      <UpdatedDateUTC>2011-11-19T05:41:09.657</UpdatedDateUTC>
+      <UpdatedDateUTC>2009-09-11T05:41:09.657</UpdatedDateUTC>
       <CurrencyCode>AUD</CurrencyCode>
       <Type>ACCREC</Type>
       <InvoiceID>e4a0afbd-aea0-450b-ae23-0ce921e84a77</InvoiceID>
       <InvoiceNumber>ORC01025</InvoiceNumber>
       <AmountDue>1231.67</AmountDue>
       <AmountPaid>0.00</AmountPaid>
+      <SentToContact>true</SentToContact>
     </Invoice>
   </Invoices>
 </Response>
