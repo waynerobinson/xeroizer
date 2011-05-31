@@ -1,8 +1,8 @@
-<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>0f8c65fe-4406-4795-a7e2-bf86c6b45a54</Id>
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>8ac3b9a6-11e9-40fa-abac-c9f0c6884640</Id>
   <Status>OK</Status>
-  <ProviderName>Appcordion Private</ProviderName>
-  <DateTimeUTC>2010-12-21T01:05:27.7919593Z</DateTimeUTC>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:24:36.6896074Z</DateTimeUTC>
   <Organisations>
     <Organisation>
       <Name>Demo Company (AU)</Name>
@@ -11,6 +11,15 @@
       <Version>AU</Version>
       <OrganisationType>COMPANY</OrganisationType>
       <BaseCurrency>AUD</BaseCurrency>
+      <CountryCode>AU</CountryCode>
+      <IsDemoCompany>true</IsDemoCompany>
+      <OrganisationStatus>ACTIVE</OrganisationStatus>
+      <RegistrationNumber>53003086616</RegistrationNumber>
+      <TaxNumber>53003086616</TaxNumber>
+      <FinancialYearEndDay>30</FinancialYearEndDay>
+      <FinancialYearEndMonth>6</FinancialYearEndMonth>
+      <PeriodLockDate>2008-06-30T00:00:00</PeriodLockDate>
+      <CreatedDateUTC>2011-05-19T05:26:03.95</CreatedDateUTC>
     </Organisation>
   </Organisations>
 </Response>

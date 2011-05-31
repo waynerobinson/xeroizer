@@ -11,6 +11,15 @@
       <Version>AU</Version>
       <OrganisationType>COMPANY</OrganisationType>
       <BaseCurrency>AUD</BaseCurrency>
+      <CountryCode>AU</CountryCode>
+      <IsDemoCompany>true</IsDemoCompany>
+      <OrganisationStatus>ACTIVE</OrganisationStatus>
+      <RegistrationNumber>53003086616</RegistrationNumber>
+      <TaxNumber>53003086616</TaxNumber>
+      <FinancialYearEndDay>30</FinancialYearEndDay>
+      <FinancialYearEndMonth>6</FinancialYearEndMonth>
+      <PeriodLockDate>2008-06-30T00:00:00</PeriodLockDate>
+      <CreatedDateUTC>2011-05-19T05:26:03.95</CreatedDateUTC>
     </Organisation>
   </Organisations>
 </Response>
