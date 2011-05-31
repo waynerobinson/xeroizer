@@ -469,6 +469,7 @@ for the field. Options:
   :api_name =&gt; allows the API name to be specified if it can'</span><span class='t identifier id'>t</span> <span class='be identifier id'>be</span> <span class='properly identifier id'>properly</span> <span class='converted identifier id'>converted</span> <span class='from identifier id'>from</span> <span class='camelize identifier id'>camelize</span><span class='dot token'>.</span>
   <span class='symbol val'>:model_name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='allows identifier id'>allows</span> <span class='class class kw'>class</span> <span class='used identifier id'>used</span> <span class='for for kw'>for</span> <span class='children identifier id'>children</span> <span class='to identifier id'>to</span> <span class='be identifier id'>be</span> <span class='different identifier id'>different</span> <span class='from identifier id'>from</span> <span class='it identifier id'>it</span><span class='string val'>'s ndoe name in the XML.
   :type =&gt; type of field
+  :skip_writer =&gt; skip the writer method
 </span></pre>
 
 
@@ -482,7 +483,6 @@ for the field. Options:
       <pre class="lines">
 
 
-59
 60
 61
 62
@@ -497,10 +497,14 @@ for the field. Options:
 71
 72
 73
-74</pre>
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 60</span>
 
 <span class='def def kw'>def</span> <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='field_type identifier id'>field_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='value_if_nil identifier id'>value_if_nil</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='fields identifier id'>fields</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -514,8 +518,11 @@ for the field. Options:
   <span class='define_method identifier id'>define_method</span> <span class='internal_field_name identifier id'>internal_field_name</span> <span class='do do kw'>do</span> 
     <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='value_if_nil identifier id'>value_if_nil</span>
   <span class='end end kw'>end</span>
-  <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='value identifier id'>value</span> <span class='bitor op'>|</span> 
-    <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+  
+  <span class='unless unless kw'>unless</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:skip_writer</span><span class='rbrack token'>]</span>
+    <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='value identifier id'>value</span> <span class='bitor op'>|</span> 
+      <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+    <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -804,7 +811,7 @@ Helper methods used to define the fields this model has.
 </div>
     
     <div id="footer">
-  Generated on Thu May  5 11:45:02 2011 by 
+  Generated on Tue May 31 11:39:28 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>

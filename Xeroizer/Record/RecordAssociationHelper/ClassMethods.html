@@ -225,8 +225,6 @@
       <pre class="lines">
 
 
-75
-76
 77
 78
 79
@@ -238,22 +236,96 @@
 85
 86
 87
-88</pre>
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 77</span>
 
 <span class='def def kw'>def</span> <span class='define_association_attribute identifier id'>define_association_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='comma token'>,</span> <span class='association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
-  <span class='value_if_nil identifier id'>value_if_nil</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
-  <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='value_if_nil identifier id'>value_if_nil</span><span class='rparen token'>)</span>
-
+  <span class='define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='symbol val'>:skip_writer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  
+  <span class='internal_field_name identifier id'>internal_field_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:internal_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='field_name identifier id'>field_name</span>
+  <span class='internal_singular_field_name identifier id'>internal_singular_field_name</span> <span class='assign token'>=</span> <span class='internal_field_name identifier id'>internal_field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span>
+  <span class='model_name identifier id'>model_name</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:model_name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='colon op'>:</span> <span class='field_name identifier id'>field_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='singularize identifier id'>singularize</span><span class='dot token'>.</span><span class='camelize identifier id'>camelize</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+    
+  <span class='define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='value identifier id'>value</span> <span class='bitor op'>|</span> 
+    <span class='record_class identifier id'>record_class</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span>
+    <span class='case case kw'>case</span> <span class='value identifier id'>value</span>
+      <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span> 
+        <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+        <span class='case case kw'>case</span> <span class='association_type identifier id'>association_type</span>
+          <span class='when when kw'>when</span> <span class='symbol val'>:has_many</span>  
+            <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+            <span class='self self kw'>self</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;add_#{internal_singular_field_name}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+            
+          <span class='when when kw'>when</span> <span class='symbol val'>:belongs_to</span>  
+            <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='comma token'>,</span> <span class='new_model_class identifier id'>new_model_class</span><span class='lparen token'>(</span><span class='model_name identifier id'>model_name</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+            
+        <span class='end end kw'>end</span>
+        
+      <span class='when when kw'>when</span> <span class='Array constant id'>Array</span>
+        <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+        <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='single_value identifier id'>single_value</span> <span class='bitor op'>|</span>
+          <span class='case case kw'>case</span> <span class='single_value identifier id'>single_value</span>
+            <span class='when when kw'>when</span> <span class='Hash constant id'>Hash</span>         <span class='then then kw'>then</span> <span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;add_#{internal_singular_field_name}&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='comma token'>,</span> <span class='single_value identifier id'>single_value</span><span class='rparen token'>)</span>
+            <span class='when when kw'>when</span> <span class='record_class identifier id'>record_class</span> <span class='then then kw'>then</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='single_value identifier id'>single_value</span>
+            <span class='else else kw'>else</span>                   <span class='raise identifier id'>raise</span> <span class='AssociationTypeMismatch constant id'>AssociationTypeMismatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='record_class identifier id'>record_class</span><span class='comma token'>,</span> <span class='single_value identifier id'>single_value</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
+          <span class='end end kw'>end</span>
+        <span class='end end kw'>end</span>
+        
+      <span class='when when kw'>when</span> <span class='record_class identifier id'>record_class</span>
+        <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='value identifier id'>value</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+        
+      <span class='else else kw'>else</span>
+        <span class='raise identifier id'>raise</span> <span class='AssociationTypeMismatch constant id'>AssociationTypeMismatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='record_class identifier id'>record_class</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  
   <span class='comment val'># Override reader for this association if this association belongs</span>
   <span class='comment val'># to a summary-typed record. This will automatically attempt to download</span>
   <span class='comment val'># the complete version of the record before accessing the association.</span>
   <span class='if if kw'>if</span> <span class='list_contains_summary_only? fid id'>list_contains_summary_only?</span>
     <span class='define_method identifier id'>define_method</span> <span class='internal_field_name identifier id'>internal_field_name</span> <span class='do do kw'>do</span>
       <span class='download_complete_record! fid id'>download_complete_record!</span> <span class='unless unless_mod kw'>unless</span> <span class='new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='complete_record_downloaded? fid id'>complete_record_downloaded?</span>
-      <span class='@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='value_if_nil identifier id'>value_if_nil</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
     <span class='end end kw'>end</span>
   <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
@@ -316,7 +388,9 @@
 70
 71
 72
-73</pre>
+73
+74
+75</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 33</span>
@@ -353,12 +427,14 @@
     <span class='end end kw'>end</span>
   
     <span class='comment val'># Add each record.</span>
+    <span class='record identifier id'>record</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
     <span class='records identifier id'>records</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='record identifier id'>record</span> <span class='bitor op'>|</span>
       <span class='record identifier id'>record</span> <span class='assign token'>=</span> <span class='record_class identifier id'>record_class</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='record identifier id'>record</span><span class='comma token'>,</span> <span class='model_parent identifier id'>model_parent</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='record identifier id'>record</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Hash constant id'>Hash</span><span class='rparen token'>)</span>
       <span class='raise identifier id'>raise</span> <span class='StandardError constant id'>StandardError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Record #{record.class.name} is not a #{record_class.name}.&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='record identifier id'>record</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='record_class identifier id'>record_class</span><span class='rparen token'>)</span>
       <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
       <span class='self self kw'>self</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='record identifier id'>record</span>
     <span class='end end kw'>end</span>
+    <span class='record identifier id'>record</span> <span class='comment val'># last record</span>
   <span class='end end kw'>end</span>
   
 <span class='end end kw'>end</span>
@@ -373,7 +449,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu May  5 11:45:02 2011 by 
+  Generated on Tue May 31 11:39:24 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>

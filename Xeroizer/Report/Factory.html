@@ -425,12 +425,12 @@ Returns the value of attribute report_type
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='api_controller_name identifier id'>api_controller_name</span>
   <span class='dstring node'>&quot;Reports/#{report_type}&quot;</span>
@@ -471,16 +471,18 @@ query-string parameters to pass to the API.
 26
 27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 24</span>
 
 <span class='def def kw'>def</span> <span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='response_xml identifier id'>response_xml</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_file</span><span class='rbrack token'>]</span> <span class='question op'>?</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='read identifier id'>read</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_file</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>          
-  <span class='Response constant id'>Response</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='response identifier id'>response</span><span class='comma token'>,</span> <span class='elements identifier id'>elements</span> <span class='bitor op'>|</span>
+  <span class='response identifier id'>response</span> <span class='assign token'>=</span> <span class='Response constant id'>Response</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='response identifier id'>response</span><span class='comma token'>,</span> <span class='elements identifier id'>elements</span> <span class='bitor op'>|</span>
     <span class='parse_reports identifier id'>parse_reports</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='comma token'>,</span> <span class='elements identifier id'>elements</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='comment val'># there is is only one</span>
+  <span class='end end kw'>end</span>
+  <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='response_items identifier id'>response_items</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='comment val'># there is is only one</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -501,16 +503,16 @@ query-string parameters to pass to the API.
       <pre class="lines">
 
 
-35
 36
 37
 38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/report/factory.rb', line 36</span>
 
 <span class='def def kw'>def</span> <span class='klass identifier id'>klass</span>
   <span class='begin begin kw'>begin</span>
@@ -530,7 +532,7 @@ query-string parameters to pass to the API.
 </div>
     
     <div id="footer">
-  Generated on Thu May  5 11:45:02 2011 by 
+  Generated on Tue May 31 11:39:23 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>
