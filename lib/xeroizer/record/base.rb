@@ -109,8 +109,8 @@ module Xeroizer
         
         # Parse the response from a create/update request.
         def parse_save_response(response_xml)
-          record = parent.parse_response(response_xml)
-          record = record.first if record.is_a?(Array)
+          response = parent.parse_response(response_xml)
+          record = response.response_items.first if response.response_items.is_a?(Array)
           if record && record.is_a?(self.class)
             @attributes = record.attributes
           end

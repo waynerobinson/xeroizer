@@ -32,7 +32,7 @@ module Xeroizer
           end
         end
       
-        response.response_items
+        response
       end
       
     end

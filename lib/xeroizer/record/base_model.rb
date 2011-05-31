@@ -89,7 +89,8 @@ module Xeroizer
         def all(options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = http_get(parse_params(options))
-          parse_response(response_xml, options) || []
+          response = parse_response(response_xml, options)
+          response.response_items || []
         end
         
         # Helper method to retrieve just the first element from
@@ -104,8 +105,8 @@ module Xeroizer
         def find(id, options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
           response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
-          result = parse_response(response_xml, options)
-          result = result.first if result.is_a?(Array)
+          response = parse_response(response_xml, options)
+          result = response.response_items.first if response.response_items.is_a?(Array)
           result.complete_record_downloaded = true if result
           result
         end
