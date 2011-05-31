@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{xeroizer}
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2011-05-23}
+  s.date = %q{2011-05-31}
   s.description = %q{Ruby library for the Xero accounting system API.}
   s.email = %q{wayne.robinson@gmail.com}
   s.extra_rdoc_files = [
@@ -42,6 +42,8 @@ Gem::Specification.new do |s|
     "lib/xeroizer/models/contact_group.rb",
     "lib/xeroizer/models/credit_note.rb",
     "lib/xeroizer/models/currency.rb",
+    "lib/xeroizer/models/employee.rb",
+    "lib/xeroizer/models/external_link.rb",
     "lib/xeroizer/models/invoice.rb",
     "lib/xeroizer/models/item.rb",
     "lib/xeroizer/models/item_purchase_sale_details.rb",
@@ -97,6 +99,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/credit_note_not_found_error.xml",
     "test/stub_responses/credit_notes.xml",
     "test/stub_responses/currencies.xml",
+    "test/stub_responses/employees.xml",
     "test/stub_responses/invalid_api_key_error.xml",
     "test/stub_responses/invalid_consumer_key",
     "test/stub_responses/invalid_request_token",
@@ -108,6 +111,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/manual_journals.xml",
     "test/stub_responses/organisation.xml",
     "test/stub_responses/organisations.xml",
+    "test/stub_responses/payments.xml",
     "test/stub_responses/rate_limit_exceeded",
     "test/stub_responses/records/contact-043892a1-aef1-4c18-88d8-b8ccb6d31466.xml",
     "test/stub_responses/records/contact-09664078-efe2-4a88-89a5-67eac9b0047b.xml",
@@ -235,6 +239,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/records/invoice-387db692-26ac-47e6-b6cc-015343809bda.xml",
     "test/stub_responses/records/invoice-3b28bf11-ed2f-4cf4-8e9e-fcae730cc292.xml",
     "test/stub_responses/records/invoice-3fcb9847-b350-412e-ab90-7d9d774ad881.xml",
+    "test/stub_responses/records/invoice-440613e4-4785-4eff-9ba1-c432816cf8c7.xml",
     "test/stub_responses/records/invoice-4602eda6-abe9-448e-b65f-ae6bea21f0eb.xml",
     "test/stub_responses/records/invoice-46441f63-873f-4cdc-a278-b8fe516f3abb.xml",
     "test/stub_responses/records/invoice-4ad1ec01-f4a3-41d7-bbb4-d2ab2fec8e65.xml",
@@ -275,6 +280,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/records/invoice-a1d04a14-96a8-4067-a0ff-8136990a354f.xml",
     "test/stub_responses/records/invoice-a3bc62ef-f11b-4a9c-a4f9-a342bda371b5.xml",
     "test/stub_responses/records/invoice-a6894ca0-60ee-4d45-9dd4-b44fcba46ec5.xml",
+    "test/stub_responses/records/invoice-a77268ce-74b2-483d-a2b3-70dbdc9e49d2.xml",
     "test/stub_responses/records/invoice-a9f765e6-b9bc-4505-a47b-fb3ecb327e7b.xml",
     "test/stub_responses/records/invoice-aa0173af-8707-4e7f-8dde-4c7a357bd312.xml",
     "test/stub_responses/records/invoice-ab63738a-370a-43a5-bfa3-620d684e66d0.xml",
@@ -287,6 +293,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/records/invoice-c12aff7e-12bf-4185-8702-460929f19674.xml",
     "test/stub_responses/records/invoice-c3380b96-976d-4b3e-8b26-8d01eb6a3742.xml",
     "test/stub_responses/records/invoice-c963f2b0-cbe1-4abd-9ccc-7e512c942068.xml",
+    "test/stub_responses/records/invoice-cba46b29-3788-4158-b668-ab10160ccbfe.xml",
     "test/stub_responses/records/invoice-d62646b9-d0a9-4fdb-9561-756a8b7eba45.xml",
     "test/stub_responses/records/invoice-dba2f021-f149-4191-a126-5351d587ab0e.xml",
     "test/stub_responses/records/invoice-de5d9c29-21b3-4342-958b-ed72c4bd7ab0.xml",
