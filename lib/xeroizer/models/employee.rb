@@ -15,7 +15,10 @@ module Xeroizer
       string  :status
       string  :first_name
       string  :last_name
-      string  :external_link
+
+      belongs_to  :external_link
+
+      validates_presence_of :first_name, :last_name
       
     end
     
