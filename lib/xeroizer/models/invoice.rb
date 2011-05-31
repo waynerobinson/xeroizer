@@ -70,10 +70,12 @@ module Xeroizer
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string    :currency_code
       datetime  :fully_paid_on_date
+      boolean   :sent_to_contact
       
       belongs_to  :contact
       has_many    :line_items
       has_many    :payments
+      has_many    :credit_notes
       
       validates_presence_of :date, :due_date
       validates_inclusion_of :type, :in => INVOICE_TYPES

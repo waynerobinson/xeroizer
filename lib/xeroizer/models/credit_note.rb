@@ -58,6 +58,7 @@ module Xeroizer
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string    :currency_code
       datetime  :fully_paid_on_date
+      boolean   :sent_to_contact
       
       belongs_to  :contact
       has_many    :line_items
