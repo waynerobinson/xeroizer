@@ -338,24 +338,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.0}
   s.summary = %q{Xero library}
-  s.test_files = [
-    "test/stub_responses/refresh_responses.rb",
-    "test/test_helper.rb",
-    "test/unit/models/contact_test.rb",
-    "test/unit/models/credit_note_test.rb",
-    "test/unit/models/invoice_test.rb",
-    "test/unit/oauth_test.rb",
-    "test/unit/private_application_test.rb",
-    "test/unit/record/base_model_test.rb",
-    "test/unit/record/base_test.rb",
-    "test/unit/record/model_definition_test.rb",
-    "test/unit/record/parse_where_hash_test.rb",
-    "test/unit/record/record_association_test.rb",
-    "test/unit/record/validators_test.rb",
-    "test/unit/record_definition_test.rb",
-    "test/unit/report_definition_test.rb",
-    "test/unit/report_test.rb"
-  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
