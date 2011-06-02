@@ -3,6 +3,11 @@ GEM
   specs:
     activesupport (3.0.3)
     builder (3.0.0)
+    git (1.2.5)
+    jeweler (1.5.2)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
     mocha (0.9.10)
       rake
     nokogiri (1.4.4)
@@ -16,6 +21,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   builder (>= 2.1.2)
+  jeweler (~> 1.5.2)
   mocha
   nokogiri
   oauth (>= 0.3.6)
