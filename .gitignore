@@ -4,3 +4,4 @@ test*.rb
 doc/
 .redcar
 pkg/
+Gemfile.lock
