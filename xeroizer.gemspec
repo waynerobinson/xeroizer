@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{xeroizer}
-  s.version = "0.3.1"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2011-06-02}
+  s.date = %q{2011-06-09}
   s.description = %q{Ruby library for the Xero accounting system API.}
   s.email = %q{wayne.robinson@gmail.com}
   s.extra_rdoc_files = [
@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.files = [
     ".bundle/config",
     "Gemfile",
-    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "Rakefile",
@@ -27,7 +26,6 @@ Gem::Specification.new do |s|
     "lib/.DS_Store",
     "lib/big_decimal_to_s.rb",
     "lib/class_level_inheritable_attributes.rb",
-    "lib/nokogiri_utils.rb",
     "lib/xeroizer.rb",
     "lib/xeroizer/application_http_proxy.rb",
     "lib/xeroizer/ca-certificates.crt",
