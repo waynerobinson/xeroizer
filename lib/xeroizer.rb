@@ -15,7 +15,6 @@ require 'cgi'
 $: << File.expand_path(File.dirname(__FILE__)) 
 
 require 'big_decimal_to_s'
-require 'nokogiri_utils'
 require 'class_level_inheritable_attributes'
 require 'xeroizer/oauth'
 require 'xeroizer/http_encoding_helper'
