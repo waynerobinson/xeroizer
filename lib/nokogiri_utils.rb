@@ -1,14 +1,5 @@
 class Hash
   class << self
-    def from_xml(xml_io) 
-      begin
-        result = Nokogiri::XML(xml_io)
-        return { result.root.name.to_sym => xml_node_to_hash(result.root)} 
-      rescue Exception => e
-        # raise your custom exception here
-      end
-    end 
-
     def xml_node_to_hash(node) 
       # If we are at the root of the document, start the hash 
       if node.element?
