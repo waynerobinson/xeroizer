@@ -30,7 +30,7 @@ module Xeroizer
         'DRAFT' =>            'CreditNotes saved as draft or entered via API',
         'PAID' =>             'CreditNotes approved and fully paid',
         'SUBMITTED' =>        'CreditNotes entered by an employee awaiting approval',
-        'VOID' =>             'Approved credit_notes that are voided'
+        'VOIDED' =>           'Approved credit_notes that are voided'
       } unless defined?(CREDIT_NOTE_STATUS)
       CREDIT_NOTE_STATUSES = CREDIT_NOTE_STATUS.keys.sort
       
