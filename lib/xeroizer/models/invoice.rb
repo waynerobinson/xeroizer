@@ -36,7 +36,7 @@ module Xeroizer
         'DRAFT' =>            'Invoices saved as draft or entered via API',
         'PAID' =>             'Invoices approved and fully paid',
         'SUBMITTED' =>        'Invoices entered by an employee awaiting approval',
-        'VOID' =>             'Approved invoices that are voided'
+        'VOIDED' =>           'Approved invoices that are voided'
       } unless defined?(INVOICE_STATUS)
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
       
