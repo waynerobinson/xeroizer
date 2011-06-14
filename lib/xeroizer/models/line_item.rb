@@ -32,9 +32,12 @@ module Xeroizer
       # Swallow assignment of attributes that should only be calculated automatically.
       def line_amount=(value);  raise SettingTotalDirectlyNotSupported.new(:line_amount);   end
       
-      # Calculate the line_total.
+      # Calculate the line_total (if there is a quantity and unit_amount).
+      # Description-only lines have been allowed since Xero V2.09.
       def line_amount
-        quantity * unit_amount
+        unless quantity.nil? && unit_amount.nil?
+          quantity * unit_amount
+        end
       end
       
     end
