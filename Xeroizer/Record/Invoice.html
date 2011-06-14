@@ -224,6 +224,30 @@ Helper method to check if the invoice is accounts receivable.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#delete%21-instance_method" title="#delete! (instance method)">- (Object) <strong>delete!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Delete an approved invoice with no payments.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#pdf-instance_method" title="#pdf (instance method)">- (Object) <strong>pdf</strong>(filename = nil) </a>
     
 
@@ -380,6 +404,30 @@ Calculate total_tax from line_items.
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#void%21-instance_method" title="#void! (instance method)">- (Object) <strong>void!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Void an approved invoice with no payments.
+</p>
+</div></span>
   
 </li>
 
@@ -558,6 +606,46 @@ Helper method to check if the invoice is accounts receivable.
 
 <span class='def def kw'>def</span> <span class='accounts_receivable? fid id'>accounts_receivable?</span>
   <span class='type identifier id'>type</span> <span class='eq op'>==</span> <span class='string val'>'ACCREC'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Delete an approved invoice with no payments.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 138</span>
+
+<span class='def def kw'>def</span> <span class='delete! fid id'>delete!</span>
+  <span class='delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'DELETED'</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -914,12 +1002,52 @@ Calculate total_tax from line_items.
 </table>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="void!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>void!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Void an approved invoice with no payments.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 143</span>
+
+<span class='def def kw'>def</span> <span class='void! fid id'>void!</span>
+  <span class='delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'VOIDED'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Tue May 31 11:39:26 2011 by 
+  Generated on Tue Jun 14 11:28:07 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>

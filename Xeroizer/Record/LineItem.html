@@ -162,7 +162,7 @@
 
   
     <span class="summary_desc"><div class='inline'><p>
-Calculate the line_total.
+Calculate the line_total (if there is a quantity and unit_amount).
 </p>
 </div></span>
   
@@ -279,7 +279,8 @@ automatically.
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Calculate the line_total.
+Calculate the line_total (if there is a quantity and unit_amount).
+Description-only lines have been allowed since Xero V2.09.
 </p>
 
 
@@ -293,15 +294,19 @@ Calculate the line_total.
       <pre class="lines">
 
 
-36
 37
-38</pre>
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 37</span>
 
 <span class='def def kw'>def</span> <span class='line_amount identifier id'>line_amount</span>
-  <span class='quantity identifier id'>quantity</span> <span class='mult op'>*</span> <span class='unit_amount identifier id'>unit_amount</span>
+  <span class='unless unless kw'>unless</span> <span class='quantity identifier id'>quantity</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='andop op'>&amp;&amp;</span> <span class='unit_amount identifier id'>unit_amount</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='quantity identifier id'>quantity</span> <span class='mult op'>*</span> <span class='unit_amount identifier id'>unit_amount</span>
+  <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -364,7 +369,7 @@ automatically.
 </div>
     
     <div id="footer">
-  Generated on Tue May 31 11:39:21 2011 by 
+  Generated on Tue Jun 14 11:28:10 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.8 (ruby-1.8.7).
 </div>
