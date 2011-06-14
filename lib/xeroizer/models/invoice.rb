@@ -133,6 +133,24 @@ module Xeroizer
         def pdf(filename = nil)
           parent.pdf(id, filename)
         end
+
+        # Delete an approved invoice with no payments.
+        def delete!
+          delete_or_void_invoice!('DELETED')
+        end
+
+        # Void an approved invoice with no payments.
+        def void!
+          delete_or_void_invoice!('VOIDED')
+        end
+
+      protected
+
+        def delete_or_void_authorised_invoice!(new_status)
+          raise CannotChangeInvoiceStatus.new(record, new_status) unless self.payments.size == 0
+          self.status = new_status
+          self.save
+        end
       
     end
     
