@@ -58,12 +58,12 @@ Authentication occcurs in 3 steps:
 
 	client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
 	
-	# 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to
+	# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
 	#    after they have authenticated your application.
 	#
 	#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
 	#          otherwise the user will not be redirected and only be shown the authentication code.
-	request_token = client.request_token(:oauth_url => 'http://yourapp.com/oauth/callback')
+	request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
 	
 	# 2. Redirect the user to the URL specified by the RequestToken.
 	#    
@@ -90,7 +90,7 @@ You can now use the client to access the Xero API methods, e.g.
 		public
 		
 			def new
-				request_token = @xero_client.request_token(:oauth_url => 'http://yourapp.com/xero_session/create')
+				request_token = @xero_client.request_token(:oauth_callback => 'http://yourapp.com/xero_session/create')
 				session[:request_token] = request_token.token
 				session[:request_secret] = request_token.secret
 				
@@ -194,12 +194,12 @@ Authentication occcurs in 3 steps:
 						"/path/to/entrust-private-nopass.pem"
 						)
 	
-	# 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to
+	# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
 	#    after they have authenticated your application.
 	#
 	#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
 	#          otherwise the user will not be redirected and only be shown the authentication code.
-	request_token = client.request_token(:oauth_url => 'http://yourapp.com/oauth/callback')
+	request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
 	
 	# 2. Redirect the user to the URL specified by the RequestToken.
 	#    
