@@ -18,14 +18,16 @@ module Xeroizer
       # @param [Hash] options other options to pass to the GenericApplication constructor
       # @return [PartnerApplication] instance of PrivateApplication
       def initialize(consumer_key, consumer_secret, path_to_private_key, path_to_ssl_client_cert, path_to_ssl_client_key, options = {})
-        options.merge!(
-          :xero_url => 'https://api-partner.network.xero.com/api.xro/2.0',
-          :site => 'https://api-partner.network.xero.com',
-          :authorize_url => 'https://api.xero.com/oauth/Authorize',      
-          :signature_method => 'RSA-SHA1',
+        default_options = {
+          :xero_url         => 'https://api-partner.network.xero.com/api.xro/2.0',
+          :site             => 'https://api-partner.network.xero.com',
+          :authorize_url    => 'https://api.xero.com/oauth/Authorize',      
+          :signature_method => 'RSA-SHA1'
+        }
+        options = default_options.merge(options).merge(
           :private_key_file => path_to_private_key,
-          :ssl_client_cert => OpenSSL::X509::Certificate.new(File.read(path_to_ssl_client_cert)),
-          :ssl_client_key => OpenSSL::PKey::RSA.new(File.read(path_to_ssl_client_key))
+          :ssl_client_cert  => OpenSSL::X509::Certificate.new(File.read(path_to_ssl_client_cert)),
+          :ssl_client_key   => OpenSSL::PKey::RSA.new(File.read(path_to_ssl_client_key))
         )
         super(consumer_key, consumer_secret, options)
         
