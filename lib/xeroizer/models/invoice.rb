@@ -82,10 +82,16 @@ module Xeroizer
       validates_inclusion_of :status, :in => INVOICE_STATUSES
       validates_inclusion_of :line_amount_types, :in => LINE_AMOUNT_TYPES
       validates_associated :contact
-      validates_associated :line_items
+      validates_associated :line_items, :allow_blanks => true, :unless => proc { |invoice| invoice.approved? }
+      validates_associated :line_items, :if => proc { |invoice| invoice.approved? }
       
       public
-            
+        
+        # Helper method to check if the invoice has been approved.
+        def approved?
+          [ 'AUTHORISED', 'PAID', 'VOIDED' ].include? status
+        end
+        
         # Helper method to check if the invoice is accounts payable.
         def accounts_payable?
           type == 'ACCPAY'
