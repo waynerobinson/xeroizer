@@ -48,4 +48,39 @@ class InvoiceTest < Test::Unit::TestCase
     
   end
   
+  context "invoice validations" do
+
+    should "build an invalid invoice if there are no attributes" do
+      assert_equal(false, @client.Invoice.build.valid?)
+    end
+
+    should "build a valid DRAFT invoice with minimal attributes" do
+      invoice = @client.Invoice.build :type => "ACCREC", :contact => { :name => "ABC Limited" }
+      assert_equal(true, invoice.valid?)
+    end
+
+    should "build a invalid AUTHORISED invoice with minimal attributes" do
+      invoice = @client.Invoice.build :type => "ACCREC", :contact => { :name => "ABC Limited" }, :status => "AUTHORISED"
+      assert_equal(false, invoice.valid?)
+    end
+
+    should "build a valid AUTHORISED invoice with complete attributes" do
+      invoice = @client.Invoice.build({
+        :type => "ACCREC",
+        :contact => { :name => "ABC Limited" },
+        :status => "AUTHORISED",
+        :date => Date.today,
+        :due_date => Date.today,
+        :line_items => [{
+          :description => "Consulting services as agreed",
+          :quantity => 5,
+          :unit_amount => 120,
+          :account_code => 200
+        }]
+      })
+      assert_equal(true, invoice.valid?)
+    end
+
+  end
+
 end
