@@ -58,10 +58,9 @@ module Xeroizer
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
             b.tag!(parent.class.xml_node_name || parent.model_name) { 
               attributes.each do | key, value |
-                unless value.nil?
-                  field = self.class.fields[key]
-                  xml_value_from_field(b, field, value)
-                end
+                field = self.class.fields[key]
+                value = self.send(key) if field[:calculated]
+                xml_value_from_field(b, field, value) unless value.nil?
               end
             }
           end
