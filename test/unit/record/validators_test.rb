@@ -11,6 +11,8 @@ class ValidatorsTest < Test::Unit::TestCase
     string  :name
     string  :name_conditional_if
     string  :name_conditional_unless
+    string  :name_conditional_method_if
+    string  :name_conditional_method_unless
     string  :type
     string  :type_blank
     integer :value
@@ -21,10 +23,20 @@ class ValidatorsTest < Test::Unit::TestCase
     validates_presence_of :name, :message => "blank"
     validates_presence_of :name_conditional_if, :if => Proc.new { | record | record.value == 10 }, :message => "blank_if_10"
     validates_presence_of :name_conditional_unless, :unless => Proc.new { | record | record.value == 20 }, :message => "blank_unless_20"
+    validates_presence_of :name_conditional_method_if, :if => :value_equals_ten?, :message => "blank_if_10"
+    validates_presence_of :name_conditional_method_unless, :unless => :value_equals_twenty?, :message => "blank_unless_20"
     validates_inclusion_of :type, :in => %w(phone fax mobile), :message => "not_included"
     validates_inclusion_of :type_blank, :in => %w(phone fax mobile), :message => "not_included_blank", :allow_blanks => true
     validates_associated :contact, :message => "association_invalid"
     validates_associated :addresses, :message => "association_invalid_blank", :allow_blanks => true
+    
+    def value_equals_ten?
+      value == 10
+    end
+    
+    def value_equals_twenty?
+      value == 20
+    end
   end
   
   def setup
@@ -157,6 +169,24 @@ class ValidatorsTest < Test::Unit::TestCase
       assert_nil(error)
     end
     
+    should "have name if value_equals_ten?" do
+      @record.value = 10
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:name_conditional_method_if).first
+      assert_equal('blank_if_10', error)
+      
+      @record.name_conditional_method_if = "NOT BLANK"
+      @record.valid?
+      error = @record.errors_for(:name_conditional_method_if).first
+      assert_nil(error)
+            
+      @record.name_conditional_method_if = nil
+      @record.value = 50
+      @record.valid?
+      error = @record.errors_for(:name_conditional_method_if).first
+      assert_nil(error)
+    end
+    
     should "have name unless value is 20" do
       @record.value = 50
       assert_equal(false, @record.valid?)
@@ -174,7 +204,25 @@ class ValidatorsTest < Test::Unit::TestCase
       error = @record.errors_for(:name_conditional_unless).first
       assert_nil(error)
     end
-        
+    
+    should "have name unless value_equals_twenty?" do
+      @record.value = 50
+      assert_equal(false, @record.valid?)
+      error = @record.errors_for(:name_conditional_method_unless).first
+      assert_equal('blank_unless_20', error)
+      
+      @record.name_conditional_method_unless = "NOT BLANK"
+      @record.valid?
+      error = @record.errors_for(:name_conditional_method_unless).first
+      assert_nil(error)
+            
+      @record.name_conditional_method_unless = nil
+      @record.value = 20
+      @record.valid?
+      error = @record.errors_for(:name_conditional_method_unless).first
+      assert_nil(error)
+    end
+    
   end
   
 end
