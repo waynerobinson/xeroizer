@@ -21,7 +21,7 @@ module Xeroizer
       def condition?(record, condition)
         return condition.call(record) if condition.respond_to? :call
         return record.send(condition) if condition.is_a? Symbol
-        raise "Validation condition must be a Proc, a Symbol or a Module that responds to call"
+        raise "Validation condition must be a Symbol or an Object that responds to call"
       end
 
     end
