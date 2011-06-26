@@ -5,8 +5,8 @@ class RecordAssociationTest < Test::Unit::TestCase
 
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    @client.stubs(:http_get).with {|client, url, params| url =~ /Invoices\/[^\/]+$/ }.returns(get_record_xml(:invoice))
-    @client.stubs(:http_get).with {|client, url, params| url =~ /Invoices$/ }.returns(get_record_xml(:invoices))
+    mock_api('Invoices')
+    @client.stubs(:http_put).returns(get_record_xml(:invoice, "762aa45d-4632-45b5-8087-b4f47690665e"))
   end
   
   context "belongs_to association" do
@@ -64,6 +64,30 @@ class RecordAssociationTest < Test::Unit::TestCase
       end
     end
     
+    should "retain unsaved items after create" do
+      invoice = @client.Invoice.build :type => "ACCREC", :contact => { :name => "A" }
+      invoice.save
+      invoice.add_line_item :description => "1"
+      assert_equal(1, invoice.line_items.size, "There should be one line item.")
+    end
+
+    should "retain unsaved items after find" do
+      invoice = @client.Invoice.find "762aa45d-4632-45b5-8087-b4f47690665e"
+      invoice.add_line_item :description => "1"
+      assert_equal(1, invoice.line_items.size, "There should be one line item.")
+    end
+
+    should "retain unsaved items after summary find" do
+      invoice = @client.Invoice.all.last
+      invoice.add_line_item :description => "1"
+      assert_equal(1, invoice.line_items.size, "There should be one line item.")
+    end
+
+    should "retain unsaved items when set explicitly" do
+      invoice = @client.Invoice.all.last
+      invoice.line_items = [{ :description => "1" }]
+      assert_equal(1, invoice.line_items.size, "There should be one line item.")
+    end
   end
   
 end
