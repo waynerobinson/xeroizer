@@ -61,6 +61,9 @@ module Xeroizer
               raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
             end
           
+            # Ensure that complete record is downloaded before adding new records
+            self.send(field_name)
+            
             # Add each record.
             record = nil
             records.each do | record |
