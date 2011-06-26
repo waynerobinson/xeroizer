@@ -82,6 +82,12 @@ class RecordAssociationTest < Test::Unit::TestCase
       invoice.add_line_item :description => "1"
       assert_equal(1, invoice.line_items.size, "There should be one line item.")
     end
+
+    should "retain unsaved items when set explicitly" do
+      invoice = @client.Invoice.all.last
+      invoice.line_items = [{ :description => "1" }]
+      assert_equal(1, invoice.line_items.size, "There should be one line item.")
+    end
   end
   
 end
