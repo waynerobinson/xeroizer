@@ -112,6 +112,9 @@ module Xeroizer
               when record_class
                 self.attributes[field_name] = ((association_type == :has_many) ? [value] : value)
                 
+              when NilClass
+                self.attributes[field_name] = []
+                
               else
                 raise AssociationTypeMismatch.new(record_class, value.class)
             end
