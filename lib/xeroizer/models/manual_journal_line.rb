@@ -3,6 +3,9 @@ module Xeroizer
     
     class ManualJournalLineModel < BaseModel
                     
+      set_xml_root_name 'JournalLines'
+      set_xml_node_name 'JournalLine'
+                    
     end
     
     class ManualJournalLine < Base

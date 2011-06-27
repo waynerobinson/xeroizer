@@ -4,7 +4,7 @@ module Xeroizer
     class ManualJournalModel < BaseModel
         
       set_permissions :read, :write, :update
-            
+                  
     end
     
     class ManualJournal < Base
