@@ -81,6 +81,7 @@ module Xeroizer
           else
             update
           end
+          @complete_record_downloaded = true
           true
         end
 
