@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{xeroizer}
-  s.version = "0.3.4"
+  s.version = "0.3.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2011-06-15}
+  s.date = %q{2011-06-27}
   s.description = %q{Ruby library for the Xero accounting system API.}
   s.email = %q{wayne.robinson@gmail.com}
   s.extra_rdoc_files = [
@@ -257,6 +257,7 @@ Gem::Specification.new do |s|
     "test/stub_responses/records/invoice-673dd7cc-beb7-4697-83d4-0c47cb400cc2.xml",
     "test/stub_responses/records/invoice-69fc971e-9b37-41c5-9c87-174330f22343.xml",
     "test/stub_responses/records/invoice-70e6db69-e5a4-42c7-a397-aa3212c2945f.xml",
+    "test/stub_responses/records/invoice-762aa45d-4632-45b5-8087-b4f47690665e.xml",
     "test/stub_responses/records/invoice-766d1289-b440-4675-a656-1a0612ecac77.xml",
     "test/stub_responses/records/invoice-76bcb361-f93b-4513-b312-5a4af306d276.xml",
     "test/stub_responses/records/invoice-76e3f056-479f-417c-a72b-f3d767899b87.xml",
