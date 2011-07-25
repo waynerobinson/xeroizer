@@ -8,7 +8,23 @@ class InvoiceTest < Test::Unit::TestCase
     mock_api('Invoices')
     @invoice = @client.Invoice.first
   end
-  
+
+  def build_valid_authorised_invoice
+    @client.Invoice.build({
+      :type => "ACCREC",
+      :contact => { :name => "ABC Limited" },
+      :status => "AUTHORISED",
+      :date => Date.today,
+      :due_date => Date.today,
+      :line_items => [{
+        :description => "Consulting services as agreed",
+        :quantity => 0.005,
+        :unit_amount => 1,
+        :account_code => 200
+      }]
+    })
+  end
+
   context "invoice types" do
     
     should "have helpers to determine invoice type" do
@@ -45,7 +61,7 @@ class InvoiceTest < Test::Unit::TestCase
         assert_equal(invoice.attributes[:total], invoice.total)
       end
     end
-    
+
   end
   
   context "invoice validations" do
@@ -65,20 +81,17 @@ class InvoiceTest < Test::Unit::TestCase
     end
 
     should "build a valid AUTHORISED invoice with complete attributes" do
-      invoice = @client.Invoice.build({
-        :type => "ACCREC",
-        :contact => { :name => "ABC Limited" },
-        :status => "AUTHORISED",
-        :date => Date.today,
-        :due_date => Date.today,
-        :line_items => [{
-          :description => "Consulting services as agreed",
-          :quantity => 5,
-          :unit_amount => 120,
-          :account_code => 200
-        }]
-      })
+      invoice = build_valid_authorised_invoice
       assert_equal(true, invoice.valid?)
+    end
+
+  end
+
+  context "line items" do
+
+    should  "round line item amounts to two decimal places" do
+      invoice = build_valid_authorised_invoice
+      assert_equal(0.01, invoice.line_items.first.line_amount)
     end
 
   end
