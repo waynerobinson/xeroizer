@@ -35,9 +35,7 @@ module Xeroizer
       # Calculate the line_total (if there is a quantity and unit_amount).
       # Description-only lines have been allowed since Xero V2.09.
       def line_amount
-        unless quantity.nil? && unit_amount.nil?
-          quantity * unit_amount
-        end
+        BigDecimal((quantity * unit_amount).to_s).round(2) if quantity && unit_amount
       end
       
     end
