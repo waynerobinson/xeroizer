@@ -86,6 +86,18 @@ module Xeroizer
       validates_associated :line_items, :if => :approved?
       
       public
+      
+        # Access the contact name without forcing a download of
+        # an incomplete, summary invoice.
+        def contact_name
+          attributes[:contact] && attributes[:contact][:name]
+        end
+
+        # Access the contact ID without forcing a download of an
+        # incomplete, summary invoice.
+        def contact_id
+          attributes[:contact] && attributes[:contact][:contact_id]
+        end
         
         # Helper method to check if the invoice has been approved.
         def approved?

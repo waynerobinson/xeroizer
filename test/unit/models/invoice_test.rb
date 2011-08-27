@@ -89,11 +89,24 @@ class InvoiceTest < Test::Unit::TestCase
 
   context "line items" do
 
-    should  "round line item amounts to two decimal places" do
+    should "round line item amounts to two decimal places" do
       invoice = build_valid_authorised_invoice
       assert_equal(0.01, invoice.line_items.first.line_amount)
     end
 
+  end
+  
+  context "contact shortcuts" do
+    
+    should "have valid #contact_name and #contact_id without downloading full invoice" do
+      invoices = @client.Invoice.all
+      invoices.each do |invoice|
+        assert_not_equal("", invoice.contact_name)
+        assert_not_equal("", invoice.contact_id)
+        assert_equal(false, invoice.complete_record_downloaded?)
+      end
+    end
+    
   end
 
 end
