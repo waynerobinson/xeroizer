@@ -1,13 +1,13 @@
 module Xeroizer
   module Record
     
-    class ItemSaleDetailsModel < BaseModel
+    class ItemSalesDetailsModel < BaseModel
         
-      set_xml_node_name 'SaleDetails'
+      set_xml_node_name 'SalesDetails'
         
     end
     
-    class ItemSaleDetails < Base
+    class ItemSalesDetails < Base
       
       decimal :unit_price
       string  :account_code
