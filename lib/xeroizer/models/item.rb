@@ -16,8 +16,8 @@ module Xeroizer
       string  :code
       string  :description
       
-      belongs_to :purchase_details, :model_name => 'ItemPurchaseSaleDetails'
-      belongs_to :sales_details, :model_name => 'ItemPurchaseSaleDetails'
+      belongs_to :purchase_details, :model_name => 'ItemPurchaseDetails'
+      belongs_to :sales_details, :model_name => 'ItemSaleDetails'
       
       validates_presence_of :code
       
