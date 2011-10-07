@@ -3,6 +3,7 @@ module Xeroizer
     
     class PaymentModel < BaseModel
         
+      set_xml_root_name 'Payments'
       set_permissions :read, :write
       
     end
