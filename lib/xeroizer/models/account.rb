@@ -49,6 +49,7 @@ module Xeroizer
       string  :code
       string  :name
       string  :type
+      string  :class, :internal_name => :account_class
       string  :status
       string  :currency_code
       string  :tax_type
