@@ -97,7 +97,7 @@ module Xeroizer
     # Renew an access token from a previously authorised token for a
     # PARTNER application.
     def renew_access_token(atoken = nil, asecret = nil, session_handle = nil)
-      old_token = ::OAuth::RequestToken.new(consumer, atoken || @atoken, asecret || @secret)
+      old_token = ::OAuth::RequestToken.new(consumer, atoken || @atoken, asecret || @asecret)
       access_token = old_token.get_access_token({
         :oauth_session_handle => (session_handle || @session_handle), 
         :token => old_token
