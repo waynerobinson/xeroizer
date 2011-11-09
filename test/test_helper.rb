@@ -9,7 +9,7 @@ require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
 module TestHelper
 
-  # The integration tests can be run against the Xero test environment.  You mush have a company set up in the test
+  # The integration tests can be run against the Xero test environment.  You must have a company set up in the test
   # environment, and you must have set up a customer key for that account.
   #
   # You can then run the tests against the test environment using the commands (linux or mac):
