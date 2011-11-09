@@ -7,6 +7,8 @@ require 'pp'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
+$: << File.join(File.dirname(__FILE__), "acceptance") 
+
 module TestHelper
 
   # The integration tests can be run against the Xero test environment.  You must have a company set up in the test
