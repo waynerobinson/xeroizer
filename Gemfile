@@ -11,4 +11,5 @@ group :test do
   gem 'mocha'
   gem 'shoulda'
   gem "jeweler", "~> 1.5.2"
+  gem "rest-client"
 end
