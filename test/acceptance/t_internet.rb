@@ -6,32 +6,32 @@ class TInternet
   end
 
   def get(url)
+    auth_header = new_auth_header url, :get
+
+    get_core(url, {:authorization => auth_header})
+  end
+
+  private
+
+  def new_auth_header(url, verb)
     consumer = OAuth::Consumer.new(
 	@credential.token,
 	@credential.token_secret,
         {
     	  :scheme	=> :header,
-          :http_method	=> :get
+          :http_method	=> verb
         }
     )
 
-    auth_header = get_auth_header url, consumer
-
-    get_core(url, {:authorization => auth_header})
-  end
-
-  private 
-
-  def get_auth_header(url, consumer)
     request = Net::HTTP::Get.new URI.parse(url).to_s
-    
+
     consumer.options[:signature_method]	= 'HMAC-SHA1'
     consumer.options[:nonce] 		= Time.now.to_i
     consumer.options[:timestamp] 	= Time.now.to_i
     consumer.options[:uri] 		= url
-    
+
     consumer.sign!(request)
-    
+
     request['authorization']
   end
 
