@@ -16,12 +16,6 @@ Xeroizer::GenericApplication.class_eval do
   record :BankTransaction
 end
 
-Shoulda::ClassMethods.class_eval do
-  alias_method :must, :should
-  alias_method :it, :should
-  alias_method :can, :should
-end
-
 class AboutPrivateApplications < Test::Unit::TestCase
   def setup
     assert_not_nil ENV["CONSUMER_KEY"], "No CONSUMER_KEY environment variable specified."

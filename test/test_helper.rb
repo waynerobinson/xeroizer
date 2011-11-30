@@ -57,3 +57,9 @@ module TestHelper
   end
     
 end
+
+Shoulda::ClassMethods.class_eval do
+  alias_method :must, :should
+  alias_method :it, :should
+  alias_method :can, :should
+end
