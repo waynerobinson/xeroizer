@@ -16,7 +16,7 @@ Xeroizer::GenericApplication.class_eval do
   record :BankTransaction
 end
 
-class AboutPrivateApplications < Test::Unit::TestCase
+class AboutBankTransactions < Test::Unit::TestCase
   def setup
     assert_not_nil ENV["CONSUMER_KEY"], "No CONSUMER_KEY environment variable specified."
     assert_not_nil ENV["CONSUMER_SECRET"], "No CONSUMER_SECRET environment variable specified."
