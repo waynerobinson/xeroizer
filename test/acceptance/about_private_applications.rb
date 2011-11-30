@@ -1,6 +1,26 @@
 require File.expand_path File.join(File.dirname(__FILE__), "..", "test_helper")
-require "t_internet"
-require "default_oauth_authorizer"
+
+module Xeroizer
+  module Record
+    class BankTransactionModel < BaseModel
+      set_permissions :read
+    end
+
+    class BankTransaction < Base
+      string :type
+    end
+  end
+end
+
+Xeroizer::GenericApplication.class_eval do
+  record :BankTransaction
+end
+
+Shoulda::ClassMethods.class_eval do
+  alias_method :must, :should
+  alias_method :it, :should
+  alias_method :can, :should
+end
 
 class AboutPrivateApplications < Test::Unit::TestCase
   def setup
@@ -13,9 +33,14 @@ class AboutPrivateApplications < Test::Unit::TestCase
     @consumer_secret = ENV["CONSUMER_SECRET"]
   end
 
-  def test_that_you_can_connect
+  can "for example, connect and fetch contacts" do
     client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
 
     assert(client.Contact.all.size > 0, "Expected at least one contact")
+  end
+
+  can "get all bank transactions" do
+    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+    assert(client.BankTransaction.all.size > 0, "Expected at least one bank transaction")
   end
 end
