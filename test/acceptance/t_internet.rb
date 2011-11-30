@@ -19,7 +19,9 @@ class TInternet
     require 'rest_client'
 
     begin
-      RestClient.get request.uri, request.headers
+      RestClient.get request.uri, request.headers do |response, request, result, &block|
+        Response.new response.code.to_i, response.headers, response.body
+      end
     rescue => e
       raise e unless e.respond_to?(:response)
       e.response
