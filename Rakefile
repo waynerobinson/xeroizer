@@ -28,7 +28,7 @@ task :default => :test
 
 desc 'Test the xero gateway.'
 Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
+  t.libs << ['lib', 'test']
   t.pattern = 'test/**/*_test.rb'
   t.verbose = true
 end
