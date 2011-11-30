@@ -1,10 +1,12 @@
 class DefaultOAuthAuthorizer
-  def initialize(credential)
+  def initialize(credential, clock)
     @credential = credential
+    @clock = clock
   end
 
   def authorize(request)
     headers = {:authorization => new_auth_header(request.uri, request.verb)}
+
     Request.new(request.uri, request.verb, headers, nil)
   end
 
@@ -25,12 +27,24 @@ class DefaultOAuthAuthorizer
     request = Net::HTTP::Get.new URI.parse(url).to_s
 
     consumer.options[:signature_method]	= 'HMAC-SHA1'
-    consumer.options[:nonce] 		= Time.now.to_i
-    consumer.options[:timestamp] 	= Time.now.to_i
-    consumer.options[:uri] 		= url
+    consumer.options[:nonce] 		= @clock.nonce
+    consumer.options[:timestamp] 	= @clock.timestamp
+    consumer.options[:uri] 		= URI.parse(url)
 
-    consumer.sign!(request)
+    consumer.sign!(request, @credential.token)
 
     request['authorization']
   end
+end
+
+CredentialSet = Struct.new("CredentialSet", :consumer, :token)
+Credential = Struct.new("Credential", :key, :secret)
+
+Credential.class_eval do
+  alias_method :token, :key
+end
+
+class Clock
+  def timestamp; Time.now.to_i; end
+  alias_method :nonce, :timestamp
 end
