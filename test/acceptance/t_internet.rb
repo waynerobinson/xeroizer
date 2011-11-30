@@ -1,45 +1,25 @@
-class TInternet
-  require "oauth"
+require "request"
 
-  def initialize(credential)
-    @credential = credential
+class TInternet
+  def initialize(authorizer)
+    @authorizer = authorizer
   end
 
   def get(url)
-    auth_header = new_auth_header url, :get
+    request = Request.new(url, :get, nil, nil)
 
-    get_core(url, {:authorization => auth_header})
+    authorized_request = @authorizer.authorize request
+
+    try_get authorized_request
   end
 
   private
 
-  def new_auth_header(url, verb)
-    consumer = OAuth::Consumer.new(
-	@credential.token,
-	@credential.token_secret,
-        {
-    	  :scheme	=> :header,
-          :http_method	=> verb
-        }
-    )
-
-    request = Net::HTTP::Get.new URI.parse(url).to_s
-
-    consumer.options[:signature_method]	= 'HMAC-SHA1'
-    consumer.options[:nonce] 		= Time.now.to_i
-    consumer.options[:timestamp] 	= Time.now.to_i
-    consumer.options[:uri] 		= url
-
-    consumer.sign!(request)
-
-    request['authorization']
-  end
-
-  def get_core(url, headers = {})
+  def try_get(request)
     require 'rest_client'
 
     begin
-      RestClient.get url, headers
+      RestClient.get request.uri, request.headers
     rescue => e
       raise e unless e.respond_to?(:response)
       e.response
