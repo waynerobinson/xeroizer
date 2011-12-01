@@ -1,6 +1,11 @@
 require "test_helper"
 
 class BankTransactionTest < Test::Unit::TestCase
+  def setup
+    # See lib/xeroizer/record/base_model.rb
+    @instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
+  end
+
   must "treat description as optional" do
     some_xml_with_no_description = "
      <Response>
@@ -12,10 +17,7 @@ class BankTransactionTest < Test::Unit::TestCase
         </BankTransactions>
     </Response>"
 
-    # See lib/xeroizer/record/base_model.rb
-    instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
-
-    result = instance.parse_response(some_xml_with_no_description)
+    result = @instance.parse_response(some_xml_with_no_description)
 
     assert_equal '', result.response_items.first.description
   end
@@ -30,10 +32,7 @@ class BankTransactionTest < Test::Unit::TestCase
         </BankTransactions>
     </Response>"
 
-    # See lib/xeroizer/record/base_model.rb
-    instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
-
-    result = instance.parse_response(some_xml)
+    result = @instance.parse_response(some_xml)
 
     assert_equal "EXAMPLE_TYPE", result.response_items.first.type
   end
