@@ -19,7 +19,7 @@ class BankTransactionTest < Test::Unit::TestCase
 
     result = @instance.parse_response(some_xml_with_no_description)
 
-    assert_equal '', result.response_items.first.description
+    assert_empty result.response_items.first.description
   end
 
   can "for example parse its type successfully from xml" do
