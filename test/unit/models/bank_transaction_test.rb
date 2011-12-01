@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BankTransactionTest < Test::Unit::TestCase
+class BankTransactionModelParsingTest < Test::Unit::TestCase
   def setup
     # See lib/xeroizer/record/base_model.rb
     @instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
