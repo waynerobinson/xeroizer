@@ -6,6 +6,7 @@ module Xeroizer
 
     class BankTransaction < Base
       string :type
+      string :description
     end
   end
 end
