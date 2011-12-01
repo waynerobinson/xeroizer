@@ -6,34 +6,28 @@ class BankTransactionTest < Test::Unit::TestCase
     @instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
   end
 
-  must "treat description as optional" do
-    some_xml_with_no_description = "
-     <Response>
-        <BankTransactions>
-          <BankTransaction>
-            <Type>EXAMPLE_TYPE</Type>
-            <Description />
-          </BankTransaction>
-        </BankTransactions>
-    </Response>"
-
-    result = @instance.parse_response(some_xml_with_no_description)
-
-    assert_empty result.response_items.first.description
-  end
-
-  can "for example parse its type successfully from xml" do
+  must "parse the root elements from XML" do
     some_xml = "
      <Response>
         <BankTransactions>
           <BankTransaction>
-            <Type>EXAMPLE_TYPE</Type>
+            <Date>2010-07-30T00:00:00</Date>
+            <LineAmountTypes>Inclusive</LineAmountTypes>
+            <SubTotal>15.00</SubTotal>
+            <TotalTax>0.00</TotalTax>
+            <Total>15.00</Total>
+            <UpdatedDateUTC>2008-02-20T12:19:56.657</UpdatedDateUTC>
+            <FullyPaidOnDate>2010-07-30T00:00:00</FullyPaidOnDate>
+            <BankTransactionID>d20b6c54-7f5d-4ce6-ab83-55f609719126</BankTransactionID>
+            <Type>SPEND</Type>
+            <IsReconciled>true</IsReconciled>
           </BankTransaction>
         </BankTransactions>
     </Response>"
 
     result = @instance.parse_response(some_xml)
 
-    assert_equal "EXAMPLE_TYPE", result.response_items.first.type
+    assert_equal "SPEND", result.response_items.first.type
+    assert_equal Date.parse("2010-07-30T00:00:00"), result.response_items.first.date
   end
 end
