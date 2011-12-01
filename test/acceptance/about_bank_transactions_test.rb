@@ -1,20 +1,4 @@
-require File.expand_path File.join(File.dirname(__FILE__), "..", "test_helper")
-
-module Xeroizer
-  module Record
-    class BankTransactionModel < BaseModel
-      set_permissions :read
-    end
-
-    class BankTransaction < Base
-      string :type
-    end
-  end
-end
-
-Xeroizer::GenericApplication.class_eval do
-  record :BankTransaction
-end
+require "test_helper"
 
 class AboutBankTransactions < Test::Unit::TestCase
   def setup
