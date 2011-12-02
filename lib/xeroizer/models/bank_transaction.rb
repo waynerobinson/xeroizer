@@ -7,6 +7,7 @@ module Xeroizer
 
     class BankAccount < Base
       string :account_id
+      string :code
     end
 
     class BankTransactionModel < BaseModel
