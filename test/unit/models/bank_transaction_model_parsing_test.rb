@@ -106,4 +106,55 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
       "Mismatched number of line items: #{the_bank_transaction.inspect}"
     )
   end
+
+  must "include the bank account" do
+    some_xml_with_a_bank_account = "
+     <Response>
+        <BankTransactions>
+          <BankTransaction>
+            <BankAccount>
+              <AccountID>297c2dc5-cc47-4afd-8ec8-74990b8761e9</AccountID>
+              <Code>BANK</Code>
+            </BankAccount>
+          </BankTransaction>
+        </BankTransactions>
+    </Response>"
+
+    result = @instance.parse_response(some_xml_with_a_bank_account)
+    the_bank_transaction = result.response_items.first
+
+    assert_not_nil(the_bank_transaction.bank_account,
+      "Missing bank_account: #{the_bank_transaction.inspect}"
+    )
+  end
+end
+
+class BankAccountParsingTest < Test::Unit::TestCase
+  def setup
+    @instance = Xeroizer::Record::BankAccountModel.new(
+      nil, 
+      "BankAccount"
+    )
+
+    # TODO: why you need provide response and aggregate nodes element?
+    @bank_account_xml = "
+      <Response>
+        <BankAccounts>
+          <BankAccount>
+            <AccountID>Phil Murphy's bike seat</AccountID>
+            <Code>BANK</Code>
+          </BankAccount>
+        </BankAccounts>
+      </Response>"
+  end
+
+  must "include account id" do
+    result = @instance.parse_response @bank_account_xml 
+    the_bank_account = result.response_items.first
+    
+    assert_equal "Phil Murphy's bike seat", the_bank_account.account_id, 
+      "Unexpected account id #{the_bank_account}"
+  end
+
+  must "include bank"
 end

@@ -1,5 +1,14 @@
+
 module Xeroizer
   module Record
+    class BankAccountModel < BaseModel
+      set_permissions :read
+    end
+
+    class BankAccount < Base
+      string :account_id
+    end
+
     class BankTransactionModel < BaseModel
       set_permissions :read
     end
@@ -19,6 +28,7 @@ module Xeroizer
 
       belongs_to :contact, :model_name => 'Contact'
       has_many :line_items, :model_name => 'LineItem'
+      belongs_to :bank_account, :model_name => 'BankAccount'
     end
   end
 end
