@@ -16,6 +16,8 @@ module Xeroizer
       boolean :is_reconciled
 
       alias_method :reconciled?, :is_reconciled
+
+      belongs_to :contact, :model_name => 'Contact'
     end
   end
 end
