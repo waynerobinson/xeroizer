@@ -78,4 +78,32 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
       "Mismatched contact id for contact: #{the_contact.inspect}"
     )
   end
+
+  must "include the correct number of line items" do
+    some_xml_with_a_line_item = "
+     <Response>
+        <BankTransactions>
+          <BankTransaction>
+            <LineItems>
+              <LineItem>
+                <Description>Monthly account fee</Description>
+                <UnitAmount>15</UnitAmount>
+                <TaxType>NONE</TaxType>
+                <TaxAmount>0.00</TaxAmount>
+                <LineAmount>15.00</LineAmount>
+                <AccountCode>404</AccountCode>
+                <Quantity>1.0000</Quantity>
+              </LineItem>
+            </LineItems>
+          </BankTransaction>
+        </BankTransactions>
+    </Response>"
+
+    result = @instance.parse_response(some_xml_with_a_line_item)
+    the_bank_transaction = result.response_items.first
+
+    assert_equal(1, the_bank_transaction.line_items.size,
+      "Mismatched number of line items: #{the_bank_transaction.inspect}"
+    )
+  end
 end

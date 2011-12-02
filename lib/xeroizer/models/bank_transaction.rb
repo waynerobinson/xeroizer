@@ -18,7 +18,7 @@ module Xeroizer
       alias_method :reconciled?, :is_reconciled
 
       belongs_to :contact, :model_name => 'Contact'
+      has_many :line_items, :model_name => 'LineItem'
     end
   end
 end
-
