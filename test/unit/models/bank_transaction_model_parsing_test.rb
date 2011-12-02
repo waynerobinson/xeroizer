@@ -40,7 +40,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     assert the_bank_transaction.reconciled?, "Expected reconciled to be true"
   end
 
-  must "parse single contact" do
+  must "include the contact" do
     some_xml_with_a_contact = "
      <Response>
         <BankTransactions>
