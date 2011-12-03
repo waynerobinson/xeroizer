@@ -12,4 +12,6 @@ group :test do
   gem 'shoulda'
   gem "jeweler", "~> 1.5.2"
   gem "rest-client"
+  gem "turn"
+  gem "ansi"
 end
