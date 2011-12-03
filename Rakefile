@@ -40,6 +40,13 @@ namespace :test do
     t.pattern = 'test/acceptance/**/*_test.rb'
     t.verbose = true
   end
+
+  desc 'Run unit tests'
+  Rake::TestTask.new(:unit) do |t|
+    t.libs << ['lib', 'test']
+    t.pattern = 'test/unit/**/*_test.rb'
+    t.verbose = true
+  end
 end
 
 YARD::Rake::YardocTask.new do |t|
