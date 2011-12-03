@@ -10,9 +10,13 @@ class AboutBankTransactions < Test::Unit::TestCase
     @consumer_key = ENV["CONSUMER_KEY"]
     @consumer_secret = ENV["CONSUMER_SECRET"]
   end
-
+  
   can "get all bank transactions" do
     client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
     assert(client.BankTransaction.all.size > 0, "Expected at least one bank transaction")
+  end
+  
+  context "given no filter is applied" do 
+    it "returns compact contact, and no line items at all"
   end
 end
