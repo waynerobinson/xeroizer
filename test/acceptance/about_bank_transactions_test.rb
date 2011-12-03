@@ -30,4 +30,9 @@ class AboutBankTransactions < Test::Unit::TestCase
       assert_empty the_contact.addresses, "Expected empty contact addresses"
     end
   end
+
+  context "when requesting a single bank transaction for example" do
+    it "returns expanded contacts and addresses"
+    it "returns full line item details"
+  end
 end
