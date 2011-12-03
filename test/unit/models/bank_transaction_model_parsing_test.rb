@@ -6,7 +6,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     @instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
   end
 
-  must "parse the root elements from XML" do
+  must "parse all the root elements" do
     some_xml = "
      <Response>
         <BankTransactions>
@@ -40,7 +40,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     assert the_bank_transaction.reconciled?, "Expected reconciled to be true"
   end
 
-  must "include the contact" do
+  must "parse the contact" do
     some_xml_with_a_contact = "
      <Response>
         <BankTransactions>
@@ -79,7 +79,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     )
   end
 
-  must "include the correct number of line items" do
+  must "parse the correct number of line items" do
     some_xml_with_a_line_item = "
      <Response>
         <BankTransactions>
@@ -107,7 +107,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     )
   end
 
-  must "include the bank account" do
+  must "parse the bank account" do
     some_xml_with_a_bank_account = "
      <Response>
         <BankTransactions>
@@ -126,5 +126,8 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     assert_not_nil(the_bank_transaction.bank_account,
       "Missing bank_account: #{the_bank_transaction.inspect}"
     )
+    
+    assert_equal "297c2dc5-cc47-4afd-8ec8-74990b8761e9", the_bank_transaction.bank_account.account_id, 
+      "Unexpected bank account id: #{the_bank_transaction.inspect}"
   end
 end
