@@ -11,12 +11,6 @@ class AboutBankTransactions < Test::Unit::TestCase
     @consumer_secret = ENV["CONSUMER_SECRET"]
   end
 
-  can "for example, connect and fetch contacts" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-
-    assert(client.Contact.all.size > 0, "Expected at least one contact")
-  end
-
   can "get all bank transactions" do
     client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
     assert(client.BankTransaction.all.size > 0, "Expected at least one bank transaction")
