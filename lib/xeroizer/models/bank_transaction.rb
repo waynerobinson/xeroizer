@@ -31,6 +31,9 @@ module Xeroizer
       belongs_to :contact, :model_name => 'Contact'
       has_many :line_items, :model_name => 'LineItem'
       belongs_to :bank_account, :model_name => 'BankAccount'
+
+      validates_inclusion_of :type, :in => %w{SPEND RECEIVE}, :allow_blanks => false, 
+        :message => "Invalid type, Expected either SPEND or RECEIVE."
     end
   end
 end
