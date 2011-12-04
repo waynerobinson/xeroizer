@@ -24,13 +24,21 @@ class BankTransactionValidationTest < Test::Unit::TestCase
   end
 
   must "supply a non-blank contact" do
-    instance = Xeroizer::Record::BankTransaction.build({
-        :type => "SPEND"
-      }, nil
-    )
+    instance = Xeroizer::Record::BankTransaction.build({}, nil)
     
     assert false == instance.valid?, "Expected invalid because of missing contact"
 
     assert_equal "can't be blank", instance.errors_for(:contact).first, "Expected an error about blank contact"
+  end
+
+  must "supply at least on line item" do
+    zero_line_items = []
+    
+    instance = Xeroizer::Record::BankTransaction.build({:line_items => zero_line_items}, nil)
+    
+    assert false == instance.valid?, "Expected invalid because of empty line items"
+
+    assert_equal "Invalid line items. Must supply at least one.", instance.errors_for(:line_items).first, 
+      "Expected an error about blank line items"
   end
 end
