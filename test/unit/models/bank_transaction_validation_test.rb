@@ -28,7 +28,8 @@ class BankTransactionValidationTest < Test::Unit::TestCase
     
     assert false == instance.valid?, "Expected invalid because of missing contact"
 
-    assert_equal "can't be blank", instance.errors_for(:contact).first, "Expected an error about blank contact"
+    assert_equal "can't be blank", instance.errors_for(:contact).first, 
+      "Expected an error about blank contact"
   end
 
   must "supply at least on line item" do
@@ -40,5 +41,14 @@ class BankTransactionValidationTest < Test::Unit::TestCase
 
     assert_equal "Invalid line items. Must supply at least one.", instance.errors_for(:line_items).first, 
       "Expected an error about blank line items"
+  end
+
+  must "supply a non-blank bank account" do
+    instance = Xeroizer::Record::BankTransaction.build({}, nil)
+    
+    assert false == instance.valid?, "Expected invalid because of missing bank account"
+
+    assert_equal "can't be blank", instance.errors_for(:bank_account).first, 
+      "Expected an error about blank contact"
   end
 end
