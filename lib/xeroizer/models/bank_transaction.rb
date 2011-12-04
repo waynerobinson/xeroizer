@@ -34,6 +34,7 @@ module Xeroizer
 
       validates_inclusion_of :type, :in => %w{SPEND RECEIVE}, :allow_blanks => false, 
         :message => "Invalid type. Expected either SPEND or RECEIVE."
+      validates_presence_of :contact, :allow_blanks => false
     end
   end
 end

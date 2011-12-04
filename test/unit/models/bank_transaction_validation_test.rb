@@ -22,4 +22,15 @@ class BankTransactionValidationTest < Test::Unit::TestCase
     
     assert_empty instance.errors_for(:type), "Expected no error about type"
   end
+
+  must "supply a non-blank contact" do
+    instance = Xeroizer::Record::BankTransaction.build({
+        :type => "SPEND"
+      }, nil
+    )
+    
+    assert false == instance.valid?, "Expected invalid because of missing contact"
+
+    assert_equal "can't be blank", instance.errors_for(:contact).first, "Expected an error about blank contact"
+  end
 end
