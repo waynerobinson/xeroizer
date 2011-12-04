@@ -5,3 +5,4 @@ doc/
 .redcar
 pkg/
 Gemfile.lock
+.rvmrc
