@@ -35,4 +35,18 @@ class AboutBankTransactions < Test::Unit::TestCase
     it "returns expanded contacts and addresses"
     it "returns full line item details"
   end
+
+  must_eventually "can create new bank transactions" do
+      client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+      new_transaction = client.BankTransaction.build(
+        :type => "xxx"
+      )
+      
+      new_transaction.save
+  end
+
+  must "supply either SPEND or RECEIVE as the type"
+  must "supply supply a contact"
+  must "supply one or more line items"
+  must "supply a bank account"
 end
