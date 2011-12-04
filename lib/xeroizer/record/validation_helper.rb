@@ -14,6 +14,7 @@ module Xeroizer
         # Adds a validator config for each attribute specified in args.
         def validates_with_validator(validator, args)
           options = args.extract_options!
+          
           self.validators ||= []
           args.flatten.each do | attribute |
             self.validators << validator.new(attribute, options)
@@ -31,7 +32,18 @@ module Xeroizer
         def validates_presence_of(*args)
           validates_with_validator(Validator::PresenceOfValidator, args)
         end        
-        
+     
+        def validates(*args, &block)
+          fail "Block required" unless block_given?
+
+          if args.last.is_a? Hash
+            args.last[:block] = block
+          else
+            args << { :block => block }
+          end
+
+          validates_with_validator(Validator::BlockValidator, args)
+        end
       end
       
       module InstanceMethods
