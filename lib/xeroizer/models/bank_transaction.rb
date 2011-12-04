@@ -15,6 +15,7 @@ module Xeroizer
     end
 
     class BankTransaction < Base
+      set_primary_key :bank_transaction_id
       string :type
       date :date
       string :line_amount_types
