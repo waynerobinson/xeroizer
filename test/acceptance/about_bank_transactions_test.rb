@@ -43,27 +43,18 @@ class AboutBankTransactions < Test::Unit::TestCase
   must_eventually "create new bank transactions" do
     client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
 
-    new_transaction = client.BankTransaction.build
+    new_transaction = client.BankTransaction.build(
+      :type => "SPEND", 
+      :contact => {:name => "Examnple name" }, 
+      :line_items => [
+        :item_code => "xxx", 
+        :description => "description",
+        :quantity => 1.0,
+        :unit_amount => 3.99
+      ], 
+      :bank_account => { :code => "XXX" }
+    )
     
-    contact = Xeroizer::Record::Contact.build({:name => "Example name"}, new_transaction)
-    
-    line_items = [
-      Xeroizer::Record::LineItem.build({
-       :item_code => "xxx", 
-       :description => "description",
-       :quantity => 1.0,
-       :unit_amount => 3.99
-      }, new_transaction)
-    ]
-    bank_account = Xeroizer::Record::BankAccount.build({
-      :account_id => "xxx_example_bank_account_id_xxx", :code => "XXX"
-    }, new_transaction)
-
-    new_transaction.type = "SPEND"
-    new_transaction.contact = contact
-    new_transaction.line_items = line_items
-    new_transaction.bank_account = bank_account
-
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
 
     puts new_transaction.inspect
