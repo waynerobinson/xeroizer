@@ -1,16 +1,9 @@
 require "test_helper"
+require "acceptance_test"
 
 class AboutBankTransactions < Test::Unit::TestCase
-  def setup
-    assert_not_nil ENV["CONSUMER_KEY"], "No CONSUMER_KEY environment variable specified."
-    assert_not_nil ENV["CONSUMER_SECRET"], "No CONSUMER_SECRET environment variable specified."
-    assert_not_nil ENV["KEY_FILE"], "No KEY_FILE environment variable specified."
-    assert File.exists?(ENV["KEY_FILE"]), "The file <#{ENV["KEY_FILE"]}> does not exist."
-    @key_file = ENV["KEY_FILE"]
-    @consumer_key = ENV["CONSUMER_KEY"]
-    @consumer_secret = ENV["CONSUMER_SECRET"]
-  end
-  
+  include AcceptanceTest
+
   context "when requesting all bank transactions (i.e., without filter)" do
     setup do 
       client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
@@ -39,53 +32,4 @@ class AboutBankTransactions < Test::Unit::TestCase
     it "returns expanded contacts and addresses"
     it "returns full line item details"
   end
-
-  it "fails with RuntimeError when you try and create a new bank account" do 
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-    
-    new_account = client.Account.build(
-      :name => "Example bank account",  
-      :code => "ACC-001"                                         
-    )
-    
-    assert_raise RuntimeError do 
-      new_account.save
-    end
-  end
-
-  can "fetch all accounts" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-    all = client.Account.all
-
-    assert all.size > 0
-  end
-
-  must_eventually "create new bank transactions" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-
-    account = client.Account.all.first
-
-    new_transaction = client.BankTransaction.build(
-      :type => "SPEND", 
-      :contact => { :name => "Jazz Kang" },
-      :account_code => account.code,
-      :tax_type => "XXX", 
-      :line_items => [
-        :item_code => "xxx", 
-        :description => "description",
-        :quantity => 1.0,
-        :unit_amount => 3.99
-      ], 
-      :bank_account => { :code => account.code }
-    )
-    
-    assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
-
-    puts new_transaction.inspect
-  end
-
-  must "supply either SPEND or RECEIVE as the type"
-  must "supply supply a contact"
-  must "supply one or more line items"
-  must "supply a bank account"
 end
