@@ -1,7 +1,7 @@
 require "test_helper"
 require "acceptance_test"
 
-class AboutBankTransactions < Test::Unit::TestCase
+class AboutFetchingBankTransactions < Test::Unit::TestCase
   include AcceptanceTest
 
   context "when requesting all bank transactions (i.e., without filter)" do
