@@ -8,8 +8,15 @@ module Xeroizer
           result = record.instance_eval &options[:block]
           
           unless result == true
-            record.errors << [attribute, options[:message] || "block condition failed"]
+            record.errors << [attribute, message]
           end
+        end
+
+        private
+        
+        def message
+          supplied_message = options[:message] || ""
+          supplied_message.empty? ? "block condition failed" : supplied_message
         end
       end
     end
