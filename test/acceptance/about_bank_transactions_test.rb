@@ -29,6 +29,10 @@ class AboutBankTransactions < Test::Unit::TestCase
       assert_empty the_contact.phones, "Expected empty contact phones"
       assert_empty the_contact.addresses, "Expected empty contact addresses"
     end
+
+    it "returns the bank account" do
+      assert_not_nil @the_first_bank_transaction.bank_account
+    end
   end
 
   context "when requesting a single bank transaction for example" do
@@ -36,13 +40,33 @@ class AboutBankTransactions < Test::Unit::TestCase
     it "returns full line item details"
   end
 
-  must_eventually "can create new bank transactions" do
-      client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-      new_transaction = client.BankTransaction.build(
-        :type => "xxx"
-      )
-      
-      new_transaction.save
+  must_eventually "create new bank transactions" do
+    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+
+    new_transaction = client.BankTransaction.build
+    
+    contact = Xeroizer::Record::Contact.build({:name => "Example name"}, new_transaction)
+    
+    line_items = [
+      Xeroizer::Record::LineItem.build({
+       :item_code => "xxx", 
+       :description => "description",
+       :quantity => 1.0,
+       :unit_amount => 3.99
+      }, new_transaction)
+    ]
+    bank_account = Xeroizer::Record::BankAccount.build({
+      :account_id => "xxx_example_bank_account_id_xxx", :code => "XXX"
+    }, new_transaction)
+
+    new_transaction.type = "SPEND"
+    new_transaction.contact = contact
+    new_transaction.line_items = line_items
+    new_transaction.bank_account = bank_account
+
+    assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+
+    puts new_transaction.inspect
   end
 
   must "supply either SPEND or RECEIVE as the type"
