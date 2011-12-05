@@ -37,6 +37,30 @@ class BlockValidatorTest < Test::Unit::TestCase
 
     block_validator.valid?(record)
 
-    assert_equal 1, record.errors.size, "Expected validation to fail with one error. #{record.errors.inspect}"
+    assert_equal 1, record.errors.size,
+      "Expected validation to fail with one error. #{record.errors.inspect}"
+  end
+
+  it "uses the message supplied when validation fails" do
+    record = @fake_record_class.new
+
+    the_block_returning_false = Proc.new{ false }
+
+    expected_error = "Cornrows are usually a headwear mistake"
+
+    block_validator = Xeroizer::Record::Validator::BlockValidator.new(
+      :name,
+      {
+        :block => the_block_returning_false,
+        :message => expected_error
+      }
+    )
+
+    block_validator.valid?(record)
+
+    assert_equal 1, record.errors.size,
+      "Expected validation to fail with one error. #{record.errors.inspect}"
+    assert_equal expected_error, record.errors.first[1],
+      "There is an error, but it doesn't match"
   end
 end
