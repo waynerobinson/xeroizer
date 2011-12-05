@@ -23,6 +23,21 @@ class BlockValidatorTest < Test::Unit::TestCase
     assert_empty record.errors, "Expected validation to pass. #{record.errors.inspect}"
   end
 
+  it "returns invalid when block returns a non-null object" do
+    record = @fake_record_class.new
+
+    the_block_returning_true = Proc.new{ Object }
+
+    block_validator = Xeroizer::Record::Validator::BlockValidator.new(
+      :name,
+      :block => the_block_returning_true
+    )
+
+    block_validator.valid?(record)
+
+    assert_equal 1, record.errors.size, "Expected validation to fail with one error. #{record.errors.inspect}"
+  end
+
   it "returns invalid when block returns false" do
     record = @fake_record_class.new
 
@@ -37,8 +52,7 @@ class BlockValidatorTest < Test::Unit::TestCase
 
     block_validator.valid?(record)
 
-    assert_equal 1, record.errors.size,
-      "Expected validation to fail with one error. #{record.errors.inspect}"
+    assert_equal 1, record.errors.size, "Expected validation to fail with one error. #{record.errors.inspect}"
   end
 
   it "uses the message supplied when validation fails" do

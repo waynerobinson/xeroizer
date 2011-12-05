@@ -7,9 +7,7 @@ module Xeroizer
           
           result = record.instance_eval &options[:block]
           
-          unless result == true
-            record.errors << [attribute, message]
-          end
+          record.errors << [attribute, message] unless result == true
         end
 
         private
