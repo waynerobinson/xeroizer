@@ -25,6 +25,8 @@ module Xeroizer
       date :fully_paid_on_date
       string :bank_transaction_id
       boolean :is_reconciled
+      string :account_code
+      string :tax_type
 
       alias_method :reconciled?, :is_reconciled
 
