@@ -7,8 +7,10 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   can "create new bank transactions" do
     client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
 
-    account = client.Account.all.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
-    bank_account = client.Account.all.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
+    all_accounts = client.Account.all
+
+    account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
+    bank_account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
 
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
