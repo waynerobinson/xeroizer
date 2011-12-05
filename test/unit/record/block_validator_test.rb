@@ -3,16 +3,13 @@ require "test_helper"
 class BlockValidatorTest < Test::Unit::TestCase
   def setup
     @fake_record_class = Class.new do
-      attr_accessor :name, :errors
-      def initialize(name)
-        @errors = []
-        @name = name
-      end
+      attr_accessor :errors
+      def initialize; @errors = []; end
     end
   end
 
   it "returns valid when block returns true" do
-    record = @fake_record_class.new "Orange"
+    record = @fake_record_class.new
 
     the_block_returning_true = Proc.new{ true }
 
@@ -27,7 +24,7 @@ class BlockValidatorTest < Test::Unit::TestCase
   end
 
   it "returns invalid when block returns false" do
-    record = @fake_record_class.new "Orange"
+    record = @fake_record_class.new
 
     the_block_returning_false = Proc.new{ false }
 
