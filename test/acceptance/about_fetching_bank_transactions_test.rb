@@ -29,7 +29,37 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
   end
 
   context "when requesting a single bank transaction for example" do
-    it "returns expanded contacts and addresses"
+    setup do
+      @client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+
+      all_accounts = @client.Account.all
+
+      account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
+      bank_account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
+
+      @new_transaction = @client.BankTransaction.build(
+        :type => "SPEND",
+        :contact => { :name => "Jazz Kang" },
+        :line_items => [
+          :item_code => "Clingfilm bike shorts",
+          :description => "Bike shorts made of clear, unbreathable material",
+          :quantity => 1,
+          :unit_amount => 39.99,
+          :account_code => account.code,
+          :tax_type => account.tax_type
+        ],
+        :bank_account => { :code => bank_account.code }
+      )
+
+      assert @new_transaction.save, "Expected save to ahve succeeded"
+    end
+
+    it "returns contact with addresses and phones" do
+      single_bank_transaction = @client.BankTransaction.find @new_transaction.id
+      assert_not_empty single_bank_transaction.contact.addresses
+      assert_not_empty single_bank_transaction.contact.phones
+    end
+
     it "returns full line item details"
   end
 end
