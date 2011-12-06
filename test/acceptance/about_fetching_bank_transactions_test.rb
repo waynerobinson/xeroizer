@@ -56,10 +56,16 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
 
     it "returns contact with addresses and phones" do
       single_bank_transaction = @client.BankTransaction.find @new_transaction.id
-      assert_not_empty single_bank_transaction.contact.addresses
-      assert_not_empty single_bank_transaction.contact.phones
+      assert_not_empty single_bank_transaction.contact.addresses,
+        "expected the contact's addresses to have been included"
+      assert_not_empty single_bank_transaction.contact.phones,
+        "expected the contact's phone numbers to have been included"
     end
 
-    it "returns full line item details"
+    it "returns full line item details" do
+      single_bank_transaction = @client.BankTransaction.find @new_transaction.id
+      assert_not_empty single_bank_transaction.line_items,
+        "expected the bank transaction's line items to have been included"
+    end
   end
 end
