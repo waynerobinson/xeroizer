@@ -21,6 +21,14 @@ module Xeroizer
       string :line_amount_types
       decimal :sub_total
       decimal :total_tax
+
+      def total
+        self.line_items.map do |line_item|
+          item_total = line_item[:unit_amount].to_f + line_item[:tax_amount].to_f
+          (item_total * line_item[:quantity].to_f).to_f
+        end.reduce :+
+      end
+
       date :updated_date_utc, :api_name => "UpdatedDateUTC"
       date :fully_paid_on_date
       string :bank_transaction_id, :api_name => "BankTransactionID"
