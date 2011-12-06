@@ -29,6 +29,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+    assert_exists new_transaction
   end
 
   can "create a new RECEIVE bank transaction" do
@@ -52,6 +53,13 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+    assert_exists new_transaction
+  end
+
+  def assert_exists(bank_transaction)
+    assert_not_nil bank_transaction.id,
+      "Cannot check for exitence unless the bank transaction has non-null identifier"
+    assert_not_nil client.BankTransaction.find bank_transaction.id
   end
 
   it "fails with RuntimeError when you try and create a new bank account" do
