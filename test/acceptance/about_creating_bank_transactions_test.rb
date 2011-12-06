@@ -50,7 +50,53 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
 
     refreshed_bank_transaction = client.BankTransaction.find expected_id
 
-    assert_equal the_new_type, refreshed_bank_transaction.type, "Expected the bank transaction to've had its type updated"
+    assert_equal the_new_type, refreshed_bank_transaction.type,
+      "Expected the bank transaction to've had its type updated"
+  end
+
+  must_eventually "update a bank transaction, for example by adding line items" do
+    new_transaction = client.BankTransaction.build(
+      :type => "SPEND",
+      :contact => { :name => "Jazz Kang" },
+      :line_items => any_line_items(@account),
+      :bank_account => { :code => @bank_account.code }
+    )
+
+    assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+    assert_exists new_transaction
+
+    expected_id = new_transaction.id
+
+    the_new_line_items = [
+      {
+        :item_code => "Burrito skin",
+        :description => "The outside of a burrito",
+        :quantity => 1,
+        :unit_amount => 39.99,
+        :account_code => @account.code,
+        :tax_type => @account.tax_type
+      },
+      {
+        :item_code => "Dental pick (30)",
+        :description => "Some things for picking lunch out of teeth",
+        :quantity => 1,
+        :unit_amount => 9.99,
+        :account_code => @account.code,
+        :tax_type => @account.tax_type
+      }
+    ]
+
+    new_transaction.line_items = the_new_line_items
+
+    assert new_transaction.save, "Update failed with the following errors: #{new_transaction.errors.inspect}"
+
+    refreshed_bank_transaction = client.BankTransaction.find expected_id
+
+    assert_equal expected_id, new_transaction.id,
+      "Expected the id to be the same because it has been updated"
+
+    assert_equal the_new_line_items, refreshed_bank_transaction.line_items,
+      "Expected the bank transaction to've had its line items updated"
   end
 
   can "create a new RECEIVE bank transaction" do
