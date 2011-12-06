@@ -4,9 +4,11 @@ require "acceptance_test"
 class AboutCreatingBankTransactions < Test::Unit::TestCase
   include AcceptanceTest
 
-  can "create new bank transactions" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+  def client
+    @client ||=  Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+  end
 
+  can "create new bank transactions" do
     all_accounts = client.Account.all
 
     account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
@@ -30,8 +32,6 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   end
 
   it "fails with RuntimeError when you try and create a new bank account" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-
     new_account = client.Account.build(
       :name => "Example bank account",
       :code => "ACC-001"
@@ -43,8 +43,6 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   end
 
   must "supply either SPEND or RECEIVE as the type" do
-    client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-
     all_accounts = client.Account.all
 
     account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
