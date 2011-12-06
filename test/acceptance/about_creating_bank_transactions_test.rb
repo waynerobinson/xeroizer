@@ -8,7 +8,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     @client ||=  Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
   end
 
-  can "create new bank transactions" do
+  can "create a new SPEND bank transaction" do
     all_accounts = client.Account.all
 
     account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
@@ -16,6 +16,29 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
 
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
+      :contact => { :name => "Jazz Kang" },
+      :line_items => [
+        :item_code => "Clingfilm bike shorts",
+        :description => "Bike shorts made of clear, unbreathable material",
+        :quantity => 1,
+        :unit_amount => 39.99,
+        :account_code => account.code,
+        :tax_type => account.tax_type
+      ],
+      :bank_account => { :code => bank_account.code }
+    )
+
+    assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+  end
+
+  can "create a new RECEIVE bank transaction" do
+    all_accounts = client.Account.all
+
+    account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
+    bank_account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
+
+    new_transaction = client.BankTransaction.build(
+      :type => "RECEIVE",
       :contact => { :name => "Jazz Kang" },
       :line_items => [
         :item_code => "Clingfilm bike shorts",
