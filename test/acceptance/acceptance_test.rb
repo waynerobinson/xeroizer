@@ -1,4 +1,9 @@
 module AcceptanceTest
+  def self.let(symbol, &block)
+    return unless block_given?
+    define_method symbol, &block
+  end
+
   def setup
     assert_not_nil ENV["CONSUMER_KEY"], "No CONSUMER_KEY environment variable specified."
     assert_not_nil ENV["CONSUMER_SECRET"], "No CONSUMER_SECRET environment variable specified."
