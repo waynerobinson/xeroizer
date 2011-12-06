@@ -32,6 +32,44 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     assert_exists new_transaction
   end
 
+  can "update a SPEND bank transaction, for example by setting its status" do
+    all_accounts = client.Account.all
+
+    account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
+    bank_account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
+
+    new_transaction = client.BankTransaction.build(
+      :type => "SPEND",
+      :contact => { :name => "Jazz Kang" },
+      :line_items => [
+        :item_code => "Clingfilm bike shorts",
+        :description => "Bike shorts made of clear, unbreathable material",
+        :quantity => 1,
+        :unit_amount => 39.99,
+        :account_code => account.code,
+        :tax_type => account.tax_type
+      ],
+      :bank_account => { :code => bank_account.code }
+    )
+
+    assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+    assert_exists new_transaction
+
+    the_new_type = "RECEIVE"
+
+    expected_id = new_transaction.id
+
+    new_transaction.type = type = the_new_type
+
+    assert new_transaction.save, "Update failed with the following errors: #{new_transaction.errors.inspect}"
+
+    assert_equal expected_id, new_transaction.id, "Expected the id to be the same because it has been updated"
+
+    refreshed_bank_transaction = client.BankTransaction.find expected_id
+
+    assert_equal the_new_type, refreshed_bank_transaction.type, "Expected the bank transaction to've had its type updated"
+  end
+
   can "create a new RECEIVE bank transaction" do
     all_accounts = client.Account.all
 

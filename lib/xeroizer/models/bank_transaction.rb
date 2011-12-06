@@ -21,9 +21,9 @@ module Xeroizer
       string :line_amount_types
       decimal :sub_total
       decimal :total_tax
-      date :updated_date_utc
+      date :updated_date_utc, :api_name => "UpdatedDateUTC"
       date :fully_paid_on_date
-      string :bank_transaction_id
+      string :bank_transaction_id, :api_name => "BankTransactionID"
       boolean :is_reconciled
 
       alias_method :reconciled?, :is_reconciled
