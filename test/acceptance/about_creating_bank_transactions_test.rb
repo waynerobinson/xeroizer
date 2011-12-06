@@ -54,6 +54,11 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       "Expected the bank transaction to've had its type updated"
   end
 
+  can "get tax amounts" do
+    all_tax_rates = client.TaxRate.all
+    assert all_tax_rates.size > 0
+  end
+
   must_eventually "update a bank transaction, for example by adding line items" do
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
