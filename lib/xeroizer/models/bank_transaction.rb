@@ -19,15 +19,9 @@ module Xeroizer
       string :type
       date :date
       string :line_amount_types
-      decimal :sub_total
       decimal :total_tax
-
-      def total
-        self.line_items.map do |line_item|
-          item_total = line_item[:unit_amount].to_f + line_item[:tax_amount].to_f
-          (item_total * line_item[:quantity].to_f).to_f
-        end.reduce :+
-      end
+      decimal :sub_total
+      decimal :total
 
       date :updated_date_utc, :api_name => "UpdatedDateUTC"
       date :fully_paid_on_date
@@ -47,6 +41,14 @@ module Xeroizer
       
       validates :line_items, :message => "Invalid line items. Must supply at least one." do
         self.line_items.size > 0
+      end
+
+      private
+
+      def total_core
+        self.line_items.map do |line_item|
+          BigDecimal(line_item[:line_amount].to_s) + BigDecimal(line_item[:tax_amount].to_s)
+        end.reduce :+
       end
     end
   end
