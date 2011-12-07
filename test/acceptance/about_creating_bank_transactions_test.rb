@@ -5,7 +5,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   include AcceptanceTest
 
   def client
-    @client ||=  Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+    @client ||= Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
   end
 
   def setup
@@ -36,13 +36,14 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
+
     assert_exists new_transaction
 
     the_new_type = "RECEIVE"
 
     expected_id = new_transaction.id
 
-    new_transaction.type = type = the_new_type
+    new_transaction.type = the_new_type
 
     assert new_transaction.save, "Update failed with the following errors: #{new_transaction.errors.inspect}"
 
@@ -54,12 +55,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       "Expected the bank transaction to've had its type updated"
   end
 
-  can "get tax amounts" do
-    all_tax_rates = client.TaxRate.all
-    assert all_tax_rates.size > 0
-  end
-
-  must_eventually "update a bank transaction, for example by adding line items" do
+  can "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
@@ -72,22 +68,19 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
 
     expected_id = new_transaction.id
 
+    # TODO: tax rate varies depending on whether the line_amount contains tax or not.
+    # We need to formalize this concept somewhere.
+    # By default, line_item#unit_prive is Inclusive.
+    tax_rate = get_tax_rate(@account.tax_type).effective_rate
+
     the_new_line_items = [
       {
-        :item_code => "Burrito skin",
-        :description => "The outside of a burrito",
+        :description => "Burrito skin",
         :quantity => 1,
-        :unit_amount => 39.99,
+        :unit_amount => BigDecimal("1.00"),
         :account_code => @account.code,
-        :tax_type => @account.tax_type
-      },
-      {
-        :item_code => "Dental pick (30)",
-        :description => "Some things for picking lunch out of teeth",
-        :quantity => 1,
-        :unit_amount => 9.99,
-        :account_code => @account.code,
-        :tax_type => @account.tax_type
+        :tax_type => @account.tax_type,
+        :tax_amount => get_inclusive_tax(BigDecimal("1.00"), tax_rate)
       }
     ]
 
@@ -100,8 +93,24 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     assert_equal expected_id, new_transaction.id,
       "Expected the id to be the same because it has been updated"
 
-    assert_equal the_new_line_items, refreshed_bank_transaction.line_items,
-      "Expected the bank transaction to've had its line items updated"
+    assert_equal 1, refreshed_bank_transaction.line_items.size,
+      "Expected the bank transaction to've had its line items updated to just one"
+
+    the_first_line_item = refreshed_bank_transaction.line_items.first
+
+    assert_equal "Burrito skin", the_first_line_item.description,
+      "Expected the bank transaction to've had its line items updated, " +
+      "but the first one's description does not match: #{the_first_line_item.inspect}"
+  end
+
+  def get_inclusive_tax(amount, tax_rate)
+    inclusive_tax = amount * (1 - (100/(100 + tax_rate)))
+    BigDecimal(inclusive_tax.to_s).round(2)
+  end
+
+  def get_tax_rate tax_type
+    @all_tax_types ||= client.TaxRate.all
+    @all_tax_types.select{|tax_rate| tax_rate.tax_type == tax_type}.first
   end
 
   can "create a new RECEIVE bank transaction" do
@@ -116,6 +125,9 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     assert_exists new_transaction
   end
 
+  it "treats line item unit_amounts as tax EXCLUSIVE"
+  must "not set the tax_amount manually on line items"
+
   def assert_exists(bank_transaction)
     assert_not_nil bank_transaction.id,
       "Cannot check for exitence unless the bank transaction has non-null identifier"
@@ -124,10 +136,9 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
 
   def any_line_items(account)
     [{
-      :item_code => "Clingfilm bike shorts",
-      :description => "Bike shorts made of clear, unbreathable material",
+      :description => "Clingfilm bike shorts",
       :quantity => 1,
-      :unit_amount => 39.99,
+      :unit_amount => "1.00",
       :account_code => account.code,
       :tax_type => account.tax_type
     }]
