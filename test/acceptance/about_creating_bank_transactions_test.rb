@@ -55,7 +55,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       "Expected the bank transaction to've had its type updated"
   end
 
-  can "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
+  must_eventually "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
@@ -138,7 +138,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     [{
       :description => "Clingfilm bike shorts",
       :quantity => 1,
-      :unit_amount => "1.00",
+      :unit_amount => "17.00",
       :account_code => account.code,
       :tax_type => account.tax_type
     }]
