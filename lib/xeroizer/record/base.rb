@@ -2,6 +2,7 @@ require 'xeroizer/record/model_definition_helper'
 require 'xeroizer/record/record_association_helper'
 require 'xeroizer/record/validation_helper'
 require 'xeroizer/record/xml_helper'
+require 'xeroizer/logging'
 
 module Xeroizer
   module Record
@@ -96,7 +97,13 @@ module Xeroizer
       
         # Attempt to create a new record.
         def create
-          parse_save_response(parent.http_put(to_xml))
+          request = to_xml
+          log "[CREATE SENT] #{request}"
+          
+          response = parent.http_put(request)
+          log "[CREATE RECEIVED] #{response}"
+          
+          parse_save_response(response)
         end
         
         # Attempt to update an existing record.
@@ -104,8 +111,11 @@ module Xeroizer
           if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
+          request = to_xml
           
-          parse_save_response(parent.http_post(to_xml))
+          log "[UPDATE SENT] #{request}"
+          
+          parse_save_response(parent.http_post(request))
         end
         
         # Parse the response from a create/update request.
@@ -116,6 +126,10 @@ module Xeroizer
             @attributes = record.attributes
           end
           self
+        end
+
+        def log(what)
+          Xeroizer::Logging::Log.info what
         end
                      
     end
