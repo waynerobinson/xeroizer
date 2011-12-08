@@ -52,20 +52,20 @@ class BankTransactionValidationTest < Test::Unit::TestCase
       "Expected an error about blank contact"
   end
 
-  must "supply valid line_amount_type" do 
+  must "supply valid line_amount_types value" do 
     instance = Xeroizer::Record::BankTransaction.build({
-      :line_amount_type => "XXX_ANYTHING_INVALID_XXX"
+      :line_amount_types => "XXX_ANYTHING_INVALID_XXX"
     }, nil)
 
     assert false == instance.valid?, "Expected invalid because of missing bank account"
 
-    assert_equal "not one of Exclusive, Inclusive, NoTax", instance.errors_for(:line_amount_type).first, 
+    assert_equal "not one of Exclusive, Inclusive, NoTax", instance.errors_for(:line_amount_types).first, 
       "Expected an error about blank contact"
   end
 
   must "line_amount_type defaults to \"Exclusive\"" do
     instance = Xeroizer::Record::BankTransaction.build({}, nil)
 
-    assert_equal "Exclusive", instance.line_amount_type
+    assert_equal "Exclusive", instance.line_amount_types
   end
 end

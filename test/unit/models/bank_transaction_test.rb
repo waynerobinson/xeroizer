@@ -17,9 +17,9 @@ class BankTransactionTest < Test::Unit::TestCase
     @the_bank_transaction.line_items = the_line_items
   end
 
-  context "given a bank_transaction where the line item amounts do not include tax" do
+  context "given a bank_transaction with line_amount_types set to \"Exclusive\"" do
     setup do
-      @the_bank_transaction.line_amount_type = "Exclusive"
+      @the_bank_transaction.line_amount_types = "Exclusive"
     end
 
     must "calculate the total as the sum of its line item line_amount and tax_amount" do
@@ -31,9 +31,9 @@ class BankTransactionTest < Test::Unit::TestCase
     end
   end
 
-  context "given a bank_transaction where the line item amounts include tax" do
+  context "given a bank_transaction with line_amount_types set to \"Inclusive\"" do
     setup do
-      @the_bank_transaction.line_amount_type = "Inclusive"
+      @the_bank_transaction.line_amount_types = "Inclusive"
     end
 
     must "calculate the total as the sum of its line item line_amount and tax_amount" do

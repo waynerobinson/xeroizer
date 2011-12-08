@@ -6,7 +6,7 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     @instance = Xeroizer::Record::BankTransactionModel.new(nil, "BankTransaction")
   end
 
-  must "parse all the root elements" do
+  must "parse all the root elements except sub_total, total_tax and total" do
     some_xml = "
      <Response>
         <BankTransactions>
@@ -31,8 +31,6 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
 
     assert_equal Date.parse("2010-07-30T00:00:00"), the_bank_transaction.date
     assert_equal "Inclusive", the_bank_transaction.line_amount_types
-    assert_equal 15.00, the_bank_transaction.sub_total
-    assert_equal 0.00, the_bank_transaction.total_tax
     assert_equal Date.parse("2008-02-20T12:19:56.657"), the_bank_transaction.updated_date_utc
     assert_equal Date.parse("2010-07-30T00:00:00"), the_bank_transaction.fully_paid_on_date
     assert_equal "d20b6c54-7f5d-4ce6-ab83-55f609719126", the_bank_transaction.bank_transaction_id
@@ -126,8 +124,8 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
     assert_not_nil(the_bank_transaction.bank_account,
       "Missing bank_account: #{the_bank_transaction.inspect}"
     )
-    
-    assert_equal "297c2dc5-cc47-4afd-8ec8-74990b8761e9", the_bank_transaction.bank_account.account_id, 
+
+    assert_equal "297c2dc5-cc47-4afd-8ec8-74990b8761e9", the_bank_transaction.bank_account.account_id,
       "Unexpected bank account id: #{the_bank_transaction.inspect}"
   end
 end
