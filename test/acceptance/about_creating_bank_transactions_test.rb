@@ -4,8 +4,6 @@ require "acceptance_test"
 class AboutCreatingBankTransactions < Test::Unit::TestCase
   include AcceptanceTest
 
-  Xeroizer::Logging.const_set :Log, Xeroizer::Logging::DevNullLog
-
   def client
     @client ||= Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
   end
