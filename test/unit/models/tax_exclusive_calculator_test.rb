@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TaxCalculatorTest < Test::Unit::TestCase
+class LineItemSumTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   def setup
