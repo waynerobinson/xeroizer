@@ -9,12 +9,19 @@ module AcceptanceTest
         def self.no_log
           Xeroizer::Logging.const_set :Log, Xeroizer::Logging::DevNullLog
         end
-      end
-    end
 
-    def let(symbol, &block)
-      return unless block_given?
-      define_method symbol, &block
+        def self.let(symbol, &block)
+          return unless block_given?
+
+          unless respond_to? symbol
+            define_method symbol, do
+              cached_method_result = instance_variable_get ivar_name = "@#{symbol}"
+              instance_variable_set(ivar_name, instance_eval(&block)) if cached_method_result.nil?
+              instance_variable_get ivar_name
+            end
+          end
+        end
+      end
     end
   end
 
