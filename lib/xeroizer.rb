@@ -23,6 +23,7 @@ require 'xeroizer/exceptions'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/base'
+require 'xeroizer/configuration'
 
 # Include models
 require 'xeroizer/models/account'

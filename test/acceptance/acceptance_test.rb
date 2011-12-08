@@ -26,12 +26,28 @@ module AcceptanceTest
   end
 
   def setup
+    config = load_config_from_file || load_config_from_env
+
+    @key_file = config.key_file
+    @consumer_key = config.consumer_key
+    @consumer_secret = config.consumer_secret
+  end
+
+  private
+
+  def load_config_from_file
+    the_file_name = ".oauth"
+
+    return nil unless File.exists? the_file_name
+
+    Xeroizer::OAuthConfig.load IO.read the_file_name
+  end
+
+  def load_config_from_env
     assert_not_nil ENV["CONSUMER_KEY"], "No CONSUMER_KEY environment variable specified."
     assert_not_nil ENV["CONSUMER_SECRET"], "No CONSUMER_SECRET environment variable specified."
     assert_not_nil ENV["KEY_FILE"], "No KEY_FILE environment variable specified."
     assert File.exists?(ENV["KEY_FILE"]), "The file <#{ENV["KEY_FILE"]}> does not exist."
-    @key_file = ENV["KEY_FILE"]
-    @consumer_key = ENV["CONSUMER_KEY"]
-    @consumer_secret = ENV["CONSUMER_SECRET"]
+    OAuthCredentials.new ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], ENV["KEY_FILE"]
   end
 end
