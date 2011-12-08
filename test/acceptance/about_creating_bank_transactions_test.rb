@@ -4,6 +4,8 @@ require "acceptance_test"
 class AboutCreatingBankTransactions < Test::Unit::TestCase
   include AcceptanceTest
 
+  Xeroizer::Logging.const_set :Log, Xeroizer::Logging::DevNullLog
+
   def client
     @client ||= Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
   end
@@ -55,12 +57,13 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       "Expected the bank transaction to've had its type updated"
   end
 
-  must_eventually "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
+  can "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
     new_transaction = client.BankTransaction.build(
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
       :line_items => any_line_items(@account),
-      :bank_account => { :code => @bank_account.code }
+      :bank_account => { :code => @bank_account.code },
+      :line_amount_types => "Exclusive"
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
@@ -68,19 +71,18 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
 
     expected_id = new_transaction.id
 
-    # TODO: tax rate varies depending on whether the line_amount contains tax or not.
-    # We need to formalize this concept somewhere.
-    # By default, line_item#unit_prive is Inclusive.
     tax_rate = get_tax_rate(@account.tax_type).effective_rate
+
+    unit_price = BigDecimal("1337.00")
 
     the_new_line_items = [
       {
         :description => "Burrito skin",
         :quantity => 1,
-        :unit_amount => BigDecimal("1.00"),
+        :unit_amount => unit_price,
         :account_code => @account.code,
         :tax_type => @account.tax_type,
-        :tax_amount => get_inclusive_tax(BigDecimal("1.00"), tax_rate)
+        :tax_amount => get_exclusive_tax(unit_price, tax_rate)
       }
     ]
 
@@ -106,6 +108,11 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   def get_inclusive_tax(amount, tax_rate)
     inclusive_tax = amount * (1 - (100/(100 + tax_rate)))
     BigDecimal(inclusive_tax.to_s).round(2)
+  end
+
+  def get_exclusive_tax(amount, tax_rate)
+    exclusive_tax = amount * (tax_rate/100)
+    BigDecimal(exclusive_tax.to_s).round(2)
   end
 
   def get_tax_rate tax_type
