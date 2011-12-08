@@ -76,7 +76,7 @@ module Xeroizer
       private
 
       def ought_to_recalculate_totals?
-        new_record? || (!new_record? && line_items && line_items.size > 0)
+        new_record? || line_items && line_items.size > 0
       end
     end
   end
