@@ -111,11 +111,16 @@ module Xeroizer
           if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
+          
           request = to_xml
           
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
           
-          parse_save_response(parent.http_post(request))
+          response = parent.http_post(request)
+
+          log "[UPDATE RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
+
+          parse_save_response(response)
         end
         
         # Parse the response from a create/update request.
