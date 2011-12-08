@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TaxCalculator
+class TaxExclusiveCalculator
   def sub_total(line_items)
     line_items.inject(BigDecimal("0")) do |sum, item|
       sum += item.line_amount
@@ -8,7 +8,7 @@ class TaxCalculator
   end
 end
 
-class TaxCalculatorTest < Test::Unit::TestCase
+class TaxExclusiveCalculatorTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   it "sub_total is the sum of the line_amounts" do
@@ -21,6 +21,6 @@ class TaxCalculatorTest < Test::Unit::TestCase
       BigDecimal(line_item[:line_amount].to_s)
     end.reduce :+
 
-    assert_equal expected_sub_total, TaxCalculator.new.sub_total(the_line_items)
+    assert_equal expected_sub_total, TaxExclusiveCalculator.new.sub_total(the_line_items)
   end
 end
