@@ -1,22 +1,5 @@
 require 'xeroizer/models/line_item'
-
-class TaxExclusiveCalculator
-  def self.total(line_items)
-    sub_total(line_items) + total_tax(line_items)
-  end
-
-  def self.sub_total(line_items)
-    line_items.inject(BigDecimal("0")) do |sum, item|
-      sum += BigDecimal(item.line_amount.to_s).round(2)
-    end
-  end
-
-  def self.total_tax(line_items)
-    line_items.inject(BigDecimal("0")) do |sum, item|
-      sum += BigDecimal(item.tax_amount.to_s).round(2)
-    end
-  end
-end
+require 'xeroizer/models/line_item_sum'
 
 module Xeroizer
   module Record
@@ -76,7 +59,7 @@ module Xeroizer
 
       def sub_total
         if ought_to_recalculate_totals?
-          result = TaxExclusiveCalculator.sub_total(self.line_items)
+          result = LineItemSum.sub_total(self.line_items)
           result -= total_tax if line_amount_types == 'Inclusive'
           result
         else
@@ -86,7 +69,7 @@ module Xeroizer
 
       def total_tax
         return ought_to_recalculate_totals? ?
-          TaxExclusiveCalculator.total_tax(self.line_items) :
+          LineItemSum.total_tax(self.line_items) :
           attributes[:total_tax]
       end
 
