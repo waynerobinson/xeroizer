@@ -39,7 +39,7 @@ module Xeroizer
       belongs_to :bank_account, :model_name => 'BankAccount'
 
       validates_inclusion_of :line_amount_types,
-        :in => Xeroizer::Record::LineItem::LINE_AMOUNT_TYPES, :allow_blanks => false
+        :in => Xeroizer::Record::LINE_AMOUNT_TYPES, :allow_blanks => false
 
       validates_inclusion_of :type,
         :in => %w{SPEND RECEIVE}, :allow_blanks => false,
