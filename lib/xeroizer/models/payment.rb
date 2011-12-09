@@ -17,12 +17,7 @@ module Xeroizer
       decimal   :amount
       decimal   :currency_rate
       string    :reference
-      
-      guid      :invoice_id
-      string    :invoice_number
-      guid      :account_id
-      string    :code
-      
+            
       belongs_to  :account
       belongs_to  :invoice
       
