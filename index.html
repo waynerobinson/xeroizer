@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Documentation by YARD 0.6.8</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
 
   </head>
   <body>
@@ -31,59 +41,63 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'><h1>Xeroizer API Library <img src="http://stillmaintained.com/waynerobinson/xeroizer.png" alt="Project status"/></h1>
+    <div id="content"><div id='filecontents'><h1>Xeroizer API Library <img src="http://stillmaintained.com/waynerobinson/xeroizer.png" alt="Project status">
+</h1>
 
-<p><strong>Homepage</strong>:       <a href="http://waynerobinson.github.com/xeroizer">http://waynerobinson.github.com/xeroizer</a><br/>
-<strong>Git</strong>:                    <a href="git://github.com/waynerobinson/xeroizer.git">git://github.com/waynerobinson/xeroizer.git</a><br/>
-<strong>Github</strong>:             <a href="https://github.com/waynerobinson/xeroizer">https://github.com/waynerobinson/xeroizer</a><br/>
-<strong>Author</strong>:             Wayne Robinson <a href="http://www.wayne-robinson.com">http://www.wayne-robinson.com</a><br/>
-<strong>Contributors</strong>: See Contributors section below<br/>
-<strong>Copyright</strong>:    2007-2010<br/>
+<p><strong>Homepage</strong>:       <a href="http://waynerobinson.github.com/xeroizer"><a href="http://waynerobinson.github.com/xeroizer">http://waynerobinson.github.com/xeroizer</a></a><br>
+<strong>Git</strong>:                    <a href="git://github.com/waynerobinson/xeroizer.git">git://github.com/waynerobinson/xeroizer.git</a><br>
+<strong>Github</strong>:             <a href="https://github.com/waynerobinson/xeroizer"><a href="https://github.com/waynerobinson/xeroizer">https://github.com/waynerobinson/xeroizer</a></a><br>
+<strong>Author</strong>:             Wayne Robinson <a href="http://www.wayne-robinson.com"><a href="http://www.wayne-robinson.com">http://www.wayne-robinson.com</a></a><br>
+<strong>Contributors</strong>: See Contributors section below<br>
+<strong>Copyright</strong>:    2007-2010<br>
 <strong>License</strong>:      MIT License       </p>
 
 <h2>Introduction</h2>
 
 <p>This library is designed to help ruby/rails based applications communicate with the publicly available API for Xero.</p>
 
-<p>If you are unfamiliar with the Xero API, you should first read the documentation located at http://developer.xero.com.</p>
+<p>If you are unfamiliar with the Xero API, you should first read the documentation located at <a href="http://developer.xero.com">http://developer.xero.com</a>.</p>
 
 <h2>Installation</h2>
 
-<pre class="code"><span class='gem identifier id'>gem</span> <span class='install identifier id'>install</span> <span class='xeroizer identifier id'>xeroizer</span>
+<pre class="code"><span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_xeroizer identifier id'>xeroizer</span>
 </pre>
 
 <h2>Basic Usage</h2>
 
-<pre class="code"><span class='require identifier id'>require</span> <span class='string val'>'rubygems'</span>
-<span class='require identifier id'>require</span> <span class='string val'>'xeroizer'</span>
+<pre class="code"><span class='rubyid_require identifier id'>require</span> <span class='string val'>'rubygems'</span>
+<span class='rubyid_require identifier id'>require</span> <span class='string val'>'xeroizer'</span>
 
 <span class='comment val'># Create client (used to communicate with the API).</span>
-<span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+<span class='rubyid_client identifier id'>client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
 
 <span class='comment val'># Retrieve list of contacts (note: all communication must be made through the client).</span>
-<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
+<span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
 </pre>
 
 <h2>Authentication</h2>
 
-<p>Xero uses OAuth to authenticate API clients. The OAuth gem (with minor modification) by John Nunemaker (<a href="http://github.com/jnunemaker/twitter">http://github.com/jnunemaker/twitter</a>) is used in this library. If you've used this before, things will all seem very familar.</p>
+<p>Xero uses OAuth to authenticate API clients. The OAuth gem (with minor modification) by John Nunemaker (<a href="http://github.com/jnunemaker/twitter"><a href="http://github.com/jnunemaker/twitter">http://github.com/jnunemaker/twitter</a></a>) is used in this library. If you've used this before, things will all seem very familar.</p>
 
 <p>There are three methods of authentication detailed below:</p>
 
 <h3>All: Consumer Key/Secret</h3>
 
 <p>All methods of authentication require your OAuth consumer key and secret. This can be found for your application 
-in the API management console at <a href="http://api.xero.com">http://api.xero.com</a>.</p>
+in the API management console at <a href="http://api.xero.com"><a href="http://api.xero.com">http://api.xero.com</a></a>.</p>
 
 <h3>Public Applications</h3>
 
@@ -96,80 +110,80 @@ the user to re-authorise your application.</p>
 
 <p>Authentication occcurs in 3 steps:</p>
 
-<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_client identifier id'>client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
 
-<span class='comment val'># 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to</span>
+<span class='comment val'># 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to</span>
 <span class='comment val'>#    after they have authenticated your application.</span>
 <span class='comment val'>#</span>
 <span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com</span>
 <span class='comment val'>#          otherwise the user will not be redirected and only be shown the authentication code.</span>
-<span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
+<span class='rubyid_request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_callback</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
 
 <span class='comment val'># 2. Redirect the user to the URL specified by the RequestToken.</span>
 <span class='comment val'>#    </span>
 <span class='comment val'>#    Note: example uses redirect_to method defined in Rails controllers.</span>
-<span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
+<span class='rubyid_redirect_to identifier id'>redirect_to</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_authorize_url identifier id'>authorize_url</span>
 
 <span class='comment val'># 3. Exchange RequestToken for AccessToken.</span>
 <span class='comment val'>#    This access token will be used for all subsequent requests but it is stored within the client</span>
 <span class='comment val'>#    application so you don't have to record it. </span>
 <span class='comment val'>#</span>
 <span class='comment val'>#    Note: This example assumes the callback URL is a Rails action.</span>
-<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 </pre>
 
 <p>You can now use the client to access the Xero API methods, e.g.</p>
 
-<pre class="code"><span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span>
+<pre class="code"><span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span>
 </pre>
 
 <h4>Example Rails Controller</h4>
 
-<pre class="code"><span class='class class kw'>class</span> <span class='XeroSessionController constant id'>XeroSessionController</span> <span class='lt op'>&lt;</span> <span class='ApplicationController constant id'>ApplicationController</span>
+<pre class="code"><span class='rubyid_class class kw'>class</span> <span class='rubyid_XeroSessionController constant id'>XeroSessionController</span> <span class='lt op'>&lt;</span> <span class='rubyid_ApplicationController constant id'>ApplicationController</span>
 
-    <span class='before_filter identifier id'>before_filter</span> <span class='symbol val'>:get_xero_client</span>
+    <span class='rubyid_before_filter identifier id'>before_filter</span> <span class='symbol val'>:get_xero_client</span>
 
-    <span class='public identifier id'>public</span>
+    <span class='rubyid_public identifier id'>public</span>
 
-        <span class='def def kw'>def</span> <span class='new identifier id'>new</span>
-            <span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/xero_session/create'</span><span class='rparen token'>)</span>
-            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
-            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+        <span class='rubyid_def def kw'>def</span> <span class='rubyid_new identifier id'>new</span>
+            <span class='rubyid_request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='rubyid_@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='rubyid_request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_callback</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/xero_session/create'</span><span class='rparen token'>)</span>
+            <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span>
+            <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span>
 
-            <span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
-        <span class='end end kw'>end</span>
+            <span class='rubyid_redirect_to identifier id'>redirect_to</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_authorize_url identifier id'>authorize_url</span>
+        <span class='rubyid_end end kw'>end</span>
 
-        <span class='def def kw'>def</span> <span class='create identifier id'>create</span>
-            <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span>
-                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
-                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
-                    <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
+        <span class='rubyid_def def kw'>def</span> <span class='rubyid_create identifier id'>create</span>
+            <span class='rubyid_@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='rubyid_authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span>
+                    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:request_secret</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
 
-            <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
-                    <span class='symbol val'>:access_token</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span>
-                    <span class='symbol val'>:access_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='key identifier id'>key</span> <span class='rbrace token'>}</span>
+            <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
+                    <span class='symbol val'>:access_token</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:access_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_key identifier id'>key</span> <span class='rbrace token'>}</span>
 
-            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_token</span><span class='rparen token'>)</span>
-            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_secret</span><span class='rparen token'>)</span>
-        <span class='end end kw'>end</span>
+            <span class='rubyid_session identifier id'>session</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_token</span><span class='rparen token'>)</span>
+            <span class='rubyid_session identifier id'>session</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:request_secret</span><span class='rparen token'>)</span>
+        <span class='rubyid_end end kw'>end</span>
 
-        <span class='def def kw'>def</span> <span class='destroy identifier id'>destroy</span>
-            <span class='session identifier id'>session</span><span class='dot token'>.</span><span class='data identifier id'>data</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:xero_auth</span><span class='rparen token'>)</span>
-        <span class='end end kw'>end</span>
+        <span class='rubyid_def def kw'>def</span> <span class='rubyid_destroy identifier id'>destroy</span>
+            <span class='rubyid_session identifier id'>session</span><span class='dot token'>.</span><span class='rubyid_data identifier id'>data</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:xero_auth</span><span class='rparen token'>)</span>
+        <span class='rubyid_end end kw'>end</span>
 
-    <span class='private identifier id'>private</span>
+    <span class='rubyid_private identifier id'>private</span>
 
-        <span class='def def kw'>def</span> <span class='get_xero_client identifier id'>get_xero_client</span>
-            <span class='@xero_client ivar id'>@xero_client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+        <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_xero_client identifier id'>get_xero_client</span>
+            <span class='rubyid_@xero_client ivar id'>@xero_client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
 
             <span class='comment val'># Add AccessToken if authorised previously.</span>
-            <span class='if if kw'>if</span> <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span>
-                <span class='@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span>
-                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
-                    <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
-            <span class='end end kw'>end</span>
-        <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+            <span class='rubyid_if if kw'>if</span> <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span>
+                <span class='rubyid_@xero_client ivar id'>@xero_client</span><span class='dot token'>.</span><span class='rubyid_authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span>
+                    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> 
+                    <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
+            <span class='rubyid_end end kw'>end</span>
+        <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
 
 <h4>Storing AccessToken</h4>
@@ -180,8 +194,8 @@ the API beyond the token's expiry time.</p>
 
 <p>If you want API access for longer consider creating a PartnerApplication which will allow you to renew tokens.</p>
 
-<pre class="code"><span class='access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
-<span class='access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+<pre class="code"><span class='rubyid_access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span>
+<span class='rubyid_access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span>
 </pre>
 
 <h3>Private Applications</h3>
@@ -195,17 +209,17 @@ register another private application if you have multiple organisations. </p>
 <p>Private applications require a private RSA keypair which is used to sign each request to the API. You can
 generate this keypair on Mac OSX or Linux with OpenSSL. For example:</p>
 
-<pre class="code"><span class='openssl identifier id'>openssl</span> <span class='genrsa identifier id'>genrsa</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='integer val'>1024</span>
-<span class='openssl identifier id'>openssl</span> <span class='req identifier id'>req</span> <span class='minus op'>-</span><span class='newkey identifier id'>newkey</span> <span class='rsa identifier id'>rsa</span><span class='symbol val'>:1024</span> <span class='minus op'>-</span><span class='x509 identifier id'>x509</span> <span class='minus op'>-</span><span class='key identifier id'>key</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='cer identifier id'>cer</span> <span class='minus op'>-</span><span class='days identifier id'>days</span> <span class='integer val'>365</span>
-<span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='export identifier id'>export</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='public_privatekey identifier id'>public_privatekey</span><span class='dot token'>.</span><span class='pfx identifier id'>pfx</span> <span class='minus op'>-</span><span class='inkey identifier id'>inkey</span> <span class='privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='cer identifier id'>cer</span>
+<pre class="code"><span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_genrsa identifier id'>genrsa</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span> <span class='integer val'>1024</span>
+<span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_req identifier id'>req</span> <span class='minus op'>-</span><span class='rubyid_newkey identifier id'>newkey</span> <span class='rubyid_rsa identifier id'>rsa</span><span class='symbol val'>:1024</span> <span class='minus op'>-</span><span class='rubyid_x509 identifier id'>x509</span> <span class='minus op'>-</span><span class='rubyid_key identifier id'>key</span> <span class='rubyid_privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='rubyid_cer identifier id'>cer</span> <span class='minus op'>-</span><span class='rubyid_days identifier id'>days</span> <span class='integer val'>365</span>
+<span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='rubyid_export identifier id'>export</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_public_privatekey identifier id'>public_privatekey</span><span class='dot token'>.</span><span class='rubyid_pfx identifier id'>pfx</span> <span class='minus op'>-</span><span class='rubyid_inkey identifier id'>inkey</span> <span class='rubyid_privatekey identifier id'>privatekey</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span> <span class='minus op'>-</span><span class='rubyid_in in kw'>in</span> <span class='rubyid_publickey identifier id'>publickey</span><span class='dot token'>.</span><span class='rubyid_cer identifier id'>cer</span>
 </pre>
 
-<p>You need to upload this <code>public_privatekey.pfx</code> file to your private application in <a href="http://api.xero.com">http://api.xero.com</a>.</p>
+<p>You need to upload this <code>public_privatekey.pfx</code> file to your private application in <a href="http://api.xero.com"><a href="http://api.xero.com">http://api.xero.com</a></a>.</p>
 
 <p>Example usage:</p>
 
-<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PrivateApplication constant id'>PrivateApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> <span class='string val'>&quot;/path/to/privatekey.pem&quot;</span><span class='rparen token'>)</span>
-<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span>
+<pre class="code"><span class='rubyid_client identifier id'>client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PrivateApplication constant id'>PrivateApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> <span class='string val'>&quot;/path/to/privatekey.pem&quot;</span><span class='rparen token'>)</span>
+<span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span>
 </pre>
 
 <h3>Partner Applications</h3>
@@ -213,16 +227,16 @@ generate this keypair on Mac OSX or Linux with OpenSSL. For example:</p>
 <p>Partner applications use a combination of 3-legged authorisation, private key message signing and client-side SSL
 certificate signing.</p>
 
-<p>Partner applications are only in beta testing via the Xero API and you will need to contact Xero (network@xero.com) to 
+<p>Partner applications are only in beta testing via the Xero API and you will need to contact Xero (<a href="mailto:network@xero.com">network@xero.com</a>) to 
 get permission to create a partner application and for them to send you information on obtaining your client-side SSL
 certificate.</p>
 
 <p>Ruby's OpenSSL library rqeuires the certificate and private key to be extracted from the <code>entrust-client.p12</code> file
 downloaded via Xero's instructions. To extract:</p>
 
-<pre class="code"><span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='client identifier id'>client</span><span class='dot token'>.</span><span class='p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='clcerts identifier id'>clcerts</span> <span class='minus op'>-</span><span class='nokeys identifier id'>nokeys</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='cert identifier id'>cert</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
-<span class='openssl identifier id'>openssl</span> <span class='pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='client identifier id'>client</span><span class='dot token'>.</span><span class='p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='nocerts identifier id'>nocerts</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
-<span class='openssl identifier id'>openssl</span> <span class='rsa identifier id'>rsa</span> <span class='minus op'>-</span><span class='in in kw'>in</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span> <span class='minus op'>-</span><span class='out identifier id'>out</span> <span class='entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='private identifier id'>private</span><span class='minus op'>-</span><span class='nopass identifier id'>nopass</span><span class='dot token'>.</span><span class='pem identifier id'>pem</span>
+<pre class="code"><span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='rubyid_in in kw'>in</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='rubyid_clcerts identifier id'>clcerts</span> <span class='minus op'>-</span><span class='rubyid_nokeys identifier id'>nokeys</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_cert identifier id'>cert</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span>
+<span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_pkcs12 identifier id'>pkcs12</span> <span class='minus op'>-</span><span class='rubyid_in in kw'>in</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_p12 identifier id'>p12</span> <span class='minus op'>-</span><span class='rubyid_nocerts identifier id'>nocerts</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_private identifier id'>private</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span>
+<span class='rubyid_openssl identifier id'>openssl</span> <span class='rubyid_rsa identifier id'>rsa</span> <span class='minus op'>-</span><span class='rubyid_in in kw'>in</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_private identifier id'>private</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span> <span class='minus op'>-</span><span class='rubyid_out identifier id'>out</span> <span class='rubyid_entrust identifier id'>entrust</span><span class='minus op'>-</span><span class='rubyid_private identifier id'>private</span><span class='minus op'>-</span><span class='rubyid_nopass identifier id'>nopass</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span>
 
 <span class='comment val'># This last step removes the password that you added to the private key</span>
 <span class='comment val'># when it was exported.</span>
@@ -233,59 +247,57 @@ access the partner application in a similar way to public applications.</p>
 
 <p>Authentication occcurs in 3 steps:</p>
 
-<pre class="code"><span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PartnerApplication constant id'>PartnerApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span>
-                    <span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
-                    <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> 
+<pre class="code"><span class='rubyid_client identifier id'>client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PartnerApplication constant id'>PartnerApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span>
+                    <span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
+                    <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span> 
                     <span class='string val'>&quot;/path/to/privatekey.pem&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;/path/to/entrust-cert.pem&quot;</span><span class='comma token'>,</span>
                     <span class='string val'>&quot;/path/to/entrust-private-nopass.pem&quot;</span>
                     <span class='rparen token'>)</span>
 
-<span class='comment val'># 1. Get a RequestToken from Xero. The :oauth_url is the URL the user will be redirected to</span>
+<span class='comment val'># 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to</span>
 <span class='comment val'>#    after they have authenticated your application.</span>
 <span class='comment val'>#</span>
 <span class='comment val'>#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com</span>
 <span class='comment val'>#          otherwise the user will not be redirected and only be shown the authentication code.</span>
-<span class='request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
+<span class='rubyid_request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='symbol val'>:oauth_callback</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://yourapp.com/oauth/callback'</span><span class='rparen token'>)</span>
 
 <span class='comment val'># 2. Redirect the user to the URL specified by the RequestToken.</span>
 <span class='comment val'>#    </span>
 <span class='comment val'>#    Note: example uses redirect_to method defined in Rails controllers.</span>
-<span class='redirect_to identifier id'>redirect_to</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='authorize_url identifier id'>authorize_url</span>
+<span class='rubyid_redirect_to identifier id'>redirect_to</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_authorize_url identifier id'>authorize_url</span>
 
 <span class='comment val'># 3. Exchange RequestToken for AccessToken.</span>
 <span class='comment val'>#    This access token will be used for all subsequent requests but it is stored within the client</span>
 <span class='comment val'>#    application so you don't have to record it. </span>
 <span class='comment val'>#</span>
 <span class='comment val'>#    Note: This example assumes the callback URL is a Rails action.</span>
-<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span><span class='comma token'>,</span> <span class='request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span><span class='comma token'>,</span> <span class='symbol val'>:oauth_verifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_verifier</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 </pre>
 
 <p>This AccessToken will last for 30 minutes however, when using the partner application API you can
 renew this token. To be able to renew this token, you need to save the following data from this organisation's
 AccessToken:</p>
 
-<pre class="code"><span class='session_handle identifier id'>session_handle</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='session_handle identifier id'>session_handle</span>
-<span class='access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='token identifier id'>token</span>
-<span class='access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='client identifier id'>client</span><span class='dot token'>.</span><span class='access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='secret identifier id'>secret</span>
+<pre class="code"><span class='rubyid_session_handle identifier id'>session_handle</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_session_handle identifier id'>session_handle</span>
+<span class='rubyid_access_key identifier id'>access_key</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span>
+<span class='rubyid_access_secret identifier id'>access_secret</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span>
 </pre>
 
 <p>Two other interesting attributes of the PartnerApplication client are:</p>
-
 <blockquote>
-    <p><strong><code>#expires_at</code></strong>:                                Time this AccessToken will expire (usually 30 minutes into the future).<br/>
-    <strong><code>#authorization_expires_at</code></strong>:  How long this organisation has authorised you to access their data (usually 365 days into the future).      </p>
+<p><strong><code>#expires_at</code>**:                                Time this AccessToken will expire (usually 30 minutes into the future).<br>
+**<code>#authorization_expires_at</code></strong>:  How long this organisation has authorised you to access their data (usually 365 days into the future).      </p>
 </blockquote>
-
 <h4>AccessToken Renewal</h4>
 
 <p>Renewal of an access token requires knowledge of the previous access token generated for this organisation. To renew:</p>
 
 <pre class="code"><span class='comment val'># If you still have a client instance.</span>
-<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='renew_access_token identifier id'>renew_access_token</span>
+<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_renew_access_token identifier id'>renew_access_token</span>
 
 <span class='comment val'># If you are renewing from stored token/session details.</span>
-<span class='client identifier id'>client</span><span class='dot token'>.</span><span class='renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='access_key identifier id'>access_key</span><span class='comma token'>,</span> <span class='access_secret identifier id'>access_secret</span><span class='comma token'>,</span> <span class='session_handle identifier id'>session_handle</span><span class='rparen token'>)</span>
+<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='rubyid_access_key identifier id'>access_key</span><span class='comma token'>,</span> <span class='rubyid_access_secret identifier id'>access_secret</span><span class='comma token'>,</span> <span class='rubyid_session_handle identifier id'>session_handle</span><span class='rparen token'>)</span>
 </pre>
 
 <p>This will invalidate the previous token and refresh the <code>access_key</code> and <code>access_secret</code> as specified in the
@@ -300,13 +312,13 @@ session.</p>
 time in a single application, the model classes are accessed from the instance of PublicApplication, PrivateApplication
 or PartnerApplication. All class-level operations occur on this singleton. For example:</p>
 
-<pre class="code"><span class='xero identifier id'>xero</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
-<span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_xero identifier id'>xero</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span> <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='rparen token'>)</span>
+<span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_token</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_session identifier id'>session</span><span class='lbrack token'>[</span><span class='symbol val'>:xero_auth</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:access_key</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 
-<span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
+<span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name'</span><span class='rparen token'>)</span>
 
-<span class='new_contact identifier id'>new_contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Development'</span><span class='rparen token'>)</span>
-<span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='new_contact identifier id'>new_contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+<span class='rubyid_new_contact identifier id'>new_contact</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Development'</span><span class='rparen token'>)</span>
+<span class='rubyid_saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='rubyid_new_contact identifier id'>new_contact</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
 </pre>
 
 <h3>#all([options])</h3>
@@ -319,21 +331,19 @@ contact and line items from Xero on first access however, this first access has 
 and will count as an extra query towards your 1,000/day and 60/minute request per organisation limit.</p>
 
 <p>Valid options are:</p>
-
 <blockquote>
-    <p><strong>:modified_since</strong></p>
-    
-    <p>Records modified after this <code>Time</code> (must be specified in UTC).</p>
-    
-    <p><strong>:order</strong></p>
-    
-    <p>Field to order by. Should be formatted as Xero-based field (e.g. 'Name', 'ContactID', etc)</p>
-    
-    <p><strong>:where</strong></p>
-    
-    <p><strong>See <em>Where Filters</em> section below.</strong></p>
-</blockquote>
+<p><strong>:modified_since</strong></p>
 
+<p>Records modified after this <code>Time</code> (must be specified in UTC).</p>
+
+<p><strong>:order</strong></p>
+
+<p>Field to order by. Should be formatted as Xero-based field (e.g. 'Name', 'ContactID', etc)</p>
+
+<p><strong>:where</strong></p>
+
+<p><strong>See <em>Where Filters</em> section below.</strong></p>
+</blockquote>
 <h3>#first([options])</h3>
 
 <p>This is a shortcut method for <code>all</code> and actually runs all however, this method only returns the
@@ -351,24 +361,24 @@ creating these records.</p>
 
 <p>You can specify find filters by providing the :where option with a hash. For example:</p>
 
-<pre class="code"><span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='Xero constant id'>Xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ACCREC'</span><span class='comma token'>,</span> <span class='symbol val'>:amount_due_is_not</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='rubyid_Xero constant id'>Xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ACCREC'</span><span class='comma token'>,</span> <span class='symbol val'>:amount_due_is_not</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
 </pre>
 
 <p>will automatically create the Xero string:</p>
 
-<pre class="code"><span class='Type constant id'>Type</span><span class='eq op'>==</span><span class='string val'>&quot;ACCREC&quot;</span><span class='andop op'>&amp;&amp;</span><span class='AmountDue constant id'>AmountDue</span><span class='lt op'>&lt;</span><span class='gt op'>&gt;</span><span class='integer val'>0</span>
+<pre class="code"><span class='rubyid_Type constant id'>Type</span><span class='eq op'>==</span><span class='string val'>&quot;ACCREC&quot;</span><span class='andop op'>&amp;&amp;</span><span class='rubyid_AmountDue constant id'>AmountDue</span><span class='lt op'>&lt;</span><span class='gt op'>&gt;</span><span class='integer val'>0</span>
 </pre>
 
 <p>The default method for filtering is the equality '==' operator however, these can be overridden
 by modifying the postfix of the attribute name (as you can see for the :amount_due field above).</p>
 
-<pre class="code"><span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_not identifier id'>_is_not</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;&gt;'</span>
-<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_greater_than identifier id'>_is_greater_than</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&gt;'</span>
-<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_greater_than_or_equal_to identifier id'>_is_greater_than_or_equal_to</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&gt;='</span>
-<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_less_than identifier id'>_is_less_than</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;'</span>
-<span class='lbrace token'>{</span><span class='attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='_is_less_than_or_equal_to identifier id'>_is_less_than_or_equal_to</span> <span class='will identifier id'>will</span> <span class='use identifier id'>use</span> <span class='string val'>'&lt;='</span>
+<pre class="code">\<span class='lbrace token'>{</span><span class='rubyid_attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='rubyid__is_not identifier id'>_is_not</span> <span class='rubyid_will identifier id'>will</span> <span class='rubyid_use identifier id'>use</span> <span class='string val'>'&lt;&gt;'</span>
+\<span class='lbrace token'>{</span><span class='rubyid_attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='rubyid__is_greater_than identifier id'>_is_greater_than</span> <span class='rubyid_will identifier id'>will</span> <span class='rubyid_use identifier id'>use</span> <span class='string val'>'&gt;'</span>
+\<span class='lbrace token'>{</span><span class='rubyid_attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='rubyid__is_greater_than_or_equal_to identifier id'>_is_greater_than_or_equal_to</span> <span class='rubyid_will identifier id'>will</span> <span class='rubyid_use identifier id'>use</span> <span class='string val'>'&gt;='</span>
+\<span class='lbrace token'>{</span><span class='rubyid_attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='rubyid__is_less_than identifier id'>_is_less_than</span> <span class='rubyid_will identifier id'>will</span> <span class='rubyid_use identifier id'>use</span> <span class='string val'>'&lt;'</span>
+\<span class='lbrace token'>{</span><span class='rubyid_attribute_name identifier id'>attribute_name</span><span class='rbrace token'>}</span><span class='rubyid__is_less_than_or_equal_to identifier id'>_is_less_than_or_equal_to</span> <span class='rubyid_will identifier id'>will</span> <span class='rubyid_use identifier id'>use</span> <span class='string val'>'&lt;='</span>
 
-<span class='The constant id'>The</span> <span class='default identifier id'>default</span> <span class='is identifier id'>is</span> <span class='string val'>'=='</span>
+<span class='rubyid_The constant id'>The</span> <span class='rubyid_default identifier id'>default</span> <span class='rubyid_is identifier id'>is</span> <span class='string val'>'=='</span>
 </pre>
 
 <p><strong>Note:</strong> Currently, the hash-conversion library only allows for AND-based criteria and doesn't
@@ -381,34 +391,34 @@ in the resulting response, including all nested XML elements.</p>
 
 <p><strong>Example 1: Retrieve all invoices for a specific contact ID:</strong></p>
 
-<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.ContactID.ToString()==&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.ContactID.ToString()==&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;'</span><span class='rparen token'>)</span>
 </pre>
 
 <p><strong>Example 2: Retrieve all unpaid ACCREC Invoices against a particular Contact Name:</strong></p>
 
-<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.Name==&quot;Basket Case&quot; &amp;&amp; Type==&quot;ACCREC&quot; &amp;&amp; AmountDue&lt;&gt;0'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact.Name==&quot;Basket Case&quot; &amp;&amp; Type==&quot;ACCREC&quot; &amp;&amp; AmountDue&lt;&gt;0'</span><span class='rparen token'>)</span>
 </pre>
 
 <p><strong>Example 3: Retrieve all Invoices PAID between certain dates</strong></p>
 
-<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FullyPaidOnDate&gt;=DateTime.Parse(&quot;2010-01-01T00:00:00&quot;)&amp;&amp;FullyPaidOnDate&lt;=DateTime.Parse(&quot;2010-01-08T00:00:00&quot;)'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FullyPaidOnDate&gt;=DateTime.Parse(&quot;2010-01-01T00:00:00&quot;)&amp;&amp;FullyPaidOnDate&lt;=DateTime.Parse(&quot;2010-01-08T00:00:00&quot;)'</span><span class='rparen token'>)</span>
 </pre>
 
 <p><strong>Example 4: Retrieve all Bank Accounts:</strong></p>
 
-<pre class="code">    <span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Account constant id'>Account</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Type==&quot;BANK&quot;'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Account constant id'>Account</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Type==&quot;BANK&quot;'</span><span class='rparen token'>)</span>
 </pre>
 
 <p><strong>Example 5: Retrieve all DELETED or VOIDED Invoices:</strong></p>
 
-<pre class="code">    <span class='invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Status==&quot;VOIDED&quot; OR Status==&quot;DELETED&quot;'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_invoices identifier id'>invoices</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Status==&quot;VOIDED&quot; OR Status==&quot;DELETED&quot;'</span><span class='rparen token'>)</span>
 </pre>
 
 <p><strong>Example 6: Retrieve all contacts with specific text in the contact name:</strong></p>
 
-<pre class="code">    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.Contains(&quot;Peter&quot;)'</span><span class='rparen token'>)</span>
-    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.StartsWith(&quot;Pet&quot;)'</span><span class='rparen token'>)</span>
-    <span class='contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.EndsWith(&quot;er&quot;)'</span><span class='rparen token'>)</span>
+<pre class="code">    <span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.Contains(&quot;Peter&quot;)'</span><span class='rparen token'>)</span>
+    <span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.StartsWith(&quot;Pet&quot;)'</span><span class='rparen token'>)</span>
+    <span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Name.EndsWith(&quot;er&quot;)'</span><span class='rparen token'>)</span>
 </pre>
 
 <h2>Associations</h2>
@@ -417,16 +427,16 @@ in the resulting response, including all nested XML elements.</p>
 
 <p><strong>has_many example:</strong></p>
 
-<pre class="code"><span class='invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
-<span class='invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='line_item identifier id'>line_item</span> <span class='bitor op'>|</span>
-    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Line Description: #{line_item.description}&quot;</span>
-<span class='end end kw'>end</span>
+<pre class="code"><span class='rubyid_invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
+<span class='rubyid_invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_line_item identifier id'>line_item</span> <span class='bitor op'>|</span>
+    <span class='rubyid_puts identifier id'>puts</span> <span class='dstring node'>&quot;Line Description: #{line_item.description}&quot;</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
 
 <p><strong>belongs_to example:</strong></p>
 
-<pre class="code"><span class='invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
-<span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Invoice Contact Name: #{invoice.contact.name}&quot;</span>
+<pre class="code"><span class='rubyid_invoice identifier id'>invoice</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Invoice constant id'>Invoice</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>'cd09aa49-134d-40fb-a52b-b63c6a91d712'</span><span class='rparen token'>)</span>
+<span class='rubyid_puts identifier id'>puts</span> <span class='dstring node'>&quot;Invoice Contact Name: #{invoice.contact.name}&quot;</span>
 </pre>
 
 <h2>Creating/Updating Data</h2>
@@ -435,23 +445,23 @@ in the resulting response, including all nested XML elements.</p>
 
 <p>New records can be created like:</p>
 
-<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact Name'</span><span class='rparen token'>)</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='first_name identifier id'>first_name</span> <span class='assign token'>=</span> <span class='string val'>'Joe'</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='last_name identifier id'>last_name</span> <span class='assign token'>=</span> <span class='string val'>'Bloggs'</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'DEFAULT'</span><span class='comma token'>,</span> <span class='symbol val'>:area_code</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'07'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'3033 1234'</span><span class='rparen token'>)</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'MOBILE'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'0412 123 456'</span><span class='rparen token'>)</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+<pre class="code"><span class='rubyid_contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Contact Name'</span><span class='rparen token'>)</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_first_name identifier id'>first_name</span> <span class='assign token'>=</span> <span class='string val'>'Joe'</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_last_name identifier id'>last_name</span> <span class='assign token'>=</span> <span class='string val'>'Bloggs'</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'DEFAULT'</span><span class='comma token'>,</span> <span class='symbol val'>:area_code</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'07'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'3033 1234'</span><span class='rparen token'>)</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_add_phone identifier id'>add_phone</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'MOBILE'</span><span class='comma token'>,</span> <span class='symbol val'>:number</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'0412 123 456'</span><span class='rparen token'>)</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
 </pre>
 
 <p>To add to a <code>has_many</code> association use the <code>add_{association}</code> method. For example:</p>
 
-<pre class="code"><span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_add_address identifier id'>add_address</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STREET'</span><span class='comma token'>,</span> <span class='symbol val'>:line1</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'12 Testing Lane'</span><span class='comma token'>,</span> <span class='symbol val'>:city</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Brisbane'</span><span class='rparen token'>)</span>
 </pre>
 
 <p>To add to a <code>belongs_to</code> association use the <code>build_{association}</code> method. For example:</p>
 
-<pre class="code"><span class='invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='build_contact identifier id'>build_contact</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Company'</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_invoice identifier id'>invoice</span><span class='dot token'>.</span><span class='rubyid_build_contact identifier id'>build_contact</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ABC Company'</span><span class='rparen token'>)</span>
 </pre>
 
 <h3>Updating</h3>
@@ -460,9 +470,9 @@ in the resulting response, including all nested XML elements.</p>
 creating it. It is important that this record is downloaded from the Xero API first before attempting
 an update. For example:</p>
 
-<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;</span><span class='rparen token'>)</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='assign token'>=</span> <span class='string val'>&quot;Another Name Change&quot;</span>
-<span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+<pre class="code"><span class='rubyid_contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='string val'>&quot;cd09aa49-134d-40fb-a52b-b63c6a91d712&quot;</span><span class='rparen token'>)</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='assign token'>=</span> <span class='string val'>&quot;Another Name Change&quot;</span>
+<span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
 </pre>
 
 <p>Have a look at the models in <code>lib/xeroizer/models/</code> to see the valid attributes, associations and 
@@ -475,8 +485,8 @@ minimum validation requirements for each of the record types.</p>
 
 <p>For example:</p>
 
-<pre class="code"><span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='build identifier id'>build</span>
-<span class='saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+<pre class="code"><span class='rubyid_contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span>
+<span class='rubyid_saved identifier id'>saved</span> <span class='assign token'>=</span> <span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span>
 
 <span class='comment val'># contact.errors will contain [[:name, &quot;can't be blank&quot;]]</span>
 </pre>
@@ -484,7 +494,7 @@ minimum validation requirements for each of the record types.</p>
 <p>#errors_for(:attribute_name) is a helper method to return just the errors associated with
 that attribute. For example:</p>
 
-<pre class="code"><span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='errors_for identifier id'>errors_for</span><span class='lparen token'>(</span><span class='symbol val'>:name</span><span class='rparen token'>)</span> <span class='comment val'># will contain [&quot;can't be blank&quot;]</span>
+<pre class="code"><span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_errors_for identifier id'>errors_for</span><span class='lparen token'>(</span><span class='symbol val'>:name</span><span class='rparen token'>)</span> <span class='comment val'># will contain [&quot;can't be blank&quot;]</span>
 </pre>
 
 <p>If something goes really wrong and the particular validation isn't handled by the internal
@@ -500,39 +510,39 @@ are welcome).</p>
 
 <p>Reports are accessed like the following example:</p>
 
-<pre class="code"><span class='trial_balance identifier id'>trial_balance</span> <span class='assign token'>=</span> <span class='xero identifier id'>xero</span><span class='dot token'>.</span><span class='TrialBalance constant id'>TrialBalance</span><span class='dot token'>.</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:date</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'2011-03-21'</span><span class='rparen token'>)</span>
+<pre class="code"><span class='rubyid_trial_balance identifier id'>trial_balance</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_TrialBalance constant id'>TrialBalance</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:date</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'2011-03-21'</span><span class='rparen token'>)</span>
 
 <span class='comment val'># Array containing report headings.</span>
-<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='header identifier id'>header</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='rbrace token'>}</span>
+<span class='rubyid_trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span><span class='dot token'>.</span><span class='rubyid_cells identifier id'>cells</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='rbrace token'>}</span>
 
 <span class='comment val'># Report rows by section</span>
-<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='sections identifier id'>sections</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='section identifier id'>section</span> <span class='bitor op'>|</span>
-    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Section Title: #{section.title}&quot;</span>
-    <span class='section identifier id'>section</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span>
-        <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;\t#{row.cells.map { | cell | cell.value }.join(&quot;\t&quot;)}&quot;</span>
-    <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rubyid_sections identifier id'>sections</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_section identifier id'>section</span> <span class='bitor op'>|</span>
+    <span class='rubyid_puts identifier id'>puts</span> <span class='dstring node'>&quot;Section Title: #{section.title}&quot;</span>
+    <span class='rubyid_section identifier id'>section</span><span class='dot token'>.</span><span class='rubyid_rows identifier id'>rows</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_row identifier id'>row</span> <span class='bitor op'>|</span>
+        <span class='rubyid_puts identifier id'>puts</span> <span class='dstring node'>&quot;\t#{row.cells.map { | cell | cell.value }.join(&quot;\t&quot;)}&quot;</span>
+    <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 
 <span class='comment val'># Summary row (if only one on the report)</span>
-<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='rbrace token'>}</span>
+<span class='rubyid_trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_cells identifier id'>cells</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='rbrace token'>}</span>
 
 <span class='comment val'># All report rows (including HeaderRow, SectionRow, Row and SummaryRow)</span>
-<span class='trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span>
-    <span class='case case kw'>case</span> <span class='row identifier id'>row</span>
-        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='HeaderRow constant id'>HeaderRow</span>
+<span class='rubyid_trial_balance identifier id'>trial_balance</span><span class='dot token'>.</span><span class='rubyid_rows identifier id'>rows</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_row identifier id'>row</span> <span class='bitor op'>|</span>
+    <span class='rubyid_case case kw'>case</span> <span class='rubyid_row identifier id'>row</span>
+        <span class='rubyid_when when kw'>when</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_HeaderRow constant id'>HeaderRow</span>
             <span class='comment val'># do something with header</span>
 
-        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='SectionRow constant id'>SectionRow</span>
+        <span class='rubyid_when when kw'>when</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_SectionRow constant id'>SectionRow</span>
             <span class='comment val'># do something with section, will need to step into the rows for this section</span>
 
-        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span>
+        <span class='rubyid_when when kw'>when</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_Row constant id'>Row</span>
             <span class='comment val'># do something for standard report rows</span>
 
-        <span class='when when kw'>when</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='SummaryRow constant id'>SummaryRow</span>
+        <span class='rubyid_when when kw'>when</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_SummaryRow constant id'>SummaryRow</span>
             <span class='comment val'># do something for summary rows</span>
 
-    <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
 
 <h2>Xero API Rate Limits</h2>
@@ -552,15 +562,16 @@ for a configurable number of seconds and then repeating the last request.
 You can set this option when initializing an application:</p>
 
 <pre class="code"><span class='comment val'># Sleep for 2 seconds every time the rate limit is exceeded.</span>
-<span class='client identifier id'>client</span> <span class='assign token'>=</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
-                                         <span class='YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span>
+<span class='rubyid_client identifier id'>client</span> <span class='assign token'>=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_PublicApplication constant id'>PublicApplication</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_YOUR_OAUTH_CONSUMER_KEY constant id'>YOUR_OAUTH_CONSUMER_KEY</span><span class='comma token'>,</span>
+                                         <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span>
                                          <span class='symbol val'>:rate_limit_sleep</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>2</span><span class='rparen token'>)</span>
-</pre></div></div>
+</pre>
+</div></div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:03 2011 by 
+  Generated on Thu Dec 29 22:40:41 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>
