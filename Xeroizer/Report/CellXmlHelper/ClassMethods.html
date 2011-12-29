@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Xeroizer::Report::CellXmlHelper::ClassMethods</title>
-<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Module: Xeroizer::Report::CellXmlHelper::ClassMethods
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -67,6 +80,8 @@
 
 
 
+
+
   
     <h2>
       Instance Method Summary
@@ -91,9 +106,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Create an instance of Cell from the node.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create an instance of Cell from the node.</p>
 </div></span>
   
 </li>
@@ -117,28 +131,25 @@ Create an instance of Cell from the node.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Create an instance of Cell from the node.
-</p>
-<p>
-Additionally, parse the attributes and return them as a hash to the cell.
-If a cell&#8217;s attributes look like:
-</p>
-<pre class="code">
-    <span class='lt op'>&lt;</span><span class='Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
-      <span class='lt op'>&lt;</span><span class='Attribute constant id'>Attribute</span><span class='gt op'>&gt;</span>
-        <span class='lt op'>&lt;</span><span class='Value constant id'>Value</span><span class='gt op'>&gt;</span><span class='integer val'>1335</span><span class='b8b2 identifier id'>b8b2</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='d63 identifier id'>d63</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='af8 identifier id'>af8</span><span class='minus op'>-</span><span class='integer val'>937</span><span class='f identifier id'>f</span><span class='minus op'>-</span><span class='integer val'>040</span><span class='integer val'>87</span><span class='ae2e36e identifier id'>ae2e36e</span><span class='lt op'>&lt;</span><span class='regexp val'>/Value&gt;
-        &lt;Id&gt;account&lt;/</span><span class='Id constant id'>Id</span><span class='gt op'>&gt;</span>
-      <span class='lt op'>&lt;</span><span class='regexp val'>/Attribute&gt;
-    &lt;/</span><span class='Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
+    
+<p>Create an instance of Cell from the node.</p>
+
+<p>Additionally, parse the attributes and return them as a hash to the  cell.
+If a cell’s attributes look like:</p>
+
+<pre class="code"><span class='lt op'>&lt;</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='rubyid_Attribute constant id'>Attribute</span><span class='gt op'>&gt;</span>
+    <span class='lt op'>&lt;</span><span class='rubyid_Value constant id'>Value</span><span class='gt op'>&gt;</span><span class='integer val'>1335</span><span class='rubyid_b8b2 identifier id'>b8b2</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_d63 identifier id'>d63</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_af8 identifier id'>af8</span><span class='minus op'>-</span><span class='integer val'>937</span><span class='rubyid_f identifier id'>f</span><span class='minus op'>-</span><span class='integer val'>040</span><span class='integer val'>87</span><span class='rubyid_ae2e36e identifier id'>ae2e36e</span><span class='lt op'>&lt;</span><span class='regexp val'>/Value&gt;
+    &lt;Id&gt;account&lt;/</span><span class='rubyid_Id constant id'>Id</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='regexp val'>/Attribute&gt;
+&lt;/</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
 </pre>
-<p>
-Return a hash like:
-</p>
-<pre class="code">
-    <span class='lbrace token'>{</span>
-      <span class='string val'>'account'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1335b8b2-4d63-4af8-937f-04087ae2e36e'</span>
-    <span class='rbrace token'>}</span>
+
+<p>Return a hash like:</p>
+
+<pre class="ruby">{
+  <span class="ruby-string">'account'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1335b8b2-4d63-4af8-937f-04087ae2e36e'</span>
+}
 </pre>
 
 
@@ -146,6 +157,7 @@ Return a hash like:
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -170,20 +182,20 @@ Return a hash like:
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/cell_xml_helper.rb', line 31</span>
 
-<span class='def def kw'>def</span> <span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='rparen token'>)</span>
-  <span class='cell identifier id'>cell</span> <span class='assign token'>=</span> <span class='new identifier id'>new</span>
-  <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='element identifier id'>element</span> <span class='bitor op'>|</span>
-    <span class='case case kw'>case</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
-      <span class='when when kw'>when</span> <span class='string val'>'Value'</span> <span class='then then kw'>then</span> <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='assign token'>=</span> <span class='parse_value identifier id'>parse_value</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span><span class='rparen token'>)</span>
-      <span class='when when kw'>when</span> <span class='string val'>'Attributes'</span>
-        <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='attribute_node identifier id'>attribute_node</span> <span class='bitor op'>|</span>
-          <span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='assign token'>=</span> <span class='parse_attribute identifier id'>parse_attribute</span><span class='lparen token'>(</span><span class='attribute_node identifier id'>attribute_node</span><span class='rparen token'>)</span>
-          <span class='cell identifier id'>cell</span><span class='dot token'>.</span><span class='attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='id identifier id'>id</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
-        <span class='end end kw'>end</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
-  <span class='cell identifier id'>cell</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='rubyid_node identifier id'>node</span><span class='rparen token'>)</span>
+  <span class='rubyid_cell identifier id'>cell</span> <span class='assign token'>=</span> <span class='rubyid_new identifier id'>new</span>
+  <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_elements identifier id'>elements</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_element identifier id'>element</span> <span class='bitor op'>|</span>
+    <span class='rubyid_case case kw'>case</span> <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'Value'</span> <span class='rubyid_then then kw'>then</span> <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='assign token'>=</span> <span class='rubyid_parse_value identifier id'>parse_value</span><span class='lparen token'>(</span><span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_text identifier id'>text</span><span class='rparen token'>)</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'Attributes'</span>
+        <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_elements identifier id'>elements</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_attribute_node identifier id'>attribute_node</span> <span class='bitor op'>|</span>
+          <span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span> <span class='assign token'>=</span> <span class='rubyid_parse_attribute identifier id'>parse_attribute</span><span class='lparen token'>(</span><span class='rubyid_attribute_node identifier id'>attribute_node</span><span class='rparen token'>)</span>
+          <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='rubyid_id identifier id'>id</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_value identifier id'>value</span>
+        <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_cell identifier id'>cell</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -195,9 +207,9 @@ Return a hash like:
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:04 2011 by 
+  Generated on Thu Dec 29 22:40:44 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

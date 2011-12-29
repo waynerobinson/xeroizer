@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: Net::HTTPResponse</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Class: Net::HTTPResponse
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -82,6 +95,8 @@
 
 
 
+
+
   
     <h2>
       Instance Method Summary
@@ -106,9 +121,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Return the uncompressed content.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Return the uncompressed content.</p>
 </div></span>
   
 </li>
@@ -132,15 +146,15 @@ Return the uncompressed content.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Return the uncompressed content
-</p>
+    
+<p>Return the uncompressed content</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -170,25 +184,25 @@ Return the uncompressed content
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/http_encoding_helper.rb', line 30</span>
 
-<span class='def def kw'>def</span> <span class='plain_body identifier id'>plain_body</span>
-  <span class='encoding identifier id'>encoding</span><span class='assign token'>=</span><span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='string val'>'content-encoding'</span><span class='rbrack token'>]</span>
-  <span class='content identifier id'>content</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span>
-  <span class='if if kw'>if</span> <span class='encoding identifier id'>encoding</span> <span class='then then kw'>then</span>
-    <span class='case case kw'>case</span> <span class='encoding identifier id'>encoding</span>
-      <span class='when when kw'>when</span> <span class='string val'>'gzip'</span>
-        <span class='i identifier id'>i</span><span class='assign token'>=</span><span class='Zlib constant id'>Zlib</span><span class='colon2 op'>::</span><span class='GzipReader constant id'>GzipReader</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-        <span class='content identifier id'>content</span><span class='assign token'>=</span><span class='i identifier id'>i</span><span class='dot token'>.</span><span class='read identifier id'>read</span>
-      <span class='when when kw'>when</span> <span class='string val'>'deflate'</span>
-        <span class='i identifier id'>i</span><span class='assign token'>=</span><span class='Zlib constant id'>Zlib</span><span class='colon2 op'>::</span><span class='Inflate constant id'>Inflate</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
-        <span class='content identifier id'>content</span><span class='assign token'>=</span><span class='i identifier id'>i</span><span class='dot token'>.</span><span class='inflate identifier id'>inflate</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='rparen token'>)</span>
-      <span class='else else kw'>else</span>
-        <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;Unknown encoding - #{encoding}&quot;</span>
-    <span class='end end kw'>end</span>
-  <span class='else else kw'>else</span>
-    <span class='content identifier id'>content</span><span class='assign token'>=</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='body identifier id'>body</span>
-  <span class='end end kw'>end</span>
-  <span class='return return kw'>return</span> <span class='content identifier id'>content</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_plain_body identifier id'>plain_body</span>
+  <span class='rubyid_encoding identifier id'>encoding</span><span class='assign token'>=</span><span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='string val'>'content-encoding'</span><span class='rbrack token'>]</span>
+  <span class='rubyid_content identifier id'>content</span><span class='assign token'>=</span><span class='rubyid_nil nil kw'>nil</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_encoding identifier id'>encoding</span> <span class='rubyid_then then kw'>then</span>
+    <span class='rubyid_case case kw'>case</span> <span class='rubyid_encoding identifier id'>encoding</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'gzip'</span>
+        <span class='rubyid_i identifier id'>i</span><span class='assign token'>=</span><span class='rubyid_Zlib constant id'>Zlib</span><span class='colon2 op'>::</span><span class='rubyid_GzipReader constant id'>GzipReader</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_StringIO constant id'>StringIO</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+        <span class='rubyid_content identifier id'>content</span><span class='assign token'>=</span><span class='rubyid_i identifier id'>i</span><span class='dot token'>.</span><span class='rubyid_read identifier id'>read</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'deflate'</span>
+        <span class='rubyid_i identifier id'>i</span><span class='assign token'>=</span><span class='rubyid_Zlib constant id'>Zlib</span><span class='colon2 op'>::</span><span class='rubyid_Inflate constant id'>Inflate</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+        <span class='rubyid_content identifier id'>content</span><span class='assign token'>=</span><span class='rubyid_i identifier id'>i</span><span class='dot token'>.</span><span class='rubyid_inflate identifier id'>inflate</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
+      <span class='rubyid_else else kw'>else</span>
+        <span class='rubyid_raise identifier id'>raise</span> <span class='dstring node'>&quot;Unknown encoding - #{encoding}&quot;</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_content identifier id'>content</span><span class='assign token'>=</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_return return kw'>return</span> <span class='rubyid_content identifier id'>content</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -200,9 +214,9 @@ Return the uncompressed content
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:09 2011 by 
+  Generated on Thu Dec 29 22:40:44 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>
