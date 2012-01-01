@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Xeroizer::Report::RowXmlHelper::ClassMethods</title>
-<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Module: Xeroizer::Report::RowXmlHelper::ClassMethods
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -63,6 +76,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -177,61 +192,61 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/xml_helper.rb', line 14</span>
 
-<span class='def def kw'>def</span> <span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='node identifier id'>node</span><span class='comma token'>,</span> <span class='report identifier id'>report</span><span class='comma token'>,</span> <span class='parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='row_type identifier id'>row_type</span> <span class='assign token'>=</span> <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='xpath identifier id'>xpath</span><span class='lparen token'>(</span><span class='string val'>'RowType'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-  <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
-  <span class='case case kw'>case</span> <span class='row_type identifier id'>row_type</span>
-    <span class='when when kw'>when</span> <span class='string val'>'Header'</span>
-      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='HeaderRow constant id'>HeaderRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
-      <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span> <span class='if if_mod kw'>if</span> <span class='parent identifier id'>parent</span>
-      <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='opasgn op'>||=</span> <span class='row identifier id'>row</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_row_type identifier id'>row_type</span> <span class='assign token'>=</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_xpath identifier id'>xpath</span><span class='lparen token'>(</span><span class='string val'>'RowType'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span><span class='dot token'>.</span><span class='rubyid_text identifier id'>text</span>
+  <span class='rubyid_row identifier id'>row</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
+  <span class='rubyid_case case kw'>case</span> <span class='rubyid_row_type identifier id'>row_type</span>
+    <span class='rubyid_when when kw'>when</span> <span class='string val'>'Header'</span>
+      <span class='rubyid_row identifier id'>row</span> <span class='assign token'>=</span> <span class='rubyid_HeaderRow constant id'>HeaderRow</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
+      <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_parent identifier id'>parent</span>
+      <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span> <span class='opasgn op'>||=</span> <span class='rubyid_row identifier id'>row</span>
       
-    <span class='when when kw'>when</span> <span class='string val'>'Section'</span>
-      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='SectionRow constant id'>SectionRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span>
-      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
-      <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='sections identifier id'>sections</span> <span class='lshft op'>&lt;&lt;</span> <span class='row identifier id'>row</span>
+    <span class='rubyid_when when kw'>when</span> <span class='string val'>'Section'</span>
+      <span class='rubyid_row identifier id'>row</span> <span class='assign token'>=</span> <span class='rubyid_SectionRow constant id'>SectionRow</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span>
+      <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span> <span class='assign token'>=</span> <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span>
+      <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_sections identifier id'>sections</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_row identifier id'>row</span>
       
-    <span class='when when kw'>when</span> <span class='string val'>'SummaryRow'</span>
-      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='SummaryRow constant id'>SummaryRow</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
-      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
-      <span class='if if kw'>if</span> <span class='parent identifier id'>parent</span>
-        <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
+    <span class='rubyid_when when kw'>when</span> <span class='string val'>'SummaryRow'</span>
+      <span class='rubyid_row identifier id'>row</span> <span class='assign token'>=</span> <span class='rubyid_SummaryRow constant id'>SummaryRow</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span><span class='semicolon token'>;</span>
+      <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span> <span class='assign token'>=</span> <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span>
+      <span class='rubyid_if if kw'>if</span> <span class='rubyid_parent identifier id'>parent</span>
+        <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span>
         
         <span class='comment val'># Also add this summary row to the report if the section</span>
         <span class='comment val'># title is blank and the report doesn't already have one.</span>
-        <span class='if if kw'>if</span> <span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='title identifier id'>title</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='string val'>''</span> <span class='andop op'>&amp;&amp;</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
-          <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
-        <span class='end end kw'>end</span>
-      <span class='else else kw'>else</span>
-        <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span>
-      <span class='end end kw'>end</span>
+        <span class='rubyid_if if kw'>if</span> <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_title identifier id'>title</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='string val'>''</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+          <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span>
+        <span class='rubyid_end end kw'>end</span>
+      <span class='rubyid_else else kw'>else</span>
+        <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span>
+      <span class='rubyid_end end kw'>end</span>
       
-    <span class='else else kw'>else</span>
-      <span class='row identifier id'>row</span> <span class='assign token'>=</span> <span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='report identifier id'>report</span><span class='rparen token'>)</span>
-      <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='header identifier id'>header</span> <span class='assign token'>=</span> <span class='report identifier id'>report</span><span class='dot token'>.</span><span class='header identifier id'>header</span>
+    <span class='rubyid_else else kw'>else</span>
+      <span class='rubyid_row identifier id'>row</span> <span class='assign token'>=</span> <span class='rubyid_Row constant id'>Row</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_report identifier id'>report</span><span class='rparen token'>)</span>
+      <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span> <span class='assign token'>=</span> <span class='rubyid_report identifier id'>report</span><span class='dot token'>.</span><span class='rubyid_header identifier id'>header</span>
       
-  <span class='end end kw'>end</span>
-  <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='parent identifier id'>parent</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_parent identifier id'>parent</span> <span class='assign token'>=</span> <span class='rubyid_parent identifier id'>parent</span>
   
-  <span class='node identifier id'>node</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='element identifier id'>element</span> <span class='bitor op'>|</span>
-    <span class='case case kw'>case</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='name identifier id'>name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
-      <span class='when when kw'>when</span> <span class='string val'>'RowType'</span>  <span class='then then kw'>then</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='type identifier id'>type</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-      <span class='when when kw'>when</span> <span class='string val'>'Title'</span>    <span class='then then kw'>then</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='title identifier id'>title</span> <span class='assign token'>=</span> <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='text identifier id'>text</span>
-      <span class='when when kw'>when</span> <span class='string val'>'Rows'</span>
-        <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row_node identifier id'>row_node</span> <span class='bitor op'>|</span>
-          <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span> <span class='lshft op'>&lt;&lt;</span> <span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='row_node identifier id'>row_node</span><span class='comma token'>,</span> <span class='report identifier id'>report</span><span class='comma token'>,</span> <span class='row identifier id'>row</span><span class='rparen token'>)</span>
-        <span class='end end kw'>end</span>
+  <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_elements identifier id'>elements</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_element identifier id'>element</span> <span class='bitor op'>|</span>
+    <span class='rubyid_case case kw'>case</span> <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'RowType'</span>  <span class='rubyid_then then kw'>then</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_type identifier id'>type</span> <span class='assign token'>=</span> <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_text identifier id'>text</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'Title'</span>    <span class='rubyid_then then kw'>then</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_title identifier id'>title</span> <span class='assign token'>=</span> <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_text identifier id'>text</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'Rows'</span>
+        <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_elements identifier id'>elements</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_row_node identifier id'>row_node</span> <span class='bitor op'>|</span>
+          <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_rows identifier id'>rows</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_Row constant id'>Row</span><span class='dot token'>.</span><span class='rubyid_build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='rubyid_row_node identifier id'>row_node</span><span class='comma token'>,</span> <span class='rubyid_report identifier id'>report</span><span class='comma token'>,</span> <span class='rubyid_row identifier id'>row</span><span class='rparen token'>)</span>
+        <span class='rubyid_end end kw'>end</span>
         
-      <span class='when when kw'>when</span> <span class='string val'>'Cells'</span>
-        <span class='element identifier id'>element</span><span class='dot token'>.</span><span class='elements identifier id'>elements</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='cell_node identifier id'>cell_node</span> <span class='bitor op'>|</span>
-          <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='cells identifier id'>cells</span> <span class='lshft op'>&lt;&lt;</span> <span class='Cell constant id'>Cell</span><span class='dot token'>.</span><span class='build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='cell_node identifier id'>cell_node</span><span class='rparen token'>)</span>
-        <span class='end end kw'>end</span>
+      <span class='rubyid_when when kw'>when</span> <span class='string val'>'Cells'</span>
+        <span class='rubyid_element identifier id'>element</span><span class='dot token'>.</span><span class='rubyid_elements identifier id'>elements</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_cell_node identifier id'>cell_node</span> <span class='bitor op'>|</span>
+          <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_cells identifier id'>cells</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_Cell constant id'>Cell</span><span class='dot token'>.</span><span class='rubyid_build_from_node identifier id'>build_from_node</span><span class='lparen token'>(</span><span class='rubyid_cell_node identifier id'>cell_node</span><span class='rparen token'>)</span>
+        <span class='rubyid_end end kw'>end</span>
         
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
               
-  <span class='row identifier id'>row</span>
-<span class='end end kw'>end</span>
+  <span class='rubyid_row identifier id'>row</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -243,9 +258,9 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:04 2011 by 
+  Generated on Sun Jan  1 19:54:38 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Xeroizer::Http</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Module: Xeroizer::Http
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -84,6 +97,8 @@
       
     </dl>
   
+
+
 
 
 
@@ -198,10 +213,10 @@ Shortcut method for #http_request with `method` = :get.
   
     <li>
       
-        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
-      
-      
         <span class='name'>client</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
       
       
       
@@ -215,10 +230,10 @@ OAuth client
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -232,10 +247,10 @@ URL of request
   
     <li>
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
         <span class='name'>extra_params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
@@ -251,6 +266,7 @@ extra query string parameters.
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -264,9 +280,9 @@ extra query string parameters.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/http.rb', line 14</span>
 
-<span class='def def kw'>def</span> <span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:get</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:get</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -295,10 +311,10 @@ Shortcut method for #http_request with `method` = :post.
   
     <li>
       
-        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
-      
-      
         <span class='name'>client</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
       
       
       
@@ -312,10 +328,10 @@ OAuth client
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -329,10 +345,10 @@ URL of request
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>body</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -346,10 +362,10 @@ XML message to post.
   
     <li>
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
         <span class='name'>extra_params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
@@ -365,6 +381,7 @@ extra query string parameters.
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -378,9 +395,9 @@ extra query string parameters.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/http.rb', line 24</span>
 
-<span class='def def kw'>def</span> <span class='http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='body identifier id'>body</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:post</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='body identifier id'>body</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_http_post identifier id'>http_post</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:post</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -409,10 +426,10 @@ Shortcut method for #http_request with `method` = :put.
   
     <li>
       
-        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
-      
-      
         <span class='name'>client</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OAuth.html" title="Xeroizer::OAuth (class)">OAuth</a></span></tt>)</span>
       
       
       
@@ -426,10 +443,10 @@ OAuth client
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -443,10 +460,10 @@ URL of request
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>body</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -460,10 +477,10 @@ XML message to put.
   
     <li>
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
         <span class='name'>extra_params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
@@ -479,6 +496,7 @@ extra query string parameters.
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -492,9 +510,9 @@ extra query string parameters.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/http.rb', line 34</span>
 
-<span class='def def kw'>def</span> <span class='http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='body identifier id'>body</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:put</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='body identifier id'>body</span><span class='comma token'>,</span> <span class='extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_http_put identifier id'>http_put</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_http_request identifier id'>http_request</span><span class='lparen token'>(</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='symbol val'>:put</span><span class='comma token'>,</span> <span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='comma token'>,</span> <span class='rubyid_extra_params identifier id'>extra_params</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -506,9 +524,9 @@ extra query string parameters.
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:06 2011 by 
+  Generated on Sun Jan  1 19:54:36 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

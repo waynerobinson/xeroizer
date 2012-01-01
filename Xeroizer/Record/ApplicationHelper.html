@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Xeroizer::Record::ApplicationHelper</title>
-<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Module: Xeroizer::Record::ApplicationHelper
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -67,6 +80,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -156,10 +171,10 @@ creates the instance if one doesn&#8217;t already exist.
   
     <li>
       
-        <span class='type'>(<tt>Symbol</tt>)</span>
-      
-      
         <span class='name'>record_type</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
       
       
       
@@ -172,13 +187,14 @@ Symbol of the record type (e.g. :Invoice)
     </li>
   
 </ul>
+
 <h3>Returns:</h3>
 <ul class="return">
   
     <li>
       
-        <span class='type'>(<tt><span class='object_link'><a href="BaseModel.html" title="Xeroizer::Record::BaseModel (class)">BaseModel</a></span></tt>)</span>
       
+        <span class='type'>(<tt><span class='object_link'><a href="BaseModel.html" title="Xeroizer::Record::BaseModel (class)">BaseModel</a></span></tt>)</span>
       
       
       
@@ -211,15 +227,15 @@ instance of BaseModel subclass matching `record_type`
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/application_helper.rb', line 10</span>
 
-<span class='def def kw'>def</span> <span class='record identifier id'>record</span><span class='lparen token'>(</span><span class='record_type identifier id'>record_type</span><span class='rparen token'>)</span>
-  <span class='define_method identifier id'>define_method</span> <span class='record_type identifier id'>record_type</span> <span class='do do kw'>do</span>
-    <span class='var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{record_type}_cache&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
-    <span class='unless unless kw'>unless</span> <span class='instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
-      <span class='instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='comma token'>,</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Record constant id'>Record</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{record_type}Model&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='record_type identifier id'>record_type</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-    <span class='end end kw'>end</span>
-    <span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>  
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_record identifier id'>record</span><span class='lparen token'>(</span><span class='rubyid_record_type identifier id'>record_type</span><span class='rparen token'>)</span>
+  <span class='rubyid_define_method identifier id'>define_method</span> <span class='rubyid_record_type identifier id'>record_type</span> <span class='rubyid_do do kw'>do</span>
+    <span class='rubyid_var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{record_type}_cache&quot;</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span>
+    <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+      <span class='rubyid_instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='comma token'>,</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Record constant id'>Record</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{record_type}Model&quot;</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='rubyid_record_type identifier id'>record_type</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>  
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -252,15 +268,15 @@ instance of BaseModel subclass matching `record_type`
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/application_helper.rb', line 20</span>
 
-<span class='def def kw'>def</span> <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='report_type identifier id'>report_type</span><span class='rparen token'>)</span>
-  <span class='define_method identifier id'>define_method</span> <span class='report_type identifier id'>report_type</span> <span class='do do kw'>do</span>
-    <span class='var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{report_type}_cache&quot;</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
-    <span class='unless unless kw'>unless</span> <span class='instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
-      <span class='instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='comma token'>,</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='Factory constant id'>Factory</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='report_type identifier id'>report_type</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-    <span class='end end kw'>end</span>
-    <span class='instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='var_name identifier id'>var_name</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_report identifier id'>report</span><span class='lparen token'>(</span><span class='rubyid_report_type identifier id'>report_type</span><span class='rparen token'>)</span>
+  <span class='rubyid_define_method identifier id'>define_method</span> <span class='rubyid_report_type identifier id'>report_type</span> <span class='rubyid_do do kw'>do</span>
+    <span class='rubyid_var_name identifier id'>var_name</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;@#{report_type}_cache&quot;</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span>
+    <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+      <span class='rubyid_instance_variable_set identifier id'>instance_variable_set</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='comma token'>,</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_Factory constant id'>Factory</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='rubyid_report_type identifier id'>report_type</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_instance_variable_get identifier id'>instance_variable_get</span><span class='lparen token'>(</span><span class='rubyid_var_name identifier id'>var_name</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -272,9 +288,9 @@ instance of BaseModel subclass matching `record_type`
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:08 2011 by 
+  Generated on Sun Jan  1 19:54:35 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

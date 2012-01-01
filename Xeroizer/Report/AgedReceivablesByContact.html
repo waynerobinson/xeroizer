@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: Xeroizer::Report::AgedReceivablesByContact</title>
-<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Class: Xeroizer::Report::AgedReceivablesByContact
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -93,6 +106,20 @@
   
   
   
+  
+  
+  
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Base.html" title="Xeroizer::Report::Base (class)">Base</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Base.html#date-instance_method" title="Xeroizer::Report::Base#date (method)">date</a></span>, <span class='object_link'><a href="Base.html#factory-instance_method" title="Xeroizer::Report::Base#factory (method)">factory</a></span>, <span class='object_link'><a href="Base.html#header-instance_method" title="Xeroizer::Report::Base#header (method)">header</a></span>, <span class='object_link'><a href="Base.html#id-instance_method" title="Xeroizer::Report::Base#id (method)">id</a></span>, <span class='object_link'><a href="Base.html#name-instance_method" title="Xeroizer::Report::Base#name (method)">name</a></span>, <span class='object_link'><a href="Base.html#rows-instance_method" title="Xeroizer::Report::Base#rows (method)">rows</a></span>, <span class='object_link'><a href="Base.html#sections-instance_method" title="Xeroizer::Report::Base#sections (method)">sections</a></span>, <span class='object_link'><a href="Base.html#summary-instance_method" title="Xeroizer::Report::Base#summary (method)">summary</a></span>, <span class='object_link'><a href="Base.html#titles-instance_method" title="Xeroizer::Report::Base#titles (method)">titles</a></span>, <span class='object_link'><a href="Base.html#type-instance_method" title="Xeroizer::Report::Base#type (method)">type</a></span>, <span class='object_link'><a href="Base.html#updated_at-instance_method" title="Xeroizer::Report::Base#updated_at (method)">updated_at</a></span></p>
+
   
   
   
@@ -291,13 +318,13 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 33</span>
 
-<span class='def def kw'>def</span> <span class='sum identifier id'>sum</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='sections identifier id'>sections</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='sum identifier id'>sum</span><span class='comma token'>,</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span>
-    <span class='cell identifier id'>cell</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='rparen token'>)</span>
-    <span class='sum identifier id'>sum</span> <span class='opasgn op'>+=</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='if if_mod kw'>if</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='Report constant id'>Report</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='block identifier id'>block</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='orop op'>||</span> <span class='block identifier id'>block</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='row identifier id'>row</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-    <span class='sum identifier id'>sum</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sum identifier id'>sum</span><span class='lparen token'>(</span><span class='rubyid_column_name identifier id'>column_name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_sections identifier id'>sections</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span><span class='dot token'>.</span><span class='rubyid_rows identifier id'>rows</span><span class='dot token'>.</span><span class='rubyid_inject identifier id'>inject</span><span class='lparen token'>(</span><span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span><span class='comma token'>,</span> <span class='rubyid_row identifier id'>row</span> <span class='bitor op'>|</span>
+    <span class='rubyid_cell identifier id'>cell</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='rubyid_column_name identifier id'>column_name</span><span class='rparen token'>)</span>
+    <span class='rubyid_sum identifier id'>sum</span> <span class='opasgn op'>+=</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='rubyid_column_name identifier id'>column_name</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span> <span class='eq op'>==</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Report constant id'>Report</span><span class='colon2 op'>::</span><span class='rubyid_Row constant id'>Row</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='orop op'>||</span> <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span><span class='lparen token'>(</span><span class='rubyid_row identifier id'>row</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='rubyid_sum identifier id'>sum</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -324,9 +351,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 9</span>
 
-<span class='def def kw'>def</span> <span class='total identifier id'>total</span>
-  <span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Total</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span> 
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total identifier id'>total</span>
+  <span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Total</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> 
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -353,9 +380,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 17</span>
 
-<span class='def def kw'>def</span> <span class='total_credited identifier id'>total_credited</span>
-  <span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Credited</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_credited identifier id'>total_credited</span>
+  <span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Credited</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -382,9 +409,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 21</span>
 
-<span class='def def kw'>def</span> <span class='total_due identifier id'>total_due</span>
-  <span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Due</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_due identifier id'>total_due</span>
+  <span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Due</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -415,13 +442,13 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 25</span>
 
-<span class='def def kw'>def</span> <span class='total_overdue identifier id'>total_overdue</span>
-  <span class='now identifier id'>now</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span>
-  <span class='sum identifier id'>sum</span><span class='lparen token'>(</span><span class='symbol val'>:Due</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='row identifier id'>row</span> <span class='bitor op'>|</span> 
-    <span class='due_date identifier id'>due_date</span> <span class='assign token'>=</span> <span class='row identifier id'>row</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='string val'>'Due Date'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span>
-    <span class='due_date identifier id'>due_date</span> <span class='andop op'>&amp;&amp;</span> <span class='due_date identifier id'>due_date</span> <span class='lt op'>&lt;</span> <span class='now identifier id'>now</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_overdue identifier id'>total_overdue</span>
+  <span class='rubyid_now identifier id'>now</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
+  <span class='rubyid_sum identifier id'>sum</span><span class='lparen token'>(</span><span class='symbol val'>:Due</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_row identifier id'>row</span> <span class='bitor op'>|</span> 
+    <span class='rubyid_due_date identifier id'>due_date</span> <span class='assign token'>=</span> <span class='rubyid_row identifier id'>row</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='string val'>'Due Date'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span>
+    <span class='rubyid_due_date identifier id'>due_date</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_due_date identifier id'>due_date</span> <span class='lt op'>&lt;</span> <span class='rubyid_now identifier id'>now</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -448,9 +475,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/aged_receivables_by_contact.rb', line 13</span>
 
-<span class='def def kw'>def</span> <span class='total_paid identifier id'>total_paid</span>
-  <span class='summary identifier id'>summary</span><span class='dot token'>.</span><span class='cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Paid</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_paid identifier id'>total_paid</span>
+  <span class='rubyid_summary identifier id'>summary</span><span class='dot token'>.</span><span class='rubyid_cell identifier id'>cell</span><span class='lparen token'>(</span><span class='symbol val'>:Paid</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -462,9 +489,9 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:04 2011 by 
+  Generated on Sun Jan  1 19:54:38 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

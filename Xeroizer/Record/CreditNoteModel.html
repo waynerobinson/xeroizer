@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: Xeroizer::Record::CreditNoteModel</title>
-<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Class: Xeroizer::Record::CreditNoteModel
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -95,6 +108,23 @@
 
   
   
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseModel.html" title="Xeroizer::Record::BaseModel (class)">BaseModel</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseModel.html#application-instance_method" title="Xeroizer::Record::BaseModel#application (method)">application</a></span>, <span class='object_link'><a href="BaseModel.html#model_class-instance_method" title="Xeroizer::Record::BaseModel#model_class (method)">model_class</a></span>, <span class='object_link'><a href="BaseModel.html#model_name-instance_method" title="Xeroizer::Record::BaseModel#model_name (method)">model_name</a></span>, <span class='object_link'><a href="BaseModel.html#response-instance_method" title="Xeroizer::Record::BaseModel#response (method)">response</a></span></p>
+
   
   
   
@@ -203,10 +233,10 @@ Retrieve the PDF version of the credit matching the `id`.
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -220,10 +250,10 @@ invoice&#8217;s ID.
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -238,6 +268,7 @@ optional filename to store the PDF in instead of returning the data.
     </li>
   
 </ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -258,15 +289,15 @@ optional filename to store the PDF in instead of returning the data.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/credit_note.rb', line 13</span>
 
-<span class='def def kw'>def</span> <span class='pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='pdf_data identifier id'>pdf_data</span> <span class='assign token'>=</span> <span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='@application ivar id'>@application</span><span class='dot token'>.</span><span class='client identifier id'>client</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{url}/#{CGI.escape(id)}&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:response</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:pdf</span><span class='rparen token'>)</span>
-  <span class='if if kw'>if</span> <span class='filename identifier id'>filename</span>
-    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='string val'>&quot;w&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='fp identifier id'>fp</span> <span class='bitor op'>|</span> <span class='fp identifier id'>fp</span><span class='dot token'>.</span><span class='write identifier id'>write</span> <span class='pdf_data identifier id'>pdf_data</span> <span class='rbrace token'>}</span>
-    <span class='nil nil kw'>nil</span>
-  <span class='else else kw'>else</span>
-    <span class='pdf_data identifier id'>pdf_data</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_pdf_data identifier id'>pdf_data</span> <span class='assign token'>=</span> <span class='rubyid_@application ivar id'>@application</span><span class='dot token'>.</span><span class='rubyid_http_get identifier id'>http_get</span><span class='lparen token'>(</span><span class='rubyid_@application ivar id'>@application</span><span class='dot token'>.</span><span class='rubyid_client identifier id'>client</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{url}/#{CGI.escape(id)}&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:response</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:pdf</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_filename identifier id'>filename</span>
+    <span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_open identifier id'>open</span><span class='lparen token'>(</span><span class='rubyid_filename identifier id'>filename</span><span class='comma token'>,</span> <span class='string val'>&quot;w&quot;</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_fp identifier id'>fp</span> <span class='bitor op'>|</span> <span class='rubyid_fp identifier id'>fp</span><span class='dot token'>.</span><span class='rubyid_write identifier id'>write</span> <span class='rubyid_pdf_data identifier id'>pdf_data</span> <span class='rbrace token'>}</span>
+    <span class='rubyid_nil nil kw'>nil</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_pdf_data identifier id'>pdf_data</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -278,9 +309,9 @@ optional filename to store the PDF in instead of returning the data.
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:04 2011 by 
+  Generated on Sun Jan  1 19:54:38 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

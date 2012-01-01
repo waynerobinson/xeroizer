@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Class: Xeroizer::PrivateApplication</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Class: Xeroizer::PrivateApplication
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -107,6 +120,24 @@
   <h3 class="inherited">Constants included from <span class='object_link'><a href="Http.html" title="Xeroizer::Http (module)">Http</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Http.html#ACCEPT_MIME_MAP-constant" title="Xeroizer::Http::ACCEPT_MIME_MAP (constant)">ACCEPT_MIME_MAP</a></span></p>
 
+
+
+  
+  
+  
+  
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="GenericApplication.html" title="Xeroizer::GenericApplication (class)">GenericApplication</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="GenericApplication.html#client-instance_method" title="Xeroizer::GenericApplication#client (method)">client</a></span>, <span class='object_link'><a href="GenericApplication.html#logger-instance_method" title="Xeroizer::GenericApplication#logger (method)">logger</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_max_attempts-instance_method" title="Xeroizer::GenericApplication#rate_limit_max_attempts (method)">rate_limit_max_attempts</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_sleep-instance_method" title="Xeroizer::GenericApplication#rate_limit_sleep (method)">rate_limit_sleep</a></span>, <span class='object_link'><a href="GenericApplication.html#xero_url-instance_method" title="Xeroizer::GenericApplication#xero_url (method)">xero_url</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
 
   
     <h2>
@@ -201,10 +232,10 @@ website for authorisation.
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>consumer_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -219,10 +250,10 @@ for your application).
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>consumer_secret</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -237,10 +268,10 @@ for your application).
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
         <span class='name'>path_to_private_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -255,10 +286,10 @@ http://api.xero.com)
   
     <li>
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
         <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>{}</tt>)</em>
@@ -273,6 +304,7 @@ other options to pass to the GenericApplication constructor
     </li>
   
 </ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -292,14 +324,14 @@ other options to pass to the GenericApplication constructor
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/private_application.rb', line 17</span>
 
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='path_to_private_key identifier id'>path_to_private_key</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='options identifier id'>options</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='rubyid_consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='rubyid_path_to_private_key identifier id'>path_to_private_key</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_options identifier id'>options</span><span class='dot token'>.</span><span class='rubyid_merge! fid id'>merge!</span><span class='lparen token'>(</span>
     <span class='symbol val'>:signature_method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'RSA-SHA1'</span><span class='comma token'>,</span>
-    <span class='symbol val'>:private_key_file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='path_to_private_key identifier id'>path_to_private_key</span>
+    <span class='symbol val'>:private_key_file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_path_to_private_key identifier id'>path_to_private_key</span>
   <span class='rparen token'>)</span>
-  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>      
-  <span class='@client ivar id'>@client</span><span class='dot token'>.</span><span class='authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='consumer_secret identifier id'>consumer_secret</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+  <span class='rubyid_super super kw'>super</span><span class='lparen token'>(</span><span class='rubyid_consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='rubyid_consumer_secret identifier id'>consumer_secret</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>      
+  <span class='rubyid_@client ivar id'>@client</span><span class='dot token'>.</span><span class='rubyid_authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='rubyid_consumer_key identifier id'>consumer_key</span><span class='comma token'>,</span> <span class='rubyid_consumer_secret identifier id'>consumer_secret</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -312,9 +344,9 @@ other options to pass to the GenericApplication constructor
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:06 2011 by 
+  Generated on Sun Jan  1 19:54:33 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

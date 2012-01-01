@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Module: Xeroizer::Record::ValidationHelper::ClassMethods</title>
-<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Module: Xeroizer::Record::ValidationHelper::ClassMethods
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '../../..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -63,6 +76,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -191,9 +206,9 @@ Adds a validator config for each attribute specified in args.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/validation_helper.rb', line 23</span>
 
-<span class='def def kw'>def</span> <span class='validates_associated identifier id'>validates_associated</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
-  <span class='validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='AssociatedValidator constant id'>AssociatedValidator</span><span class='comma token'>,</span> <span class='args identifier id'>args</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_validates_associated identifier id'>validates_associated</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='rubyid_validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='rubyid_Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='rubyid_AssociatedValidator constant id'>AssociatedValidator</span><span class='comma token'>,</span> <span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -220,9 +235,9 @@ Adds a validator config for each attribute specified in args.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/validation_helper.rb', line 27</span>
 
-<span class='def def kw'>def</span> <span class='validates_inclusion_of identifier id'>validates_inclusion_of</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
-  <span class='validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='InclusionOfValidator constant id'>InclusionOfValidator</span><span class='comma token'>,</span> <span class='args identifier id'>args</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_validates_inclusion_of identifier id'>validates_inclusion_of</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='rubyid_validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='rubyid_Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='rubyid_InclusionOfValidator constant id'>InclusionOfValidator</span><span class='comma token'>,</span> <span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -249,9 +264,9 @@ Adds a validator config for each attribute specified in args.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/validation_helper.rb', line 31</span>
 
-<span class='def def kw'>def</span> <span class='validates_presence_of identifier id'>validates_presence_of</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
-  <span class='validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='PresenceOfValidator constant id'>PresenceOfValidator</span><span class='comma token'>,</span> <span class='args identifier id'>args</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_validates_presence_of identifier id'>validates_presence_of</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='rubyid_validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='rubyid_Validator constant id'>Validator</span><span class='colon2 op'>::</span><span class='rubyid_PresenceOfValidator constant id'>PresenceOfValidator</span><span class='comma token'>,</span> <span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -276,6 +291,7 @@ Adds a validator config for each attribute specified in args.
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -293,13 +309,13 @@ Adds a validator config for each attribute specified in args.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/validation_helper.rb', line 15</span>
 
-<span class='def def kw'>def</span> <span class='validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='validator identifier id'>validator</span><span class='comma token'>,</span> <span class='args identifier id'>args</span><span class='rparen token'>)</span>
-  <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='extract_options! fid id'>extract_options!</span>
-  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='validators identifier id'>validators</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span> <span class='attribute identifier id'>attribute</span> <span class='bitor op'>|</span>
-    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='validators identifier id'>validators</span> <span class='lshft op'>&lt;&lt;</span> <span class='validator identifier id'>validator</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='attribute identifier id'>attribute</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_validates_with_validator identifier id'>validates_with_validator</span><span class='lparen token'>(</span><span class='rubyid_validator identifier id'>validator</span><span class='comma token'>,</span> <span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='rubyid_args identifier id'>args</span><span class='dot token'>.</span><span class='rubyid_extract_options! fid id'>extract_options!</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_validators identifier id'>validators</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='rubyid_args identifier id'>args</span><span class='dot token'>.</span><span class='rubyid_flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_attribute identifier id'>attribute</span> <span class='bitor op'>|</span>
+    <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_validators identifier id'>validators</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_validator identifier id'>validator</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_attribute identifier id'>attribute</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -311,9 +327,9 @@ Adds a validator config for each attribute specified in args.
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:04 2011 by 
+  Generated on Sun Jan  1 19:54:30 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>

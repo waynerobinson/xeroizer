@@ -3,16 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Exception: Xeroizer::CannotChangeInvoiceStatus</title>
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+<title>
+  Exception: Xeroizer::CannotChangeInvoiceStatus
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   relpath = '..';
   if (relpath != '') relpath += '/';
 </script>
-<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
 
   </head>
   <body>
@@ -33,11 +43,14 @@
 </div>
 
       <div id="search">
-  <a id="class_list_link" href="#">Class List</a>
-  <a id="method_list_link" href="#">Method List</a>
-  <a id ="file_list_link" href="#">File List</a>
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
 </div>
-
       <div class="clear"></div>
     </div>
     
@@ -81,6 +94,9 @@
 </dl>
 <div class="clear"></div>
 
+
+
+  
 
 
   
@@ -165,6 +181,7 @@ A new instance of CannotChangeInvoiceStatus
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -179,10 +196,10 @@ A new instance of CannotChangeInvoiceStatus
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 112</span>
 
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='invoice identifier id'>invoice</span><span class='comma token'>,</span> <span class='new_status identifier id'>new_status</span><span class='rparen token'>)</span>
-  <span class='@invoice ivar id'>@invoice</span> <span class='assign token'>=</span> <span class='invoice identifier id'>invoice</span>
-  <span class='@new_status ivar id'>@new_status</span> <span class='assign token'>=</span> <span class='new_status identifier id'>new_status</span>
-<span class='end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_invoice identifier id'>invoice</span><span class='comma token'>,</span> <span class='rubyid_new_status identifier id'>new_status</span><span class='rparen token'>)</span>
+  <span class='rubyid_@invoice ivar id'>@invoice</span> <span class='assign token'>=</span> <span class='rubyid_invoice identifier id'>invoice</span>
+  <span class='rubyid_@new_status ivar id'>@new_status</span> <span class='assign token'>=</span> <span class='rubyid_new_status identifier id'>new_status</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -222,15 +239,15 @@ A new instance of CannotChangeInvoiceStatus
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/exceptions.rb', line 117</span>
 
-<span class='def def kw'>def</span> <span class='message identifier id'>message</span>
-  <span class='case case kw'>case</span> <span class='new_status identifier id'>new_status</span>
-    <span class='when when kw'>when</span> <span class='string val'>'DELETED'</span><span class='comma token'>,</span> <span class='string val'>'VOIDED'</span>
-      <span class='unless unless kw'>unless</span> <span class='@invoice ivar id'>@invoice</span><span class='dot token'>.</span><span class='payments identifier id'>payments</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_message identifier id'>message</span>
+  <span class='rubyid_case case kw'>case</span> <span class='rubyid_new_status identifier id'>new_status</span>
+    <span class='rubyid_when when kw'>when</span> <span class='string val'>'DELETED'</span><span class='comma token'>,</span> <span class='string val'>'VOIDED'</span>
+      <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_@invoice ivar id'>@invoice</span><span class='dot token'>.</span><span class='rubyid_payments identifier id'>payments</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
         <span class='dstring node'>&quot;There must be no payments in this invoice to change to '#{@new_status}'&quot;</span>
-      <span class='end end kw'>end</span>
+      <span class='rubyid_end end kw'>end</span>
 
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -242,9 +259,9 @@ A new instance of CannotChangeInvoiceStatus
 </div>
     
     <div id="footer">
-  Generated on Tue Jun 14 11:28:06 2011 by 
+  Generated on Sun Jan  1 19:54:37 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.8 (ruby-1.8.7).
+  0.7.4 (ruby-1.8.7).
 </div>
 
   </body>
