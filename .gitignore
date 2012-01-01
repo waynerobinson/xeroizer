@@ -1,4 +1,5 @@
 certs
+.bundle
 .yardoc
 test*.rb
 doc/
