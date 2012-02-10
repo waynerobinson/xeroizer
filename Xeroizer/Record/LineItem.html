@@ -99,22 +99,6 @@
   
     <dl class="constants">
       
-        <dt id="LINE_AMOUNT_TYPE-constant" class="">LINE_AMOUNT_TYPE =
-          
-        </dt>
-        <dd><pre class="code"><span class='lbrace token'>{</span>
-  <span class='string val'>&quot;Inclusive&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span>        <span class='string val'>'CreditNote lines are inclusive tax'</span><span class='comma token'>,</span>
-  <span class='string val'>&quot;Exclusive&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span>        <span class='string val'>'CreditNote lines are exclusive of tax (default)'</span><span class='comma token'>,</span>
-  <span class='string val'>&quot;NoTax&quot;</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span>        <span class='string val'>'CreditNotes lines have no tax'</span>
-<span class='rbrace token'>}</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='rubyid_LINE_AMOUNT_TYPE constant id'>LINE_AMOUNT_TYPE</span><span class='rparen token'>)</span>
-</pre></dd>
-      
-        <dt id="LINE_AMOUNT_TYPES-constant" class="">LINE_AMOUNT_TYPES =
-          
-        </dt>
-        <dd><pre class="code"><span class='rubyid_LINE_AMOUNT_TYPE constant id'>LINE_AMOUNT_TYPE</span><span class='dot token'>.</span><span class='rubyid_keys identifier id'>keys</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span>
-</pre></dd>
-      
         <dt id="TAX_TYPE-constant" class="">TAX_TYPE =
           
         </dt>
@@ -333,12 +317,12 @@ Description-only lines have been allowed since Xero V2.09.
       <pre class="lines">
 
 
-37
-38
-39</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 29</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_line_amount identifier id'>line_amount</span>
   <span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_quantity identifier id'>quantity</span> <span class='mult op'>*</span> <span class='rubyid_unit_amount identifier id'>unit_amount</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_round identifier id'>round</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_quantity identifier id'>quantity</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_unit_amount identifier id'>unit_amount</span>
@@ -388,10 +372,10 @@ automatically.
       <pre class="lines">
 
 
-33</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 25</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_line_amount= identifier id'>line_amount=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:line_amount</span><span class='rparen token'>)</span>   <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -405,7 +389,7 @@ automatically.
 </div>
     
     <div id="footer">
-  Generated on Sun Jan  1 19:54:34 2012 by 
+  Generated on Fri Feb 10 17:22:13 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.4 (ruby-1.8.7).
 </div>
