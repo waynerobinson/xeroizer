@@ -7,9 +7,11 @@ require 'pp'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
+$: << File.join(File.dirname(__FILE__), "acceptance") 
+
 module TestHelper
 
-  # The integration tests can be run against the Xero test environment.  You mush have a company set up in the test
+  # The integration tests can be run against the Xero test environment.  You must have a company set up in the test
   # environment, and you must have set up a customer key for that account.
   #
   # You can then run the tests against the test environment using the commands (linux or mac):
@@ -54,4 +56,12 @@ module TestHelper
     @client.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
   end
     
+end
+
+Shoulda::ClassMethods.class_eval do
+  %w{it must can}.each do |m|
+    alias_method m, :should
+  end
+  
+  alias_method :must_eventually, :should_eventually
 end

@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../../test_helper.rb')
+require 'test_helper'
 
 class RecordBaseTest < Test::Unit::TestCase
   include TestHelper
@@ -54,4 +54,41 @@ class RecordBaseTest < Test::Unit::TestCase
     
   end
   
+  context "about logging" do
+    setup do
+      @example_class = Class.new(Xeroizer::Record::Base) do
+        def valid?; true; end
+        def to_xml(b = nil); "<FakeRequest />" end
+        string :id
+      end
+    end
+
+    must "log the request and response xml when saving a new record" do
+      Xeroizer::Logging::Log.expects(:info).once.with {|arg| arg =~ /\[CREATE SENT\]/}
+      Xeroizer::Logging::Log.expects(:info).once.with {|arg| arg =~ /\[CREATE RECEIVED\]/}
+
+      a_fake_parent = mock "Mock parent",
+        :http_put => "<FakeResponse />",
+        :parse_response => stub("Stub response", :response_items => [])
+
+      an_example_instance = @example_class.new(a_fake_parent)
+
+      an_example_instance.id = nil
+      an_example_instance.save
+    end
+
+    must "log the request and response xml when updating an existing record" do
+      Xeroizer::Logging::Log.expects(:info).once.with {|arg| arg =~ /\[UPDATE SENT\]/}
+      Xeroizer::Logging::Log.expects(:info).once.with {|arg| arg =~ /\[UPDATE RECEIVED\]/}
+
+      a_fake_parent = mock "Mock parent",
+        :http_post => "<FakeResponse />",
+        :parse_response => stub("Stub response", :response_items => [])
+
+      an_example_instance = @example_class.new(a_fake_parent)
+
+      an_example_instance.id = "phil's lunch box"
+      an_example_instance.save
+    end
+  end
 end

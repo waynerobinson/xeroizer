@@ -40,13 +40,6 @@ module Xeroizer
       } unless defined?(INVOICE_STATUS)
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
       
-      LINE_AMOUNT_TYPE = {
-        "Inclusive" =>        'CreditNote lines are inclusive tax',
-        "Exclusive" =>        'CreditNote lines are exclusive of tax (default)',
-        "NoTax"     =>        'CreditNotes lines have no tax'
-      } unless defined?(LINE_AMOUNT_TYPE)
-      LINE_AMOUNT_TYPES = LINE_AMOUNT_TYPE.keys.sort
-      
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
       list_contains_summary_only true
