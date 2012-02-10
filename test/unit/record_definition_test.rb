@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '../test_helper.rb')
+require 'test_helper'
 
 class RecordDefinitionTest < Test::Unit::TestCase
   include TestHelper

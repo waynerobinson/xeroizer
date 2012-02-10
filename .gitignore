@@ -6,4 +6,6 @@ doc/
 .redcar
 pkg/
 Gemfile.lock
+.rvmrc
+.oauth
 .DS_Store

@@ -23,11 +23,14 @@ require 'xeroizer/exceptions'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/base'
+require 'xeroizer/configuration'
 
 # Include models
 require 'xeroizer/models/account'
 require 'xeroizer/models/address'
 require 'xeroizer/models/branding_theme'
+require 'xeroizer/models/bank_transaction'
+require 'xeroizer/models/bank_account'
 require 'xeroizer/models/contact'
 require 'xeroizer/models/contact_group'
 require 'xeroizer/models/credit_note'
