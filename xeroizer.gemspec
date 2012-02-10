@@ -36,6 +36,8 @@ Gem::Specification.new do |s|
     "lib/xeroizer/models/account.rb",
     "lib/xeroizer/models/address.rb",
     "lib/xeroizer/models/branding_theme.rb",
+    "lib/xeroizer/models/bank_acount.rb",
+    "lib/xeroizer/models/bank_transaction.rb",
     "lib/xeroizer/models/contact.rb",
     "lib/xeroizer/models/contact_group.rb",
     "lib/xeroizer/models/credit_note.rb",
