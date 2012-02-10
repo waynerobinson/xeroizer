@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{xeroizer}
-  s.version = "0.3.5"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2011-06-27}
+  s.date = %q{2012-02-10}
   s.description = %q{Ruby library for the Xero accounting system API.}
   s.email = %q{wayne.robinson@gmail.com}
   s.extra_rdoc_files = [
@@ -23,21 +23,22 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "lib/.DS_Store",
     "lib/big_decimal_to_s.rb",
     "lib/class_level_inheritable_attributes.rb",
     "lib/xeroizer.rb",
     "lib/xeroizer/application_http_proxy.rb",
     "lib/xeroizer/ca-certificates.crt",
+    "lib/xeroizer/configuration.rb",
     "lib/xeroizer/exceptions.rb",
     "lib/xeroizer/generic_application.rb",
     "lib/xeroizer/http.rb",
     "lib/xeroizer/http_encoding_helper.rb",
+    "lib/xeroizer/logging.rb",
     "lib/xeroizer/models/account.rb",
     "lib/xeroizer/models/address.rb",
-    "lib/xeroizer/models/branding_theme.rb",
-    "lib/xeroizer/models/bank_acount.rb",
+    "lib/xeroizer/models/bank_account.rb",
     "lib/xeroizer/models/bank_transaction.rb",
+    "lib/xeroizer/models/branding_theme.rb",
     "lib/xeroizer/models/contact.rb",
     "lib/xeroizer/models/contact_group.rb",
     "lib/xeroizer/models/credit_note.rb",
@@ -50,7 +51,9 @@ Gem::Specification.new do |s|
     "lib/xeroizer/models/item_sales_details.rb",
     "lib/xeroizer/models/journal.rb",
     "lib/xeroizer/models/journal_line.rb",
+    "lib/xeroizer/models/line_amount_type.rb",
     "lib/xeroizer/models/line_item.rb",
+    "lib/xeroizer/models/line_item_sum.rb",
     "lib/xeroizer/models/manual_journal.rb",
     "lib/xeroizer/models/manual_journal_line.rb",
     "lib/xeroizer/models/option.rb",
@@ -72,6 +75,7 @@ Gem::Specification.new do |s|
     "lib/xeroizer/record/record_association_helper.rb",
     "lib/xeroizer/record/validation_helper.rb",
     "lib/xeroizer/record/validators/associated_validator.rb",
+    "lib/xeroizer/record/validators/block_validator.rb",
     "lib/xeroizer/record/validators/inclusion_of_validator.rb",
     "lib/xeroizer/record/validators/presence_of_validator.rb",
     "lib/xeroizer/record/validators/validator.rb",
@@ -88,6 +92,10 @@ Gem::Specification.new do |s|
     "lib/xeroizer/report/row/xml_helper.rb",
     "lib/xeroizer/report/xml_helper.rb",
     "lib/xeroizer/response.rb",
+    "test/acceptance/about_creating_bank_transactions_test.rb",
+    "test/acceptance/about_fetching_bank_transactions_test.rb",
+    "test/acceptance/acceptance_test.rb",
+    "test/acceptance/bank_transaction_reference_data.rb",
     "test/stub_responses/accounts.xml",
     "test/stub_responses/api_exception.xml",
     "test/stub_responses/bogus_oauth_error",
@@ -319,13 +327,20 @@ Gem::Specification.new do |s|
     "test/stub_responses/tracking_categories.xml",
     "test/stub_responses/unknown_error.xml",
     "test/test_helper.rb",
+    "test/unit/models/bank_transaction_model_parsing_test.rb",
+    "test/unit/models/bank_transaction_test.rb",
+    "test/unit/models/bank_transaction_validation_test.rb",
     "test/unit/models/contact_test.rb",
     "test/unit/models/credit_note_test.rb",
     "test/unit/models/invoice_test.rb",
+    "test/unit/models/line_item_sum_test.rb",
+    "test/unit/models/line_item_test.rb",
+    "test/unit/oauth_config_test.rb",
     "test/unit/oauth_test.rb",
     "test/unit/private_application_test.rb",
     "test/unit/record/base_model_test.rb",
     "test/unit/record/base_test.rb",
+    "test/unit/record/block_validator_test.rb",
     "test/unit/record/model_definition_test.rb",
     "test/unit/record/parse_where_hash_test.rb",
     "test/unit/record/record_association_test.rb",
@@ -338,17 +353,49 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/waynerobinson/xeroizer}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Xero library}
+  s.test_files = [
+    "test/acceptance/about_creating_bank_transactions_test.rb",
+    "test/acceptance/about_fetching_bank_transactions_test.rb",
+    "test/acceptance/acceptance_test.rb",
+    "test/acceptance/bank_transaction_reference_data.rb",
+    "test/stub_responses/refresh_responses.rb",
+    "test/test_helper.rb",
+    "test/unit/models/bank_transaction_model_parsing_test.rb",
+    "test/unit/models/bank_transaction_test.rb",
+    "test/unit/models/bank_transaction_validation_test.rb",
+    "test/unit/models/contact_test.rb",
+    "test/unit/models/credit_note_test.rb",
+    "test/unit/models/invoice_test.rb",
+    "test/unit/models/line_item_sum_test.rb",
+    "test/unit/models/line_item_test.rb",
+    "test/unit/oauth_config_test.rb",
+    "test/unit/oauth_test.rb",
+    "test/unit/private_application_test.rb",
+    "test/unit/record/base_model_test.rb",
+    "test/unit/record/base_test.rb",
+    "test/unit/record/block_validator_test.rb",
+    "test/unit/record/model_definition_test.rb",
+    "test/unit/record/parse_where_hash_test.rb",
+    "test/unit/record/record_association_test.rb",
+    "test/unit/record/validators_test.rb",
+    "test/unit/record_definition_test.rb",
+    "test/unit/report_definition_test.rb",
+    "test/unit/report_test.rb"
+  ]
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<builder>, [">= 2.1.2"])
       s.add_runtime_dependency(%q<oauth>, [">= 0.3.6"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
+      s.add_runtime_dependency(%q<i18n>, [">= 0"])
+      s.add_runtime_dependency(%q<yard>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 2.1.2"])
       s.add_runtime_dependency(%q<oauth>, [">= 0.3.6"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
@@ -360,6 +407,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<oauth>, [">= 0.3.6"])
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
+      s.add_dependency(%q<i18n>, [">= 0"])
+      s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 2.1.2"])
       s.add_dependency(%q<oauth>, [">= 0.3.6"])
       s.add_dependency(%q<activesupport>, [">= 0"])
@@ -372,6 +421,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<oauth>, [">= 0.3.6"])
     s.add_dependency(%q<activesupport>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
+    s.add_dependency(%q<i18n>, [">= 0"])
+    s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 2.1.2"])
     s.add_dependency(%q<oauth>, [">= 0.3.6"])
     s.add_dependency(%q<activesupport>, [">= 0"])
