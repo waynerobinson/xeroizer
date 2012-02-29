@@ -157,7 +157,7 @@ module Xeroizer
 
       protected
 
-        def delete_or_void_authorised_invoice!(new_status)
+        def delete_or_void_invoice!(new_status)
           raise CannotChangeInvoiceStatus.new(record, new_status) unless self.payments.size == 0
           self.status = new_status
           self.save
