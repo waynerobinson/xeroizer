@@ -14,7 +14,7 @@ module AcceptanceTest
           return unless block_given?
 
           unless respond_to? symbol
-            define_method symbol, do
+            define_method symbol do
               cached_method_result = instance_variable_get ivar_name = "@#{symbol}"
               instance_variable_set(ivar_name, instance_eval(&block)) if cached_method_result.nil?
               instance_variable_get ivar_name
@@ -36,7 +36,7 @@ module AcceptanceTest
   private
 
   def load_config_from_file
-    the_file_name = ".oauth"
+    the_file_name = File.join(File.dirname(__FILE__), '..', '..', '.oauth')
 
     return nil unless File.exists? the_file_name
 
