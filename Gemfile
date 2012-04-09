@@ -8,6 +8,7 @@ gem 'i18n'
 gem 'yard'
 
 group :test do
+  gem 'test-unit'
   gem 'mocha'
   gem 'shoulda'
   gem "jeweler"

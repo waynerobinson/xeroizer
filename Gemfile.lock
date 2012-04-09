@@ -31,6 +31,7 @@ GEM
       shoulda-matchers (~> 1.0.0)
     shoulda-context (1.0.0)
     shoulda-matchers (1.0.0)
+    test-unit (2.4.8)
     turn (0.9.4)
       ansi
     yard (0.7.5)
@@ -49,5 +50,6 @@ DEPENDENCIES
   oauth (>= 0.3.6)
   rest-client
   shoulda
+  test-unit
   turn
   yard
