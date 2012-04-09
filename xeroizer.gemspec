@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{xeroizer}
-  s.version = "0.4.1"
+  s.name = "xeroizer"
+  s.version = "0.4.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
-  s.date = %q{2012-02-29}
-  s.description = %q{Ruby library for the Xero accounting system API.}
-  s.email = %q{wayne.robinson@gmail.com}
+  s.date = "2012-04-09"
+  s.description = "Ruby library for the Xero accounting system API."
+  s.email = "wayne.robinson@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".bundle/config",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "Rakefile",
@@ -350,46 +351,16 @@ Gem::Specification.new do |s|
     "test/unit/report_test.rb",
     "xeroizer.gemspec"
   ]
-  s.homepage = %q{http://github.com/waynerobinson/xeroizer}
+  s.homepage = "http://github.com/waynerobinson/xeroizer"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Xero library}
-  s.test_files = [
-    "test/acceptance/about_creating_bank_transactions_test.rb",
-    "test/acceptance/about_fetching_bank_transactions_test.rb",
-    "test/acceptance/acceptance_test.rb",
-    "test/acceptance/bank_transaction_reference_data.rb",
-    "test/stub_responses/refresh_responses.rb",
-    "test/test_helper.rb",
-    "test/unit/models/bank_transaction_model_parsing_test.rb",
-    "test/unit/models/bank_transaction_test.rb",
-    "test/unit/models/bank_transaction_validation_test.rb",
-    "test/unit/models/contact_test.rb",
-    "test/unit/models/credit_note_test.rb",
-    "test/unit/models/invoice_test.rb",
-    "test/unit/models/line_item_sum_test.rb",
-    "test/unit/models/line_item_test.rb",
-    "test/unit/oauth_config_test.rb",
-    "test/unit/oauth_test.rb",
-    "test/unit/private_application_test.rb",
-    "test/unit/record/base_model_test.rb",
-    "test/unit/record/base_test.rb",
-    "test/unit/record/block_validator_test.rb",
-    "test/unit/record/model_definition_test.rb",
-    "test/unit/record/parse_where_hash_test.rb",
-    "test/unit/record/record_association_test.rb",
-    "test/unit/record/validators_test.rb",
-    "test/unit/record_definition_test.rb",
-    "test/unit/report_definition_test.rb",
-    "test/unit/report_test.rb"
-  ]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Xero library"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<builder>, [">= 2.1.2"])
       s.add_runtime_dependency(%q<oauth>, [">= 0.3.6"])
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
