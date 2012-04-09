@@ -14,6 +14,7 @@ module Xeroizer
       } unless defined?(ADDRESS_TYPE)
       
       string :address_type, :internal_name => :type
+      string :attention_to
       string :address_line1, :internal_name => :line1
       string :address_line2, :internal_name => :line2
       string :address_line3, :internal_name => :line3
