@@ -28,6 +28,7 @@ module Xeroizer
       string    :first_name
       string    :last_name
       string    :email_address
+      string    :skype_user_name
       string    :contact_groups
       string    :default_currency
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
