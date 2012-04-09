@@ -4,7 +4,6 @@ module Xeroizer
   module Report
     class Row
       
-      extend ActiveSupport::Memoizable
       include RowXmlHelper
       
       attr_reader :report

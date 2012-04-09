@@ -5,8 +5,6 @@ module Xeroizer
     
     class BaseModel
 
-      extend ActiveSupport::Memoizable
-      
       include ClassLevelInheritableAttributes
       class_inheritable_attributes :api_controller_name
       

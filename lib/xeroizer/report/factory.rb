@@ -6,7 +6,6 @@ module Xeroizer
   module Report
     class Factory
       
-      extend ActiveSupport::Memoizable
       include ApplicationHttpProxy
 
       attr_reader :application

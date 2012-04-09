@@ -2,8 +2,6 @@ module Xeroizer
   module Report
     class AgedReceivablesByContact < Base
 
-      extend ActiveSupport::Memoizable
-
       public
 
         def total
