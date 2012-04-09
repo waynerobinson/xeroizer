@@ -11,8 +11,8 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
   def setup
     super
     all_accounts = client.Account.all
-    @account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "REVENUE"}.first
-    @bank_account = all_accounts.select{|account| account.status == "ACTIVE" && account.type == "BANK"}.first
+    @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
+    @bank_account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "BANK"}.first    
   end
 
   can "create a new SPEND bank transaction" do
@@ -20,7 +20,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
       :line_items => any_line_items(@account),
-      :bank_account => { :code => @bank_account.code }
+      :bank_account => { :account_id => @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
@@ -32,7 +32,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
       :line_items => any_line_items(@account),
-      :bank_account => { :code => @bank_account.code }
+      :bank_account => { :account_id => @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
@@ -60,7 +60,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
       :line_items => any_line_items(@account),
-      :bank_account => { :code => @bank_account.code },
+      :bank_account => { :account_id => @bank_account.account_id },
       :line_amount_types => "Exclusive"
     )
 
@@ -123,7 +123,7 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
       :type => "RECEIVE",
       :contact => { :name => "Jazz Kang" },
       :line_items => any_line_items(@account),
-      :bank_account => { :code => @bank_account.code }
+      :bank_account => { :account_id => @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
