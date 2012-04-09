@@ -3,9 +3,9 @@ module Xeroizer
     class HeaderRow < Row
 
         def column_index(column_name)
-          cells.find_index { | cell | cell.value == column_name.to_s }
+          @_column_index_cache ||= {}
+          @_column_index_cache[column_name] ||= cells.find_index { | cell | cell.value == column_name.to_s }
         end
-        memoize :column_index
         
     end
   end

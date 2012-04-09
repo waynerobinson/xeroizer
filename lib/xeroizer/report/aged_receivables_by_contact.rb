@@ -7,24 +7,26 @@ module Xeroizer
       public
 
         def total
-          summary.cell(:Total).value 
+          @_total_cache ||= summary.cell(:Total).value 
         end
 
         def total_paid
-          summary.cell(:Paid).value
+          @_total_paid_cache ||= summary.cell(:Paid).value
         end
 
         def total_credited
-          summary.cell(:Credited).value
+          @_total_credited_cache ||= summary.cell(:Credited).value
         end
 
         def total_due
-          summary.cell(:Due).value
+          @_total_due_cache ||= summary.cell(:Due).value
         end
 
         def total_overdue
+          return @_total_due_cache if @_total_due_cache
+          
           now = Time.now
-          sum(:Due) do | row | 
+          @_total_due_cache = sum(:Due) do | row | 
             due_date = row.cell('Due Date').value
             due_date && due_date < now
           end
@@ -37,7 +39,6 @@ module Xeroizer
             sum
           end
         end
-        memoize :total, :total_paid, :total_credited, :total_due, :total_overdue, :sum
       
     end
   end
