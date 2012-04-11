@@ -36,7 +36,7 @@ module Xeroizer
       boolean   :is_supplier
       boolean   :is_customer
       
-      has_many  :addresses
+      has_many  :addresses, :list_complete => true
       has_many  :phones
       has_many  :contact_groups
       
