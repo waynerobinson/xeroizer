@@ -16,6 +16,7 @@ module Xeroizer
       
       set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number
+      list_contains_summary_only true
       
       guid      :contact_id
       string    :contact_number
