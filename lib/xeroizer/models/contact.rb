@@ -37,7 +37,7 @@ module Xeroizer
       boolean   :is_customer
       
       has_many  :addresses, :list_complete => true
-      has_many  :phones
+      has_many  :phones, :list_complete => true
       has_many  :contact_groups
       
       validates_presence_of :name
