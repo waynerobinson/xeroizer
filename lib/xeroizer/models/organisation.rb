@@ -10,12 +10,15 @@ module Xeroizer
     
     class Organisation < Base
       
+      string    :api_key, :api_name => 'APIKey'
       string    :name
       string    :legal_name
       boolean   :pays_tax
       string    :version
       string    :organisation_type
       string    :base_currency
+      boolean   :is_demo_company
+      string    :organisation_status
       integer   :financial_year_end_day
       integer   :financial_year_end_month
       date      :period_lock_date
