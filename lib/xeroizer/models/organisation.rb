@@ -17,12 +17,14 @@ module Xeroizer
       string    :version
       string    :organisation_type
       string    :base_currency
+      string    :country_code
       boolean   :is_demo_company
       string    :organisation_status
       integer   :financial_year_end_day
       integer   :financial_year_end_month
       date      :period_lock_date
       date      :end_of_year_lock_date
+      string    :tax_number
       string    :registration_number
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
 
