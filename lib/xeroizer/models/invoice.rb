@@ -140,6 +140,7 @@ module Xeroizer
             sub_total + total_tax
           else
             attributes[:total]
+          end
         end
         
         # Retrieve the PDF version of this invoice.
