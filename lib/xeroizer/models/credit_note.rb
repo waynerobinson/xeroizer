@@ -88,8 +88,8 @@ module Xeroizer
         def total=(value);      raise SettingTotalDirectlyNotSupported.new(:total);       end
       
         # Calculate sub_total from line_items.
-        def sub_total
-          if new_record? || complete_record_downloaded?
+        def sub_total(always_summary = false)
+          if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
             sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
             
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
@@ -99,19 +99,23 @@ module Xeroizer
             attributes[:sub_total]
           end
         end
-      
+
         # Calculate total_tax from line_items.
-        def total_tax
-          if new_record? || complete_record_downloaded?
+        def total_tax(always_summary = false)
+          if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
             (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.tax_amount }
           else
             attributes[:total_tax]
           end
         end
-      
+
         # Calculate the total from line_items.
-        def total
-          sub_total + total_tax
+        def total(always_summary = false)
+          unless always_summary
+            sub_total + total_tax
+          else
+            attributes[:total]
+          end
         end
         
         # Retrieve the PDF version of this credit note.
