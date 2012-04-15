@@ -70,6 +70,18 @@ module Xeroizer
       
       public
       
+        # Access the contact name without forcing a download of
+        # an incomplete, summary credit note.
+        def contact_name
+          attributes[:contact] && attributes[:contact][:name]
+        end
+
+        # Access the contact ID without forcing a download of an
+        # incomplete, summary credit note.
+        def contact_id
+          attributes[:contact] && attributes[:contact][:contact_id]
+        end      
+      
         # Swallow assignment of attributes that should only be calculated automatically.
         def sub_total=(value);  raise SettingTotalDirectlyNotSupported.new(:sub_total);   end
         def total_tax=(value);  raise SettingTotalDirectlyNotSupported.new(:total_tax);   end
