@@ -23,7 +23,15 @@ module Xeroizer
       belongs_to  :invoice
       
       def invoice_id
-        invoice.invoice_id
+        invoice.id if invoice
+      end
+      
+      def account_id
+        account.id if account
+      end
+      
+      def account_code
+        account.code if account
       end
       
     end
