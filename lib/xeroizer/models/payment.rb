@@ -18,9 +18,13 @@ module Xeroizer
       decimal   :currency_rate
       string    :reference
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
-            
+
       belongs_to  :account
       belongs_to  :invoice
+      
+      def invoice_id
+        invoice.invoice_id
+      end
       
     end
     
