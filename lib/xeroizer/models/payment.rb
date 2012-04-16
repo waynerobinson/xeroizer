@@ -16,6 +16,8 @@ module Xeroizer
       date      :date
       decimal   :amount
       decimal   :currency_rate
+      string    :payment_type
+      string    :status
       string    :reference
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
