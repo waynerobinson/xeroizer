@@ -5,7 +5,6 @@ gem 'oauth',   '>= 0.3.6'
 gem 'activesupport'
 gem 'nokogiri'
 gem 'i18n'
-gem 'yard'
 
 group :test do
   gem 'test-unit'
@@ -15,4 +14,6 @@ group :test do
   gem "rest-client"
   gem "turn"
   gem "ansi"
+  gem "redcarpet"
+  gem 'yard'
 end
