@@ -33,7 +33,7 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CON
 
 # Retrieve list of contacts (note: all communication must be made through the client).
 contacts = client.Contact.all(:order => 'Name')
-```r
+```
 	
 Authentication
 --------------
