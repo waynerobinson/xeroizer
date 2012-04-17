@@ -54,8 +54,9 @@ to many organisations at once by going through the authorisation process for eac
 The access token received will expire after 30 minutes. If you want access for longer you will need
 the user to re-authorise your application.
 
-Authentication occcurs in 3 steps:
+Authentication occurs in 3 steps:
 
+  ```ruby
 	client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
 	
 	# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
@@ -76,6 +77,7 @@ Authentication occcurs in 3 steps:
 	#
 	#    Note: This example assumes the callback URL is a Rails action.
 	client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
+	```
 	
 You can now use the client to access the Xero API methods, e.g.
 
