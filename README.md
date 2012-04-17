@@ -24,14 +24,16 @@ Installation
 Basic Usage
 -----------
 
-	require 'rubygems'
-	require 'xeroizer'
-	
-	# Create client (used to communicate with the API).
-	client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-	
-	# Retrieve list of contacts (note: all communication must be made through the client).
-	contacts = client.Contact.all(:order => 'Name')
+```ruby
+require 'rubygems'
+require 'xeroizer'
+
+# Create client (used to communicate with the API).
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+
+# Retrieve list of contacts (note: all communication must be made through the client).
+contacts = client.Contact.all(:order => 'Name')
+```r
 	
 Authentication
 --------------
