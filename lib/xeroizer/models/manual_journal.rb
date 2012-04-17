@@ -24,7 +24,7 @@ module Xeroizer
       string    :status
       string    :line_amount_types
       string    :narration
-      string    :url, :api_name => 'URL'
+      string    :url
       boolean   :show_on_cash_basis_reports
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       
