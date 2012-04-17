@@ -56,80 +56,84 @@ the user to re-authorise your application.
 
 Authentication occurs in 3 steps:
 
-  ```ruby
-	client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-	
-	# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
-	#    after they have authenticated your application.
-	#
-	#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
-	#          otherwise the user will not be redirected and only be shown the authentication code.
-	request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
-	
-	# 2. Redirect the user to the URL specified by the RequestToken.
-	#    
-	#    Note: example uses redirect_to method defined in Rails controllers.
-	redirect_to request_token.authorize_url
-	
-	# 3. Exchange RequestToken for AccessToken.
-	#    This access token will be used for all subsequent requests but it is stored within the client
-	#    application so you don't have to record it. 
-	#
-	#    Note: This example assumes the callback URL is a Rails action.
-	client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
-	```
+```ruby
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+
+# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
+#    after they have authenticated your application.
+#
+#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
+#          otherwise the user will not be redirected and only be shown the authentication code.
+request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
+
+# 2. Redirect the user to the URL specified by the RequestToken.
+#    
+#    Note: example uses redirect_to method defined in Rails controllers.
+redirect_to request_token.authorize_url
+
+# 3. Exchange RequestToken for AccessToken.
+#    This access token will be used for all subsequent requests but it is stored within the client
+#    application so you don't have to record it. 
+#
+#    Note: This example assumes the callback URL is a Rails action.
+client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
+```
 	
 You can now use the client to access the Xero API methods, e.g.
 
-	contacts = client.Contact.all
+```ruby
+contacts = client.Contact.all
+```
 	
 #### Example Rails Controller
 
-	class XeroSessionController < ApplicationController
+```ruby
+class XeroSessionController < ApplicationController
+
+	before_filter :get_xero_client
 	
-		before_filter :get_xero_client
+	public
+	
+		def new
+			request_token = @xero_client.request_token(:oauth_callback => 'http://yourapp.com/xero_session/create')
+			session[:request_token] = request_token.token
+			session[:request_secret] = request_token.secret
+			
+			redirect_to request_token.authorize_url
+		end
 		
-		public
+		def create
+			@xero_client.authorize_from_request(
+					session[:request_token], 
+					session[:request_secret], 
+					:oauth_verifier => params[:oauth_verifier] )
+						
+			session[:xero_auth] = {
+					:access_token => @xero_client.access_token.token,
+					:access_key => @xero_client.access_token.key }
+															
+			session.data.delete(:request_token)
+			session.data.delete(:request_secret)
+		end
 		
-			def new
-				request_token = @xero_client.request_token(:oauth_callback => 'http://yourapp.com/xero_session/create')
-				session[:request_token] = request_token.token
-				session[:request_secret] = request_token.secret
-				
-				redirect_to request_token.authorize_url
-			end
+		def destroy
+			session.data.delete(:xero_auth)
+		end
+		
+	private
+		
+		def get_xero_client
+			@xero_client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
 			
-			def create
-				@xero_client.authorize_from_request(
-						session[:request_token], 
-						session[:request_secret], 
-						:oauth_verifier => params[:oauth_verifier] )
-							
-				session[:xero_auth] = {
-						:access_token => @xero_client.access_token.token,
-						:access_key => @xero_client.access_token.key }
-																
-				session.data.delete(:request_token)
-				session.data.delete(:request_secret)
+			# Add AccessToken if authorised previously.
+			if session[:xero_auth]
+				@xero_client.authorize_from_access(
+					session[:xero_auth][:access_token], 
+					session[:xero_auth][:access_key] )
 			end
-			
-			def destroy
-				session.data.delete(:xero_auth)
-			end
-			
-		private
-			
-			def get_xero_client
-				@xero_client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-				
-				# Add AccessToken if authorised previously.
-				if session[:xero_auth]
-					@xero_client.authorize_from_access(
-						session[:xero_auth][:access_token], 
-						session[:xero_auth][:access_key] )
-				end
-			end
-	end
+		end
+end
+```
 	
 #### Storing AccessToken 
 
@@ -139,8 +143,10 @@ the API beyond the token's expiry time.
 
 If you want API access for longer consider creating a PartnerApplication which will allow you to renew tokens.
 
-	access_key = client.access_token.token
-	access_secret = client.access_token.secret
+```ruby
+access_key = client.access_token.token
+access_secret = client.access_token.secret
+```
 
 ### Private Applications
 
@@ -161,8 +167,10 @@ You need to upload this `public_privatekey.pfx` file to your private application
 
 Example usage:
 
-	client = Xeroizer::PrivateApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET, "/path/to/privatekey.pem")
-	contacts = client.Contact.all
+```ruby
+client = Xeroizer::PrivateApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET, "/path/to/privatekey.pem")
+contacts = client.Contact.all
+```
 
 ### Partner Applications
 
@@ -188,40 +196,44 @@ access the partner application in a similar way to public applications.
 
 Authentication occcurs in 3 steps:
 
-	client = Xeroizer::PartnerApplication.new(
-						YOUR_OAUTH_CONSUMER_KEY,
-						YOUR_OAUTH_CONSUMER_SECRET, 
-						"/path/to/privatekey.pem",
-						"/path/to/entrust-cert.pem",
-						"/path/to/entrust-private-nopass.pem"
-						)
-	
-	# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
-	#    after they have authenticated your application.
-	#
-	#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
-	#          otherwise the user will not be redirected and only be shown the authentication code.
-	request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
-	
-	# 2. Redirect the user to the URL specified by the RequestToken.
-	#    
-	#    Note: example uses redirect_to method defined in Rails controllers.
-	redirect_to request_token.authorize_url
-	
-	# 3. Exchange RequestToken for AccessToken.
-	#    This access token will be used for all subsequent requests but it is stored within the client
-	#    application so you don't have to record it. 
-	#
-	#    Note: This example assumes the callback URL is a Rails action.
-	client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
+```ruby
+client = Xeroizer::PartnerApplication.new(
+					YOUR_OAUTH_CONSUMER_KEY,
+					YOUR_OAUTH_CONSUMER_SECRET, 
+					"/path/to/privatekey.pem",
+					"/path/to/entrust-cert.pem",
+					"/path/to/entrust-private-nopass.pem"
+					)
+
+# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
+#    after they have authenticated your application.
+#
+#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
+#          otherwise the user will not be redirected and only be shown the authentication code.
+request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
+
+# 2. Redirect the user to the URL specified by the RequestToken.
+#    
+#    Note: example uses redirect_to method defined in Rails controllers.
+redirect_to request_token.authorize_url
+
+# 3. Exchange RequestToken for AccessToken.
+#    This access token will be used for all subsequent requests but it is stored within the client
+#    application so you don't have to record it. 
+#
+#    Note: This example assumes the callback URL is a Rails action.
+client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
+```
 
 This AccessToken will last for 30 minutes however, when using the partner application API you can
 renew this token. To be able to renew this token, you need to save the following data from this organisation's
 AccessToken:
 
-	session_handle = client.session_handle
-	access_key = client.access_token.token
-	access_secret = client.access_token.secret
+```ruby
+session_handle = client.session_handle
+access_key = client.access_token.token
+access_secret = client.access_token.secret
+```
 	
 Two other interesting attributes of the PartnerApplication client are:
 
@@ -232,12 +244,14 @@ Two other interesting attributes of the PartnerApplication client are:
 
 Renewal of an access token requires knowledge of the previous access token generated for this organisation. To renew:
 
-	# If you still have a client instance.
-	client.renew_access_token
-	
-	# If you are renewing from stored token/session details.
-	client.renew_access_token(access_key, access_secret, session_handle)
-	
+```ruby
+# If you still have a client instance.
+client.renew_access_token
+
+# If you are renewing from stored token/session details.
+client.renew_access_token(access_key, access_secret, session_handle)
+```
+
 This will invalidate the previous token and refresh the `access_key` and `access_secret` as specified in the
 initial authorisation process. You must always know the previous token's details to renew access to this
 session.
@@ -251,13 +265,15 @@ Each of the below record types is implemented within this library. To allow for 
 time in a single application, the model classes are accessed from the instance of PublicApplication, PrivateApplication
 or PartnerApplication. All class-level operations occur on this singleton. For example:
 
-	xero = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-	xero.authorize_from_access(session[:xero_auth][:access_token], session[:xero_auth][:access_key])
-	
-	contacts = xero.Contact.all(:order => 'Name')
-	
-	new_contact = xero.Contact.build(:name => 'ABC Development')
-	saved = new_contact.save
+```ruby
+xero = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+xero.authorize_from_access(session[:xero_auth][:access_token], session[:xero_auth][:access_key])
+
+contacts = xero.Contact.all(:order => 'Name')
+
+new_contact = xero.Contact.build(:name => 'ABC Development')
+saved = new_contact.save
+```
 
 ### \#all([options])
 
@@ -299,7 +315,9 @@ creating these records.
 
 You can specify find filters by providing the :where option with a hash. For example:
 
-	invoices = Xero.Invoice.all(:where => {:type => 'ACCREC', :amount_due_is_not => 0})
+```ruby
+invoices = Xero.Invoice.all(:where => {:type => 'ACCREC', :amount_due_is_not => 0})
+```
 	
 will automatically create the Xero string:
 
@@ -357,15 +375,19 @@ Records may be associated with each other via two different methods, `has_many` 
 
 **has\_many example:**
 
-	invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
-	invoice.line_items.each do | line_item |
-		puts "Line Description: #{line_item.description}"
-	end
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.line_items.each do | line_item |
+	puts "Line Description: #{line_item.description}"
+end
+```
 	
 **belongs\_to example:**
 
-	invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
-	puts "Invoice Contact Name: #{invoice.contact.name}"
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+puts "Invoice Contact Name: #{invoice.contact.name}"
+```
 
 Creating/Updating Data
 ----------------------
@@ -374,21 +396,27 @@ Creating/Updating Data
 
 New records can be created like:
 
-	contact = xero.Contact.build(:name => 'Contact Name')
-	contact.first_name = 'Joe'
-	contact.last_name = 'Bloggs'
-	contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
-	contact.add_phone(:type => 'DEFAULT', :area_code => '07', :number => '3033 1234')
-	contact.add_phone(:type => 'MOBILE', :number => '0412 123 456')
-	contact.save
+```ruby
+contact = xero.Contact.build(:name => 'Contact Name')
+contact.first_name = 'Joe'
+contact.last_name = 'Bloggs'
+contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
+contact.add_phone(:type => 'DEFAULT', :area_code => '07', :number => '3033 1234')
+contact.add_phone(:type => 'MOBILE', :number => '0412 123 456')
+contact.save
+```
 	
 To add to a `has_many` association use the `add_{association}` method. For example:
 
-	contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
+```ruby
+contact.add_address(:type => 'STREET', :line1 => '12 Testing Lane', :city => 'Brisbane')
+```
 	
 To add to a `belongs_to` association use the `build_{association}` method. For example:
 	
-	invoice.build_contact(:name => 'ABC Company')
+```ruby
+invoice.build_contact(:name => 'ABC Company')
+```
 
 ### Updating
 	
@@ -396,9 +424,11 @@ If the primary GUID for the record is present, the library will attempt to updat
 creating it. It is important that this record is downloaded from the Xero API first before attempting
 an update. For example:
 
-	contact = xero.Contact.find("cd09aa49-134d-40fb-a52b-b63c6a91d712")
-	contact.name = "Another Name Change"
-	contact.save
+```ruby
+contact = xero.Contact.find("cd09aa49-134d-40fb-a52b-b63c6a91d712")
+contact.name = "Another Name Change"
+contact.save
+```
 	
 Have a look at the models in `lib/xeroizer/models/` to see the valid attributes, associations and 
 minimum validation requirements for each of the record types.
@@ -410,15 +440,19 @@ If a record doesn't match it's internal validation requirements the `#save` meth
 
 For example:
 
-	contact = xero.Contact.build
-	saved = contact.save
-	
-	# contact.errors will contain [[:name, "can't be blank"]]
+```ruby
+contact = xero.Contact.build
+saved = contact.save
+
+# contact.errors will contain [[:name, "can't be blank"]]
+```
 	
 \#errors\_for(:attribute\_name) is a helper method to return just the errors associated with
 that attribute. For example:
 
-	contact.errors_for(:name) # will contain ["can't be blank"]
+```ruby
+contact.errors_for(:name) # will contain ["can't be blank"]
+```
 
 If something goes really wrong and the particular validation isn't handled by the internal
 validators then the library may raise a `Xeroizer::ApiException`.
@@ -434,39 +468,41 @@ are welcome).
 
 Reports are accessed like the following example:
 
-	trial_balance = xero.TrialBalance.get(:date => '2011-03-21')
-	
-	# Array containing report headings.
-	trial_balance.header.cells.map { | cell | cell.value }
-	
-	# Report rows by section
-	trial_balance.sections.each do | section |
-		puts "Section Title: #{section.title}"
-		section.rows.each do | row |
-			puts "\t#{row.cells.map { | cell | cell.value }.join("\t")}"
-		end
+```ruby
+trial_balance = xero.TrialBalance.get(:date => '2011-03-21')
+
+# Array containing report headings.
+trial_balance.header.cells.map { | cell | cell.value }
+
+# Report rows by section
+trial_balance.sections.each do | section |
+	puts "Section Title: #{section.title}"
+	section.rows.each do | row |
+		puts "\t#{row.cells.map { | cell | cell.value }.join("\t")}"
 	end
-	
-	# Summary row (if only one on the report)
-	trial_balance.summary.cells.map { | cell | cell.value }
-	
-	# All report rows (including HeaderRow, SectionRow, Row and SummaryRow)
-	trial_balance.rows.each do | row |
-		case row
-			when Xeroizer::Report::HeaderRow
-				# do something with header
-				
-			when Xeroizer::Report::SectionRow
-				# do something with section, will need to step into the rows for this section
-				
-			when Xeroizer::Report::Row
-				# do something for standard report rows
-				
-			when Xeroizer::Report::SummaryRow
-				# do something for summary rows
-				
-		end
+end
+
+# Summary row (if only one on the report)
+trial_balance.summary.cells.map { | cell | cell.value }
+
+# All report rows (including HeaderRow, SectionRow, Row and SummaryRow)
+trial_balance.rows.each do | row |
+	case row
+		when Xeroizer::Report::HeaderRow
+			# do something with header
+			
+		when Xeroizer::Report::SectionRow
+			# do something with section, will need to step into the rows for this section
+			
+		when Xeroizer::Report::Row
+			# do something for standard report rows
+			
+		when Xeroizer::Report::SummaryRow
+			# do something for summary rows
+			
 	end
+end
+```
 
 Xero API Rate Limits
 --------------------
@@ -483,7 +519,9 @@ If required, the library can handle these exceptions internally by sleeping
 for a configurable number of seconds and then repeating the last request.
 You can set this option when initializing an application:
 
-    # Sleep for 2 seconds every time the rate limit is exceeded.
-    client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
-                                             YOUR_OAUTH_CONSUMER_SECRET,
-                                             :rate_limit_sleep => 2)
+```ruby
+# Sleep for 2 seconds every time the rate limit is exceeded.
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
+                                         YOUR_OAUTH_CONSUMER_SECRET,
+                                         :rate_limit_sleep => 2)
+```
