@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "xeroizer"
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wayne Robinson"]
@@ -52,6 +52,7 @@ Gem::Specification.new do |s|
     "lib/xeroizer/models/item_sales_details.rb",
     "lib/xeroizer/models/journal.rb",
     "lib/xeroizer/models/journal_line.rb",
+    "lib/xeroizer/models/journal_line_tracking_category.rb",
     "lib/xeroizer/models/line_amount_type.rb",
     "lib/xeroizer/models/line_item.rb",
     "lib/xeroizer/models/line_item_sum.rb",
@@ -334,6 +335,7 @@ Gem::Specification.new do |s|
     "test/unit/models/contact_test.rb",
     "test/unit/models/credit_note_test.rb",
     "test/unit/models/invoice_test.rb",
+    "test/unit/models/journal_line_test.rb",
     "test/unit/models/line_item_sum_test.rb",
     "test/unit/models/line_item_test.rb",
     "test/unit/oauth_config_test.rb",
