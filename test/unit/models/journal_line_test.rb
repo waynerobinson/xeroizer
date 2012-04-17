@@ -9,13 +9,13 @@ class JournalLineTest < Test::Unit::TestCase
   end
   
   it "journal_line tracking specified correctly" do
-    invoice = @client.Journal.build
-    line = invoice.add_journal_line({})
+    journal = @client.Journal.build
+    journal_line = journal.add_journal_line({})
     
-    line.add_tracking_category(:name => "Name 1", :option => "Option 1")
-    line.add_tracking_category(:name => "Name 2", :option => "Option 2")
+    journal_line.add_tracking_category(:name => "Name 1", :option => "Option 1")
+    journal_line.add_tracking_category(:name => "Name 2", :option => "Option 2")
     
-    doc = Nokogiri::XML(line.to_xml)
+    doc = Nokogiri::XML(journal_line.to_xml)
     assert_equal 2, doc.xpath("/JournalLine/TrackingCategories/TrackingCategory").size
   end
 
