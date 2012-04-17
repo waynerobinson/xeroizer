@@ -20,7 +20,7 @@ module Xeroizer
       string   :tax_type
       string   :tax_name
 
-      has_many :tracking_categories, :model_name => 'TrackingCategoryChild'
+      has_many :tracking_categories, :model_name => 'JournalLineTrackingCategory'
        
     end
     

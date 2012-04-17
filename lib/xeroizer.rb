@@ -52,6 +52,7 @@ require 'xeroizer/models/phone'
 require 'xeroizer/models/tax_rate'
 require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
+require 'xeroizer/models/journal_line_tracking_category'
 
 require 'xeroizer/report/factory'
 
