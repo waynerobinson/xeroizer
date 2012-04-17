@@ -6,7 +6,7 @@
 <title>
   Module: Xeroizer::Record::ModelDefinitionHelper::ClassMethods
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -76,6 +76,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -190,9 +192,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Helper method to simplify field definition.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper method to simplify field definition.</p>
 </div></span>
   
 </li>
@@ -256,9 +257,8 @@ Helper method to simplify field definition.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Whether this record type&#8217;s list results contain summary data only.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Whether this record type’s list results contain summary data only.</p>
 </div></span>
   
 </li>
@@ -301,9 +301,8 @@ Whether this record type&#8217;s list results contain summary data only.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Possible primary keys.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Possible primary keys.</p>
 </div></span>
   
 </li>
@@ -325,9 +324,8 @@ Possible primary keys.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Set the actual Xero primary key for this record.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Set the actual Xero primary key for this record.</p>
 </div></span>
   
 </li>
@@ -349,9 +347,8 @@ Set the actual Xero primary key for this record.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Helper methods used to define the fields this model has.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper methods used to define the fields this model has.</p>
 </div></span>
   
 </li>
@@ -475,16 +472,15 @@ Helper methods used to define the fields this model has.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Helper method to simplify field definition. Creates an accessor and reader
-for the field. Options:
-</p>
-<pre class="code">
-  <span class='symbol val'>:internal_name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_allows identifier id'>allows</span> <span class='rubyid_the identifier id'>the</span> <span class='rubyid_specification identifier id'>specification</span> <span class='rubyid_of identifier id'>of</span> <span class='rubyid_an identifier id'>an</span> <span class='rubyid_internal identifier id'>internal</span> <span class='rubyid_field identifier id'>field</span> <span class='rubyid_name identifier id'>name</span> <span class='rubyid_differing identifier id'>differing</span> <span class='rubyid_from identifier id'>from</span> <span class='rubyid_the identifier id'>the</span> <span class='rubyid_API constant id'>API</span><span class='string val'>'s field name.
-  :api_name =&gt; allows the API name to be specified if it can'</span><span class='rubyid_t identifier id'>t</span> <span class='rubyid_be identifier id'>be</span> <span class='rubyid_properly identifier id'>properly</span> <span class='rubyid_converted identifier id'>converted</span> <span class='rubyid_from identifier id'>from</span> <span class='rubyid_camelize identifier id'>camelize</span><span class='dot token'>.</span>
-  <span class='symbol val'>:model_name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_allows identifier id'>allows</span> <span class='rubyid_class class kw'>class</span> <span class='rubyid_used identifier id'>used</span> <span class='rubyid_for for kw'>for</span> <span class='rubyid_children identifier id'>children</span> <span class='rubyid_to identifier id'>to</span> <span class='rubyid_be identifier id'>be</span> <span class='rubyid_different identifier id'>different</span> <span class='rubyid_from identifier id'>from</span> <span class='rubyid_it identifier id'>it</span><span class='string val'>'s ndoe name in the XML.
-  :type =&gt; type of field
-  :skip_writer =&gt; skip the writer method
+    
+<p>Helper method to simplify field definition.  Creates an accessor and reader
+for the field. Options:</p>
+
+<pre class="ruby">:<span class="ruby-identifier">internal_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">allows</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">specification</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">an</span> <span class="ruby-identifier">internal</span> <span class="ruby-identifier">field</span> <span class="ruby-identifier">name</span> <span class="ruby-identifier">differing</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">API</span><span class="ruby-string">'s field name.
+:api_name =&gt; allows the API name to be specified if it can'</span><span class="ruby-identifier">t</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">properly</span> <span class="ruby-identifier">converted</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">camelize</span>.
+:<span class="ruby-identifier">model_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">allows</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">used</span> <span class="ruby-keyword">for</span> <span class="ruby-identifier">children</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">different</span> <span class="ruby-identifier">from</span> <span class="ruby-identifier">it</span><span class="ruby-string">'s ndoe name in the XML.
+:type =&gt; type of field
+:skip_writer =&gt; skip the writer method
 </span></pre>
 
 
@@ -614,17 +610,14 @@ for the field. Options:
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Whether this record type&#8217;s list results contain summary data only.
-</p>
-<p>
-Records like invoices, when returning a list, only show summary data for
+    
+<p>Whether this record type’s list results contain summary data only.</p>
+
+<p>Records like invoices, when returning a list, only show summary data for
 certain types of associations (like the contact record) and do not return
-any data for line items.
-</p>
-<p>
-Default: false
-</p>
+any data for line items.</p>
+
+<p>Default: false</p>
 
 
   </div>
@@ -714,10 +707,9 @@ Default: false
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Possible primary keys. At least one of these must exist before attempting
-to update a record.
-</p>
+    
+<p>Possible primary keys. At least one of these must exist before attempting
+to update a record.</p>
 
 
   </div>
@@ -758,9 +750,8 @@ to update a record.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Set the actual Xero primary key for this record.
-</p>
+    
+<p>Set the actual Xero primary key for this record.</p>
 
 
   </div>
@@ -799,9 +790,8 @@ Set the actual Xero primary key for this record.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Helper methods used to define the fields this model has.
-</p>
+    
+<p>Helper methods used to define the fields this model has.</p>
 
 
   </div>
@@ -832,9 +822,9 @@ Helper methods used to define the fields this model has.
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:12 2012 by 
+  Generated on Tue Apr 17 13:57:41 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

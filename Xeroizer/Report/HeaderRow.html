@@ -6,7 +6,7 @@
 <title>
   Class: Xeroizer::Report::HeaderRow
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -96,29 +96,15 @@
 
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
 
-  
-  
-  
+
+
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Row.html" title="Xeroizer::Report::Row (class)">Row</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Row.html#cells-instance_method" title="Xeroizer::Report::Row#cells (method)">cells</a></span>, <span class='object_link'><a href="Row.html#header-instance_method" title="Xeroizer::Report::Row#header (method)">header</a></span>, <span class='object_link'><a href="Row.html#parent-instance_method" title="Xeroizer::Report::Row#parent (method)">parent</a></span>, <span class='object_link'><a href="Row.html#report-instance_method" title="Xeroizer::Report::Row#report (method)">report</a></span>, <span class='object_link'><a href="Row.html#rows-instance_method" title="Xeroizer::Report::Row#rows (method)">rows</a></span>, <span class='object_link'><a href="Row.html#title-instance_method" title="Xeroizer::Report::Row#title (method)">title</a></span>, <span class='object_link'><a href="Row.html#type-instance_method" title="Xeroizer::Report::Row#type (method)">type</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Row.html#cells-instance_method" title="Xeroizer::Report::Row#cells (method)">#cells</a></span>, <span class='object_link'><a href="Row.html#header-instance_method" title="Xeroizer::Report::Row#header (method)">#header</a></span>, <span class='object_link'><a href="Row.html#parent-instance_method" title="Xeroizer::Report::Row#parent (method)">#parent</a></span>, <span class='object_link'><a href="Row.html#report-instance_method" title="Xeroizer::Report::Row#report (method)">#report</a></span>, <span class='object_link'><a href="Row.html#rows-instance_method" title="Xeroizer::Report::Row#rows (method)">#rows</a></span>, <span class='object_link'><a href="Row.html#title-instance_method" title="Xeroizer::Report::Row#title (method)">#title</a></span>, <span class='object_link'><a href="Row.html#type-instance_method" title="Xeroizer::Report::Row#type (method)">#type</a></span></p>
 
-  
-  
-  
-  
 
   
     <h2>
@@ -170,7 +156,6 @@
   
   
   
-  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="RowXmlHelper.html" title="Xeroizer::Report::RowXmlHelper (module)">RowXmlHelper</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="RowXmlHelper.html#included-class_method" title="Xeroizer::Report::RowXmlHelper.included (method)">included</a></span></p>
 <div id="constructor_details" class="method_details_list">
@@ -200,13 +185,15 @@
 
 5
 6
-7</pre>
+7
+8</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/report/row/header.rb', line 5</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_column_index identifier id'>column_index</span><span class='lparen token'>(</span><span class='rubyid_column_name identifier id'>column_name</span><span class='rparen token'>)</span>
-  <span class='rubyid_cells identifier id'>cells</span><span class='dot token'>.</span><span class='rubyid_find_index identifier id'>find_index</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='eq op'>==</span> <span class='rubyid_column_name identifier id'>column_name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='rbrace token'>}</span>
+  <span class='rubyid_@_column_index_cache ivar id'>@_column_index_cache</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='rubyid_@_column_index_cache ivar id'>@_column_index_cache</span><span class='lbrack token'>[</span><span class='rubyid_column_name identifier id'>column_name</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_cells identifier id'>cells</span><span class='dot token'>.</span><span class='rubyid_find_index identifier id'>find_index</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span> <span class='bitor op'>|</span> <span class='rubyid_cell identifier id'>cell</span><span class='dot token'>.</span><span class='rubyid_value identifier id'>value</span> <span class='eq op'>==</span> <span class='rubyid_column_name identifier id'>column_name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span> <span class='rbrace token'>}</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -219,9 +206,9 @@
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:16 2012 by 
+  Generated on Tue Apr 17 13:57:42 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Module: Xeroizer::Record::RecordAssociationHelper::ClassMethods
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -76,6 +76,8 @@
   
 </dl>
 <div class="clear"></div>
+
+
 
 
 
@@ -240,8 +242,6 @@
       <pre class="lines">
 
 
-80
-81
 82
 83
 84
@@ -292,10 +292,12 @@
 129
 130
 131
-132</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 82</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_define_association_attribute identifier id'>define_association_attribute</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='rubyid_internal_field_name identifier id'>internal_field_name</span><span class='comma token'>,</span> <span class='rubyid_association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='rubyid_define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='rubyid_association_type identifier id'>association_type</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='dot token'>.</span><span class='rubyid_merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='symbol val'>:skip_writer</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -345,7 +347,7 @@
   <span class='comment val'># the complete version of the record before accessing the association.</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_list_contains_summary_only? fid id'>list_contains_summary_only?</span>
     <span class='rubyid_define_method identifier id'>define_method</span> <span class='rubyid_internal_field_name identifier id'>internal_field_name</span> <span class='rubyid_do do kw'>do</span>
-      <span class='rubyid_download_complete_record! fid id'>download_complete_record!</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='rubyid_complete_record_downloaded? fid id'>complete_record_downloaded?</span>
+      <span class='rubyid_download_complete_record! fid id'>download_complete_record!</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='rubyid_options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:list_complete</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='rubyid_complete_record_downloaded? fid id'>complete_record_downloaded?</span>
       <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='rubyid_field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_association_type identifier id'>association_type</span> <span class='eq op'>==</span> <span class='symbol val'>:has_many</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
     <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_end end kw'>end</span>
@@ -414,7 +416,9 @@
 75
 76
 77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/record/record_association_helper.rb', line 33</span>
@@ -454,14 +458,16 @@
     <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='rparen token'>)</span>
     
     <span class='comment val'># Add each record.</span>
-    <span class='rubyid_record identifier id'>record</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
+    <span class='rubyid_last_record identifier id'>last_record</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
     <span class='rubyid_records identifier id'>records</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_record identifier id'>record</span> <span class='bitor op'>|</span>
       <span class='rubyid_record identifier id'>record</span> <span class='assign token'>=</span> <span class='rubyid_record_class identifier id'>record_class</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_record identifier id'>record</span><span class='comma token'>,</span> <span class='rubyid_model_parent identifier id'>model_parent</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span>
       <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_StandardError constant id'>StandardError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Record #{record.class.name} is not a #{record_class.name}.&quot;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_record_class identifier id'>record_class</span><span class='rparen token'>)</span>
       <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='rubyid_field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
       <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='rubyid_field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_record identifier id'>record</span>
+      <span class='rubyid_last_record identifier id'>last_record</span> <span class='assign token'>=</span> <span class='rubyid_record identifier id'>record</span>
     <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_record identifier id'>record</span> <span class='comment val'># last record</span>
+    
+    <span class='rubyid_last_record identifier id'>last_record</span> <span class='comment val'># last record</span>
   <span class='rubyid_end end kw'>end</span>
   
 <span class='rubyid_end end kw'>end</span>
@@ -476,9 +482,9 @@
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:18 2012 by 
+  Generated on Tue Apr 17 13:57:36 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

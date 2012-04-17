@@ -6,7 +6,7 @@
 <title>
   Class: Xeroizer::Record::LineItem
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -109,55 +109,15 @@
   
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
 
-  
-  
-  
+
+
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Base.html" title="Xeroizer::Record::Base (class)">Base</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Base.html#attributes-instance_method" title="Xeroizer::Record::Base#attributes (method)">attributes</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded (method)">complete_record_downloaded</a></span>, <span class='object_link'><a href="Base.html#errors-instance_method" title="Xeroizer::Record::Base#errors (method)">errors</a></span>, <span class='object_link'><a href="Base.html#parent-instance_method" title="Xeroizer::Record::Base#parent (method)">parent</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Base.html#attributes-instance_method" title="Xeroizer::Record::Base#attributes (method)">#attributes</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded (method)">#complete_record_downloaded</a></span>, <span class='object_link'><a href="Base.html#errors-instance_method" title="Xeroizer::Record::Base#errors (method)">#errors</a></span>, <span class='object_link'><a href="Base.html#parent-instance_method" title="Xeroizer::Record::Base#parent (method)">#parent</a></span></p>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   
     <h2>
@@ -170,7 +130,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#line_amount-instance_method" title="#line_amount (instance method)">- (Object) <strong>line_amount</strong> </a>
+      <a href="#line_amount-instance_method" title="#line_amount (instance method)">- (Object) <strong>line_amount</strong>(summary_only = false) </a>
     
 
     
@@ -183,9 +143,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Calculate the line_total (if there is a quantity and unit_amount).
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate the line_total (if there is a quantity and unit_amount).</p>
 </div></span>
   
 </li>
@@ -207,10 +166,9 @@ Calculate the line_total (if there is a quantity and unit_amount).
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Swallow assignment of attributes that should only be calculated
-automatically.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Swallow assignment of attributes that should only be calculated
+automatically.</p>
 </div></span>
   
 </li>
@@ -294,16 +252,15 @@ automatically.
       <div class="method_details first">
   <p class="signature first" id="line_amount-instance_method">
   
-    - (<tt>Object</tt>) <strong>line_amount</strong> 
+    - (<tt>Object</tt>) <strong>line_amount</strong>(summary_only = false) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Calculate the line_total (if there is a quantity and unit_amount).
-Description-only lines have been allowed since Xero V2.09.
-</p>
+    
+<p>Calculate the line_total (if there is a quantity and unit_amount).
+Description-only lines have been allowed since Xero V2.09.</p>
 
 
   </div>
@@ -319,12 +276,16 @@ Description-only lines have been allowed since Xero V2.09.
 
 29
 30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/line_item.rb', line 29</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_line_amount identifier id'>line_amount</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_line_amount identifier id'>line_amount</span><span class='lparen token'>(</span><span class='rubyid_summary_only identifier id'>summary_only</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='rubyid_return return kw'>return</span> <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:line_amount</span><span class='rbrack token'>]</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_summary_only identifier id'>summary_only</span>
+  
   <span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='rubyid_quantity identifier id'>quantity</span> <span class='mult op'>*</span> <span class='rubyid_unit_amount identifier id'>unit_amount</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_round identifier id'>round</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_quantity identifier id'>quantity</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_unit_amount identifier id'>unit_amount</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -342,10 +303,9 @@ Description-only lines have been allowed since Xero V2.09.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Swallow assignment of attributes that should only be calculated
-automatically.
-</p>
+    
+<p>Swallow assignment of attributes that should only be calculated
+automatically.</p>
 
 
   </div>
@@ -389,9 +349,9 @@ automatically.
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:13 2012 by 
+  Generated on Tue Apr 17 13:57:40 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

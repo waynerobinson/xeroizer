@@ -6,7 +6,7 @@
 <title>
   Module: Xeroizer::Report::CellXmlHelper::ClassMethods
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -82,6 +82,8 @@
 
 
 
+
+
   
     <h2>
       Instance Method Summary
@@ -106,9 +108,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Create an instance of Cell from the node.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create an instance of Cell from the node.</p>
 </div></span>
   
 </li>
@@ -132,28 +133,25 @@ Create an instance of Cell from the node.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Create an instance of Cell from the node.
-</p>
-<p>
-Additionally, parse the attributes and return them as a hash to the cell.
-If a cell&#8217;s attributes look like:
-</p>
-<pre class="code">
-    <span class='lt op'>&lt;</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
-      <span class='lt op'>&lt;</span><span class='rubyid_Attribute constant id'>Attribute</span><span class='gt op'>&gt;</span>
-        <span class='lt op'>&lt;</span><span class='rubyid_Value constant id'>Value</span><span class='gt op'>&gt;</span><span class='integer val'>1335</span><span class='rubyid_b8b2 identifier id'>b8b2</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_d63 identifier id'>d63</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_af8 identifier id'>af8</span><span class='minus op'>-</span><span class='integer val'>937</span><span class='rubyid_f identifier id'>f</span><span class='minus op'>-</span><span class='integer val'>040</span><span class='integer val'>87</span><span class='rubyid_ae2e36e identifier id'>ae2e36e</span><span class='lt op'>&lt;</span><span class='regexp val'>/Value&gt;
-        &lt;Id&gt;account&lt;/</span><span class='rubyid_Id constant id'>Id</span><span class='gt op'>&gt;</span>
-      <span class='lt op'>&lt;</span><span class='regexp val'>/Attribute&gt;
-    &lt;/</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
-</pre>
-<p>
-Return a hash like:
-</p>
-<pre class="code">
-    <span class='lbrace token'>{</span>
-      <span class='string val'>'account'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1335b8b2-4d63-4af8-937f-04087ae2e36e'</span>
-    <span class='rbrace token'>}</span>
+    
+<p>Create an instance of Cell from the node.</p>
+
+<p>Additionally, parse the attributes and return them as a hash to the  cell.
+If a cell’s attributes look like:</p>
+
+<pre class="code ruby"><code><span class='lt op'>&lt;</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='rubyid_Attribute constant id'>Attribute</span><span class='gt op'>&gt;</span>
+    <span class='lt op'>&lt;</span><span class='rubyid_Value constant id'>Value</span><span class='gt op'>&gt;</span><span class='integer val'>1335</span><span class='rubyid_b8b2 identifier id'>b8b2</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_d63 identifier id'>d63</span><span class='minus op'>-</span><span class='integer val'>4</span><span class='rubyid_af8 identifier id'>af8</span><span class='minus op'>-</span><span class='integer val'>937</span><span class='rubyid_f identifier id'>f</span><span class='minus op'>-</span><span class='integer val'>040</span><span class='integer val'>87</span><span class='rubyid_ae2e36e identifier id'>ae2e36e</span><span class='lt op'>&lt;</span><span class='regexp val'>/Value&gt;
+    &lt;Id&gt;account&lt;/</span><span class='rubyid_Id constant id'>Id</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='regexp val'>/Attribute&gt;
+&lt;/</span><span class='rubyid_Attributes constant id'>Attributes</span><span class='gt op'>&gt;</span>
+</code></pre>
+
+<p>Return a hash like:</p>
+
+<pre class="ruby">{
+  <span class="ruby-string">'account'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1335b8b2-4d63-4af8-937f-04087ae2e36e'</span>
+}
 </pre>
 
 
@@ -211,9 +209,9 @@ Return a hash like:
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:15 2012 by 
+  Generated on Tue Apr 17 13:57:42 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

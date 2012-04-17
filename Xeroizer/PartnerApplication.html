@@ -6,7 +6,7 @@
 <title>
   Class: Xeroizer::PartnerApplication
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -103,41 +103,21 @@
   
 
 
+
+  <h2>Constant Summary</h2>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <h3 class="inherited">Constants included from <span class='object_link'><a href="Http.html" title="Xeroizer::Http (module)">Http</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Http.html#ACCEPT_MIME_MAP-constant" title="Xeroizer::Http::ACCEPT_MIME_MAP (constant)">ACCEPT_MIME_MAP</a></span></p>
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Http.html" title="Xeroizer::Http (module)">Http</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Http.html#ACCEPT_MIME_MAP-constant" title="Xeroizer::Http::ACCEPT_MIME_MAP (constant)">Http::ACCEPT_MIME_MAP</a></span></p>
 
 
 
-  
-  
-  
-  
+
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="GenericApplication.html" title="Xeroizer::GenericApplication (class)">GenericApplication</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="GenericApplication.html#client-instance_method" title="Xeroizer::GenericApplication#client (method)">client</a></span>, <span class='object_link'><a href="GenericApplication.html#logger-instance_method" title="Xeroizer::GenericApplication#logger (method)">logger</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_max_attempts-instance_method" title="Xeroizer::GenericApplication#rate_limit_max_attempts (method)">rate_limit_max_attempts</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_sleep-instance_method" title="Xeroizer::GenericApplication#rate_limit_sleep (method)">rate_limit_sleep</a></span>, <span class='object_link'><a href="GenericApplication.html#xero_url-instance_method" title="Xeroizer::GenericApplication#xero_url (method)">xero_url</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="GenericApplication.html#client-instance_method" title="Xeroizer::GenericApplication#client (method)">#client</a></span>, <span class='object_link'><a href="GenericApplication.html#logger-instance_method" title="Xeroizer::GenericApplication#logger (method)">#logger</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_max_attempts-instance_method" title="Xeroizer::GenericApplication#rate_limit_max_attempts (method)">#rate_limit_max_attempts</a></span>, <span class='object_link'><a href="GenericApplication.html#rate_limit_sleep-instance_method" title="Xeroizer::GenericApplication#rate_limit_sleep (method)">#rate_limit_sleep</a></span>, <span class='object_link'><a href="GenericApplication.html#xero_url-instance_method" title="Xeroizer::GenericApplication#xero_url (method)">#xero_url</a></span></p>
 
-  
-  
-  
-  
-  
-  
-  
 
   
     <h2>
@@ -165,11 +145,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Partner applications allow for public AccessToken&#8217;s received via the
-stanard OAuth authentication process to be renewed up until the
-session&#8217;s expiry.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Partner applications allow for public AccessToken’s received via the
+stanard OAuth authentication process to be renewed up until the session’s
+expiry.</p>
 </div></span>
   
 </li>
@@ -217,12 +196,11 @@ session&#8217;s expiry.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Partner applications allow for public AccessToken&#8217;s received via the
-stanard OAuth authentication process to be renewed up until the
-session&#8217;s expiry. The default session expiry for Xero is 365 days and
-the default AccessToken expiry is 30 minutes.
-</p>
+    
+<p>Partner applications allow for public AccessToken’s received via the
+stanard OAuth authentication process to be renewed up until the session’s
+expiry. The default session expiry for Xero is 365 days and the default
+AccessToken expiry is 30 minutes.</p>
 
 
   </div>
@@ -241,10 +219,9 @@ the default AccessToken expiry is 30 minutes.
       
       
         &mdash;
-        <div class='inline'><p>
-consumer key/token from application developer (found at http://api.xero.com
-for your application).
-</p>
+        <div class='inline'>
+<p>consumer key/token from application developer (found at <a
+href="http://api.xero.com">api.xero.com</a> for your application).</p>
 </div>
       
     </li>
@@ -259,10 +236,9 @@ for your application).
       
       
         &mdash;
-        <div class='inline'><p>
-consumer secret from application developer (found at http://api.xero.com
-for your application).
-</p>
+        <div class='inline'>
+<p>consumer secret from application developer (found at <a
+href="http://api.xero.com">api.xero.com</a> for your application).</p>
 </div>
       
     </li>
@@ -277,10 +253,9 @@ for your application).
       
       
         &mdash;
-        <div class='inline'><p>
-application&#8217;s private key for message signing (uploaded to
-http://api.xero.com)
-</p>
+        <div class='inline'>
+<p>application’s private key for message signing (uploaded to <a
+href="http://api.xero.com">api.xero.com</a>)</p>
 </div>
       
     </li>
@@ -295,9 +270,8 @@ http://api.xero.com)
       
       
         &mdash;
-        <div class='inline'><p>
-client-side SSL certificate file to use for requests
-</p>
+        <div class='inline'>
+<p>client-side SSL certificate file to use for requests</p>
 </div>
       
     </li>
@@ -312,9 +286,8 @@ client-side SSL certificate file to use for requests
       
       
         &mdash;
-        <div class='inline'><p>
-client-side SSL private key to use for requests
-</p>
+        <div class='inline'>
+<p>client-side SSL private key to use for requests</p>
 </div>
       
     </li>
@@ -331,9 +304,8 @@ client-side SSL private key to use for requests
       
       
         &mdash;
-        <div class='inline'><p>
-other options to pass to the GenericApplication constructor
-</p>
+        <div class='inline'>
+<p>other options to pass to the GenericApplication constructor</p>
 </div>
       
     </li>
@@ -411,9 +383,9 @@ other options to pass to the GenericApplication constructor
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:13 2012 by 
+  Generated on Tue Apr 17 13:57:40 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>

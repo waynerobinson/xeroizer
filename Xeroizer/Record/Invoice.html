@@ -6,7 +6,7 @@
 <title>
   Class: Xeroizer::Record::Invoice
   
-    &mdash; Documentation by YARD 0.7.4
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -137,55 +137,15 @@
   
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
 
-  
-  
-  
+
+
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Base.html" title="Xeroizer::Record::Base (class)">Base</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Base.html#attributes-instance_method" title="Xeroizer::Record::Base#attributes (method)">attributes</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded (method)">complete_record_downloaded</a></span>, <span class='object_link'><a href="Base.html#errors-instance_method" title="Xeroizer::Record::Base#errors (method)">errors</a></span>, <span class='object_link'><a href="Base.html#parent-instance_method" title="Xeroizer::Record::Base#parent (method)">parent</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Base.html#attributes-instance_method" title="Xeroizer::Record::Base#attributes (method)">#attributes</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded (method)">#complete_record_downloaded</a></span>, <span class='object_link'><a href="Base.html#errors-instance_method" title="Xeroizer::Record::Base#errors (method)">#errors</a></span>, <span class='object_link'><a href="Base.html#parent-instance_method" title="Xeroizer::Record::Base#parent (method)">#parent</a></span></p>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   
     <h2>
@@ -211,9 +171,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Helper method to check if the invoice is accounts payable.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper method to check if the invoice is accounts payable.</p>
 </div></span>
   
 </li>
@@ -235,9 +194,8 @@ Helper method to check if the invoice is accounts payable.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Helper method to check if the invoice is accounts receivable.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper method to check if the invoice is accounts receivable.</p>
 </div></span>
   
 </li>
@@ -259,9 +217,8 @@ Helper method to check if the invoice is accounts receivable.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Helper method to check if the invoice has been approved.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Helper method to check if the invoice has been approved.</p>
 </div></span>
   
 </li>
@@ -283,10 +240,9 @@ Helper method to check if the invoice has been approved.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Access the contact ID without forcing a download of an incomplete, summary
-invoice.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Access the contact ID without forcing a download of an incomplete, summary
+invoice.</p>
 </div></span>
   
 </li>
@@ -308,10 +264,9 @@ invoice.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Access the contact name without forcing a download of an incomplete,
-summary invoice.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Access the contact name without forcing a download of an incomplete,
+summary invoice.</p>
 </div></span>
   
 </li>
@@ -333,9 +288,8 @@ summary invoice.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Delete an approved invoice with no payments.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an approved invoice with no payments.</p>
 </div></span>
   
 </li>
@@ -357,9 +311,8 @@ Delete an approved invoice with no payments.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Retrieve the PDF version of this invoice.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieve the PDF version of this invoice.</p>
 </div></span>
   
 </li>
@@ -368,7 +321,7 @@ Retrieve the PDF version of this invoice.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sub_total-instance_method" title="#sub_total (instance method)">- (Object) <strong>sub_total</strong> </a>
+      <a href="#sub_total-instance_method" title="#sub_total (instance method)">- (Object) <strong>sub_total</strong>(always_summary = false) </a>
     
 
     
@@ -381,9 +334,8 @@ Retrieve the PDF version of this invoice.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Calculate sub_total from line_items.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate sub_total from line_items.</p>
 </div></span>
   
 </li>
@@ -405,10 +357,9 @@ Calculate sub_total from line_items.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Swallow assignment of attributes that should only be calculated
-automatically.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Swallow assignment of attributes that should only be calculated
+automatically.</p>
 </div></span>
   
 </li>
@@ -417,7 +368,7 @@ automatically.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#total-instance_method" title="#total (instance method)">- (Object) <strong>total</strong> </a>
+      <a href="#total-instance_method" title="#total (instance method)">- (Object) <strong>total</strong>(always_summary = false) </a>
     
 
     
@@ -430,9 +381,8 @@ automatically.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Calculate the total from line_items.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate the total from line_items.</p>
 </div></span>
   
 </li>
@@ -462,7 +412,7 @@ Calculate the total from line_items.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#total_tax-instance_method" title="#total_tax (instance method)">- (Object) <strong>total_tax</strong> </a>
+      <a href="#total_tax-instance_method" title="#total_tax (instance method)">- (Object) <strong>total_tax</strong>(always_summary = false) </a>
     
 
     
@@ -475,9 +425,8 @@ Calculate the total from line_items.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Calculate total_tax from line_items.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate total_tax from line_items.</p>
 </div></span>
   
 </li>
@@ -520,9 +469,8 @@ Calculate total_tax from line_items.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Void an approved invoice with no payments.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Void an approved invoice with no payments.</p>
 </div></span>
   
 </li>
@@ -612,9 +560,8 @@ Void an approved invoice with no payments.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Helper method to check if the invoice is accounts payable.
-</p>
+    
+<p>Helper method to check if the invoice is accounts payable.</p>
 
 
   </div>
@@ -666,9 +613,8 @@ Helper method to check if the invoice is accounts payable.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Helper method to check if the invoice is accounts receivable.
-</p>
+    
+<p>Helper method to check if the invoice is accounts receivable.</p>
 
 
   </div>
@@ -720,9 +666,8 @@ Helper method to check if the invoice is accounts receivable.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Helper method to check if the invoice has been approved.
-</p>
+    
+<p>Helper method to check if the invoice has been approved.</p>
 
 
   </div>
@@ -774,10 +719,9 @@ Helper method to check if the invoice has been approved.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Access the contact ID without forcing a download of an incomplete, summary
-invoice.
-</p>
+    
+<p>Access the contact ID without forcing a download of an incomplete, summary
+invoice.</p>
 
 
   </div>
@@ -816,10 +760,9 @@ invoice.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Access the contact name without forcing a download of an incomplete,
-summary invoice.
-</p>
+    
+<p>Access the contact name without forcing a download of an incomplete,
+summary invoice.</p>
 
 
   </div>
@@ -858,9 +801,8 @@ summary invoice.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Delete an approved invoice with no payments.
-</p>
+    
+<p>Delete an approved invoice with no payments.</p>
 
 
   </div>
@@ -874,12 +816,12 @@ Delete an approved invoice with no payments.
       <pre class="lines">
 
 
-149
-150
-151</pre>
+153
+154
+155</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 153</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete! fid id'>delete!</span>
   <span class='rubyid_delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'DELETED'</span><span class='rparen token'>)</span>
@@ -899,9 +841,8 @@ Delete an approved invoice with no payments.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Retrieve the PDF version of this invoice.
-</p>
+    
+<p>Retrieve the PDF version of this invoice.</p>
 
 
   </div>
@@ -922,9 +863,8 @@ Retrieve the PDF version of this invoice.
       
       
         &mdash;
-        <div class='inline'><p>
-optional filename to store the PDF in instead of returning the data.
-</p>
+        <div class='inline'>
+<p>optional filename to store the PDF in instead of returning the data.</p>
 </div>
       
     </li>
@@ -938,12 +878,12 @@ optional filename to store the PDF in instead of returning the data.
       <pre class="lines">
 
 
-144
-145
-146</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 148</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='rubyid_filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_filename identifier id'>filename</span><span class='rparen token'>)</span>
@@ -957,15 +897,14 @@ optional filename to store the PDF in instead of returning the data.
       <div class="method_details ">
   <p class="signature " id="sub_total-instance_method">
   
-    - (<tt>Object</tt>) <strong>sub_total</strong> 
+    - (<tt>Object</tt>) <strong>sub_total</strong>(always_summary = false) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Calculate sub_total from line_items.
-</p>
+    
+<p>Calculate sub_total from line_items.</p>
 
 
   </div>
@@ -994,8 +933,8 @@ Calculate sub_total from line_items.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 116</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total identifier id'>sub_total</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total identifier id'>sub_total</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
     <span class='rubyid_sum identifier id'>sum</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='rubyid_line_items identifier id'>line_items</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_inject identifier id'>inject</span><span class='lparen token'>(</span><span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span><span class='comma token'>,</span> <span class='rubyid_line_item identifier id'>line_item</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span> <span class='plus op'>+</span> <span class='rubyid_line_item identifier id'>line_item</span><span class='dot token'>.</span><span class='rubyid_line_amount identifier id'>line_amount</span> <span class='rbrace token'>}</span>
     
     <span class='comment val'># If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.</span>
@@ -1020,10 +959,9 @@ Calculate sub_total from line_items.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Swallow assignment of attributes that should only be calculated
-automatically.
-</p>
+    
+<p>Swallow assignment of attributes that should only be calculated
+automatically.</p>
 
 
   </div>
@@ -1065,15 +1003,14 @@ automatically.
       <div class="method_details ">
   <p class="signature " id="total-instance_method">
   
-    - (<tt>Object</tt>) <strong>total</strong> 
+    - (<tt>Object</tt>) <strong>total</strong>(always_summary = false) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Calculate the total from line_items.
-</p>
+    
+<p>Calculate the total from line_items.</p>
 
 
   </div>
@@ -1089,13 +1026,21 @@ Calculate the total from line_items.
 
 138
 139
-140</pre>
+140
+141
+142
+143
+144</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 138</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_total identifier id'>total</span>
-  <span class='rubyid_sub_total identifier id'>sub_total</span> <span class='plus op'>+</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total identifier id'>total</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_always_summary identifier id'>always_summary</span>
+    <span class='rubyid_sub_total identifier id'>sub_total</span> <span class='plus op'>+</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total</span><span class='rbrack token'>]</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1153,15 +1098,14 @@ Calculate the total from line_items.
       <div class="method_details ">
   <p class="signature " id="total_tax-instance_method">
   
-    - (<tt>Object</tt>) <strong>total_tax</strong> 
+    - (<tt>Object</tt>) <strong>total_tax</strong>(always_summary = false) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Calculate total_tax from line_items.
-</p>
+    
+<p>Calculate total_tax from line_items.</p>
 
 
   </div>
@@ -1186,8 +1130,8 @@ Calculate total_tax from line_items.
     <td>
       <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 129</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax identifier id'>total_tax</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
     <span class='lparen token'>(</span><span class='rubyid_line_items identifier id'>line_items</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_inject identifier id'>inject</span><span class='lparen token'>(</span><span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span><span class='comma token'>,</span> <span class='rubyid_line_item identifier id'>line_item</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span> <span class='plus op'>+</span> <span class='rubyid_line_item identifier id'>line_item</span><span class='dot token'>.</span><span class='rubyid_tax_amount identifier id'>tax_amount</span> <span class='rbrace token'>}</span>
   <span class='rubyid_else else kw'>else</span>
     <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total_tax</span><span class='rbrack token'>]</span>
@@ -1255,9 +1199,8 @@ Calculate total_tax from line_items.
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-Void an approved invoice with no payments.
-</p>
+    
+<p>Void an approved invoice with no payments.</p>
 
 
   </div>
@@ -1271,12 +1214,12 @@ Void an approved invoice with no payments.
       <pre class="lines">
 
 
-154
-155
-156</pre>
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 158</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_void! fid id'>void!</span>
   <span class='rubyid_delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'VOIDED'</span><span class='rparen token'>)</span>
@@ -1292,9 +1235,9 @@ Void an approved invoice with no payments.
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 10 17:22:11 2012 by 
+  Generated on Tue Apr 17 13:57:43 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.4 (ruby-1.8.7).
+  0.7.5 (ruby-1.8.7).
 </div>
 
   </body>
