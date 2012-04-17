@@ -40,7 +40,7 @@ module Xeroizer
               if field[:calculated]
                 record.attributes[field[:internal_name]] = value
               else
-                record.send("#{field[:internal_name]}=", value)
+                record.send("#{field[:internal_name]}=".to_sym, value)
               end
             end
           end

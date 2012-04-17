@@ -51,7 +51,7 @@ module Xeroizer
         end
         
         def []=(attribute, value)
-          self.send("#{attribute}=", value)
+          self.send("#{attribute}=".to_sym, value)
         end
         
         def new_record?
