@@ -25,6 +25,7 @@ module Xeroizer
       string    :line_amount_types
       string    :narration
       string    :url
+      string    :external_link_provider_name # only seems to be read-only at the moment
       boolean   :show_on_cash_basis_reports
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       
