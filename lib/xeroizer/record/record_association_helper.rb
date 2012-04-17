@@ -65,14 +65,16 @@ module Xeroizer
             self.send(field_name)
             
             # Add each record.
-            record = nil
+            last_record = nil
             records.each do | record |
               record = record_class.build(record, model_parent) if record.is_a?(Hash)
               raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
+              last_record = record
             end
-            record # last record
+            
+            last_record # last record
           end
           
         end

@@ -10,7 +10,7 @@ class LineItemTest < Test::Unit::TestCase
   
   it "line_item tracking specified correctly" do
     invoice = @client.Invoice.build
-    line_item = invoice.add_line_item({})
+    line_item = invoice.add_line_item({:description => "Test Description", :quantity => 1, :unit_amount => 200})
     
     line_item.add_tracking(:name => "Name 1", :option => "Option 1")
     line_item.add_tracking(:name => "Name 2", :option => "Option 2")
