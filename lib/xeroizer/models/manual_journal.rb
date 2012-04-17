@@ -24,6 +24,7 @@ module Xeroizer
       string    :status
       string    :line_amount_types
       string    :narration
+      string    :url, :api_name => 'URL'
       datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       
       has_many  :journal_lines, :model_name => 'ManualJournalLine'
