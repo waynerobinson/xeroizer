@@ -11,7 +11,7 @@ module Xeroizer
       
       JOURNAL_STATUS = {
         'DRAFT' =>      'Draft',
-        'APPROVED' =>   'Approved'
+        'POSTED' =>     'Posted'
       } unless defined?(INVOICE_TYPE)
       JOURNAL_STATUSES = JOURNAL_STATUS.keys.sort
             
@@ -31,10 +31,7 @@ module Xeroizer
       
       validates_presence_of :narration
       validates_associated :journal_lines
-      
-      # Can only create/update manual journals in DRAFT status
-      validates_inclusion_of :status, :in => %w(DRAFT)
-      
+            
       public
       
     end
