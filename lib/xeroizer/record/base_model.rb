@@ -13,6 +13,7 @@ module Xeroizer
       class_inheritable_attributes :permissions
       
       class_inheritable_attributes :xml_root_name
+      class_inheritable_attributes :optional_xml_root_name
       class_inheritable_attributes :xml_node_name
       
       include BaseModelHttpProxy
@@ -55,6 +56,11 @@ module Xeroizer
         # in has_many associations.
         def set_xml_root_name(root_name)
           self.xml_root_name = root_name
+        end
+        
+        # Method to add an extra top-level node to use in has_many associations.
+        def set_optional_xml_root_name(optional_root_name)
+          self.optional_root_name = optional_root_name
         end
         
       end

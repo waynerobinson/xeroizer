@@ -1,7 +1,23 @@
 require "test_helper"
 
 class LineItemTest < Test::Unit::TestCase
+  include TestHelper
   include Xeroizer::Record
+  
+  def setup
+    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+  end
+  
+  it "line_item tracking specified correctly" do
+    invoice = @client.Invoice.build
+    line_item = invoice.add_line_item({})
+    
+    line_item.add_tracking(:name => "Name 1", :option => "Option 1")
+    line_item.add_tracking(:name => "Name 2", :option => "Option 2")
+    
+    doc = Nokogiri::XML(line_item.to_xml)
+    assert_equal 2, doc.xpath("/LineItem/Tracking/TrackingCategory").size
+  end
 
   it "line_amount equals unit_price times quantity" do
     line_item = LineItem.new(nil)
