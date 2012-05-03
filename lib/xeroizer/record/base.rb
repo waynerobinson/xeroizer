@@ -37,7 +37,7 @@ module Xeroizer
       
       public
       
-        def initialize(parent)
+        def initialize(parent = nil)
           @parent = parent
           @attributes = {}
         end
