@@ -12,7 +12,7 @@ module Xeroizer
       JOURNAL_STATUS = {
         'DRAFT' =>      'Draft',
         'POSTED' =>     'Posted'
-      } unless defined?(INVOICE_TYPE)
+      } unless defined?(JOURNAL_STATUS)
       JOURNAL_STATUSES = JOURNAL_STATUS.keys.sort
             
       set_primary_key :manual_journal_id
