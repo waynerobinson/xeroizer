@@ -48,7 +48,7 @@ DEPENDENCIES
   jeweler
   mocha
   nokogiri
-  oauth (>= 0.3.6)
+  oauth (= 0.4.5)
   redcarpet
   rest-client
   shoulda
