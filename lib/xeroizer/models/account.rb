@@ -56,6 +56,10 @@ module Xeroizer
       string  :description
       string  :system_account
       boolean :enable_payments_to_account
+      boolean :show_in_expense_claims
+      string  :bank_account_number
+      string  :reporting_code
+      string  :reporting_code_name
       
     end
     
