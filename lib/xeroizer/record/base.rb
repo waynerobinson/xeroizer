@@ -53,6 +53,13 @@ module Xeroizer
         def []=(attribute, value)
           self.send("#{attribute}=".to_sym, value)
         end
+
+        def update_attributes(attributes = {})
+          attributes.each do | key, value |
+            self.send("#{key}=".to_sym, value)
+          end
+          save
+        end
         
         def new_record?
           id.nil?
