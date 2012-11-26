@@ -88,6 +88,11 @@ module Xeroizer
         def build(attributes = {})
           model_class.build(attributes, self)
         end
+
+        # Create (build and save) a record with attributes set to the value of attributes.
+        def create(attributes = {})
+          build(attributes).tap { |resource| resource.save }
+        end
         
         # Retreive full record list for this model. 
         def all(options = {})
