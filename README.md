@@ -251,7 +251,7 @@ Renewal of an access token requires knowledge of the previous access token gener
 client.renew_access_token
 
 # If you are renewing from stored token/session details.
-client.renew_access_token(access_key, access_secret, session_handle)
+client.renew_access_token(access_token, access_secret, session_handle)
 ```
 
 This will invalidate the previous token and refresh the `access_key` and `access_secret` as specified in the
