@@ -107,14 +107,24 @@ module Xeroizer
           type == 'ACCREC'
         end
         
-        # Swallow assignment of attributes that should only be calculated automatically.
-        def sub_total=(value);  raise SettingTotalDirectlyNotSupported.new(:sub_total);   end
-        def total_tax=(value);  raise SettingTotalDirectlyNotSupported.new(:total_tax);   end
-        def total=(value);      raise SettingTotalDirectlyNotSupported.new(:total);       end
+        def sub_total=(sub_total)
+          @sub_total_is_set = true
+          attributes[:sub_total] = sub_total
+        end
+        
+        def total_tax=(total_tax)
+          @total_tax_is_set = true
+          attributes[:total_tax] = total_tax
+        end
+
+        def total=(total)
+          @total_is_set = true
+          attributes[:total] = total
+        end
 
         # Calculate sub_total from line_items.
         def sub_total(always_summary = false)
-          if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
+          if !@sub_total_is_set && not_summary_or_loaded_record(always_summary)
             sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
             
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
@@ -127,7 +137,7 @@ module Xeroizer
 
         # Calculate total_tax from line_items.
         def total_tax(always_summary = false)
-          if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
+          if !@total_tax_is_set && not_summary_or_loaded_record(always_summary)
             (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.tax_amount }
           else
             attributes[:total_tax]
@@ -136,13 +146,22 @@ module Xeroizer
 
         # Calculate the total from line_items.
         def total(always_summary = false)
-          unless always_summary
+          if !@total_is_set && not_summary_or_loaded_record(always_summary)
             sub_total + total_tax
           else
             attributes[:total]
           end
         end
         
+        def not_summary_or_loaded_record(always_summary)
+          !always_summary && loaded_record?
+        end
+
+        def loaded_record?
+          new_record? || 
+            (!new_record? && line_items && line_items.size > 0)
+        end
+          
         # Retrieve the PDF version of this invoice.
         # @param [String] filename optional filename to store the PDF in instead of returning the data.
         def pdf(filename = nil)

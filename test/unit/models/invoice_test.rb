@@ -41,18 +41,6 @@ class InvoiceTest < Test::Unit::TestCase
   
   context "invoice totals" do
     
-    should "raise error when trying to set totals directly" do
-      assert_raises Xeroizer::SettingTotalDirectlyNotSupported do
-        @invoice.sub_total = 100.0
-      end
-      assert_raises Xeroizer::SettingTotalDirectlyNotSupported do
-        @invoice.total_tax = 100.0
-      end
-      assert_raises Xeroizer::SettingTotalDirectlyNotSupported do
-        @invoice.total = 100.0
-      end
-    end
-        
     should "large-scale testing from API XML" do
       invoices = @client.Invoice.all
       invoices.each do | invoice |
