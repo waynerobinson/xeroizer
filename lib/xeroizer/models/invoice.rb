@@ -2,7 +2,10 @@ module Xeroizer
   module Record
     
     class InvoiceModel < BaseModel
-        
+      # To create a new invoice, use the folowing
+      # $xero_client.Invoice.build(type: 'ACCREC', ..., contact: {name: 'Foo Bar'},...)
+      # Note that we are not making an api request to xero just to get the contact
+            
       set_permissions :read, :write, :update
       
       public
