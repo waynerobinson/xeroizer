@@ -8,7 +8,10 @@ module Xeroizer
       include ClassLevelInheritableAttributes
       class_inheritable_attributes :api_controller_name
       
-      class InvalidPermissionError < StandardError; end
+      module InvaidPermissionError; end
+      class InvalidPermissionError < StandardError
+        include InvaidPermissionError
+      end
       ALLOWED_PERMISSIONS = [:read, :write, :update]
       class_inheritable_attributes :permissions
       

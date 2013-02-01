@@ -47,4 +47,15 @@ class RecordBaseModelTest < Test::Unit::TestCase
     
   end
 
+  context "InvalidPermissionError" do
+    should "also be catchable by the name 'InvaidPermissionError' for historical reasons" do
+      begin
+        raise Xeroizer::Record::BaseModel::InvalidPermissionError
+      rescue Xeroizer::Record::BaseModel::InvaidPermissionError
+        return
+      end
+      assert false
+    end
+  end
+
 end
