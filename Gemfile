@@ -5,6 +5,7 @@ gem 'oauth',          '0.4.5'
 gem 'activesupport'
 gem 'nokogiri'
 gem 'i18n'
+gem 'ref'
 
 group :test do
   gem 'test-unit'

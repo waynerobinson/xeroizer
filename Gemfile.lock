@@ -25,6 +25,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
+    ref (1.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     shoulda (3.0.1)
@@ -50,6 +51,7 @@ DEPENDENCIES
   nokogiri
   oauth (= 0.4.5)
   redcarpet
+  ref
   rest-client
   shoulda
   test-unit

@@ -131,7 +131,7 @@ module Xeroizer
         
         # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
         # So let's ignore that :)
-        # raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+        raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
         
         # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
         doc = Nokogiri::XML(raw_response)

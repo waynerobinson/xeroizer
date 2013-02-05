@@ -1,4 +1,5 @@
 require 'xeroizer/record/base_model_http_proxy'
+require 'ref'
 
 module Xeroizer
   module Record
@@ -70,6 +71,7 @@ module Xeroizer
         def initialize(application, model_name)
           @application = application
           @model_name = model_name
+          @objects = {}
         end
         
         # Retrieve the controller name.
@@ -86,7 +88,10 @@ module Xeroizer
         
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
-          model_class.build(attributes, self)
+          model_class.build(attributes, self).tap do |resource|
+            @objects[model_class] ||= []
+            @objects[model_class] << Ref::WeakReference.new(resource)
+          end
         end
 
         # Create (build and save) a record with attributes set to the value of attributes.
@@ -119,7 +124,22 @@ module Xeroizer
           result.complete_record_downloaded = true if result
           result
         end
-        
+
+        def save_all
+          if @objects[model_class]
+            actions = @objects[model_class].group_by {|o| o.object.new_record? ? :http_put : :http_post }
+            actions.each_pair do |http_method, records|
+              records.map!(&:object)
+              request = to_bulk_xml(records)
+              puts "WHAT THE FUCK MATE #{request.inspect}"
+              response = parse_response(self.send(http_method, request))
+              response.response_items.each_with_index do |record, i|
+                records[i].attributes = record.attributes if record and record.is_a?(model_class)
+              end
+            end
+          end
+        end
+
         def parse_response(response_xml, options = {})
           Response.parse(response_xml, options) do | response, elements, response_model_name |
             if model_name == response_model_name
@@ -137,8 +157,24 @@ module Xeroizer
             response.response_items << model_class.build_from_node(element, self)
           end
         end
-        
-    end
+
+        def to_bulk_xml(records, builder = Builder::XmlMarkup.new(:indent => 2))
+          tag = (self.class.optional_xml_root_name || model_name).pluralize
+          builder.tag!(tag) do
+            records.map {|r| r.to_xml(builder) }
+          end
+        end
+
+        # Parse the response from a create/update request.
+        def parse_save_response(response_xml)
+          response = parse_response(response_xml)
+          record = response.response_items.first if response.response_items.is_a?(Array)
+          if record && record.is_a?(self.class)
+            @attributes = record.attributes
+          end
+          self
+        end
+      end
     
   end
 end
