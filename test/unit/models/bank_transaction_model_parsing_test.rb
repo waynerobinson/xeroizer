@@ -31,7 +31,9 @@ class BankTransactionModelParsingTest < Test::Unit::TestCase
 
     assert_equal Date.parse("2010-07-30T00:00:00"), the_bank_transaction.date
     assert_equal "Inclusive", the_bank_transaction.line_amount_types
-    assert_equal Date.parse("2008-02-20T12:19:56.657"), the_bank_transaction.updated_date_utc
+
+    assert_equal(Time.parse("2008-02-20T12:19:56.657Z"), the_bank_transaction.updated_date_utc)
+    
     assert_equal Date.parse("2010-07-30T00:00:00"), the_bank_transaction.fully_paid_on_date
     assert_equal "d20b6c54-7f5d-4ce6-ab83-55f609719126", the_bank_transaction.bank_transaction_id
     assert_equal "SPEND", the_bank_transaction.type
