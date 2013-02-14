@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem 'builder',        '>= 2.1.2'
 gem 'oauth',          '~> 0.4.5'
-gem 'activesupport'
+gem 'activesupport',  '~> 3.2.12'
 gem 'nokogiri'
 gem 'i18n'
 

@@ -366,7 +366,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<builder>, [">= 2.1.2"])
       s.add_runtime_dependency(%q<oauth>, ["~> 0.4.5"])
-      s.add_runtime_dependency(%q<activesupport>, [">= 0"])
+      s.add_runtime_dependency(%q<activesupport>, ["~> 3.2.12"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
       s.add_runtime_dependency(%q<builder>, [">= 2.1.2"])
@@ -378,7 +378,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<builder>, [">= 2.1.2"])
       s.add_dependency(%q<oauth>, ["~> 0.4.5"])
-      s.add_dependency(%q<activesupport>, [">= 0"])
+      s.add_dependency(%q<activesupport>, ["~> 3.2.12"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<i18n>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 2.1.2"])
@@ -391,7 +391,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<builder>, [">= 2.1.2"])
     s.add_dependency(%q<oauth>, ["~> 0.4.5"])
-    s.add_dependency(%q<activesupport>, [">= 0"])
+    s.add_dependency(%q<activesupport>, ["~> 3.2.12"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<i18n>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 2.1.2"])

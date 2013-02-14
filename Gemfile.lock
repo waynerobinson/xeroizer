@@ -41,7 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
+  activesupport (~> 3.2.12)
   ansi
   builder (>= 2.1.2)
   i18n
