@@ -17,7 +17,7 @@ module Xeroizer
       string :type
       date :date
 
-      date :updated_date_utc, :api_name => "UpdatedDateUTC"
+      datetime_utc :updated_date_utc, :api_name => "UpdatedDateUTC"
       date :fully_paid_on_date
       string :reference
       string :bank_transaction_id, :api_name => "BankTransactionID"

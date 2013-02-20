@@ -44,24 +44,24 @@ module Xeroizer
       set_possible_primary_keys :credit_note_id, :credit_note_number
       list_contains_summary_only true
       
-      guid      :credit_note_id
-      string    :credit_note_number
-      string    :reference
-      string    :type
-      date      :date
-      date      :due_date
-      string    :status
-      string    :line_amount_types
-      decimal   :sub_total, :calculated => true
-      decimal   :total_tax, :calculated => true
-      decimal   :total, :calculated => true
-      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
-      string    :currency_code
-      datetime  :fully_paid_on_date
-      boolean   :sent_to_contact
+      guid          :credit_note_id
+      string        :credit_note_number
+      string        :reference
+      string        :type
+      date          :date
+      date          :due_date
+      string        :status
+      string        :line_amount_types
+      decimal       :sub_total, :calculated => true
+      decimal       :total_tax, :calculated => true
+      decimal       :total, :calculated => true
+      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      string        :currency_code
+      datetime      :fully_paid_on_date
+      boolean       :sent_to_contact
       
-      belongs_to  :contact
-      has_many    :line_items
+      belongs_to    :contact
+      has_many      :line_items
       
       validates_inclusion_of :type, :in => CREDIT_NOTE_TYPES
       validates_inclusion_of :status, :in => CREDIT_NOTE_STATUSES, :allow_blanks => true

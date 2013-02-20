@@ -18,23 +18,23 @@ module Xeroizer
       set_possible_primary_keys :contact_id, :contact_number
       list_contains_summary_only true
       
-      guid      :contact_id
-      string    :contact_number
-      string    :contact_status
-      string    :name
-      string    :tax_number
-      string    :bank_account_details
-      string    :accounts_receivable_tax_type
-      string    :accounts_payable_tax_type
-      string    :first_name
-      string    :last_name
-      string    :email_address
-      string    :skype_user_name
-      string    :contact_groups
-      string    :default_currency
-      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
-      boolean   :is_supplier
-      boolean   :is_customer
+      guid          :contact_id
+      string        :contact_number
+      string        :contact_status
+      string        :name
+      string        :tax_number
+      string        :bank_account_details
+      string        :accounts_receivable_tax_type
+      string        :accounts_payable_tax_type
+      string        :first_name
+      string        :last_name
+      string        :email_address
+      string        :skype_user_name
+      string        :contact_groups
+      string        :default_currency
+      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      boolean       :is_supplier
+      boolean       :is_customer
       
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
