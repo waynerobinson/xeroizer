@@ -18,6 +18,7 @@ module Xeroizer
       string  :tax_type
       decimal :tax_amount
       decimal :line_amount, :calculated => true
+      decimal :discount_rate
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
       
@@ -31,7 +32,7 @@ module Xeroizer
       def line_amount(summary_only = false)
         return attributes[:line_amount] if summary_only || @line_amount_set
         
-        BigDecimal((quantity * unit_amount).to_s).round(2) if quantity && unit_amount
+        BigDecimal((quantity * unit_amount * ((100.0 - discount_rate)/100.0)).to_s).round(2) if quantity && unit_amount
       end
       
     end
