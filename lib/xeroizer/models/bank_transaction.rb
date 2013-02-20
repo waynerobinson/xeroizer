@@ -14,6 +14,8 @@ module Xeroizer
       end
 
       set_primary_key :bank_transaction_id
+      list_contains_summary_only true
+
       string :type
       date :date
 
