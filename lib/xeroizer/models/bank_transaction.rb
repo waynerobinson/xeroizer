@@ -10,8 +10,8 @@ module Xeroizer
     class BankTransaction < Base
 
       BANK_TRANSACTION_STATUS = {
-        'ACTIVE'  =>          'Bank transactions that are active',
-        'DELETED' =>          'Bank transactions that are deleted',
+        'ACTIVE'  =>          'Active bank transactions',
+        'DELETED' =>          'Deleted bank transactions',
       } unless defined?(BANK_TRANSACTION_STATUS)
       BANK_TRANSACTION_STATUSES = BANK_TRANSACTION_STATUS.keys.sort
 
