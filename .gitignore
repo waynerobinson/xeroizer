@@ -8,3 +8,5 @@ pkg/
 .rvmrc
 .oauth
 .DS_Store
+Gemfile.lock
+*.gem
