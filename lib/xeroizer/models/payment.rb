@@ -12,17 +12,17 @@ module Xeroizer
       
       set_primary_key :payment_id
       
-      guid      :payment_id
-      date      :date
-      decimal   :amount
-      decimal   :currency_rate
-      string    :payment_type
-      string    :status
-      string    :reference
-      datetime  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      guid          :payment_id
+      date          :date
+      decimal       :amount
+      decimal       :currency_rate
+      string        :payment_type
+      string        :status
+      string        :reference
+      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
-      belongs_to  :account
-      belongs_to  :invoice
+      belongs_to    :account
+      belongs_to    :invoice
       
       def invoice_id
         invoice.id if invoice

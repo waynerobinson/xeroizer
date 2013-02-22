@@ -11,6 +11,7 @@ module Xeroizer
       
       string  :name
       string  :tax_type
+      string  :status
       boolean :can_apply_to_assets
       boolean :can_apply_to_equity
       boolean :can_apply_to_expenses

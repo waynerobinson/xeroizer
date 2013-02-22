@@ -97,4 +97,17 @@ class InvoiceTest < Test::Unit::TestCase
     
   end
 
+  context "updated date" do
+    should "get the updated date as utc" do
+      invoices = @client.Invoice.all
+      
+      assert_equal(Time.parse("2008-9-16T10:28:51.5Z"), invoices[0].updated_date_utc)
+
+      invoices.each do |invoice|
+        assert invoice.updated_date_utc.utc?, "updated_date_utc should be utc"
+      end
+    end
+  end
+
+
 end
