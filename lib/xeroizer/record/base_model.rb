@@ -131,7 +131,6 @@ module Xeroizer
             actions.each_pair do |http_method, records|
               records.map!(&:object)
               request = to_bulk_xml(records)
-              puts "WHAT THE FUCK MATE #{request.inspect}"
               response = parse_response(self.send(http_method, request))
               response.response_items.each_with_index do |record, i|
                 records[i].attributes = record.attributes if record and record.is_a?(model_class)
