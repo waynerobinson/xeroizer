@@ -92,8 +92,18 @@ module Xeroizer
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
           model_class.build(attributes, self).tap do |resource|
-            @objects[model_class] ||= []
-            @objects[model_class] << Ref::WeakReference.new(resource)
+            mark_dirty(resource)
+          end
+        end
+
+        def mark_dirty(resource)
+          @objects[model_class] ||= {}
+          @objects[model_class][resource.object_id] ||= Ref::WeakReference.new(resource)
+        end
+
+        def mark_clean(resource)
+          if @objects[model_class]
+            @objects[model_class].delete(resource.object_id)
           end
         end
 
@@ -130,13 +140,17 @@ module Xeroizer
 
         def save_all
           if @objects[model_class]
-            actions = @objects[model_class].group_by {|o| o.object.new_record? ? :http_put : :http_post }
+            actions = @objects[model_class].values.group_by {|o| o.object.new_record? ? :http_put : :http_post }
             actions.each_pair do |http_method, records|
+              return false unless records.all? {|r| r.object.valid? }
               records.map!(&:object)
               request = to_bulk_xml(records)
               response = parse_response(self.send(http_method, request))
               response.response_items.each_with_index do |record, i|
-                records[i].attributes = record.attributes if record and record.is_a?(model_class)
+                if record and record.is_a?(model_class)
+                  records[i].attributes = record.attributes
+                  records[i].saved!
+                end
               end
             end
           end

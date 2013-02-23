@@ -10,9 +10,7 @@ class BulkOperationsTest < Test::Unit::TestCase
 
   def setup
     super
-    # all_accounts = client.Account.all
     @client = Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
-    # @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
   end
 
   can "create multiple invoices at once" do
