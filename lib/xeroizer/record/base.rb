@@ -105,6 +105,17 @@ module Xeroizer
           true
         end
 
+        def as_json(options = {})
+          to_h.to_json
+        end
+
+        def to_h
+          attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
+            [k, v.kind_of?(Array) ? v.map(&:to_h) : (v.respond_to?(:to_h) ? v.to_h : v)]
+          end
+          Hash[attrs]
+        end
+
         def inspect
           attribute_string = self.attributes.collect do |attr, value|
             "#{attr.inspect}: #{value.inspect}"
