@@ -1,4 +1,5 @@
 require 'xeroizer/record/base_model_http_proxy'
+require 'ref'
 
 module Xeroizer
   module Record
