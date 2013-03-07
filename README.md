@@ -435,6 +435,23 @@ contact.save
 Have a look at the models in `lib/xeroizer/models/` to see the valid attributes, associations and 
 minimum validation requirements for each of the record types.
 
+### Bulk Creates & Updates
+
+Xero has a hard daily limit on the number of API requests you can make
+(currently 1,000 requests per account per day). To save on requests, you
+can batch creates and updates into a single POST or PUT call, like so:
+
+```ruby
+contact1 = xero.Contact.build(some_attributes)
+contact2 = xero.Contact.build(some_other_attributes)
+contact3 = xero.Contact.build(some_more_attributes)
+xero.Contact.save_all
+```
+
+`save_all` will issue one POST request for all new Contact records that
+haven't been saved yet, and one PUT request for all existing Contact
+records with unsaved changes.
+
 ### Errors
 
 If a record doesn't match it's internal validation requirements the `#save` method will return
