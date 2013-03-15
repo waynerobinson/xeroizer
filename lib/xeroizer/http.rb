@@ -69,7 +69,7 @@ module Xeroizer
 
         begin
           attempts += 1
-          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{uri.request_uri} ") if self.logger
+          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri} ") if self.logger
 
           response = case method
             when :get   then    client.get(uri.request_uri, headers)
