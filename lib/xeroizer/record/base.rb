@@ -86,6 +86,7 @@ module Xeroizer
           record = self.parent.find(self.id)
           @attributes = record.attributes if record
           @complete_record_downloaded = true
+          parent.mark_clean(self)
           self
         end
         

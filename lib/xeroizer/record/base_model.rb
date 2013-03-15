@@ -140,9 +140,9 @@ module Xeroizer
 
         def save_all
           if @objects[model_class]
-            actions = @objects[model_class].values.group_by {|o| o.object.new_record? ? :http_put : :http_post }
+            return false unless @objects[model_class].values.all? {|o| o.object.valid? }
+            actions = @objects[model_class].values.group_by {|o| o.object.new_record? ? :http_post : :http_put }
             actions.each_pair do |http_method, records|
-              return false unless records.all? {|r| r.object.valid? }
               records.map!(&:object)
               request = to_bulk_xml(records)
               response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
@@ -154,6 +154,7 @@ module Xeroizer
               end
             end
           end
+          true
         end
 
         def parse_response(response_xml, options = {})
@@ -177,7 +178,7 @@ module Xeroizer
         def to_bulk_xml(records, builder = Builder::XmlMarkup.new(:indent => 2))
           tag = (self.class.optional_xml_root_name || model_name).pluralize
           builder.tag!(tag) do
-            records.map {|r| r.to_xml(builder) }
+            records.each {|r| r.to_xml(builder) }
           end
         end
 
