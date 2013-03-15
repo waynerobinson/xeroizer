@@ -145,7 +145,7 @@ module Xeroizer
               return false unless records.all? {|r| r.object.valid? }
               records.map!(&:object)
               request = to_bulk_xml(records)
-              response = parse_response(self.send(http_method, request))
+              response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
               response.response_items.each_with_index do |record, i|
                 if record and record.is_a?(model_class)
                   records[i].attributes = record.attributes
