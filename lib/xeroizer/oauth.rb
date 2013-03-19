@@ -50,6 +50,7 @@ module Xeroizer
     # @option options [String] :request_token_path base URL path for getting a RequestToken (default: "/oauth/RequestToken")
     # @option options [String] :signature_method method usd to sign requests (default: OAuth library default)
     # @option options [String] :site base site for API requests (default: "https://api.xero.com")
+    # @option options [IO] :http_debug_output filehandle to write HTTP traffic to
     # @option options [OpenSSL:X509::Certificate] :ssl_client_cert client-side SSL certificate to use for requests (used for PartnerApplication mode)
     # @option options [OpenSSL::PKey::RSA] :ssl_client_key client-side SSL private key to use for requests (used for PartnerApplication mode)
     def initialize(ctoken, csecret, options = {})
@@ -105,26 +106,29 @@ module Xeroizer
       update_attributes_from_token(access_token)
     end
     
-    private 
-    
-      # Create an OAuth consumer with the SSL client key if specified in @consumer_options when
-      # this instance was created.
-      def create_consumer
-        consumer = ::OAuth::Consumer.new(@ctoken, @csecret, consumer_options)
-        if @consumer_options[:ssl_client_cert] && @consumer_options[:ssl_client_key]
-          consumer.http.cert = @consumer_options[:ssl_client_cert]
-          consumer.http.key = @consumer_options[:ssl_client_key]
-        end
-        consumer
+    private
+
+    # Create an OAuth consumer with the SSL client key if specified in @consumer_options when
+    # this instance was created.
+    def create_consumer
+      consumer = ::OAuth::Consumer.new(@ctoken, @csecret, consumer_options)
+      if @consumer_options[:ssl_client_cert] && @consumer_options[:ssl_client_key]
+        consumer.http.cert = @consumer_options[:ssl_client_cert]
+        consumer.http.key = @consumer_options[:ssl_client_key]
       end
-      
-      # Update instance variables with those from the AccessToken.
-      def update_attributes_from_token(access_token)
-        @expires_at = Time.now + access_token.params[:oauth_expires_in].to_i
-        @authorization_expires_at = Time.now + access_token.params[:oauth_authorization_expires_in].to_i
-        @session_handle = access_token.params[:oauth_session_handle]
-        @atoken, @asecret = access_token.token, access_token.secret
+
+      if @consumer_options[:http_debug_output]
+        consumer.http.set_debug_output(@consumer_options[:http_debug_output])
       end
-          
+      consumer
+    end
+
+    # Update instance variables with those from the AccessToken.
+    def update_attributes_from_token(access_token)
+      @expires_at = Time.now + access_token.params[:oauth_expires_in].to_i
+      @authorization_expires_at = Time.now + access_token.params[:oauth_authorization_expires_in].to_i
+      @session_handle = access_token.params[:oauth_session_handle]
+      @atoken, @asecret = access_token.token, access_token.secret
+    end
   end
 end
