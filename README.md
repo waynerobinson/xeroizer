@@ -437,27 +437,27 @@ minimum validation requirements for each of the record types.
 
 ### Bulk Creates & Updates
 
-Xero has a hard daily limit on the number of API requests you can make
-(currently 1,000 requests per account per day). To save on requests, you
-can batch creates and updates into a single POST or PUT call, like so:
+Xero has a hard daily limit on the number of API requests you can make (currently 1,000 requests
+per account per day). To save on requests, you can batch creates and updates into a single PUT or
+POST call, like so:
 
 ```ruby
-contact1 = xero.Contact.build(some_attributes)
-contact2 = xero.Contact.build(some_other_attributes)
-contact3 = xero.Contact.build(some_more_attributes)
-xero.Contact.save_all
+contact1 = xero.Contact.create(some_attributes)
+xero.Contact.batch_save do
+  contact1.email_address = "foo@bar.com"
+  contact2 = xero.Contact.build(some_other_attributes)
+  contact3 = xero.Contact.build(some_more_attributes)
+end
 ```
 
-
-`save_all` will issue one POST request for all new Contact records that
-haven't been saved yet, and one PUT request for all existing Contact
-records with unsaved changes. If any of the unsaved records aren't valid,
-it'll return `false` before sending anything across the wire; otherwise, it
-returns `true`.
+`batch_save` will issue one PUT request for all unsaved records built within its block, and one
+POST request for all existing records that have been altered within its block. If any of the
+unsaved records aren't valid, it'll return `false` before sending anything across the wire;
+otherwise, it returns `true`.
 
 ### Errors
 
-If a record doesn't match it's internal validation requirements the `#save` method will return
+If a record doesn't match its internal validation requirements, the `#save` method will return
 `false` and the `#errors` attribute will be populated with what went wrong.
 
 For example:

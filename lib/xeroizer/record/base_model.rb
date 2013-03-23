@@ -1,5 +1,4 @@
 require 'xeroizer/record/base_model_http_proxy'
-require 'ref'
 
 module Xeroizer
   module Record
@@ -74,7 +73,6 @@ module Xeroizer
         def initialize(application, model_name)
           @application = application
           @model_name = model_name
-          @objects = {}
         end
         
         # Retrieve the controller name.
@@ -97,12 +95,14 @@ module Xeroizer
         end
 
         def mark_dirty(resource)
-          @objects[model_class] ||= {}
-          @objects[model_class][resource.object_id] ||= Ref::WeakReference.new(resource)
+          if @allow_batch_operations
+            @objects[model_class] ||= {}
+            @objects[model_class][resource.object_id] ||= resource
+          end
         end
 
         def mark_clean(resource)
-          if @objects[model_class]
+          if @objects and @objects[model_class]
             @objects[model_class].delete(resource.object_id)
           end
         end
@@ -138,11 +138,16 @@ module Xeroizer
           result
         end
 
-        def save_all
+        def batch_save
+          @objects = {}
+          @allow_batch_operations = true
+
+          yield
+
           if @objects[model_class]
-            objects = @objects[model_class].values.map(&:object).compact
+            objects = @objects[model_class].values.compact
             return false unless objects.all?(&:valid?)
-            actions = objects.group_by {|o| o.new_record? ? :http_post : :http_put }
+            actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
             actions.each_pair do |http_method, records|
               request = to_bulk_xml(records)
               response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
@@ -154,6 +159,9 @@ module Xeroizer
               end
             end
           end
+
+          @objects = {}
+          @allow_batch_operations = false
           true
         end
 
@@ -192,6 +200,6 @@ module Xeroizer
           self
         end
       end
-    
+
   end
 end

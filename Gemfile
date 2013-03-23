@@ -6,7 +6,6 @@ gem 'activesupport'
 gem 'tzinfo'
 gem 'nokogiri'
 gem 'i18n'
-gem 'ref'
 
 group :test do
   gem 'test-unit'
