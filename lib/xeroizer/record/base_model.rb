@@ -173,13 +173,20 @@ module Xeroizer
             end
           end
         end
-                
+
       protected
-        
+
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(response, elements)
           elements.each do | element |
-            response.response_items << model_class.build_from_node(element, self)
+            new_record = model_class.build_from_node(element, self)
+            if element.attribute('status').try(:value) == 'ERROR'
+              new_record.errors = []
+              element.xpath('//ValidationError').each do |err|
+                new_record.errors << err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
+              end
+            end
+            response.response_items << new_record
           end
         end
 
