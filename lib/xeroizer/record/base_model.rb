@@ -89,7 +89,22 @@ module Xeroizer
         
         # Build a record with attributes set to the value of attributes.
         def build(attributes = {})
-          model_class.build(attributes, self)
+          model_class.build(attributes, self).tap do |resource|
+            mark_dirty(resource)
+          end
+        end
+
+        def mark_dirty(resource)
+          if @allow_batch_operations
+            @objects[model_class] ||= {}
+            @objects[model_class][resource.object_id] ||= resource
+          end
+        end
+
+        def mark_clean(resource)
+          if @objects and @objects[model_class]
+            @objects[model_class].delete(resource.object_id)
+          end
         end
 
         # Create (build and save) a record with attributes set to the value of attributes.
@@ -122,7 +137,34 @@ module Xeroizer
           result.complete_record_downloaded = true if result
           result
         end
-        
+
+        def batch_save
+          @objects = {}
+          @allow_batch_operations = true
+
+          yield
+
+          if @objects[model_class]
+            objects = @objects[model_class].values.compact
+            return false unless objects.all?(&:valid?)
+            actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
+            actions.each_pair do |http_method, records|
+              request = to_bulk_xml(records)
+              response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
+              response.response_items.each_with_index do |record, i|
+                if record and record.is_a?(model_class)
+                  records[i].attributes = record.attributes
+                  records[i].saved!
+                end
+              end
+            end
+          end
+
+          @objects = {}
+          @allow_batch_operations = false
+          true
+        end
+
         def parse_response(response_xml, options = {})
           Response.parse(response_xml, options) do | response, elements, response_model_name |
             if model_name == response_model_name
@@ -131,17 +173,40 @@ module Xeroizer
             end
           end
         end
-                
+
       protected
-        
+
         # Parse the records part of the XML response and builds model instances as necessary.
         def parse_records(response, elements)
           elements.each do | element |
-            response.response_items << model_class.build_from_node(element, self)
+            new_record = model_class.build_from_node(element, self)
+            if element.attribute('status').try(:value) == 'ERROR'
+              new_record.errors = []
+              element.xpath('//ValidationError').each do |err|
+                new_record.errors << err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
+              end
+            end
+            response.response_items << new_record
           end
         end
-        
-    end
-    
+
+        def to_bulk_xml(records, builder = Builder::XmlMarkup.new(:indent => 2))
+          tag = (self.class.optional_xml_root_name || model_name).pluralize
+          builder.tag!(tag) do
+            records.each {|r| r.to_xml(builder) }
+          end
+        end
+
+        # Parse the response from a create/update request.
+        def parse_save_response(response_xml)
+          response = parse_response(response_xml)
+          record = response.response_items.first if response.response_items.is_a?(Array)
+          if record && record.is_a?(self.class)
+            @attributes = record.attributes
+          end
+          self
+        end
+      end
+
   end
 end
