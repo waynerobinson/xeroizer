@@ -48,6 +48,6 @@ module AcceptanceTest
     assert_not_nil ENV["CONSUMER_SECRET"], "No CONSUMER_SECRET environment variable specified."
     assert_not_nil ENV["KEY_FILE"], "No KEY_FILE environment variable specified."
     assert File.exists?(ENV["KEY_FILE"]), "The file <#{ENV["KEY_FILE"]}> does not exist."
-    OAuthCredentials.new ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], ENV["KEY_FILE"]
+    Xeroizer::OAuthCredentials.new ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], ENV["KEY_FILE"]
   end
 end

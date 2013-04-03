@@ -73,6 +73,7 @@ module Xeroizer
           
           unless options[:skip_writer]
             define_method "#{internal_field_name}=".to_sym do | value | 
+              parent.mark_dirty(self) if parent
               @attributes[field_name] = value
             end
           end
@@ -89,6 +90,7 @@ module Xeroizer
 
         # Sets the value of the Xero primary key for this record if it exists.
         def id=(new_id)
+          parent.mark_dirty(self) if parent
           self[self.class.primary_key_name] = new_id
         end
         

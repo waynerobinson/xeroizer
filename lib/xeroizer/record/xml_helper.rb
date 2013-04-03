@@ -47,7 +47,8 @@ module Xeroizer
               end
             end
           end
-          
+
+          parent.mark_clean(record)
           record
         end
         
@@ -87,7 +88,7 @@ module Xeroizer
             end
           end
         
-          # Format a attribute for use in the XML passed to Xero.
+          # Format an attribute for use in the XML passed to Xero.
           def xml_value_from_field(b, field, value)
             case field[:type]
               when :guid        then b.tag!(field[:api_name], value)

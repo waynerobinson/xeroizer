@@ -69,7 +69,7 @@ module Xeroizer
 
         begin
           attempts += 1
-          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{uri.request_uri} ") if self.logger
+          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri} ") if self.logger
 
           response = case method
             when :get   then    client.get(uri.request_uri, headers)
@@ -133,7 +133,7 @@ module Xeroizer
         
         # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
         # So let's ignore that :)
-        # raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+        raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
         
         # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
         doc = Nokogiri::XML(raw_response)

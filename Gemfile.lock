@@ -35,6 +35,7 @@ GEM
     test-unit (2.4.8)
     turn (0.9.4)
       ansi
+    tzinfo (0.3.35)
     yard (0.7.5)
 
 PLATFORMS
@@ -54,4 +55,5 @@ DEPENDENCIES
   shoulda
   test-unit
   turn
+  tzinfo
   yard

@@ -51,11 +51,13 @@ module Xeroizer
         end
         
         def []=(attribute, value)
+          parent.mark_dirty(self) if parent
           self.send("#{attribute}=".to_sym, value)
         end
 
         def attributes=(new_attributes)
           return unless new_attributes.is_a?(Hash)
+          parent.mark_dirty(self) if parent
           new_attributes.each do | key, value |
             self.send("#{key}=".to_sym, value)
           end
@@ -84,6 +86,7 @@ module Xeroizer
           record = self.parent.find(self.id)
           @attributes = record.attributes if record
           @complete_record_downloaded = true
+          parent.mark_clean(self)
           self
         end
         
@@ -94,7 +97,12 @@ module Xeroizer
           else
             update
           end
+          saved!
+        end
+
+        def saved!
           @complete_record_downloaded = true
+          parent.mark_clean(self)
           true
         end
 
