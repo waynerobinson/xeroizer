@@ -140,9 +140,10 @@ module Xeroizer
         
         if doc && doc.root && doc.root.name == "ApiException"
 
-          raise ApiException.new(doc.root.xpath("Type").text, 
-                                 doc.root.xpath("Message").text, 
+          raise ApiException.new(doc.root.xpath("Type").text,
+                                 doc.root.xpath("Message").text,
                                  raw_response,
+                                 doc,
                                  request_body)
 
         else

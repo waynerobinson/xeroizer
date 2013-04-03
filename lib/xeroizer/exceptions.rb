@@ -1,12 +1,13 @@
 module Xeroizer
   class ApiException < StandardError
     
-    attr_reader :type, :message, :xml, :request_body
+    attr_reader :type, :message, :xml, :parsed_xml, :request_body
     
-    def initialize(type, message, xml, request_body)
+    def initialize(type, message, xml, parsed_xml, request_body)
       @type         = type
       @message      = message
       @xml          = xml
+      @parsed_xml   = parsed_xml
       @request_body = request_body
     end
     
