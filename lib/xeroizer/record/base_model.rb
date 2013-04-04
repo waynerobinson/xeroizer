@@ -154,6 +154,7 @@ module Xeroizer
               response.response_items.each_with_index do |record, i|
                 if record and record.is_a?(model_class)
                   records[i].attributes = record.attributes
+                  records[i].errors = record.errors
                   records[i].saved!
                 end
               end
