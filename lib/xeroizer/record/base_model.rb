@@ -182,7 +182,7 @@ module Xeroizer
             new_record = model_class.build_from_node(element, self)
             if element.attribute('status').try(:value) == 'ERROR'
               new_record.errors = []
-              element.xpath('//ValidationError').each do |err|
+              element.xpath('.//ValidationError').each do |err|
                 new_record.errors << err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
               end
             end
