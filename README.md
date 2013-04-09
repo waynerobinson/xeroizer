@@ -6,7 +6,7 @@ Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/
 **Github**: 			[https://github.com/waynerobinson/xeroizer](https://github.com/waynerobinson/xeroizer)		
 **Author**: 			Wayne Robinson [http://www.wayne-robinson.com](http://www.wayne-robinson.com)		
 **Contributors**: See Contributors section below	
-**Copyright**:    2007-2010		
+**Copyright**:    2007-2013
 **License**:      MIT License		
 
 Introduction
@@ -547,3 +547,9 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          YOUR_OAUTH_CONSUMER_SECRET,
                                          :rate_limit_sleep => 2)
 ```
+
+
+### Contributors
+Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor 
+and Nik Wakelin and portions of the networking and authentication code are based completely off 
+this project. Copyright for these components remains held in the name of Tim Connor.
