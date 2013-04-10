@@ -8,3 +8,4 @@ pkg/
 .rvmrc
 .oauth
 .DS_Store
+tmp/
