@@ -298,6 +298,48 @@ summary invoice.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#loaded_record%3F-instance_method" title="#loaded_record? (instance method)">- (Boolean) <strong>loaded_record?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#not_summary_or_loaded_record-instance_method" title="#not_summary_or_loaded_record (instance method)">- (Object) <strong>not_summary_or_loaded_record</strong>(always_summary) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#pdf-instance_method" title="#pdf (instance method)">- (Object) <strong>pdf</strong>(filename = nil) </a>
     
 
@@ -344,7 +386,7 @@ summary invoice.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sub_total%3D-instance_method" title="#sub_total= (instance method)">- (Object) <strong>sub_total=</strong>(value) </a>
+      <a href="#sub_total%3D-instance_method" title="#sub_total= (instance method)">- (Object) <strong>sub_total=</strong>(sub_total) </a>
     
 
     
@@ -357,10 +399,7 @@ summary invoice.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Swallow assignment of attributes that should only be calculated
-automatically.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -391,7 +430,7 @@ automatically.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#total%3D-instance_method" title="#total= (instance method)">- (Object) <strong>total=</strong>(value) </a>
+      <a href="#total%3D-instance_method" title="#total= (instance method)">- (Object) <strong>total=</strong>(total) </a>
     
 
     
@@ -435,7 +474,7 @@ automatically.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#total_tax%3D-instance_method" title="#total_tax= (instance method)">- (Object) <strong>total_tax=</strong>(value) </a>
+      <a href="#total_tax%3D-instance_method" title="#total_tax= (instance method)">- (Object) <strong>total_tax=</strong>(total_tax) </a>
     
 
     
@@ -488,7 +527,7 @@ automatically.</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Base.html" title="Xeroizer::Record::Base (class)">Base</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Base.html#%5B%5D-instance_method" title="Xeroizer::Record::Base#[] (method)">#[]</a></span>, <span class='object_link'><a href="Base.html#%5B%5D%3D-instance_method" title="Xeroizer::Record::Base#[]= (method)">#[]=</a></span>, <span class='object_link'><a href="Base.html#build-class_method" title="Xeroizer::Record::Base.build (method)">build</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded%3F-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded? (method)">#complete_record_downloaded?</a></span>, <span class='object_link'><a href="Base.html#download_complete_record%21-instance_method" title="Xeroizer::Record::Base#download_complete_record! (method)">#download_complete_record!</a></span>, <span class='object_link'><a href="Base.html#initialize-instance_method" title="Xeroizer::Record::Base#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Base.html#inspect-instance_method" title="Xeroizer::Record::Base#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Base.html#new_model_class-instance_method" title="Xeroizer::Record::Base#new_model_class (method)">#new_model_class</a></span>, <span class='object_link'><a href="Base.html#new_record%3F-instance_method" title="Xeroizer::Record::Base#new_record? (method)">#new_record?</a></span>, <span class='object_link'><a href="Base.html#save-instance_method" title="Xeroizer::Record::Base#save (method)">#save</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Base.html#%5B%5D-instance_method" title="Xeroizer::Record::Base#[] (method)">#[]</a></span>, <span class='object_link'><a href="Base.html#%5B%5D%3D-instance_method" title="Xeroizer::Record::Base#[]= (method)">#[]=</a></span>, <span class='object_link'><a href="Base.html#as_json-instance_method" title="Xeroizer::Record::Base#as_json (method)">#as_json</a></span>, <span class='object_link'><a href="Base.html#build-class_method" title="Xeroizer::Record::Base.build (method)">build</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded%3F-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded? (method)">#complete_record_downloaded?</a></span>, <span class='object_link'><a href="Base.html#download_complete_record%21-instance_method" title="Xeroizer::Record::Base#download_complete_record! (method)">#download_complete_record!</a></span>, <span class='object_link'><a href="Base.html#initialize-instance_method" title="Xeroizer::Record::Base#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Base.html#inspect-instance_method" title="Xeroizer::Record::Base#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Base.html#new_model_class-instance_method" title="Xeroizer::Record::Base#new_model_class (method)">#new_model_class</a></span>, <span class='object_link'><a href="Base.html#new_record%3F-instance_method" title="Xeroizer::Record::Base#new_record? (method)">#new_record?</a></span>, <span class='object_link'><a href="Base.html#save-instance_method" title="Xeroizer::Record::Base#save (method)">#save</a></span>, <span class='object_link'><a href="Base.html#saved%21-instance_method" title="Xeroizer::Record::Base#saved! (method)">#saved!</a></span>, <span class='object_link'><a href="Base.html#to_h-instance_method" title="Xeroizer::Record::Base#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Base.html#update_attributes-instance_method" title="Xeroizer::Record::Base#update_attributes (method)">#update_attributes</a></span></p>
 
   
   
@@ -588,12 +627,12 @@ automatically.</p>
       <pre class="lines">
 
 
-101
-102
-103</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 104</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_accounts_payable? fid id'>accounts_payable?</span>
   <span class='rubyid_type identifier id'>type</span> <span class='eq op'>==</span> <span class='string val'>'ACCPAY'</span>
@@ -641,12 +680,12 @@ automatically.</p>
       <pre class="lines">
 
 
-106
-107
-108</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 109</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_accounts_receivable? fid id'>accounts_receivable?</span>
   <span class='rubyid_type identifier id'>type</span> <span class='eq op'>==</span> <span class='string val'>'ACCREC'</span>
@@ -694,12 +733,12 @@ automatically.</p>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 99</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_approved? fid id'>approved?</span>
   <span class='lbrack token'>[</span> <span class='string val'>'AUTHORISED'</span><span class='comma token'>,</span> <span class='string val'>'PAID'</span><span class='comma token'>,</span> <span class='string val'>'VOIDED'</span> <span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span> <span class='rubyid_status identifier id'>status</span>
@@ -735,12 +774,12 @@ invoice.</p>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 94</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_contact_id identifier id'>contact_id</span>
   <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:contact</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:contact</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:contact_id</span><span class='rbrack token'>]</span>
@@ -776,12 +815,12 @@ summary invoice.</p>
       <pre class="lines">
 
 
-85
-86
-87</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 88</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_contact_name identifier id'>contact_name</span>
   <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:contact</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:contact</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:name</span><span class='rbrack token'>]</span>
@@ -816,15 +855,97 @@ summary invoice.</p>
       <pre class="lines">
 
 
-153
-154
-155</pre>
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 175</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete! fid id'>delete!</span>
   <span class='rubyid_delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'DELETED'</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="loaded_record?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>loaded_record?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 163</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_loaded_record? fid id'>loaded_record?</span>
+  <span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> 
+    <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="not_summary_or_loaded_record-instance_method">
+  
+    - (<tt>Object</tt>) <strong>not_summary_or_loaded_record</strong>(always_summary) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 159</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_not_summary_or_loaded_record identifier id'>not_summary_or_loaded_record</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span><span class='rparen token'>)</span>
+  <span class='notop op'>!</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_loaded_record? fid id'>loaded_record?</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -878,12 +999,12 @@ summary invoice.</p>
       <pre class="lines">
 
 
-148
-149
-150</pre>
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 170</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='rubyid_filename identifier id'>filename</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_pdf identifier id'>pdf</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_filename identifier id'>filename</span><span class='rparen token'>)</span>
@@ -918,23 +1039,23 @@ summary invoice.</p>
       <pre class="lines">
 
 
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126</pre>
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 129</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total identifier id'>sub_total</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_@sub_total_is_set ivar id'>@sub_total_is_set</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_not_summary_or_loaded_record identifier id'>not_summary_or_loaded_record</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span><span class='rparen token'>)</span>
     <span class='rubyid_sum identifier id'>sum</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='rubyid_line_items identifier id'>line_items</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_inject identifier id'>inject</span><span class='lparen token'>(</span><span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span><span class='comma token'>,</span> <span class='rubyid_line_item identifier id'>line_item</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span> <span class='plus op'>+</span> <span class='rubyid_line_item identifier id'>line_item</span><span class='dot token'>.</span><span class='rubyid_line_amount identifier id'>line_amount</span> <span class='rbrace token'>}</span>
     
     <span class='comment val'># If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.</span>
@@ -953,47 +1074,28 @@ summary invoice.</p>
       <div class="method_details ">
   <p class="signature " id="sub_total=-instance_method">
   
-    - (<tt>Object</tt>) <strong>sub_total=</strong>(value) 
+    - (<tt>Object</tt>) <strong>sub_total=</strong>(sub_total) 
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    
-<p>Swallow assignment of attributes that should only be calculated
-automatically.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<h3>Raises:</h3>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../SettingTotalDirectlyNotSupported.html" title="Xeroizer::SettingTotalDirectlyNotSupported (class)">SettingTotalDirectlyNotSupported</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-111</pre>
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 113</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total= identifier id'>sub_total=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:sub_total</span><span class='rparen token'>)</span>   <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total= identifier id'>sub_total=</span><span class='lparen token'>(</span><span class='rubyid_sub_total identifier id'>sub_total</span><span class='rparen token'>)</span>
+  <span class='rubyid_@sub_total_is_set ivar id'>@sub_total_is_set</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+  <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:sub_total</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_sub_total identifier id'>sub_total</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -1024,19 +1126,19 @@ automatically.</p>
       <pre class="lines">
 
 
-138
-139
-140
-141
-142
-143
-144</pre>
+151
+152
+153
+154
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 151</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total identifier id'>total</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
-  <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_always_summary identifier id'>always_summary</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_@total_is_set ivar id'>@total_is_set</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_not_summary_or_loaded_record identifier id'>not_summary_or_loaded_record</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span><span class='rparen token'>)</span>
     <span class='rubyid_sub_total identifier id'>sub_total</span> <span class='plus op'>+</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
   <span class='rubyid_else else kw'>else</span>
     <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total</span><span class='rbrack token'>]</span>
@@ -1051,44 +1153,28 @@ automatically.</p>
       <div class="method_details ">
   <p class="signature " id="total=-instance_method">
   
-    - (<tt>Object</tt>) <strong>total=</strong>(value) 
+    - (<tt>Object</tt>) <strong>total=</strong>(total) 
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<h3>Raises:</h3>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../SettingTotalDirectlyNotSupported.html" title="Xeroizer::SettingTotalDirectlyNotSupported (class)">SettingTotalDirectlyNotSupported</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-113</pre>
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 123</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_total= identifier id'>total=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>      <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total</span><span class='rparen token'>)</span>       <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total= identifier id'>total=</span><span class='lparen token'>(</span><span class='rubyid_total identifier id'>total</span><span class='rparen token'>)</span>
+  <span class='rubyid_@total_is_set ivar id'>@total_is_set</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+  <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_total identifier id'>total</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -1119,19 +1205,19 @@ automatically.</p>
       <pre class="lines">
 
 
-129
-130
-131
-132
-133
-134
-135</pre>
+142
+143
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 142</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax identifier id'>total_tax</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_always_summary identifier id'>always_summary</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_line_items identifier id'>line_items</span><span class='dot token'>.</span><span class='rubyid_size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='notop op'>!</span><span class='rubyid_@total_tax_is_set ivar id'>@total_tax_is_set</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_not_summary_or_loaded_record identifier id'>not_summary_or_loaded_record</span><span class='lparen token'>(</span><span class='rubyid_always_summary identifier id'>always_summary</span><span class='rparen token'>)</span>
     <span class='lparen token'>(</span><span class='rubyid_line_items identifier id'>line_items</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_inject identifier id'>inject</span><span class='lparen token'>(</span><span class='rubyid_BigDecimal constant id'>BigDecimal</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'0'</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span><span class='comma token'>,</span> <span class='rubyid_line_item identifier id'>line_item</span> <span class='bitor op'>|</span> <span class='rubyid_sum identifier id'>sum</span> <span class='plus op'>+</span> <span class='rubyid_line_item identifier id'>line_item</span><span class='dot token'>.</span><span class='rubyid_tax_amount identifier id'>tax_amount</span> <span class='rbrace token'>}</span>
   <span class='rubyid_else else kw'>else</span>
     <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total_tax</span><span class='rbrack token'>]</span>
@@ -1146,44 +1232,28 @@ automatically.</p>
       <div class="method_details ">
   <p class="signature " id="total_tax=-instance_method">
   
-    - (<tt>Object</tt>) <strong>total_tax=</strong>(value) 
+    - (<tt>Object</tt>) <strong>total_tax=</strong>(total_tax) 
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    
-
-  </div>
-</div>
-<div class="tags">
-  
-<h3>Raises:</h3>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../SettingTotalDirectlyNotSupported.html" title="Xeroizer::SettingTotalDirectlyNotSupported (class)">SettingTotalDirectlyNotSupported</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-112</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 118</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax= identifier id'>total_tax=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total_tax</span><span class='rparen token'>)</span>   <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax= identifier id'>total_tax=</span><span class='lparen token'>(</span><span class='rubyid_total_tax identifier id'>total_tax</span><span class='rparen token'>)</span>
+  <span class='rubyid_@total_tax_is_set ivar id'>@total_tax_is_set</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+  <span class='rubyid_attributes identifier id'>attributes</span><span class='lbrack token'>[</span><span class='symbol val'>:total_tax</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
+<span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
   </tr>
@@ -1214,12 +1284,12 @@ automatically.</p>
       <pre class="lines">
 
 
-158
-159
-160</pre>
+180
+181
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/invoice.rb', line 180</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_void! fid id'>void!</span>
   <span class='rubyid_delete_or_void_invoice! fid id'>delete_or_void_invoice!</span><span class='lparen token'>(</span><span class='string val'>'VOIDED'</span><span class='rparen token'>)</span>
@@ -1235,7 +1305,7 @@ automatically.</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:43 2012 by 
+  Generated on Wed Apr 10 10:05:45 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

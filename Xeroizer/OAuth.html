@@ -403,30 +403,6 @@ from Xero which would normally be used in the request.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create_consumer-instance_method" title="#create_consumer (instance method)">- (Object) <strong>create_consumer</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Create an OAuth consumer with the SSL client key if specified in
-@consumer_options when this instance was created.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (OAuth) <strong>initialize</strong>(ctoken, csecret, options = {}) </a>
     
 
@@ -492,29 +468,6 @@ application.</p>
     <span class="summary_desc"><div class='inline'>
 <p>RequestToken for PUBLIC/PARTNER authorisation  (used to redirect to Xero
 for authentication).</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_attributes_from_token-instance_method" title="#update_attributes_from_token (instance method)">- (Object) <strong>update_attributes_from_token</strong>(access_token) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Update instance variables with those from the AccessToken.</p>
 </div></span>
   
 </li>
@@ -693,6 +646,17 @@ href="https://api.xero.com">api.xero.com</a>”)</p>
         </li>
       
         <li>
+          <span class="name">:http_debug_output</span>
+          <span class="type">(<tt>IO</tt>)</span>
+          <span class="default">
+            
+          </span>
+          &mdash; <div class='inline'>
+<p>filehandle to write HTTP traffic to</p>
+</div>
+        </li>
+      
+        <li>
           <span class="name">:ssl_client_cert</span>
           <span class="type">(<tt>OpenSSL:X509::Certificate</tt>)</span>
           <span class="default">
@@ -726,13 +690,13 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-55
-56
-57
-58</pre>
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 70</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_ctoken identifier id'>ctoken</span><span class='comma token'>,</span> <span class='rubyid_csecret identifier id'>csecret</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_@ctoken ivar id'>@ctoken</span><span class='comma token'>,</span> <span class='rubyid_@csecret ivar id'>@csecret</span> <span class='assign token'>=</span> <span class='rubyid_ctoken identifier id'>ctoken</span><span class='comma token'>,</span> <span class='rubyid_csecret identifier id'>csecret</span>
@@ -765,12 +729,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_authorization_expires_at identifier id'>authorization_expires_at</span>
   <span class='rubyid_@authorization_expires_at ivar id'>@authorization_expires_at</span>
@@ -797,12 +761,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_consumer_options identifier id'>consumer_options</span>
   <span class='rubyid_@consumer_options ivar id'>@consumer_options</span>
@@ -829,12 +793,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_csecret identifier id'>csecret</span>
   <span class='rubyid_@csecret ivar id'>@csecret</span>
@@ -861,12 +825,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_ctoken identifier id'>ctoken</span>
   <span class='rubyid_@ctoken ivar id'>@ctoken</span>
@@ -893,12 +857,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_expires_at identifier id'>expires_at</span>
   <span class='rubyid_@expires_at ivar id'>@expires_at</span>
@@ -925,12 +889,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 54</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_session_handle identifier id'>session_handle</span>
   <span class='rubyid_@session_handle ivar id'>@session_handle</span>
@@ -972,12 +936,12 @@ PartnerApplication mode)</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 98</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_access_token identifier id'>access_token</span>
   <span class='colon3 op'>::</span><span class='rubyid_OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='rubyid_AccessToken constant id'>AccessToken</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='rubyid_@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='rubyid_@asecret ivar id'>@asecret</span><span class='rparen token'>)</span>
@@ -1017,12 +981,12 @@ stored AccessToken key/secret.</p>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 108</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_authorize_from_access identifier id'>authorize_from_access</span><span class='lparen token'>(</span><span class='rubyid_atoken identifier id'>atoken</span><span class='comma token'>,</span> <span class='rubyid_asecret identifier id'>asecret</span><span class='rparen token'>)</span>
   <span class='rubyid_@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='rubyid_@asecret ivar id'>@asecret</span> <span class='assign token'>=</span> <span class='rubyid_atoken identifier id'>atoken</span><span class='comma token'>,</span> <span class='rubyid_asecret identifier id'>asecret</span>
@@ -1057,14 +1021,14 @@ stored AccessToken key/secret.</p>
       <pre class="lines">
 
 
-76
-77
-78
-79
-80</pre>
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 91</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_authorize_from_request identifier id'>authorize_from_request</span><span class='lparen token'>(</span><span class='rubyid_rtoken identifier id'>rtoken</span><span class='comma token'>,</span> <span class='rubyid_rsecret identifier id'>rsecret</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_request_token identifier id'>request_token</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='rubyid_OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='rubyid_RequestToken constant id'>RequestToken</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='rubyid_rtoken identifier id'>rtoken</span><span class='comma token'>,</span> <span class='rubyid_rsecret identifier id'>rsecret</span><span class='rparen token'>)</span>
@@ -1119,66 +1083,15 @@ stored AccessToken key/secret.</p>
       <pre class="lines">
 
 
-63
-64
-65</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 78</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_consumer identifier id'>consumer</span>
   <span class='rubyid_create_consumer identifier id'>create_consumer</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="create_consumer-instance_method">
-  
-    - (<tt>Object</tt>) <strong>create_consumer</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    
-<p>Create an OAuth consumer with the SSL client key if specified in
-@consumer_options when this instance was created.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-112
-113
-114
-115
-116
-117
-118
-119</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 112</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_create_consumer identifier id'>create_consumer</span>
-  <span class='rubyid_consumer identifier id'>consumer</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='rubyid_OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='rubyid_Consumer constant id'>Consumer</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_@ctoken ivar id'>@ctoken</span><span class='comma token'>,</span> <span class='rubyid_@csecret ivar id'>@csecret</span><span class='comma token'>,</span> <span class='rubyid_consumer_options identifier id'>consumer_options</span><span class='rparen token'>)</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@consumer_options ivar id'>@consumer_options</span><span class='lbrack token'>[</span><span class='symbol val'>:ssl_client_cert</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_@consumer_options ivar id'>@consumer_options</span><span class='lbrack token'>[</span><span class='symbol val'>:ssl_client_key</span><span class='rbrack token'>]</span>
-    <span class='rubyid_consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='rubyid_http identifier id'>http</span><span class='dot token'>.</span><span class='rubyid_cert identifier id'>cert</span> <span class='assign token'>=</span> <span class='rubyid_@consumer_options ivar id'>@consumer_options</span><span class='lbrack token'>[</span><span class='symbol val'>:ssl_client_cert</span><span class='rbrack token'>]</span>
-    <span class='rubyid_consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='rubyid_http identifier id'>http</span><span class='dot token'>.</span><span class='rubyid_key identifier id'>key</span> <span class='assign token'>=</span> <span class='rubyid_@consumer_options ivar id'>@consumer_options</span><span class='lbrack token'>[</span><span class='symbol val'>:ssl_client_key</span><span class='rbrack token'>]</span>
-  <span class='rubyid_end end kw'>end</span>
-  <span class='rubyid_consumer identifier id'>consumer</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1211,17 +1124,17 @@ application.</p>
       <pre class="lines">
 
 
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+114
+115
+116
+117
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 114</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='rubyid_atoken identifier id'>atoken</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='rubyid_asecret identifier id'>asecret</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='rubyid_session_handle identifier id'>session_handle</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_old_token identifier id'>old_token</span> <span class='assign token'>=</span> <span class='colon3 op'>::</span><span class='rubyid_OAuth constant id'>OAuth</span><span class='colon2 op'>::</span><span class='rubyid_RequestToken constant id'>RequestToken</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_consumer identifier id'>consumer</span><span class='comma token'>,</span> <span class='rubyid_atoken identifier id'>atoken</span> <span class='orop op'>||</span> <span class='rubyid_@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='rubyid_asecret identifier id'>asecret</span> <span class='orop op'>||</span> <span class='rubyid_@asecret ivar id'>@asecret</span><span class='rparen token'>)</span>
@@ -1306,61 +1219,15 @@ screen that they need to get into your application.</p>
       <pre class="lines">
 
 
-71
-72
-73</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 86</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_request_token identifier id'>request_token</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_consumer identifier id'>consumer</span><span class='dot token'>.</span><span class='rubyid_get_request_token identifier id'>get_request_token</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="update_attributes_from_token-instance_method">
-  
-    - (<tt>Object</tt>) <strong>update_attributes_from_token</strong>(access_token) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    
-<p>Update instance variables with those from the AccessToken.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-122
-123
-124
-125
-126
-127</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/oauth.rb', line 122</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_attributes_from_token identifier id'>update_attributes_from_token</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
-  <span class='rubyid_@expires_at ivar id'>@expires_at</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span> <span class='plus op'>+</span> <span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_expires_in</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
-  <span class='rubyid_@authorization_expires_at ivar id'>@authorization_expires_at</span> <span class='assign token'>=</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span> <span class='plus op'>+</span> <span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_authorization_expires_in</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span>
-  <span class='rubyid_@session_handle ivar id'>@session_handle</span> <span class='assign token'>=</span> <span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:oauth_session_handle</span><span class='rbrack token'>]</span>
-  <span class='rubyid_@atoken ivar id'>@atoken</span><span class='comma token'>,</span> <span class='rubyid_@asecret ivar id'>@asecret</span> <span class='assign token'>=</span> <span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span> <span class='rubyid_access_token identifier id'>access_token</span><span class='dot token'>.</span><span class='rubyid_secret identifier id'>secret</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1373,7 +1240,7 @@ screen that they need to get into your application.</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:45 2012 by 
+  Generated on Wed Apr 10 10:05:44 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

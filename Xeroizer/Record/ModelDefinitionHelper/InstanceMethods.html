@@ -171,12 +171,12 @@
       <pre class="lines">
 
 
-85
-86
-87</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 87</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_id identifier id'>id</span>
   <span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_primary_key_name identifier id'>primary_key_name</span><span class='rbrack token'>]</span>
@@ -211,14 +211,16 @@
       <pre class="lines">
 
 
-90
-91
-92</pre>
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 92</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_id= identifier id'>id=</span><span class='lparen token'>(</span><span class='rubyid_new_id identifier id'>new_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_mark_dirty identifier id'>mark_dirty</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_parent identifier id'>parent</span>
   <span class='rubyid_self self kw'>self</span><span class='lbrack token'>[</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_primary_key_name identifier id'>primary_key_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_new_id identifier id'>new_id</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -232,7 +234,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:38 2012 by 
+  Generated on Wed Apr 10 10:05:40 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

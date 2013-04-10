@@ -104,9 +104,11 @@
 <p class="children">
    
     
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="BaseModel/InvaidPermissionError.html" title="Xeroizer::Record::BaseModel::InvaidPermissionError (module)">InvaidPermissionError</a></span>
+    
    
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BaseModel/InvaidPermissionError.html" title="Xeroizer::Record::BaseModel::InvaidPermissionError (class)">InvaidPermissionError</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BaseModel/InvalidPermissionError.html" title="Xeroizer::Record::BaseModel::InvalidPermissionError (class)">InvalidPermissionError</a></span>
     
   
 </p>
@@ -422,6 +424,27 @@ associations.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#batch_save-instance_method" title="#batch_save (instance method)">- (Object) <strong>batch_save</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#build-instance_method" title="#build (instance method)">- (Object) <strong>build</strong>(attributes = {}) </a>
     
 
@@ -437,6 +460,30 @@ associations.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Build a record with attributes set to the value of attributes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(attributes = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create (build and save) a record with attributes set to the value of
+attributes.</p>
 </div></span>
   
 </li>
@@ -516,6 +563,48 @@ associations.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#mark_clean-instance_method" title="#mark_clean (instance method)">- (Object) <strong>mark_clean</strong>(resource) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mark_dirty-instance_method" title="#mark_dirty (instance method)">- (Object) <strong>mark_dirty</strong>(resource) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#parse_response-instance_method" title="#parse_response (instance method)">- (Object) <strong>parse_response</strong>(response_xml, options = {}) </a>
     
 
@@ -584,13 +673,13 @@ associations.</p>
       <pre class="lines">
 
 
-70
-71
-72
-73</pre>
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 73</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_application identifier id'>application</span><span class='comma token'>,</span> <span class='rubyid_model_name identifier id'>model_name</span><span class='rparen token'>)</span>
   <span class='rubyid_@application ivar id'>@application</span> <span class='assign token'>=</span> <span class='rubyid_application identifier id'>application</span>
@@ -634,12 +723,12 @@ associations.</p>
       <pre class="lines">
 
 
-21
-22
-23</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 24</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_application identifier id'>application</span>
   <span class='rubyid_@application ivar id'>@application</span>
@@ -677,12 +766,12 @@ associations.</p>
       <pre class="lines">
 
 
-23
-24
-25</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 26</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_model_class identifier id'>model_class</span>
   <span class='rubyid_@model_class ivar id'>@model_class</span> <span class='opasgn op'>||=</span> <span class='rubyid_Xeroizer constant id'>Xeroizer</span><span class='colon2 op'>::</span><span class='rubyid_Record constant id'>Record</span><span class='dot token'>.</span><span class='rubyid_const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='rubyid_model_name identifier id'>model_name</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span><span class='rparen token'>)</span>
@@ -720,12 +809,12 @@ associations.</p>
       <pre class="lines">
 
 
-22
-23
-24</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 25</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_model_name identifier id'>model_name</span>
   <span class='rubyid_@model_name ivar id'>@model_name</span>
@@ -763,12 +852,12 @@ associations.</p>
       <pre class="lines">
 
 
-24
-25
-26</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 27</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_response identifier id'>response</span>
   <span class='rubyid_@response ivar id'>@response</span>
@@ -814,12 +903,12 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 36</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_api_controller_name identifier id'>set_api_controller_name</span><span class='lparen token'>(</span><span class='rubyid_controller_name identifier id'>controller_name</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_api_controller_name identifier id'>api_controller_name</span> <span class='assign token'>=</span> <span class='rubyid_controller_name identifier id'>controller_name</span>
@@ -854,12 +943,12 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-62
-63
-64</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 65</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_optional_xml_root_name identifier id'>set_optional_xml_root_name</span><span class='lparen token'>(</span><span class='rubyid_optional_root_name identifier id'>optional_root_name</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_optional_root_name identifier id'>optional_root_name</span> <span class='assign token'>=</span> <span class='rubyid_optional_root_name identifier id'>optional_root_name</span>
@@ -895,21 +984,21 @@ set by default. Valid permissions are :read, :write, :update.</p>
       <pre class="lines">
 
 
-40
-41
-42
 43
 44
 45
-46</pre>
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 43</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_permissions identifier id'>set_permissions</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='rubyid_args identifier id'>args</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
   <span class='rubyid_args identifier id'>args</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_permission identifier id'>permission</span> <span class='bitor op'>|</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_InvaidPermissionError constant id'>InvaidPermissionError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Permission #{permission} is invalid.&quot;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_ALLOWED_PERMISSIONS constant id'>ALLOWED_PERMISSIONS</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_permission identifier id'>permission</span><span class='rparen token'>)</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_InvalidPermissionError constant id'>InvalidPermissionError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Permission #{permission} is invalid.&quot;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_ALLOWED_PERMISSIONS constant id'>ALLOWED_PERMISSIONS</span><span class='dot token'>.</span><span class='rubyid_include? fid id'>include?</span><span class='lparen token'>(</span><span class='rubyid_permission identifier id'>permission</span><span class='rparen token'>)</span>
     <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='rubyid_permission identifier id'>permission</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
   <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
@@ -945,12 +1034,12 @@ set by default. Valid permissions are :read, :write, :update.</p>
       <pre class="lines">
 
 
-51
-52
-53</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 54</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_xml_node_name identifier id'>set_xml_node_name</span><span class='lparen token'>(</span><span class='rubyid_node_name identifier id'>node_name</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_xml_node_name identifier id'>xml_node_name</span> <span class='assign token'>=</span> <span class='rubyid_node_name identifier id'>node_name</span>
@@ -986,12 +1075,12 @@ associations.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 60</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_set_xml_root_name identifier id'>set_xml_root_name</span><span class='lparen token'>(</span><span class='rubyid_root_name identifier id'>root_name</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_xml_root_name identifier id'>xml_root_name</span> <span class='assign token'>=</span> <span class='rubyid_root_name identifier id'>root_name</span>
@@ -1045,15 +1134,15 @@ associations.</p>
       <pre class="lines">
 
 
-93
-94
-95
-96
-97
-98</pre>
+116
+117
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 116</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
@@ -1094,15 +1183,92 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 82</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_api_controller_name identifier id'>api_controller_name</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_api_controller_name identifier id'>api_controller_name</span> <span class='orop op'>||</span> <span class='rubyid_model_name identifier id'>model_name</span><span class='dot token'>.</span><span class='rubyid_pluralize identifier id'>pluralize</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="batch_save-instance_method">
+  
+    - (<tt>Object</tt>) <strong>batch_save</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 141</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_batch_save identifier id'>batch_save</span>
+  <span class='rubyid_@objects ivar id'>@objects</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='rubyid_@allow_batch_operations ivar id'>@allow_batch_operations</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+
+  <span class='rubyid_yield yield kw'>yield</span>
+
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span>
+    <span class='rubyid_objects identifier id'>objects</span> <span class='assign token'>=</span> <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_compact identifier id'>compact</span>
+    <span class='rubyid_return return kw'>return</span> <span class='rubyid_false false kw'>false</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_objects identifier id'>objects</span><span class='dot token'>.</span><span class='rubyid_all? fid id'>all?</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='symbol val'>:valid?</span><span class='rparen token'>)</span>
+    <span class='rubyid_actions identifier id'>actions</span> <span class='assign token'>=</span> <span class='rubyid_objects identifier id'>objects</span><span class='dot token'>.</span><span class='rubyid_group_by identifier id'>group_by</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='rubyid_o identifier id'>o</span><span class='bitor op'>|</span> <span class='rubyid_o identifier id'>o</span><span class='dot token'>.</span><span class='rubyid_new_record? fid id'>new_record?</span> <span class='integer val'>? </span><span class='symbol val'>:http_put</span> <span class='colon op'>:</span> <span class='symbol val'>:http_post</span> <span class='rbrace token'>}</span>
+    <span class='rubyid_actions identifier id'>actions</span><span class='dot token'>.</span><span class='rubyid_each_pair identifier id'>each_pair</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_http_method identifier id'>http_method</span><span class='comma token'>,</span> <span class='rubyid_records identifier id'>records</span><span class='bitor op'>|</span>
+      <span class='rubyid_request identifier id'>request</span> <span class='assign token'>=</span> <span class='rubyid_to_bulk_xml identifier id'>to_bulk_xml</span><span class='lparen token'>(</span><span class='rubyid_records identifier id'>records</span><span class='rparen token'>)</span>
+      <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='rubyid_http_method identifier id'>http_method</span><span class='comma token'>,</span> <span class='rubyid_request identifier id'>request</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='symbol val'>:summarizeErrors</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_false false kw'>false</span><span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+      <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_response_items identifier id'>response_items</span><span class='dot token'>.</span><span class='rubyid_each_with_index identifier id'>each_with_index</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_record identifier id'>record</span><span class='comma token'>,</span> <span class='rubyid_i identifier id'>i</span><span class='bitor op'>|</span>
+        <span class='rubyid_if if kw'>if</span> <span class='rubyid_record identifier id'>record</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rparen token'>)</span>
+          <span class='rubyid_records identifier id'>records</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_attributes identifier id'>attributes</span>
+          <span class='rubyid_records identifier id'>records</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span> <span class='assign token'>=</span> <span class='rubyid_record identifier id'>record</span><span class='dot token'>.</span><span class='rubyid_errors identifier id'>errors</span>
+          <span class='rubyid_records identifier id'>records</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_saved! fid id'>saved!</span>
+        <span class='rubyid_end end kw'>end</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='rubyid_@objects ivar id'>@objects</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='rubyid_@allow_batch_operations ivar id'>@allow_batch_operations</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span>
+  <span class='rubyid_true true kw'>true</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1134,15 +1300,60 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 91</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
-  <span class='rubyid_model_class identifier id'>model_class</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span>
+  <span class='rubyid_model_class identifier id'>model_class</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_tap identifier id'>tap</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_resource identifier id'>resource</span><span class='bitor op'>|</span>
+    <span class='rubyid_mark_dirty identifier id'>mark_dirty</span><span class='lparen token'>(</span><span class='rubyid_resource identifier id'>resource</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create</strong>(attributes = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create (build and save) a record with attributes set to the value of
+attributes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 111</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_attributes identifier id'>attributes</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_tap identifier id'>tap</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_resource identifier id'>resource</span><span class='bitor op'>|</span> <span class='rubyid_resource identifier id'>resource</span><span class='dot token'>.</span><span class='rubyid_save identifier id'>save</span> <span class='rbrace token'>}</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1187,17 +1398,17 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+132
+133
+134
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 132</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_find identifier id'>find</span><span class='lparen token'>(</span><span class='rubyid_id identifier id'>id</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
@@ -1250,19 +1461,87 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-102
-103
-104
-105
-106</pre>
+125
+126
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 125</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_first identifier id'>first</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_MethodNotAllowed constant id'>MethodNotAllowed</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_permissions identifier id'>permissions</span><span class='lbrack token'>[</span><span class='symbol val'>:read</span><span class='rbrack token'>]</span>
   <span class='rubyid_result identifier id'>result</span> <span class='assign token'>=</span> <span class='rubyid_all identifier id'>all</span><span class='lparen token'>(</span><span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='rubyid_result identifier id'>result</span><span class='dot token'>.</span><span class='rubyid_first identifier id'>first</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_result identifier id'>result</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Array constant id'>Array</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mark_clean-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mark_clean</strong>(resource) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 104</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_mark_clean identifier id'>mark_clean</span><span class='lparen token'>(</span><span class='rubyid_resource identifier id'>resource</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@objects ivar id'>@objects</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span>
+    <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='rubyid_resource identifier id'>resource</span><span class='dot token'>.</span><span class='rubyid_object_id identifier id'>object_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mark_dirty-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mark_dirty</strong>(resource) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 97</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_mark_dirty identifier id'>mark_dirty</span><span class='lparen token'>(</span><span class='rubyid_resource identifier id'>resource</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_@allow_batch_operations ivar id'>@allow_batch_operations</span>
+    <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+    <span class='rubyid_@objects ivar id'>@objects</span><span class='lbrack token'>[</span><span class='rubyid_model_class identifier id'>model_class</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_resource identifier id'>resource</span><span class='dot token'>.</span><span class='rubyid_object_id identifier id'>object_id</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_resource identifier id'>resource</span>
+  <span class='rubyid_end end kw'>end</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1283,17 +1562,17 @@ then the default is Invoices.</p>
       <pre class="lines">
 
 
-118
-119
-120
-121
-122
-123
-124
-125</pre>
+169
+170
+171
+172
+173
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/base_model.rb', line 169</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_parse_response identifier id'>parse_response</span><span class='lparen token'>(</span><span class='rubyid_response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_Response constant id'>Response</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response_xml identifier id'>response_xml</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_response identifier id'>response</span><span class='comma token'>,</span> <span class='rubyid_elements identifier id'>elements</span><span class='comma token'>,</span> <span class='rubyid_response_model_name identifier id'>response_model_name</span> <span class='bitor op'>|</span>
@@ -1314,7 +1593,7 @@ then the default is Invoices.</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:37 2012 by 
+  Generated on Wed Apr 10 10:05:41 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

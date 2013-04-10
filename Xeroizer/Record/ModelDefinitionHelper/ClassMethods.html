@@ -158,6 +158,27 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#datetime_utc-instance_method" title="#datetime_utc (instance method)">- (Object) <strong>datetime_utc</strong>(field_name, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#decimal-instance_method" title="#decimal (instance method)">- (Object) <strong>decimal</strong>(field_name, options = {}) </a>
     
 
@@ -439,6 +460,31 @@
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="datetime_utc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>datetime_utc</strong>(field_name, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 45</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_datetime_utc identifier id'>datetime_utc</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>   <span class='rubyid_define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='symbol val'>:datetime_utc</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="decimal-instance_method">
   
     - (<tt>Object</tt>) <strong>decimal</strong>(field_name, options = {}) 
@@ -495,7 +541,6 @@ for the field. Options:</p>
       <pre class="lines">
 
 
-60
 61
 62
 63
@@ -513,10 +558,12 @@ for the field. Options:</p>
 75
 76
 77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 61</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_define_simple_attribute identifier id'>define_simple_attribute</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='rubyid_field_type identifier id'>field_type</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span><span class='comma token'>,</span> <span class='rubyid_value_if_nil identifier id'>value_if_nil</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_fields identifier id'>fields</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -533,6 +580,7 @@ for the field. Options:</p>
   
   <span class='rubyid_unless unless kw'>unless</span> <span class='rubyid_options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:skip_writer</span><span class='rbrack token'>]</span>
     <span class='rubyid_define_method identifier id'>define_method</span> <span class='dstring node'>&quot;#{internal_field_name}=&quot;</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span> <span class='rubyid_value identifier id'>value</span> <span class='bitor op'>|</span> 
+      <span class='rubyid_parent identifier id'>parent</span><span class='dot token'>.</span><span class='rubyid_mark_dirty identifier id'>mark_dirty</span><span class='lparen token'>(</span><span class='rubyid_self self kw'>self</span><span class='rparen token'>)</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_parent identifier id'>parent</span>
       <span class='rubyid_@attributes ivar id'>@attributes</span><span class='lbrack token'>[</span><span class='rubyid_field_name identifier id'>field_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_value identifier id'>value</span>
     <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_end end kw'>end</span>
@@ -556,14 +604,14 @@ for the field. Options:</p>
       <pre class="lines">
 
 
-46
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/record/model_definition_helper.rb', line 47</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_guid identifier id'>guid</span><span class='lparen token'>(</span><span class='rubyid_field_name identifier id'>field_name</span><span class='comma token'>,</span> <span class='rubyid_options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='comment val'># Ensure all automated Id conversions are changed to ID.</span>
@@ -822,7 +870,7 @@ to update a record.</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:41 2012 by 
+  Generated on Wed Apr 10 10:05:41 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

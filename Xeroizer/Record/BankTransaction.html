@@ -95,6 +95,28 @@
 <div class="clear"></div>
 
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BANK_TRANSACTION_STATUS-constant" class="">BANK_TRANSACTION_STATUS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span>
+  <span class='string val'>'ACTIVE'</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span>          <span class='string val'>'Active bank transactions'</span><span class='comma token'>,</span>
+  <span class='string val'>'DELETED'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span>          <span class='string val'>'Deleted bank transactions'</span><span class='comma token'>,</span>
+<span class='rbrace token'>}</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='rubyid_BANK_TRANSACTION_STATUS constant id'>BANK_TRANSACTION_STATUS</span><span class='rparen token'>)</span>
+</pre></dd>
+      
+        <dt id="BANK_TRANSACTION_STATUSES-constant" class="">BANK_TRANSACTION_STATUSES =
+          
+        </dt>
+        <dd><pre class="code"><span class='rubyid_BANK_TRANSACTION_STATUS constant id'>BANK_TRANSACTION_STATUS</span><span class='dot token'>.</span><span class='rubyid_keys identifier id'>keys</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span>
+</pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -277,7 +299,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Base.html" title="Xeroizer::Record::Base (class)">Base</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Base.html#%5B%5D-instance_method" title="Xeroizer::Record::Base#[] (method)">#[]</a></span>, <span class='object_link'><a href="Base.html#%5B%5D%3D-instance_method" title="Xeroizer::Record::Base#[]= (method)">#[]=</a></span>, <span class='object_link'><a href="Base.html#build-class_method" title="Xeroizer::Record::Base.build (method)">build</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded%3F-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded? (method)">#complete_record_downloaded?</a></span>, <span class='object_link'><a href="Base.html#download_complete_record%21-instance_method" title="Xeroizer::Record::Base#download_complete_record! (method)">#download_complete_record!</a></span>, <span class='object_link'><a href="Base.html#inspect-instance_method" title="Xeroizer::Record::Base#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Base.html#new_model_class-instance_method" title="Xeroizer::Record::Base#new_model_class (method)">#new_model_class</a></span>, <span class='object_link'><a href="Base.html#new_record%3F-instance_method" title="Xeroizer::Record::Base#new_record? (method)">#new_record?</a></span>, <span class='object_link'><a href="Base.html#save-instance_method" title="Xeroizer::Record::Base#save (method)">#save</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Base.html#%5B%5D-instance_method" title="Xeroizer::Record::Base#[] (method)">#[]</a></span>, <span class='object_link'><a href="Base.html#%5B%5D%3D-instance_method" title="Xeroizer::Record::Base#[]= (method)">#[]=</a></span>, <span class='object_link'><a href="Base.html#as_json-instance_method" title="Xeroizer::Record::Base#as_json (method)">#as_json</a></span>, <span class='object_link'><a href="Base.html#build-class_method" title="Xeroizer::Record::Base.build (method)">build</a></span>, <span class='object_link'><a href="Base.html#complete_record_downloaded%3F-instance_method" title="Xeroizer::Record::Base#complete_record_downloaded? (method)">#complete_record_downloaded?</a></span>, <span class='object_link'><a href="Base.html#download_complete_record%21-instance_method" title="Xeroizer::Record::Base#download_complete_record! (method)">#download_complete_record!</a></span>, <span class='object_link'><a href="Base.html#inspect-instance_method" title="Xeroizer::Record::Base#inspect (method)">#inspect</a></span>, <span class='object_link'><a href="Base.html#new_model_class-instance_method" title="Xeroizer::Record::Base#new_model_class (method)">#new_model_class</a></span>, <span class='object_link'><a href="Base.html#new_record%3F-instance_method" title="Xeroizer::Record::Base#new_record? (method)">#new_record?</a></span>, <span class='object_link'><a href="Base.html#save-instance_method" title="Xeroizer::Record::Base#save (method)">#save</a></span>, <span class='object_link'><a href="Base.html#saved%21-instance_method" title="Xeroizer::Record::Base#saved! (method)">#saved!</a></span>, <span class='object_link'><a href="Base.html#to_h-instance_method" title="Xeroizer::Record::Base#to_h (method)">#to_h</a></span>, <span class='object_link'><a href="Base.html#update_attributes-instance_method" title="Xeroizer::Record::Base#update_attributes (method)">#update_attributes</a></span></p>
 
   
   
@@ -355,13 +377,13 @@
       <pre class="lines">
 
 
-11
-12
-13
-14</pre>
+19
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 19</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_parent identifier id'>parent</span><span class='rparen token'>)</span>
   <span class='rubyid_super super kw'>super</span> <span class='rubyid_parent identifier id'>parent</span>
@@ -393,18 +415,18 @@
       <pre class="lines">
 
 
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre>
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 64</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total identifier id'>sub_total</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_ought_to_recalculate_totals? fid id'>ought_to_recalculate_totals?</span>
@@ -456,10 +478,10 @@
       <pre class="lines">
 
 
-45</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 58</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_sub_total= identifier id'>sub_total=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span> <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:sub_total</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -481,10 +503,10 @@
       <pre class="lines">
 
 
-49</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 62</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total identifier id'>total</span><span class='semicolon token'>;</span> <span class='rubyid_sub_total identifier id'>sub_total</span> <span class='plus op'>+</span> <span class='rubyid_total_tax identifier id'>total_tax</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -528,10 +550,10 @@
       <pre class="lines">
 
 
-47</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 60</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total= identifier id'>total=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>     <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total</span><span class='rparen token'>)</span>     <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -553,14 +575,14 @@
       <pre class="lines">
 
 
-61
-62
-63
-64
-65</pre>
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 74</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax identifier id'>total_tax</span>
   <span class='rubyid_return return kw'>return</span> <span class='rubyid_ought_to_recalculate_totals? fid id'>ought_to_recalculate_totals?</span> <span class='question op'>?</span>
@@ -608,10 +630,10 @@
       <pre class="lines">
 
 
-46</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/xeroizer/models/bank_transaction.rb', line 59</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_total_tax= identifier id'>total_tax=</span><span class='lparen token'>(</span><span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span> <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_SettingTotalDirectlyNotSupported constant id'>SettingTotalDirectlyNotSupported</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:total_tax</span><span class='rparen token'>)</span> <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -625,7 +647,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:43 2012 by 
+  Generated on Wed Apr 10 10:05:38 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>

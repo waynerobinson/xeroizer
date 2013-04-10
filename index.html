@@ -61,7 +61,7 @@
 <strong>Github</strong>:             <a href="https://github.com/waynerobinson/xeroizer">https://github.com/waynerobinson/xeroizer</a><br>
 <strong>Author</strong>:             Wayne Robinson <a href="http://www.wayne-robinson.com">http://www.wayne-robinson.com</a><br>
 <strong>Contributors</strong>: See Contributors section below<br>
-<strong>Copyright</strong>:    2007-2010<br>
+<strong>Copyright</strong>:    2007-2013 
 <strong>License</strong>:      MIT License       </p>
 
 <h2>Introduction</h2>
@@ -298,7 +298,7 @@ AccessToken:</p>
 <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_renew_access_token identifier id'>renew_access_token</span>
 
 <span class='comment val'># If you are renewing from stored token/session details.</span>
-<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='rubyid_access_key identifier id'>access_key</span><span class='comma token'>,</span> <span class='rubyid_access_secret identifier id'>access_secret</span><span class='comma token'>,</span> <span class='rubyid_session_handle identifier id'>session_handle</span><span class='rparen token'>)</span>
+<span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_renew_access_token identifier id'>renew_access_token</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_access_secret identifier id'>access_secret</span><span class='comma token'>,</span> <span class='rubyid_session_handle identifier id'>session_handle</span><span class='rparen token'>)</span>
 </code></pre>
 
 <p>This will invalidate the previous token and refresh the <code>access_key</code> and <code>access_secret</code> as specified in the
@@ -481,9 +481,28 @@ an update. For example:</p>
 <p>Have a look at the models in <code>lib/xeroizer/models/</code> to see the valid attributes, associations and 
 minimum validation requirements for each of the record types.</p>
 
+<h3>Bulk Creates &amp; Updates</h3>
+
+<p>Xero has a hard daily limit on the number of API requests you can make (currently 1,000 requests
+per account per day). To save on requests, you can batch creates and updates into a single PUT or
+POST call, like so:</p>
+
+<pre class="code ruby"><code><span class='rubyid_contact1 identifier id'>contact1</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_some_attributes identifier id'>some_attributes</span><span class='rparen token'>)</span>
+<span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_batch_save identifier id'>batch_save</span> <span class='rubyid_do do kw'>do</span>
+  <span class='rubyid_contact1 identifier id'>contact1</span><span class='dot token'>.</span><span class='rubyid_email_address identifier id'>email_address</span> <span class='assign token'>=</span> <span class='string val'>&quot;foo@bar.com&quot;</span>
+  <span class='rubyid_contact2 identifier id'>contact2</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_some_other_attributes identifier id'>some_other_attributes</span><span class='rparen token'>)</span>
+  <span class='rubyid_contact3 identifier id'>contact3</span> <span class='assign token'>=</span> <span class='rubyid_xero identifier id'>xero</span><span class='dot token'>.</span><span class='rubyid_Contact constant id'>Contact</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span><span class='lparen token'>(</span><span class='rubyid_some_more_attributes identifier id'>some_more_attributes</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</code></pre>
+
+<p><code>batch_save</code> will issue one PUT request for all unsaved records built within its block, and one
+POST request for all existing records that have been altered within its block. If any of the
+unsaved records aren&#39;t valid, it&#39;ll return <code>false</code> before sending anything across the wire;
+otherwise, it returns <code>true</code>.</p>
+
 <h3>Errors</h3>
 
-<p>If a record doesn&#39;t match it&#39;s internal validation requirements the <code>#save</code> method will return
+<p>If a record doesn&#39;t match its internal validation requirements, the <code>#save</code> method will return
 <code>false</code> and the <code>#errors</code> attribute will be populated with what went wrong.</p>
 
 <p>For example:</p>
@@ -569,10 +588,16 @@ You can set this option when initializing an application:</p>
                                          <span class='rubyid_YOUR_OAUTH_CONSUMER_SECRET constant id'>YOUR_OAUTH_CONSUMER_SECRET</span><span class='comma token'>,</span>
                                          <span class='symbol val'>:rate_limit_sleep</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>2</span><span class='rparen token'>)</span>
 </code></pre>
+
+<h3>Contributors</h3>
+
+<p>Xeroizer was inspired by the <a href="https://github.com/tlconnor/xero_gateway">https://github.com/tlconnor/xero_gateway</a> gem created by Tim Connor 
+and Nik Wakelin and portions of the networking and authentication code are based completely off 
+this project. Copyright for these components remains held in the name of Tim Connor.</p>
 </div></div>
     
     <div id="footer">
-  Generated on Tue Apr 17 13:57:33 2012 by 
+  Generated on Wed Apr 10 10:05:37 2013 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.8.7).
 </div>
