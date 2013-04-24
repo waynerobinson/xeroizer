@@ -18,7 +18,9 @@ module Xeroizer
       class_inheritable_attributes :xml_root_name
       class_inheritable_attributes :optional_xml_root_name
       class_inheritable_attributes :xml_node_name
-      
+
+      MAX_RECORDS_PER_BATCH_SAVE = 2000
+
       include BaseModelHttpProxy
 
       attr_reader :application
@@ -149,13 +151,15 @@ module Xeroizer
             return false unless objects.all?(&:valid?)
             actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
             actions.each_pair do |http_method, records|
-              request = to_bulk_xml(records)
-              response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
-              response.response_items.each_with_index do |record, i|
-                if record and record.is_a?(model_class)
-                  records[i].attributes = record.attributes
-                  records[i].errors = record.errors
-                  records[i].saved!
+              records.each_slice(MAX_RECORDS_PER_BATCH_SAVE) do |some_records|
+                request = to_bulk_xml(some_records)
+                response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
+                response.response_items.each_with_index do |record, i|
+                  if record and record.is_a?(model_class)
+                    some_records[i].attributes = record.attributes
+                    some_records[i].errors = record.errors
+                    some_records[i].saved!
+                  end
                 end
               end
             end
