@@ -19,7 +19,7 @@ module Xeroizer
       class_inheritable_attributes :optional_xml_root_name
       class_inheritable_attributes :xml_node_name
 
-      MAX_RECORDS_PER_BATCH_SAVE = 2000
+      DEFAULT_RECORDS_PER_BATCH_SAVE = 2000
 
       include BaseModelHttpProxy
 
@@ -140,7 +140,7 @@ module Xeroizer
           result
         end
 
-        def batch_save
+        def batch_save(chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
           @objects = {}
           @allow_batch_operations = true
 
@@ -151,7 +151,7 @@ module Xeroizer
             return false unless objects.all?(&:valid?)
             actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
             actions.each_pair do |http_method, records|
-              records.each_slice(MAX_RECORDS_PER_BATCH_SAVE) do |some_records|
+              records.each_slice(chunk_size) do |some_records|
                 request = to_bulk_xml(some_records)
                 response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
                 response.response_items.each_with_index do |record, i|
