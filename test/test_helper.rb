@@ -1,5 +1,5 @@
 require "rubygems"
-
+require 'debugger'
 require 'test/unit'
 require 'mocha'
 require 'shoulda'
@@ -46,14 +46,26 @@ module TestHelper
   end
   
   def mock_api(model_name)
-    @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml("#{model_name.underscore.pluralize}".to_sym))
-    @client.send("#{model_name.singularize}".to_sym).all.each do | record |
-      @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name.underscore.singularize}".to_sym, record.id))
+    client_for_stubbing.stubs(:http_get).with { |client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml("#{model_name_for_file(model_name).underscore.pluralize}".to_sym))
+    client_for_stubbing.send("#{model_name.singularize}".to_sym).all.each do | record |
+      client_for_stubbing.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name_for_file(model_name).underscore.singularize}".to_sym, record.id))
     end
   end
   
   def mock_report_api(report_type)
-    @client.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
+    client_for_stubbing.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
+  end
+
+  def client_for_stubbing
+    payroll_application? ? @client.application : @client
+  end
+
+  def model_name_for_file(model_name)
+    payroll_application? ? "payroll_#{model_name}" : model_name
+  end
+
+  def payroll_application?
+    @client.is_a? Xeroizer::PayrollApplication
   end
     
 end

@@ -23,8 +23,10 @@ require 'xeroizer/exceptions'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/payroll_base_model'
+require 'xeroizer/record/payroll_array_base_model'
 require 'xeroizer/record/base'
 require 'xeroizer/record/payroll_base'
+require 'xeroizer/record/payroll_array_base'
 require 'xeroizer/configuration'
 
 # Include models
@@ -59,6 +61,9 @@ require 'xeroizer/models/journal_line_tracking_category'
 require 'xeroizer/models/payroll/home_address'
 require 'xeroizer/models/payroll/bank_account'
 require 'xeroizer/models/payroll/employee'
+require 'xeroizer/models/payroll/timesheet'
+require 'xeroizer/models/payroll/timesheet_line'
+require 'xeroizer/models/payroll/number_of_unit'
 
 require 'xeroizer/report/factory'
 

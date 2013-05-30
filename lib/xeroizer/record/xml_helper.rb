@@ -124,6 +124,19 @@ module Xeroizer
                   nil
                 end
 
+              when :has_array
+                # TODO: instead of doing field[:api_name].singularize
+                # store the field name on the has_array subject class somewhere
+                if value.size > 0
+                  b.tag!(field[:api_name]) do
+                    value.each do |items|
+                      items.value.each do |v|
+                        b.tag!(field[:api_name].singularize, v.to_s)
+                      end
+                    end
+                  end
+                end
+
             end
           end
         

@@ -19,6 +19,7 @@ module Xeroizer
     end
 
     record :Employee
+    record :Timesheet
     
     def initialize(application)
       @application = application
