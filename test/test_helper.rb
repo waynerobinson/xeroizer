@@ -47,7 +47,8 @@ module TestHelper
   
   def mock_api(model_name)
     client_for_stubbing.stubs(:http_get).with { |client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml("#{model_name_for_file(model_name).underscore.pluralize}".to_sym))
-    client_for_stubbing.send("#{model_name.singularize}".to_sym).all.each do | record |
+    @client.send("#{model_name.singularize}".to_sym).all.each do | record |
+      next if record.id.nil?
       client_for_stubbing.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name_for_file(model_name).underscore.singularize}".to_sym, record.id))
     end
   end

@@ -50,8 +50,8 @@ module Xeroizer
             #   add_to_records([value, value, value])
             #   add_to_records(value)
             values = []
-            if args.size == 1 && !args.first.is_a?(Array)
-              values = [args.first]
+            if args.size == 1 && args.first.is_a?(Array)
+              values = args.first
             elsif args.size > 0 
               values = args
             else
@@ -65,6 +65,7 @@ module Xeroizer
             last_record = nil
             values.each do |value|
               record = record_class.build(value, model_parent)
+              raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
               last_record = record

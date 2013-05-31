@@ -16,8 +16,9 @@ module Xeroizer
         end
         
         # Set the actual Xero primary key for this record.
+        # Set this to `false` if this type has no primary key
         def set_primary_key(primary_key_name)
-          self.primary_key_name = primary_key_name
+          self.primary_key_name = primary_key_name unless primary_key_name == false
         end
         
         # Whether this record type's list results contain summary data only.
@@ -65,6 +66,7 @@ module Xeroizer
           self.fields[field_name] = options.merge({
             :internal_name  => internal_field_name, 
             :api_name       => options[:api_name] || field_name.to_s.camelize,
+            :api_child_name => options[:api_child_name] || (options[:api_name] || field_name.to_s.camelize).singularize,
             :type           => field_type
           })
           define_method internal_field_name do 
@@ -85,7 +87,7 @@ module Xeroizer
         
         # Returns the value of the Xero primary key for this record if it exists.
         def id
-          self[self.class.primary_key_name]
+          self[self.class.primary_key_name] unless self.class.primary_key_name.nil?
         end
 
         # Sets the value of the Xero primary key for this record if it exists.

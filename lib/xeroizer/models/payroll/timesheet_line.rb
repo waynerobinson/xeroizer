@@ -11,7 +11,7 @@ module Xeroizer
         guid          :earnings_rate_id
         guid          :tracking_item_id # TODO: belongs to a http://developer.xero.com/api/Tracking%20Categories/ (optionally? the docs don't have any examples)
 
-        has_array     :number_of_units
+        has_array     :number_of_units, :api_child_name => 'NumberOfUnit'
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
