@@ -9,7 +9,7 @@ module Xeroizer
       class TimesheetLine < PayrollBase
 
         guid          :earnings_rate_id
-        guid          :tracking_item_id # TODO: belongs to a http://developer.xero.com/api/Tracking%20Categories/ (optionally? the docs don't have any examples)
+        guid          :tracking_item_id
 
         has_array     :number_of_units, :api_child_name => 'NumberOfUnit'
 

@@ -6,7 +6,27 @@ class TimesheetTest < Test::Unit::TestCase
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET).payroll
     mock_api('Employees')
+    mock_api('Timesheets')
     @employee = @client.Employee.first
+  end
+
+  test "get all" do
+    timesheets = @client.Timesheet.all
+    assert_equal 2, timesheets.count
+    timesheets.each do |timesheet|
+      timesheet.timesheet_lines.each do |line|
+        assert_equal 7, line.number_of_units.count
+        line.number_of_units.each do |unit|
+          assert_not_nil unit.value
+        end
+      end
+    end
+  end
+
+  test "get one" do
+    timesheet = @client.Timesheet.first
+    assert_equal 2, timesheet.timesheet_lines.count
+    assert_equal 7, timesheet.timesheet_lines.sample.number_of_units.count
   end
 
   test "create invalid timesheet" do

@@ -45,7 +45,13 @@ module Xeroizer
                   end
 
                 when :has_array
-                  raise 'TODO'
+                  if element.element_children.size > 0
+                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
+                    sub_parent = record.new_model_class(sub_field_name)
+                    element.element_children.inject([]) do |list, child|
+                      list << base_module.const_get(sub_field_name).build_from_node(child, sub_parent, base_module)
+                    end
+                  end
 
               end
               if field[:calculated]

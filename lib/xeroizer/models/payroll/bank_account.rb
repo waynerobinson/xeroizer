@@ -13,7 +13,7 @@ module Xeroizer
         string      :bsb
         string      :account_number
         boolean     :remainder
-        string      :percentage
+        decimal     :percentage
         decimal     :amount
 
       end

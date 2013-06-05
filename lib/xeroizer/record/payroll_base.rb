@@ -19,6 +19,12 @@ module Xeroizer
       
       public
 
+        def initialize(parent)
+          super(parent)
+          self.api_method_for_creating = :http_post
+          self.api_method_for_updating = :http_post
+        end
+
         def new_model_class(model_name)
           Xeroizer::Record::Payroll.const_get("#{model_name}Model".to_sym).new(parent.application, model_name.to_s)
         end
