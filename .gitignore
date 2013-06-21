@@ -6,6 +6,7 @@ doc/
 .redcar
 pkg/
 .rvmrc
+.ruby-version
 .oauth
 .DS_Store
 tmp/
