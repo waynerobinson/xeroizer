@@ -19,7 +19,7 @@ module Xeroizer
       # @return [PartnerApplication] instance of PrivateApplication
       def initialize(consumer_key, consumer_secret, path_to_private_key, path_to_ssl_client_cert, path_to_ssl_client_key, options = {})
         default_options = {
-          :xero_url         => 'https://api-partner.network.xero.com/api.xro/2.0',
+          :xero_url_prefix  => 'https://api-partner.network.xero.com',
           :site             => 'https://api-partner.network.xero.com',
           :authorize_url    => 'https://api.xero.com/oauth/Authorize',      
           :signature_method => 'RSA-SHA1'
