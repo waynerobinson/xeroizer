@@ -5,6 +5,8 @@ test*.rb
 doc/
 .redcar
 pkg/
+/tmp
 .rvmrc
+.ruby-version
 .oauth
 .DS_Store
