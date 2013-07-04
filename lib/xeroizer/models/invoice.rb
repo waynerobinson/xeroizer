@@ -180,6 +180,11 @@ module Xeroizer
         def void!
           delete_or_void_invoice!('VOIDED')
         end
+        
+        # Approve a draft invoice
+        def approve!
+          delete_or_void_invoice!('AUTHORISED')
+        end
 
       protected
 
