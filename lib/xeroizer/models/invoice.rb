@@ -1,15 +1,15 @@
 module Xeroizer
   module Record
-    
+
     class InvoiceModel < BaseModel
       # To create a new invoice, use the folowing
       # $xero_client.Invoice.build(type: 'ACCREC', ..., contact: {name: 'Foo Bar'},...)
       # Note that we are not making an api request to xero just to get the contact
-            
+
       set_permissions :read, :write, :update
-      
+
       public
-      
+
         # Retrieve the PDF version of the invoice matching the `id`.
         # @param [String] id invoice's ID.
         # @param [String] filename optional filename to store the PDF in instead of returning the data.
@@ -22,11 +22,11 @@ module Xeroizer
             pdf_data
           end
         end
-      
+
     end
-    
+
     class Invoice < Base
-      
+
       INVOICE_TYPE = {
         'ACCREC' =>           'Accounts Receivable',
         'ACCPAY' =>           'Accounts Payable'
@@ -42,11 +42,11 @@ module Xeroizer
         'VOIDED' =>           'Approved invoices that are voided'
       } unless defined?(INVOICE_STATUS)
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
-      
+
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
       list_contains_summary_only true
-      
+
       guid         :invoice_id
       string       :invoice_number
       string       :reference
@@ -67,12 +67,12 @@ module Xeroizer
       string       :currency_code
       datetime     :fully_paid_on_date
       boolean      :sent_to_contact
-      
+
       belongs_to   :contact
       has_many     :line_items
       has_many     :payments
       has_many     :credit_notes
-      
+
       validates_presence_of :date, :due_date, :unless => :new_record?
       validates_inclusion_of :type, :in => INVOICE_TYPES
       validates_inclusion_of :status, :in => INVOICE_STATUSES, :unless => :new_record?
@@ -80,9 +80,9 @@ module Xeroizer
       validates_associated :contact
       validates_associated :line_items, :allow_blanks => true, :unless => :approved?
       validates_associated :line_items, :if => :approved?
-      
+
       public
-      
+
         # Access the contact name without forcing a download of
         # an incomplete, summary invoice.
         def contact_name
@@ -94,12 +94,12 @@ module Xeroizer
         def contact_id
           attributes[:contact] && attributes[:contact][:contact_id]
         end
-        
+
         # Helper method to check if the invoice has been approved.
         def approved?
           [ 'AUTHORISED', 'PAID', 'VOIDED' ].include? status
         end
-        
+
         # Helper method to check if the invoice is accounts payable.
         def accounts_payable?
           type == 'ACCPAY'
@@ -109,12 +109,12 @@ module Xeroizer
         def accounts_receivable?
           type == 'ACCREC'
         end
-        
+
         def sub_total=(sub_total)
           @sub_total_is_set = true
           attributes[:sub_total] = sub_total
         end
-        
+
         def total_tax=(total_tax)
           @total_tax_is_set = true
           attributes[:total_tax] = total_tax
@@ -129,9 +129,9 @@ module Xeroizer
         def sub_total(always_summary = false)
           if !@sub_total_is_set && not_summary_or_loaded_record(always_summary)
             sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
-            
+
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
-            sum -= total_tax if line_amount_types == 'Inclusive' 
+            sum -= total_tax if line_amount_types == 'Inclusive'
             sum
           else
             attributes[:sub_total]
@@ -155,16 +155,16 @@ module Xeroizer
             attributes[:total]
           end
         end
-        
+
         def not_summary_or_loaded_record(always_summary)
           !always_summary && loaded_record?
         end
 
         def loaded_record?
-          new_record? || 
+          new_record? ||
             (!new_record? && line_items && line_items.size > 0)
         end
-          
+
         # Retrieve the PDF version of this invoice.
         # @param [String] filename optional filename to store the PDF in instead of returning the data.
         def pdf(filename = nil)
@@ -173,28 +173,28 @@ module Xeroizer
 
         # Delete an approved invoice with no payments.
         def delete!
-          delete_or_void_invoice!('DELETED')
+          change_status!('DELETED')
         end
 
         # Void an approved invoice with no payments.
         def void!
-          delete_or_void_invoice!('VOIDED')
+          change_status!('VOIDED')
         end
-        
+
         # Approve a draft invoice
         def approve!
-          delete_or_void_invoice!('AUTHORISED')
+          change_status!('AUTHORISED')
         end
 
       protected
 
-        def delete_or_void_invoice!(new_status)
+        def change_status!(new_status)
           raise CannotChangeInvoiceStatus.new(record, new_status) unless self.payments.size == 0
           self.status = new_status
           self.save
         end
-      
+
     end
-    
+
   end
 end
