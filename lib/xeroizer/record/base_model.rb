@@ -156,7 +156,7 @@ module Xeroizer
           if @objects[model_class]
             objects = @objects[model_class].values.compact
             return false unless objects.all?(&:valid?)
-            actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
+            actions = objects.group_by {|o| o.new_record? ? o.api_method_for_creating : o.api_method_for_updating }
             actions.each_pair do |http_method, records|
               request = to_bulk_xml(records)
               response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))

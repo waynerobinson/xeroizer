@@ -126,8 +126,6 @@ module Xeroizer
           end.join(", ")
           "#<#{self.class} #{attribute_string}>"
         end
-                
-      protected
 
         def api_method_for_creating
           @api_method_for_creating || :http_put
@@ -135,6 +133,8 @@ module Xeroizer
         def api_method_for_updating
           @api_method_for_updating || :http_post
         end
+                
+      protected
       
         # Attempt to create a new record.
         def create
