@@ -61,7 +61,7 @@ module Xeroizer
           # Turn a record into its XML representation.
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
             optional_root_tag(parent.class.optional_xml_root_name, b) do |b|
-              b.tag!(parent.class.xml_node_name || parent.model_name) { 
+              b.tag!(model.class.xml_node_name || model.model_name) {
                 attributes.each do | key, value |
                   field = self.class.fields[key]
                   value = self.send(key) if field[:calculated]
