@@ -27,6 +27,7 @@ require 'xeroizer/configuration'
 # Include models
 require 'xeroizer/models/account'
 require 'xeroizer/models/address'
+require 'xeroizer/models/allocation'
 require 'xeroizer/models/branding_theme'
 require 'xeroizer/models/bank_transaction'
 require 'xeroizer/models/bank_account'
