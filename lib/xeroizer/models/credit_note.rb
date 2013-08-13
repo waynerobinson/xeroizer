@@ -62,11 +62,13 @@ module Xeroizer
       
       belongs_to    :contact
       has_many      :line_items
+      has_many      :allocations
       
       validates_inclusion_of :type, :in => CREDIT_NOTE_TYPES
       validates_inclusion_of :status, :in => CREDIT_NOTE_STATUSES, :allow_blanks => true
       validates_associated :contact
       validates_associated :line_items
+      validates_associated :allocations, :allow_blanks => true
       
       public
       
