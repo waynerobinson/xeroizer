@@ -57,6 +57,10 @@ module Xeroizer
           self.send("#{attribute}=".to_sym, value)
         end
 
+        def non_calculated_attributes
+          attributes.reject {|name| self.class.fields[name][:calculated] }
+        end
+
         def attributes=(new_attributes)
           return unless new_attributes.is_a?(Hash)
           parent.mark_dirty(self) if parent
