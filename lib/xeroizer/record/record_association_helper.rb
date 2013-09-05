@@ -77,6 +77,47 @@ module Xeroizer
 
         end
 
+        def has_one(field_name, options = {})
+          internal_field_name = options[:internal_name] || field_name
+          internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
+
+          define_association_attribute(field_name, internal_field_name, :has_one, options)
+
+          # Create an #add_record_name method to build the record and add to the attributes.
+          define_method "set_#{internal_singular_field_name}" do | *args |
+            # The name of the record model.
+            model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
+
+            # The record's parent instance for this current application.
+            model_parent = new_model_class(model_name)
+
+            # The class of this record.
+            record_class = (options[:base_module] || Xeroizer::Record).const_get(model_name)
+
+            # Parse the *args variable so that we can use this method like:
+            #   set_record(record_one)
+            #   set_record({fields})
+            #   set_record(key => val, key2 => val)
+            record = nil
+            if args.size == 1
+              record = args.first
+            else
+              raise StandardError.new("Invalid arguments for #{self.class.name}#set_#{internal_singular_field_name}(#{args.inspect}).")
+            end
+
+            # Ensure that complete record is downloaded before updating record
+            self.send(field_name)
+
+            # Set record.
+            record = record_class.build(record, model_parent) if record.is_a?(Hash)
+            raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
+            self.attributes[field_name] = record
+
+            record
+          end
+
+        end
+
         def define_association_attribute(field_name, internal_field_name, association_type, options)
           define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), ((association_type == :has_many) ? [] : nil))
 
@@ -92,6 +133,10 @@ module Xeroizer
                   when :has_many
                     self.attributes[field_name] = []
                     self.send("add_#{internal_singular_field_name}".to_sym, value)
+
+                  when :has_one
+                    self.attributes[field_name] = self.send("set_#{internal_singular_field_name}".to_sym, value)
+
                   when :belongs_to
                     self.attributes[field_name] = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(value, new_model_class(model_name))
                 end

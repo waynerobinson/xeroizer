@@ -10,7 +10,7 @@ module Xeroizer
         
         string      :statement_text
         string      :account_name
-        string      :bsb
+        string      :bsb, :api_name => 'BSB'
         string      :account_number
         boolean     :remainder
         string      :percentage
