@@ -12,6 +12,10 @@ module Xeroizer
       def self.has_many(field_name, options = {})
         super(field_name, {:base_module => Xeroizer::Record::Payroll}.merge(options))
       end
+
+      def self.has_one(field_name, options = {})
+        super(field_name, {:base_module => Xeroizer::Record::Payroll}.merge(options))
+      end
       
       public
 
