@@ -35,9 +35,10 @@ module Xeroizer
         date          :termination_date
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
   
-        belongs_to    :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
+        has_one       :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
         has_many      :bank_accounts
 
+        validates_presence_of :first_name, :last_name, :unless => :new_record?
       end
 
     end 
