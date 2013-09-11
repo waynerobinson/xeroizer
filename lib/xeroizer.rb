@@ -56,6 +56,7 @@ require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
 require 'xeroizer/models/journal_line_tracking_category'
 
+require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/home_address'
 require 'xeroizer/models/payroll/bank_account'
 require 'xeroizer/models/payroll/employee'
