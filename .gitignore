@@ -10,3 +10,4 @@ pkg/
 .ruby-version
 .oauth
 .DS_Store
+.idea/
