@@ -13,6 +13,7 @@ module Xeroizer
       string    :api_key, :api_name => 'APIKey'
       string    :name
       string    :legal_name
+      string    :short_code
       boolean   :pays_tax
       string    :version
       string    :organisation_type
