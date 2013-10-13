@@ -5,8 +5,6 @@ module Xeroizer
       class LeaveApplicationModel < PayrollBaseModel
           
         set_permissions :read, :write, :update      
-
-        # TODO: calling #get on this requries an employee ID 
       end
       
       class LeaveApplication < PayrollBase

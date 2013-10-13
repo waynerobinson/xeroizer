@@ -30,7 +30,12 @@ module TestHelper
   GUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/ unless defined?(GUID_REGEX)
 
   def get_file_as_string(filename)
-    File.read(File.dirname(__FILE__) + "/stub_responses/" + filename)
+    if File.exist?(File.dirname(__FILE__) + "/stub_responses/" + filename)
+      File.read(File.dirname(__FILE__) + "/stub_responses/" + filename)
+    else
+      puts "WARNING: File does not exist: #{filename}"
+      nil
+    end
   end
   
   def get_record_xml(type, id = nil)
@@ -50,6 +55,22 @@ module TestHelper
     @client.send("#{model_name.singularize}".to_sym).all.each do | record |
       next if record.id.nil?
       client_for_stubbing.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name_for_file(model_name).underscore.singularize}".to_sym, record.id))
+    end
+  end
+
+  # some models have a parent-child relationship, where you should call:
+  # Child.find(parent.id) to find items of type child belonging to the parent
+  # eg. http://developer.xero.com/documentation/payroll-api/leaveapplications/
+  def mock_child_relationship_api(child, parent)
+    mock_api(child)
+    mock_api(parent)
+    # grab the ID of each parent record
+    # if we call api/child/parent_id, return the appropriate child xml
+    @client.send("#{parent.singularize}".to_sym).all.each do | record |
+      next if record.id.nil?
+      client_for_stubbing.stubs(:http_get).with {|client, url, params|
+        url =~ /#{child}\/#{record.id}$/
+        }.returns(get_record_xml("#{model_name_for_file(child).underscore.singularize}".to_sym, record.id))
     end
   end
   

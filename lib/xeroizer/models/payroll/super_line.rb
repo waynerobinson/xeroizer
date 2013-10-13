@@ -15,8 +15,11 @@ module Xeroizer
         string        :expense_account_code
         string        :liability_account_code
 
+        date          :payment_date_for_this_period
+
         decimal       :minimum_monthly_earnings
         decimal       :percentage
+        decimal       :amount
 
       end
 

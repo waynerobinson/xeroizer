@@ -4,7 +4,7 @@ module Xeroizer
     
       class PayTemplateModel < PayrollBaseModel
           
-        set_all_children_are_subtypes true
+        set_standalone_model true
         set_xml_root_name 'PayTemplate'
         set_xml_node_name 'PayTemplate'
       end
