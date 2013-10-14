@@ -41,15 +41,9 @@ module Xeroizer
                   end
 
                 when :has_one
-                  if element.element_children.size > 0
-                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
-                    sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject({}) do | hash, element |
-                      aa = base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
-                      hash[element.name.to_s.underscore.to_sym] = aa[element.name.to_s.underscore.to_sym]
-                      hash
-                    end
-                  end
+                  sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
+                  sub_parent = record.new_model_class(sub_field_name)
+                  base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
 
               end
               if field[:calculated]
@@ -73,7 +67,7 @@ module Xeroizer
           # Turn a record into its XML representation.
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
             optional_root_tag(parent.class.optional_xml_root_name, b) do |b|
-              b.tag!(model.class.xml_node_name || model.model_name) {
+              b.tag!(parent.class.xml_node_name || parent.model_name) { 
                 attributes.each do | key, value |
                   field = self.class.fields[key]
                   value = self.send(key) if field[:calculated]
@@ -137,10 +131,8 @@ module Xeroizer
                 end
 
               when :has_one
-                if value
                   value.to_xml(b)
                   nil
-                end
 
             end
           end

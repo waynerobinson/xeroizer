@@ -14,7 +14,7 @@ module Xeroizer
           'ANNUALSALARY' => 'If the employee receives a salary, the annual salary amount and units of work per week are added to the earnings line'          
         } unless defined?(EARNINGS_RATE_CALCULATION_TYPE)
         
-        guid          :earning_rate_id, :api_name => 'EarningsRateID'
+        guid          :earnings_rate_id, :api_name => 'EarningsRateID'
         string        :calculation_type
 
         decimal       :number_of_units_per_week

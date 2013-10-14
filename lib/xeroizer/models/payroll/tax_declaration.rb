@@ -3,7 +3,7 @@ module Xeroizer
     module Payroll
     
       class TaxDeclarationModel < PayrollBaseModel
-        set_xml_node_name 'TaxDeclaration'
+
       end
       
       class TaxDeclaration < PayrollBase
