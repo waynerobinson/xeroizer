@@ -13,6 +13,7 @@ module Xeroizer
           'ENTERRATEINPAYTEMPLATE' => '',
           'BASEDONORDINARYEARNINGS' => ''
         } unless defined?(LEAVE_TYPE_CALCULATION_TYPE)
+        LEAVE_TYPE_CALCULATION_TYPES = LEAVE_TYPE_CALCULATION_TYPE.keys.sort
 
         guid :leave_type_id, :api_name => 'LeaveTypeID'
         string :calculation_type
@@ -21,8 +22,9 @@ module Xeroizer
         decimal :full_time_number_of_units_per_period
         decimal :number_of_units
 
-        validates_presence_of :leave_type_id, :calculation_type, :unless => :new_record?
-        validates_inclusion_of :contribution_type, :in => LEAVE_TYPE_CALCULATION_TYPE
+        validates_presence_of :leave_type_id, :unless => :new_record?
+        validates_presence_of :calculation_type
+        validates_inclusion_of :calculation_type, :in => LEAVE_TYPE_CALCULATION_TYPES
       end
 
     end 

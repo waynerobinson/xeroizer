@@ -13,6 +13,7 @@ module Xeroizer
           'PRETAX' => '',
           'POSTTAX' => ''          
         } unless defined?(DEDUCTION_TYPE_CALCULATION_TYPE)
+        DEDUCTION_TYPE_CALCULATION_TYPES = DEDUCTION_TYPE_CALCULATION_TYPE.keys.sort
 
         guid          :deduction_type_id, :api_name => 'DeductionTypeID'
         string        :calculation_type
@@ -20,8 +21,9 @@ module Xeroizer
         decimal :percentage
         decimal :amount
         
-        validates_presence_of :earning_rate_id, :calculation_type, :unless => :new_record?
-        validates_inclusion_of :calculation_type, :in => DEDUCTION_TYPE_CALCULATION_TYPE
+        validates_presence_of :deduction_type_id, :unless => :new_record?
+        validates_presence_of :calculation_type
+        validates_inclusion_of :calculation_type, :in => DEDUCTION_TYPE_CALCULATION_TYPES
       end
 
     end 

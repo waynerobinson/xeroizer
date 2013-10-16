@@ -32,6 +32,10 @@ module Xeroizer
         def validates_presence_of(*args)
           validates_with_validator(Validator::PresenceOfValidator, args)
         end        
+
+        def validates_length_of(*args)
+          validates_with_validator(Validator::LengthValidator, args)
+        end        
      
         def validates(*args, &block)
           fail "Block required" unless block_given?

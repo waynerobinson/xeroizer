@@ -3,7 +3,6 @@ module Xeroizer
     module Payroll
     
       class TaxDeclarationModel < PayrollBaseModel
-
       end
       
       class TaxDeclaration < PayrollBase
@@ -16,6 +15,7 @@ module Xeroizer
           'SUPERINCOMESTREAM' => ''
           
         } unless defined?(EMPLOYMENT_BASIS)
+        EMPLOYMENT_BASISES = EMPLOYMENT_BASIS.keys.sort
 
         TFN_EXEMPTION_TYPE = {
           'NOTQUOTED' => 'Employee has not provided a TFN.',
@@ -23,7 +23,9 @@ module Xeroizer
           'PENSIONER' => 'Employee is claiming that they are in receipt of a pension, benefit or allowance.',
           'UNDER18' => 'Employee is claiming an exemption as they are under the age of 18 and do not earn enough to pay tax.'
         } unless defined?(TFN_EXEMPTION_TYPE)
+        TFN_EXEMPTION_TYPES = TFN_EXEMPTION_TYPE.keys.sort
 
+        guid        :employee_id, :api_name => 'EmployeeID'
         string      :tax_file_number
         
         string      :tfn_exemption_type, :api_name => 'TFNExemptionType'
@@ -40,9 +42,9 @@ module Xeroizer
         decimal      :approved_withholding_variation_percentage
 
         datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
-        
-        validates_inclusion_of :employment_basis, :in => EMPLOYMENT_BASIS
-        validates_inclusion_of :tfn_exemption_type, :in => TFN_EXEMPTION_TYPE, :if => :tfn_exemption_type
+
+        validates_inclusion_of :employment_basis, :in => EMPLOYMENT_BASISES
+        validates_inclusion_of :tfn_exemption_type, :in => TFN_EXEMPTION_TYPES, :allow_blank => true
       end
 
     end 

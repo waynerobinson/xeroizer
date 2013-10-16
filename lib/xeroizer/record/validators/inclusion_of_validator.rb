@@ -6,8 +6,8 @@ module Xeroizer
       class InclusionOfValidator < Validator
         
         def valid?(record)
-          if options[:in] && options[:in].is_a?(Array)            
-            return true if options[:allow_blanks] && (record[attribute].nil? || record[attribute].to_s == '')
+          if options[:in] && options[:in].is_a?(Array)
+            return true if options[:allow_blanks] && !record[attribute].present?
             unless options[:in].include?(record[attribute])
               record.errors << [attribute, options[:message] || "not one of #{options[:in].join(', ')}"]
             end

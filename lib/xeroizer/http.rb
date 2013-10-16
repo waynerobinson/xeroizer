@@ -163,7 +163,6 @@ module Xeroizer
                                  request_body)
 
         else
-          
           raise "Unparseable 400 Response: #{raw_response}"
           
         end

@@ -13,6 +13,7 @@ module Xeroizer
           'ENTEREARNINGSRATE' => 'The rate per unit is be added manually to the earnings line',
           'ANNUALSALARY' => 'If the employee receives a salary, the annual salary amount and units of work per week are added to the earnings line'          
         } unless defined?(EARNINGS_RATE_CALCULATION_TYPE)
+        EARNINGS_RATE_CALCULATION_TYPES = EARNINGS_RATE_CALCULATION_TYPE.keys.sort
         
         guid          :earnings_rate_id, :api_name => 'EarningsRateID'
         string        :calculation_type
@@ -22,8 +23,9 @@ module Xeroizer
         decimal       :rate_per_unit
         decimal       :normal_number_of_units
         
-        validates_presence_of :earning_rate_id, :calculation_type, :unless => :new_record?
-        validates_inclusion_of :calculation_type, :in => EARNINGS_RATE_CALCULATION_TYPE
+        validates_presence_of :earning_rate_id, :unless => :new_record?
+        validates_presence_of :calculation_type
+        validates_inclusion_of :calculation_type, :in => EARNINGS_RATE_CALCULATION_TYPES
       end
 
     end 
