@@ -65,7 +65,7 @@ module Xeroizer
       decimal      :amount_credited
       datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string       :currency_code
-      string       :currency_rate
+      decimal      :currency_rate
       datetime     :fully_paid_on_date
       boolean      :sent_to_contact
 
