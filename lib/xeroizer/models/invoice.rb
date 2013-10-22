@@ -1,3 +1,5 @@
+require "xeroizer/models/attachment"
+
 module Xeroizer
   module Record
 
@@ -7,6 +9,8 @@ module Xeroizer
       # Note that we are not making an api request to xero just to get the contact
 
       set_permissions :read, :write, :update
+
+      include AttachmentModel::Extensions
 
       public
 
@@ -43,6 +47,8 @@ module Xeroizer
       } unless defined?(INVOICE_STATUS)
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 
+      include Attachment::Extensions
+
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
       list_contains_summary_only true
@@ -67,6 +73,7 @@ module Xeroizer
       string       :currency_code
       datetime     :fully_paid_on_date
       boolean      :sent_to_contact
+      boolean      :has_attachments
 
       belongs_to   :contact
       has_many     :line_items
