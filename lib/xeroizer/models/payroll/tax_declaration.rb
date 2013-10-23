@@ -44,7 +44,7 @@ module Xeroizer
         datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
         validates_inclusion_of :employment_basis, :in => EMPLOYMENT_BASISES
-        validates_inclusion_of :tfn_exemption_type, :in => TFN_EXEMPTION_TYPES, :allow_blank => true
+        validates_inclusion_of :tfn_exemption_type, :in => TFN_EXEMPTION_TYPES, :allow_blanks => true
       end
 
     end 

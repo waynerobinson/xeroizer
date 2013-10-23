@@ -29,10 +29,10 @@ module Xeroizer
         string      :postal_code
         string      :country
 
-        validates_length_of :address_line1, :address_line2, :address_line3, :address_line4, length: { maximum: 100 }, :allow_blank => true
-        validates_length_of :city, length: { maximum: 50 }, :allow_blank => true
-        validates_inclusion_of :region, :in => STATE_ABBREVIATIONS, :allow_blank => true
-        validates_length_of :postal_code, length: { maximum: 4 }, :allow_blank => true
+        validates_length_of :address_line1, :address_line2, :address_line3, :address_line4, length: { maximum: 100 }, :allow_blanks => true
+        validates_length_of :city, length: { maximum: 50 }, :allow_blanks => true
+        validates_inclusion_of :region, :in => STATE_ABBREVIATIONS, :allow_blanks => true
+        validates_length_of :postal_code, length: { maximum: 4 }, :allow_blanks => true
       end
 
     end 

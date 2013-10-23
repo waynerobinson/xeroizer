@@ -19,6 +19,7 @@ module Xeroizer
     end
 
     record :Employee
+    record :SuperFund
     
     def initialize(application)
       @application = application

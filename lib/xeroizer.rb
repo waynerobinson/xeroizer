@@ -63,10 +63,13 @@ require 'xeroizer/models/payroll/reimbursement_line'
 require 'xeroizer/models/payroll/leave_line'
 require 'xeroizer/models/payroll/pay_template'
 
+require 'xeroizer/models/payroll/super_membership'
 require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/home_address'
 require 'xeroizer/models/payroll/bank_account'
 require 'xeroizer/models/payroll/employee'
+
+require 'xeroizer/models/payroll/super_fund'
 
 require 'xeroizer/report/factory'
 
