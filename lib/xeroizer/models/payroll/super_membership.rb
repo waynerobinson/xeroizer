@@ -13,8 +13,6 @@ module Xeroizer
         guid        :super_membership_id, :api_name => 'SuperMembershipID'
         string      :employee_number
         string      :super_fund_id, :api_name => 'SuperFundID'
-
-        belongs_to   :super_fund
       end
 
     end 
