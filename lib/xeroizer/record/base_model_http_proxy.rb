@@ -26,6 +26,7 @@ module Xeroizer
                                 end
             end
             params[:offset] = options[:offset] if options[:offset]
+            params[:page] = options[:page] if options[:page]
             params
           end
         
