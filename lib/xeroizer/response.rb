@@ -30,7 +30,6 @@ module Xeroizer
         raise Xeroizer::UnparseableResponse.new(doc.root.name) unless doc.root.name == 'Response'
       
         doc.root.elements.each do | element |
-                    
           # Text element
           if element.children && element.children.size == 1 && element.children.first.text?
             case element.name
@@ -42,7 +41,11 @@ module Xeroizer
           
           # Records in response
           elsif element.children && element.children.size > 0
-            yield(response, element.children, element.children.first.name)
+            if element.name == 'PayItems' # a hack to handle PayItems structure
+              yield(response, [element], element.name)
+            else
+              yield(response, element.children, element.children.first.name)
+            end
           end
         end
       

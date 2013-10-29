@@ -67,7 +67,7 @@ module Xeroizer
         def set_optional_xml_root_name(optional_root_name)
           self.optional_root_name = optional_root_name
         end
-        
+
       end
             
       public
@@ -84,7 +84,7 @@ module Xeroizer
         def api_controller_name
           self.class.api_controller_name || model_name.pluralize
         end
-        
+
         def model_class
           @model_class ||= Xeroizer::Record.const_get(model_name.to_sym)
         end

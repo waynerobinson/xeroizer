@@ -23,7 +23,7 @@ module Xeroizer
         decimal       :rate_per_unit
         decimal       :normal_number_of_units
         
-        validates_presence_of :earning_rate_id, :unless => :new_record?
+        validates_presence_of :earnings_rate_id
         validates_presence_of :calculation_type
         validates_inclusion_of :calculation_type, :in => EARNINGS_RATE_CALCULATION_TYPES
       end
