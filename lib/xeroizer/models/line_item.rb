@@ -18,6 +18,7 @@ module Xeroizer
       string  :tax_type
       decimal :tax_amount
       decimal :line_amount, :calculated => true
+      decimal :discount_rate
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
       
