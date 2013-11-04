@@ -70,6 +70,7 @@ require 'xeroizer/models/payroll/bank_account'
 require 'xeroizer/models/payroll/employee'
 
 require 'xeroizer/models/payroll/super_fund'
+require 'xeroizer/models/payroll/payroll_calendar'
 
 require 'xeroizer/models/payroll/earnings_rate'
 require 'xeroizer/models/payroll/deduction_type'
