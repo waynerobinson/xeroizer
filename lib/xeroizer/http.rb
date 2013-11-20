@@ -86,7 +86,7 @@ module Xeroizer
 
         begin
           attempts += 1
-          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri} ") if self.logger
+          logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
 
           raw_body = params.delete(:raw_body) ? body : {:xml => body}
 
@@ -97,10 +97,9 @@ module Xeroizer
           end
 
           if self.logger
-            logger.info("== [#{Time.now.to_s}] XeroGateway Response (#{response.code})")
-
+            logger.info("XeroGateway Response (#{response.code})")
             unless response.code.to_i == 200
-              logger.info("== #{uri.request_uri} Response Body \n\n #{response.plain_body} \n == End Response Body")
+              logger.info("#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body")
             end
           end
 
@@ -121,7 +120,7 @@ module Xeroizer
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
             raise if attempts > rate_limit_max_attempts
-            logger.info("== Rate limit exceeded, retrying") if self.logger
+            logger.info("Rate limit exceeded, retrying") if self.logger
             sleep_for(self.rate_limit_sleep)
             retry
           else
