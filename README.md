@@ -484,10 +484,11 @@ xero.Contact.batch_save do
 end
 ```
 
-`batch_save` will issue one PUT request for all unsaved records built within its block, and one
-POST request for all existing records that have been altered within its block. If any of the
+`batch_save` will issue one PUT request for every 2,000 unsaved records built within its block, and one
+POST request for evert 2,000 existing records that have been altered within its block. If any of the
 unsaved records aren't valid, it'll return `false` before sending anything across the wire;
-otherwise, it returns `true`.
+otherwise, it returns `true`. `batch_save` takes one optional argument: the number of records to
+create/update per request. (Defaults to 2,000.)
 
 ### Errors
 
@@ -582,6 +583,17 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          :rate_limit_sleep => 2)
 ```
 
+Logging
+---------------
+
+You can add an optional paramater to the Xeroizer Application initialization, to pass a logger object that will need to respond_to :info. For example, in a rails app:
+
+```ruby
+XeroLogger = Logger.new('log/xero.log', 'weekly')
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
+                                         YOUR_OAUTH_CONSUMER_SECRET,
+                                         :logger => XeroLogger)
+```
 
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor 

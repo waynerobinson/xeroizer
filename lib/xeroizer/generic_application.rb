@@ -2,18 +2,19 @@ require 'xeroizer/record/application_helper'
 
 module Xeroizer
   class GenericApplication
-    
+
     include Http
     extend Record::ApplicationHelper
     
     attr_reader :client, :rate_limit_sleep, :rate_limit_max_attempts
     attr_writer :xero_url_prefix, :xero_url_suffix
     attr_accessor :logger
-    
+  
     extend Forwardable
     def_delegators :client, :access_token
-    
+
     record :Account
+    record :Attachment
     record :BrandingTheme
     record :Contact
     record :CreditNote
@@ -38,9 +39,9 @@ module Xeroizer
     report :ExecutiveSummary
     report :ProfitAndLoss
     report :TrialBalance
-    
+
     public
-    
+
       # Never used directly. Use sub-classes instead.
       # @see PublicApplication
       # @see PrivateApplication
@@ -51,6 +52,7 @@ module Xeroizer
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
         @client   = OAuth.new(consumer_key, consumer_secret, options)
+        @logger = options[:logger] || false
       end
 
       def payroll(options = {})
@@ -62,6 +64,5 @@ module Xeroizer
       def xero_url
         @xero_url_prefix + '/' + @xero_url_suffix
       end
-          
   end
 end

@@ -14,6 +14,7 @@ module Xeroizer
                  
       attr_reader :attributes
       attr_reader :parent
+      attr_reader :model
       attr_accessor :errors
       attr_accessor :complete_record_downloaded
 
@@ -39,12 +40,13 @@ module Xeroizer
       end
       
       public
-      
+
         def initialize(parent)
           @parent = parent
+          @model = new_model_class(self.class.name.demodulize)
           @attributes = {}
         end
-        
+
         def new_model_class(model_name)
           Xeroizer::Record.const_get("#{model_name}Model".to_sym).new(parent.application, model_name.to_s)
         end
@@ -56,6 +58,10 @@ module Xeroizer
         def []=(attribute, value)
           parent.mark_dirty(self) if parent
           self.send("#{attribute}=".to_sym, value)
+        end
+
+        def non_calculated_attributes
+          attributes.reject {|name| self.class.fields[name][:calculated] }
         end
 
         def attributes=(new_attributes)
@@ -108,7 +114,12 @@ module Xeroizer
           parent.mark_clean(self)
           true
         end
+        
+        def to_json(*args)
+          to_h.to_json(*args)
+        end
 
+        # Deprecated
         def as_json(options = {})
           to_h.to_json
         end
@@ -142,6 +153,7 @@ module Xeroizer
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
           
           response = parent.send(api_method_for_creating, request)
+
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
           
           parse_save_response(response)

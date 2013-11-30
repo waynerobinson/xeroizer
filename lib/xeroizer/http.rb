@@ -1,9 +1,9 @@
 # Copyright (c) 2008 Tim Connor <tlconnor@gmail.com>
-# 
+#
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted, provided that the above
 # copyright notice and this permission notice appear in all copies.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 # WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
 # MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
@@ -14,12 +14,12 @@
 
 module Xeroizer
   module Http
-    
+
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
       :json => 'application/json'
     }
-    
+
     # Shortcut method for #http_request with `method` = :get.
     #
     # @param [OAuth] client OAuth client
@@ -48,9 +48,9 @@ module Xeroizer
     def http_put(client, url, body, extra_params = {})
       http_request(client, :put, url, body, extra_params)
     end
-    
+
     private
-    
+
       def http_request(client, method, url, body, params = {})
         # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
@@ -60,9 +60,12 @@ module Xeroizer
           headers['Content-Type'] ||= "application/x-www-form-urlencoded"
         end
 
+        content_type = params.delete(:content_type)
+        headers['Content-Type'] = content_type if content_type
+
         # HAX.  Xero completely misuse the If-Modified-Since HTTP header.
         headers['If-Modified-Since'] = params.delete(:ModifiedAfter).utc.strftime("%Y-%m-%dT%H:%M:%S") if params[:ModifiedAfter]
-        
+
         # Allow 'Accept' header to be specified with :accept parameter.
         # Valid values are :pdf or :json.
         if params[:response]
@@ -72,7 +75,7 @@ module Xeroizer
             else              response_type
           end
         end
-        
+
         if params.any?
           url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
         end
@@ -83,17 +86,18 @@ module Xeroizer
 
         begin
           attempts += 1
-          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri} ") if self.logger
+          logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
+
+          raw_body = params.delete(:raw_body) ? body : {:xml => body}
 
           response = case method
             when :get   then    client.get(uri.request_uri, headers)
-            when :post  then    client.post(uri.request_uri, { :xml => body }, headers)
-            when :put   then    client.put(uri.request_uri, { :xml => body }, headers)
+            when :post  then    client.post(uri.request_uri, raw_body, headers)
+            when :put   then    client.put(uri.request_uri, raw_body, headers)
           end
 
           if self.logger
-            logger.info("== [#{Time.now.to_s}] XeroGateway Response (#{response.code})")
-
+            logger.info("XeroGateway Response (#{response.code})")
             unless response.code.to_i == 200
               logger.info("== #{uri.request_uri} Response Body \n\n #{response.plain_body} \n == End Response Body")
             else
@@ -118,7 +122,7 @@ module Xeroizer
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
             raise if attempts > rate_limit_max_attempts
-            logger.info("== Rate limit exceeded, retrying") if self.logger
+            logger.info("Rate limit exceeded, retrying") if self.logger
             sleep_for(self.rate_limit_sleep)
             retry
           else
@@ -126,11 +130,11 @@ module Xeroizer
           end
         end
       end
-       
+
       def handle_oauth_error!(response)
         error_details = CGI.parse(response.plain_body)
         description   = error_details["oauth_problem_advice"].first
-      
+
         # see http://oauth.pbworks.com/ProblemReporting
         # In addition to token_expired and token_rejected, Xero also returns
         # 'rate limit exceeded' when more than 60 requests have been made in
@@ -142,18 +146,18 @@ module Xeroizer
           else raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
         end
       end
-      
+
       def handle_error!(response, request_body)
-        
+
         raw_response = response.plain_body
-        
+
         # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
         # So let's ignore that :)
         raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
-        
+
         # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
         doc = Nokogiri::XML(raw_response)
-        
+
         if doc && doc.root && doc.root.name == "ApiException"
 
           raise ApiException.new(doc.root.xpath("Type").text,
@@ -163,13 +167,13 @@ module Xeroizer
                                  request_body)
 
         else
-          
+
           raise "Unparseable 400 Response: #{raw_response}"
-          
+
         end
-        
+
       end
-      
+
       def handle_object_not_found!(response, request_url)
         case(request_url)
           when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
@@ -181,6 +185,6 @@ module Xeroizer
       def sleep_for(seconds = 1)
         sleep seconds
       end
-      
+
   end
 end

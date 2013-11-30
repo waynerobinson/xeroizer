@@ -30,7 +30,7 @@ require 'xeroizer/record/payroll_array_base'
 require 'xeroizer/configuration'
 
 # Include models
-['account','address','branding_theme','bank_transaction','bank_account','contact','contact_group',
+['account','address','allocation','branding_theme','bank_transaction','bank_account','contact','contact_group',
   'credit_note','currency','employee','invoice','item','item_purchase_details','item_sales_details',
   'journal','journal_line','line_item','manual_journal','manual_journal_line','option','organisation',
   'payment','phone','tax_rate','tracking_category','tracking_category_child',
