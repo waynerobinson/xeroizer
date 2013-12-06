@@ -14,6 +14,7 @@
 
 module Xeroizer
   module Http
+    class BadResponse < StandardError; end
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
@@ -115,7 +116,7 @@ module Xeroizer
             when 503
               handle_oauth_error!(response)
             else
-              raise "Unknown response code: #{response.code.to_i}"
+              handle_unknown_response_error!(response)
           end
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
@@ -166,7 +167,7 @@ module Xeroizer
 
         else
 
-          raise "Unparseable 400 Response: #{raw_response}"
+          raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
 
         end
 
@@ -178,6 +179,10 @@ module Xeroizer
           when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
           else raise ObjectNotFound.new(request_url)
         end
+      end
+
+      def handle_unknown_response_error(response)
+        raise BadResponse.new("Unknown response code: #{response.code.to_i}")
       end
 
       def sleep_for(seconds = 1)
