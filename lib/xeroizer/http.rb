@@ -139,10 +139,11 @@ module Xeroizer
         # 'rate limit exceeded' when more than 60 requests have been made in
         # a second.
         case (error_details["oauth_problem"].first)
-          when "token_expired"        then raise OAuth::TokenExpired.new(description)
-          when "token_rejected"       then raise OAuth::TokenInvalid.new(description)
-          when "rate limit exceeded"  then raise OAuth::RateLimitExceeded.new(description)
-          else raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
+          when "token_expired"                then raise OAuth::TokenExpired.new(description)
+          when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
+          when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
+          when error_details["oauth_problem"] then raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
+          else raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have chaged.")
         end
       end
 
