@@ -182,7 +182,7 @@ module Xeroizer
         end
       end
 
-      def handle_unknown_response_error(response)
+      def handle_unknown_response_error!(response)
         raise BadResponse.new("Unknown response code: #{response.code.to_i}")
       end
 
