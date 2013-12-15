@@ -197,7 +197,7 @@ module Xeroizer
       protected
 
         def change_status!(new_status)
-          raise CannotChangeInvoiceStatus.new(record, new_status) unless self.payments.size == 0
+          raise CannotChangeInvoiceStatus.new(self, new_status) unless self.payments.size == 0
           self.status = new_status
           self.save
         end
