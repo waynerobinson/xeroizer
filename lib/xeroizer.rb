@@ -43,7 +43,8 @@ end
   'leave_application', 'leave_period', 'pay_items', 'deduction_type', 'earnings_rate',
   'reimbursement_type', 'leave_type', 'payroll_calendar', 'pay_template', 'super_membership',
   'leave_line', 'reimbursement_line', 'super_line', 'deduction_line', 'earnings_line', 'opening_balance',
-  'pay_run', 'settings', 'tracking_categories', 'employee_groups', 'timesheet_categories', 'account'].each do |payroll_model|
+  'pay_run', 'settings', 'tracking_categories', 'employee_groups', 'timesheet_categories', 'account',
+  'tax_declaration'].each do |payroll_model|
     require "xeroizer/models/payroll/#{payroll_model}"
 end
 
