@@ -14,6 +14,7 @@
 
 module Xeroizer
   module Http
+    class BadResponse < StandardError; end
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
@@ -86,7 +87,7 @@ module Xeroizer
 
         begin
           attempts += 1
-          logger.info("\n== [#{Time.now.to_s}] XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri} ") if self.logger
+          logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
 
           raw_body = params.delete(:raw_body) ? body : {:xml => body}
 
@@ -97,10 +98,9 @@ module Xeroizer
           end
 
           if self.logger
-            logger.info("== [#{Time.now.to_s}] XeroGateway Response (#{response.code})")
-
+            logger.info("XeroGateway Response (#{response.code})")
             unless response.code.to_i == 200
-              logger.info("== #{uri.request_uri} Response Body \n\n #{response.plain_body} \n == End Response Body")
+              logger.info("#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body")
             end
           end
 
@@ -116,12 +116,12 @@ module Xeroizer
             when 503
               handle_oauth_error!(response)
             else
-              raise "Unknown response code: #{response.code.to_i}"
+              handle_unknown_response_error!(response)
           end
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
             raise if attempts > rate_limit_max_attempts
-            logger.info("== Rate limit exceeded, retrying") if self.logger
+            logger.info("Rate limit exceeded, retrying") if self.logger
             sleep_for(self.rate_limit_sleep)
             retry
           else
@@ -139,10 +139,11 @@ module Xeroizer
         # 'rate limit exceeded' when more than 60 requests have been made in
         # a second.
         case (error_details["oauth_problem"].first)
-          when "token_expired"        then raise OAuth::TokenExpired.new(description)
-          when "token_rejected"       then raise OAuth::TokenInvalid.new(description)
-          when "rate limit exceeded"  then raise OAuth::RateLimitExceeded.new(description)
-          else raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
+          when "token_expired"                then raise OAuth::TokenExpired.new(description)
+          when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
+          when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
+          when error_details["oauth_problem"] then raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
+          else raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have chaged.")
         end
       end
 
@@ -167,7 +168,7 @@ module Xeroizer
 
         else
 
-          raise "Unparseable 400 Response: #{raw_response}"
+          raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
 
         end
 
@@ -179,6 +180,10 @@ module Xeroizer
           when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
           else raise ObjectNotFound.new(request_url)
         end
+      end
+
+      def handle_unknown_response_error!(response)
+        raise BadResponse.new("Unknown response code: #{response.code.to_i}")
       end
 
       def sleep_for(seconds = 1)
