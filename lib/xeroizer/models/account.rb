@@ -1,14 +1,14 @@
 module Xeroizer
   module Record
-    
+
     class AccountModel < BaseModel
-        
-      set_permissions :read
-        
+
+      set_permissions :read, :write
+
     end
-    
+
     class Account < Base
-    
+
       TYPE = {
         'CURRENT' =>        '',
         'FIXED' =>          '',
@@ -32,7 +32,7 @@ module Xeroizer
         'INPUT' =>            'GST on expenses',
         'SRINPUT' =>          'VAT on expenses',
         'ZERORATEDINPUT' =>   'Expense purchased from overseas (UK only)',
-        'RRINPUT' =>          'Reduced rate VAT on expenses (UK Only)', 
+        'RRINPUT' =>          'Reduced rate VAT on expenses (UK Only)',
         'EXEMPTOUTPUT' =>     'VAT on sales exempt from VAT (UK only)',
         'OUTPUT' =>           'OUTPUT',
         'OUTPUT2' =>          'OUTPUT2',
@@ -42,9 +42,9 @@ module Xeroizer
         'ZERORATED' =>        'Zero-rated supplies/sales from overseas (NZ Only)',
         'ECZROUTPUT' =>       'Zero-rated EC Income (UK only)'
       } unless defined?(TAX_TYPE)
-      
+
       set_primary_key :account_id
-            
+
       guid    :account_id
       string  :code
       string  :name
@@ -60,8 +60,8 @@ module Xeroizer
       string  :bank_account_number
       string  :reporting_code
       string  :reporting_code_name
-      
+
     end
-    
+
   end
 end
