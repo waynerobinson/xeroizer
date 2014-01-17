@@ -143,7 +143,7 @@ module Xeroizer
           when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
           when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
           when error_details["oauth_problem"] then raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
-          else raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have chaged.")
+          else raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
         end
       end
 
