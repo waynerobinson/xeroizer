@@ -33,7 +33,7 @@ class RecordBaseTest < Test::Unit::TestCase
     end
     
     should "new_record? should be false after successfully creating a record" do 
-      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
+      Xeroizer::OAuth.any_instance.stubs(:post).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       assert_equal(true, @contact.new_record?)
       assert_nil(@contact.contact_id)
       assert_equal(true, @contact.save, "Error saving contact: #{@contact.errors.inspect}")
