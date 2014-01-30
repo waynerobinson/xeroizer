@@ -45,7 +45,7 @@ module Xeroizer
         end
 
         def new_model_class(model_name)
-          Xeroizer::Record.const_get("#{model_name}Model".to_sym).new(parent.application, model_name.to_s)
+          Xeroizer::Record.const_get("#{model_name}Model".to_sym).new(parent.try(:application), model_name.to_s)
         end
         
         def [](attribute)
