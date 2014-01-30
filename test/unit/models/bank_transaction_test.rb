@@ -4,16 +4,13 @@ class BankTransactionTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   def setup
-    fake_parent = Class.new do
-      attr_accessor :application
-    end.new
 
     the_line_items = [
       LineItem.build({:quantity => 1, :tax_amount => 0.15, :unit_amount => 1.00, :tax_amount => 0.50}, nil),
       LineItem.build({:quantity => 1, :tax_amount => 0.15, :unit_amount => 1.00, :tax_amount => 0.50}, nil)
     ]
 
-    @the_bank_transaction = BankTransaction.new fake_parent
+    @the_bank_transaction = BankTransaction.new(nil)
     @the_bank_transaction.line_items = the_line_items
   end
 
