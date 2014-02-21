@@ -140,15 +140,17 @@ module Xeroizer
           result
         end
 
-        def batch_save(chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
+        def batch_save(objects = nil, chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
           no_errors = true
           @objects = {}
           @allow_batch_operations = true
 
-          yield
+          if objects.nil?
+            yield
+            objects = @objects[model_class].values.compact if @objects[model_class]
+          end
 
-          if @objects[model_class]
-            objects = @objects[model_class].values.compact
+          if objects
             return false unless objects.all?(&:valid?)
             actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
             actions.each_pair do |http_method, records|

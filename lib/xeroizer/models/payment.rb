@@ -23,7 +23,12 @@ module Xeroizer
 
       belongs_to    :account
       belongs_to    :invoice
+      belongs_to    :credit_note
       
+      def credit_note_id
+        credit_note.id if credit_note
+      end
+
       def invoice_id
         invoice.id if invoice
       end

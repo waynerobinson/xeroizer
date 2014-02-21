@@ -5,7 +5,7 @@ require 'xeroizer/version'
 
 Gem::Specification.new do |s|
   s.name = "xeroizer"
-  s.version = Xeroizer::VERSION
+  s.version = Xeroizer::VERSION.dup
   s.date = "2013-07-04"
   s.authors = ["Wayne Robinson"]
   s.email = "wayne.robinson@gmail.com"
