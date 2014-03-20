@@ -74,6 +74,8 @@ module Xeroizer
             when Symbol then  ACCEPT_MIME_MAP[response_type]
             else              response_type
           end
+        else
+          headers['Accept'] = "application/xml"
         end
 
         if params.any?
