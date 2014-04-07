@@ -6,6 +6,7 @@
   <Users>
     <User>
       <UserID>1a535a0d-68fa-403a-b101-36c019c1995a</UserID>
+      <EmailAddress>user.name@example.com</EmailAddress>
       <FirstName>User</FirstName>
       <LastName>Name</LastName>
       <UpdatedDateUTC>2013-07-08T07:27:11.62</UpdatedDateUTC>
