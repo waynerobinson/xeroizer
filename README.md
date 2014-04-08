@@ -115,7 +115,7 @@ class XeroSessionController < ApplicationController
 					:access_key => @xero_client.access_token.secret }
 															
 			session[:request_token] = nil
-            	session[:request_secret] = nil
+            session[:request_secret] = nil
 		end
 		
 		def destroy
