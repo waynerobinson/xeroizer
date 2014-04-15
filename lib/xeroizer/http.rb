@@ -55,7 +55,7 @@ module Xeroizer
       def http_request(client, method, url, body, params = {})
         # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
-        headers = { 'charset' => 'utf-8' }
+        headers = self.default_headers.merge({ 'charset' => 'utf-8' })
 
         if method != :get
           headers['Content-Type'] ||= "application/x-www-form-urlencoded"
@@ -142,8 +142,8 @@ module Xeroizer
           when "token_expired"                then raise OAuth::TokenExpired.new(description)
           when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
           when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
-          when error_details["oauth_problem"] then raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
-          else raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+          when error_details["oauth_problem"] then raise OAuth::UnknownError.new(response, error_details["oauth_problem"].first + ':' + description)
+          else raise OAuth::UnknownError.new(response, "Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
         end
       end
 

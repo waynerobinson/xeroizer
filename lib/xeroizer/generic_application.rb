@@ -6,7 +6,7 @@ module Xeroizer
     include Http
     extend Record::ApplicationHelper
 
-    attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts
+    attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts, :default_headers
 
     extend Forwardable
     def_delegators :client, :access_token
@@ -51,6 +51,7 @@ module Xeroizer
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
         @client   = OAuth.new(consumer_key, consumer_secret, options)
         @logger = options[:logger] || false
+        @default_headers = options[:default_headers] || {}
       end
 
   end
