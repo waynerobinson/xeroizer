@@ -18,12 +18,14 @@ module Xeroizer
     record :CreditNote
     record :Currency
     record :Employee
+    record :ExpenseClaim
     record :Invoice
     record :Item
     record :Journal
     record :ManualJournal
     record :Organisation
     record :Payment
+    record :Receipt
     record :TaxRate
     record :TrackingCategory
     record :BankTransaction
