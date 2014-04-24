@@ -10,6 +10,7 @@ module Xeroizer
 
       attr_reader :application
       attr_reader :report_type
+      attr_reader :response_xml
       
       public
       
@@ -21,7 +22,7 @@ module Xeroizer
         # Retreive a report with the `options` as a hash containing
         # valid query-string parameters to pass to the API.
         def get(options = {})
-          response_xml = options[:cache_file] ? File.read(options[:cache_file]) : http_get(options)          
+          @response_xml = options[:cache_file] ? File.read(options[:cache_file]) : http_get(options)
           response = Response.parse(response_xml, options) do | response, elements |
             parse_reports(response, elements)
           end
