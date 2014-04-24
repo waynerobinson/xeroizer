@@ -19,8 +19,9 @@ module Xeroizer
       boolean :can_apply_to_revenue
       decimal :display_tax_rate
       decimal :effective_rate
-      
+
+      has_many :tax_components
     end
-    
+
   end
 end
