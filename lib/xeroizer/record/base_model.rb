@@ -150,7 +150,7 @@ module Xeroizer
           if @objects[model_class]
             objects = @objects[model_class].values.compact
             return false unless objects.all?(&:valid?)
-            actions = objects.group_by {|o| o.new_record? ? :http_put : :http_post }
+            actions = objects.group_by {|o| o.new_record? ? :http_put : create_method }
             actions.each_pair do |http_method, records|
               records.each_slice(chunk_size) do |some_records|
                 request = to_bulk_xml(some_records)
@@ -179,6 +179,10 @@ module Xeroizer
               parse_records(response, elements)
             end
           end
+        end
+
+        def create_method
+          :http_post
         end
 
       protected

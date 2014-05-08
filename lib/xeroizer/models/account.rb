@@ -5,6 +5,10 @@ module Xeroizer
 
       set_permissions :read, :write
 
+      # The Accounts endpoint doesn't support the POST method yet.
+      def create_method
+        :http_put
+      end
     end
 
     class Account < Base
