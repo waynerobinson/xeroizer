@@ -29,6 +29,7 @@ module Xeroizer
 
       datetime_utc  :updated_date_utc, :api_name => "UpdatedDateUTC"
       date          :fully_paid_on_date
+      string        :url
       string        :reference
       string        :bank_transaction_id, :api_name => "BankTransactionID"
       boolean       :is_reconciled
