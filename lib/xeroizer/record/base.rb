@@ -136,13 +136,13 @@ module Xeroizer
         end
                 
       protected
-      
+
         # Attempt to create a new record.
         def create
           request = to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
           
-          response = parent.http_post(request)
+          response = parent.send(parent.create_method, request)
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
           
           parse_save_response(response)
