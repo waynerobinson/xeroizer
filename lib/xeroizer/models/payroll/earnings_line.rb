@@ -6,13 +6,14 @@ module Xeroizer
           
       end
       
-      # child of PayTemplate
+      # child of PayTemplate, Payslip
       class EarningsLine < PayrollBase
 
         guid          :earnings_rate_id
         string        :calculation_type # http://developer.xero.com/payroll-api/types-and-codes/#EarningsRateCalculationType
 
         decimal       :number_of_units_per_week
+        decimal       :number_of_units
         decimal       :annual_salary
         decimal       :rate_per_unit
         decimal       :normal_number_of_units

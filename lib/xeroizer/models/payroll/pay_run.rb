@@ -31,7 +31,7 @@ module Xeroizer
         string        :pay_run_status
         string        :payslip_message
 
-        #has_many      :payslips
+        has_many      :payslips
 
       end
 
