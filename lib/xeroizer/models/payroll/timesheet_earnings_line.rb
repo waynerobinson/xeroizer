@@ -10,7 +10,7 @@ module Xeroizer
       class TimesheetEarningsLine < PayrollBase
 
         guid          :earnings_rate_id
-        decimal       :amount
+        decimal       :number_of_units
         decimal       :rate_per_unit
 
       end

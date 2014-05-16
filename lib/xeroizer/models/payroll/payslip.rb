@@ -19,6 +19,7 @@ module Xeroizer
 
         guid          :payslip_id
         guid          :employee_id
+        guid          :pay_run_id
 
         string        :first_name
         string        :last_name
