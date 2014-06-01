@@ -27,6 +27,7 @@ module Xeroizer
       date      :end_of_year_lock_date
       string    :tax_number
       string    :registration_number
+      string    :timezone
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
 
       has_many :addresses
