@@ -9,6 +9,8 @@ module Xeroizer
     
     class TaxRate < Base
       
+      set_primary_key :name
+      
       string  :name
       string  :tax_type
       string  :status
