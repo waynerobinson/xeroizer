@@ -108,6 +108,7 @@ module Xeroizer
               when :decimal     then [field[:api_name], expression, value.to_s]
               when :date        then [field[:api_name], expression, "DateTime.Parse(\"#{value.strftime("%Y-%m-%d")}\")"]
               when :datetime    then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
+              when :datetime_utc then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
               when :belongs_to  then
               when :has_many    then
             end
