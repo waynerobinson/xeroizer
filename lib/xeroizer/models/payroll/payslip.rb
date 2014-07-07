@@ -36,7 +36,7 @@ module Xeroizer
         has_many      :timesheet_earnings_lines, model_name: "TimesheetEarningsLine"
         has_many      :deduction_lines, model_name: "DeductionLine"
         has_many      :leave_accrual_lines, model_name: "LeaveAccrualLine"
-        has_many      :superannuation_lines, :internal_name_singular => "super_line", :model_name => "SuperLine"
+        has_many      :superannuation_lines, :model_name => "SuperannuationLine"
         has_many      :reimbursement_lines, model_name: "ReimbursementLine"
 
       end
