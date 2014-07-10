@@ -84,13 +84,13 @@ module Xeroizer
     #
     # @option params [String] :oauth_callback URL to redirect user to when they have authenticated your application with Xero. If not specified, the user will be shown an authorisation code on the screen that they need to get into your application.
     def request_token(params = {})
-      consumer.get_request_token(params)
+      consumer.get_request_token(params, {}, @consumer_options[:default_headers])
     end
     
     # Create an AccessToken from a PUBLIC/PARTNER authorisation.
     def authorize_from_request(rtoken, rsecret, params = {})
       request_token = ::OAuth::RequestToken.new(consumer, rtoken, rsecret)
-      access_token = request_token.get_access_token(params)
+      access_token = request_token.get_access_token(params, {}, @consumer_options[:default_headers])
       update_attributes_from_token(access_token)
     end
     
@@ -116,7 +116,7 @@ module Xeroizer
       access_token = old_token.get_access_token({
         :oauth_session_handle => (session_handle || @session_handle), 
         :token => old_token
-      })
+      }, {}, @consumer_options[:default_headers])
       update_attributes_from_token(access_token)
     end
 
