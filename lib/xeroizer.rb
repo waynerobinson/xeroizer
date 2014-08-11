@@ -34,7 +34,7 @@ require 'xeroizer/configuration'
   'credit_note','currency','employee','invoice','item','item_purchase_details','item_sales_details',
   'journal','journal_line','line_item','manual_journal','manual_journal_line','option','organisation',
   'payment','phone','tax_rate','tracking_category','tracking_category_child',
-  'journal_line_tracking_category'].each do |model|
+  'journal_line_tracking_category', 'user'].each do |model|
     require "xeroizer/models/#{model}"
 end
 
