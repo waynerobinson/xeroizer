@@ -28,6 +28,7 @@ module Xeroizer
             # Create a new record, binding it to it's parent instance.
             record = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(attributes, model_parent)
             self.attributes[field_name] = record
+            self.parent.mark_dirty(self) if self.parent
           end
         end
 
@@ -69,6 +70,7 @@ module Xeroizer
               raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
+              self.parent.mark_dirty(self) if self.parent
               last_record = record
             end
             
@@ -117,6 +119,7 @@ module Xeroizer
               raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
+              self.parent.mark_dirty(self) if self.parent
               last_record = record
             end
             
