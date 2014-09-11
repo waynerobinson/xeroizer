@@ -9,7 +9,7 @@ module Xeroizer
       # child of PayTemplate
       class LeaveLine < PayrollBase
 
-        guid          :leave_line_id
+        guid          :leave_type_id
         string        :calculation_type # http://developer.xero.com/payroll-api/types-and-codes#LeaveTypeCalculationType
 
         decimal       :annual_number_of_units
