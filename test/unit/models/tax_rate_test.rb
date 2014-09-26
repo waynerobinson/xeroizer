@@ -8,12 +8,12 @@ class TaxRateTest < Test::Unit::TestCase
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
   end
 
-  should "have a primary key value of :tax_type" do
-    assert_equal :tax_type, Xeroizer::Record::TaxRate.primary_key_name
+  should "have a primary key value of :name" do
+    assert_equal :name, Xeroizer::Record::TaxRate.primary_key_name
   end
 
   should "build and save a tax rate with components via PUT" do
-    @client.expects(:http_put).with { |client, url, body, extra_params|
+    @client.expects(:http_post).with { |client, url, body, extra_params|
       url == "https://api.xero.com/api.xro/2.0/TaxRates" &&
         body == expected_tax_rate_create_body
     }.returns(tax_rate_create_successful_response)

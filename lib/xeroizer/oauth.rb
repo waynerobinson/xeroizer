@@ -27,8 +27,9 @@ module Xeroizer
     class TokenExpired < StandardError; end
     class TokenInvalid < StandardError; end
     class RateLimitExceeded < StandardError; end
+    class ConsumerKeyUnknown < StandardError; end
     class UnknownError < StandardError; end
-        
+
     unless defined? XERO_CONSUMER_OPTIONS
       XERO_CONSUMER_OPTIONS = {
         :site               => "https://api.xero.com",

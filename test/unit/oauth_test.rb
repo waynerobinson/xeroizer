@@ -75,7 +75,7 @@ class OAuthTest < Test::Unit::TestCase
     end
     
     should "handle ApiExceptions" do
-      Xeroizer::OAuth.any_instance.stubs(:post).returns(stub(:plain_body => get_file_as_string("api_exception.xml"),
+      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_file_as_string("api_exception.xml"),
           :code => "400"))
       
       assert_raises Xeroizer::ApiException do
@@ -85,7 +85,7 @@ class OAuthTest < Test::Unit::TestCase
     end
     
     should "handle random root elements" do
-      Xeroizer::OAuth.any_instance.stubs(:post).returns(stub(:plain_body => "<RandomRootElement></RandomRootElement>",
+      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => "<RandomRootElement></RandomRootElement>",
           :code => "200"))
       
       assert_raises Xeroizer::UnparseableResponse do
