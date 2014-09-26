@@ -17,6 +17,8 @@ module Xeroizer
       set_primary_key :tax_type
       set_possible_primary_keys :tax_type, :name
       
+      set_primary_key :name
+      
       string  :name
       string  :tax_type
       string  :status
