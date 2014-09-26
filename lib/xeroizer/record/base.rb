@@ -29,7 +29,8 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            record.send("#{key}=".to_sym, value)
+            attr = record.respond_to?("#{key}=") ? key : record.class.fields[key][:internal_name]
+            record.send("#{attr}=", value)
           end
           record
         end
@@ -65,7 +66,8 @@ module Xeroizer
           return unless new_attributes.is_a?(Hash)
           parent.mark_dirty(self) if parent
           new_attributes.each do | key, value |
-            self.send("#{key}=".to_sym, value)
+            attr = respond_to?("#{key}=") ? key : self.class.fields[key][:internal_name]
+            self.send("#{attr}=", value)
           end
         end
 
