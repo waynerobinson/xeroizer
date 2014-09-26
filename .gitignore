@@ -11,3 +11,4 @@ pkg/
 .oauth
 .DS_Store
 .idea/
+Gemfile.lock
