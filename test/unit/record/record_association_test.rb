@@ -6,7 +6,7 @@ class RecordAssociationTest < Test::Unit::TestCase
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
     mock_api('Invoices')
-    @client.stubs(:http_post).returns(get_record_xml(:invoice, "762aa45d-4632-45b5-8087-b4f47690665e"))
+    @client.stubs(:http_put).returns(get_record_xml(:invoice, "762aa45d-4632-45b5-8087-b4f47690665e"))
   end
   
   context "belongs_to association" do
