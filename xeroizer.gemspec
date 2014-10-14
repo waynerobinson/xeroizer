@@ -5,8 +5,8 @@ require 'xeroizer/version'
 
 Gem::Specification.new do |s|
   s.name = "xeroizer"
-  s.version = Xeroizer::VERSION
-  s.date = "2013-07-04"
+  s.version = Xeroizer::VERSION.dup
+  s.date = "2014-09-26"
   s.authors = ["Wayne Robinson"]
   s.email = "wayne.robinson@gmail.com"
   s.summary = "Xero library"
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "redcarpet"
   s.add_development_dependency "yard"
   s.add_dependency "builder", ">= 2.1.2"
-  s.add_dependency "oauth", "= 0.4.5"
+  s.add_dependency "oauth", ">= 0.4.5"
   s.add_dependency "activesupport"
   s.add_dependency "nokogiri"
   s.add_dependency "tzinfo"

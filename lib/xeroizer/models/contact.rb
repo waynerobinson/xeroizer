@@ -13,7 +13,8 @@ module Xeroizer
 
       CONTACT_STATUS = {
         'ACTIVE' =>     'Active',
-        'DELETED' =>    'Deleted'
+        'DELETED' =>    'Deleted',
+        'ARCHIVED' => 'Archived'
       } unless defined?(CONTACT_STATUS)
 
       set_primary_key :contact_id

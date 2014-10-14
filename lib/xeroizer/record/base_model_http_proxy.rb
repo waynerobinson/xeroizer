@@ -16,7 +16,8 @@ module Xeroizer
           # Parse parameters for GET requests.
           def parse_params(options)
             params = {}
-            params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]          
+            params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]
+            params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
 
             if options[:where]
@@ -107,6 +108,7 @@ module Xeroizer
               when :decimal     then [field[:api_name], expression, value.to_s]
               when :date        then [field[:api_name], expression, "DateTime.Parse(\"#{value.strftime("%Y-%m-%d")}\")"]
               when :datetime    then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
+              when :datetime_utc then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
               when :belongs_to  then
               when :has_many    then
             end
