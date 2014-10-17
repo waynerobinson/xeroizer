@@ -58,6 +58,8 @@ module Xeroizer
   class InvoiceNotFoundError < StandardError; end
 
   class CreditNoteNotFoundError < StandardError; end
+
+  class LackingPermissionToAccessRecord < StandardError; end
   
   class MethodNotAllowed < StandardError
     

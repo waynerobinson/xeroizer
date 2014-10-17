@@ -134,6 +134,10 @@ module Xeroizer
       end
 
       def handle_oauth_error!(response)
+        if response.plain_body == "You do not have permission to access this resource."
+          raise LackingPermissionToAccessRecord.new(response)
+        end
+        
         error_details = CGI.parse(response.plain_body)
         description   = error_details["oauth_problem_advice"].first
 
