@@ -6,7 +6,7 @@ module Xeroizer
           
       end
       
-      # child of PayTemplate, Payslip
+      # child of PayTemplate, Payslip, OpeningBalance
       class EarningsLine < PayrollBase
 
         guid          :earnings_rate_id
@@ -17,6 +17,7 @@ module Xeroizer
         decimal       :annual_salary
         decimal       :rate_per_unit
         decimal       :normal_number_of_units
+        decimal       :amount
 
       end
 
