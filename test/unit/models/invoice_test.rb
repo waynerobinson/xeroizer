@@ -83,7 +83,27 @@ class InvoiceTest < Test::Unit::TestCase
     end
 
   end
-  
+
+  context "paging" do
+
+    should "have line items without downloading full invoice when paging" do
+
+      invoices = @client.Invoice.all(page: 1)
+
+      invoices.each do |invoice|
+        # This would kick off a full download without page param.
+        invoice.line_items.size
+        assert_equal(true, invoice.paged_record_downloaded?)
+
+        # This indicates that there wasn't a separate download of the individual invoice.
+        assert_equal(false, invoice.complete_record_downloaded?)
+      end
+
+
+    end
+
+  end
+
   context "contact shortcuts" do
     
     should "have valid #contact_name and #contact_id without downloading full invoice" do
