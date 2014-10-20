@@ -12,12 +12,12 @@ module Xeroizer
       # 
       # @param [String] consumer_key consumer key/token from application developer (found at http://api.xero.com for your application).
       # @param [String] consumer_secret consumer secret from application developer (found at http://api.xero.com for your application).
-      # @param [String] private_key application's private key for message signing (uploaded to http://api.xero.com)
+      # @param [String] path_to_private_key application's private key for message signing (uploaded to http://api.xero.com)
       # @param [String] ssl_client_cert client-side SSL certificate file to use for requests
       # @param [String] ssl_client_key client-side SSL private key to use for requests
       # @param [Hash] options other options to pass to the GenericApplication constructor
       # @return [PartnerApplication] instance of PrivateApplication
-      def initialize(consumer_key, consumer_secret, private_key, ssl_client_cert, ssl_client_key, options = {})
+      def initialize(consumer_key, consumer_secret, path_to_private_key, ssl_client_cert, ssl_client_key, options = {})
         default_options = {
           :xero_url         => 'https://api-partner.network.xero.com/api.xro/2.0',
           :site             => 'https://api-partner.network.xero.com',
@@ -25,7 +25,7 @@ module Xeroizer
           :signature_method => 'RSA-SHA1'
         }
         options = default_options.merge(options).merge(
-          :private_key      => read_certificate(private_key),
+          :private_key_file => path_to_private_key,
           :ssl_client_cert  => OpenSSL::X509::Certificate.new(read_certificate(ssl_client_cert)),
           :ssl_client_key   => OpenSSL::PKey::RSA.new(read_certificate(ssl_client_key))
         )
