@@ -15,6 +15,7 @@ module Xeroizer
     record :Attachment
     record :BrandingTheme
     record :Contact
+    record :ContactGroup
     record :CreditNote
     record :Currency
     record :Employee
