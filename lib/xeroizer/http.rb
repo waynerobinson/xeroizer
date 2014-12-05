@@ -57,6 +57,9 @@ module Xeroizer
 
         headers = self.default_headers.merge({ 'charset' => 'utf-8' })
 
+        # include the unitdp query string parameter 
+        params.merge!(unitdp_param(url))
+        
         if method != :get
           headers['Content-Type'] ||= "application/x-www-form-urlencoded"
         end
@@ -193,6 +196,14 @@ module Xeroizer
 
       def sleep_for(seconds = 1)
         sleep seconds
+      end
+
+      # unitdp query string parameter to be added to request params
+      # when the application option has been set and the model has line items
+      # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
+      def unitdp_param(request_url)
+        models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
+        self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
       end
 
   end
