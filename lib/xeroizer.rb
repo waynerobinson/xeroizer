@@ -69,6 +69,7 @@ require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/home_address'
 require 'xeroizer/models/payroll/bank_account'
 require 'xeroizer/models/payroll/employee'
+require 'xeroizer/models/payroll/pay_schedule'
 
 require 'xeroizer/report/factory'
 
