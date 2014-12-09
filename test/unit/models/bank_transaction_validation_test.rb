@@ -25,6 +25,34 @@ class BankTransactionValidationTest < Test::Unit::TestCase
     assert_empty instance.errors_for(:type), "Expected no error about type"
   end
 
+  can "omit the status attribute" do
+    instance = BankTransaction.build({}, nil)
+    instance.valid?
+    assert_empty instance.errors_for(:status), "Expected no error about status"
+  end
+
+  must "supply either AUTHORISED or DELETED as the status" do
+    instance = BankTransaction.build({:status => "xxx"}, nil)
+
+    assert false == instance.valid?, "Expected invalid because of invalid status"
+
+    expected_error = "not one of AUTHORISED, DELETED"
+
+    assert_equal expected_error, instance.errors_for(:status).first, "Expected an error about status"
+
+    instance = BankTransaction.build({:status => "AUTHORISED"}, nil)
+
+    instance.valid?
+
+    assert_empty instance.errors_for(:status), "Expected no error about status"
+
+    instance = BankTransaction.build({:status => "DELETED"}, nil)
+
+    instance.valid?
+
+    assert_empty instance.errors_for(:status), "Expected no error about status"
+  end
+
   must "supply a non-blank contact" do
     instance = BankTransaction.build({}, nil)
 
