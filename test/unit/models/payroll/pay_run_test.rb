@@ -39,12 +39,11 @@ class PayRunModelParsingTest < Test::Unit::TestCase
       assert_equal pay_run.pay_run_period_start_date, Date.parse("2014-03-01T00:00:00")
       assert_equal pay_run.pay_run_period_end_date, Date.parse("2014-03-07T00:00:00")
       assert_equal pay_run.payment_date, Date.parse("2014-03-09T00:00:00")
-      assert_equal pay_run.earnings, 3096.23
-      assert_equal pay_run.deductions, 18.19
-      binding.pry
-      assert_equal pay_run.tax, 943.32
-      assert_equal pay_run.reimbursement, 0.0
-      assert_equal pay_run.net_pay, 2134.72
+      assert_equal pay_run.earnings, BigDecimal("3096.23")
+      assert_equal pay_run.deductions, BigDecimal("18.19")
+      assert_equal pay_run.tax, BigDecimal("943.32")
+      assert_equal pay_run.reimbursement, BigDecimal("0.0")
+      assert_equal pay_run.net_pay, BigDecimal("2134.72")
       assert_equal pay_run.pay_run_status, 'DRAFT'
     end
 
