@@ -56,11 +56,13 @@ class RecordBaseTest < Test::Unit::TestCase
 
   context "about logging" do
     setup do
-      @example_class = Class.new(Xeroizer::Record::Base) do
+      class ExampleRecordClass < Xeroizer::Record::Base
         def valid?; true; end
         def to_xml(b = nil); "<FakeRequest />" end
         string :id
       end
+      class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel ; end
+      @example_class = ExampleRecordClass
     end
 
     must "log the request and response xml when saving a new record" do
@@ -69,7 +71,10 @@ class RecordBaseTest < Test::Unit::TestCase
 
       a_fake_parent = mock "Mock parent",
         :http_put => "<FakeResponse />",
-        :parse_response => stub("Stub response", :response_items => [])
+        :parse_response => stub("Stub response", :response_items => []),
+        :mark_dirty => nil,
+        :create_method => :http_put,
+        :mark_clean => nil
 
       an_example_instance = @example_class.new(a_fake_parent)
 
@@ -83,7 +88,9 @@ class RecordBaseTest < Test::Unit::TestCase
 
       a_fake_parent = mock "Mock parent",
         :http_post => "<FakeResponse />",
-        :parse_response => stub("Stub response", :response_items => [])
+        :parse_response => stub("Stub response", :response_items => []),
+        :mark_dirty => nil,
+        :mark_clean => nil
 
       an_example_instance = @example_class.new(a_fake_parent)
 
