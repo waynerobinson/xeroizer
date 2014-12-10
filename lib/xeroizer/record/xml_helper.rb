@@ -137,8 +137,15 @@ module Xeroizer
                 
               when :datetime    then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%dT%H:%M:%S"))
               when :belongs_to  
-                value.to_xml(b)
-                nil
+                value_is_present = (value.respond_to?(:blank?) && !value.blank?) || (!value.nil? && (!value.respond_to?(:length) || (value.respond_to?(:length) && value.length != 0)))
+                # you may need to set a belongs_to to nil, at which point it defaults back to an array
+                # but in that case we don't want to include it in the XML response
+                if value_is_present
+                  value.to_xml(b)
+                  nil
+                else
+                  nil
+                end
 
               when :has_many    
                 if value.size > 0
