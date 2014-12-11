@@ -24,7 +24,9 @@ module Xeroizer
         decimal :reimbursement
         decimal :net_pay
         decimal :tax
-        datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+        datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
+
+        has_many :paystubs
       end
     end
   end
