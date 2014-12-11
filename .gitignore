@@ -13,3 +13,5 @@ pkg/
 .idea/
 Gemfile.lock
 tmp/
+privatekey.pem
+publickey.cer
