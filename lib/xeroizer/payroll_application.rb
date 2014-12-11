@@ -19,7 +19,9 @@ module Xeroizer
     end
 
     record :Employee
-    
+    record :PaySchedule
+    record :PayRun
+
     def initialize(application)
       @application = application
     end
