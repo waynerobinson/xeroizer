@@ -29,6 +29,8 @@ module Xeroizer
       string    :registration_number
       string    :timezone
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
+      string    :sales_tax_basis
+      string    :sales_tax_period
 
       has_many :addresses
       has_many :phones
