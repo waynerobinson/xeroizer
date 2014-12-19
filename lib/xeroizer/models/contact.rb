@@ -24,6 +24,7 @@ module Xeroizer
       guid          :contact_id
       string        :contact_number
       string        :contact_status
+      string        :account_number
       string        :name
       string        :tax_number
       string        :bank_account_details
