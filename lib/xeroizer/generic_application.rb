@@ -28,6 +28,7 @@ module Xeroizer
     record :Receipt
     record :TaxRate
     record :TrackingCategory
+    record :TrackingCategoryChild
     record :BankTransaction
     record :User
 
