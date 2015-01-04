@@ -1,10 +1,13 @@
 require 'xeroizer/models/line_item'
 require 'xeroizer/models/line_item_sum'
+require 'xeroizer/models/attachment'
 
 module Xeroizer
   module Record
     class BankTransactionModel < BaseModel
       set_permissions :read
+
+      include AttachmentModel::Extensions
     end
 
     class BankTransaction < Base
@@ -15,6 +18,7 @@ module Xeroizer
       } unless defined?(BANK_TRANSACTION_STATUS)
       BANK_TRANSACTION_STATUSES = BANK_TRANSACTION_STATUS.keys.sort
 
+      include Attachment::Extensions
 
       def initialize(parent)
         super parent
