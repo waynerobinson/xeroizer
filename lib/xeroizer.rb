@@ -2,7 +2,7 @@ require 'rubygems'
 require 'date'
 require 'forwardable'
 require 'active_support/inflector'
-# require "active_support/core_ext"
+require "active_support/core_ext"
 require 'oauth'
 require 'oauth/signature/rsa/sha1'
 require 'nokogiri'
@@ -11,7 +11,7 @@ require 'time'
 require 'bigdecimal'
 require 'cgi'
 
-$: << File.expand_path(File.dirname(__FILE__)) 
+$: << File.expand_path(File.dirname(__FILE__))
 
 require 'big_decimal_to_s'
 require 'class_level_inheritable_attributes'
