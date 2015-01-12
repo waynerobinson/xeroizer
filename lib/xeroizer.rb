@@ -57,6 +57,8 @@ require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
 require 'xeroizer/models/user'
 require 'xeroizer/models/journal_line_tracking_category'
+require 'xeroizer/models/contact_sales_tracking_category'
+require 'xeroizer/models/contact_purchases_tracking_category'
 
 require 'xeroizer/report/factory'
 
