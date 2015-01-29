@@ -134,7 +134,7 @@ module Xeroizer
       end
 
       def handle_oauth_error!(response)
-        if response.plain_body == "You do not have permission to access this resource."
+        if response.plain_body == "You do not have permission to access this resource." || response.plain_body.match(/API access not authorised/i)
           raise LackingPermissionToAccessRecord.new(response)
         end
         
