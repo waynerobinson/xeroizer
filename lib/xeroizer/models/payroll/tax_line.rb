@@ -15,7 +15,7 @@ module Xeroizer
 
         decimal       :amount
 
-        guid          :payslilp_tax_line_id
+        guid          :payslip_tax_line_id
 
       end
 
