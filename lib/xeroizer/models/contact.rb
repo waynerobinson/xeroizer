@@ -24,6 +24,7 @@ module Xeroizer
       guid          :contact_id
       string        :contact_number
       string        :contact_status
+      string        :account_number
       string        :name
       string        :tax_number
       string        :bank_account_details
@@ -43,6 +44,9 @@ module Xeroizer
       has_many  :phones, :list_complete => true
       has_many  :contact_groups
       has_many  :contact_persons, :internal_name => :contact_people
+
+      has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
+      has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
 
       validates_presence_of :name
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
