@@ -11,7 +11,7 @@ require 'time'
 require 'bigdecimal'
 require 'cgi'
 
-$: << File.expand_path(File.dirname(__FILE__)) 
+$: << File.expand_path(File.dirname(__FILE__))
 
 require 'big_decimal_to_s'
 require 'class_level_inheritable_attributes'
@@ -77,6 +77,10 @@ require 'xeroizer/models/payroll/deduction_type'
 require 'xeroizer/models/payroll/reimbursement_type'
 require 'xeroizer/models/payroll/leave_type'
 require 'xeroizer/models/payroll/pay_items'
+
+require 'xeroizer/models/payroll/number_of_unit'
+require 'xeroizer/models/payroll/timesheet_line'
+require 'xeroizer/models/payroll/timesheet'
 
 require 'xeroizer/report/factory'
 
