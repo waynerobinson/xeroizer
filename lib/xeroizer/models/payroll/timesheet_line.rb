@@ -11,7 +11,7 @@ module Xeroizer
         guid          :tracking_item_id, :api_name => 'TrackingItemID'
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
-        has_one      :number_of_units
+        has_many      :number_of_units
 
         validates_presence_of :earnings_rate_id
       end

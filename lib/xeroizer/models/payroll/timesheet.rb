@@ -5,21 +5,20 @@ module Xeroizer
       class TimesheetModel < PayrollBaseModel
         set_optional_xml_root_name 'Timesheets'
         set_permissions :read, :write, :update
-
       end
 
       class Timesheet < PayrollBase
 
         TIMESHEET_STATUS_CODES = [
-          'Draft',
-          'Processed',
-          'Approved'
+          'DRAFT',
+          'PROCESSED',
+          'APPROVED'
         ]unless defined?(TIMESHEET_STATUS_CODES)
 
 
-        set_primary_key :tilesheet_id
+        set_primary_key :timesheet_id
 
-        guid          :tilesheet_id, :api_name => 'TimesheetID'
+        guid          :timesheet_id
         guid          :employee_id
         string        :status
         date          :start_date # YYYY-MM-DD
@@ -29,7 +28,7 @@ module Xeroizer
 
         has_many      :timesheet_lines
 
-        validates_presence_of :tilesheet_id, :unless => :new_record?
+        validates_presence_of :timesheet_id, :unless => :new_record?
         validates_presence_of :employee_id, :start_date, :end_date, :status, :hours
         validates_inclusion_of :status, :in => TIMESHEET_STATUS_CODES
       end

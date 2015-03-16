@@ -18,6 +18,7 @@ module Xeroizer
       class_inheritable_attributes :xml_root_name
       class_inheritable_attributes :optional_xml_root_name
       class_inheritable_attributes :xml_node_name
+      class_inheritable_attributes :skip_xml_node_name
 
       DEFAULT_RECORDS_PER_BATCH_SAVE = 2000
 
@@ -68,6 +69,9 @@ module Xeroizer
           self.optional_xml_root_name = optional_root_name
         end
 
+        def set_skip_xml_node_name(skip_xml_node_name=false)
+          self.skip_xml_node_name = skip_xml_node_name
+        end
       end
 
       public

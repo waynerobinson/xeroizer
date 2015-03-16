@@ -3,7 +3,7 @@ module Xeroizer
     module Payroll
 
       class NumberOfUnitModel < PayrollBaseModel
-        set_xml_node_name 'NumberOfUnits'
+        set_skip_xml_node_name true
       end
 
       class NumberOfUnit < PayrollBase
