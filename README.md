@@ -1,4 +1,4 @@
-Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/xeroizer.png)
+Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/xeroizer.png) [![Build Status](https://travis-ci.org/waynerobinson/xeroizer.svg)](https://travis-ci.org/waynerobinson/xeroizer)
 ====================
 
 **Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)		
