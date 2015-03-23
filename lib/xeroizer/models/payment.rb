@@ -20,6 +20,7 @@ module Xeroizer
       string        :status
       string        :reference
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      boolean       :is_reconciled
 
       belongs_to    :account
       belongs_to    :invoice
