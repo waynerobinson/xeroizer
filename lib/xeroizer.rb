@@ -2,7 +2,6 @@ require 'rubygems'
 require 'date'
 require 'forwardable'
 require 'active_support/inflector'
-require 'active_support/memoizable'
 # require "active_support/core_ext"
 require 'oauth'
 require 'oauth/signature/rsa/sha1'
