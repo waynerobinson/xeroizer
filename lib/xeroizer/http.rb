@@ -101,6 +101,14 @@ module Xeroizer
             end
           end
 
+          # Sniff the response - there are some calls that
+          # return both a 401 and an API error
+          doc = Nokogiri::XML(response.plain_body)
+          if doc.xpath('//Message/Type/text()').first == "Error"
+            return handle_error(response, body)
+          end
+
+          # Alternatively, fall back to REST
           case response.code.to_i
             when 200
               response.plain_body
@@ -136,19 +144,12 @@ module Xeroizer
         # 'rate limit exceeded' when more than 60 requests have been made in
         # a second.
 
-        # Error style 1: Structured
         case (error_details["oauth_problem"].first)
           when "token_expired"        then raise OAuth::TokenExpired.new(description)
           when "token_rejected"       then raise OAuth::TokenInvalid.new(description)
           when "rate limit exceeded"  then raise OAuth::RateLimitExceeded.new(description)
           raise OAuth::UnknownError.new(error_details["oauth_problem"].first + ':' + description)
         end if error_details["oauth_problem"].any?
-
-        # Error style 2: Raw XML
-        # Example:
-        # <Response xmlns:i='http://www.w3.org/2001/XMLSchema-instance'><ErrorNumber>0</ErrorNumber><Type>Error</Type><Message>Payroll API access not authorised</Message></Response>
-        require 'rexml/document'
-        raise OAuth::UnknownError.new(REXML::XPath.first(REXML::Document.new(response.plain_body), '//Message/text()'))
       end
       
       def handle_error!(response, request_body)
