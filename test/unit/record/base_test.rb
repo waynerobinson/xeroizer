@@ -74,7 +74,8 @@ class RecordBaseTest < Test::Unit::TestCase
         :parse_response => stub("Stub response", :response_items => []),
         :mark_dirty => nil,
         :create_method => :http_put,
-        :mark_clean => nil
+        :mark_clean => nil,
+        :application => nil
 
       an_example_instance = @example_class.new(a_fake_parent)
 
@@ -90,7 +91,8 @@ class RecordBaseTest < Test::Unit::TestCase
         :http_post => "<FakeResponse />",
         :parse_response => stub("Stub response", :response_items => []),
         :mark_dirty => nil,
-        :mark_clean => nil
+        :mark_clean => nil,
+        :application => nil
 
       an_example_instance = @example_class.new(a_fake_parent)
 
