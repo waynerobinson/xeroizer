@@ -127,6 +127,11 @@ module Xeroizer
           parent.pdf(id, filename)
         end
 
+        def save
+          super
+          allocate if !allocations.empty?
+        end
+
         def allocate
           if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
