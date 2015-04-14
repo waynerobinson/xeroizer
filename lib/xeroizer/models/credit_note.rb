@@ -130,10 +130,10 @@ module Xeroizer
         def save
           # Calling parse_save_response() on the credit note will wipe out
           # the allocations, so we have to manually preserve them.
-          allocations_backup = allocations
+          allocations_backup = self.allocations
           if super
-            allocations = allocations_backup
-            allocate if !allocations.empty?
+            self.allocations = allocations_backup
+            allocate unless self.allocations.empty?
             true
           end
         end
