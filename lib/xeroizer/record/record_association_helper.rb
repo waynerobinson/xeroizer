@@ -122,10 +122,11 @@ module Xeroizer
             end
           end
 
-          # Override reader for this association if this association belongs
-          # to a summary-typed record. This will automatically attempt to download
-          # the complete version of the record before accessing the association.
-          if list_contains_summary_only?
+          # Override reader for this association if this is a summary-typed association.
+          # This will automatically attempt to download the complete version of the
+          # record before accessing the association.
+          if (list_contains_summary_only? && options[:complete] != true) ||
+             (!list_contains_summary_only? && options[:complete] == false)
             define_method internal_field_name do
               download_complete_record! unless new_record? || options[:list_complete] || complete_record_downloaded?
               self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
