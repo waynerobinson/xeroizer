@@ -26,6 +26,7 @@ module Xeroizer
     record :ManualJournal
     record :Organisation
     record :Payment
+    record :Prepayment
     record :Receipt
     record :TaxRate
     record :TrackingCategory
