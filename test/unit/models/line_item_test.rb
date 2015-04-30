@@ -67,4 +67,17 @@ class LineItemTest < Test::Unit::TestCase
     line_item.unit_amount = BigDecimal("0.00")
     assert_equal "0.0", line_item.line_amount.to_s, "expected line amount zero when unit_amount is zero"
   end
+
+  it "line_amount considers discount rate" do
+    line_item = LineItem.new(nil)
+
+    line_item.quantity = 1
+    line_item.unit_amount = BigDecimal("1000.00")
+    line_item.tax_amount = BigDecimal("0.15")
+    line_item.discount_rate = BigDecimal("50.00")
+
+    expected = BigDecimal("500").round(2)
+
+    assert_equal expected.to_s, line_item.line_amount.to_s
+  end
 end
