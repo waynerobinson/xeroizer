@@ -38,6 +38,8 @@ module Xeroizer
       string        :bank_transaction_id, :api_name => "BankTransactionID"
       boolean       :is_reconciled
       string        :status
+      string        :currency_code
+      decimal       :currency_rate
 
       alias_method :reconciled?, :is_reconciled
 
