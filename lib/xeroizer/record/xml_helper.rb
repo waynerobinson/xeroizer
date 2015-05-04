@@ -68,6 +68,26 @@ module Xeroizer
             end
           end
 
+          # special case for array models eg. NumberOfUnit(s) in http://developer.xero.com/documentation/payroll-api/timesheets/
+          if node.elements.empty? && parent.is_a?(Xeroizer::Record::PayrollArrayBaseModel)
+            field = self.fields[:value]
+            if field
+              element = node.children.first
+              value = case field[:type]
+                when :guid        then element.text
+                when :string      then element.text
+                when :boolean     then (element.text == 'true')
+                when :integer     then element.text.to_i
+                when :decimal     then BigDecimal.new(element.text)
+                when :date        then Date.parse(element.text)
+                when :datetime    then Time.parse(element.text)
+                when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
+              end
+
+              record.value = value
+            end
+          end
+
           parent.mark_clean(record)
           record
         end
