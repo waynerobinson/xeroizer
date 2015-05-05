@@ -100,12 +100,7 @@ module Xeroizer
             when :put   then    client.put(uri.request_uri, raw_body, headers)
           end
 
-          if self.logger
-            logger.info("XeroGateway Response (#{response.code})")
-            unless response.code.to_i == 200
-              logger.info("#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body")
-            end
-          end
+          log_response(response, uri)
 
           case response.code.to_i
             when 200
@@ -133,7 +128,16 @@ module Xeroizer
         end
       end
 
-      def handle_oauth_error!(response)
+    def log_response(response, uri)
+      if self.logger
+        logger.info("XeroGateway Response (#{response.code})")
+        logger.add(response.code.to_i == 200 ? Logger::DEBUG : Logger::INFO) {
+          "#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body"
+        }
+      end
+    end
+
+    def handle_oauth_error!(response)
         error_details = CGI.parse(response.plain_body)
         description   = error_details["oauth_problem_advice"].first
         problem = error_details["oauth_problem"].first

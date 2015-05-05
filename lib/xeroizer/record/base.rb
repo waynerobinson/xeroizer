@@ -17,6 +17,7 @@ module Xeroizer
       attr_reader :model
       attr_accessor :errors
       attr_accessor :complete_record_downloaded
+      attr_accessor :paged_record_downloaded
 
       include ModelDefinitionHelper
       include RecordAssociationHelper
@@ -87,6 +88,11 @@ module Xeroizer
           else
             true
           end
+        end
+
+
+        def paged_record_downloaded?
+          !!paged_record_downloaded
         end
 
         # Downloads the complete record if we only have a summary of the record.
