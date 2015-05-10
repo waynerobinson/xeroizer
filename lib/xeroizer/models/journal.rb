@@ -16,6 +16,8 @@ module Xeroizer
       string    :journal_number
       datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
       string    :reference
+      guid      :source_id
+      string    :source_type
       
       has_many  :journal_lines
        
