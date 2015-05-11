@@ -159,7 +159,97 @@ class ModelDefinitionsTest < Test::Unit::TestCase
       assert_equal(value, @record[:name])
       assert_equal(value, @record.name)
     end
-    
+
+    should "use declared value_if_nil when value is nil or key is omitted" do
+      unique_truthy_value_if_nil = 'NONSENSE'
+
+      @record.class_eval {
+        define_simple_attribute(:string_field, :string, {}, unique_truthy_value_if_nil)
+      }
+
+      assert_equal(nil, @record.attributes[:string_field])
+      assert_equal(unique_truthy_value_if_nil, @record.string_field)
+      @record.attributes[:string_field] = nil
+      assert_equal(nil, @record.attributes[:string_field])
+      assert_equal(unique_truthy_value_if_nil, @record.string_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:boolean_field, :boolean, {}, unique_truthy_value_if_nil)
+      }
+
+      assert_equal(nil, @record.attributes[:boolean_field])
+      assert_equal(unique_truthy_value_if_nil, @record.boolean_field)
+      @record.attributes[:boolean_field] = nil
+      assert_equal(nil, @record.attributes[:boolean_field])
+      assert_equal(unique_truthy_value_if_nil, @record.boolean_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:integer_field, :integer, {}, unique_truthy_value_if_nil)
+      }
+
+      assert_equal(nil, @record.attributes[:integer_field])
+      assert_equal(unique_truthy_value_if_nil, @record.integer_field)
+      @record.attributes[:integer_field] = nil
+      assert_equal(nil, @record.attributes[:integer_field])
+      assert_equal(unique_truthy_value_if_nil, @record.integer_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:decimal_field, :decimal, {}, unique_truthy_value_if_nil)
+      }
+
+      assert_equal(nil, @record.attributes[:decimal_field])
+      assert_equal(unique_truthy_value_if_nil, @record.decimal_field)
+      @record.attributes[:string_field] = nil
+      assert_equal(nil, @record.attributes[:decimal_field])
+      assert_equal(unique_truthy_value_if_nil, @record.decimal_field)
+
+    end
+
+    should "not use declared value_if_nil when value is falsy/falsey (and not NilClass)" do
+      # The only falsy values in strict ruby are NilClass and FalseClass, but activesupport .present is in gemspec
+
+      unique_truthy_value_if_nil = 'NONSENSE'
+
+      @record.class_eval {
+        define_simple_attribute(:string_field, :string, {}, unique_truthy_value_if_nil)
+      }
+
+      @record.attributes[:string_field] = ""
+      assert_equal("", @record.attributes[:string_field])
+      assert_equal("", @record.string_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:boolean_field, :boolean, {}, unique_truthy_value_if_nil)
+      }
+
+      @record.attributes[:boolean_field] = false
+      assert_equal(false, @record.attributes[:boolean_field])
+      assert_equal(false, @record.boolean_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:integer_field, :integer, {}, unique_truthy_value_if_nil)
+      }
+
+      @record.attributes[:integer_field] = 0
+      assert_equal(0, @record.attributes[:integer_field])
+      assert_equal(0, @record.integer_field)
+
+
+      @record.class_eval {
+        define_simple_attribute(:decimal_field, :decimal, {}, unique_truthy_value_if_nil)
+      }
+
+      @record.attributes[:decimal_field] = 0.0
+      assert_equal(0.0, @record.attributes[:decimal_field])
+      assert_equal(0.0, @record.decimal_field)
+
+
+    end
   end
   
 end
