@@ -14,7 +14,7 @@ module Xeroizer
       guid      :branding_theme_id
       string    :name
       integer   :sort_order
-      datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
+      datetime_utc  :created_date_utc, :api_name => 'CreatedDateUTC'
 
     end
     

@@ -23,12 +23,14 @@ module Xeroizer
       string    :organisation_status
       integer   :financial_year_end_day
       integer   :financial_year_end_month
+      string    :sales_tax_basis
+      string    :sales_tax_period
       date      :period_lock_date
       date      :end_of_year_lock_date
       string    :tax_number
       string    :registration_number
       string    :timezone
-      datetime  :created_date_utc, :api_name => 'CreatedDateUTC'
+      datetime_utc  :created_date_utc, :api_name => 'CreatedDateUTC'
 
       has_many :addresses
       has_many :phones
