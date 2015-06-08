@@ -1,0 +1,43 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a70214d6-fbee-4a3a-89d6-57cfdb387a69</Id>
+  <Status>OK</Status>
+  <ProviderName>Test App</ProviderName>
+  <DateTimeUTC>2011-02-14T01:54:32.2566964Z</DateTimeUTC>
+  <RepeatingInvoices>
+    <RepeatingInvoice>
+      <Contact>
+        <ContactID>9b9ba9e5-e907-4b4e-8210-54d82b0aa479</ContactID>
+        <Name>PowerDirect</Name>
+      </Contact>
+      <Status>DRAFT</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <LineItems>
+        <LineItem>
+          <Description>Monthly electricity</Description>
+          <UnitAmount>78.26</UnitAmount>
+          <TaxType>INPUT2</TaxType>
+          <TaxAmount>11.74</TaxAmount>
+          <LineAmount>78.26</LineAmount>
+          <AccountCode>445</AccountCode>
+          <Quantity>1.0000</Quantity>
+        </LineItem>
+      </LineItems>
+      <SubTotal>78.26</SubTotal>
+      <TotalTax>11.74</TotalTax>
+      <Total>90.00</Total>
+      <CurrencyCode>NZD</CurrencyCode>
+      <Schedule>
+        <Period>1</Period>
+        <Unit>MONTHLY</Unit>
+        <DueDate>10</DueDate>
+        <DueDateType>OFFOLLOWINGMONTH</DueDateType>
+        <StartDate>2013-01-21T00:00:00</StartDate>
+        <NextScheduledDate>2014-03-23T00:00:00</NextScheduledDate>
+      </Schedule>
+      <RepeatingInvoiceID>ad3550bc-1ae0-45c0-a782-48c6d2061127</RepeatingInvoiceID>
+      <Type>ACCPAY</Type>
+      <Reference>RPT445-1</Reference>
+      <HasAttachments>false</HasAttachments>
+    </RepeatingInvoice>
+  </RepeatingInvoices>
+</Response>
