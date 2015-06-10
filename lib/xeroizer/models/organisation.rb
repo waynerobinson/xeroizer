@@ -57,17 +57,20 @@ module Xeroizer
       has_many :addresses
       has_many :phones
 
-      validate :valid_sales_tax_basis
+      validates :sales_tax_basis, :message => "is not a valid option" do
+        valid = true
+        if sales_tax_basis
 
-      def valid_sales_tax_basis
-        return unless sales_tax_basis && country_code
-        
-        valid_bases = (SALES_TAX_BASIS[country_code] || SALES_TAX_BASIS['GLOBAL']).keys
-  
-        unless valid_bases.include?(sales_tax_basis)
-          errors.add(:sales_tax_basis, "is not valid for country code '#{country_code}'")
+          valid_bases = (SALES_TAX_BASIS[country_code] || SALES_TAX_BASIS['GLOBAL']).keys
+
+          unless valid_bases.include?(sales_tax_basis)
+            valid = false
+          end
         end
+        
+        valid
       end
+
     end
     
   end
