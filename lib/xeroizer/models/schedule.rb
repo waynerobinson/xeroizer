@@ -11,7 +11,6 @@ module Xeroizer
         'WEEKLY'  => 'Weekly',
         'MONTHLY' => 'Monthly',
       } unless defined?(UNIT)
-      UNITS = UNIT.keys.sort
 
       PAYMENT_TERM = {
         'DAYSAFTERBILLDATE'  => 'day(s) after bill date',
@@ -19,7 +18,6 @@ module Xeroizer
         'OFCURRENTMONTH'     => 'of the current month',
         'OFFOLLOWINGMONTH'   => 'of the following month',
       } unless defined?(PAYMENT_TERM)
-      PAYMENT_TERMS = PAYMENT_TERM.keys.sort
 
       integer :period
       string  :unit
@@ -28,9 +26,6 @@ module Xeroizer
       date    :start_date
       date    :next_scheduled_date
       date    :end_date
-
-      validates_inclusion_of :unit, :in => UNITS
-      validates_inclusion_of :due_date_type, :in => PAYMENT_TERMS
 
     end
 

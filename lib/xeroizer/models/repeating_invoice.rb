@@ -17,13 +17,11 @@ module Xeroizer
         'ACCREC' => 'Accounts Receivable',
         'ACCPAY' => 'Accounts Payable'
       } unless defined?(INVOICE_TYPE)
-      INVOICE_TYPES = INVOICE_TYPE.keys.sort
 
       INVOICE_STATUS = {
         'AUTHORISED' => 'Approved invoices awaiting payment',
         'DRAFT' =>      'Invoices saved as draft or entered via API',
       } unless defined?(INVOICE_STATUS)
-      INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 
       include Attachment::Extensions
 
@@ -46,14 +44,6 @@ module Xeroizer
       belongs_to :contact
       belongs_to :schedule
       has_many   :line_items, :complete_on_page => true
-
-      validates_inclusion_of :type, :in => INVOICE_TYPES
-      validates_inclusion_of :status, :in => INVOICE_STATUSES, :unless => :new_record?
-      validates_inclusion_of :line_amount_types, :in => LINE_AMOUNT_TYPES, :unless => :new_record?
-      validates_associated :schedule
-      validates_associated :contact
-      validates_associated :line_items, :allow_blanks => true, :unless => :approved?
-      validates_associated :line_items, :if => :approved?
 
       public
 
