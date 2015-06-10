@@ -28,6 +28,8 @@ module Xeroizer
     record :Payment
     record :Prepayment
     record :Receipt
+    record :RepeatingInvoice
+    record :Schedule
     record :TaxRate
     record :TrackingCategory
     record :TrackingCategoryChild
