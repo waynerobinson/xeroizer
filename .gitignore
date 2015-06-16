@@ -12,3 +12,4 @@ pkg/
 .DS_Store
 tmp/
 .idea/
+Gemfile.lock

@@ -144,10 +144,10 @@ class XeroSessionController < ApplicationController
 						
 			session[:xero_auth] = {
 					:access_token => @xero_client.access_token.token,
-					:access_key => @xero_client.access_token.key }
+					:access_key => @xero_client.access_token.secret }
 															
-			session.data.delete(:request_token)
-			session.data.delete(:request_secret)
+			session[:request_token] = nil
+            session[:request_secret] = nil
 		end
 		
 		def destroy
@@ -586,7 +586,7 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
 Logging
 ---------------
 
-You can add an optional paramater to the Xeroizer Application initialization, to pass a logger object that will need to respond_to :info. For example, in a rails app:
+You can add an optional parameter to the Xeroizer Application initialization, to pass a logger object that will need to respond_to :info. For example, in a rails app:
 
 ```ruby
 XeroLogger = Logger.new('log/xero.log', 'weekly')
@@ -594,6 +594,20 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          YOUR_OAUTH_CONSUMER_SECRET,
                                          :logger => XeroLogger)
 ```
+
+Unit Price Precision
+--------------------
+
+By default, the API accepts unit prices (UnitAmount) to two decimals places. If you require greater precision, you can opt-in to 4 decimal places by setting an optional parameter when initializing an application:
+
+
+```ruby
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
+                                         YOUR_OAUTH_CONSUMER_SECRET,
+                                         :unitdp => 4)
+```
+
+This option adds the unitdp=4 query string parameter to all requests for models with line items - invoices, credit notes, bank transactions and receipts.
 
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor 

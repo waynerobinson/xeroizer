@@ -13,7 +13,7 @@ class RecordDefinitionTest < Test::Unit::TestCase
       [ 
         :Account, :BrandingTheme, :Contact, :CreditNote, :Currency, :Invoice,
         :Item, :Journal, :ManualJournal, :Organisation, :Payment, :TaxRate,
-        :TrackingCategory
+        :TrackingCategory, :User
       ].each do | record_type |
         record_factory = @client.send(record_type)
         assert_kind_of(Xeroizer::Record::BaseModel, record_factory)

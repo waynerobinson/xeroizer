@@ -14,6 +14,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST Free Exports</Name>
@@ -25,6 +33,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST Free Income</Name>
@@ -36,6 +52,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST on Capital</Name>
@@ -47,6 +71,14 @@
       <CanApplyToRevenue>false</CanApplyToRevenue>
       <DisplayTaxRate>10.0000</DisplayTaxRate>
       <EffectiveRate>10.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>10.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST on Capital Imports</Name>
@@ -58,6 +90,14 @@
       <CanApplyToRevenue>false</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST on Expenses</Name>
@@ -69,6 +109,14 @@
       <CanApplyToRevenue>false</CanApplyToRevenue>
       <DisplayTaxRate>10.0000</DisplayTaxRate>
       <EffectiveRate>10.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>10.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST on Imports</Name>
@@ -80,6 +128,14 @@
       <CanApplyToRevenue>false</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>GST on Income</Name>
@@ -91,6 +147,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>10.0000</DisplayTaxRate>
       <EffectiveRate>10.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>10.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>Input Taxed</Name>
@@ -102,6 +166,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
     <TaxRate>
       <Name>No GST</Name>
@@ -113,6 +185,14 @@
       <CanApplyToRevenue>true</CanApplyToRevenue>
       <DisplayTaxRate>0.0000</DisplayTaxRate>
       <EffectiveRate>0.0000</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>GST</Name>
+          <Rate>0.0000</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
     </TaxRate>
   </TaxRates>
 </Response>

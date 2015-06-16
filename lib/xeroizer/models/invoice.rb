@@ -20,7 +20,7 @@ module Xeroizer
         def pdf(id, filename = nil)
           pdf_data = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", :response => :pdf)
           if filename
-            File.open(filename, "w") { | fp | fp.write pdf_data }
+            File.open(filename, "wb") { | fp | fp.write pdf_data }
             nil
           else
             pdf_data
@@ -71,12 +71,14 @@ module Xeroizer
       decimal      :amount_credited
       datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string       :currency_code
+      decimal      :currency_rate
       datetime     :fully_paid_on_date
+      datetime     :expected_payment_date
       boolean      :sent_to_contact
       boolean      :has_attachments
 
       belongs_to   :contact
-      has_many     :line_items
+      has_many     :line_items, :complete_on_page => true
       has_many     :payments
       has_many     :credit_notes
 
@@ -196,7 +198,7 @@ module Xeroizer
       protected
 
         def change_status!(new_status)
-          raise CannotChangeInvoiceStatus.new(record, new_status) unless self.payments.size == 0
+          raise CannotChangeInvoiceStatus.new(self, new_status) unless self.payments.size == 0
           self.status = new_status
           self.save
         end
