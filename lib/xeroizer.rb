@@ -11,7 +11,7 @@ require 'time'
 require 'bigdecimal'
 require 'cgi'
 
-$: << File.expand_path(File.dirname(__FILE__)) 
+$: << File.expand_path(File.dirname(__FILE__))
 
 require 'big_decimal_to_s'
 require 'class_level_inheritable_attributes'
@@ -54,6 +54,13 @@ require 'xeroizer/models/tax_rate'
 require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
 require 'xeroizer/models/journal_line_tracking_category'
+
+require 'xeroizer/models/payroll/earnings_line'
+require 'xeroizer/models/payroll/deduction_line'
+require 'xeroizer/models/payroll/super_line'
+require 'xeroizer/models/payroll/reimbursement_line'
+require 'zeroizer/models/payroll/leave_line'
+require 'zeroizer/models/payroll/pay_template'
 
 require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/home_address'
