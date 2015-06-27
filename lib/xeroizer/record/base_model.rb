@@ -140,36 +140,44 @@ module Xeroizer
           result
         end
 
-        def batch_save(chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
+        def save_records(records, chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
           no_errors = true
-          @objects = {}
-          @allow_batch_operations = true
+          return false unless records.all?(&:valid?)
 
-          yield
-
-          if @objects[model_class]
-            objects = @objects[model_class].values.compact
-            return false unless objects.all?(&:valid?)
-            actions = objects.group_by {|o| o.new_record? ? create_method : :http_post }
-            actions.each_pair do |http_method, records|
-              records.each_slice(chunk_size) do |some_records|
-                request = to_bulk_xml(some_records)
-                response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
-                response.response_items.each_with_index do |record, i|
-                  if record and record.is_a?(model_class)
-                    some_records[i].attributes = record.non_calculated_attributes
-                    some_records[i].errors = record.errors
-                    no_errors = record.errors.nil? || record.errors.empty? if no_errors
-                    some_records[i].saved!
-                  end
+          actions = records.group_by {|o| o.new_record? ? create_method : :http_post }
+          actions.each_pair do |http_method, records_for_method|
+            records_for_method.each_slice(chunk_size) do |some_records|
+              request = to_bulk_xml(some_records)
+              response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
+              response.response_items.each_with_index do |record, i|
+                if record and record.is_a?(model_class)
+                  some_records[i].attributes = record.non_calculated_attributes
+                  some_records[i].errors = record.errors
+                  no_errors = record.errors.nil? || record.errors.empty? if no_errors
+                  some_records[i].saved!
                 end
               end
             end
           end
 
-          @objects = {}
-          @allow_batch_operations = false
           no_errors
+        end
+
+        def batch_save(chunk_size = DEFAULT_RECORDS_PER_BATCH_SAVE)
+          @objects = {}
+          @allow_batch_operations = true
+
+          begin
+            yield
+
+            if @objects[model_class]
+              objects = @objects[model_class].values.compact
+              save_records(objects, chunk_size)
+            end
+          ensure
+            @objects = {}
+            @allow_batch_operations = false
+          end
         end
 
         def parse_response(response_xml, options = {})
