@@ -456,6 +456,15 @@ unsaved records aren't valid, it'll return `false` before sending anything acros
 otherwise, it returns `true`. `batch_save` takes one optional argument: the number of records to
 create/update per request. (Defaults to 2,000.)
 
+If you'd rather build and send the records manually, there's a `save_records` method:
+```ruby
+contact1 = xero.Contact.build(some_attributes)
+contact2 = xero.Contact.build(some_other_attributes)
+contact3 = xero.Contact.build(some_more_attributes)
+xero.Contact.save_records([contact1, contact2, contact3])
+```
+It has the same return values as `batch_save`.
+
 ### Errors
 
 If a record doesn't match its internal validation requirements, the `#save` method will return
