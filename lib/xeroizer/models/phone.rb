@@ -18,7 +18,8 @@ module Xeroizer
       string :phone_number, :internal_name => :number
       string :phone_area_code, :internal_name => :area_code
       string :phone_country_code, :internal_name => :country_code
-      
+
+      validates_length_of :phone_number, :max => 50
     end
     
   end
