@@ -391,6 +391,36 @@ invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
 puts "Invoice Contact Name: #{invoice.contact.name}"
 ```
 
+Attachments
+------------
+Files or raw data can be attached to record types
+**attach\_data examples:**
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_data(“example.txt”, “This is raw data”, “txt”)
+```
+
+```ruby
+attach_data('cd09aa49-134d-40fb-a52b-b63c6a91d712', “example.txt”, “This is raw data”, “txt”)
+```
+
+**attach\_file examples:**
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_file(“example.png”, “/path/to/image.png”, “image/png”)
+```
+
+```ruby
+attach_file('cd09aa49-134d-40fb-a52b-b63c6a91d712', “example.png”, “/path/to/image.png”, “image/png”)
+```
+
+**include with online invoice**
+To include an attachment with an invoice set optional include_online parameter to true
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_file(“example.png”, “/path/to/image.png”, “image/png”, true)
+```
+
 Creating/Updating Data
 ----------------------
 

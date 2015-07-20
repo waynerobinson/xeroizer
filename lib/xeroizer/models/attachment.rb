@@ -4,12 +4,12 @@ module Xeroizer
     class AttachmentModel < BaseModel
 
       module Extensions
-        def attach_data(id, filename, data, content_type = "application/octet-stream")
-          application.Attachment.attach_data(url, id, filename, data, content_type)
+        def attach_data(id, filename, data, content_type = "application/octet-stream", include_online = false)
+          application.Attachment.attach_data(url, id, filename, data, content_type, include_online)
         end
 
-        def attach_file(id, filename, path, content_type = "application/octet-stream")
-          application.Attachment.attach_file(url, id, filename, path, content_type)
+        def attach_file(id, filename, path, content_type = "application/octet-stream", include_online = false)
+          application.Attachment.attach_file(url, id, filename, path, content_type, include_online)
         end
 
         def attachments(id)
@@ -19,11 +19,11 @@ module Xeroizer
 
       set_permissions :read
 
-      def attach_data(url, id, filename, data, content_type)
+      def attach_data(url, id, filename, data, content_type, include_online = false)
         response_xml = @application.http_put(@application.client,
                                               "#{url}/#{CGI.escape(id)}/Attachments/#{CGI.escape(filename)}",
                                               data,
-                                              :raw_body => true, :content_type => content_type
+                                              :raw_body => true, :content_type => content_type, "IncludeOnline" => include_online
                                              )
         response = parse_response(response_xml)
         if (response_items = response.response_items) && response_items.size > 0
@@ -33,8 +33,8 @@ module Xeroizer
         end
       end
 
-      def attach_file(url, id, filename, path, content_type)
-        attach_data(url, id, filename, File.read(path), content_type)
+      def attach_file(url, id, filename, path, content_type, include_online = false)
+        attach_data(url, id, filename, File.read(path), content_type, include_online)
       end
 
       def attachments_for(url, id)
@@ -54,12 +54,12 @@ module Xeroizer
     class Attachment < Base
 
       module Extensions
-        def attach_file(filename, path, content_type = "application/octet-stream")
-          parent.attach_file(id, filename, path, content_type)
+        def attach_file(filename, path, content_type = "application/octet-stream", include_online = false)
+          parent.attach_file(id, filename, path, content_type, include_online)
         end
 
-        def attach_data(filename, data, content_type = "application/octet-stream")
-          parent.attach_data(id, filename, data, content_type)
+        def attach_data(filename, data, content_type = "application/octet-stream", include_online = false)
+          parent.attach_data(id, filename, data, content_type, include_online)
         end
 
         def attachments
