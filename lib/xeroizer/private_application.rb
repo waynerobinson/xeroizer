@@ -11,7 +11,7 @@ module Xeroizer
       # 
       # @param [String] consumer_key consumer key/token from application developer (found at http://api.xero.com for your application).
       # @param [String] consumer_secret consumer secret from application developer (found at http://api.xero.com for your application).
-      # @param [String] path_to_private_key aapplication's private key for message signing (uploaded to http://api.xero.com)
+      # @param [String] path_to_private_key application's private key for message signing (uploaded to http://api.xero.com)
       # @param [Hash] options other options to pass to the GenericApplication constructor
       # @return [PrivateApplication] instance of PrivateApplication
       def initialize(consumer_key, consumer_secret, path_to_private_key, options = {})
