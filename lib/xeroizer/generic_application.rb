@@ -25,6 +25,7 @@ module Xeroizer
     record :Item
     record :Journal
     record :ManualJournal
+    record :ManualJournalLine
     record :Organisation
     record :Payment
     record :Prepayment
