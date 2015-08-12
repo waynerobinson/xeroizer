@@ -15,6 +15,7 @@
 module Xeroizer
   module Http
     class BadResponse < StandardError; end
+    RequestInfo = Struct.new(:url, :headers, :params, :body)
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
@@ -57,9 +58,9 @@ module Xeroizer
 
         headers = self.default_headers.merge({ 'charset' => 'utf-8' })
 
-        # include the unitdp query string parameter 
+        # include the unitdp query string parameter
         params.merge!(unitdp_param(url))
-        
+
         if method != :get
           headers['Content-Type'] ||= "application/x-www-form-urlencoded"
         end
@@ -84,9 +85,12 @@ module Xeroizer
           url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
         end
 
-        uri   = URI.parse(url)
+        uri = URI.parse(url)
 
         attempts = 0
+
+        request_info = RequestInfo.new(url, headers, params, body)
+        before_request.call(request_info) if before_request
 
         begin
           attempts += 1
@@ -101,6 +105,7 @@ module Xeroizer
           end
 
           log_response(response, uri)
+          after_request.call(request_info, response) if after_request
 
           case response.code.to_i
             when 200
