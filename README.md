@@ -183,7 +183,7 @@ Partner applications are only in beta testing via the Xero API and you will need
 get permission to create a partner application and for them to send you information on obtaining your client-side SSL
 certificate.
 
-Ruby's OpenSSL library rqeuires the certificate and private key to be extracted from the `entrust-client.p12` file
+Ruby's OpenSSL library requires the certificate and private key to be extracted from the `entrust-client.p12` file
 downloaded via Xero's instructions. To extract:
 
 	openssl pkcs12 -in entrust-client.p12 -clcerts -nokeys -out entrust-cert.pem
