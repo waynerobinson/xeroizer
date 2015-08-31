@@ -45,6 +45,8 @@ module Xeroizer
       string    :organisation_status
       integer   :financial_year_end_day
       integer   :financial_year_end_month
+      string    :sales_tax_basis
+      string    :sales_tax_period
       date      :period_lock_date
       date      :end_of_year_lock_date
       string    :tax_number
