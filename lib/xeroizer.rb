@@ -55,6 +55,13 @@ require 'xeroizer/models/tracking_category'
 require 'xeroizer/models/tracking_category_child'
 require 'xeroizer/models/journal_line_tracking_category'
 
+require 'xeroizer/models/payroll/earnings_line'
+require 'xeroizer/models/payroll/deduction_line'
+require 'xeroizer/models/payroll/super_line'
+require 'xeroizer/models/payroll/reimbursement_line'
+require 'xeroizer/models/payroll/leave_line'
+require 'xeroizer/models/payroll/pay_template'
+
 require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/home_address'
 require 'xeroizer/models/payroll/bank_account'
