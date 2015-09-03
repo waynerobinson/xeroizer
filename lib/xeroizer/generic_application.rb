@@ -61,7 +61,7 @@ module Xeroizer
         @default_headers = options[:default_headers] || {}
         @before_request = options.delete(:before_request)
         @after_request = options.delete(:after_request)
-        @client   = OAuth.new(consumer_key, consumer_secret, options.merge({default_headers: default_headers}))
+        @client = OAuth.new(consumer_key, consumer_secret, options.merge({default_headers: default_headers}))
         @logger = options[:logger] || false
         @unitdp = options[:unitdp] || 2
       end
