@@ -1,5 +1,5 @@
 <Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>42d8b00c-2fdd-4a8a-9b84-82cfe78ff34a</Id>
+  <Id>1238b00c-2fdd-4a8a-9b84-82cfe78ff34a</Id>
   <Status>OK</Status>
   <ProviderName>Test Provider Name</ProviderName>
   <DateTimeUTC>2010-12-20T04:13:44.7828584Z</DateTimeUTC>
@@ -48,7 +48,32 @@
       <UpdatedDateUTC>2009-05-14T01:44:26.747</UpdatedDateUTC>
       <IsSupplier>false</IsSupplier>
       <IsCustomer>true</IsCustomer>
-      <DefaultCurrency>NZD</DefaultCurrency>  
+      <DefaultCurrency>NZD</DefaultCurrency>
+      <Balances>
+        <AccountsReceivable>
+          <Outstanding>849.50</Outstanding>
+          <Overdue>910.00</Overdue>
+        </AccountsReceivable>
+        <AccountsPayable>
+          <Outstanding>0.00</Outstanding>
+          <Overdue>0.00</Overdue>
+        </AccountsPayable>
+      </Balances>
+      <BatchPayments>
+        <BankAccountNumber>123456</BankAccountNumber>
+        <BankAccountName>bank account</BankAccountName>
+        <Details>details</Details>
+      </BatchPayments>
+      <PaymentTerms>
+        <Bills>
+          <Day>4</Day>
+          <Type>OFFOLLOWINGMONTH</Type>
+        </Bills>
+        <Sales>
+          <Day>2</Day>
+          <Type>OFFOLLOWINGMONTH</Type>
+        </Sales>
+       </PaymentTerms>
     </Contact>
   </Contacts>
 </Response>
