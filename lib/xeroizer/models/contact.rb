@@ -1,6 +1,7 @@
 require "xeroizer/models/contact_person"
 require "xeroizer/models/balances"
 require "xeroizer/models/batch_payments"
+require "xeroizer/models/payment_terms"
 
 module Xeroizer
   module Record
@@ -54,6 +55,7 @@ module Xeroizer
 
       has_one :balances ,:model_name => 'Balances', :list_complete => true
       has_one :batch_payments ,:model_name => 'BatchPayments', :list_complete => true
+      has_one :payment_terms ,:model_name => 'PaymentTerms', :list_complete => true
 
       validates_presence_of :name
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true

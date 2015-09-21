@@ -78,7 +78,8 @@ class ContactTest < Test::Unit::TestCase
               :is_customer,
               :default_currency,
               :balances,
-              :batch_payments]
+              :batch_payments,
+              :payment_terms]
 
       assert_equal(contact.attributes.keys, keys)
 
@@ -90,6 +91,11 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(contact.batch_payments.bank_account_number, "123456")
       assert_equal(contact.batch_payments.bank_account_name, "bank account")
       assert_equal(contact.batch_payments.details, "details")
+
+      assert_equal(contact.payment_terms.bills.day, "4")
+      assert_equal(contact.payment_terms.bills.type, "OFFOLLOWINGMONTH")
+      assert_equal(contact.payment_terms.sales.day, "2")
+      assert_equal(contact.payment_terms.sales.type, "OFFOLLOWINGMONTH")
     end
   end
 end
