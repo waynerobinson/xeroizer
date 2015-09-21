@@ -77,7 +77,8 @@ class ContactTest < Test::Unit::TestCase
               :is_supplier,
               :is_customer,
               :default_currency,
-              :balances]
+              :balances,
+              :batch_payments]
 
       assert_equal(contact.attributes.keys, keys)
 
@@ -85,6 +86,10 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(contact.balances.accounts_receivable.overdue, 910.00)
       assert_equal(contact.balances.accounts_payable.outstanding, 0.00)
       assert_equal(contact.balances.accounts_payable.overdue, 0.00)
+
+      assert_equal(contact.batch_payments.bank_account_number, "123456")
+      assert_equal(contact.batch_payments.bank_account_name, "bank account")
+      assert_equal(contact.batch_payments.details, "details")
     end
   end
 end
