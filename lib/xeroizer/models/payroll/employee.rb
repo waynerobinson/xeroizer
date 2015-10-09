@@ -40,6 +40,19 @@ module Xeroizer
         has_one       :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
         has_many      :bank_accounts
 
+        # US Payroll fields
+        string        :job_title
+        string        :employee_number
+        string        :social_security_number
+        guid          :pay_schedule_id
+        string        :employment_basis
+        guid          :holiday_group_id
+        boolean       :is_authorised_to_approve_time_off
+        has_many      :salary_and_wages
+        has_many      :work_locations
+        has_one       :payment_method
+        has_one       :mailing_address, :internal_name_singular => "mailing_address", :model_name => "HomeAddress"
+
         validates_presence_of :first_name, :last_name, :unless => :new_record?
         validates_presence_of :date_of_birth
       end
