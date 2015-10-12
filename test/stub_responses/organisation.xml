@@ -20,6 +20,36 @@
       <FinancialYearEndMonth>6</FinancialYearEndMonth>
       <PeriodLockDate>2008-06-30T00:00:00</PeriodLockDate>
       <CreatedDateUTC>2011-05-19T05:26:03.95</CreatedDateUTC>
+      <Addresses>
+        <Address>
+          <AddressType>STREET</AddressType>
+        </Address>
+        <Address>
+          <AddressType>POBOX</AddressType>
+          <AddressLine1>23 Main Street</AddressLine1>
+          <AddressLine2>Central City</AddressLine2>
+          <City>Oaktown</City>
+          <Region>NY</Region>
+          <PostalCode>12123</PostalCode>
+          <Country>USA</Country>
+        </Address>
+      </Addresses>
+      <Phones>
+        <Phone>
+          <PhoneType>DDI</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>MOBILE</PhoneType>
+        </Phone>
+        <Phone>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>1234 5678</PhoneNumber>
+          <PhoneAreaCode>800</PhoneAreaCode>
+        </Phone>
+        <Phone>
+          <PhoneType>FAX</PhoneType>
+        </Phone>
+      </Phones>
     </Organisation>
   </Organisations>
 </Response>

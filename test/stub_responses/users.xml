@@ -1,0 +1,17 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>82fc227d-ad9f-42ed-98aa-583abc49bb54</Id>
+  <Status>OK</Status>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2013-12-05T05:36:43.1758494Z</DateTimeUTC>
+  <Users>
+    <User>
+      <UserID>1a535a0d-68fa-403a-b101-36c019c1995a</UserID>
+      <EmailAddress>user.name@example.com</EmailAddress>
+      <FirstName>User</FirstName>
+      <LastName>Name</LastName>
+      <UpdatedDateUTC>2013-07-08T07:27:11.62</UpdatedDateUTC>
+      <IsSubscriber>true</IsSubscriber>
+      <OrganisationRole>STANDARD</OrganisationRole>
+    </User>
+  </Users>
+</Response>

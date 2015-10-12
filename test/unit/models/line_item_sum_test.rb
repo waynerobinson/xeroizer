@@ -4,9 +4,10 @@ class LineItemSumTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   def setup
+    parent = stub(:application => nil, :mark_dirty => nil)
     @the_line_items = [
-      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.15}, nil),
-      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.30}, nil)
+      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.15}, parent),
+      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.30}, parent),
     ]
   end
 
