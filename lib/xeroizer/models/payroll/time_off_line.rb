@@ -2,11 +2,11 @@ module Xeroizer
   module Record
     module Payroll
 
-      class TimeoffLineModel < PayrollBaseModel
+      class TimeOffLineModel < PayrollBaseModel
 
       end
 
-      class TimeoffLine < PayrollBase
+      class TimeOffLine < PayrollBase
 
         guid :time_off_type_id, :api_name => 'TimeOffTypeID'
         decimal :hours
