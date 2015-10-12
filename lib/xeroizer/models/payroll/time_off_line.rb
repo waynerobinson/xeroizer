@@ -12,7 +12,7 @@ module Xeroizer
         decimal :hours
         decimal :balance
 
-        validates_presence_of :leave_type_id, :unless => :new_record?
+        validates_presence_of :time_off_type_id, :unless => :new_record?
       end
 
     end
