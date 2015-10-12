@@ -42,7 +42,7 @@ module Xeroizer
 
           # Special case for Paystubs because they are not wrapped in <Paystubs> element
           elsif element.children && element.children.size > 0 && element.name == 'Paystub'
-            yield(response, element, element.name)
+            yield(response, [element], element.name)
 
           # Records in response
           elsif element.children && element.children.size > 0
