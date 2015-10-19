@@ -1,13 +1,13 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class HomeAddressModel < PayrollBaseModel
         set_xml_node_name 'HomeAddress'
       end
-      
+
       class HomeAddress < PayrollBase
-        
+
         string      :address_line1
         string      :address_line2
         string      :address_line3
@@ -17,8 +17,16 @@ module Xeroizer
         string      :postal_code
         string      :country
 
+        # US Payroll fields
+        string      :street_address
+        string      :suite_or_apt_or_unit
+        string      :state
+        string      :zip
+        decimal      :latitude
+        decimal      :longitude
+
       end
 
-    end 
+    end
   end
 end
