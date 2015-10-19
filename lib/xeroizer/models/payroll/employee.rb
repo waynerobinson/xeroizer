@@ -51,9 +51,10 @@ module Xeroizer
         string        :employment_basis
         guid          :holiday_group_id
         boolean       :is_authorised_to_approve_time_off
+
         has_many      :salary_and_wages
         has_many      :work_locations
-        has_one       :payment_method
+        has_one       :payment_method, :model_name => "PaymentMethod"
         has_one       :mailing_address, :internal_name_singular => "mailing_address", :model_name => "HomeAddress"
 
         validates_presence_of :first_name, :last_name, :unless => :new_record?
