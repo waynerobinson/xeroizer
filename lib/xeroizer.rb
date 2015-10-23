@@ -81,6 +81,7 @@ require 'xeroizer/models/payroll/salary_and_wage'
 require 'xeroizer/models/payroll/super_line'
 require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/time_off_line'
+require 'xeroizer/models/payroll/work_location'
 
 require 'xeroizer/report/factory'
 
