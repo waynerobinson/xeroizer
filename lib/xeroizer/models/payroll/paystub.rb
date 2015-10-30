@@ -6,6 +6,21 @@ module Xeroizer
 
         set_permissions :read, :write, :update
 
+        public
+
+          # Retrieve the PDF version of the paystub matching the `id`.
+          # @param [String] id paystub's ID.
+          # @param [String] filename optional filename to store the PDF in instead of returning the data.
+          def pdf(id, filename = nil)
+            pdf_data = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", :response => :pdf)
+            if filename
+              File.open(filename, "w") { | fp | fp.write pdf_data }
+              nil
+            else
+              pdf_data
+            end
+          end
+
       end
 
       class Paystub < PayrollBase
@@ -34,6 +49,14 @@ module Xeroizer
         has_many      :time_off_lines
 
         validates_presence_of :paystub_id, :unless => :new_record?
+
+        public
+
+          # Retrieve the PDF version of this paystub.
+          # @param [String] filename optional filename to store the PDF in instead of returning the data.
+          def pdf(filename = nil)
+            parent.pdf(id, filename)
+          end
       end
     end
   end
