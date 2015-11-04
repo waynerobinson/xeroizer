@@ -40,8 +40,9 @@ module Xeroizer
               when 'DateTimeUTC'  then response.date_time = Time.parse(element.text)
             end
 
-          # Special case for Paystubs because they are not wrapped in <Paystubs> element
-          elsif element.children && element.children.size > 0 && element.name == 'Paystub'
+          # Special case for Paystubs and PayItems because they are not wrapped in plural element or
+          # don't have singular children
+          elsif element.children && element.children.size > 0 && (element.name == 'Paystub' || element.name == 'PayItems')
             yield(response, [element], element.name)
 
           # Records in response
