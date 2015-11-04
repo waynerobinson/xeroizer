@@ -28,7 +28,7 @@ module Xeroizer
         CALCULATION_TYPES = {
           'CATCHUPPLAN' => '',
           'STANDARDPLAN' => ''
-        } unless defined(CALCULATION_TYPES)
+        } unless defined?(CALCULATION_TYPES)
 
         set_primary_key :deduction_type_id
 
