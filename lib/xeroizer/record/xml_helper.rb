@@ -14,12 +14,9 @@ module Xeroizer
         # Build a record instance from the XML node.
         def build_from_node(node, parent, base_module)
           record = new(parent)
-          puts record.inspect
           elements = node.elements.empty? ? [node] : node.elements
-          puts elements.inspect
           elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
-            puts field.inspect
             if field
               value = case field[:type]
                 when :guid        then element.text
