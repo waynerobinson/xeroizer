@@ -19,9 +19,8 @@ module Xeroizer
         # US Payroll fields
 
         BANK_ACCOUNT_TYPE = {
-          'CHECK' => '',
-          'MANUAL' => '',
-          'DIRECTDEPOSIT' => ''
+          'CHECKING' => '',
+          'SAVINGS' => ''
         } unless defined?(BANK_ACCOUNT_TYPE)
 
         string :account_holder_name
