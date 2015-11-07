@@ -32,7 +32,7 @@ module Xeroizer
 
         set_primary_key :earnings_type_id
 
-        guid    :earnings_type_id
+        guid    :earnings_type_id, :api_name => 'EarningsRateID'
         string  :earnings_type
         string  :expense_account_code
         string  :earnings_category
