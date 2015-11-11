@@ -44,7 +44,8 @@ end
   'reimbursement_type', 'leave_type', 'payroll_calendar', 'pay_template', 'super_membership',
   'leave_line', 'reimbursement_line', 'super_line', 'deduction_line', 'earnings_line', 'opening_balance',
   'pay_run', 'settings', 'tracking_categories', 'employee_groups', 'timesheet_categories', 'account',
-  'tax_declaration', 'payslip', 'timesheet_earnings_line', 'tax_line', 'leave_accrual_line', 'superannuation_line'].each do |payroll_model|
+  'tax_declaration', 'payslip', 'timesheet_earnings_line', 'tax_line', 'leave_accrual_line', 'superannuation_line',
+  'leave_balance'].each do |payroll_model|
     require "xeroizer/models/payroll/#{payroll_model}"
 end
 

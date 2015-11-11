@@ -142,6 +142,20 @@
             <EmployeeNumber>1234</EmployeeNumber>
           </SuperMembership>
         </SuperMemberships>
+        <LeaveBalances>
+          <LeaveBalance>
+            <LeaveName>Annual Leave</LeaveName>
+            <LeaveTypeID>544d9292-4329-4512-bfff-a9f15236d776</LeaveTypeID>
+            <NumberOfUnits>81.2602</NumberOfUnits>
+            <TypeOfUnits>Hours</TypeOfUnits>
+          </LeaveBalance>
+          <LeaveBalance>
+            <LeaveName>Personal/Carer's Leave</LeaveName>
+            <LeaveTypeID>5fbec239-131c-4ebc-87c4-47db887a85d1</LeaveTypeID>
+            <NumberOfUnits>45.8302</NumberOfUnits>
+            <TypeOfUnits>Hours</TypeOfUnits>
+          </LeaveBalance>
+      </LeaveBalances>
       </Employee>
   </Employees>
 </Response>

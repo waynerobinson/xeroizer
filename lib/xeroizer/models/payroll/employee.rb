@@ -41,6 +41,7 @@ module Xeroizer
         belongs_to    :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
         belongs_to    :opening_balances, :internal_name_singular => "opening_balance", :model_name => "OpeningBalances"
         has_many      :super_memberships
+        has_many      :leave_balances, :internal_name_singular => "leave_balance", model_name: "LeaveBalance"
 
       end
 
