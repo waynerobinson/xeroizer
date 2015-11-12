@@ -622,7 +622,7 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
 HTTP Callbacks
 --------------------
 
-You can provide "before" and "after" callbacks which will be invoked every
+You can provide "before", "after" and "around" callbacks which will be invoked every
 time Xeroizer makes an HTTP request, which is potentially useful for both
 throttling and logging:
 
@@ -631,6 +631,7 @@ Xeroizer::PublicApplication.new(
   credentials[:key], credentials[:secret],
   before_request: ->(request) { puts "Hitting this URL: #{request.url}" },
   after_request: ->(request, response) { puts "Got this response: #{response.code}" }
+  around_request: -> (request, &block)  { puts "About to send request"; block.call; puts "After request"}
 )
 ```
 
