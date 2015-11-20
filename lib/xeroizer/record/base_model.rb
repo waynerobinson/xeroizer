@@ -25,7 +25,6 @@ module Xeroizer
 
       attr_reader :application
       attr_reader :model_name
-      attr_reader :api_name
       attr :model_class
       attr_reader :response
 
