@@ -3,7 +3,7 @@ module Xeroizer
     module Payroll
 
       class MailingAddressModel < PayrollBaseModel
-        set_xml_node_name 'HomeAddress'
+        set_xml_node_name 'MailingAddress'
       end
 
       class MailingAddress < PayrollBase
