@@ -41,15 +41,8 @@ module Xeroizer
                   end
 
                 when :has_one
-                  if element.element_children.size > 0
-                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
-                    sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject({}) do | hash, element |
-                      aa = base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
-                      hash[element.name.to_s.underscore.to_sym] = aa[element.name.to_s.underscore.to_sym]
-                      hash
-                    end
-                  end
+                  model_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
+                  base_module.const_get(model_name).build_from_node(element, parent, base_module)
 
               end
               if field[:calculated]
