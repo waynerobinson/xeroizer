@@ -55,7 +55,7 @@ module Xeroizer
         has_many      :salary_and_wages
         has_many      :work_locations
         has_one       :payment_method, :model_name => "PaymentMethod"
-        has_one       :mailing_address, :internal_name_singular => "mailing_address", :model_name => "HomeAddress"
+        has_one       :mailing_address, :internal_name_singular => "mailing_address", :model_name => "MailingAddress"
 
         validates_presence_of :first_name, :last_name, :unless => :new_record?
         validates_presence_of :date_of_birth
