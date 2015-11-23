@@ -3,6 +3,13 @@ module Xeroizer
     module Payroll
 
       class AddressModel < PayrollBaseModel
+
+        class_inheritable_attributes :api_controller_name
+        class_inheritable_attributes :permissions
+        class_inheritable_attributes :xml_root_name
+        class_inheritable_attributes :optional_xml_root_name
+        class_inheritable_attributes :xml_node_name
+
       end
 
       class Address < PayrollBase
