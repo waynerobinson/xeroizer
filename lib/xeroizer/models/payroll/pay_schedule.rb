@@ -24,8 +24,8 @@ module Xeroizer
 
         guid :pay_schedule_id
         string :pay_schedule_name
-        datetime :payment_date
-        datetime :start_date
+        date :payment_date
+        date :start_date
         string :schedule_type
 
         validates_inclusion_of :schedule_type, :in => SCHEDULE_TYPES
