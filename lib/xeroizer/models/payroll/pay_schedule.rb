@@ -28,6 +28,8 @@ module Xeroizer
         date :start_date
         string :schedule_type
 
+        validates_presence_of :pay_schedule_name, :payment_date,
+          :start_date, :schedule_type, :unless => :new_record?
         validates_inclusion_of :schedule_type, :in => SCHEDULE_TYPES
       end
     end

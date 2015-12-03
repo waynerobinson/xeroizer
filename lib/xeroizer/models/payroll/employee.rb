@@ -59,6 +59,7 @@ module Xeroizer
 
         validates_presence_of :first_name, :last_name, :unless => :new_record?
         validates_presence_of :date_of_birth
+        validates_presence_of :pay_schedule_id, :if => Proc.new { | record | !record.salary_and_wages.blank? }
       end
 
     end
