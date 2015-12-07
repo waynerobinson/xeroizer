@@ -13,7 +13,7 @@ module Xeroizer
           'SALARY' => ''
         } unless defined?(SALARY_AND_WAGE_TYPE)
 
-        guid          :salary_and_wage_id
+        guid          :salary_and_wages_id
         guid          :earnings_type_id
         string        :salary_wages_type
         decimal       :hourly_rate
