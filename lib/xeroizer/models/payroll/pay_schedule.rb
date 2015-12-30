@@ -6,6 +6,9 @@ module Xeroizer
 
         set_permissions :read, :write, :update
 
+        def create_method
+          :http_post
+        end
       end
 
       class PaySchedule < PayrollBase
