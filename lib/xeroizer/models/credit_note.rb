@@ -60,7 +60,8 @@ module Xeroizer
       decimal       :currency_rate
       datetime      :fully_paid_on_date
       boolean       :sent_to_contact
-      
+      decimal :remaining_credit
+
       belongs_to    :contact
       has_many      :line_items
       has_many      :allocations
