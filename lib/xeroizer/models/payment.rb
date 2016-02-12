@@ -13,7 +13,7 @@ module Xeroizer
       set_primary_key :payment_id
 
       guid          :payment_id
-      date          :date
+      datetime_utc  :date
       decimal       :amount
       decimal       :currency_rate
       string        :payment_type
