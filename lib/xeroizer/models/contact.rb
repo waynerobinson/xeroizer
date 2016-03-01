@@ -50,7 +50,7 @@ module Xeroizer
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
       has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
 
-      validates_presence_of :name
+      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
 
       def email_address?
