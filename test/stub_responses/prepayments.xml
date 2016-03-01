@@ -1,0 +1,27 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>370b7dab-e069-4424-84e0-74e7d1f7cbb3</Id>
+  <Status>OK</Status>
+  <ProviderName>Xero API Previewer</ProviderName>
+  <DateTimeUTC>2015-04-23T05:28:25.5811998Z</DateTimeUTC>
+  <Prepayments>
+    <Prepayment>
+      <Contact>
+        <ContactID>e1826204-cc0a-42a5-a6d0-4b352d9d5953</ContactID>
+        <Name>Carlton Technical Books</Name>
+      </Contact>
+      <Date>2015-04-15T00:00:00</Date>
+      <Status>AUTHORISED</Status>
+      <LineAmountTypes>Inclusive</LineAmountTypes>
+      <SubTotal>363.64</SubTotal>
+      <TotalTax>36.36</TotalTax>
+      <Total>400.00</Total>
+      <UpdatedDateUTC>2015-04-23T05:28:06.653</UpdatedDateUTC>
+      <CurrencyCode>AUD</CurrencyCode>
+      <Type>RECEIVE-PREPAYMENT</Type>
+      <Reference>ORC1040</Reference>
+      <RemainingCredit>400.00</RemainingCredit>
+      <HasAttachments>false</HasAttachments>
+      <PrepaymentID>7d3619b1-82cc-405b-8f44-9d4f9a787a8a</PrepaymentID>
+    </Prepayment>
+  </Prepayments>
+</Response>

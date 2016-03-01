@@ -57,16 +57,19 @@ module Xeroizer
       decimal       :total, :calculated => true
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       string        :currency_code
+      decimal       :currency_rate
       datetime      :fully_paid_on_date
       boolean       :sent_to_contact
       
       belongs_to    :contact
       has_many      :line_items
+      has_many      :allocations
       
       validates_inclusion_of :type, :in => CREDIT_NOTE_TYPES
       validates_inclusion_of :status, :in => CREDIT_NOTE_STATUSES, :allow_blanks => true
       validates_associated :contact
       validates_associated :line_items
+      validates_associated :allocations, :allow_blanks => true
       
       public
       
@@ -123,8 +126,32 @@ module Xeroizer
         def pdf(filename = nil)
           parent.pdf(id, filename)
         end
-              
+
+        def save
+          # Calling parse_save_response() on the credit note will wipe out
+          # the allocations, so we have to manually preserve them.
+          allocations_backup = self.allocations
+          if super
+            self.allocations = allocations_backup
+            allocate unless self.allocations.empty?
+            true
+          end
+        end
+
+        def allocate
+          if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
+            raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
+          end
+
+          request = association_to_xml(:allocations)
+          allocations_url = "#{parent.url}/#{CGI.escape(id)}/Allocations"
+
+          log "[ALLOCATION SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
+          response = parent.application.http_put(parent.application.client, allocations_url, request)
+          log "[ALLOCATION RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
+          parse_save_response(response)
+        end
     end
-    
+
   end
 end

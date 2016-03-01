@@ -20,7 +20,7 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(true, @contact.valid?)
       assert_equal(0, @contact.errors.size)
     end
-    
+
   end
   
 end

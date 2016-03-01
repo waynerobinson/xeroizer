@@ -16,6 +16,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     datetime  :datetime1
     
   end
+  class Xeroizer::Record::FirstRecordModel < Xeroizer::Record::BaseModel; end
   
   class SecondRecord < Xeroizer::Record::Base
 
@@ -30,6 +31,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     datetime  :datetime2
 
   end
+  class Xeroizer::Record::SecondRecordModel < Xeroizer::Record::BaseModel; end
     
   class TestRecord < Xeroizer::Record::Base
     
@@ -37,8 +39,10 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     string    :name
     
   end
+  class Xeroizer::Record::TestRecordModel < Xeroizer::Record::BaseModel; end
   
   class SummaryOnlyRecord < Xeroizer::Record::Base
+  class Xeroizer::Record::SummaryOnlyRecordModel < Xeroizer::Record::BaseModel; end
     
     list_contains_summary_only true
     set_possible_primary_keys :primary_key_id
@@ -49,6 +53,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   end
   
   class SummaryOnlyOffRecord < Xeroizer::Record::Base
+  class Xeroizer::Record::SummaryOnlyOffRecordModel < Xeroizer::Record::BaseModel; end
     
     set_possible_primary_keys :primary_key_id
     set_primary_key :primary_key_id
@@ -59,8 +64,9 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
-    @first = FirstRecord.new(@client)
-    @second = SecondRecord.new(@client)
+    parent = stub(:application => @client, :mark_dirty => nil)
+    @first = FirstRecord.new(parent)
+    @second = SecondRecord.new(parent)
     @record = TestRecord.build({}, @client.Contact)
     @contact = @client.Contact.build
   end
@@ -93,7 +99,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
     
     should "define primary key with shortcut #id method" do
       assert_nil(@first.id)
-      value = "PRIMARKY KEY VALUE"
+      value = "PRIMARY KEY VALUE"
       @first.id = value
       assert_equal(value, @first.id)
       assert_equal(value, @first.primary_key_id)
