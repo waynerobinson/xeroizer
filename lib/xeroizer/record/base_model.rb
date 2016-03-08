@@ -19,7 +19,7 @@ module Xeroizer
       class_inheritable_attributes :optional_xml_root_name
       class_inheritable_attributes :xml_node_name
 
-      DEFAULT_RECORDS_PER_BATCH_SAVE = 2000
+      DEFAULT_RECORDS_PER_BATCH_SAVE = 50
 
       include BaseModelHttpProxy
 
