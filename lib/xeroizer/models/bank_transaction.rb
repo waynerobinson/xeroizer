@@ -38,12 +38,14 @@ module Xeroizer
       string        :bank_transaction_id, :api_name => "BankTransactionID"
       boolean       :is_reconciled
       string        :status
+      string        :currency_code
+      decimal       :currency_rate
 
       alias_method :reconciled?, :is_reconciled
 
       belongs_to :contact, :model_name => 'Contact'
       string :line_amount_types
-      has_many :line_items, :model_name => 'LineItem'
+      has_many :line_items, :model_name => 'LineItem', :complete_on_page => true
       belongs_to :bank_account, :model_name => 'BankAccount'
 
       validates_inclusion_of :line_amount_types,

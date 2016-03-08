@@ -13,7 +13,10 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 module Xeroizer
-  class ApiException < StandardError
+  
+  class XeroizerError < StandardError; end
+  
+  class ApiException < XeroizerError
     
     attr_reader :type, :message, :xml, :parsed_xml, :request_body
     
@@ -41,7 +44,7 @@ module Xeroizer
     
   end
   
-  class UnparseableResponse < StandardError
+  class UnparseableResponse < XeroizerError
     
     def initialize(root_element_name)
       @root_element_name = root_element_name
@@ -53,7 +56,7 @@ module Xeroizer
       
   end
   
-  class ObjectNotFound < StandardError
+  class ObjectNotFound < XeroizerError
     
     def initialize(api_endpoint)
       @api_endpoint = api_endpoint
@@ -65,13 +68,13 @@ module Xeroizer
     
   end
   
-  class InvoiceNotFoundError < StandardError; end
+  class InvoiceNotFoundError < XeroizerError; end
 
-  class CreditNoteNotFoundError < StandardError; end
-
-  class LackingPermissionToAccessRecord < StandardError; end
+  class LackingPermissionToAccessRecord < XeroizerError; end
   
-  class MethodNotAllowed < StandardError
+  class CreditNoteNotFoundError < XeroizerError; end
+  
+  class MethodNotAllowed < XeroizerError
     
     def initialize(klass, method)
       @klass = klass
@@ -84,7 +87,7 @@ module Xeroizer
     
   end
   
-  class RecordKeyMustBeDefined < StandardError
+  class RecordKeyMustBeDefined < XeroizerError
     
     def initialize(possible_keys)
       @possible_keys = possible_keys
@@ -96,7 +99,7 @@ module Xeroizer
     
   end
 
-  class SettingTotalDirectlyNotSupported < StandardError
+  class SettingTotalDirectlyNotSupported < XeroizerError
     
     def initialize(attribute_name)
       @attribute_name = attribute_name
@@ -108,7 +111,7 @@ module Xeroizer
     
   end
 
-  class InvalidAttributeInWhere < StandardError
+  class InvalidAttributeInWhere < XeroizerError
     
     def initialize(model_name, attribute_name)
       @model_name = model_name
@@ -121,7 +124,7 @@ module Xeroizer
     
   end
   
-  class AssociationTypeMismatch < StandardError
+  class AssociationTypeMismatch < XeroizerError
     
     def initialize(model_class, actual_class)
       @model_class = model_class
@@ -134,7 +137,7 @@ module Xeroizer
     
   end
 
-  class CannotChangeInvoiceStatus < StandardError
+  class CannotChangeInvoiceStatus < XeroizerError
 
     def initialize(invoice, new_status)
       @invoice = invoice

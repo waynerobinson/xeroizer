@@ -215,7 +215,7 @@ Partner applications are only in beta testing via the Xero API and you will need
 get permission to create a partner application and for them to send you information on obtaining your client-side SSL
 certificate.
 
-Ruby's OpenSSL library rqeuires the certificate and private key to be extracted from the `entrust-client.p12` file
+Ruby's OpenSSL library requires the certificate and private key to be extracted from the `entrust-client.p12` file
 downloaded via Xero's instructions. To extract:
 
 	openssl pkcs12 -in entrust-client.p12 -clcerts -nokeys -out entrust-cert.pem
@@ -425,6 +425,36 @@ invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
 puts "Invoice Contact Name: #{invoice.contact.name}"
 ```
 
+Attachments
+------------
+Files or raw data can be attached to record types
+**attach\_data examples:**
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_data("example.txt", "This is raw data", "txt")
+```
+
+```ruby
+attach_data('cd09aa49-134d-40fb-a52b-b63c6a91d712', "example.txt", "This is raw data", "txt")
+```
+
+**attach\_file examples:**
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_file("example.png", "/path/to/image.png", "image/png")
+```
+
+```ruby
+attach_file('cd09aa49-134d-40fb-a52b-b63c6a91d712', "example.png", "/path/to/image.png", "image/png")
+```
+
+**include with online invoice**
+To include an attachment with an invoice set include_online parameter to true within the options hash
+```ruby
+invoice = xero.Invoice.find('cd09aa49-134d-40fb-a52b-b63c6a91d712')
+invoice.attach_file("example.png", "/path/to/image.png", "image/png", { include_online: true })
+```
+
 Creating/Updating Data
 ----------------------
 
@@ -489,6 +519,15 @@ POST request for evert 2,000 existing records that have been altered within its 
 unsaved records aren't valid, it'll return `false` before sending anything across the wire;
 otherwise, it returns `true`. `batch_save` takes one optional argument: the number of records to
 create/update per request. (Defaults to 2,000.)
+
+If you'd rather build and send the records manually, there's a `save_records` method:
+```ruby
+contact1 = xero.Contact.build(some_attributes)
+contact2 = xero.Contact.build(some_other_attributes)
+contact3 = xero.Contact.build(some_more_attributes)
+xero.Contact.save_records([contact1, contact2, contact3])
+```
+It has the same return values as `batch_save`.
 
 ### Errors
 
@@ -594,6 +633,25 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          YOUR_OAUTH_CONSUMER_SECRET,
                                          :logger => XeroLogger)
 ```
+
+HTTP Callbacks
+--------------------
+
+You can provide "before" and "after" callbacks which will be invoked every
+time Xeroizer makes an HTTP request, which is potentially useful for both
+throttling and logging:
+
+```ruby
+Xeroizer::PublicApplication.new(
+  credentials[:key], credentials[:secret],
+  before_request: ->(request) { puts "Hitting this URL: #{request.url}" },
+  after_request: ->(request, response) { puts "Got this response: #{response.code}" }
+)
+```
+
+The `request` parameter is a custom Struct with `url`, `headers`, `body`,
+and `params` methods. The `response` parameter is a Net::HTTPResponse object.
+
 
 Unit Price Precision
 --------------------

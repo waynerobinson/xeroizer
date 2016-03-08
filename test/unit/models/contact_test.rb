@@ -20,7 +20,14 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(true, @contact.valid?)
       assert_equal(0, @contact.errors.size)
     end
-    
+
+    should "be able to have no name if has a contact_id" do
+      assert_equal(false, @contact.valid?)
+      @contact.contact_id = "1-2-3"
+      assert_equal(true, @contact.valid?)
+      assert_equal(0, @contact.errors.size)
+    end
+
   end
   
 end

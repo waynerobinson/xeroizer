@@ -149,13 +149,13 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     }]
   end
 
-  it "fails with RuntimeError when you try and create a new bank account" do
+  it "fails with ApiException when you try and create a new bank account with missing account type" do
     new_account = client.Account.build(
       :name => "Example bank account",
       :code => "ACC-001"
     )
 
-    assert_raise RuntimeError do
+    assert_raise Xeroizer::ApiException do
       new_account.save
     end
   end
