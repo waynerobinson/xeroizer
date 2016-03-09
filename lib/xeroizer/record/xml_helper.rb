@@ -12,9 +12,10 @@ module Xeroizer
       module ClassMethods
         
         # Build a record instance from the XML node.
-        def build_from_node(node, parent)
+        def build_from_node(node, parent, base_module)
           record = new(parent)
-          node.elements.each do | element |
+          elements = node.elements.empty? ? [node] : node.elements
+          elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
             if field
               value = case field[:type]
@@ -25,17 +26,28 @@ module Xeroizer
                 when :decimal     then BigDecimal.new(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
-                when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc.round(3)
+                when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
                 when :belongs_to  
                   model_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
-                  Xeroizer::Record.const_get(model_name).build_from_node(element, parent)
+                  base_module.const_get(model_name).build_from_node(element, parent, base_module)
                   
                 when :has_many
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
                     sub_parent = record.new_model_class(sub_field_name)
                     element.children.inject([]) do | list, element |
-                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
+                      list << base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
+                    end
+                  end
+
+                when :has_one
+                  if element.element_children.size > 0
+                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
+                    sub_parent = record.new_model_class(sub_field_name)
+                    element.children.inject({}) do | hash, element |
+                      aa = base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
+                      hash[element.name.to_s.underscore.to_sym] = aa[element.name.to_s.underscore.to_sym]
+                      hash
                     end
                   end
 
@@ -121,6 +133,12 @@ module Xeroizer
                   b.tag!(sub_parent.class.xml_root_name || sub_parent.model_name.pluralize) {
                     value.each { | record | record.to_xml(b) }
                   }
+                  nil
+                end
+
+              when :has_one
+                if value
+                  value.to_xml(b)
                   nil
                 end
 
