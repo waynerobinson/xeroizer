@@ -37,20 +37,8 @@ module Xeroizer
       date    :updated_date_UTC
       boolean :has_attachments
 
-      # decimal :unit_price
-      # decimal :total_cost_pool # read only
-      # decimal :quantity_on_hand # read only
-
-      # boolean :is_sold # can be set to false, only if description, and sales_details are nil
-      # boolean :is_purchased # can be set to false, only if purchase_description, and purchase_details are nil
-      # boolean :is_tracked_as_inventory # read only, infered from inventory_asset_account_code, cogs_account_code, is_sold and is_purchased
-      # string  :inventory_asset_account_code
       has_many     :line_items
-      belongs_to :contact, :model_name => 'Contact'
-      # belongs_to :sales_details, :model_name => 'ItemSalesDetails'
-      
-      # validates_presence_of :code
-      
+      belongs_to :contact, :model_name => 'Contact'      
     end
     
   end
