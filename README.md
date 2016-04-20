@@ -531,7 +531,7 @@ are welcome).
 Reports are accessed like the following example:
 
 ```ruby
-trial_balance = xero.TrialBalance.get(:date => '2011-03-21')
+trial_balance = xero.TrialBalance.get(:date => DateTime.new(2011,3,21))
 
 # Array containing report headings.
 trial_balance.header.cells.map { | cell | cell.value }
