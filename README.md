@@ -588,6 +588,25 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          :rate_limit_sleep => 2)
 ```
 
+Xero API Nonce Used
+-------------------
+
+The Xero API seems to reject requests due to conflicts on occasion.
+
+By default, the library will raise a `Xeroizer::OAuth::NonceUsed`
+exception when one of these limits is exceeded.
+
+If required, the library can handle these exceptions internally by sleeping 1 second and then repeating the last request.
+You can set this option when initializing an application:
+
+```ruby
+# Sleep for 2 seconds every time the rate limit is exceeded.
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
+                                         YOUR_OAUTH_CONSUMER_SECRET,
+                                         :nonce_used_max_attempts => 3)
+```
+
+
 Logging
 ---------------
 
