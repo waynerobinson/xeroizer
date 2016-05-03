@@ -32,7 +32,15 @@ class OAuthTest < Test::Unit::TestCase
         @client.Organisation.first
       end
     end
+
+    should "handle nonce used" do
+      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("nonce_used"), :code => "401"))
       
+      assert_raises Xeroizer::OAuth::NonceUsed do
+        @client.Organisation.first
+      end
+    end
+
     should "raise rate limit exceeded" do
       Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("rate_limit_exceeded"), :code => "401"))
       

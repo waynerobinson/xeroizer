@@ -157,6 +157,7 @@ module Xeroizer
             when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
             when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
             when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
+            when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
             else raise OAuth::UnknownError.new(problem + ':' + description)
           end
         else
