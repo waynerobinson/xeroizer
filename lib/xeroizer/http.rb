@@ -163,6 +163,7 @@ module Xeroizer
             when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
             when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
             when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
+            when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
             else raise OAuth::UnknownError.new(problem + ':' + description)
           end
         else
