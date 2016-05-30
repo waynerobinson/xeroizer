@@ -29,6 +29,8 @@ module Xeroizer
             self.attributes[field_name] = record
           end
         end
+        
+        alias_method :has_one, :belongs_to
 
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
