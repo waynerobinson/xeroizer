@@ -41,9 +41,7 @@ module Xeroizer
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
-
-      belongs_to :payment_terms, :model_name => 'PaymentTerms', :complete_on_page => true
-
+      
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
       has_many  :contact_groups
