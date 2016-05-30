@@ -121,6 +121,11 @@ module Xeroizer
             else
               handle_unknown_response_error!(response)
           end
+        rescue Xeroizer::OAuth::NonceUsed => exception
+          raise if attempts > nonce_used_max_attempts
+          logger.info("Nonce used: " + exception.to_s) if self.logger
+          sleep_for(1)
+          retry
         rescue Xeroizer::OAuth::RateLimitExceeded
           if self.rate_limit_sleep
             raise if attempts > rate_limit_max_attempts
@@ -157,6 +162,7 @@ module Xeroizer
             when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
             when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
             when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
+            when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
             else raise OAuth::UnknownError.new(problem + ':' + description)
           end
         else

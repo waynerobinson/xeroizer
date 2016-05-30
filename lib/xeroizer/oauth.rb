@@ -28,6 +28,7 @@ module Xeroizer
     class TokenInvalid < StandardError; end
     class RateLimitExceeded < StandardError; end
     class ConsumerKeyUnknown < StandardError; end
+    class NonceUsed < StandardError; end
     class UnknownError < StandardError; end
 
     unless defined? XERO_CONSUMER_OPTIONS

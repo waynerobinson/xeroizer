@@ -7,7 +7,7 @@ module Xeroizer
     extend Record::ApplicationHelper
 
     attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
-                :default_headers, :unitdp, :before_request, :after_request
+                :default_headers, :unitdp, :before_request, :after_request, :nonce_used_max_attempts
 
     extend Forwardable
     def_delegators :client, :access_token
@@ -29,6 +29,7 @@ module Xeroizer
     record :Organisation
     record :Payment
     record :Prepayment
+    record :PurchaseOrder
     record :Receipt
     record :RepeatingInvoice
     record :Schedule
@@ -58,6 +59,7 @@ module Xeroizer
         @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
+        @nonce_used_max_attempts = options[:nonce_used_max_attempts] || 1
         @default_headers = options[:default_headers] || {}
         @before_request = options.delete(:before_request)
         @after_request = options.delete(:after_request)
