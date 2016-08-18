@@ -6,6 +6,9 @@ module Xeroizer
     class InvoiceModel < BaseModel
       # To create a new invoice, use the folowing
       # $xero_client.Invoice.build(type: 'ACCREC', ..., contact: {name: 'Foo Bar'},...)
+      # However for existing contacts, it is better to reference them by contactid (only)
+      # see http://developer.xero.com/documentation/api/contacts/
+      # $xero_client.Invoice.build(type: 'ACCREC', ..., contact: {contact_id: 'foo123-bar456-guid'},...)
       # Note that we are not making an api request to xero just to get the contact
 
       set_permissions :read, :write, :update
@@ -78,7 +81,7 @@ module Xeroizer
       boolean      :has_attachments
 
       belongs_to   :contact
-      has_many     :line_items
+      has_many     :line_items, :complete_on_page => true
       has_many     :payments
       has_many     :credit_notes
 

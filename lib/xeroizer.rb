@@ -3,6 +3,7 @@ require 'date'
 require 'forwardable'
 require 'active_support/inflector'
 require "active_support/core_ext/array"
+require "active_support/core_ext/big_decimal/conversions"
 require 'oauth'
 require 'oauth/signature/rsa/sha1'
 require 'nokogiri'
@@ -13,7 +14,6 @@ require 'cgi'
 
 $: << File.expand_path(File.dirname(__FILE__))
 
-require 'big_decimal_to_s'
 require 'class_level_inheritable_attributes'
 require 'xeroizer/oauth'
 require 'xeroizer/http_encoding_helper'
@@ -49,8 +49,12 @@ require 'xeroizer/models/manual_journal_line'
 require 'xeroizer/models/option'
 require 'xeroizer/models/organisation'
 require 'xeroizer/models/payment'
+require 'xeroizer/models/prepayment'
 require 'xeroizer/models/phone'
+require 'xeroizer/models/purchase_order'
 require 'xeroizer/models/receipt'
+require 'xeroizer/models/repeating_invoice'
+require 'xeroizer/models/schedule'
 require 'xeroizer/models/tax_rate'
 require 'xeroizer/models/tax_component'
 require 'xeroizer/models/tracking_category'

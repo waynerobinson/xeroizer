@@ -14,6 +14,7 @@ module Xeroizer
       string    :tax_type
       string    :account_code
       decimal   :line_amount
+      decimal   :tax_amount
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
 

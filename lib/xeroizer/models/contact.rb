@@ -1,4 +1,7 @@
 require "xeroizer/models/contact_person"
+require "xeroizer/models/balances"
+require "xeroizer/models/batch_payments"
+require "xeroizer/models/payment_terms"
 
 module Xeroizer
   module Record
@@ -36,6 +39,8 @@ module Xeroizer
       string        :skype_user_name
       string        :contact_groups
       string        :default_currency
+      string        :purchases_default_account_code
+      string        :sales_default_account_code
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
@@ -48,7 +53,11 @@ module Xeroizer
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
       has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
 
-      validates_presence_of :name
+      has_one :balances ,:model_name => 'Balances', :list_complete => true
+      has_one :batch_payments ,:model_name => 'BatchPayments', :list_complete => true
+      has_one :payment_terms ,:model_name => 'PaymentTerms', :list_complete => true
+
+      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
 
       def email_address?

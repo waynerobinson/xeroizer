@@ -29,6 +29,8 @@ module Xeroizer
             self.attributes[field_name] = record
           end
         end
+        
+        alias_method :has_one, :belongs_to
 
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
@@ -127,7 +129,7 @@ module Xeroizer
           # the complete version of the record before accessing the association.
           if list_contains_summary_only?
             define_method internal_field_name do
-              download_complete_record! unless new_record? || options[:list_complete] || complete_record_downloaded?
+              download_complete_record! unless new_record? || options[:list_complete] || options[:complete_on_page] && paged_record_downloaded? || complete_record_downloaded?
               self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
             end
           end

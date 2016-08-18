@@ -5,36 +5,50 @@
   <DateTimeUTC>2010-12-20T04:13:44.7828584Z</DateTimeUTC>
   <Contacts>
     <Contact>
-      <ContactID>f7eca431-5c97-4d24-93fd-004bb8a6c644</ContactID>
+      <ContactID>bd2270c3-8706-4c11-9cfb-000b551c3f51</ContactID>
       <ContactStatus>ACTIVE</ContactStatus>
-      <Name>Test Company Changed 923099849</Name>
-      <FirstName>Wayne</FirstName>
-      <LastName>Robinson</LastName>
+      <Name>ABC Limited</Name>
+      <FirstName>Andrea</FirstName>
+      <LastName>Dutchess</LastName>
+      <EmailAddress>a.dutchess@abclimited.com</EmailAddress>
+      <SkypeUserName>skype.dutchess@abclimited.com</SkypeUserName>
+      <BankAccountDetails>skype.dutchess@abclimited.com</BankAccountDetails>
+      <TaxNumber>skype.dutchess@abclimited.com</TaxNumber>
+      <AccountsReceivableTaxType>INPUT2</AccountsReceivableTaxType>
+      <AccountsPayableTaxType>OUTPUT2</AccountsPayableTaxType>
       <Addresses>
         <Address>
           <AddressType>POBOX</AddressType>
-        </Address>
+            <AddressLine1>P O Box 123</AddressLine1>
+            <City>Wellington</City>
+            <PostalCode>6011</PostalCode>
+            <AttentionTo>Andrea</AttentionTo>
+          </Address>
         <Address>
           <AddressType>STREET</AddressType>
         </Address>
       </Addresses>
       <Phones>
         <Phone>
-          <PhoneType>DDI</PhoneType>
+          <PhoneType>DEFAULT</PhoneType>
+          <PhoneNumber>1111111</PhoneNumber>
+          <PhoneAreaCode>04</PhoneAreaCode>
+          <PhoneCountryCode>64</PhoneCountryCode>
         </Phone>
         <Phone>
-          <PhoneType>DEFAULT</PhoneType>
+          <PhoneType>FAX</PhoneType>
         </Phone>
         <Phone>
           <PhoneType>MOBILE</PhoneType>
         </Phone>
         <Phone>
-          <PhoneType>FAX</PhoneType>
+          <PhoneType>DDI</PhoneType>
         </Phone>
       </Phones>
-      <UpdatedDateUTC>2010-12-16T15:06:41.727</UpdatedDateUTC>
+      <UpdatedDateUTC>2009-05-14T01:44:26.747</UpdatedDateUTC>
       <IsSupplier>false</IsSupplier>
-      <IsCustomer>false</IsCustomer>
+      <IsCustomer>true</IsCustomer>
+      <DefaultCurrency>NZD</DefaultCurrency>  
     </Contact>
   </Contacts>
 </Response>

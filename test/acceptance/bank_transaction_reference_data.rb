@@ -14,7 +14,6 @@ class BankTransactionReferenceData
       :type => "SPEND",
       :contact => { :name => "Jazz Kang" },
       :line_items => [
-        :item_code => "Clingfilm bike shorts",
         :description => "Bike shorts made of clear, unbreathable material",
         :quantity => 1,
         :unit_amount => 39.99,

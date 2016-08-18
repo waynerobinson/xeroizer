@@ -14,16 +14,15 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
       @the_first_bank_transaction = client.BankTransaction.all.first
     end
 
-    it "returns line items empty" do
-      assert_empty(@the_first_bank_transaction.line_items, "Expected line items to've been excluded")
+    it "has the limited set of attributes" do
+      keys = [:line_amount_types, :contact, :date, :status, :updated_date_utc, 
+              :currency_code, :bank_transaction_id, :bank_account, :type, 
+              :is_reconciled]
+      assert_equal(@the_first_bank_transaction.attributes.keys, keys)
     end
 
-    it "returns contact with name and and id ONLY (no addresses or phones)" do
-      the_contact = @the_first_bank_transaction.contact
-      assert_not_nil(the_contact.contact_id, "Expected contact id to be present")
-      assert_not_nil(the_contact.name, "Expected contact name to be present")
-      assert_empty the_contact.phones, "Expected empty contact phones"
-      assert_empty the_contact.addresses, "Expected empty contact addresses"
+    it "returns contact" do
+      assert_not_nil @the_first_bank_transaction.contact
     end
 
     it "returns the bank account" do
@@ -36,14 +35,11 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
       @a_new_bank_transaction = BankTransactionReferenceData.new(client).bank_transaction
     end
 
-    it "returns contact with addresses and phones" do
-      single_bank_transaction = client.BankTransaction.find @a_new_bank_transaction.id
-
-      assert_not_empty single_bank_transaction.contact.addresses,
-        "expected the contact's addresses to have been included"
-
-      assert_not_empty single_bank_transaction.contact.phones,
-        "expected the contact's phone numbers to have been included"
+    it "has the extended set of attributes" do
+      keys = [:line_amount_types, :contact, :date, :status, :line_items,
+              :updated_date_utc, :currency_code, :bank_transaction_id,
+              :bank_account, :type, :is_reconciled, :currency_rate]
+      assert_equal(@a_new_bank_transaction.attributes.keys, keys)
     end
 
     it "returns full line item details" do
@@ -54,3 +50,4 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
     end
   end
 end
+
