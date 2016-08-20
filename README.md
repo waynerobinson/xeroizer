@@ -356,15 +356,23 @@ in the resulting response, including all nested XML elements.
 	
 		invoices = xero.Invoice.all(:where => 'FullyPaidOnDate>=DateTime.Parse("2010-01-01T00:00:00")&&FullyPaidOnDate<=DateTime.Parse("2010-01-08T00:00:00")')
 	
-**Example 4: Retrieve all Bank Accounts:**
+**Example 4: Retrieve all Invoices using Paging (batches of 100)**
+
+		invoices = xero.Invoice.find_in_batches({foo: false}) do |invoice_batch|
+		  invoice_batch.each do |invoice|
+		    ...
+		  end
+		end
+				
+**Example 5: Retrieve all Bank Accounts:**
 	
 		accounts = xero.Account.all(:where => 'Type=="BANK"')
 	
-**Example 5: Retrieve all DELETED or VOIDED Invoices:**
+**Example 6: Retrieve all DELETED or VOIDED Invoices:**
 	
 		invoices = xero.Invoice.all(:where => 'Status=="VOIDED" OR Status=="DELETED"')
 	
-**Example 6: Retrieve all contacts with specific text in the contact name:**
+**Example 7: Retrieve all contacts with specific text in the contact name:**
 
 		contacts = xero.Contact.all(:where => 'Name.Contains("Peter")')
 		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
@@ -481,7 +489,7 @@ end
 ```
 
 `batch_save` will issue one PUT request for every 2,000 unsaved records built within its block, and one
-POST request for evert 2,000 existing records that have been altered within its block. If any of the
+POST request for every 2,000 existing records that have been altered within its block. If any of the
 unsaved records aren't valid, it'll return `false` before sending anything across the wire;
 otherwise, it returns `true`. `batch_save` takes one optional argument: the number of records to
 create/update per request. (Defaults to 2,000.)

@@ -122,6 +122,17 @@ module Xeroizer
           response.response_items || []
         end
 
+        # allow invoices to be process in batches of 100 as per xero documentation
+        # https://developer.xero.com/documentation/api/invoices/
+        def find_in_batches(options = {}, &block)
+          i = 1
+          while results = all(page: i)
+            block.call(results) if results.any?
+            i += 1
+          end
+        end
+
+
         # Helper method to retrieve just the first element from
         # the full record list.
         def first(options = {})
