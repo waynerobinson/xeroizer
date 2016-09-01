@@ -6,11 +6,12 @@ module Xeroizer
     class PurchaseOrderModel < BaseModel
         
       set_permissions :read, :write, :update
-      
+      include AttachmentModel::Extensions
     end
     
     class PurchaseOrder < Base
       
+      include Attachment::Extensions
       set_primary_key :purchase_order_id
       set_possible_primary_keys :purchase_order_id
       
