@@ -5,6 +5,7 @@ module Xeroizer
 
       #set_xml_root_name 'Overpayments'
       #set_permissions :read
+      set_permissions :read
 
     end
 
