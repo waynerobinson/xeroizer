@@ -3,8 +3,8 @@ module Xeroizer
 
     class OverpaymentModel < BaseModel
 
-      set_xml_root_name 'Overpayments'
-      set_permissions :read
+      #set_xml_root_name 'Overpayments'
+      #set_permissions :read
 
     end
 
