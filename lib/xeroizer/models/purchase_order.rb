@@ -1,5 +1,3 @@
-require "xeroizer/models/attachment"
-
 module Xeroizer
   module Record
     
