@@ -125,7 +125,7 @@ module Xeroizer
         # allow invoices to be process in batches of 100 as per xero documentation
         # https://developer.xero.com/documentation/api/invoices/
         def find_in_batches(options = {}, &block)
-          i = options[:page_number]
+          i = options[:page_number] || 1
           while results = all(page: i)
             block.call(results) if results.any?
             i += 1

@@ -358,7 +358,7 @@ in the resulting response, including all nested XML elements.
 	
 **Example 4: Retrieve all Invoices using Paging (batches of 100)**
 
-		invoices = xero.Invoice.find_in_batches({foo: false}) do |invoice_batch|
+		invoices = xero.Invoice.find_in_batches({page_number: 1}) do |invoice_batch|
 		  invoice_batch.each do |invoice|
 		    ...
 		  end
