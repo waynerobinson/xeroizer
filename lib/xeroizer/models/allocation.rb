@@ -10,6 +10,14 @@ module Xeroizer
 
 
       validates_presence_of :invoice
+
+      def invoice_id
+        invoice.id if invoice
+      end
+
+      def invoice_number
+        invoice.invoice_number if invoice
+      end
     end
   end
 end
