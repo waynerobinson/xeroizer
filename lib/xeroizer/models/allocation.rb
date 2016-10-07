@@ -5,7 +5,6 @@ module Xeroizer
 
     class Allocation < Base
       decimal :applied_amount
-      datetime :date
       belongs_to :invoice
 
 
