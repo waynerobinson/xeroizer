@@ -34,6 +34,18 @@ module Xeroizer
         contact.id if contact
       end
 
+      def invoice_id
+        invoice.id if invoice
+      end
+
+      def invoice_number
+        invoice.invoice_number if invoice
+      end
+
+      def contact_name
+        invoice.contact.name if invoice
+      end
+
     end
   end
 end
