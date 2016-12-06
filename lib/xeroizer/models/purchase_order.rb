@@ -28,7 +28,7 @@ module Xeroizer
       string  :type
       string  :currency_rate
       string  :currency_code
-      string  :branding_theme_id 
+      guid  :branding_theme_id 
       string  :status 
       string  :line_amount_types
       string  :sub_total
