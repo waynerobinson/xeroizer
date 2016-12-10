@@ -82,7 +82,7 @@ module Xeroizer
       def get(filename = nil)
         data = parent.application.http_get(parent.application.client, url)
         if filename
-          File.open(filename, "w") { | fp | fp.write data }
+          File.open(filename, "wb") { | fp | fp.write data }
           nil
         else
           data
