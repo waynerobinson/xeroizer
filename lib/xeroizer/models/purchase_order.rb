@@ -1,13 +1,17 @@
+require "xeroizer/models/attachment"
+
 module Xeroizer
   module Record
     
     class PurchaseOrderModel < BaseModel
         
       set_permissions :read, :write, :update
-      
+
+      include AttachmentModel::Extensions
     end
     
     class PurchaseOrder < Base
+      include Attachment::Extensions
       
       set_primary_key :purchase_order_id
       set_possible_primary_keys :purchase_order_id
@@ -28,7 +32,7 @@ module Xeroizer
       string  :type
       string  :currency_rate
       string  :currency_code
-      string  :branding_theme_id 
+      guid  :branding_theme_id 
       string  :status 
       string  :line_amount_types
       string  :sub_total
