@@ -1,27 +1,29 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class PayItemModel < PayrollBaseModel
-          
+
         set_permissions :read, :write, :update
 
         set_standalone_model true
         set_xml_root_name 'PayItems'
         set_xml_node_name 'PayItems'
       end
-      
+
       class PayItem < PayrollBase
 
         set_primary_key false
-        
-        has_many      :earnings_rates
+
+        has_many      :earnings_rates # AU
         has_many      :deduction_types
         has_many      :leave_types
         has_many      :reimbursement_types
 
+        has_many      :earnings_types # US
+
       end
 
-    end 
+    end
   end
 end
