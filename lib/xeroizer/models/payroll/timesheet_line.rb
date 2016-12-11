@@ -1,15 +1,20 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class TimesheetLineModel < PayrollBaseModel
-          
+
       end
-      
+
       class TimesheetLine < PayrollBase
 
+        # AU
         guid          :earnings_rate_id
         guid          :tracking_item_id
+
+        # USA
+        guid          :earnings_type_id
+        guid          :work_location_id
 
         has_array     :number_of_units, :api_child_name => 'NumberOfUnit'
 
@@ -17,6 +22,6 @@ module Xeroizer
 
       end
 
-    end 
+    end
   end
 end
