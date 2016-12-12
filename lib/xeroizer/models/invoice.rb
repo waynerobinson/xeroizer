@@ -94,6 +94,12 @@ module Xeroizer
       validates_associated :line_items, :if => :approved?
 
       public
+        def initialize(parent)
+          super(parent)
+          @sub_total_is_set = false
+          @total_tax_is_set = false
+          @total_is_set = false
+        end
 
         # Access the contact name without forcing a download of
         # an incomplete, summary invoice.
