@@ -53,10 +53,12 @@ class ContactTest < Test::Unit::TestCase
     end
 
     should "be able to have no name if has a contact_id" do
-      assert_equal(false, @contact.valid?)
-      @contact.contact_id = "1-2-3"
-      assert_equal(true, @contact.valid?)
-      assert_equal(0, @contact.errors.size)
+      contact = @client.Contact.build
+
+      assert_equal(false, contact.valid?)
+      contact.contact_id = "1-2-3"
+      assert_equal(true, contact.valid?)
+      assert_equal(0, contact.errors.size)
     end
 
     it "parses extra attributes when present" do
