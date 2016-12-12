@@ -143,7 +143,7 @@ module Xeroizer
     end
 
     def message
-      case new_status
+      case @new_status
         when 'DELETED', 'VOIDED'
           unless @invoice.payments.size == 0
             "There must be no payments in this invoice to change to '#{@new_status}'"
