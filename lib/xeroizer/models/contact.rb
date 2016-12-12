@@ -37,7 +37,6 @@ module Xeroizer
       string        :last_name
       string        :email_address
       string        :skype_user_name
-      string        :contact_groups
       string        :default_currency
       string        :purchases_default_account_code
       string        :sales_default_account_code
