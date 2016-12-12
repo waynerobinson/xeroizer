@@ -75,6 +75,8 @@ module Xeroizer
         def initialize(application, model_name)
           @application = application
           @model_name = model_name
+          @allow_batch_operations = false
+          @objects = {}
         end
 
         # Retrieve the controller name.
