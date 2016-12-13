@@ -58,6 +58,7 @@ module Xeroizer
         #   :model_name => allows class used for children to be different from it's ndoe name in the XML.
         #   :type => type of field
         #   :skip_writer => skip the writer method
+        #   :calculated => only creates the field, no access (similar to :skip_writer)
         def define_simple_attribute(field_name, field_type, options, value_if_nil = nil)
           self.fields ||= {}
           
@@ -67,11 +68,14 @@ module Xeroizer
             :api_name       => options[:api_name] || field_name.to_s.camelize,
             :type           => field_type
           })
-          define_method internal_field_name do 
-            @attributes[field_name] || value_if_nil
+
+          unless options[:calculated]
+            define_method internal_field_name do 
+              @attributes[field_name] || value_if_nil
+            end
           end
           
-          unless options[:skip_writer]
+          unless options[:skip_writer] || options[:calculated]
             define_method "#{internal_field_name}=".to_sym do | value | 
               parent.mark_dirty(self) if parent
               @attributes[field_name] = value
