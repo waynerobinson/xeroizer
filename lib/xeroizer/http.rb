@@ -148,78 +148,78 @@ module Xeroizer
     end
 
     def handle_oauth_error!(response)
-        error_details = CGI.parse(response.plain_body)
-        description   = error_details["oauth_problem_advice"].first
-        problem = error_details["oauth_problem"].first
+      error_details = CGI.parse(response.plain_body)
+      description   = error_details["oauth_problem_advice"].first
+      problem = error_details["oauth_problem"].first
 
-        # see http://oauth.pbworks.com/ProblemReporting
-        # In addition to token_expired and token_rejected, Xero also returns
-        # 'rate limit exceeded' when more than 60 requests have been made in
-        # a second.
-        if problem
-          case (problem)
-            when "token_expired"                then raise OAuth::TokenExpired.new(description)
-            when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
-            when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
-            when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
-            when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
-            else raise OAuth::UnknownError.new(problem + ':' + description)
-          end
-        else
-          raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+      # see http://oauth.pbworks.com/ProblemReporting
+      # In addition to token_expired and token_rejected, Xero also returns
+      # 'rate limit exceeded' when more than 60 requests have been made in
+      # a second.
+      if problem
+        case (problem)
+          when "token_expired"                then raise OAuth::TokenExpired.new(description)
+          when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
+          when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
+          when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
+          when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
+          else raise OAuth::UnknownError.new(problem + ':' + description)
         end
+      else
+        raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+      end
+    end
+
+    def handle_error!(response, request_body)
+
+      raw_response = response.plain_body
+
+      # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
+      # So let's ignore that :)
+      raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+
+      # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
+      doc = Nokogiri::XML(raw_response)
+
+      if doc && doc.root && doc.root.name == "ApiException"
+
+        raise ApiException.new(doc.root.xpath("Type").text,
+                               doc.root.xpath("Message").text,
+                               raw_response,
+                               doc,
+                               request_body)
+
+      else
+
+        raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
+
       end
 
-      def handle_error!(response, request_body)
+    end
 
-        raw_response = response.plain_body
-
-        # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
-        # So let's ignore that :)
-        raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
-
-        # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
-        doc = Nokogiri::XML(raw_response)
-
-        if doc && doc.root && doc.root.name == "ApiException"
-
-          raise ApiException.new(doc.root.xpath("Type").text,
-                                 doc.root.xpath("Message").text,
-                                 raw_response,
-                                 doc,
-                                 request_body)
-
-        else
-
-          raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
-
-        end
-
+    def handle_object_not_found!(response, request_url)
+      case(request_url)
+        when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
+        when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
+        else raise ObjectNotFound.new(request_url)
       end
+    end
 
-      def handle_object_not_found!(response, request_url)
-        case(request_url)
-          when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
-          when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
-          else raise ObjectNotFound.new(request_url)
-        end
-      end
+    def handle_unknown_response_error!(response)
+      raise BadResponse.new("Unknown response code: #{response.code.to_i}")
+    end
 
-      def handle_unknown_response_error!(response)
-        raise BadResponse.new("Unknown response code: #{response.code.to_i}")
-      end
+    def sleep_for(seconds = 1)
+      sleep seconds
+    end
 
-      def sleep_for(seconds = 1)
-        sleep seconds
-      end
-
-      # unitdp query string parameter to be added to request params
-      # when the application option has been set and the model has line items
-      # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
-      def unitdp_param(request_url)
-        models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
-        self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
-      end
+    # unitdp query string parameter to be added to request params
+    # when the application option has been set and the model has line items
+    # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
+    def unitdp_param(request_url)
+      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
+      self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
+    end
 
   end
 end
