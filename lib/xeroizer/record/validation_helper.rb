@@ -64,7 +64,7 @@ module Xeroizer
         
         def errors_for(attribute)
           if errors.is_a?(Array)
-            errors.find_all { | (attr, msg) | attr == attribute }.map { | (attr, msg) | msg }
+            errors.find_all { | (attr, _) | attr == attribute }.map { | (_, msg) | msg }
           end
         end
         
