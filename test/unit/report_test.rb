@@ -64,21 +64,22 @@ class FactoryTest < Test::Unit::TestCase
     
     should "convert cells to BigDecimal where possible" do
       counter = 0
-      @report.rows.each do | row |
+      @report.rows.each do |row|
         if row.row? || row.summary?
           row.cells.each do | cell |
             counter += 1 if cell.value.is_a?(BigDecimal) && cell.value > 0
           end
         elsif row.section?
-          row.rows.each do | row |
-            if row.row? || row.summary?
-              row.cells.each do | cell | 
+          row.rows.each do | inner_row |
+            if inner_row.row? || inner_row.summary?
+              inner_row.cells.each do | cell | 
                 counter += 1 if cell.value.is_a?(BigDecimal) && cell.value > 0
               end
             end
           end
         end
       end
+
       assert_not_equal(0, counter, "at least one converted number in the report should be greater than 0")
     end
     
