@@ -63,7 +63,6 @@ class FactoryTest < Test::Unit::TestCase
     end
     
     should "convert cells to BigDecimal where possible" do
-      num_regex = /^[-]?\d+(\.\d+)?$/
       counter = 0
       @report.rows.each do | row |
         if row.row? || row.summary?
