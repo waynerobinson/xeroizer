@@ -23,8 +23,8 @@ module Xeroizer
         # valid query-string parameters to pass to the API.
         def get(options = {})
           @response_xml = options[:cache_file] ? File.read(options[:cache_file]) : http_get(options)
-          response = Response.parse(response_xml, options) do | response, elements |
-            parse_reports(response, elements)
+          response = Response.parse(response_xml, options) do | inner_response, elements |
+            parse_reports(inner_response, elements)
           end
           response.response_items.first # there is is only one
         end
