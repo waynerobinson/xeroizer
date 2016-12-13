@@ -5,6 +5,8 @@ module Xeroizer
         
       set_permissions :read, :write, :update
       
+      include AttachmentModel::Extensions
+      
       public
 
         # Retrieve the PDF version of the credit matching the `id`.
