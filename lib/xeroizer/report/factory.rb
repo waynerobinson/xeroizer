@@ -36,7 +36,7 @@ module Xeroizer
         def klass
           begin
             @_klass_cache ||= Xeroizer::Report.const_get(report_type, false)
-          rescue NameError => ex # use default class
+          rescue NameError # use default class
             Base
           end
         end
