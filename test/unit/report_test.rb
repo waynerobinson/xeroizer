@@ -95,8 +95,8 @@ class FactoryTest < Test::Unit::TestCase
       @report.rows.each do | row |
         if row.type == 'Section'
           check_valid_report_type(row)
-          row.rows.each do | row |
-            check_valid_report_type(row)
+          row.rows.each do |inner_row|
+            check_valid_report_type(inner_row)
           end
         else
           check_valid_report_type(row)
