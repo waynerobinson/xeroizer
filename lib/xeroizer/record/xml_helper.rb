@@ -34,8 +34,8 @@ module Xeroizer
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
                     sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject([]) do | list, element |
-                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
+                    element.children.inject([]) do | list, inner_element |
+                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(inner_element, sub_parent)
                     end
                   end
 
