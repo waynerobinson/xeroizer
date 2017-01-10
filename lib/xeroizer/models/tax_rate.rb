@@ -1,10 +1,10 @@
 module Xeroizer
   module Record
-    
+
     class TaxRateModel < BaseModel
-            
+
       set_permissions :read
-      
+
       # TaxRates can be created using either POST or PUT.
       # POST will also silently update the tax, which can
       # be unexpected.  PUT is only for create.
@@ -12,13 +12,14 @@ module Xeroizer
         :http_put
       end
     end
-    
+
     class TaxRate < Base
       set_primary_key :name
       set_possible_primary_keys :tax_type, :name
 
       string  :name
       string  :tax_type
+      string  :report_tax_type # Read-only except for AU, NZ, and UK versions
       string  :status
       boolean :can_apply_to_assets
       boolean :can_apply_to_equity
