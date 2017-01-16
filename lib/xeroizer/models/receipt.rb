@@ -33,6 +33,26 @@ module Xeroizer
       belongs_to    :contact
       has_many      :line_items
 
+      def contact_id
+        contact.id if contact
+      end
+
+      def contact_name
+        contact.name if contact
+      end
+
+      def user_firstname
+        user.firstname if user
+      end
+
+      def user_lastname
+        user.lastname if user
+      end
+
+      def user_id
+        user.id if user
+      end
+
     end
     
   end

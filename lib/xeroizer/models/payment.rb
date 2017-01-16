@@ -14,6 +14,7 @@ module Xeroizer
 
       guid          :payment_id
       date          :date
+      decimal       :bank_amount
       decimal       :amount
       decimal       :currency_rate
       string        :payment_type
@@ -28,6 +29,22 @@ module Xeroizer
 
       def invoice_id
         invoice.id if invoice
+      end
+
+      def invoice_number
+        invoice.invoice_number if invoice
+      end
+
+      def contact_id
+        invoice.contact_id if invoice
+      end
+
+      def contact_name
+        invoice.contact.name if invoice
+      end
+
+      def invoice_type
+        invoice.type if invoice
       end
 
       def credit_note_id
