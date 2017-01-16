@@ -56,6 +56,16 @@ module Xeroizer
       def http_request(client, method, url, body, params = {})
         # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
+        if defined?(API_TRACKER)
+          api_tracker_klass = API_TRACKER
+          end_point         = url.split("api.xro/2.0/").last.split("/").first
+          api_tracker       = api_tracker_klass.new
+          api_tracker.assign_attributes(
+            api_name: :xero, url: url, parameters: params, end_point: end_point,
+            other_data: { request_body: body }, request_method: method
+          )
+        end
+
         headers = self.default_headers.merge({ 'charset' => 'utf-8' })
 
         # include the unitdp query string parameter
@@ -107,6 +117,10 @@ module Xeroizer
           log_response(response, uri)
           after_request.call(request_info, response) if after_request
 
+          if defined?(API_TRACKER)
+            api_tracker.response_code = response.code
+          end
+
           case response.code.to_i
             when 200
               response.plain_body
@@ -127,6 +141,10 @@ module Xeroizer
           sleep_for(1)
           retry
         rescue Xeroizer::OAuth::RateLimitExceeded
+          if defined?(API_TRACKER)
+            api_tracker.response_code = 'limit_exceeded'
+          end
+
           if self.rate_limit_sleep
             raise if attempts > rate_limit_max_attempts
             logger.info("Rate limit exceeded, retrying") if self.logger
@@ -134,6 +152,10 @@ module Xeroizer
             retry
           else
             raise
+          end
+        ensure
+          if defined?(API_TRACKER)
+            api_tracker.save
           end
         end
       end
