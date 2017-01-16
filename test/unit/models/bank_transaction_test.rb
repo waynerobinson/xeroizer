@@ -6,8 +6,8 @@ class BankTransactionTest < Test::Unit::TestCase
   def setup
 
     the_line_items = [
-      LineItem.build({:quantity => 1, :tax_amount => 0.15, :unit_amount => 1.00, :tax_amount => 0.50}, nil),
-      LineItem.build({:quantity => 1, :tax_amount => 0.15, :unit_amount => 1.00, :tax_amount => 0.50}, nil)
+      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.50}, nil),
+      LineItem.build({:quantity => 1, :unit_amount => 1.00, :tax_amount => 0.50}, nil)
     ]
 
     @the_bank_transaction = BankTransaction.new(nil)

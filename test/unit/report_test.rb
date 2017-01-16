@@ -1,5 +1,7 @@
 require 'test_helper'
 
+class MockNonReportClassDefinition; end
+
 class FactoryTest < Test::Unit::TestCase
   include TestHelper
   
@@ -128,7 +130,16 @@ class FactoryTest < Test::Unit::TestCase
     end
     
   end
-  
+
+  context "report factory in the dirty real world" do
+
+    should "not use inheritance to find report class" do
+      report = Xeroizer::Report::Factory.new(@client, :MockNonReportClassDefinition).klass
+      assert_equal(Xeroizer::Report::Base, report)
+    end
+
+  end
+
   private
   
     def check_valid_report_type(row)
