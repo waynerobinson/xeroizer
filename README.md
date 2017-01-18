@@ -572,7 +572,7 @@ Xero API Rate Limits
 The Xero API imposes the following limits on calls per organisation:
 
 * A limit of 60 API calls in any 60 second period
-* A limit of 1000 API calls in any 24 hour period
+* A limit of 5000 API calls in any 24 hour period
 
 By default, the library will raise a `Xeroizer::OAuth::RateLimitExceeded`
 exception when one of these limits is exceeded.
