@@ -44,6 +44,7 @@ module Xeroizer
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
+      string        :website # read only
 
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
