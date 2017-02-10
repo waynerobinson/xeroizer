@@ -45,6 +45,7 @@ module Xeroizer
       boolean       :is_supplier
       boolean       :is_customer
       string        :website # read only
+      decimal       :discount # read only
 
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
