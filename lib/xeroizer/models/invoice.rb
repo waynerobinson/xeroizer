@@ -107,6 +107,12 @@ module Xeroizer
           attributes[:contact] && attributes[:contact][:contact_id]
         end
 
+        # Access the line items without forcing a download of an
+        # incomplete, summary invoice.
+        def line_items_summary
+          attributes[:line_items]
+        end
+
         # Helper method to check if the invoice has been approved.
         def approved?
           [ 'AUTHORISED', 'PAID', 'VOIDED' ].include? status
