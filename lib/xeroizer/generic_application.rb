@@ -30,6 +30,7 @@ module Xeroizer
     record :Organisation
     record :Payment
     record :Prepayment
+    record :Overpayment
     record :PurchaseOrder
     record :Receipt
     record :RepeatingInvoice
