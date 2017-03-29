@@ -53,100 +53,100 @@ module Xeroizer
 
     private
 
-      def http_request(client, method, url, body, params = {})
-        # headers = {'Accept-Encoding' => 'gzip, deflate'}
+    def http_request(client, method, url, body, params = {})
+      # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
-        headers = self.default_headers.merge({ 'charset' => 'utf-8' })
+      headers = self.default_headers.merge({ 'charset' => 'utf-8' })
 
-        # include the unitdp query string parameter
-        params.merge!(unitdp_param(url))
+      # include the unitdp query string parameter
+      params.merge!(unitdp_param(url))
 
-        if method != :get
-          headers['Content-Type'] ||= "application/x-www-form-urlencoded"
+      if method != :get
+        headers['Content-Type'] ||= "application/x-www-form-urlencoded"
+      end
+
+      content_type = params.delete(:content_type)
+      headers['Content-Type'] = content_type if content_type
+
+      # HAX.  Xero completely misuse the If-Modified-Since HTTP header.
+      headers['If-Modified-Since'] = params.delete(:ModifiedAfter).utc.strftime("%Y-%m-%dT%H:%M:%S") if params[:ModifiedAfter]
+
+      # Allow 'Accept' header to be specified with :accept parameter.
+      # Valid values are :pdf or :json.
+      if params[:response]
+        response_type = params.delete(:response)
+        headers['Accept'] = case response_type
+          when Symbol then  ACCEPT_MIME_MAP[response_type]
+          else              response_type
         end
+      end
 
-        content_type = params.delete(:content_type)
-        headers['Content-Type'] = content_type if content_type
+      if params.any?
+        url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
+      end
 
-        # HAX.  Xero completely misuse the If-Modified-Since HTTP header.
-        headers['If-Modified-Since'] = params.delete(:ModifiedAfter).utc.strftime("%Y-%m-%dT%H:%M:%S") if params[:ModifiedAfter]
+      uri = URI.parse(url)
 
-        # Allow 'Accept' header to be specified with :accept parameter.
-        # Valid values are :pdf or :json.
-        if params[:response]
-          response_type = params.delete(:response)
-          headers['Accept'] = case response_type
-            when Symbol then  ACCEPT_MIME_MAP[response_type]
-            else              response_type
+      attempts = 0
+
+      request_info = RequestInfo.new(url, headers, params, body)
+      before_request.call(request_info) if before_request
+
+      begin
+        attempts += 1
+        logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
+
+        raw_body = params.delete(:raw_body) ? body : {:xml => body}
+
+        response = with_around_request(request_info) do
+          case method
+            when :get   then    client.get(uri.request_uri, headers)
+            when :post  then    client.post(uri.request_uri, raw_body, headers)
+            when :put   then    client.put(uri.request_uri, raw_body, headers)
           end
         end
 
-        if params.any?
-          url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
-        end
+        log_response(response, uri)
+        after_request.call(request_info, response) if after_request
 
-        uri = URI.parse(url)
-
-        attempts = 0
-
-        request_info = RequestInfo.new(url, headers, params, body)
-        before_request.call(request_info) if before_request
-
-        begin
-          attempts += 1
-          logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
-
-          raw_body = params.delete(:raw_body) ? body : {:xml => body}
-
-          response = with_around_request(request_info) do
-            case method
-              when :get   then    client.get(uri.request_uri, headers)
-              when :post  then    client.post(uri.request_uri, raw_body, headers)
-              when :put   then    client.put(uri.request_uri, raw_body, headers)
-            end
-          end
-
-          log_response(response, uri)
-          after_request.call(request_info, response) if after_request
-
-          case response.code.to_i
-            when 200
-              response.plain_body
-            when 400
-              handle_error!(response, body)
-            when 401
-              handle_oauth_error!(response)
-            when 404
-              handle_object_not_found!(response, url)
-            when 503
-              handle_oauth_error!(response)
-            else
-              handle_unknown_response_error!(response)
-          end
-        rescue Xeroizer::OAuth::NonceUsed => exception
-          raise if attempts > nonce_used_max_attempts
-          logger.info("Nonce used: " + exception.to_s) if self.logger
-          sleep_for(1)
-          retry
-        rescue Xeroizer::OAuth::RateLimitExceeded
-          if self.rate_limit_sleep
-            raise if attempts > rate_limit_max_attempts
-            logger.info("Rate limit exceeded, retrying") if self.logger
-            sleep_for(self.rate_limit_sleep)
-            retry
+        case response.code.to_i
+          when 200
+            response.plain_body
+          when 400
+            handle_error!(response, body)
+          when 401
+            handle_oauth_error!(response)
+          when 404
+            handle_object_not_found!(response, url)
+          when 503
+            handle_oauth_error!(response)
           else
-            raise
-          end
+            handle_unknown_response_error!(response)
         end
-      end
-
-      def with_around_request(request, &block)
-        if around_request
-          around_request.call(request, &block)
+      rescue Xeroizer::OAuth::NonceUsed => exception
+        raise if attempts > nonce_used_max_attempts
+        logger.info("Nonce used: " + exception.to_s) if self.logger
+        sleep_for(1)
+        retry
+      rescue Xeroizer::OAuth::RateLimitExceeded
+        if self.rate_limit_sleep
+          raise if attempts > rate_limit_max_attempts
+          logger.info("Rate limit exceeded, retrying") if self.logger
+          sleep_for(self.rate_limit_sleep)
+          retry
         else
-          block.call
+          raise
         end
       end
+    end
+
+    def with_around_request(request, &block)
+      if around_request
+        around_request.call(request, &block)
+      else
+        block.call
+      end
+    end
 
     def log_response(response, uri)
       if self.logger
@@ -181,56 +181,53 @@ module Xeroizer
       end
     end
 
-      def handle_error!(response, request_body)
+    def handle_error!(response, request_body)
 
-        raw_response = response.plain_body
+      raw_response = response.plain_body
 
-        # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
-        # So let's ignore that :)
-        raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+      # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
+      # So let's ignore that :)
+      raw_response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
 
-        # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
-        doc = Nokogiri::XML(raw_response)
+      # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
+      doc = Nokogiri::XML(raw_response)
 
-        if doc && doc.root && doc.root.name == "ApiException"
+      if doc && doc.root && doc.root.name == "ApiException"
 
-          raise ApiException.new(doc.root.xpath("Type").text,
-                                 doc.root.xpath("Message").text,
-                                 raw_response,
-                                 doc,
-                                 request_body)
+        raise ApiException.new(doc.root.xpath("Type").text,
+                               doc.root.xpath("Message").text,
+                               raw_response,
+                               doc,
+                               request_body)
 
-        else
-
-          raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
-
-        end
-
+      else
+        raise BadResponse.new("Unparseable 400 Response: #{raw_response}")
       end
+    end
 
-      def handle_object_not_found!(response, request_url)
-        case(request_url)
-          when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
-          when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
-          else raise ObjectNotFound.new(request_url)
-        end
+    def handle_object_not_found!(response, request_url)
+      case(request_url)
+        when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
+        when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
+        else raise ObjectNotFound.new(request_url)
       end
+    end
 
-      def handle_unknown_response_error!(response)
-        raise BadResponse.new("Unknown response code: #{response.code.to_i}")
-      end
+    def handle_unknown_response_error!(response)
+      raise BadResponse.new("Unknown response code: #{response.code.to_i}")
+    end
 
-      def sleep_for(seconds = 1)
-        sleep seconds
-      end
+    def sleep_for(seconds = 1)
+      sleep seconds
+    end
 
-      # unitdp query string parameter to be added to request params
-      # when the application option has been set and the model has line items
-      # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
-      def unitdp_param(request_url)
-        models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
-        self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
-      end
+    # unitdp query string parameter to be added to request params
+    # when the application option has been set and the model has line items
+    # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
+    def unitdp_param(request_url)
+      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
+      self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
+    end
 
   end
 end
