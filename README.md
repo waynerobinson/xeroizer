@@ -176,22 +176,9 @@ contacts = client.Contact.all
 
 ### Partner Applications
 
-Partner applications use a combination of 3-legged authorisation, private key message signing and client-side SSL
-certificate signing.
+Partner applications use a combination of 3-legged authorisation and private key message signing.
 
-Partner applications are only in beta testing via the Xero API and you will need to contact Xero (network@xero.com) to 
-get permission to create a partner application and for them to send you information on obtaining your client-side SSL
-certificate.
-
-Ruby's OpenSSL library requires the certificate and private key to be extracted from the `entrust-client.p12` file
-downloaded via Xero's instructions. To extract:
-
-	openssl pkcs12 -in entrust-client.p12 -clcerts -nokeys -out entrust-cert.pem
-	openssl pkcs12 -in entrust-client.p12 -nocerts -out entrust-private.pem
-	openssl rsa -in entrust-private.pem -out entrust-private-nopass.pem
-	
-	# This last step removes the password that you added to the private key
-	# when it was exported.
+You will need to contact Xero (network@xero.com) to get permission to create a partner application.
 
 After you have followed the instructions provided by Xero for partner applications and uploaded your certificate you can
 access the partner application in a similar way to public applications.
@@ -202,9 +189,7 @@ Authentication occcurs in 3 steps:
 client = Xeroizer::PartnerApplication.new(
 					YOUR_OAUTH_CONSUMER_KEY,
 					YOUR_OAUTH_CONSUMER_SECRET, 
-					"/path/to/privatekey.pem",
-					"/path/to/entrust-cert.pem",
-					"/path/to/entrust-private-nopass.pem"
+					"/path/to/privatekey.pem"
 					)
 
 # 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
