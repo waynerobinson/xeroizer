@@ -25,7 +25,7 @@ module Xeroizer
 
       attr_reader :application
       attr_reader :model_name
-      attr :model_class
+      attr_writer :model_class
       attr_reader :response
 
       class << self
