@@ -98,10 +98,12 @@ module Xeroizer
 
           raw_body = params.delete(:raw_body) ? body : {:xml => body}
 
-          response = case method
-            when :get   then    client.get(uri.request_uri, headers)
-            when :post  then    client.post(uri.request_uri, raw_body, headers)
-            when :put   then    client.put(uri.request_uri, raw_body, headers)
+          response = with_around_request(request_info) do
+            case method
+              when :get   then    client.get(uri.request_uri, headers)
+              when :post  then    client.post(uri.request_uri, raw_body, headers)
+              when :put   then    client.put(uri.request_uri, raw_body, headers)
+            end
           end
 
           log_response(response, uri)
@@ -135,6 +137,14 @@ module Xeroizer
           else
             raise
           end
+        end
+      end
+
+      def with_around_request(request, &block)
+        if around_request
+          around_request.call(request, &block)
+        else
+          block.call
         end
       end
 
