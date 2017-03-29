@@ -49,7 +49,7 @@ module Xeroizer
           options[:api_name] ||= field_name.to_s.camelize.gsub(/Id/, 'ID')
           define_simple_attribute(field_name, :guid, options)
         end
-              
+ 
         # Helper method to simplify field definition. 
         # Creates an accessor and reader for the field.
         # Options:
@@ -58,6 +58,8 @@ module Xeroizer
         #   :model_name => allows class used for children to be different from it's ndoe name in the XML.
         #   :type => type of field
         #   :skip_writer => skip the writer method
+        #   :skip_reader => skip the reader method
+        #   :calculated => only creates the field, no access (similar to skip_writer: true, skip_reader: true)
         def define_simple_attribute(field_name, field_type, options, value_if_nil = nil)
           self.fields ||= {}
           
@@ -67,16 +69,19 @@ module Xeroizer
             :api_name       => options[:api_name] || field_name.to_s.camelize,
             :type           => field_type
           })
+
+
+          # Users are expected to implement accessors for calculated methods
           define_method internal_field_name do 
             @attributes[field_name] || value_if_nil
-          end
-          
-          unless options[:skip_writer]
-            define_method "#{internal_field_name}=".to_sym do | value | 
-              parent.mark_dirty(self) if parent
-              @attributes[field_name] = value
-            end
-          end
+          end unless options[:calculated] || options[:skip_reader]
+
+
+          define_method "#{internal_field_name}=".to_sym do | value | 
+            parent.mark_dirty(self) if parent
+            @attributes[field_name] = value
+          end unless options[:calculated] || options[:skip_writer]
+
         end
         
       end

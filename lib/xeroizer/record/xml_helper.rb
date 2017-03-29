@@ -34,8 +34,8 @@ module Xeroizer
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
                     sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject([]) do | list, element |
-                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
+                    element.children.inject([]) do | list, inner_element |
+                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(inner_element, sub_parent)
                     end
                   end
 
@@ -60,8 +60,8 @@ module Xeroizer
         
           # Turn a record into its XML representation.
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
-            optional_root_tag(parent.class.optional_xml_root_name, b) do |b|
-              b.tag!(model.class.xml_node_name || model.model_name) {
+            optional_root_tag(parent.class.optional_xml_root_name, b) do |c|
+              c.tag!(model.class.xml_node_name || model.model_name) {
                 attributes.each do | key, value |
                   field = self.class.fields[key]
                   value = self.send(key) if field[:calculated]
@@ -82,7 +82,7 @@ module Xeroizer
           #   </Payments>
           def optional_root_tag(root_name, b, &block)
             if root_name
-              b.tag!(root_name) { |b| yield(b) }
+              b.tag!(root_name) { |c| yield(c) }
             else
               yield(b)
             end
