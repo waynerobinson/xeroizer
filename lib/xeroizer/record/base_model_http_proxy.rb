@@ -44,7 +44,7 @@ module Xeroizer
             conditions = []
             where.each do | key, value |
               (attribute_name, expression) = extract_expression_from_attribute_name(key)
-              (field_name, field) = model_class.fields.find { | k, v | v[:internal_name] == attribute_name }
+              (_, field) = model_class.fields.find { | k, v | v[:internal_name] == attribute_name }
               if field
                 conditions << where_condition_part(field, expression, value)                
               else
