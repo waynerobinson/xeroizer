@@ -69,6 +69,7 @@ module Xeroizer
       decimal      :sub_total, :calculated => true
       decimal      :total_tax, :calculated => true
       decimal      :total, :calculated => true
+      decimal      :total_discount
       decimal      :amount_due
       decimal      :amount_paid
       decimal      :amount_credited
