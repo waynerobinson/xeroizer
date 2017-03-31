@@ -60,6 +60,7 @@ module Xeroizer
 
       validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
+      validates_associated :addresses, allow_blanks: true
 
       def email_address?
         email_address.present?
