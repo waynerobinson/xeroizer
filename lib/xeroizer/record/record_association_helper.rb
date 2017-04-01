@@ -82,11 +82,21 @@ module Xeroizer
         end
 
         def define_association_attribute(field_name, internal_field_name, association_type, options)
-          define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), ((association_type == :has_many) ? [] : nil))
+          define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true, :skip_reader => list_contains_summary_only?), ((association_type == :has_many) ? [] : nil))
 
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = internal_field_name.to_s.singularize
           model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
+
+          # Override reader for this association if this association belongs
+          # to a summary-typed record. This will automatically attempt to download
+          # the complete version of the record before accessing the association.
+          if list_contains_summary_only?
+            define_method internal_field_name do
+              download_complete_record! unless new_record? || options[:list_complete] || options[:complete_on_page] && paged_record_downloaded? || complete_record_downloaded?
+              self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
+            end
+          end
 
           define_method "#{internal_field_name}=".to_sym do | value |
             record_class = Xeroizer::Record.const_get(model_name)
@@ -121,16 +131,6 @@ module Xeroizer
 
               else
                 raise AssociationTypeMismatch.new(record_class, value.class)
-            end
-          end
-
-          # Override reader for this association if this association belongs
-          # to a summary-typed record. This will automatically attempt to download
-          # the complete version of the record before accessing the association.
-          if list_contains_summary_only?
-            define_method internal_field_name do
-              download_complete_record! unless new_record? || options[:list_complete] || options[:complete_on_page] && paged_record_downloaded? || complete_record_downloaded?
-              self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
             end
           end
         end

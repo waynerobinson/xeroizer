@@ -35,9 +35,10 @@ module Xeroizer
       string  :type
       string  :status
       string  :line_amount_types
-      decimal :sub_total, :calculated => true
-      decimal :total_tax, :calculated => true
-      decimal :total, :calculated => true
+      # TODO These are usually calculated fields, see Invoice.
+      decimal :sub_total
+      decimal :total_tax
+      decimal :total
       string  :currency_code
       boolean :has_attachments
 
