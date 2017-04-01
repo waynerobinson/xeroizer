@@ -24,6 +24,7 @@ module Xeroizer
         decimal       :reimbursements
         decimal       :net_pay
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+        date          :payment_date
 
         has_many      :earnings_lines
         has_many      :leave_earnings_lines, :model_name => 'EarningsLine'
