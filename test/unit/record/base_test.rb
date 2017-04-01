@@ -61,7 +61,7 @@ class RecordBaseTest < Test::Unit::TestCase
       def to_xml(b = nil); "<FakeRequest />" end
       string :id
     end
-    class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel ; end
+    class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel; end
 
     # Setup before each test
     setup do

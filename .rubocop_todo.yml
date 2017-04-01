@@ -756,12 +756,6 @@ Style/SpaceBeforeFirstArg:
     - 'lib/xeroizer/models/organisation.rb'
     - 'lib/xeroizer/models/purchase_order.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SpaceBeforeSemicolon:
-  Exclude:
-    - 'test/unit/record/base_test.rb'
-
 # Offense count: 32
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SupportedStylesForEmptyBraces, SpaceBeforeBlockParameters.
