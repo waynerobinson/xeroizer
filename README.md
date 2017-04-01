@@ -114,8 +114,8 @@ class XeroSessionController < ApplicationController
 					:access_token => @xero_client.access_token.token,
 					:access_key => @xero_client.access_token.secret }
 															
-			session[:request_token] = nil
-            session[:request_secret] = nil
+			session.data.delete(:request_token)
+			session.data.delete(:request_secret)
 		end
 		
 		def destroy
