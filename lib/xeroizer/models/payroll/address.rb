@@ -2,11 +2,10 @@ module Xeroizer
   module Record
     module Payroll
 
-      class HomeAddressModel < PayrollBaseModel
-        set_xml_node_name 'HomeAddress'
+      class AddressModel < PayrollBaseModel
       end
 
-      class HomeAddress < PayrollBase
+      class Address < PayrollBase
 
         string      :address_line1
         string      :address_line2

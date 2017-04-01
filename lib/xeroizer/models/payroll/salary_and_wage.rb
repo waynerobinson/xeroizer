@@ -9,9 +9,8 @@ module Xeroizer
       class SalaryAndWage < PayrollBase
 
         SALARY_AND_WAGE_TYPE = {
-          'FIXEDAMOUNTEACHPERIOD' => 'You can enter a manually calculated rate for the accrual, accrue a fixed amount of leave each pay period based on an annual entitlement (for example, if you pay your employees monthly, you would accrue 1/12th of their annual entitlement each month), or accrue an amount relative to the number of hours an employee worked in the pay period',
-          'ENTERRATEINPAYTEMPLATE' => '',
-          'BASEDONORDINARYEARNINGS' => ''
+          'HOURLY' => '',
+          'SALARY' => ''
         } unless defined?(SALARY_AND_WAGE_TYPE)
 
         guid          :salary_and_wage_id

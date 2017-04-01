@@ -21,6 +21,9 @@ module Xeroizer
             # The name of the record model.
             model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
 
+            # The name of the record in the xml API
+            api_name = options[:api_name] ? options[:api_name] : model_name
+
             # The record's parent instance for this current application.
             model_parent = new_model_class(model_name)
 
@@ -42,6 +45,9 @@ module Xeroizer
           define_method "add_#{internal_singular_field_name}" do | *args |
             # The name of the record model.
             model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
+
+            # The name of the record in the xml API
+            api_name = options[:api_name] ? options[:api_name] : model_name
 
             # The record's parent instance for this current application.
             model_parent = new_model_class(model_name)
