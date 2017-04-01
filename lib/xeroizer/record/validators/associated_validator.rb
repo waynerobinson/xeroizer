@@ -23,15 +23,6 @@ module Xeroizer
                 record.errors << [attribute, "must have one or more records"] 
               end
 
-            when :has_one
-              return true if options[:allow_blanks] && record[attribute].nil?
-              if record[attribute]
-                unless record[attribute].is_a?(Xeroizer::Record::Base) && record[attribute].valid?
-                  record.errors << [attribute, options[:message] || "must all be valid"]
-                end
-              else
-                record.errors << [attribute, "must have one or more records"] 
-              end
           end
         end
         
