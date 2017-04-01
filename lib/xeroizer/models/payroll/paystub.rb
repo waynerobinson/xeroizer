@@ -33,6 +33,8 @@ module Xeroizer
         has_many      :benefit_lines
         has_many      :time_off_lines
 
+        belongs_to    :pay_run
+
         validates_presence_of :paystub_id, :unless => :new_record?
 
       end
