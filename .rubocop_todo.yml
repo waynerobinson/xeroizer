@@ -882,12 +882,6 @@ Style/UnlessElse:
   Exclude:
     - 'lib/xeroizer/models/credit_note.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/UnneededInterpolation:
-  Exclude:
-    - 'test/test_helper.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: SupportedStyles, WordRegex.

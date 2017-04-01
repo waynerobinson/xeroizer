@@ -46,9 +46,9 @@ module TestHelper
   end
   
   def mock_api(model_name)
-    @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml("#{model_name.underscore.pluralize}".to_sym))
-    @client.send("#{model_name.singularize}".to_sym).all.each do | record |
-      @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml("#{model_name.underscore.singularize}".to_sym, record.id))
+    @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml(model_name.underscore.pluralize.to_s.to_sym))
+    @client.send(model_name.singularize.to_s.to_sym).all.each do | record |
+      @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml(model_name.underscore.singularize.to_s.to_sym, record.id))
     end
   end
   
