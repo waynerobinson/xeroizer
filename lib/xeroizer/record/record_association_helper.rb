@@ -35,7 +35,7 @@ module Xeroizer
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
-        
+
           define_association_attribute(field_name, internal_field_name, :has_many, options)
 
           # Create an #add_record_name method to build the record and add to the attributes.
