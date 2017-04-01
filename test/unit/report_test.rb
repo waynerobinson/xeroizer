@@ -93,13 +93,11 @@ class FactoryTest < Test::Unit::TestCase
 
     should "have working report type helpers" do
       @report.rows.each do | row |
-        if row.type == 'Section'
-          check_valid_report_type(row)
-          row.rows.each do |inner_row|
-            check_valid_report_type(inner_row)
-          end
-        else
-          check_valid_report_type(row)
+        check_valid_report_type(row)
+
+        next unless row.type == 'Section'
+        row.rows.each do |inner_row|
+          check_valid_report_type(inner_row)
         end
       end
     end
