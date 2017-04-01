@@ -139,13 +139,6 @@ Performance/RedundantBlockCall:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: MaxKeyValuePairs.
-Performance/RedundantMerge:
-  Exclude:
-    - 'lib/xeroizer/private_application.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Security/YAMLLoad:
   Exclude:
     - 'lib/xeroizer/configuration.rb'
