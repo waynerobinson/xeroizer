@@ -8,10 +8,8 @@ module Xeroizer
 
         def parse_response(response_xml, options = {})
           Response.parse(response_xml, options) do | response, elements, response_model_name |
-            if model_name == response_model_name
-              @response = response
-              parse_records(response, [self], paged_records_requested?(options), (options[:base_module] || Xeroizer::Record::Payroll))
-            end
+            @response = response
+            parse_records(response, [self], paged_records_requested?(options), (options[:base_module] || Xeroizer::Record::Payroll))
           end
         end
 
