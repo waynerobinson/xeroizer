@@ -167,7 +167,7 @@ module Xeroizer
       # 'rate limit exceeded' when more than 60 requests have been made in
       # a second.
       if problem
-        case (problem)
+        case problem
           when "token_expired"                then raise OAuth::TokenExpired.new(description)
           when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
           when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)

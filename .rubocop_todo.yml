@@ -616,7 +616,6 @@ Style/RedundantBegin:
 # Cop supports --auto-correct.
 Style/RedundantParentheses:
   Exclude:
-    - 'lib/xeroizer/http.rb'
     - 'test/unit/models/line_item_test.rb'
 
 # Offense count: 2
