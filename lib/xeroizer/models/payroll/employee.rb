@@ -37,6 +37,7 @@ module Xeroizer
 
         has_one       :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
         has_one       :tax_declaration, :internal_name_singular => "tax_declaration", :model_name => "TaxDeclaration"
+        has_one       :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
         has_many      :bank_accounts
 
         validates_presence_of :first_name, :last_name, :unless => :new_record?
