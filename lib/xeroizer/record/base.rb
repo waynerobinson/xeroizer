@@ -119,7 +119,7 @@ module Xeroizer
           parent.mark_clean(self)
           true
         end
-
+        
         def to_json(*args)
           to_h.to_json(*args)
         end
