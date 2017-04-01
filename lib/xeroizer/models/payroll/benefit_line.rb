@@ -18,6 +18,7 @@ module Xeroizer
         decimal :amount
 
         validates_presence_of :benefit_type_id, :calculation_type, :unless => :new_record?
+        validates_inclusion_of :calculation_type, :in => BENEFIT_TYPE_CALCULATION_TYPE
       end
 
     end

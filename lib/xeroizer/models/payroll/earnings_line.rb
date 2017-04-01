@@ -29,8 +29,9 @@ module Xeroizer
         decimal       :fixed_amount
         decimal       :number_of_units
 
-        validates_presence_of :earning_rate_id, :calculation_type, :unless => :new_record?
-        validates_inclusion_of :calculation_type, :in => EARNINGS_RATE_CALCULATION_TYPE
+        validates_presence_of :earning_rate_id, :if => Proc.new { |el| el.earnings_type_id.blank? }
+        validates_presence_of :earnings_type_id, :if => Proc.new { |el| el.earning_rate_id.blank? }
+        validates_inclusion_of :calculation_type, :in => EARNINGS_RATE_CALCULATION_TYPE, :unless => :new_record?
       end
 
     end

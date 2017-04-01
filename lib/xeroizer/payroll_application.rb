@@ -1,6 +1,6 @@
 module Xeroizer
   class PayrollApplication
-    
+
     attr_reader :application
 
     # Factory for new Payroll BaseModel instances with the class name `record_type`.
@@ -15,11 +15,13 @@ module Xeroizer
           instance_variable_set(var_name, Xeroizer::Record::Payroll.const_get("#{record_type}Model".to_sym).new(self.application, record_type.to_s))
         end
         instance_variable_get(var_name)
-      end  
+      end
     end
 
     record :Employee
-    
+    record :PayRun
+    record :Paystub
+
     def initialize(application)
       @application = application
     end
