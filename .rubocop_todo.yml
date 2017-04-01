@@ -710,12 +710,6 @@ Style/SpaceAfterComma:
 Style/SpaceAroundBlockParameters:
   Enabled: false
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SpaceAroundKeyword:
-  Exclude:
-    - 'lib/xeroizer/http.rb'
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.

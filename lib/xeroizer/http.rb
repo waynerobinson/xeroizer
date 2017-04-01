@@ -206,7 +206,7 @@ module Xeroizer
     end
 
     def handle_object_not_found!(response, request_url)
-      case(request_url)
+      case request_url
         when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
         when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
         else raise ObjectNotFound.new(request_url)
