@@ -54,9 +54,9 @@ module Xeroizer
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
       has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
 
-      has_one :balances ,:model_name => 'Balances', :list_complete => true
-      has_one :batch_payments ,:model_name => 'BatchPayments', :list_complete => true
-      has_one :payment_terms ,:model_name => 'PaymentTerms', :list_complete => true
+      has_one :balances, :model_name => 'Balances', :list_complete => true
+      has_one :batch_payments, :model_name => 'BatchPayments', :list_complete => true
+      has_one :payment_terms, :model_name => 'PaymentTerms', :list_complete => true
 
       validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true

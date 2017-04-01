@@ -738,12 +738,6 @@ Style/SpaceBeforeBlockBraces:
     - 'test/unit/models/address_test.rb'
     - 'test/unit/record/block_validator_test.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/SpaceBeforeComma:
-  Exclude:
-    - 'lib/xeroizer/models/contact.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
