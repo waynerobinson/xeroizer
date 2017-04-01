@@ -428,16 +428,6 @@ Style/IndentHash:
 Style/IndentationConsistency:
   Enabled: false
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: Width.
-Style/IndentationWidth:
-  Exclude:
-    - 'lib/xeroizer/report/row/header.rb'
-    - 'test/unit/record/base_model_test.rb'
-    - 'test/unit/record/model_definition_test.rb'
-    - 'test/unit/report_test.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/LineEndConcatenation:

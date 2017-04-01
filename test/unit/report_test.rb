@@ -149,7 +149,7 @@ class FactoryTest < Test::Unit::TestCase
         when 'SummaryRow'   then assert_equal(true, row.summary?)
         when 'Section'      then assert_equal(true, row.section?)
         else
-            assert(false, "Invalid type: #{row.type}")
+          assert(false, "Invalid type: #{row.type}")
       end
     end
     
