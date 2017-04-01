@@ -82,7 +82,7 @@ module Xeroizer
       end
 
       if params.any?
-        url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
+        url += "?" + params.map {|key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
       end
 
       uri = URI.parse(url)

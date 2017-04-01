@@ -699,8 +699,6 @@ Style/SingleLineMethods:
 # Cop supports --auto-correct.
 Style/SpaceAfterComma:
   Exclude:
-    - 'lib/xeroizer/http.rb'
-    - 'lib/xeroizer/models/contact.rb'
     - 'test/unit/models/repeating_invoice_test.rb'
 
 # Offense count: 162
