@@ -36,6 +36,7 @@ module Xeroizer
       string    :name
       string    :legal_name
       string    :short_code
+      string    :organisation_id
       boolean   :pays_tax
       string    :version
       string    :organisation_type
