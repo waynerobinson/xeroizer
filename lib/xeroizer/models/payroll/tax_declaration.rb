@@ -1,15 +1,16 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class TaxDeclarationModel < PayrollBaseModel
-          
+
       end
-      
+
       class TaxDeclaration < PayrollBase
-        
+
         guid         :employee_id
         string       :employment_basis
+        string       :tax_file_number
         string       :tfn_exemption_type, :api_name => 'TFNExemptionType'
         boolean      :australian_resident_for_tax_purposes
         boolean      :tax_free_threshold_claimed
@@ -22,6 +23,6 @@ module Xeroizer
 
       end
 
-    end 
+    end
   end
 end
