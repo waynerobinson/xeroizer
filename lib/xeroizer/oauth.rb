@@ -24,13 +24,14 @@ module Xeroizer
 
   class OAuth
 
-    class TokenExpired < StandardError; end
-    class TokenInvalid < StandardError; end
-    class RateLimitExceeded < StandardError; end
-    class ConsumerKeyUnknown < StandardError; end
-    class NonceUsed < StandardError; end
-    class OrganisationOffline < StandardError; end
-    class UnknownError < StandardError; end
+    class Error < StandardError; end
+    class TokenExpired < Error; end
+    class TokenInvalid < Error; end
+    class RateLimitExceeded < Error; end
+    class ConsumerKeyUnknown < Error; end
+    class NonceUsed < Error; end
+    class OrganisationOffline < Error; end
+    class UnknownError < Error; end
 
     unless defined? XERO_CONSUMER_OPTIONS
       XERO_CONSUMER_OPTIONS = {
