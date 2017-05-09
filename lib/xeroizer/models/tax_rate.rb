@@ -21,6 +21,7 @@ module Xeroizer
       string  :tax_type
       string  :report_tax_type # Read-only except for AU, NZ, and UK versions
       string  :status
+      string  :report_tax_type
       boolean :can_apply_to_assets
       boolean :can_apply_to_equity
       boolean :can_apply_to_expenses
