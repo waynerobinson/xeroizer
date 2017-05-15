@@ -1,6 +1,6 @@
 module Xeroizer
   class PayrollApplication
-    
+
     attr_reader :application
 
     extend Forwardable
@@ -21,7 +21,7 @@ module Xeroizer
           instance_variable_set(var_name, Xeroizer::Record::Payroll.const_get("#{record_type}Model".to_sym).new(self.application, record_type.to_s))
         end
         instance_variable_get(var_name)
-      end  
+      end
     end
 
     record :Employee
@@ -32,7 +32,8 @@ module Xeroizer
     record :PayRun
     record :Payslip
     record :Setting
-    
+    record :SuperFund
+
     def initialize(application)
       @application = application
     end

@@ -2,15 +2,15 @@ module Xeroizer
   module Record
     module Payroll
 
-      class SuperFund < PayrollBaseModel
-
+      class SuperFundModel < PayrollBaseModel
+        set_permissions :read, :write, :update
       end
 
       # https://developer.xero.com/documentation/payroll-api/superfunds
       class SuperFund < PayrollBase
 
         guid   :super_fund_id
-        string :type
+        string :type # http://developer.xero.com/documentation/payroll-api/types-and-codes#SuperFundsTypes
         string :abn, api_name: "ABN"
 
         # this is for Regulated funds
