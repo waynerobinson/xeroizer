@@ -6,6 +6,7 @@ module Xeroizer
 
       end
 
+      # https://developer.xero.com/documentation/payroll-api/superfunds
       class SuperFund < PayrollBase
 
         guid   :super_fund_id
