@@ -5,6 +5,8 @@ module Xeroizer
         
       set_permissions :read, :write, :update
       
+      include AttachmentModel::Extensions
+      
       public
 
         # Retrieve the PDF version of the credit matching the `id`.
@@ -94,11 +96,11 @@ module Xeroizer
         # Calculate sub_total from line_items.
         def sub_total(always_summary = false)
           if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
-            sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
+            overall_sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
             
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
-            sum -= total_tax if line_amount_types == 'Inclusive' 
-            sum
+            overall_sum -= total_tax if line_amount_types == 'Inclusive' 
+            overall_sum
           else
             attributes[:sub_total]
           end

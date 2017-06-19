@@ -31,7 +31,7 @@ class RecordBaseModelTest < Test::Unit::TestCase
     end
     
     should "set_api_controller_name should set the base controller name used by Xero" do
-     assert_equal('AppleController', @apple_model.api_controller_name)
+      assert_equal('AppleController', @apple_model.api_controller_name)
      assert_equal('PearController', @pear_model.api_controller_name)
     end
     

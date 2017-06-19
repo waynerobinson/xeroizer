@@ -20,6 +20,20 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(true, contact.valid?)
       assert_equal(0, contact.errors.size)
     end
+
+    should "not allow invalid addresses" do
+      contact = @client.Contact.build(name: "SOMETHING")
+      address = contact.add_address(:type => "INVALID_TYPE")
+
+      assert_equal(false, contact.valid?)
+      invalid_error = contact.errors_for(:addresses).first
+      assert_not_nil(invalid_error)
+      assert_equal("must all be valid", invalid_error)
+
+      address.type = "DEFAULT"
+      assert_equal(true, contact.valid?)
+      assert_equal(0, contact.errors.size)
+    end
   end
 
   context "response parsing" do
@@ -53,10 +67,12 @@ class ContactTest < Test::Unit::TestCase
     end
 
     should "be able to have no name if has a contact_id" do
-      assert_equal(false, @contact.valid?)
-      @contact.contact_id = "1-2-3"
-      assert_equal(true, @contact.valid?)
-      assert_equal(0, @contact.errors.size)
+      contact = @client.Contact.build
+
+      assert_equal(false, contact.valid?)
+      contact.contact_id = "1-2-3"
+      assert_equal(true, contact.valid?)
+      assert_equal(0, contact.errors.size)
     end
 
     it "parses extra attributes when present" do

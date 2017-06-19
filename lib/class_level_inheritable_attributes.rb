@@ -16,10 +16,13 @@ module ClassLevelInheritableAttributes
     end
     
     def inherited(subclass)
+      original_verbose, $VERBOSE = $VERBOSE, nil
       @xeroizer_inheritable_attributes.each do |inheritable_attribute|
         instance_var = "@#{inheritable_attribute}"
         subclass.instance_variable_set(instance_var, instance_variable_get(instance_var))
       end
+      $VERBOSE = original_verbose
+
     end
   end
 end

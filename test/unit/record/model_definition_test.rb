@@ -42,7 +42,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   class Xeroizer::Record::TestRecordModel < Xeroizer::Record::BaseModel; end
   
   class SummaryOnlyRecord < Xeroizer::Record::Base
-  class Xeroizer::Record::SummaryOnlyRecordModel < Xeroizer::Record::BaseModel; end
+    class Xeroizer::Record::SummaryOnlyRecordModel < Xeroizer::Record::BaseModel; end
     
     list_contains_summary_only true
     set_possible_primary_keys :primary_key_id
@@ -53,7 +53,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   end
   
   class SummaryOnlyOffRecord < Xeroizer::Record::Base
-  class Xeroizer::Record::SummaryOnlyOffRecordModel < Xeroizer::Record::BaseModel; end
+    class Xeroizer::Record::SummaryOnlyOffRecordModel < Xeroizer::Record::BaseModel; end
     
     set_possible_primary_keys :primary_key_id
     set_primary_key :primary_key_id

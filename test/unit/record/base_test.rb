@@ -55,13 +55,16 @@ class RecordBaseTest < Test::Unit::TestCase
   end
 
   context "about logging" do
+    # Setup we only wish to do once:
+    class ExampleRecordClass < Xeroizer::Record::Base
+      def valid?; true; end
+      def to_xml(b = nil); "<FakeRequest />" end
+      string :id
+    end
+    class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel; end
+
+    # Setup before each test
     setup do
-      class ExampleRecordClass < Xeroizer::Record::Base
-        def valid?; true; end
-        def to_xml(b = nil); "<FakeRequest />" end
-        string :id
-      end
-      class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel ; end
       @example_class = ExampleRecordClass
     end
 

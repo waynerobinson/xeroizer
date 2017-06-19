@@ -22,7 +22,12 @@ module Xeroizer
       string  :line_item_id
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
-      
+
+      def initialize(parent)
+        super(parent)
+        @line_amount_set = false
+      end
+
       def line_amount=(line_amount)
         @line_amount_set = true
         attributes[:line_amount] = line_amount

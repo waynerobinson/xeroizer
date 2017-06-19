@@ -12,7 +12,7 @@ module Xeroizer
       module ClassMethods
         
         # Build a record instance from the XML node.
-        def build_from_node(node, parent)
+        def build_from_node(node, parent, base_module)
           record = new(parent)
           node.elements.each do | element |
             field = self.fields[element.name.to_s.underscore.to_sym]
@@ -25,17 +25,17 @@ module Xeroizer
                 when :decimal     then BigDecimal.new(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
-                when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc.round(3)
+                when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
                 when :belongs_to  
                   model_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
-                  Xeroizer::Record.const_get(model_name).build_from_node(element, parent)
+                  base_module.const_get(model_name).build_from_node(element, parent, base_module)
                   
                 when :has_many
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
                     sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject([]) do | list, element |
-                      list << Xeroizer::Record.const_get(sub_field_name).build_from_node(element, sub_parent)
+                    element.children.inject([]) do | list, inner_element |
+                      list << base_module.const_get(sub_field_name).build_from_node(inner_element, sub_parent, base_module)
                     end
                   end
 
@@ -60,8 +60,8 @@ module Xeroizer
         
           # Turn a record into its XML representation.
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
-            optional_root_tag(parent.class.optional_xml_root_name, b) do |b|
-              b.tag!(model.class.xml_node_name || model.model_name) {
+            optional_root_tag(parent.class.optional_xml_root_name, b) do |c|
+              c.tag!(model.class.xml_node_name || model.model_name) {
                 attributes.each do | key, value |
                   field = self.class.fields[key]
                   value = self.send(key) if field[:calculated]
@@ -82,7 +82,7 @@ module Xeroizer
           #   </Payments>
           def optional_root_tag(root_name, b, &block)
             if root_name
-              b.tag!(root_name) { |b| yield(b) }
+              b.tag!(root_name) { |c| yield(c) }
             else
               yield(b)
             end
@@ -107,6 +107,8 @@ module Xeroizer
                 real_value = case value
                   when Date         then value.strftime("%Y-%m-%d")
                   when Time         then value.utc.strftime("%Y-%m-%d")
+                  when NilClass     then nil
+                  else raise ArgumentError.new("Expected Date or Time object for the #{field[:api_name]} field")
                 end
                 b.tag!(field[:api_name], real_value)
                 

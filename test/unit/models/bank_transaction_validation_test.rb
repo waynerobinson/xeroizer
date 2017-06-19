@@ -8,7 +8,7 @@ class BankTransactionValidationTest < Test::Unit::TestCase
 
     assert false == instance.valid?, "Expected invalid because of invalid type"
 
-    expected_error = "Invalid type. Expected either SPEND, RECEIVE, RECEIVE-PREPAYMENT or RECEIVE-OVERPAYMENT."
+    expected_error = "Invalid type. Expected one of https://developer.xero.com/documentation/api/types#BankTransactionTypes"
 
     assert_equal expected_error, instance.errors_for(:type).first, "Expected an error about type"
 

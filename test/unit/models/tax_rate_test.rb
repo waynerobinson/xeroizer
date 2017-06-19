@@ -32,6 +32,25 @@ class TaxRateTest < Test::Unit::TestCase
     assert_equal "10.0", tax_component.rate.to_s
   end
 
+  should "allow reading of the ReportTaxType" do
+    @client.expects(:http_get).with { |client, url, extra_params|
+      url == "https://api.xero.com/api.xro/2.0/TaxRates"
+    }.returns(tax_rate_get_response)
+    rates = @client.TaxRate.all
+    assert_equal "OUTPUT", rates.first.report_tax_type
+  end
+
+  should "allow GET with a filter on ReportTaxType" do
+    expected_url    = "https://api.xero.com/api.xro/2.0/TaxRates"
+    expected_params = {:where => 'ReportTaxType=="OUTPUT"'}
+
+    @client.expects(:http_get).with { |client, url, extra_params|
+      url == expected_url && extra_params == expected_params
+    }.returns(tax_rate_get_response)
+
+    @client.TaxRate.all(where: {report_tax_type: 'OUTPUT'})
+  end
+
   def expected_tax_rate_create_body
     <<-EOS
 <TaxRate>
@@ -78,4 +97,36 @@ class TaxRateTest < Test::Unit::TestCase
     EOS
   end
 
+  def tax_rate_get_response
+    <<-EOS
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>53715e8f-f080-4cd8-a077-1100c0512d44</Id>
+  <Status>OK</Status>
+  <ProviderName>Xero API Previewer</ProviderName>
+  <DateTimeUTC>2014-10-28T15:39:58.5477531Z</DateTimeUTC>
+  <TaxRates>
+    <TaxRate>
+      <Name>Tax on Sales</Name>
+      <TaxType>OUTPUT</TaxType>
+      <ReportTaxType>OUTPUT</ReportTaxType>
+      <CanApplyToAssets>true</CanApplyToAssets>
+      <CanApplyToEquity>true</CanApplyToEquity>
+      <CanApplyToExpenses>true</CanApplyToExpenses>
+      <CanApplyToLiabilities>true</CanApplyToLiabilities>
+      <CanApplyToRevenue>true</CanApplyToRevenue>
+      <DisplayTaxRate>9.2500</DisplayTaxRate>
+      <EffectiveRate>9.2500</EffectiveRate>
+      <Status>ACTIVE</Status>
+      <TaxComponents>
+        <TaxComponent>
+          <Name>Sales Tax</Name>
+          <Rate>9.2500</Rate>
+          <IsCompound>false</IsCompound>
+        </TaxComponent>
+      </TaxComponents>
+    </TaxRate>
+  </TaxRates>
+</Response>
+    EOS
+  end
 end

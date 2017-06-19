@@ -69,6 +69,7 @@ module Xeroizer
       decimal      :sub_total, :calculated => true
       decimal      :total_tax, :calculated => true
       decimal      :total, :calculated => true
+      decimal      :total_discount
       decimal      :amount_due
       decimal      :amount_paid
       decimal      :amount_credited
@@ -77,6 +78,7 @@ module Xeroizer
       decimal      :currency_rate
       datetime     :fully_paid_on_date
       datetime     :expected_payment_date
+      datetime     :planned_payment_date
       boolean      :sent_to_contact
       boolean      :has_attachments
 
@@ -94,6 +96,12 @@ module Xeroizer
       validates_associated :line_items, :if => :approved?
 
       public
+        def initialize(parent)
+          super(parent)
+          @sub_total_is_set = false
+          @total_tax_is_set = false
+          @total_is_set = false
+        end
 
         # Access the contact name without forcing a download of
         # an incomplete, summary invoice.
@@ -140,11 +148,11 @@ module Xeroizer
         # Calculate sub_total from line_items.
         def sub_total(always_summary = false)
           if !@sub_total_is_set && not_summary_or_loaded_record(always_summary)
-            sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
+            overall_sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
 
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
-            sum -= total_tax if line_amount_types == 'Inclusive'
-            sum
+            overall_sum -= total_tax if line_amount_types == 'Inclusive'
+            overall_sum
           else
             attributes[:sub_total]
           end
