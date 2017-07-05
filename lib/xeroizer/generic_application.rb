@@ -40,6 +40,7 @@ module Xeroizer
     record :TrackingCategory
     record :TrackingCategoryChild
     record :BankTransaction
+    record :BankTransfer
     record :User
 
     report :AgedPayablesByContact
