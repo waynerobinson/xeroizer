@@ -4,12 +4,12 @@ require 'xeroizer/models/line_amount_type'
 module Xeroizer
   module Record
     class LineItemModel < BaseModel
-        
+
     end
-    
+
     class LineItem < Base
       TAX_TYPE = Account::TAX_TYPE unless defined?(TAX_TYPE)
-      
+
       string  :item_code
       string  :description
       decimal :quantity
@@ -20,7 +20,7 @@ module Xeroizer
       decimal :line_amount, :calculated => true
       decimal :discount_rate
       string  :line_item_id
-      
+
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
 
       def initialize(parent)
@@ -32,15 +32,22 @@ module Xeroizer
         @line_amount_set = true
         attributes[:line_amount] = line_amount
       end
-            
+
       # Calculate the line_total (if there is a quantity and unit_amount).
       # Description-only lines have been allowed since Xero V2.09.
       def line_amount(summary_only = false)
         return attributes[:line_amount] if summary_only || @line_amount_set
-        
-        BigDecimal((quantity * unit_amount).to_s).round(2) if quantity && unit_amount
+
+        if quantity && unit_amount
+          total = quantity * unit_amount
+          if discount_rate
+            BigDecimal((total * ((100 - discount_rate) / 100)).to_s).round(2)
+          else
+            BigDecimal(total.to_s).round(2)
+          end
+        end
       end
-      
+
     end
     
   end
