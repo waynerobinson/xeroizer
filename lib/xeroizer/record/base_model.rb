@@ -21,9 +21,9 @@ module Xeroizer
       class_inheritable_attributes :standalone_model
       class_inheritable_attributes :before_padding
       class_inheritable_attributes :after_padding
-      
+
       DEFAULT_RECORDS_PER_BATCH_SAVE = 2000
-      
+
       include BaseModelHttpProxy
 
       attr_reader :application
@@ -89,7 +89,7 @@ module Xeroizer
         def pad_api_response?
           self.before_padding && self.after_padding
         end
-        
+
       end
 
       public
@@ -139,8 +139,8 @@ module Xeroizer
         # Retreive full record list for this model.
         def all(options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
-          response_xml = http_get(parse_params(options))
-          response = parse_response(response_xml, options)
+          response_body = http_get(parse_params(options))
+          response = parse_response(response_body, options)
           response_items = response.response_items || []
         end
 
@@ -155,8 +155,8 @@ module Xeroizer
         # Retrieve record matching the passed in ID.
         def find(id, options = {})
           raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
-          response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
-          response = parse_response(response_xml, options)
+          response_body = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
+          response = parse_response(response_body, options)
           result = response.response_items.first if response.response_items.is_a?(Array)
           result.complete_record_downloaded = true if result
           result
@@ -202,8 +202,34 @@ module Xeroizer
           end
         end
 
-        def parse_response(response_xml, options = {})
-          Response.parse(response_xml, options) do | response, elements, response_model_name |
+        def parse_response(response_body, options = {})
+          format = options[:api_format] || @application.api_format
+          case format
+          when :json
+            parse_json_response(response_body, options)
+          else
+            parse_xml_response(response_body, options)
+          end
+        end
+
+      protected
+        def parse_json_response(response_body, options = {})
+          json = ::JSON.parse(response_body)
+          response = Response.new
+
+          iterable = json[self.model_name.downcase.pluralize] || json[self.model_name.downcase]
+          iterable = [iterable] if iterable.is_a?(Hash)
+
+          iterable.each {|object|
+            object = object.map {|key, value| [key.underscore, value]}.to_h
+            response.response_items << self.model_class.build(object, self)
+          }
+
+          response
+        end
+
+        def parse_xml_response(response_body, options = {})
+          Response.parse(response_body, options) do | response, elements, response_model_name |
             if self.class.pad_api_response?
               @response = response
               parse_records(response, Nokogiri::XML("#{self.class.before_padding}#{elements.to_xml}#{self.class.after_padding}").root.elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record))
@@ -217,7 +243,6 @@ module Xeroizer
           end
         end
 
-      protected
         def paged_records_requested?(options)
           options.has_key?(:page) and options[:page].to_i >= 0
         end

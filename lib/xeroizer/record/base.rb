@@ -20,7 +20,7 @@ module Xeroizer
 
       attr_writer :api_method_for_creating
       attr_writer :api_method_for_updating
-      
+
       attr_accessor :paged_record_downloaded
 
       include ModelDefinitionHelper
@@ -34,8 +34,12 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            attr = record.respond_to?("#{key}=") ? key : record.class.fields[key][:internal_name]
-            record.send("#{attr}=", value)
+            attr_to_set = if record.respond_to?("#{key}=")
+              key
+            elsif record.class.fields.key?(key)
+              record.class.fields[key][:internal_name]
+            end
+            record.send("#{attr_to_set}=", value) if attr_to_set
           end
           record
         end
@@ -153,14 +157,14 @@ module Xeroizer
         def api_method_for_updating
           @api_method_for_updating || :http_post
         end
-                
+
       protected
 
         # Attempt to create a new record.
         def create
           request = to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
-          
+
           response = parent.send(api_method_for_creating, request)
 
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
