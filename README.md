@@ -281,6 +281,18 @@ Valid options are:
 
 > Field to order by. Should be formatted as Xero-based field (e.g. 'Name', 'ContactID', etc)
 
+> **:status**
+
+> Status field for PurchaseOrder. Should be a valid Xero purchase order status.
+
+> **:date_from**
+
+> DateFrom field for PurchaseOrder. Should be in YYYY-MM-DD format.
+
+> **:date_to**
+
+> DateTo field for PurchaseOrder. Should be in YYYY-MM-DD format.
+
 > **:where**
 
 > __See *Where Filters* section below.__
