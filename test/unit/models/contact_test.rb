@@ -21,6 +21,15 @@ class ContactTest < Test::Unit::TestCase
       assert_equal(0, contact.errors.size)
     end
 
+    should "be able to have no name if it has a contact_number" do
+      contact = @client.Contact.build
+
+      assert_equal(false, contact.valid?)
+      contact.contact_number = "abc123"
+      assert_equal(true, contact.valid?)
+      assert_equal(0, contact.errors.size)
+    end
+
     should "not allow invalid addresses" do
       contact = @client.Contact.build(name: "SOMETHING")
       address = contact.add_address(:type => "INVALID_TYPE")
