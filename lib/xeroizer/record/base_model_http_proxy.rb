@@ -1,18 +1,18 @@
-require 'xeroizer/application_http_proxy' 
+require 'xeroizer/application_http_proxy'
 
 module Xeroizer
   module Record
     module BaseModelHttpProxy
-      
+
       def self.included(base)
         base.send :include, Xeroizer::ApplicationHttpProxy
         base.send :include, InstanceMethods
       end
-      
+
       module InstanceMethods
-        
+
         protected
-        
+
           # Parse parameters for GET requests.
           def parse_params(options)
             params = {}
@@ -20,9 +20,16 @@ module Xeroizer
             params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
 
+            if options[:IDs]
+              params[:IDs] =  case options[:IDs]
+                                when String   then options[:IDs]
+                                when Array    then options[:IDs].join(',')
+                              end
+            end
+
             if options[:where]
               params[:where] =  case options[:where]
-                                  when String   then options[:where] 
+                                  when String   then options[:where]
                                   when Hash     then parse_where_hash(options[:where])
                                 end
             end
@@ -30,7 +37,7 @@ module Xeroizer
             params[:page] = options[:page] if options[:page]
             params
           end
-        
+
           # Parse the :where part of the options for GET parameters and construct a valid
           # .Net version of the criteria to pass to Xero.
           #
@@ -46,14 +53,14 @@ module Xeroizer
               (attribute_name, expression) = extract_expression_from_attribute_name(key)
               (_, field) = model_class.fields.find { | k, v | v[:internal_name] == attribute_name }
               if field
-                conditions << where_condition_part(field, expression, value)                
+                conditions << where_condition_part(field, expression, value)
               else
                 raise InvalidAttributeInWhere.new(model_name, attribute_name)
               end
             end
             conditions.map { | (attr, expression, value) | "#{attr}#{expression}#{value}"}.join('&&')
           end
-        
+
           # Extract the attribute name and expression from the attribute.
           #
           # @return [Array] containing [actual_attribute_name, expression]
@@ -64,37 +71,37 @@ module Xeroizer
                   key.to_s.gsub(/(_is_not|\<\>)$/, '').to_sym,
                   '<>'
                 ]
-              
+
               when /(_is_greater_than|\>)$/
                 [
                   key.to_s.gsub(/(_is_greater_than|\>)$/, '').to_sym,
                   '>'
                 ]
-              
+
               when /(_is_greater_than_or_equal_to|\>\=)$/
                 [
                   key.to_s.gsub(/(_is_greater_than_or_equal_to|\>\=)$/, '').to_sym,
                   '>='
                 ]
-              
+
               when /(_is_less_than|\<)$/
                 [
                   key.to_s.gsub(/(_is_less_than|\<)$/, '').to_sym,
                   '<'
                 ]
-              
+
               when /(_is_less_than_or_equal_to|\<\=)$/
                 [
                   key.to_s.gsub(/(_is_less_than_or_equal_to|\<\=)$/, '').to_sym,
                   '<='
                 ]
-                              
+
               else
                 [key, '==']
-              
+
             end
           end
-        
+
           # Creates a condition part array containing the:
           #   * Field's API name
           #   * Expression
@@ -115,7 +122,7 @@ module Xeroizer
           end
 
       end
-    
+
     end
   end
 end
