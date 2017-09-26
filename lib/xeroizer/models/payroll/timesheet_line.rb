@@ -18,6 +18,9 @@ module Xeroizer
 
         has_array     :number_of_units, :api_child_name => 'NumberOfUnit'
 
+        # UK
+        datetime      :date
+
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
       end

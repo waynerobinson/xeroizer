@@ -221,8 +221,19 @@ module Xeroizer
           iterable = [iterable] if iterable.is_a?(Hash)
 
           iterable.each {|object|
-            object = object.map {|key, value| [key.underscore, value]}.to_h
-            response.response_items << self.model_class.build(object, self)
+            object = object.map {|key, value| [key.underscore.to_sym, value]}.to_h
+            response_object = self.model_class.build(object, self)
+            self.model_class.fields.each {|field, field_props|
+              if field_props[:type] == :has_many
+                response_object[field] = []
+                object[field].each {|child_object|
+                  model_class_name = field_props[:api_child_name].to_sym # TimesheetLine
+                  model_klass_obj = response_object.new_model_class(model_class_name)
+                  response_object[field] << model_klass_obj.model_class.build(child_object.map {|key, value| [key.underscore.to_sym, value]}.to_h, model_klass_obj)
+                }
+              end
+            }
+            response.response_items << response_object
           }
 
           response
