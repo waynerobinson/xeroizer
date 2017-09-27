@@ -162,10 +162,10 @@ module Xeroizer
 
         # Attempt to create a new record.
         def create
-          request = to_xml
+          request = json? ? to_json : to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
-          response = parent.send(api_method_for_creating, request)
+          response = parent.send(api_method_for_creating, request, (json? ? {raw_body: true} : {}))
 
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
@@ -178,15 +178,19 @@ module Xeroizer
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
 
-          request = to_xml
+          request = json? ? to_json : to_xml
 
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
 
-          response = parent.send(api_method_for_updating, request)
+          response = parent.send(api_method_for_updating, request, (json? ? {raw_body: true} : {}))
 
           log "[UPDATE RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
 
           parse_save_response(response)
+        end
+
+        def json?
+          parent.application.api_format == :json
         end
 
         # Parse the response from a create/update request.
