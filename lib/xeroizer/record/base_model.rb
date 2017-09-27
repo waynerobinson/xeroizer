@@ -225,7 +225,7 @@ module Xeroizer
             object = object.map {|key, value| [key.underscore.to_sym, value]}.to_h
             response_object = self.model_class.build(object, self)
             self.model_class.fields.each {|field, field_props|
-              if field_props[:type] == :has_many
+              if field_props[:type] == :has_many && object[field]
                 response_object[field] = []
                 object[field].each {|child_object|
                   model_class_name = field_props[:api_child_name].to_sym # TimesheetLine
