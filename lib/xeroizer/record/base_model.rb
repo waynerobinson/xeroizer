@@ -1,4 +1,5 @@
 require 'xeroizer/record/base_model_http_proxy'
+require 'active_support/inflector'
 
 module Xeroizer
   module Record
@@ -138,7 +139,7 @@ module Xeroizer
 
         # Retreive full record list for this model.
         def all(options = {})
-          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions && self.class.permissions[:read]
           response_body = http_get(parse_params(options))
           response = parse_response(response_body, options)
           response_items = response.response_items || []
@@ -147,14 +148,14 @@ module Xeroizer
         # Helper method to retrieve just the first element from
         # the full record list.
         def first(options = {})
-          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions && self.class.permissions[:read]
           result = all(options)
           result.first if result.is_a?(Array)
         end
 
         # Retrieve record matching the passed in ID.
         def find(id, options = {})
-          raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
+          raise MethodNotAllowed.new(self, :all) unless self.class.permissions && self.class.permissions[:read]
           response_body = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", options)
           response = parse_response(response_body, options)
           result = response.response_items.first if response.response_items.is_a?(Array)
@@ -217,7 +218,7 @@ module Xeroizer
           json = ::JSON.parse(response_body)
           response = Response.new
 
-          iterable = json[self.model_name.downcase.pluralize] || json[self.model_name.downcase]
+          iterable = json[self.model_name.camelize(:lower).pluralize] || json[self.model_name.camelize(:lower)]
           iterable = [iterable] if iterable.is_a?(Hash)
 
           iterable.each {|object|
