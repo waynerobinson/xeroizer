@@ -3,6 +3,7 @@ require 'xeroizer/record/record_association_helper'
 require 'xeroizer/record/validation_helper'
 require 'xeroizer/record/xml_helper'
 require 'xeroizer/logging'
+require 'active_support/inflector'
 
 module Xeroizer
   module Record
@@ -162,10 +163,10 @@ module Xeroizer
 
         # Attempt to create a new record.
         def create
-          request = json? ? to_json : to_xml
+          request = json? ? to_api_json : to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
-          response = parent.send(api_method_for_creating, request, (json? ? {raw_body: true} : {}))
+          response = parent.send(api_method_for_creating, request, extra_params_for_create_or_update)
 
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
@@ -178,15 +179,26 @@ module Xeroizer
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
 
-          request = json? ? to_json : to_xml
+          request = json? ? to_api_json : to_xml
 
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
 
-          response = parent.send(api_method_for_updating, request, (json? ? {raw_body: true} : {}))
+          response = parent.send(api_method_for_updating, request, extra_params_for_create_or_update)
 
           log "[UPDATE RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
 
           parse_save_response(response)
+        end
+
+        def extra_params_for_create_or_update
+          json? ? {raw_body: true, content_type: "application/json"} : {}
+        end
+
+        def to_api_json
+          attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
+            [k.to_s.camelize(:lower), v.kind_of?(Array) ? v.map(&:to_h) : (v.respond_to?(:to_api_json) ? v.to_api_json : v)]
+          end
+          Hash[attrs].to_json
         end
 
         def json?
