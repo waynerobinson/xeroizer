@@ -10,6 +10,8 @@ module Xeroizer
 
       set_permissions :read, :write, :update
 
+      include AttachmentModel::Extensions
+
     end
 
     class Contact < Base
@@ -19,6 +21,8 @@ module Xeroizer
         'DELETED' =>    'Deleted',
         'ARCHIVED' => 'Archived'
       } unless defined?(CONTACT_STATUS)
+
+      include Attachment::Extensions
 
       set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number
@@ -45,6 +49,7 @@ module Xeroizer
       boolean       :is_customer
       string        :website # read only
       decimal       :discount # read only
+      boolean       :has_attachments
 
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
