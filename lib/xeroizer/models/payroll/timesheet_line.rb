@@ -4,6 +4,8 @@ module Xeroizer
 
       class TimesheetLineModel < PayrollBaseModel
 
+        set_permissions :read, :write, :update # UK
+
       end
 
       class TimesheetLine < PayrollBase
@@ -20,8 +22,13 @@ module Xeroizer
 
         # UK
         datetime      :date
+        guid          :timesheet_id # used to make the URL
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+
+        def api_url
+          "Timesheets/#{attributes[:timesheet_id]}/lines"
+        end
 
       end
 

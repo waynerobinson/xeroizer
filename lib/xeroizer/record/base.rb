@@ -23,6 +23,7 @@ module Xeroizer
       attr_writer :api_method_for_updating
 
       attr_accessor :paged_record_downloaded
+      attr_accessor :after_initialize
 
       include ModelDefinitionHelper
       include RecordAssociationHelper
@@ -191,12 +192,21 @@ module Xeroizer
         end
 
         def extra_params_for_create_or_update
-          json? ? {raw_body: true, content_type: "application/json"} : {}
+          json? ? {raw_body: true, content_type: "application/json", url: api_url} : {}
         end
+
+        def api_url; end # individual models can override this
 
         def to_api_json
           attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
-            [k.to_s.camelize(:lower), v.kind_of?(Array) ? v.map(&:to_h) : (v.respond_to?(:to_api_json) ? v.to_api_json : v)]
+            value = if v.respond_to?(:to_api_json)
+              v.to_api_json
+            elsif v.is_a?(Array) && [0, 1].include?(v.count)
+              v.first # hack for timesheet line has_array values
+            else
+              v
+            end
+            [k.to_s.camelize(:lower), value]
           end
           Hash[attrs].to_json
         end
