@@ -19,12 +19,14 @@ module TestHelper
   # rake test
   # (this probably won't work under OAuth?)
   #
+
+  $VERBOSE=nil
   
   STUB_XERO_CALLS   = ENV["STUB_XERO_CALLS"].nil? ? true : (ENV["STUB_XERO_CALLS"] == "true") unless defined? STUB_XERO_CALLS
   
   CONSUMER_KEY      = ENV["CONSUMER_KEY"]     || "fake_key"     unless defined?(CONSUMER_KEY)
   CONSUMER_SECRET   = ENV["CONSUMER_SECRET"]  || "fake_secret"  unless defined?(CONSUMER_SECRET)
-  PRIVATE_KEY_PATH  = ENV["PRIVATE_KEY_PATH"] || "fake_key"     unless defined?(PRIVATE_KEY_PATH)
+  KEY_FILE          = ENV["KEY_FILE"]         || "fake_key"     unless defined?(KEY_FILE)
   
   # Helper constant for checking regex
   GUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/ unless defined?(GUID_REGEX)

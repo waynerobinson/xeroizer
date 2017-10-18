@@ -41,6 +41,8 @@ module Xeroizer
         'ACCPAYCREDIT' =>           'Accounts Payable'
       } unless defined?(CREDIT_NOTE_TYPE)
       CREDIT_NOTE_TYPES = CREDIT_NOTE_TYPE.keys.sort
+
+      include Attachment::Extensions
       
       set_primary_key :credit_note_id
       set_possible_primary_keys :credit_note_id, :credit_note_number
@@ -62,7 +64,8 @@ module Xeroizer
       decimal       :currency_rate
       datetime      :fully_paid_on_date
       boolean       :sent_to_contact
-      decimal :remaining_credit
+      decimal       :remaining_credit
+      boolean       :has_attachments
 
       belongs_to    :contact
       has_many      :line_items
