@@ -1,9 +1,13 @@
+require "xeroizer/models/attachment"
+
 module Xeroizer
   module Record
     
     class ManualJournalModel < BaseModel
         
       set_permissions :read, :write, :update
+
+      include AttachmentModel::Extensions
                   
     end
     
@@ -14,6 +18,8 @@ module Xeroizer
         'POSTED' =>     'Posted'
       } unless defined?(JOURNAL_STATUS)
       JOURNAL_STATUSES = JOURNAL_STATUS.keys.sort
+
+      include Attachment::Extensions
             
       set_primary_key :manual_journal_id
       set_possible_primary_keys :manual_journal_id
