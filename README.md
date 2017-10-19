@@ -646,6 +646,26 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
 
 This option adds the unitdp=4 query string parameter to all requests for models with line items - invoices, credit notes, bank transactions and receipts.
 
+Tests
+-----
+
+The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company](https://developer.xero.com/documentation/getting-started/development-accounts) (note: the Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired).
+
+Once you have created your Private App, set these environment variables:
+```
+EXPORT CONSUMER_KEY="your private app's consumer key"
+EXPORT CONSUMER_SECRET="your private app's consumer secret"
+EXPORT PRIVATE_KEY_PATH="the path to your private app's private key"
+```
+
+PRIVATE_KEY_PATH is the path to the private key for your Private App (you uploaded the Public Key when you created the Private App)
+
+Then run the tests
+```
+rake test
+```
+
+
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor 
 and Nik Wakelin and portions of the networking and authentication code are based completely off 
