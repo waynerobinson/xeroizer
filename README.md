@@ -512,6 +512,42 @@ contact.errors_for(:name) # will contain ["can't be blank"]
 If something goes really wrong and the particular validation isn't handled by the internal
 validators then the library may raise a `Xeroizer::ApiException`.
 
+Example Use Cases
+-------
+
+Creating & Paying an invoice:
+
+```ruby
+contact = xero.Contact.first
+
+# Build the Invoice, add a LineItem and save it
+invoice = xero.Invoice.build(:type => "ACCREC", :contact => contact)
+
+invoice.add_line_item(:description => 'test', :unit_amount => '200.00', :quantity => '1')
+
+invoice.save
+
+# An invoice created without a status will default to 'DRAFT'
+invoice.approved?
+
+# Payments can only be created against 'AUTHROISED' invoices
+invoice.approve!
+
+# Find the first bank account
+bank_account = xero.Account.first(:where => {:type => 'BANK'})
+
+# Create & save the payment
+payment = xero.Payment.build(:invoice => invoice, :account => bank_account, :amount => '200.00')
+payment.save
+
+# Reload the invoice from the Xero API
+invoice = xero.Invoice.find(invoice.id)
+
+# Invoice status is now "PAID" & Payment details have been returned as well
+invoice.status
+invoice.payments.first
+```
+
 Reports
 -------
 
