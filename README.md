@@ -521,9 +521,9 @@ Creating & Paying an invoice:
 contact = xero.Contact.first
 
 # Build the Invoice, add a LineItem and save it
-invoice = xero.Invoice.build(:type => "ACCREC", :contact => contact)
+invoice = xero.Invoice.build(:type => "ACCREC", :contact => contact, :date => DateTime.new(2017,10,19), :due_date => DateTime.new(2017,11,19))
 
-invoice.add_line_item(:description => 'test', :unit_amount => '200.00', :quantity => '1')
+invoice.add_line_item(:description => 'test', :unit_amount => '200.00', :quantity => '1', :account_code => '200')
 
 invoice.save
 
@@ -537,7 +537,7 @@ invoice.approve!
 bank_account = xero.Account.first(:where => {:type => 'BANK'})
 
 # Create & save the payment
-payment = xero.Payment.build(:invoice => invoice, :account => bank_account, :amount => '200.00')
+payment = xero.Payment.build(:invoice => invoice, :account => bank_account, :amount => '220.00')
 payment.save
 
 # Reload the invoice from the Xero API
