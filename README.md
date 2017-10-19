@@ -269,7 +269,7 @@ Retrieves list of all records with matching options.
 **Note:** Some records (Invoice, CreditNote) only return summary information for the contact and no line items
 when returning them this list operation. This library takes care of automatically retrieving the 
 contact and line items from Xero on first access however, this first access has a large performance penalty
-and will count as an extra query towards your 1,000/day and 60/minute request per organisation limit.
+and will count as an extra query towards your 5,000/day and 60/minute request per organisation limit.
 
 Valid options are:
 
@@ -460,7 +460,7 @@ minimum validation requirements for each of the record types.
 
 ### Bulk Creates & Updates
 
-Xero has a hard daily limit on the number of API requests you can make (currently 1,000 requests
+Xero has a hard daily limit on the number of API requests you can make (currently 5,000 requests
 per account per day). To save on requests, you can batch creates and updates into a single PUT or
 POST call, like so:
 
