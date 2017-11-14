@@ -14,6 +14,7 @@
         <TypeOfUnits>Hours</TypeOfUnits>
         <IsExemptFromTax>false</IsExemptFromTax>
         <IsExemptFromSuper>false</IsExemptFromSuper>
+        <IsReportableAsW1>true</IsReportableAsW1>
         <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
       </EarningsRate>
       <EarningsRate>
@@ -25,6 +26,7 @@
         <Multiplier>1.5000</Multiplier>
         <IsExemptFromTax>false</IsExemptFromTax>
         <IsExemptFromSuper>true</IsExemptFromSuper>
+        <IsReportableAsW1>true</IsReportableAsW1>
         <AccrueLeave>false</AccrueLeave>
         <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
       </EarningsRate>
@@ -37,6 +39,7 @@
         <TypeOfUnits>Fixed Amount</TypeOfUnits>
         <IsExemptFromTax>false</IsExemptFromTax>
         <IsExemptFromSuper>false</IsExemptFromSuper>
+        <IsReportableAsW1>true</IsReportableAsW1>
         <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
       </EarningsRate>
       <EarningsRate>
@@ -48,6 +51,7 @@
         <TypeOfUnits>Fixed Amount</TypeOfUnits>
         <IsExemptFromTax>true</IsExemptFromTax>
         <IsExemptFromSuper>true</IsExemptFromSuper>
+        <IsReportableAsW1>true</IsReportableAsW1>
         <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
       </EarningsRate>
     </EarningsRates>

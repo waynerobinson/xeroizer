@@ -23,6 +23,7 @@ module Xeroizer
         decimal       :multiplier
         boolean       :accrue_leave
         decimal       :amount
+        boolean       :is_reportable_as_w1
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
