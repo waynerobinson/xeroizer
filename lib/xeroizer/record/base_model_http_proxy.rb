@@ -20,12 +20,10 @@ module Xeroizer
             params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
 
-            if options[:IDs]
-              params[:IDs] =  case options[:IDs]
-                                when String   then options[:IDs]
-                                when Array    then options[:IDs].join(',')
-                              end
-            end
+            params[:IDs]            = filterize(options[:IDs]) if options[:IDs]
+            params[:InvoiceNumbers] = filterize(options[:InvoiceNumbers]) if options[:InvoiceNumbers]
+            params[:ContactIDs]     = filterize(options[:ContactIDs]) if options[:ContactIDs]
+            params[:Statuses]       = filterize(options[:Statuses]) if options[:Statuses]
 
             if options[:where]
               params[:where] =  case options[:where]
@@ -118,6 +116,16 @@ module Xeroizer
               when :datetime_utc then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
               when :belongs_to  then
               when :has_many    then
+            end
+          end
+
+        private
+
+          # Filtering params expect a comma separated list of strings 
+          def filterize(values)
+            case values
+              when String then values
+              when Array  then values.join(',')
             end
           end
 
