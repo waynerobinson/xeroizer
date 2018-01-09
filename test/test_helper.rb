@@ -19,6 +19,8 @@ module TestHelper
   # rake test
   # (this probably won't work under OAuth?)
   #
+
+  $VERBOSE=nil
   
   STUB_XERO_CALLS   = ENV["STUB_XERO_CALLS"].nil? ? true : (ENV["STUB_XERO_CALLS"] == "true") unless defined? STUB_XERO_CALLS
   

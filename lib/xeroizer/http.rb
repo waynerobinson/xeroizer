@@ -14,7 +14,7 @@
 
 module Xeroizer
   module Http
-    class BadResponse < StandardError; end
+    class BadResponse < XeroizerError; end
     RequestInfo = Struct.new(:url, :headers, :params, :body)
 
     ACCEPT_MIME_MAP = {

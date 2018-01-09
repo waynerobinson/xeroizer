@@ -24,8 +24,10 @@ module Xeroizer
     record :Employee
     record :ExpenseClaim
     record :Invoice
+    record :InvoiceReminder
     record :Item
     record :Journal
+    record :LineItem
     record :ManualJournal
     record :Organisation
     record :Payment
@@ -39,6 +41,7 @@ module Xeroizer
     record :TrackingCategory
     record :TrackingCategoryChild
     record :BankTransaction
+    record :BankTransfer
     record :User
 
     report :AgedPayablesByContact

@@ -29,6 +29,7 @@ module Xeroizer
       belongs_to    :invoice
       has_many      :allocations
       has_many      :line_items
+      has_many      :payments
 
       def contact_id
         contact.id if contact

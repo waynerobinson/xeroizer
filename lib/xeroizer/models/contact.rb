@@ -10,6 +10,8 @@ module Xeroizer
 
       set_permissions :read, :write, :update
 
+      include AttachmentModel::Extensions
+
     end
 
     class Contact < Base
@@ -19,6 +21,8 @@ module Xeroizer
         'DELETED' =>    'Deleted',
         'ARCHIVED' => 'Archived'
       } unless defined?(CONTACT_STATUS)
+
+      include Attachment::Extensions
 
       set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number
@@ -45,10 +49,11 @@ module Xeroizer
       boolean       :is_customer
       string        :website # read only
       decimal       :discount # read only
+      boolean       :has_attachments
 
       has_many  :addresses, :list_complete => true
       has_many  :phones, :list_complete => true
-      has_many  :contact_groups
+      has_many  :contact_groups, :list_complete => true
       has_many  :contact_persons, :internal_name => :contact_people
 
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
@@ -58,7 +63,7 @@ module Xeroizer
       has_one :batch_payments, :model_name => 'BatchPayments', :list_complete => true
       has_one :payment_terms, :model_name => 'PaymentTerms', :list_complete => true
 
-      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
+      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present? || contact.contact_number.present? }
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
       validates_associated :addresses, allow_blanks: true
 

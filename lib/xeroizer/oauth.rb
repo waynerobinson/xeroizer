@@ -23,14 +23,14 @@ module Xeroizer
   # http://github.com/jnunemaker/twitter/
 
   class OAuth
-
-    class TokenExpired < StandardError; end
-    class TokenInvalid < StandardError; end
-    class RateLimitExceeded < StandardError; end
-    class ConsumerKeyUnknown < StandardError; end
-    class NonceUsed < StandardError; end
-    class OrganisationOffline < StandardError; end
-    class UnknownError < StandardError; end
+    class OAuthError < XeroizerError; end
+    class TokenExpired < OAuthError; end
+    class TokenInvalid < OAuthError; end
+    class RateLimitExceeded < OAuthError; end
+    class ConsumerKeyUnknown < OAuthError; end
+    class NonceUsed < OAuthError; end
+    class OrganisationOffline < OAuthError; end
+    class UnknownError < OAuthError; end
 
     unless defined? XERO_CONSUMER_OPTIONS
       XERO_CONSUMER_OPTIONS = {

@@ -60,7 +60,7 @@ module Xeroizer
             elsif args.size > 0
               records = args
             else
-              raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
+              raise XeroizerError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
             end
 
             # Ensure that complete record is downloaded before adding new records
@@ -70,7 +70,7 @@ module Xeroizer
             last_record = nil
             records.each do | record |
               record = record_class.build(record, model_parent) if record.is_a?(Hash)
-              raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
+              raise XeroizerError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
               last_record = record

@@ -269,7 +269,7 @@ Retrieves list of all records with matching options.
 **Note:** Some records (Invoice, CreditNote) only return summary information for the contact and no line items
 when returning them this list operation. This library takes care of automatically retrieving the 
 contact and line items from Xero on first access however, this first access has a large performance penalty
-and will count as an extra query towards your 1,000/day and 60/minute request per organisation limit.
+and will count as an extra query towards your 5,000/day and 60/minute request per organisation limit.
 
 Valid options are:
 
@@ -460,7 +460,7 @@ minimum validation requirements for each of the record types.
 
 ### Bulk Creates & Updates
 
-Xero has a hard daily limit on the number of API requests you can make (currently 1,000 requests
+Xero has a hard daily limit on the number of API requests you can make (currently 5,000 requests
 per account per day). To save on requests, you can batch creates and updates into a single PUT or
 POST call, like so:
 
@@ -511,6 +511,42 @@ contact.errors_for(:name) # will contain ["can't be blank"]
 
 If something goes really wrong and the particular validation isn't handled by the internal
 validators then the library may raise a `Xeroizer::ApiException`.
+
+Example Use Cases
+-------
+
+Creating & Paying an invoice:
+
+```ruby
+contact = xero.Contact.first
+
+# Build the Invoice, add a LineItem and save it
+invoice = xero.Invoice.build(:type => "ACCREC", :contact => contact, :date => DateTime.new(2017,10,19), :due_date => DateTime.new(2017,11,19))
+
+invoice.add_line_item(:description => 'test', :unit_amount => '200.00', :quantity => '1', :account_code => '200')
+
+invoice.save
+
+# An invoice created without a status will default to 'DRAFT'
+invoice.approved?
+
+# Payments can only be created against 'AUTHROISED' invoices
+invoice.approve!
+
+# Find the first bank account
+bank_account = xero.Account.first(:where => {:type => 'BANK'})
+
+# Create & save the payment
+payment = xero.Payment.build(:invoice => invoice, :account => bank_account, :amount => '220.00')
+payment.save
+
+# Reload the invoice from the Xero API
+invoice = xero.Invoice.find(invoice.id)
+
+# Invoice status is now "PAID" & Payment details have been returned as well
+invoice.status
+invoice.payments.first
+```
 
 Reports
 -------
@@ -645,6 +681,26 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
 ```
 
 This option adds the unitdp=4 query string parameter to all requests for models with line items - invoices, credit notes, bank transactions and receipts.
+
+Tests
+-----
+
+The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company](https://developer.xero.com/documentation/getting-started/development-accounts) (note: the Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired).
+
+Once you have created your Private App, set these environment variables:
+```
+EXPORT CONSUMER_KEY="your private app's consumer key"
+EXPORT CONSUMER_SECRET="your private app's consumer secret"
+EXPORT PRIVATE_KEY_PATH="the path to your private app's private key"
+```
+
+PRIVATE_KEY_PATH is the path to the private key for your Private App (you uploaded the Public Key when you created the Private App)
+
+Then run the tests
+```
+rake test
+```
+
 
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor 

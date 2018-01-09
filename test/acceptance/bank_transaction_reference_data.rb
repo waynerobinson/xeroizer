@@ -20,11 +20,13 @@ class BankTransactionReferenceData
         :account_code => account.code,
         :tax_type => account.tax_type
       ],
-      :bank_account => { :account_id => bank_account.account_id }
+      :bank_account => { :account_id => bank_account.account_id },
+      :reference => "BTF323"
     )
 
     fail("Expected save to have succeeded, but it failed. #{result.errors.inspect}") unless result.save
 
     result
   end
+
 end
