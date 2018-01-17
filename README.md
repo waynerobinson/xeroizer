@@ -225,7 +225,7 @@ access_secret = client.access_token.secret
 Two other interesting attributes of the PartnerApplication client are:
 
 > **`#expires_at`**:								Time this AccessToken will expire (usually 30 minutes into the future).		
-> **`#authorization_expires_at`**:	How long this organisation has authorised you to access their data (usually 365 days into the future).		
+> **`#authorization_expires_at`**:	How long this organisation has authorised you to access their data (usually 10 years into the future).		
 
 #### AccessToken Renewal
 
