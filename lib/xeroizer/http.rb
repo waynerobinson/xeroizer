@@ -223,9 +223,9 @@ module Xeroizer
 
     # unitdp query string parameter to be added to request params
     # when the application option has been set and the model has line items
-    # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
+    # https://developer.xero.com/documentation/api-guides/rounding-in-xero#unitamount
     def unitdp_param(request_url)
-      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
+      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/, /Items/, /Overpayments/, /Prepayments/]
       self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
     end
 
