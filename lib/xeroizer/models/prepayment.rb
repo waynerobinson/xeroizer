@@ -30,10 +30,28 @@ module Xeroizer
       belongs_to    :contact
       has_many      :line_items
       has_many      :payments
+      has_many      :allocations
 
-      def contact_id
-        contact.id if contact
-      end
+      validates_associated :allocations, :allow_blanks => true
+
+      public
+        def contact_id
+          contact.id if contact
+        end
+
+        def allocate
+          if self.class.possible_primary_keys && self.class.possible_primary_keys.all? { | possible_key | self[possible_key].nil? }
+            raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
+          end
+
+          request = association_to_xml(:allocations)
+          allocations_url = "#{parent.url}/#{CGI.escape(id)}/Allocations"
+
+          log "[ALLOCATION SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
+          response = parent.application.http_put(parent.application.client, allocations_url, request)
+          log "[ALLOCATION RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
+          parse_save_response(response)
+        end
 
     end
   end

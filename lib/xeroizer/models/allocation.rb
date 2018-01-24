@@ -4,7 +4,8 @@ module Xeroizer
     end
 
     class Allocation < Base
-      decimal :applied_amount
+      decimal 	:applied_amount
+      date		:date # Read only
       belongs_to :invoice
 
       validates_presence_of :invoice
