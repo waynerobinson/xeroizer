@@ -107,7 +107,8 @@ module Xeroizer
         def save
           save!
           true
-        rescue XeroizerError
+        rescue XeroizerError => e
+          log "[ERROR SAVING] (#{__FILE__}:#{__LINE__}) - #{e.message}"
           false
         end
 
