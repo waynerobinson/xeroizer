@@ -15,8 +15,8 @@ module Xeroizer
     class Currency < Base
 
       # Currency does not have an ID
-      # This method overloads the base model to always treat a Currency as new (so it can be saved)
-      # Attempting to update a currency will result in a validation error.
+      # This method overrides the base model to always treat a Currency as new (so it can be saved)
+      # Attempting to update a currency will result in a validation error.	
       def new_record?
       	true
       end
