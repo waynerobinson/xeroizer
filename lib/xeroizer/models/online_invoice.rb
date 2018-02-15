@@ -12,11 +12,11 @@ module Xeroizer
       set_permissions :read
 
       def online_invoice(url, id)
-		response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}/OnlineInvoice")
+		    response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}/OnlineInvoice")
 		
-		response = parse_response(response_xml)
+	      response = parse_response(response_xml)
 
-		response.response_items.first
+		    response.response_items.first
       end
     
     end
