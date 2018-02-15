@@ -51,6 +51,7 @@ module Xeroizer
       guid          :credit_note_id
       string        :credit_note_number
       string        :reference
+      guid          :branding_theme_id
       string        :type
       date          :date
       date          :due_date

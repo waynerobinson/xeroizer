@@ -99,7 +99,7 @@ class OAuthTest < Test::Unit::TestCase
       
       assert_raises Xeroizer::ApiException do
         contact = @client.Contact.build(:name => 'Test Contact')
-        contact.save
+        contact.save!
       end
     end
     
@@ -109,7 +109,7 @@ class OAuthTest < Test::Unit::TestCase
       
       assert_raises Xeroizer::UnparseableResponse do
         contact = @client.Contact.build(:name => 'Test Contact')
-        contact.save
+        contact.save!
       end      
     end
     

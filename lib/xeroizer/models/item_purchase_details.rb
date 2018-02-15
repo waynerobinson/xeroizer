@@ -12,7 +12,7 @@ module Xeroizer
       decimal :unit_price
       string  :account_code
       string  :tax_type
-      decimal :cogs_account_code
+      string  :cogs_account_code, api_name: 'COGSAccountCode'
 
     end
     
