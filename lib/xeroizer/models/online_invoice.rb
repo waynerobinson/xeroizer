@@ -4,14 +4,14 @@ module Xeroizer
     class OnlineInvoiceModel < BaseModel
 
       module Extensions
-      	def online_invoice_url(id)
-      		application.OnlineInvoice.online_invoice_url(url, id)
+      	def online_invoice(id)
+      		application.OnlineInvoice.online_invoice(url, id)
       	end
       end
     
       set_permissions :read
 
-      def online_invoice_url(url, id)
+      def online_invoice(url, id)
 		response_xml = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}/OnlineInvoice")
 		
 		response = parse_response(response_xml)
@@ -24,8 +24,8 @@ module Xeroizer
     class OnlineInvoice < Base
 
       module Extensions
-      	def online_invoice_url
-      	  parent.online_invoice_url(id)
+      	def online_invoice
+      	  parent.online_invoice(id)
       	end
       end
 
