@@ -18,7 +18,6 @@ module Xeroizer
       string  :purchase_description
       string  :name
 
-      decimal :unit_price
       decimal :total_cost_pool # read only
       decimal :quantity_on_hand # read only
 
