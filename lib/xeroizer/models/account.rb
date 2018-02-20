@@ -84,6 +84,11 @@ module Xeroizer
           archive_account
         end
 
+        def update
+          clear_status
+          super
+        end
+
       protected
         def archive_account
           # remove all keys / data
@@ -110,6 +115,10 @@ module Xeroizer
           self.reporting_code = nil
           self.reporting_code_name = nil
           self.updated_date_utc = nil
+        end
+
+        def clear_status
+          self.status = nil
         end
 
     end
