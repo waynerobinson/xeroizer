@@ -86,11 +86,9 @@ module Xeroizer
 
       protected
         def archive_account
-          # account_id = self.id
           # remove all keys / data
           clear_account
 
-          # self.id = account_id
           self.status = "ARCHIVED"
           self.save
         end
