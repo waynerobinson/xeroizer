@@ -660,7 +660,7 @@ throttling and logging:
 Xeroizer::PublicApplication.new(
   credentials[:key], credentials[:secret],
   before_request: ->(request) { puts "Hitting this URL: #{request.url}" },
-  after_request: ->(request, response) { puts "Got this response: #{response.code}" }
+  after_request: ->(request, response) { puts "Got this response: #{response.code}" },
   around_request: -> (request, &block)  { puts "About to send request"; block.call; puts "After request"}
 )
 ```
