@@ -1,4 +1,5 @@
 require "xeroizer/models/attachment"
+require "xeroizer/models/online_invoice"
 
 module Xeroizer
   module Record
@@ -14,6 +15,7 @@ module Xeroizer
       set_permissions :read, :write, :update
 
       include AttachmentModel::Extensions
+      include OnlineInvoiceModel::Extensions
 
       public
 
@@ -51,6 +53,7 @@ module Xeroizer
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 
       include Attachment::Extensions
+      include OnlineInvoice::Extensions
 
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number

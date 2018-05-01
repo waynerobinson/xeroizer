@@ -105,12 +105,21 @@ module Xeroizer
         end
 
         def save
-          return false unless valid?
+          save!
+          true
+        rescue XeroizerError => e
+          log "[ERROR SAVING] (#{__FILE__}:#{__LINE__}) - #{e.message}"
+          false
+        end
+
+        def save!
+          raise RecordInvalid unless valid?
           if new_record?
             create
           else
             update
           end
+
           saved!
         end
 
