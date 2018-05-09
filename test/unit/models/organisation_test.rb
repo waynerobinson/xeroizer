@@ -35,4 +35,18 @@ class OrganisationTest < Test::Unit::TestCase
     end
   end
 
+  context "parse response" do
+    it "includes payment_terms" do
+      @instance = Xeroizer::Record::OrganisationModel.new(nil, "Organisation")
+      some_xml = get_record_xml("organisation")
+
+      result = @instance.parse_response(some_xml)
+      organisation = result.response_items.first
+
+      assert_equal(organisation.payment_terms.bills.day, "4")
+      assert_equal(organisation.payment_terms.bills.type, "OFFOLLOWINGMONTH")
+      assert_equal(organisation.payment_terms.sales.day, "2")
+      assert_equal(organisation.payment_terms.sales.type, "OFFOLLOWINGMONTH")
+    end
+  end
 end
