@@ -1,3 +1,4 @@
+require "xeroizer/models/payment_terms"
 module Xeroizer
   module Record
     
@@ -62,6 +63,7 @@ module Xeroizer
       has_many :addresses
       has_many :phones
       has_many :external_links
+      has_one :payment_terms, :model_name => 'PaymentTerms'
 
       validates :sales_tax_basis, :message => "is not a valid option" do
         valid = true

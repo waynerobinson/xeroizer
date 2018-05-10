@@ -20,6 +20,16 @@
       <FinancialYearEndMonth>6</FinancialYearEndMonth>
       <PeriodLockDate>2008-06-30T00:00:00</PeriodLockDate>
       <CreatedDateUTC>2011-05-19T05:26:03.95</CreatedDateUTC>
+      <PaymentTerms>
+        <Bills>
+          <Day>4</Day>
+          <Type>OFFOLLOWINGMONTH</Type>
+        </Bills>
+        <Sales>
+          <Day>2</Day>
+          <Type>OFFOLLOWINGMONTH</Type>
+        </Sales>
+       </PaymentTerms>
     </Organisation>
   </Organisations>
 </Response>
