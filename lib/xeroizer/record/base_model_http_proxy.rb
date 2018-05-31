@@ -19,6 +19,7 @@ module Xeroizer
             params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]
             params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
+            params[:createdByMyApp] = options[:createdByMyApp] if options[:createdByMyApp]
 
             params[:IDs]            = filterize(options[:IDs]) if options[:IDs]
             params[:InvoiceNumbers] = filterize(options[:InvoiceNumbers]) if options[:InvoiceNumbers]
