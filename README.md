@@ -530,7 +530,7 @@ invoice.save
 # An invoice created without a status will default to 'DRAFT'
 invoice.approved?
 
-# Payments can only be created against 'AUTHROISED' invoices
+# Payments can only be created against 'AUTHORISED' invoices
 invoice.approve!
 
 # Find the first bank account
