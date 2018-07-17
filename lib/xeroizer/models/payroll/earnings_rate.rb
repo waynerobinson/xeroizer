@@ -23,6 +23,10 @@ module Xeroizer
         decimal       :multiplier
         boolean       :accrue_leave
         decimal       :amount
+        decimal       :fixed_amount # UK
+        decimal       :multiple_of_ordinary_earnings_rate # UK
+        string        :expense_account_id # UK
+        boolean       :current_record # UK
         boolean       :is_reportable_as_w1
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
