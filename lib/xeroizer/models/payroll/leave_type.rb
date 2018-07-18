@@ -1,11 +1,11 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class LeaveTypeModel < PayrollBaseModel
-          
+        set_permissions :read, :write, :update
       end
-      
+
       class LeaveType < PayrollBase
 
         string        :name
@@ -23,6 +23,6 @@ module Xeroizer
 
       end
 
-    end 
+    end
   end
 end
