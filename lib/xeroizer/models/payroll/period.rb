@@ -2,11 +2,11 @@ module Xeroizer
   module Record
     module Payroll
 
-      class LeavePeriodModel < PayrollBaseModel
+      class PeriodModel < PayrollBaseModel
 
       end
 
-      class LeavePeriod < PayrollBase
+      class Period < PayrollBase
 
         decimal     :number_of_units
         date        :pay_period_start_date

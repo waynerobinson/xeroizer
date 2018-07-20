@@ -4,6 +4,12 @@ module Xeroizer
 
       class LeaveTypeModel < PayrollBaseModel
         set_permissions :read, :write, :update
+
+        def api_url(options)
+          if options.keys.include?(:employee_id)
+            "employees/#{options.delete(:employee_id)}/leaveTypes"
+          end
+        end
       end
 
       class LeaveType < PayrollBase

@@ -34,6 +34,8 @@ module Xeroizer
     record :Setting
     record :SuperFund
     record :EarningsRate # UK
+    record :Leave # UK
+    record :Period
     record :LeaveType # UK
     record :LeaveBalance # UK, NZ
 
