@@ -54,6 +54,18 @@
         <IsReportableAsW1>true</IsReportableAsW1>
         <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
       </EarningsRate>
+      <EarningsRate>
+        <EarningsRateID>683f87af-50f7-4584-9b0b-93d943537945</EarningsRateID>
+        <Name>ETP Type O Payments Subject To Tax</Name>
+        <EarningsType>EMPLOYMENTTERMINATIONPAYMENT</EarningsType>
+        <RateType>FIXEDAMOUNT</RateType>
+        <AccountCode>477</AccountCode>
+        <IsExemptFromTax>false</IsExemptFromTax>
+        <IsExemptFromSuper>true</IsExemptFromSuper>
+        <IsReportableAsW1>false</IsReportableAsW1>
+        <UpdatedDateUTC>2018-02-07T01:01:25</UpdatedDateUTC>
+        <EmploymentTerminationPaymentType>O</EmploymentTerminationPaymentType>
+      </EarningsRate>
     </EarningsRates>
     <DeductionTypes>
       <DeductionType>
