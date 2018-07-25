@@ -24,6 +24,7 @@ module Xeroizer
         boolean       :accrue_leave
         decimal       :amount
         boolean       :is_reportable_as_w1
+        string        :employment_termination_payment_type
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
