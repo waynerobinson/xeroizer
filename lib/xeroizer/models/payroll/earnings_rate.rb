@@ -28,6 +28,7 @@ module Xeroizer
         string        :expense_account_id # UK
         boolean       :current_record # UK
         boolean       :is_reportable_as_w1
+        string        :employment_termination_payment_type
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
