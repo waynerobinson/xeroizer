@@ -23,13 +23,11 @@ module Xeroizer
         date          :end_date
         datetime_utc  :updated_date_utc
 
-
-        has_many      :periods#, :internal_name_singular => "period", :model_name => "LeavePeriod"
+        has_many      :periods
 
         def api_url
           "employees/#{employee_id}/leave"
         end
-
       end
 
     end
