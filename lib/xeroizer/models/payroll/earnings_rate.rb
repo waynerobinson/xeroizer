@@ -32,7 +32,7 @@ module Xeroizer
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
-        validates_presence_of :name, :type_of_units, :earnings_type # UK has lesser validation requirements
+        validates_presence_of :name, :earnings_type # UK has lesser validation requirements
 
       end
 
