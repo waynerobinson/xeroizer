@@ -6,7 +6,7 @@ module Xeroizer
 
         set_permissions :read, :write, :update
 
-        def api_url
+        def api_url(options = {})
           "employees/#{options[:employee_id]}/leave"
         end
       end
