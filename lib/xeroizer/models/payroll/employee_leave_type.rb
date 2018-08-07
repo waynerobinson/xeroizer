@@ -1,9 +1,3 @@
-def api_url(options = {})
-  if options[:employee_id]
-    "employees/#{options.delete(:employee_id)}/leaveTypes"
-  end
-end
-
 module Xeroizer
   module Record
     module Payroll
