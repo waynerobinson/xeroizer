@@ -39,7 +39,7 @@ require 'xeroizer/configuration'
 end
 
 # Include payroll models
-['home_address', 'bank_account', 'employee', 'timesheet', 'timesheet_line', 'number_of_unit',
+['home_address', 'bank_account', 'employee', 'employee_leave_type', 'timesheet', 'timesheet_line', 'number_of_unit',
   'leave_application', 'leave', 'leave_period', 'period', 'pay_items', 'deduction_type', 'earnings_rate',
   'reimbursement_type', 'leave_type', 'payroll_calendar', 'pay_template', 'super_membership',
   'leave_line', 'reimbursement_line', 'super_line', 'deduction_line', 'earnings_line', 'opening_balance',

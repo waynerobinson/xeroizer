@@ -218,7 +218,14 @@ module Xeroizer
           json = ::JSON.parse(response_body)
           response = Response.new
 
-          iterable = json[self.model_name.camelize(:lower).pluralize] || json[self.model_name.camelize(:lower)]
+          model_name_to_parse =
+           if self.respond_to?(:model_name_to_parse)
+             self.model_name_to_parse
+           else
+             self.model_name
+           end
+
+          iterable = json[model_name_to_parse.camelize(:lower).pluralize] || json[model_name_to_parse.camelize(:lower)]
           iterable = [iterable] if iterable.is_a?(Hash)
 
           iterable.each {|object|

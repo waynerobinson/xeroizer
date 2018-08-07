@@ -39,6 +39,8 @@ module Xeroizer
     record :LeaveType # UK
     record :LeaveBalance # UK, NZ
     record :TrackingCategories # UK
+    record :EmployeeLeaveType # UK
+
 
     def initialize(application)
       @application = application
