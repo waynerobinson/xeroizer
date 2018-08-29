@@ -686,7 +686,7 @@ This option adds the unitdp=4 query string parameter to all requests for models 
 Tests
 -----
 
-The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company](https://developer.xero.com/documentation/getting-started/development-accounts) (note: the Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired).
+The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired. Make sure you create the Demo Company in Australia region.
 
 Once you have created your Private App, set these environment variables:
 ```
