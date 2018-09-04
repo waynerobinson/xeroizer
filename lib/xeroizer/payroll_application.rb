@@ -34,7 +34,13 @@ module Xeroizer
     record :Setting
     record :SuperFund
     record :EarningsRate # UK
+    record :Leave # UK
+    record :Period # UK
+    record :LeaveType # UK
     record :LeaveBalance # UK, NZ
+    record :TrackingCategories # UK
+    record :EmployeeLeaveType # UK
+
 
     def initialize(application)
       @application = application

@@ -23,12 +23,16 @@ module Xeroizer
         decimal       :multiplier
         boolean       :accrue_leave
         decimal       :amount
+        decimal       :fixed_amount # UK
+        decimal       :multiple_of_ordinary_earnings_rate # UK
+        string        :expense_account_id # UK
+        boolean       :current_record # UK
         boolean       :is_reportable_as_w1
         string        :employment_termination_payment_type
 
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
-        validates_presence_of :name, :account_code, :type_of_units, :is_exempt_from_super, :is_exempt_from_tax, :earnings_type
+        validates_presence_of :name, :earnings_type # UK has lesser validation requirements
 
       end
 
