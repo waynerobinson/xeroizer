@@ -67,8 +67,8 @@ module Xeroizer
             :api_name       => options[:api_name] || field_name.to_s.camelize,
             :type           => field_type
           })
-          define_method internal_field_name do 
-            @attributes[field_name] || value_if_nil
+          define_method internal_field_name do
+            @attributes[field_name] == nil ? value_if_nil : @attributes[field_name]
           end
           
           unless options[:skip_writer]
