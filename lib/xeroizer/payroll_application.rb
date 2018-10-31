@@ -22,6 +22,7 @@ module Xeroizer
     record :PayRun
 
     def initialize(application)
+      application.instance_variable_set("@xero_url", "https://api.xero.com/payroll.xro/1.0")
       @application = application
     end
 
