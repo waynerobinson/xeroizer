@@ -121,7 +121,6 @@ module Xeroizer
         raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
         response_xml = http_get(parse_params(options))
         response = parse_response(response_xml, options)
-
         response.response_items || []
       end
 

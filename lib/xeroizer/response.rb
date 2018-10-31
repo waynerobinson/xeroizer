@@ -31,7 +31,6 @@ module Xeroizer
         raise Xeroizer::UnparseableResponse.new(doc.root.name) unless doc.root.name == 'Response'
 
         doc.root.elements.each do | element |
-
           # Text element
           if element.children && element.children.size == 1 && element.children.first.text?
             case element.name
@@ -46,7 +45,6 @@ module Xeroizer
             yield(response, element.children, element.children.first.name)
           end
         end
-
 
         response
       end

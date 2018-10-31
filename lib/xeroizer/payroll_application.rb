@@ -20,7 +20,6 @@ module Xeroizer
 
     record :Employee
     record :PayRun
-    # record :PayrollCalendars
 
     def initialize(application)
       @application = application
