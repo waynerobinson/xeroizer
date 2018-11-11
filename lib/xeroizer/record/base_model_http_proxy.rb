@@ -33,6 +33,9 @@ module Xeroizer
                                 end
             end
             params[:offset] = options[:offset] if options[:offset]
+            params[:Status] = options[:status] if options[:status]
+            params[:DateFrom] = options[:date_from] if options[:date_from]
+            params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
             params
           end
