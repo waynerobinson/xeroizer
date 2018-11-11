@@ -104,6 +104,16 @@ class RecordBaseTest < Test::Unit::TestCase
     end
   end
 
+  context 'build' do
+
+    should "raise an undefined method error with useful message" do
+      assert_raise_message("undefined method `this_method_does_not_exist=' for #<Xeroizer::Record::Contact >") do
+        @client.Contact.build(:this_method_does_not_exist =>  true)
+      end
+    end
+
+  end
+
   context 'saving' do
     context 'invalid record' do
       setup do
