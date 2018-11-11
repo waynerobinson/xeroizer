@@ -75,4 +75,12 @@ class LineItemTest < Test::Unit::TestCase
     assert_equal "0.0", line_item.line_amount.to_s,
       "expected line amount to be zero when unit_amount is zero"
   end
+
+  it "coerces decimals when calculating line amount" do
+    line_item = LineItem.new(nil)
+    line_item.quantity = "1"
+    line_item.unit_amount = 50
+    assert_equal 50, line_item.line_amount,
+      "expected line amount to be calculated from coerced values"
+  end
 end
