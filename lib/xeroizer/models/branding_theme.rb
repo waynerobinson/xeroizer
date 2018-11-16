@@ -13,7 +13,7 @@ module Xeroizer
         @payment_services ||= @application.http_get(@application.client, payment_services_endpoint(id))
       end
 
-      def add_payment_service(id:,payment_service_id:)
+      def add_payment_service(id:, payment_service_id:)
         xml = {
           PaymentService: {
             PaymentServiceID: payment_service_id
