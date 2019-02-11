@@ -178,7 +178,7 @@ contacts = client.Contact.all
 
 Partner applications use a combination of 3-legged authorisation and private key message signing.
 
-You will need to contact Xero (network@xero.com) to get permission to create a partner application.
+Visit the [https://developer.xero.com/partner/app-partner](Becoming an app partner) page to get permission to create a partner application.
 
 After you have followed the instructions provided by Xero for partner applications and uploaded your certificate you can
 access the partner application in a similar way to public applications.
