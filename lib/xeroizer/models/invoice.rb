@@ -209,6 +209,12 @@ module Xeroizer
           change_status!('AUTHORISED')
         end
 
+        # Send an email containing the invoice.
+        def email
+          email_url = "#{parent.url}/#{CGI.escape(id)}/Email"
+          parent.application.http_post(parent.application.client, email_url, "")
+        end
+
       protected
 
         def change_status!(new_status)

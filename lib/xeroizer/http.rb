@@ -112,6 +112,8 @@ module Xeroizer
         case response.code.to_i
           when 200
             response.plain_body
+          when 204
+            nil
           when 400
             handle_error!(response, body)
           when 401
