@@ -35,7 +35,9 @@ module Xeroizer
         date          :termination_date
         string        :national_insurance_number # UK
         guid          :pay_run_calendar_id # UK
-        datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+        datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
+        date          :end_date, api_name: 'EndDate' # UK - null when employee is active
+
 
         belongs_to    :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
         belongs_to    :tax_declaration, :internal_name_singular => "tax_declaration", :model_name => "TaxDeclaration"
