@@ -143,7 +143,7 @@ module Xeroizer
               when :decimal   
                 real_value = case value
                   when BigDecimal   then value.to_s
-                  when String       then BigDecimal.new(value).to_s
+                  when String       then BigDecimal(value).to_s
                   else              value
                 end
                 b.tag!(field[:api_name], real_value)
