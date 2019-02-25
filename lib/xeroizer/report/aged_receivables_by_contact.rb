@@ -31,7 +31,7 @@ module Xeroizer
         end
 
         def sum(column_name, &block)
-          sections.first.rows.inject(BigDecimal.new('0')) do | sum, row |
+          sections.first.rows.inject(BigDecimal('0')) do | sum, row |
             sum += row.cell(column_name).value if row.class == Xeroizer::Report::Row && (block.nil? || block.call(row))
             sum
           end
