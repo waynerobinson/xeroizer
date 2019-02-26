@@ -25,6 +25,7 @@ module Xeroizer
       string        :reference
       decimal       :currency_rate
       decimal       :remaining_credit
+      decimal       :applied_amount
       boolean       :has_attachments
 
       belongs_to    :contact
