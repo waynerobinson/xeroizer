@@ -474,6 +474,13 @@ contact.save
 Have a look at the models in `lib/xeroizer/models/` to see the valid attributes, associations and
 minimum validation requirements for each of the record types.
 
+Some Xero endpoints, such as Payment, will only accept specific attributes for updates. Because the library does not have this knowledge encoded (and doesn't do dirty tracking of attributes), it's necessary to construct new objects instead of using the ones retrieved from Xero:
+
+```ruby
+delete_payment = gateway.Payment.build(id: payment.id, status: 'DELETED')
+delete_payment.save
+```
+
 ### Bulk Creates & Updates
 
 Xero has a hard daily limit on the number of API requests you can make (currently 5,000 requests
