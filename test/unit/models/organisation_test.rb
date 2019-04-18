@@ -38,7 +38,7 @@ class OrganisationTest < Test::Unit::TestCase
   context "parse response" do
     it "includes payment_terms" do
       @instance = Xeroizer::Record::OrganisationModel.new(nil, "Organisation")
-      some_xml = get_record_xml("organisation")
+      some_xml = get_record_xml("organisations")
 
       result = @instance.parse_response(some_xml)
       organisation = result.response_items.first

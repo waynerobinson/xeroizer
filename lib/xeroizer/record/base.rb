@@ -30,7 +30,7 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            attr = record.respond_to?("#{key}=") ? key : record.class.fields[key][:internal_name]
+            attr = record.respond_to?("#{key}=") || record.class.fields[key].nil? ? key : record.class.fields[key][:internal_name]
             record.send("#{attr}=", value)
           end
           record

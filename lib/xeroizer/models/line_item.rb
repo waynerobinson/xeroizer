@@ -39,7 +39,7 @@ module Xeroizer
         return attributes[:line_amount] if summary_only || @line_amount_set
 
         if quantity && unit_amount
-          total = quantity * unit_amount
+          total = coerce_numeric(quantity) * coerce_numeric(unit_amount)
           if discount_rate
             BigDecimal((total * ((100 - discount_rate) / 100)).to_s).round(2)
           else
@@ -48,7 +48,14 @@ module Xeroizer
         end
       end
 
+      private
+
+      def coerce_numeric(number)
+        return number if number.is_a? Numeric
+        BigDecimal(number)
+      end
+
     end
-    
+
   end
 end

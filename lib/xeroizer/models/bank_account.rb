@@ -7,6 +7,7 @@ module Xeroizer
     class BankAccount < Base
       guid   :account_id
       string :code
+      string :name
     end
   end
 end

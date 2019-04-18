@@ -18,7 +18,7 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
       keys = [:line_amount_types, :contact, :date, :status, :line_items,
               :updated_date_utc, :currency_code, :bank_transaction_id,
               :bank_account, :type, :reference, :is_reconciled, :currency_rate]
-      assert_equal(@a_new_bank_transaction.attributes.keys, keys)
+      assert_equal(keys, @a_new_bank_transaction.attributes.keys)
     end
 
     it "returns full line item details" do
@@ -38,7 +38,7 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
       keys = [:line_amount_types, :contact, :date, :status, :updated_date_utc, 
               :currency_code, :bank_transaction_id, :bank_account, :type, :reference, 
               :is_reconciled]
-      assert_equal(@the_first_bank_transaction.attributes.keys, keys)
+      assert_equal(keys, @the_first_bank_transaction.attributes.keys)
     end
 
     it "returns contact" do
