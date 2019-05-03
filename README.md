@@ -653,7 +653,7 @@ If required, the library can handle these exceptions internally by sleeping 1 se
 You can set this option when initializing an application:
 
 ```ruby
-# Sleep for 2 seconds every time the rate limit is exceeded.
+# Sleep for 1 second and retry up to 3 times when Xero claims the nonce was used.
 client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
                                          YOUR_OAUTH_CONSUMER_SECRET,
                                          :nonce_used_max_attempts => 3)
