@@ -23,7 +23,7 @@ module Xeroizer
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :integer     then element.text.to_i
-                when :decimal     then BigDecimal.new(element.text)
+                when :decimal     then BigDecimal(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
                 when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
