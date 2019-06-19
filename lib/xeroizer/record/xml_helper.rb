@@ -3,14 +3,14 @@ require 'active_support/time'
 module Xeroizer
   module Record
     module XmlHelper
-      
+
       def self.included(base)
         base.extend(ClassMethods)
         base.send :include, InstanceMethods
       end
-      
+
       module ClassMethods
-        
+
         # Build a record instance from the XML node.
         def build_from_node(node, parent, base_module, standalone_model = false)
           record = new(parent)
@@ -27,10 +27,10 @@ module Xeroizer
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
                 when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
-                when :belongs_to  
+                when :belongs_to
                   model_name = field[:model_name] ? field[:model_name].to_sym : element.name.to_sym
                   base_module.const_get(model_name).build_from_node(element, parent, base_module)
-                  
+
                 when :has_many
                   if element.element_children.size > 0
                     sub_field_name = field[:model_name] ? field[:model_name].to_sym : (standalone_model ? element.name : element.children.first.name).to_sym
@@ -78,7 +78,7 @@ module Xeroizer
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :integer     then element.text.to_i
-                when :decimal     then BigDecimal.new(element.text)
+                when :decimal     then BigDecimal(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
                 when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
@@ -96,13 +96,13 @@ module Xeroizer
         def remove_empty_text_nodes(children)
           children.find_all {|c| !c.respond_to?(:text) || !c.text.strip.empty?}
         end
-        
+
       end
-      
+
       module InstanceMethods
-        
+
         public
-        
+
           # Turn a record into its XML representation.
           def to_xml(b = Builder::XmlMarkup.new(:indent => 2))
             optional_root_tag(parent.class.optional_xml_root_name, b) do |b|
@@ -115,9 +115,9 @@ module Xeroizer
               }
             end
           end
-          
+
         protected
-        
+
           # Add top-level root name if required.
           # E.g. Payments need specifying in the form:
           #   <Payments>
@@ -132,7 +132,7 @@ module Xeroizer
               yield(b)
             end
           end
-        
+
           # Format an attribute for use in the XML passed to Xero.
           def xml_value_from_field(b, field, value)
             case field[:type]
@@ -140,7 +140,7 @@ module Xeroizer
               when :string      then b.tag!(field[:api_name], value)
               when :boolean     then b.tag!(field[:api_name], value ? 'true' : 'false')
               when :integer     then b.tag!(field[:api_name], value.to_i)
-              when :decimal   
+              when :decimal
                 real_value = case value
                   when BigDecimal   then value.to_s
                   when String       then BigDecimal(value).to_s
@@ -154,9 +154,9 @@ module Xeroizer
                   when Time         then value.utc.strftime("%Y-%m-%d")
                 end
                 b.tag!(field[:api_name], real_value)
-                
+
               when :datetime    then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%dT%H:%M:%S"))
-              when :belongs_to  
+              when :belongs_to
                 value_is_present = (value.respond_to?(:blank?) && !value.blank?) || (!value.nil? && (!value.respond_to?(:length) || (value.respond_to?(:length) && value.length != 0)))
                 # you may need to set a belongs_to to nil, at which point it defaults back to an array
                 # but in that case we don't want to include it in the XML response
@@ -167,7 +167,7 @@ module Xeroizer
                   nil
                 end
 
-              when :has_many    
+              when :has_many
                 if value.size > 0
                   sub_parent = value.first.parent
                   b.tag!(sub_parent.class.xml_root_name || sub_parent.model_name.pluralize) {
