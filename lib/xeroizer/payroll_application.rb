@@ -40,6 +40,7 @@ module Xeroizer
     record :LeaveBalance # UK, NZ
     record :TrackingCategories # UK
     record :EmployeeLeaveType # UK
+    record :PayTemplate # UK
 
 
     def initialize(application)
