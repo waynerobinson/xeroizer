@@ -41,6 +41,7 @@ module Xeroizer
     record :TrackingCategories # UK
     record :EmployeeLeaveType # UK
     record :PayTemplate # UK
+    record :SalaryAndWages # UK
 
 
     def initialize(application)
