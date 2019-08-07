@@ -19,6 +19,7 @@ module Xeroizer
       decimal :tax_amount
       decimal :line_amount, :calculated => true
       decimal :discount_rate
+      decimal :discount_amount
       string  :line_item_id
 
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
@@ -40,8 +41,10 @@ module Xeroizer
 
         if quantity && unit_amount
           total = coerce_numeric(quantity) * coerce_numeric(unit_amount)
-          if discount_rate
+          if discount_rate.nonzero?
             BigDecimal((total * ((100 - discount_rate) / 100)).to_s).round(2)
+          elsif discount_amount
+            BigDecimal(total - discount_amount).round(2)
           else
             BigDecimal(total.to_s).round(2)
           end
