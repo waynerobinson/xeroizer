@@ -174,6 +174,16 @@ client = Xeroizer::PrivateApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CO
 contacts = client.Contact.all
 ```
 
+To provide a private key directly, set the path to nil and pass in a `private_key` option instead. For example:
+
+```ruby
+# Using environment variables (e.g. Heroku):
+client = Xeroizer::PrivateApplication.new(key, secret, nil, private_key: ENV["XERO_PRIVATE_KEY"])
+
+# Using Rails Credentials (Rails 5.2+):
+client = Xeroizer::PrivateApplication.new(key, secret, nil, private_key: Rails.application.credentials.xero_private_key)
+```
+
 ### Partner Applications
 
 Partner applications use a combination of 3-legged authorisation and private key message signing.
