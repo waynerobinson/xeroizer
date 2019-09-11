@@ -44,7 +44,7 @@ module Xeroizer
           if discount_rate.nonzero?
             BigDecimal((total * ((100 - discount_rate) / 100)).to_s).round(2)
           elsif discount_amount
-            BigDecimal(total - discount_amount).round(2)
+            BigDecimal((total - discount_amount).to_s).round(2)
           else
             BigDecimal(total.to_s).round(2)
           end
