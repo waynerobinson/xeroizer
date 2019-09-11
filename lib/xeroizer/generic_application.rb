@@ -15,8 +15,9 @@ module Xeroizer
     record :Account
     record :Allocation
     record :Attachment
-    record :BrandingTheme
     record :Balances
+    record :BatchPayment
+    record :BrandingTheme
     record :Contact
     record :ContactGroup
     record :CreditNote
