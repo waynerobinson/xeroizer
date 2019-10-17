@@ -162,10 +162,14 @@ module Xeroizer
     end
 
     def handle_oauth_error!(response)
+      if response.plain_body == "You do not have permission to access this resource." || response.plain_body.match(/API access not authorised/i)
+        raise LackingPermissionToAccessRecord.new(response)
+      end
+
       error_details = CGI.parse(response.plain_body)
       description   = error_details["oauth_problem_advice"].first
       problem = error_details["oauth_problem"].first
-
+      
       # see http://oauth.pbworks.com/ProblemReporting
       # In addition to token_expired and token_rejected, Xero also returns
       # 'rate limit exceeded' when more than 60 requests have been made in

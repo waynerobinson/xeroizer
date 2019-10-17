@@ -4,8 +4,8 @@ module Xeroizer
       class EarningsLineModel < PayrollBaseModel
 
       end
-
-      # child of PayTemplate, Payslip
+      
+      # child of PayTemplate, Payslip, OpeningBalance
       class EarningsLine < PayrollBase
 
         EARNINGS_RATE_CALCULATION_TYPE = {
@@ -22,6 +22,7 @@ module Xeroizer
         decimal       :annual_salary
         decimal       :rate_per_unit
         decimal       :normal_number_of_units
+        decimal       :amount
 
         # US Payroll fields
         guid          :earnings_type_id
