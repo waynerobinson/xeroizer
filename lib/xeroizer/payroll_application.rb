@@ -36,7 +36,8 @@ module Xeroizer
     record :PayRun
     record :Payslip
     record :Setting
-    
+    record :SuperFund
+
     def initialize(application)
       @application = application
     end

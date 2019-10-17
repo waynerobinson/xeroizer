@@ -1,13 +1,12 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class TaxDeclarationModel < PayrollBaseModel
         set_xml_node_name 'TaxDeclaration'
       end
-      
+
       class TaxDeclaration < PayrollBase
-        
         EMPLOYMENT_BASIS = {
           'FULLTIME' => '',
           'PARTTIME' => '',
@@ -27,6 +26,8 @@ module Xeroizer
         string      :tax_file_number
         
         string      :tfn_exemption_type, :api_name => 'TFNExemptionType'
+
+        guid         :employee_id
         string      :employment_basis
 
         boolean      :australian_resident_for_tax_purposes
@@ -43,9 +44,8 @@ module Xeroizer
         
         validates_inclusion_of :employment_basis, :in => EMPLOYMENT_BASIS
         validates_inclusion_of :tfn_exemption_type, :in => EMPLOYMENT_BASIS
-        guid         :employee_id
       end
 
-    end 
+    end
   end
 end

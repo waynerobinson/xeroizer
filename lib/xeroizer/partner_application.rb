@@ -18,6 +18,7 @@ module Xeroizer
       def initialize(consumer_key, consumer_secret, path_to_private_key, options = {})
         default_options = {
           :xero_url_prefix  => 'https://api.xero.com',
+          :xero_url         => 'https://api.xero.com/api.xro/2.0',
           :site             => 'https://api.xero.com',
           :authorize_url    => 'https://api.xero.com/oauth/Authorize',
           :signature_method => 'RSA-SHA1'
