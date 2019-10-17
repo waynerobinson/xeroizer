@@ -30,42 +30,16 @@ require 'xeroizer/record/payroll_array_base'
 require 'xeroizer/configuration'
 
 # Include models
-require 'xeroizer/models/batch_payment'
-require 'xeroizer/models/from_bank_account'
-require 'xeroizer/models/to_bank_account'
-require 'xeroizer/models/bank_transfer'
-require 'xeroizer/models/expense_claim'
-require 'xeroizer/models/invoice_reminder'
-require 'xeroizer/models/online_invoice'
-require 'xeroizer/models/payment_service'
-require 'xeroizer/models/prepayment'
-require 'xeroizer/models/overpayment'
-require 'xeroizer/models/purchase_order'
-require 'xeroizer/models/receipt'
-require 'xeroizer/models/repeating_invoice'
-require 'xeroizer/models/schedule'
-require 'xeroizer/models/tax_component'
-require 'xeroizer/models/contact_sales_tracking_category'
-require 'xeroizer/models/contact_purchases_tracking_category'
-
-require 'xeroizer/models/payroll/benefit_line'
-require 'xeroizer/models/payroll/benefit_type'
-require 'xeroizer/models/payroll/earnings_type'
-require 'xeroizer/models/payroll/address'
-require 'xeroizer/models/payroll/payment_method'
-require 'xeroizer/models/payroll/pay_schedule'
-require 'xeroizer/models/payroll/paystub'
-require 'xeroizer/models/payroll/salary_and_wage'
-require 'xeroizer/models/payroll/time_off_line'
-require 'xeroizer/models/payroll/time_off_type'
-require 'xeroizer/models/payroll/work_location'
-
-# TODO Merge in above lists
 ['account','address','allocation','branding_theme','bank_transaction','bank_account','contact','contact_group',
   'credit_note','currency','employee','invoice','item','item_purchase_details','item_sales_details',
   'journal','journal_line','line_item','manual_journal','manual_journal_line','option','organisation',
   'payment','phone','tax_rate','tracking_category','tracking_category_child',
-  'journal_line_tracking_category', 'user'].each do |model|
+  'journal_line_tracking_category', 'user', 'batch_payment', 'from_bank_account',
+  'to_bank_account', 'bank_transfer', 'expense_claim', 'invoice_reminder',
+  'online_invoice', 'payment_service', 'prepayment', 'overpayment',
+  'purchase_order', 'receipt', 'repeating_invoice',
+  'schedule', 'tax_component', 'contact_sales_tracking_category',
+  'contact_purchases_tracking_category'].each do |model|
     require "xeroizer/models/#{model}"
 end
 
@@ -76,7 +50,9 @@ end
   'leave_line', 'reimbursement_line', 'super_line', 'deduction_line', 'earnings_line', 'opening_balance',
   'pay_run', 'settings', 'tracking_categories', 'employee_groups', 'timesheet_categories', 'account',
   'tax_declaration', 'payslip', 'timesheet_earnings_line', 'tax_line', 'leave_accrual_line', 'superannuation_line',
-  'leave_balance', 'time_off_balance', 'earnings_type', 'super_fund', 'earning_template', 'salary_and_wages'].each do |payroll_model|
+  'leave_balance', 'time_off_balance', 'earnings_type', 'super_fund', 'earning_template', 'salary_and_wages',
+  'benefit_line', 'benefit_type', 'earnings_type', 'address', 'payment_method', 'pay_schedule', 'paystub', 'salary_and_wage', 
+  'time_off_line', 'time_off_type', 'work_location'].each do |payroll_model|
     require "xeroizer/models/payroll/#{payroll_model}"
 end
 
