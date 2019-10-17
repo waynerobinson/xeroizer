@@ -1,13 +1,13 @@
 Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/xeroizer.png) [![Build Status](https://travis-ci.org/waynerobinson/xeroizer.svg)](https://travis-ci.org/waynerobinson/xeroizer)
 ====================
 
-**Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)		
-**Git**: 					[git://github.com/waynerobinson/xeroizer.git](git://github.com/waynerobinson/xeroizer.git)		
-**Github**: 			[https://github.com/waynerobinson/xeroizer](https://github.com/waynerobinson/xeroizer)		
-**Author**: 			Wayne Robinson [http://www.wayne-robinson.com](http://www.wayne-robinson.com)		
+**Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)
+**Git**: 					[git://github.com/waynerobinson/xeroizer.git](git://github.com/waynerobinson/xeroizer.git)
+**Github**: 			[https://github.com/waynerobinson/xeroizer](https://github.com/waynerobinson/xeroizer)
+**Author**: 			Wayne Robinson [http://www.wayne-robinson.com](http://www.wayne-robinson.com)
 **Contributors**: See Contributors section below
 **Copyright**:    2007-2013
-**License**:      MIT License		
+**License**:      MIT License
 
 Introduction
 ------------
@@ -69,7 +69,7 @@ client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CON
 request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
 
 # 2. Redirect the user to the URL specified by the RequestToken.
-#    
+#
 #    Note: example uses redirect_to method defined in Rails controllers.
 redirect_to request_token.authorize_url
 
@@ -210,7 +210,7 @@ client = Xeroizer::PartnerApplication.new(
 request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
 
 # 2. Redirect the user to the URL specified by the RequestToken.
-#    
+#
 #    Note: example uses redirect_to method defined in Rails controllers.
 redirect_to request_token.authorize_url
 
@@ -234,8 +234,8 @@ access_secret = client.access_token.secret
 
 Two other interesting attributes of the PartnerApplication client are:
 
-> **`#expires_at`**:								Time this AccessToken will expire (usually 30 minutes into the future).		
-> **`#authorization_expires_at`**:	How long this organisation has authorised you to access their data (usually 10 years into the future).		
+> **`#expires_at`**:								Time this AccessToken will expire (usually 30 minutes into the future).
+> **`#authorization_expires_at`**:	How long this organisation has authorised you to access their data (usually 10 years into the future).
 
 #### AccessToken Renewal
 
@@ -595,6 +595,8 @@ Reports are accessed like the following example:
 
 ```ruby
 trial_balance = xero.TrialBalance.get(:date => DateTime.new(2011,3,21))
+
+profit_and_loss = xero.ProfitAndLoss.get(fromDate: Date.new(2019,4,1), toDate: Date.new(2019,5,1))
 
 # Array containing report headings.
 trial_balance.header.cells.map { | cell | cell.value }
