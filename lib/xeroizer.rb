@@ -116,7 +116,7 @@ end
 # Include payroll models
 ['home_address', 'bank_account', 'employee', 'timesheet', 'timesheet_line', 'number_of_unit',
   'leave_application', 'leave_period', 'pay_items', 'deduction_type', 'earnings_rate',
-  'reimbursement_type', 'leave_type'].each do |payroll_model|
+  'reimbursement_type', 'leave_type', 'payroll_calendar'].each do |payroll_model|
     require "xeroizer/models/payroll/#{payroll_model}"
 end
 
