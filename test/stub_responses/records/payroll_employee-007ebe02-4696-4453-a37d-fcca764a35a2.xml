@@ -1,0 +1,15 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>007ebe02-4696-4453-a37d-fcca764a35a2</Id>
+  <Status>OK</Status>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:18:05.1105867Z</DateTimeUTC>
+  <Employees>
+    <Employee>
+      <EmployeeID>007ebe02-4696-4453-a37d-fcca764a35a2</EmployeeID>
+      <FirstName>John</FirstName>
+      <LastName>Smith</LastName>
+      <Status>ACTIVE</Status>
+      <UpdatedDateUTC>2013-04-01T23:27:35</UpdatedDateUTC>
+    </Employee>
+  </Employees>
+</Response>

@@ -1,0 +1,30 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>6ab1c708-a958-4788-8aa6-9a1d1a660900</Id>
+  <Status>OK</Status>
+  <ProviderName>Xeroizer test</ProviderName>
+  <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
+  <Timesheet>
+    <TimesheetID>6ab1c708-a958-4788-8aa6-9a1d1a660900</TimesheetID>
+    <EmployeeID>72a0d0c2-0cf8-4f0b-ade1-33231f47b41b</EmployeeID>
+    <StartDate>2013-02-08T00:00:00Z</StartDate>
+    <EndDate>2013-02-14T00:00:00Z</EndDate>
+    <Status>Processed</Status>
+    <Hours>30.0000</Hours>
+    <TimesheetLines>
+      <TimesheetLine>
+        <EarningsRateID>966c5c77-2ef0-4320-b6a9-6c27b080ecc5</EarningsRateID>
+        <NumberOfUnits>
+          <NumberOfUnit>8.00</NumberOfUnit>
+          <NumberOfUnit>8.00</NumberOfUnit>
+          <NumberOfUnit>8.00</NumberOfUnit>
+          <NumberOfUnit>6.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+        </NumberOfUnits>
+        <UpdatedDateUTC>2013-03-21T20:14:28</UpdatedDateUTC>
+      </TimesheetLine>
+    </TimesheetLines>
+    <UpdatedDateUTC>2013-03-21T20:14:28</UpdatedDateUTC>
+  </Timesheet>
+</Response>

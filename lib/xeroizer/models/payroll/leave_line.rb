@@ -6,6 +6,7 @@ module Xeroizer
 
       end
 
+      # child of PayTemplate
       class LeaveLine < PayrollBase
 
         LEAVE_TYPE_CALCULATION_TYPE = {
@@ -15,7 +16,8 @@ module Xeroizer
         } unless defined?(LEAVE_TYPE_CALCULATION_TYPE)
 
         guid :leave_type_id, :api_name => 'LeaveTypeID'
-        string :calculation_type
+        guid          :leave_line_id
+        string        :calculation_type # http://developer.xero.com/payroll-api/types-and-codes#LeaveTypeCalculationType
 
         decimal :annual_number_of_units
         decimal :full_time_number_of_units_per_period

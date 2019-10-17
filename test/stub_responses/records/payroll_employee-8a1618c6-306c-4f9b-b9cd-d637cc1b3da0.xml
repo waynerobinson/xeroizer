@@ -1,0 +1,22 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>8a1618c6-306c-4f9b-b9cd-d637cc1b3da0</Id>
+  <Status>OK</Status>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:18:05.1105867Z</DateTimeUTC>
+  <Employees>
+    <Employee>
+      <EmployeeID>8a1618c6-306c-4f9b-b9cd-d637cc1b3da0</EmployeeID>
+      <FirstName>Sally </FirstName>
+      <LastName>Martin</LastName>
+      <Status>ACTIVE</Status>
+      <Email>sm@madeup3993.com</Email>
+      <DateOfBirth>1983-11-26T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>0400 123 456</Phone>
+      <StartDate>2012-12-30T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>cb8e4706-2fdc-4170-aebd-0ffb855557f5</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+  </Employees>
+</Response>

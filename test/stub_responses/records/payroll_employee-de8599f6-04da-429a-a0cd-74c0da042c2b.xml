@@ -1,0 +1,22 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>de8599f6-04da-429a-a0cd-74c0da042c2b</Id>
+  <Status>OK</Status>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:18:05.1105867Z</DateTimeUTC>
+  <Employees>
+    <Employee>
+      <EmployeeID>de8599f6-04da-429a-a0cd-74c0da042c2b</EmployeeID>
+      <FirstName>Odette</FirstName>
+      <LastName>Garrison</LastName>
+      <Status>ACTIVE</Status>
+      <Email>ogg@madeup.email.com</Email>
+      <DateOfBirth>1975-05-18T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>9000 1234</Phone>
+      <StartDate>2012-04-04T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>97e0784f-6c3e-4371-a177-f93fbada3c58</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+  </Employees>
+</Response>

@@ -13,7 +13,7 @@ module Xeroizer
         string      :bsb, :api_name => 'BSB'
         string      :account_number
         boolean     :remainder
-        string      :percentage
+        decimal     :percentage
         decimal     :amount
 
         # US Payroll fields

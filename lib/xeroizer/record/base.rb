@@ -19,6 +19,9 @@ module Xeroizer
       attr_accessor :complete_record_downloaded
       attr_accessor :paged_record_downloaded
 
+      attr_writer :api_method_for_creating
+      attr_writer :api_method_for_updating
+      
       include ModelDefinitionHelper
       include RecordAssociationHelper
       include ValidationHelper
@@ -154,13 +157,20 @@ module Xeroizer
 
       protected
 
+        # TODO Is this necessary with parent.create?
+        def api_method_for_creating
+          @api_method_for_creating || parent.create || :http_put
+        end
+        def api_method_for_updating
+          @api_method_for_updating || :http_post
+        end
+      
         # Attempt to create a new record.
         def create
           request = to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
-          response = parent.send(parent.create_method, request)
-
+          response = parent.send(api_method_for_creating, request)
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
           parse_save_response(response)
@@ -175,8 +185,8 @@ module Xeroizer
           request = to_xml
 
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
-
-          response = parent.http_post(request)
+          
+          response = parent.send(api_method_for_updating, request)
 
           log "[UPDATE RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
 

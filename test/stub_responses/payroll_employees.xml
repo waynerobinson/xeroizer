@@ -5,11 +5,94 @@
   <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
   <Employees>
     <Employee>
-      <EmployeeID>07c60af4-5c86-44d9-8146-fab3733a087c</EmployeeID>
+      <EmployeeID>fb4ebd68-6568-41eb-96ab-628a0f54b4b8</EmployeeID>
+      <FirstName>James</FirstName>
+      <LastName>Lebron</LastName>
       <Status>ACTIVE</Status>
-      <FirstName>Alex</FirstName>
-      <LastName>Ghiculescu</LastName>
-      <UpdatedDateUTC>2013-04-18T01:29:53</UpdatedDateUTC>
+      <Email>JL@madeup.email.com</Email>
+      <DateOfBirth>1978-08-13T00:00:00</DateOfBirth>
+      <Gender>M</Gender>
+      <Phone>0400-000-123</Phone>
+      <Mobile> 408-230-9732</Mobile>
+      <StartDate>2012-01-30T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>cb8e4706-2fdc-4170-aebd-0ffb855557f5</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>007ebe02-4696-4453-a37d-fcca764a35a2</EmployeeID>
+      <FirstName>John</FirstName>
+      <LastName>Smith</LastName>
+      <Status>ACTIVE</Status>
+      <UpdatedDateUTC>2013-04-01T23:27:35</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>de8599f6-04da-429a-a0cd-74c0da042c2b</EmployeeID>
+      <FirstName>Odette</FirstName>
+      <LastName>Garrison</LastName>
+      <Status>ACTIVE</Status>
+      <Email>ogg@madeup.email.com</Email>
+      <DateOfBirth>1975-05-18T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>9000 1234</Phone>
+      <StartDate>2012-04-04T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>97e0784f-6c3e-4371-a177-f93fbada3c58</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>33c0dccf-cc2d-44ef-97d7-64041ca914cc</EmployeeID>
+      <FirstName>Oliver</FirstName>
+      <LastName>Gray</LastName>
+      <Status>ACTIVE</Status>
+      <Email>og@madeup.email.com</Email>
+      <DateOfBirth>1965-12-26T00:00:00</DateOfBirth>
+      <Gender>M</Gender>
+      <Phone>0401 123 456</Phone>
+      <StartDate>2012-07-02T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>cb8e4706-2fdc-4170-aebd-0ffb855557f5</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>8a1618c6-306c-4f9b-b9cd-d637cc1b3da0</EmployeeID>
+      <FirstName>Sally </FirstName>
+      <LastName>Martin</LastName>
+      <Status>ACTIVE</Status>
+      <Email>sm@madeup3993.com</Email>
+      <DateOfBirth>1983-11-26T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>0400 123 456</Phone>
+      <StartDate>2012-12-30T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>cb8e4706-2fdc-4170-aebd-0ffb855557f5</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>ff135c75-0121-48e3-8cac-128cfcc69b99</EmployeeID>
+      <FirstName>Sonia</FirstName>
+      <LastName>Michaels</LastName>
+      <Status>ACTIVE</Status>
+      <Email>som@madeup3993.com</Email>
+      <DateOfBirth>1986-01-22T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>02 2345 6789</Phone>
+      <Mobile></Mobile>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </Employee>
+    <Employee>
+      <EmployeeID>e8645dca-46ab-4026-a8d1-1c389378de50</EmployeeID>
+      <FirstName>Tracy</FirstName>
+      <LastName>Green</LastName>
+      <Status>ACTIVE</Status>
+      <Email>tg@madeup.email.com</Email>
+      <DateOfBirth>1985-08-04T00:00:00</DateOfBirth>
+      <Gender>F</Gender>
+      <Phone>0402 123 456</Phone>
+      <StartDate>2012-05-01T00:00:00</StartDate>
+      <OrdinaryEarningsRateID>72e962d1-fcac-4083-8a71-742bb3e7ae14</OrdinaryEarningsRateID>
+      <PayrollCalendarID>97e0784f-6c3e-4371-a177-f93fbada3c58</PayrollCalendarID>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
     </Employee>
   </Employees>
 </Response>
