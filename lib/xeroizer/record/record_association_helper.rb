@@ -31,13 +31,11 @@ module Xeroizer
             self.parent.mark_dirty(self) if self.parent
           end
         end
-        
-        alias_method :has_one, :belongs_to
 
         def has_array(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_plural_field_name = options[:internal_name_plural] || internal_field_name.to_s
-        
+
           define_association_attribute(field_name, internal_field_name, :has_array, options)
 
           define_method "add_to_#{internal_plural_field_name}" do | *args |
@@ -46,7 +44,7 @@ module Xeroizer
 
             # The record's parent instance for this current application.
             model_parent = new_model_class(model_name)
-          
+
             # The class of this record.
             record_class = (options[:base_module] || Xeroizer::Record).const_get(model_name)
 
@@ -56,15 +54,15 @@ module Xeroizer
             values = []
             if args.size == 1 && args.first.is_a?(Array)
               values = args.first
-            elsif args.size > 0 
+            elsif args.size > 0
               values = args
             else
               raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
             end
-          
+
             # Ensure that complete record is downloaded before adding new records
             self.send(field_name)
-            
+
             # Add each value.
             last_record = nil
             values.each do |value|
@@ -75,11 +73,13 @@ module Xeroizer
               self.parent.mark_dirty(self) if self.parent
               last_record = record
             end
-            
+
             last_record
           end
         end
-      
+
+        alias_method :has_one, :belongs_to
+
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
@@ -166,6 +166,13 @@ module Xeroizer
               when NilClass
                 self.attributes[field_name] = []
 
+              when Float, Fixnum
+                if record_class.fields.count == 1 && record_class.fields.keys.first == :value
+                  self.attributes[field_name] = self.class.value_if_nil(association_type, value)
+                else
+                  raise AssociationTypeMismatch.new(record_class, value.class)
+                end
+
               else
                 raise AssociationTypeMismatch.new(record_class, value.class)
             end
@@ -192,7 +199,7 @@ module Xeroizer
             boxed_value
           end
         end
-        
+
       end
 
     end

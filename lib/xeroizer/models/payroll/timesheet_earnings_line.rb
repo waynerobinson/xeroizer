@@ -1,11 +1,11 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class TimesheetEarningsLineModel < PayrollBaseModel
-          
+
       end
-      
+
       # child of Payslip
       class TimesheetEarningsLine < PayrollBase
 
@@ -15,6 +15,6 @@ module Xeroizer
 
       end
 
-    end 
+    end
   end
 end

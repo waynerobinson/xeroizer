@@ -36,6 +36,8 @@ module Xeroizer
         guid          :payroll_calendar_id
         string        :employee_group_name
         date          :termination_date
+        string        :national_insurance_number # UK
+        guid          :pay_run_calendar_id # UK
         datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
         belongs_to       :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"

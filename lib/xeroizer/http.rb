@@ -19,7 +19,8 @@ module Xeroizer
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
-      :json => 'application/json'
+      :json => 'application/json',
+      :xml  => 'application/xml',
     }
 
     # Shortcut method for #http_request with `method` = :get.

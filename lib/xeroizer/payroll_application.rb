@@ -37,6 +37,7 @@ module Xeroizer
     record :Payslip
     record :Setting
     record :SuperFund
+    record :EarningsRate # UK
 
     def initialize(application)
       @application = application

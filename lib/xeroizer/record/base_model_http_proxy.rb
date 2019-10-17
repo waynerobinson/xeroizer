@@ -37,6 +37,7 @@ module Xeroizer
             params[:DateFrom] = options[:date_from] if options[:date_from]
             params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
+            params[:response] = options[:api_format] || @application.api_format
             params
           end
 
