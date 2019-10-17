@@ -17,6 +17,7 @@ module Xeroizer
 
         guid          :earnings_rate_id
         string        :rate_type # http://developer.xero.com/payroll-api/types-and-codes/#EarningsRateTypes
+        decimal       :rate_per_unit
         decimal       :multiplier
         boolean       :accrue_leave
         decimal       :amount
