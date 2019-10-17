@@ -100,6 +100,15 @@ client.authorize_from_request(request_token.token, request_token.secret, :oauth_
 You can now use the client to access the Xero API methods, e.g.
 
 ```ruby
+contacts = client.Contact.all
+```
+
+#### Payroll Applications
+
+Payroll applications need to get permission to the appropriate API endpoints. Do this by providing a `scope` parameter when calling `request_token.authorize_url`.
+
+
+```ruby
 client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET).payroll
 request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
 redirect_to request_token.authorize_url(scope: Xeroizer::Scopes.all_payroll)
@@ -109,14 +118,6 @@ redirect_to request_token.authorize_url(scope: Xeroizer::Scopes.all_payroll)
 
 ```ruby
 redirect_to request_token.authorize_url(scope: 'payroll.employees,payroll.payitems')
-```
-
-#### Payroll Applications
-
-Payroll applications need to get permission to the appropriate API endpoints. Do this by providing a `scope` parameter when calling `request_token.authorize_url`.
-
-```ruby
-contacts = client.Contact.all
 ```
 
 #### Example Rails Controller
