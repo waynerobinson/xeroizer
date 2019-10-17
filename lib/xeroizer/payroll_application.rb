@@ -24,6 +24,7 @@ module Xeroizer
     record :PayItems
     record :PaySchedule
     record :Timesheet
+    record :PayItem
     
     def initialize(application)
       @application = application

@@ -21,6 +21,8 @@ module Xeroizer
 
       DEFAULT_RECORDS_PER_BATCH_SAVE = 50
 
+      class_inheritable_attributes :all_children_are_subtypes
+      
       include BaseModelHttpProxy
 
       attr_reader :application
@@ -66,6 +68,14 @@ module Xeroizer
         # Method to add an extra top-level node to use in has_many associations.
         def set_optional_xml_root_name(optional_root_name)
           self.optional_xml_root_name = optional_root_name
+        end
+
+        # Usually the xml structure will be <Classes><Class><Subclasses><Subclass></Subclass></Subclasses></Class></Classes>
+        # If this is true, the <Class> tag isn't expected. So it would be
+        # <Classes><Subclasses><Subclass></Subclass></Subclasses></Classes>
+        # Example: http://developer.xero.com/payroll-api/PayItems/#GET
+        def set_all_children_are_subtypes(boolean)
+          self.all_children_are_subtypes = boolean
         end
 
       end
@@ -146,6 +156,7 @@ module Xeroizer
         result.first if result.is_a?(Array)
       end
 
+
       # Retrieve record matching the passed in ID.
       def find(id, options = {})
         raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
@@ -201,6 +212,9 @@ module Xeroizer
           if model_name == response_model_name
             @response = response
             parse_records(response, elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record))
+          elsif self.class.all_children_are_subtypes && self.class.xml_root_name == elements.first.parent.name
+            @response = response
+            parse_records(response, elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record), true)
           end
         end
       end
@@ -221,18 +235,31 @@ module Xeroizer
       end
 
       # Parse the records part of the XML response and builds model instances as necessary.
-      def parse_records(response, elements, paged_results, base_module)
+      def parse_records(response, elements, paged_results, base_module, all_children_are_subtypes = false)
         elements.each do | element |
-          new_record = model_class.build_from_node(element, self, base_module)
+          new_record = model_class.build_from_node(element, self, base_module, all_children_are_subtypes)
           if element.attribute('status').try(:value) == 'ERROR'
             new_record.errors = []
             element.xpath('.//ValidationError').each do |err|
               new_record.errors << err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
             end
           end
-          new_record.paged_record_downloaded = paged_results
-          response.response_items << new_record
+
+          if all_children_are_subtypes
+            if response.response_items.count == 0
+              new_record.paged_record_downloaded = paged_results
+              response.response_items << new_record
+            else
+              # TODO Does this need new_record.paged_record_downloaded = paged_results?
+              field_to_fill = model_class.fields.find {|f| new_record[f[0]].count > 0}
+              (response.response_items.first[field_to_fill[0]] = new_record[field_to_fill[0]]) unless field_to_fill.nil?
+            end
+          else
+            new_record.paged_record_downloaded = paged_results
+            response.response_items << new_record
+          end
         end
+        response.response_items
       end
 
       def to_bulk_xml(records, builder = Builder::XmlMarkup.new(:indent => 2))

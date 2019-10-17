@@ -104,6 +104,22 @@ require 'xeroizer/models/payroll/timesheet'
 require 'xeroizer/models/payroll/timesheet_line'
 require 'xeroizer/models/payroll/number_of_unit'
 
+# TODO Deduplicate the above lists
+['account','address','branding_theme','bank_transaction','bank_account','contact','contact_group',
+  'credit_note','currency','employee','invoice','item','item_purchase_details','item_sales_details',
+  'journal','journal_line','line_item','manual_journal','manual_journal_line','option','organisation',
+  'payment','phone','tax_rate','tracking_category','tracking_category_child',
+  'journal_line_tracking_category'].each do |model|
+    require "xeroizer/models/#{model}"
+end
+
+# Include payroll models
+['home_address', 'bank_account', 'employee', 'timesheet', 'timesheet_line', 'number_of_unit',
+  'leave_application', 'leave_period', 'pay_items', 'deduction_type', 'earnings_rate',
+  'reimbursement_type', 'leave_type'].each do |payroll_model|
+    require "xeroizer/models/payroll/#{payroll_model}"
+end
+
 require 'xeroizer/report/factory'
 
 require 'xeroizer/response'

@@ -1,0 +1,187 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a1b8088e-4166-48e9-9e29-5b5919cac0a0</Id>
+  <Status>OK</Status>
+  <ProviderName>Xeroizer test</ProviderName>
+  <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
+  <PayItems>
+    <EarningsRates>
+      <EarningsRate>
+        <EarningsRateID>eca71b79-edab-4c3f-967f-a405453bac08</EarningsRateID>
+        <Name>Ordinary Hours</Name>
+        <EarningsType>ORDINARYTIMEEARNINGS</EarningsType>
+        <RateType>RATEPERUNIT</RateType>
+        <AccountCode>477</AccountCode>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsExemptFromTax>false</IsExemptFromTax>
+        <IsExemptFromSuper>false</IsExemptFromSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </EarningsRate>
+      <EarningsRate>
+        <EarningsRateID>f8eb8381-7db0-4de3-ada0-e03bbd1d811f</EarningsRateID>
+        <Name>Overtime Hours (exempt from super)</Name>
+        <EarningsType>OVERTIMEEARNINGS</EarningsType>
+        <RateType>MULTIPLE</RateType>
+        <AccountCode>477</AccountCode>
+        <Multiplier>1.5000</Multiplier>
+        <IsExemptFromTax>false</IsExemptFromTax>
+        <IsExemptFromSuper>true</IsExemptFromSuper>
+        <AccrueLeave>false</AccrueLeave>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </EarningsRate>
+      <EarningsRate>
+        <EarningsRateID>694d0065-f594-48f7-89c0-5cfd7a0c4c92</EarningsRateID>
+        <Name>Allowances subject to tax withholding and super</Name>
+        <EarningsType>ALLOWANCE</EarningsType>
+        <RateType>RATEPERUNIT</RateType>
+        <AccountCode>477</AccountCode>
+        <TypeOfUnits>Fixed Amount</TypeOfUnits>
+        <IsExemptFromTax>false</IsExemptFromTax>
+        <IsExemptFromSuper>false</IsExemptFromSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </EarningsRate>
+      <EarningsRate>
+        <EarningsRateID>92d6ae67-4302-4561-9000-90163cac8eb8</EarningsRateID>
+        <Name>Allowances exempt from tax withholding and super</Name>
+        <EarningsType>ALLOWANCE</EarningsType>
+        <RateType>RATEPERUNIT</RateType>
+        <AccountCode>477</AccountCode>
+        <TypeOfUnits>Fixed Amount</TypeOfUnits>
+        <IsExemptFromTax>true</IsExemptFromTax>
+        <IsExemptFromSuper>true</IsExemptFromSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </EarningsRate>
+    </EarningsRates>
+    <DeductionTypes>
+      <DeductionType>
+        <DeductionTypeID>f9be43ee-1876-4e67-a295-2a30eadd1942</DeductionTypeID>
+        <Name>Union Fees/Subscriptions</Name>
+        <AccountCode>850</AccountCode>
+        <ReducesTax>false</ReducesTax>
+        <ReducesSuper>false</ReducesSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </DeductionType>
+      <DeductionType>
+        <DeductionTypeID>f70fcea1-157c-4a1a-8724-369160e5cb5c</DeductionTypeID>
+        <Name>Lease Payments</Name>
+        <AccountCode>850</AccountCode>
+        <ReducesTax>true</ReducesTax>
+        <ReducesSuper>true</ReducesSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </DeductionType>
+      <DeductionType>
+        <DeductionTypeID>8d6e580f-37e1-48cf-80fe-e591008a251f</DeductionTypeID>
+        <Name>FBT</Name>
+        <AccountCode>850</AccountCode>
+        <ReducesTax>true</ReducesTax>
+        <ReducesSuper>true</ReducesSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </DeductionType>
+      <DeductionType>
+        <DeductionTypeID>eabff3b0-2fdc-4e3b-955c-30e113829c74</DeductionTypeID>
+        <Name>Other Pre-Tax Deductions</Name>
+        <AccountCode>850</AccountCode>
+        <ReducesTax>true</ReducesTax>
+        <ReducesSuper>true</ReducesSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </DeductionType>
+      <DeductionType>
+        <DeductionTypeID>c0b2f074-883e-451b-8863-185fd2403cef</DeductionTypeID>
+        <Name>Other Post-Tax Deductions</Name>
+        <AccountCode>850</AccountCode>
+        <ReducesTax>false</ReducesTax>
+        <ReducesSuper>false</ReducesSuper>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </DeductionType>
+    </DeductionTypes>
+    <ReimbursementTypes>
+      <ReimbursementType>
+        <ReimbursementTypeID>d4263307-f387-4c69-9525-7482d742ef50</ReimbursementTypeID>
+        <Name>Travel National Costs</Name>
+        <AccountCode>493</AccountCode>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </ReimbursementType>
+      <ReimbursementType>
+        <ReimbursementTypeID>7ecdc711-ea65-469a-ab9d-2a63f0753129</ReimbursementTypeID>
+        <Name>Other Reimbursable Costs</Name>
+        <AccountCode>850</AccountCode>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </ReimbursementType>
+    </ReimbursementTypes>
+    <LeaveTypes>
+      <LeaveType>
+        <LeaveTypeID>bd2ead8d-f8f9-480a-8a71-260222ed1a34</LeaveTypeID>
+        <Name>Annual Leave</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <NormalEntitlement>152.0000</NormalEntitlement>
+        <IsPaidLeave>true</IsPaidLeave>
+        <ShowOnPayslip>true</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>cd61fd41-671b-4d1f-ad6e-fbcb1eca3fc3</LeaveTypeID>
+        <Name>Long Service Leave</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>true</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>c06359d4-ee61-4f74-9c74-f94ef6a850e3</LeaveTypeID>
+        <Name>Parental Leave (unpaid)</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>false</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>271814d6-1087-45f2-923a-8301113a298b</LeaveTypeID>
+        <Name>Personal/Carer's Leave</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <NormalEntitlement>76.0000</NormalEntitlement>
+        <IsPaidLeave>true</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>f3a5f2f8-c14e-4223-ab58-4e779e0f6f2c</LeaveTypeID>
+        <Name>Carer's Leave (unpaid)</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>false</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>30ca48d0-fe04-40c2-b590-f5191159259f</LeaveTypeID>
+        <Name>Compassionate Leave (paid)</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>true</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>1e1765bc-1dbc-4ac9-b6cd-9f9f3290d8a4</LeaveTypeID>
+        <Name>Compassionate Leave (unpaid)</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>false</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>42d46756-9f2b-4456-ad44-8c889ff4a5bd</LeaveTypeID>
+        <Name>Community Service Leave</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>false</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+      <LeaveType>
+        <LeaveTypeID>7ea96a9f-d7c2-4de1-a3ac-bf89980f1890</LeaveTypeID>
+        <Name>Other Unpaid Leave</Name>
+        <TypeOfUnits>Hours</TypeOfUnits>
+        <IsPaidLeave>false</IsPaidLeave>
+        <ShowOnPayslip>false</ShowOnPayslip>
+        <UpdatedDateUTC>2013-04-09T23:45:25</UpdatedDateUTC>
+      </LeaveType>
+    </LeaveTypes>
+  </PayItems>
+</Response>

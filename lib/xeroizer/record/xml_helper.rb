@@ -12,10 +12,11 @@ module Xeroizer
       module ClassMethods
 
         # Build a record instance from the XML node.
-        def build_from_node(node, parent, base_module)
+        def build_from_node(node, parent, base_module, all_children_are_subtypes = false)
           record = new(parent)
           node.elements.each do | element |
-            field = self.fields[element.name.to_s.underscore.to_sym]
+            element_name = all_children_are_subtypes ? element.name.to_s.pluralize : element.name.to_s
+            field = self.fields[element_name.underscore.to_sym]
             if field
               value = case field[:type]
                 when :guid        then element.text
@@ -32,16 +33,26 @@ module Xeroizer
 
                 when :has_many
                   if element.element_children.size > 0
-                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : element.children.first.name.to_sym
+                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : (all_children_are_subtypes ? element.name : element.children.first.name).to_sym
                     sub_parent = record.new_model_class(sub_field_name)
-                    element.children.inject([]) do | list, inner_element |
-                      list << base_module.const_get(sub_field_name).build_from_node(inner_element, sub_parent, base_module)
+
+                    if all_children_are_subtypes
+                      base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
+                    else
+                      element.children.inject([]) do | list, inner_element |
+                        list << base_module.const_get(sub_field_name).build_from_node(inner_element, sub_parent, base_module)
+                      end
                     end
                   end
+
+                when :has_array
+                  raise 'TODO'
 
               end
               if field[:calculated]
                 record.attributes[field[:internal_name]] = value
+              elsif all_children_are_subtypes
+                record.send("add_#{field[:internal_name].to_s.singularize}".to_sym, value)
               else
                 record.send("#{field[:internal_name]}=".to_sym, value)
               end
@@ -127,16 +138,13 @@ module Xeroizer
                 end
 
               when :has_array
-                # TODO: instead of doing field[:api_name].singularize
-                # store the field name on the has_array subject class somewhere
                 if value.size > 0
                   b.tag!(field[:api_name]) do
-                    value.each do |items|
-                      items.value.each do |v|
-                        b.tag!(field[:api_name].singularize, v.to_s)
-                      end
+                    value.each do |v|
+                      b.tag!(field[:api_child_name], v.value)
                     end
                   end
+                  nil
                 end
 
             end
