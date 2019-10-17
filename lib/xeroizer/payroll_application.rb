@@ -4,7 +4,7 @@ module Xeroizer
     attr_reader :application
 
     extend Forwardable
-    def_delegators :application, :client, :request_token, :authorize_from_request, :authorize_from_access, :logger, :xero_url, :logger=, :xero_url=, :client, :rate_limit_sleep, :rate_limit_max_attempts
+    def_delegators :application, :client, :request_token, :access_token, :authorize_from_request, :authorize_from_access, :logger, :xero_url, :logger=, :xero_url=, :client, :rate_limit_sleep, :rate_limit_max_attempts
 
     # Factory for new Payroll BaseModel instances with the class name `record_type`.
     # Only creates the instance if one doesn't already exist.
