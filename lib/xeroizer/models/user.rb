@@ -1,6 +1,5 @@
 module Xeroizer
   module Record
-
     class UserModel < BaseModel
 
       set_api_controller_name 'User'

@@ -39,7 +39,7 @@ module Xeroizer
                     if standalone_model
                       base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
                     else
-                      element.children.inject([]) do | list, inner_element |
+                      remove_empty_text_nodes(element.children).inject([]) do | list, inner_element |
                         list << base_module.const_get(sub_field_name).build_from_node(inner_element, sub_parent, base_module)
                       end
                     end
@@ -73,6 +73,10 @@ module Xeroizer
           record
         end
 
+        private
+        def remove_empty_text_nodes(children)
+          children.find_all {|c| !c.respond_to?(:text) || !c.text.strip.empty?}
+        end
       end
 
       module InstanceMethods

@@ -34,6 +34,7 @@ module Xeroizer
     record :LineItem
     record :ManualJournal
     record :Organisation
+    record :User
     record :Payment
     record :PaymentService
     record :Prepayment
