@@ -194,7 +194,7 @@ module Xeroizer
       # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
       doc = Nokogiri::XML(raw_response)
 
-      if doc && doc.root && doc.root.name == "ApiException"
+      if doc && doc.root && (doc.root.name == "ApiException" || doc.root.name == 'Response')
 
         raise ApiException.new(doc.root.xpath("Type").text,
                                doc.root.xpath("Message").text,

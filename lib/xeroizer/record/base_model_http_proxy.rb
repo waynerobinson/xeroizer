@@ -120,6 +120,7 @@ module Xeroizer
               when :datetime_utc then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
               when :belongs_to  then
               when :has_many    then
+              when :has_one    then
             end
           end
 

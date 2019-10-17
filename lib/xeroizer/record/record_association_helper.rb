@@ -35,7 +35,7 @@ module Xeroizer
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
-        
+
           define_association_attribute(field_name, internal_field_name, :has_many, options)
 
           # Create an #add_record_name method to build the record and add to the attributes.
@@ -80,7 +80,7 @@ module Xeroizer
           end
 
         end
-
+     
         def define_association_attribute(field_name, internal_field_name, association_type, options)
           define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), ((association_type == :has_many) ? [] : nil))
 
@@ -96,8 +96,8 @@ module Xeroizer
                   when :has_many
                     self.attributes[field_name] = []
                     self.send("add_#{internal_singular_field_name}".to_sym, value)
-
-                  when :belongs_to                  
+                   
+                  when :belongs_to  
                     self.attributes[field_name] = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(value, new_model_class(model_name))
                    
                 end
