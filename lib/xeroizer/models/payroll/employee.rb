@@ -43,6 +43,7 @@ module Xeroizer
         has_one       :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
         has_many      :bank_accounts
         belongs_to    :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
+        belongs_to    :opening_balances, :internal_name_singular => "opening_balance", :model_name => "OpeningBalances"
         has_many      :super_memberships
 
         # US Payroll fields
