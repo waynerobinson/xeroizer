@@ -22,8 +22,10 @@ require 'xeroizer/http'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/payroll_base_model'
+require 'xeroizer/record/payroll_array_base_model'
 require 'xeroizer/record/base'
 require 'xeroizer/record/payroll_base'
+require 'xeroizer/record/payroll_array_base'
 require 'xeroizer/configuration'
 
 # Include models
@@ -98,6 +100,9 @@ require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/time_off_line'
 require 'xeroizer/models/payroll/time_off_type'
 require 'xeroizer/models/payroll/work_location'
+require 'xeroizer/models/payroll/timesheet'
+require 'xeroizer/models/payroll/timesheet_line'
+require 'xeroizer/models/payroll/number_of_unit'
 
 require 'xeroizer/report/factory'
 
