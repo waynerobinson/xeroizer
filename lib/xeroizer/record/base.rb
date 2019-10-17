@@ -155,8 +155,6 @@ module Xeroizer
           "#<#{self.class} #{attribute_string}>"
         end
 
-      protected
-
         # TODO Is this necessary with parent.create?
         def api_method_for_creating
           @api_method_for_creating || parent.create || :http_put
@@ -164,6 +162,8 @@ module Xeroizer
         def api_method_for_updating
           @api_method_for_updating || :http_post
         end
+
+      protected
       
         # Attempt to create a new record.
         def create

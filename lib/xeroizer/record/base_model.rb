@@ -171,7 +171,7 @@ module Xeroizer
         no_errors = true
         return false unless records.all?(&:valid?)
 
-        actions = records.group_by {|o| o.new_record? ? create_method : :http_post }
+        actions = records.group_by {|o| o.new_record? ? o.api_method_for_creating : o.api_method_for_updating }
         actions.each_pair do |http_method, records_for_method|
           records_for_method.each_slice(chunk_size) do |some_records|
             request = to_bulk_xml(some_records)
@@ -222,10 +222,6 @@ module Xeroizer
       def create_method
         :http_put
       end
-
-        def create_method
-          :http_put
-        end
 
       protected
 
