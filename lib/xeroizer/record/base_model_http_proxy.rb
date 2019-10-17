@@ -38,6 +38,7 @@ module Xeroizer
             params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
             params[:response] = options[:api_format] || @application.api_format
+            params[:url] = self.send(:api_url, options) if self.respond_to?(:api_url)
             params
           end
 

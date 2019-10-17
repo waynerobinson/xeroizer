@@ -79,7 +79,7 @@ module Xeroizer
                 when :string      then element.text
                 when :boolean     then (element.text == 'true')
                 when :integer     then element.text.to_i
-                when :decimal     then BigDecimal.new(element.text)
+                when :decimal     then BigDecimal(element.text)
                 when :date        then Date.parse(element.text)
                 when :datetime    then Time.parse(element.text)
                 when :datetime_utc then ActiveSupport::TimeZone['UTC'].parse(element.text).utc
@@ -158,7 +158,7 @@ module Xeroizer
                 b.tag!(field[:api_name], real_value)
 
               when :datetime    then b.tag!(field[:api_name], value.utc.strftime("%Y-%m-%dT%H:%M:%S"))
-              when :belongs_to  
+              when :belongs_to
                 value_is_present = (value.respond_to?(:blank?) && !value.blank?) || (!value.nil? && (!value.respond_to?(:length) || (value.respond_to?(:length) && value.length != 0)))
                 # you may need to set a belongs_to to nil, at which point it defaults back to an array
                 # but in that case we don't want to include it in the XML response

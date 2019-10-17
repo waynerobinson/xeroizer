@@ -178,7 +178,6 @@ module Xeroizer
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
           response = parent.send(api_method_for_creating, request, extra_params_for_create_or_update)
-
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
           parse_save_response(response)
@@ -191,7 +190,6 @@ module Xeroizer
           end
 
           request = json? ? to_api_json : to_xml
-
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
 
           response = parent.send(api_method_for_updating, request, extra_params_for_create_or_update)
@@ -211,6 +209,8 @@ module Xeroizer
           attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
             value = if v.respond_to?(:to_api_json)
               v.to_api_json
+            elsif k == :periods # hack for leave request periods for xero uk
+              v.map(&:to_api_json)
             elsif v.is_a?(Array) && [0, 1].include?(v.count)
               v.first # hack for timesheet line has_array values
             else
