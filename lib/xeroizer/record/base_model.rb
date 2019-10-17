@@ -211,7 +211,6 @@ module Xeroizer
 
       protected
 
-
       def paged_records_requested?(options)
         options.has_key?(:page) and options[:page].to_i >= 0
       end
