@@ -43,6 +43,7 @@ module Xeroizer
         
         validates_inclusion_of :employment_basis, :in => EMPLOYMENT_BASIS
         validates_inclusion_of :tfn_exemption_type, :in => EMPLOYMENT_BASIS
+        guid         :employee_id
       end
 
     end 

@@ -43,6 +43,8 @@ module Xeroizer
                         list << base_module.const_get(sub_field_name).build_from_node(inner_element, sub_parent, base_module)
                       end
                     end
+                  else
+                    []
                   end
 
                 when :has_array
@@ -52,6 +54,8 @@ module Xeroizer
                     element.element_children.inject([]) do |list, child|
                       list << base_module.const_get(sub_field_name).build_from_node(child, sub_parent, base_module)
                     end
+                  else
+                    []
                   end
 
               end

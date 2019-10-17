@@ -41,6 +41,7 @@ module Xeroizer
         has_one       :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
         has_one       :tax_declaration, :internal_name_singular => "tax_declaration", :model_name => "TaxDeclaration"
         has_one       :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
+
         has_many      :bank_accounts
         belongs_to    :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
         belongs_to    :opening_balances, :internal_name_singular => "opening_balance", :model_name => "OpeningBalances"

@@ -35,8 +35,7 @@ module Xeroizer
         decimal       :super
 
         string        :payslip_message
-        #has_many      :payslips
-
+        has_many      :payslips
       end
     end
   end

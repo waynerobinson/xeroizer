@@ -22,6 +22,8 @@ module Xeroizer
       DEFAULT_RECORDS_PER_BATCH_SAVE = 50
 
       class_inheritable_attributes :standalone_model
+      class_inheritable_attributes :before_padding
+      class_inheritable_attributes :after_padding
       
       include BaseModelHttpProxy
 
@@ -78,6 +80,17 @@ module Xeroizer
           self.standalone_model = boolean
         end
 
+        # Usually the xml structure will be <Response><Payslips><Payslip><xx></xx></Payslip></Payslips></Response>
+        # Provide wrapping if the response is <Response><Payslip><xx></xx></Payslip></Response>
+        def set_api_response_padding(padding)
+          self.before_padding = "<#{padding.pluralize}><#{padding}>"
+          self.after_padding = "</#{padding}></#{padding.pluralize}>"
+        end
+
+        def pad_api_response?
+          self.before_padding && self.after_padding
+        end
+        
       end
 
       public
@@ -209,7 +222,10 @@ module Xeroizer
 
       def parse_response(response_xml, options = {})
         Response.parse(response_xml, options) do | response, elements, response_model_name |
-          if model_name == response_model_name
+          if self.class.pad_api_response?
+            @response = response
+            parse_records(response, Nokogiri::XML("#{self.class.before_padding}#{elements.to_xml}#{self.class.after_padding}").root.elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record))
+          elsif model_name == response_model_name
             @response = response
             parse_records(response, elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record))
           elsif self.class.standalone_model && self.class.xml_root_name == elements.first.parent.name
