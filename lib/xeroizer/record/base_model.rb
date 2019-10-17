@@ -169,7 +169,6 @@ module Xeroizer
         result.first if result.is_a?(Array)
       end
 
-
       # Retrieve record matching the passed in ID.
       def find(id, options = {})
         raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
@@ -185,8 +184,8 @@ module Xeroizer
         return false unless records.all?(&:valid?)
 
         actions = records.group_by {|o| o.new_record? ? o.api_method_for_creating : o.api_method_for_updating }
-        actions.each_pair do |http_method, records_for_method|
-          records_for_method.each_slice(chunk_size) do |some_records|
+         actions.each_pair do |http_method, records_for_method|
+           records_for_method.each_slice(chunk_size) do |some_records|
             request = to_bulk_xml(some_records)
             response = parse_response(self.send(http_method, request, {:summarizeErrors => false}))
             response.response_items.each_with_index do |record, i|
@@ -241,7 +240,6 @@ module Xeroizer
 
       protected
 
-
       def paged_records_requested?(options)
         options.has_key?(:page) and options[:page].to_i >= 0
       end
@@ -276,8 +274,8 @@ module Xeroizer
             end
           else
             new_record.paged_record_downloaded = paged_results
-            response.response_items << new_record
           end
+          response.response_items << new_record
         end
         response.response_items
       end

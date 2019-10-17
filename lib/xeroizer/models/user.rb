@@ -20,6 +20,5 @@ module Xeroizer
       string       :organisation_role
 
     end
-
   end
 end

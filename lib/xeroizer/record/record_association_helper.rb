@@ -148,7 +148,6 @@ module Xeroizer
                    
                   when :belongs_to  
                     self.attributes[field_name] = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(value, new_model_class(model_name))
-                   
                 end
 
               when Array
@@ -163,7 +162,7 @@ module Xeroizer
 
               when record_class
                 self.attributes[field_name] = self.class.value_if_nil(association_type, value)
-                
+
               when NilClass
                 self.attributes[field_name] = []
 

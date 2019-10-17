@@ -23,5 +23,12 @@ class EmployeesTest < Test::Unit::TestCase
     assert_not_nil employee.opening_balances
     assert_not_nil employee.opening_balances.opening_balance_date
     assert_equal 1, employee.opening_balances.earnings_lines.length
+
+    assert_not_nil employee.leave_balances
+    assert_equal 2, employee.leave_balances.length
+    assert_not_nil employee.leave_balances.first.leave_name
+    assert_not_nil employee.leave_balances.first.leave_type_id
+    assert_not_nil employee.leave_balances.first.number_of_units
+    assert_not_nil employee.leave_balances.first.type_of_units
   end
 end

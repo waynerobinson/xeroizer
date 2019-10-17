@@ -45,7 +45,6 @@ require 'xeroizer/models/receipt'
 require 'xeroizer/models/repeating_invoice'
 require 'xeroizer/models/schedule'
 require 'xeroizer/models/tax_component'
-require 'xeroizer/models/user'
 require 'xeroizer/models/contact_sales_tracking_category'
 require 'xeroizer/models/contact_purchases_tracking_category'
 
@@ -57,7 +56,6 @@ require 'xeroizer/models/payroll/payment_method'
 require 'xeroizer/models/payroll/pay_schedule'
 require 'xeroizer/models/payroll/paystub'
 require 'xeroizer/models/payroll/salary_and_wage'
-require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/time_off_line'
 require 'xeroizer/models/payroll/time_off_type'
 require 'xeroizer/models/payroll/work_location'
@@ -77,9 +75,49 @@ end
   'reimbursement_type', 'leave_type', 'payroll_calendar', 'pay_template', 'super_membership',
   'leave_line', 'reimbursement_line', 'super_line', 'deduction_line', 'earnings_line', 'opening_balance',
   'pay_run', 'settings', 'tracking_categories', 'employee_groups', 'timesheet_categories', 'account',
-  'tax_declaration', 'payslip', 'timesheet_earnings_line', 'tax_line', 'leave_accrual_line', 'superannuation_line'].each do |payroll_model|
+  'tax_declaration', 'payslip', 'timesheet_earnings_line', 'tax_line', 'leave_accrual_line', 'superannuation_line',
+  'leave_balance'].each do |payroll_model|
     require "xeroizer/models/payroll/#{payroll_model}"
 end
+
+# TODO Remove?
+require 'xeroizer/models/account'
+require 'xeroizer/models/address'
+require 'xeroizer/models/allocation'
+require 'xeroizer/models/branding_theme'
+require 'xeroizer/models/bank_transaction'
+require 'xeroizer/models/bank_account'
+require 'xeroizer/models/contact'
+require 'xeroizer/models/contact_group'
+require 'xeroizer/models/credit_note'
+require 'xeroizer/models/currency'
+require 'xeroizer/models/employee'
+require 'xeroizer/models/expense_claim'
+require 'xeroizer/models/invoice'
+require 'xeroizer/models/item'
+require 'xeroizer/models/item_purchase_details'
+require 'xeroizer/models/item_sales_details'
+require 'xeroizer/models/journal'
+require 'xeroizer/models/journal_line'
+require 'xeroizer/models/line_item'
+require 'xeroizer/models/manual_journal'
+require 'xeroizer/models/manual_journal_line'
+require 'xeroizer/models/option'
+require 'xeroizer/models/organisation'
+require 'xeroizer/models/payment'
+require 'xeroizer/models/prepayment'
+require 'xeroizer/models/phone'
+require 'xeroizer/models/receipt'
+require 'xeroizer/models/repeating_invoice'
+require 'xeroizer/models/schedule'
+require 'xeroizer/models/tax_rate'
+require 'xeroizer/models/tax_component'
+require 'xeroizer/models/tracking_category'
+require 'xeroizer/models/tracking_category_child'
+require 'xeroizer/models/user'
+require 'xeroizer/models/journal_line_tracking_category'
+require 'xeroizer/models/contact_sales_tracking_category'
+require 'xeroizer/models/contact_purchases_tracking_category'
 
 require 'xeroizer/report/factory'
 

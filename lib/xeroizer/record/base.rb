@@ -17,11 +17,12 @@ module Xeroizer
       attr_reader :model
       attr_accessor :errors
       attr_accessor :complete_record_downloaded
-      attr_accessor :paged_record_downloaded
 
       attr_writer :api_method_for_creating
       attr_writer :api_method_for_updating
       
+      attr_accessor :paged_record_downloaded
+
       include ModelDefinitionHelper
       include RecordAssociationHelper
       include ValidationHelper

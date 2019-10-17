@@ -70,9 +70,9 @@ module Xeroizer
   
   class InvoiceNotFoundError < XeroizerError; end
 
-  class CreditNoteNotFoundError < XeroizerError; end
-
   class LackingPermissionToAccessRecord < XeroizerError; end
+
+  class CreditNoteNotFoundError < XeroizerError; end
   
   class MethodNotAllowed < XeroizerError
     
