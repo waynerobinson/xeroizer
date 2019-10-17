@@ -421,6 +421,8 @@ in the resulting response, including all nested XML elements.
 		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
 		contacts = xero.Contact.all(:where => 'Name.EndsWith("er")')
 
+See [Xero's documentation on filters](http://developer.xero.com/api-overview/http-requests-and-responses/#get-filtered) for more information.
+
 Associations
 ------------
 

@@ -8,6 +8,8 @@ module Xeroizer
 
     attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
                 :default_headers, :unitdp, :before_request, :after_request, :around_request, :nonce_used_max_attempts
+    attr_writer :xero_url_prefix, :xero_url_suffix
+    attr_accessor :logger
 
     extend Forwardable
     def_delegators :client, :access_token
@@ -64,7 +66,8 @@ module Xeroizer
       # @see PrivateApplication
       # @see PartnerApplication
       def initialize(consumer_key, consumer_secret, options = {})
-        @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
+        @xero_url_prefix = options[:xero_url_prefix] || "https://api.xero.com/"
+        @xero_url_suffix = options[:xero_url_suffix] || "api.xro/2.0"
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
         @nonce_used_max_attempts = options[:nonce_used_max_attempts] || 1
@@ -79,9 +82,13 @@ module Xeroizer
 
       def payroll(options = {})
         xero_client = self.clone
-        xero_client.xero_url = options[:xero_url] || "https://api.xero.com/payroll.xro/1.0"
+        xero_client.xero_url_suffix = options[:xero_url_suffix] || "payroll.xro/1.0"
         @payroll ||= PayrollApplication.new(xero_client)
       end
 
+      def xero_url
+        @xero_url_prefix + '/' + @xero_url_suffix
+      end
+          
   end
 end
