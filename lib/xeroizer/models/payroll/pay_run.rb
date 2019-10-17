@@ -8,6 +8,7 @@ module Xeroizer
 
       end
 
+      # http://developer.xero.com/documentation/payroll-api/payruns/
       class PayRun < PayrollBase
 
         set_primary_key :pay_run_id
@@ -26,6 +27,15 @@ module Xeroizer
         datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
 
         has_many :paystubs
+
+        guid          :payroll_calendar_id
+
+
+        decimal       :wages
+        decimal       :super
+
+        string        :payslip_message
+        #has_many      :payslips
 
       end
     end

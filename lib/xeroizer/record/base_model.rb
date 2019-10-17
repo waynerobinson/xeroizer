@@ -21,7 +21,7 @@ module Xeroizer
 
       DEFAULT_RECORDS_PER_BATCH_SAVE = 50
 
-      class_inheritable_attributes :all_children_are_subtypes
+      class_inheritable_attributes :standalone_model
       
       include BaseModelHttpProxy
 
@@ -74,8 +74,8 @@ module Xeroizer
         # If this is true, the <Class> tag isn't expected. So it would be
         # <Classes><Subclasses><Subclass></Subclass></Subclasses></Classes>
         # Example: http://developer.xero.com/payroll-api/PayItems/#GET
-        def set_all_children_are_subtypes(boolean)
-          self.all_children_are_subtypes = boolean
+        def set_standalone_model(boolean)
+          self.standalone_model = boolean
         end
 
       end
@@ -212,7 +212,7 @@ module Xeroizer
           if model_name == response_model_name
             @response = response
             parse_records(response, elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record))
-          elsif self.class.all_children_are_subtypes && self.class.xml_root_name == elements.first.parent.name
+          elsif self.class.standalone_model && self.class.xml_root_name == elements.first.parent.name
             @response = response
             parse_records(response, elements, paged_records_requested?(options), (options[:base_module] || Xeroizer::Record), true)
           end
@@ -231,9 +231,9 @@ module Xeroizer
       end
 
       # Parse the records part of the XML response and builds model instances as necessary.
-      def parse_records(response, elements, paged_results, base_module, all_children_are_subtypes = false)
+      def parse_records(response, elements, paged_results, base_module, standalone_model = false)
         elements.each do | element |
-          new_record = model_class.build_from_node(element, self, base_module, all_children_are_subtypes)
+          new_record = model_class.build_from_node(element, self, base_module, standalone_model)
           if element.attribute('status').try(:value) == 'ERROR'
             new_record.errors = []
             element.xpath('.//ValidationError').each do |err|
@@ -241,14 +241,22 @@ module Xeroizer
             end
           end
 
-          if all_children_are_subtypes
+          if standalone_model
             if response.response_items.count == 0
               new_record.paged_record_downloaded = paged_results
-              response.response_items << new_record
             else
-              # TODO Does this need new_record.paged_record_downloaded = paged_results?
-              field_to_fill = model_class.fields.find {|f| new_record[f[0]].count > 0}
-              (response.response_items.first[field_to_fill[0]] = new_record[field_to_fill[0]]) unless field_to_fill.nil?
+              # http://developer.xero.com/documentation/payroll-api/settings/
+              # tracking categories have subcategories of timesheet categoires and employee groups
+              # which we group together here as it's much easier to model
+              fields_to_fill = model_class.fields.find_all do |f|
+                new_record_field = new_record[f[0]]
+                if new_record_field.respond_to?(:count)
+                  new_record_field.count > 0
+                else
+                  !new_record_field.nil?
+                end
+              end
+              fields_to_fill.each {|field| response.response_items.first[field[0]] = new_record[field[0]]}
             end
           else
             new_record.paged_record_downloaded = paged_results

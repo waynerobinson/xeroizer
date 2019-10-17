@@ -16,6 +16,7 @@ module Xeroizer
 
           # Create a #build_record_name method to build the record.
           define_method "build_#{internal_singular_field_name}" do | *args |
+
             attributes = args.size == 1 ? args.first : {}
 
             # The name of the record model.

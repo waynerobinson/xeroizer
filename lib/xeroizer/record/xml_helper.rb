@@ -12,10 +12,10 @@ module Xeroizer
       module ClassMethods
 
         # Build a record instance from the XML node.
-        def build_from_node(node, parent, base_module, all_children_are_subtypes = false)
+        def build_from_node(node, parent, base_module, standalone_model = false)
           record = new(parent)
           node.elements.each do | element |
-            element_name = all_children_are_subtypes ? element.name.to_s.pluralize : element.name.to_s
+            element_name = standalone_model ? element.name.to_s.pluralize : element.name.to_s
             field = self.fields[element_name.underscore.to_sym]
             if field
               value = case field[:type]
@@ -33,10 +33,10 @@ module Xeroizer
 
                 when :has_many
                   if element.element_children.size > 0
-                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : (all_children_are_subtypes ? element.name : element.children.first.name).to_sym
+                    sub_field_name = field[:model_name] ? field[:model_name].to_sym : (standalone_model ? element.name : element.children.first.name).to_sym
                     sub_parent = record.new_model_class(sub_field_name)
 
-                    if all_children_are_subtypes
+                    if standalone_model
                       base_module.const_get(sub_field_name).build_from_node(element, sub_parent, base_module)
                     else
                       element.children.inject([]) do | list, inner_element |
@@ -57,7 +57,7 @@ module Xeroizer
               end
               if field[:calculated]
                 record.attributes[field[:internal_name]] = value
-              elsif all_children_are_subtypes
+              elsif standalone_model
                 record.send("add_#{field[:internal_name].to_s.singularize}".to_sym, value)
               else
                 record.send("#{field[:internal_name]}=".to_sym, value)

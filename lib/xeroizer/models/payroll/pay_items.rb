@@ -22,7 +22,7 @@ module Xeroizer
           
         set_permissions :read, :write, :update
 
-        set_all_children_are_subtypes true
+        set_standalone_model true
         set_xml_root_name 'PayItems'
         set_xml_node_name 'PayItems'
       end
