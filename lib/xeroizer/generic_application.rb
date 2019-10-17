@@ -6,7 +6,7 @@ module Xeroizer
     include Http
     extend Record::ApplicationHelper
 
-    attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
+    attr_reader :client, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
                 :default_headers, :unitdp, :before_request, :after_request, :around_request, :nonce_used_max_attempts
     attr_writer :xero_url_prefix, :xero_url_suffix
     attr_accessor :logger
@@ -89,6 +89,5 @@ module Xeroizer
       def xero_url
         @xero_url_prefix + '/' + @xero_url_suffix
       end
-          
   end
 end

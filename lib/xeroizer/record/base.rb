@@ -171,6 +171,7 @@ module Xeroizer
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
           response = parent.send(api_method_for_creating, request)
+
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
           parse_save_response(response)
