@@ -18,7 +18,7 @@ class RepeatingInvoiceTest < Test::Unit::TestCase
       repeating_invoice = repeating_invoices.first
 
       assert_equal "PowerDirect", repeating_invoice.contact_name
-      assert_equal BigDecimal.new(90), repeating_invoice.total
+      assert_equal BigDecimal(90), repeating_invoice.total
       assert_equal true, repeating_invoice.accounts_payable?
 
       schedule = repeating_invoice.schedule

@@ -15,8 +15,9 @@ module Xeroizer
     record :Account
     record :Allocation
     record :Attachment
-    record :BrandingTheme
     record :Balances
+    record :BatchPayment
+    record :BrandingTheme
     record :Contact
     record :ContactGroup
     record :CreditNote
@@ -25,12 +26,14 @@ module Xeroizer
     record :ExpenseClaim
     record :Invoice
     record :InvoiceReminder
+    record :OnlineInvoice
     record :Item
     record :Journal
     record :LineItem
     record :ManualJournal
     record :Organisation
     record :Payment
+    record :PaymentService
     record :Prepayment
     record :Overpayment
     record :PurchaseOrder
@@ -79,6 +82,6 @@ module Xeroizer
         xero_client.xero_url = options[:xero_url] || "https://api.xero.com/payroll.xro/1.0"
         @payroll ||= PayrollApplication.new(xero_client)
       end
-          
+
   end
 end

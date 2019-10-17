@@ -19,6 +19,7 @@ module Xeroizer
             params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]
             params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
+            params[:createdByMyApp] = options[:createdByMyApp] if options[:createdByMyApp]
 
             params[:IDs]            = filterize(options[:IDs]) if options[:IDs]
             params[:InvoiceNumbers] = filterize(options[:InvoiceNumbers]) if options[:InvoiceNumbers]
@@ -32,6 +33,9 @@ module Xeroizer
                                 end
             end
             params[:offset] = options[:offset] if options[:offset]
+            params[:Status] = options[:status] if options[:status]
+            params[:DateFrom] = options[:date_from] if options[:date_from]
+            params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
             params
           end

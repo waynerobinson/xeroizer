@@ -1,0 +1,15 @@
+<Response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>42d8b00c-2fdd-4a8a-9b84-82cfe78ff34a</Id>
+  <Status>OK</Status>
+  <ProviderName>Test Provider Name</ProviderName>
+  <DateTimeUTC>2018-06-18T04:13:44.7828584Z</DateTimeUTC>
+  <PaymentServices>
+    <PaymentService>
+      <PaymentServiceID>4d7f4335-6f16-437a-86e3-a856ebc576b8</PaymentServiceID>
+      <PaymentServiceName>Custom Service</PaymentServiceName>
+      <PaymentServiceType>Custom</PaymentServiceType>
+      <PaymentServiceUrl>http://example.com</PaymentServiceUrl>
+      <PayNowText>Pay Me</PayNowText>
+    </PaymentService>
+  </PaymentServices>
+</Response>

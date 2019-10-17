@@ -149,14 +149,24 @@ class AboutCreatingBankTransactions < Test::Unit::TestCase
     }]
   end
 
-  it "fails with ApiException when you try and create a new bank account with missing account type" do
+  it "fails with ApiException when you try and create a new bank account with missing account type with save! method" do
     new_account = client.Account.build(
       :name => "Example bank account",
       :code => "ACC-001"
     )
 
     assert_raise Xeroizer::ApiException do
-      new_account.save
+      new_account.save!
     end
+  end
+
+  it "returns false when you try and create a new bank account with a missing account type with save method" do
+    new_account = client.Account.build(
+      :name => "Example bank account",
+      :code => "ACC-001"
+    )
+
+    assert new_account.save == false, "Account save method expected to return false"
+
   end
 end

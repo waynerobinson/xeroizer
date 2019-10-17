@@ -10,6 +10,7 @@ module Xeroizer
       UNIT = {
         'WEEKLY'  => 'Weekly',
         'MONTHLY' => 'Monthly',
+        'YEARLY'  => 'Yearly',
       } unless defined?(UNIT)
 
       PAYMENT_TERM = {

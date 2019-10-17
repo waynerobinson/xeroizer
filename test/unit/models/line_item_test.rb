@@ -26,7 +26,7 @@ class LineItemTest < Test::Unit::TestCase
     line_item.unit_amount = BigDecimal("1337.00")
 
     assert_equal "1337.0", line_item.line_amount.to_s,
-      "expected line_amount to equal unit_amount times quantity"
+                 "expected line_amount to equal unit_amount times quantity"
   end
 
   it "line_amount equals unit_amount times quantity minus the discount if there is a discount_rate" do
@@ -36,43 +36,24 @@ class LineItemTest < Test::Unit::TestCase
     line_item.discount_rate = BigDecimal("12.34")
 
     assert_equal "1172.01", line_item.line_amount.to_s,
-      "expected line_amount to equal unit_amount times quantity minus the discount"
+                 "expected line_amount to equal unit_amount times quantity minus the discount"
   end
 
-  it "line_amount is zero when quantity is nil or zero" do
+  it "line_amount equals unit_amount times quantity minus the discount if there is a discount_amount" do
     line_item = LineItem.new(nil)
-
-    line_item.quantity = nil
-    line_item.unit_amount = BigDecimal("1.00")
-
-    assert_equal "0.0", line_item.line_amount.to_s,
-      "expected line amount to be zero when quantity is nil"
-
-    line_item.quantity = 0
-    assert_equal "0.0", line_item.line_amount.to_s,
-      "expected line amount to be zero when quantity is zero"
-  end
-
-  it "is not possible to set unit_amount to zero" do
-    line_item = LineItem.new(nil)
-
-    line_item.unit_amount = nil
-
-    assert_equal 0.0, line_item.unit_amount,
-      "Expected setting unit_amount to nil to be ignored, i.e., it should remain zero"
-  end
-
-  it "line_amount is zero when unit_amount is nil or zero" do
-    line_item = LineItem.new(nil)
-
     line_item.quantity = 1
-    line_item.unit_amount = nil
+    line_item.unit_amount = BigDecimal("1337.00")
+    line_item.discount_amount = BigDecimal("164.99")
 
-    assert_equal "0.0", line_item.line_amount.to_s,
-      "expected line amount to be zero when unit_amount is nil"
+    assert_equal "1172.01", line_item.line_amount.to_s,
+                 "expected line_amount to equal unit_amount times quantity minus the discount amount"
+  end
 
-    line_item.unit_amount = BigDecimal("0.00")
-    assert_equal "0.0", line_item.line_amount.to_s,
-      "expected line amount to be zero when unit_amount is zero"
+  it "coerces decimals when calculating line amount" do
+    line_item = LineItem.new(nil)
+    line_item.quantity = "1"
+    line_item.unit_amount = 50
+    assert_equal 50, line_item.line_amount,
+                 "expected line amount to be calculated from coerced values"
   end
 end
