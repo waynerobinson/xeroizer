@@ -38,6 +38,9 @@ module Xeroizer
         datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
         date          :end_date, api_name: 'EndDate' # UK - null when employee is active
 
+        # UK https://developer.xero.com/documentation/payroll-api-uk/employees
+        has_one    :address, :internal_name_singular => "address", :model_name => "UkAddress"
+
         belongs_to    :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
         belongs_to    :tax_declaration, :internal_name_singular => "tax_declaration", :model_name => "TaxDeclaration"
         has_many      :bank_accounts
