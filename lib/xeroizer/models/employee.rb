@@ -32,6 +32,8 @@ module Xeroizer
       datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
       date          :end_date, api_name: 'EndDate' # UK - null when employee is active
 
+      has_one    :address, :internal_name_singular => "address", :model_name => "Address"
+
       belongs_to  :external_link
 
       validates_presence_of :first_name, :last_name, :date_of_birth

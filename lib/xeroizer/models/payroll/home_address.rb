@@ -1,13 +1,13 @@
 module Xeroizer
   module Record
     module Payroll
-    
+
       class HomeAddressModel < PayrollBaseModel
-          
+
       end
-      
+
       class HomeAddress < PayrollBase
-        
+
         string      :address_line1
         string      :address_line2
         string      :address_line3
@@ -19,6 +19,6 @@ module Xeroizer
 
       end
 
-    end 
+    end
   end
 end
