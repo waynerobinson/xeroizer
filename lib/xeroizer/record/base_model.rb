@@ -116,7 +116,7 @@ module Xeroizer
         build(attributes).tap { |resource| resource.save }
       end
 
-      # Retreive full record list for this model.
+      # Retrieve full record list for this model.
       def all(options = {})
         raise MethodNotAllowed.new(self, :all) unless self.class.permissions[:read]
         response_xml = http_get(parse_params(options))
@@ -208,10 +208,6 @@ module Xeroizer
       def create_method
         :http_put
       end
-
-        def create_method
-          :http_put
-        end
 
       protected
 
