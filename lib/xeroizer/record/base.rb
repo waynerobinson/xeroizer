@@ -117,11 +117,12 @@ module Xeroizer
 
         def save
           return false unless valid?
-          if new_record?
-            create
-          else
-            update
-          end
+          update
+          # if new_record?
+          #   create
+          # else
+          #   update
+          # end
           saved!
         end
 
