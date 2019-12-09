@@ -88,7 +88,8 @@ module Xeroizer
         end
 
         def new_record?
-          id.nil?
+          false
+          # id.nil?
         end
 
         # Check to see if the complete record is downloaded.
