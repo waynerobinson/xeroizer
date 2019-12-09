@@ -10,6 +10,11 @@ module Xeroizer
 
       class Employee < PayrollBase
 
+        def initialize(parent)
+          super(parent)
+          self.api_method_for_updating = :http_put if json?
+        end
+
         set_primary_key :employee_id
 
         guid          :employee_id
@@ -48,6 +53,10 @@ module Xeroizer
         has_many      :leave_balances, :internal_name_singular => "leave_balance", model_name: "LeaveBalance"
         has_many      :leave_types, :internal_name_singular => "leave_type", model_name: "LeaveType"
         has_many      :time_off_balances, :internal_name_singular => "time_off_balance", model_name: "TimeOffBalance"
+
+        def api_url
+          json? ? "employees/#{employee_id}" : super
+        end
 
       end
 

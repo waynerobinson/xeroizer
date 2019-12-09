@@ -88,8 +88,7 @@ module Xeroizer
         end
 
         def new_record?
-          false
-          # id.nil?
+          id.nil?
         end
 
         # Check to see if the complete record is downloaded.
@@ -117,12 +116,11 @@ module Xeroizer
 
         def save
           return false unless valid?
-          update
-          # if new_record?
-          #   create
-          # else
-          #   update
-          # end
+          if new_record?
+            create
+          else
+            update
+          end
           saved!
         end
 
