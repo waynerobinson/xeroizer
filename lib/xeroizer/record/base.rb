@@ -197,6 +197,10 @@ module Xeroizer
 
         def to_api_json
           attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
+            puts "!!!!!"
+            puts k
+            puts v
+            puts "!!!!!"
             value = if v.respond_to?(:to_api_json)
               v.to_api_json
             elsif k == :periods # hack for leave request periods for xero uk
