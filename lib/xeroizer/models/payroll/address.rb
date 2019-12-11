@@ -16,6 +16,10 @@ module Xeroizer
         string      :postCode
       end
 
+      def to_api_json
+        JSON.parse(super)
+      end
+
     end
   end
 end
