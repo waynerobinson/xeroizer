@@ -197,14 +197,14 @@ module Xeroizer
 
         def to_api_json
           attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
-            puts "!!!!!"
-            puts k
-            puts v
-            puts "!!!!!"
             value = if v.respond_to?(:to_api_json)
               v.to_api_json
             elsif k == :periods # hack for leave request periods for xero uk
               v.map(&:to_api_json)
+            elsif k == :address # hack for required address field for xero uk
+              address = {}
+              v.attributes.each { |key, value| address[key] = value }
+              address
             elsif v.is_a?(Array) && [0, 1].include?(v.count)
               v.first # hack for timesheet line has_array values
             else
