@@ -203,9 +203,12 @@ module Xeroizer
               v.map(&:to_api_json)
             elsif k == :address # hack for required address field for xero uk
               address = {}
+              puts "!!!!!!"
               puts v
+              puts "-------"
               puts v.attributes
-              v.attributes.each { |key, value| address[key] = value }
+              puts "!!!!!!"
+              # v.attributes.each { |key, value| address[key] = value }
               address
             elsif v.is_a?(Array) && [0, 1].include?(v.count)
               v.first # hack for timesheet line has_array values
