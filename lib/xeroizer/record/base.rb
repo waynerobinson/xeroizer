@@ -202,15 +202,7 @@ module Xeroizer
             elsif k == :periods # hack for leave request periods for xero uk
               v.map(&:to_api_json)
             elsif k == :address # hack for required address field for xero uk
-              address = v.attributes
-              puts "!!!!!!"
-              puts v
-              puts "-------"
-              puts v.attributes
-              puts "!!!!!!"
-              puts address
-              puts "!!!!!!"
-              address
+              v.attributes
             elsif v.is_a?(Array) && [0, 1].include?(v.count)
               v.first # hack for timesheet line has_array values
             else
