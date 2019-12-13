@@ -1,5 +1,5 @@
 module Xeroizer
-  class Oauth2Application < GenericApplication
+  class OAuth2Application < GenericApplication
 
     extend Forwardable
     def_delegators :client, :request_token, :authorize_from_request, :renew_access_token, :expires_at, :authorization_expires_at, :session_handle, :authorize_from_access
@@ -25,9 +25,7 @@ module Xeroizer
       }
       options = default_options.merge(options)
       client = OAuth2.new(client_key, client_secret, options)
-      options.merge!(client: client)
-
-      super(client_key, client_key, options)
+      super(client, options)
 
       if options[:access_token]
         authorize_from_access(options[:access_token], options)
