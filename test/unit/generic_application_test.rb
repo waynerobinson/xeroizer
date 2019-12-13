@@ -27,6 +27,18 @@ class GenericApplicationTest < Test::Unit::TestCase
     end
   end
 
+  context "oauth 2" do
+    setup do
+      client = Xeroizer::OAuth2Factory.build(CLIENT_ID, CLIENT_SECRET, @options)
+      @application = Xeroizer::GenericApplication.new(client, @options)
+    end
+
+    should "pass default headers" do
+      assert_equal(@headers, @application.default_headers)
+    end
+
+    should "pass unitdp value" do
+      assert_equal(@unitdp, @application.unitdp)
+    end
+  end
 end
-
-

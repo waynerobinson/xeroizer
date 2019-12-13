@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "yard"
   s.add_dependency "builder", ">= 2.1.2"
   s.add_dependency "oauth", ">= 0.4.5"
+  s.add_dependency "oauth2", ">= 1.4.0"
   s.add_dependency "activesupport"
   s.add_dependency "nokogiri"
   s.add_dependency "tzinfo"
