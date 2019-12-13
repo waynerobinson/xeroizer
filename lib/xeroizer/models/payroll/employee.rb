@@ -28,6 +28,7 @@ module Xeroizer
         date          :date_of_birth
         string        :gender
         string        :phone
+        string        :phone_number
         string        :mobile
         string        :twitter_user_name
         boolean       :is_authorised_to_approve_leave
