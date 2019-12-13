@@ -17,6 +17,7 @@ $: << File.expand_path(File.dirname(__FILE__))
 require 'class_level_inheritable_attributes'
 require 'xeroizer/exceptions'
 require 'xeroizer/oauth'
+require 'xeroizer/oauth_factory'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
 

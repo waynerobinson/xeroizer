@@ -63,7 +63,7 @@ module Xeroizer
       # @see PublicApplication
       # @see PrivateApplication
       # @see PartnerApplication
-      def initialize(consumer_key, consumer_secret, options = {})
+      def initialize(client, options = {})
         @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
@@ -72,7 +72,7 @@ module Xeroizer
         @before_request = options.delete(:before_request)
         @after_request = options.delete(:after_request)
         @around_request = options.delete(:around_request)
-        @client = OAuth.new(consumer_key, consumer_secret, options.merge({default_headers: default_headers}))
+        @client = client
         @logger = options[:logger] || false
         @unitdp = options[:unitdp] || 2
       end

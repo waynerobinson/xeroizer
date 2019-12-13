@@ -7,7 +7,7 @@ require 'pp'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
-$: << File.join(File.dirname(__FILE__), "acceptance") 
+$: << File.join(File.dirname(__FILE__), "acceptance")
 
 module TestHelper
 
