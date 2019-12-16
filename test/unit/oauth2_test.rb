@@ -8,7 +8,9 @@ class OAuth2Test < Test::Unit::TestCase
     @client_secret = 'client_secret'
     @access_token = 'access_token'
     @site = 'https://example.com'
+    @content_type = 'application/xml'
     @path = '/path'
+    @uri = "#{@site}#{@path}"
     @response_body = '{"test": true}'
     @status_code = 200
     @additional_headers = {foo: 'bar'}
@@ -23,7 +25,7 @@ class OAuth2Test < Test::Unit::TestCase
   end
 
   should "make a get request" do
-    stub_request(:get, "https://example.com/path").
+    stub_request(:get, @uri).
         with(
             headers: {
                 'Authorization' => "Bearer #{@access_token}",
@@ -37,14 +39,14 @@ class OAuth2Test < Test::Unit::TestCase
 
   should "make a post request" do
     request_body = "xml"
-    request_headers = {'Content-Type' => 'application/xml'}
+    request_headers = {'Content-Type' => @content_type}
 
-    stub_request(:post, "https://example.com/path").
+    stub_request(:post, @uri).
         with(
             body: request_body,
             headers: {
                 'Authorization' => "Bearer #{@access_token}",
-                'Content-Type' => 'application/xml',
+                'Content-Type' => @content_type,
             }).
         to_return(status: @status_code, body: @response_body, headers: request_headers)
 
