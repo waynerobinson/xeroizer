@@ -16,7 +16,7 @@ class OAuth2Test < Test::Unit::TestCase
     @additional_headers = {foo: 'bar'}
     @request_body = "xml"
     @request_headers = { 'Content-Type' => @content_type }
-    @tenent_id = "tenent"
+    @tenant_id = "tenant"
     WebMock.reset!
   end
 
@@ -38,26 +38,26 @@ class OAuth2Test < Test::Unit::TestCase
           ).to_return(status: @status_code, body: @response_body, headers: {})
     end
 
-    context "when tenent_id is not present" do
+    context "when tenant_id is not present" do
       should "make a get request" do
         result = instance.get(@path)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_not_requested :get, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_not_requested :get, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
 
-    context "when tenent_id is present" do
+    context "when tenant_id is present" do
       setup do
         @client = instance
-        @client.tenent_id = @tenent_id
+        @client.tenant_id = @tenant_id
       end
 
-      should "make a get request with the tenent_id" do
+      should "make a get request with the tenant_id" do
         result = @client.get(@path)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_requested :get, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_requested :get, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
   end
@@ -72,26 +72,26 @@ class OAuth2Test < Test::Unit::TestCase
           ).to_return(status: @status_code, body: @response_body, headers: {})
     end
 
-    context "when tenent_id is not present" do
+    context "when tenant_id is not present" do
       should "make a delete request" do
         result = instance.delete(@path)
         assert_equal(result.code, @status_code)
-        assert_not_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_not_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
 
 
-    context "when tenent_id is present" do
+    context "when tenant_id is present" do
       setup do
         @client = instance
-        @client.tenent_id = @tenent_id
+        @client.tenant_id = @tenant_id
       end
 
-      should "make a delete request with the tenent_id" do
+      should "make a delete request with the tenant_id" do
         result = @client.delete(@path)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
   end
@@ -109,26 +109,26 @@ class OAuth2Test < Test::Unit::TestCase
 
     end
 
-    context "when tenent_id is not present" do
+    context "when tenant_id is not present" do
       should "make a post request" do
         result = instance.post(@path, @request_body, @request_headers)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_not_requested :post, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_not_requested :post, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
 
-    context "when tenent_id is present" do
+    context "when tenant_id is present" do
       setup do
         @client = instance
-        @client.tenent_id = @tenent_id
+        @client.tenant_id = @tenant_id
       end
 
-      should "make a post request with the tenent_id" do
+      should "make a post request with the tenant_id" do
         result = @client.post(@path, @request_body, @request_headers)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_requested :post, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_requested :post, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
   end
@@ -145,26 +145,26 @@ class OAuth2Test < Test::Unit::TestCase
           to_return(status: @status_code, body: @response_body, headers: @request_headers)
     end
 
-    context "when tenent_id is not present" do
+    context "when tenant_id is not present" do
       should "make a put request" do
         result = instance.put(@path, @request_body, @request_headers)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_not_requested :put, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_not_requested :put, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
 
-    context "when tenent_id is present" do
+    context "when tenant_id is present" do
       setup do
         @client = instance
-        @client.tenent_id = @tenent_id
+        @client.tenant_id = @tenant_id
       end
 
       should "make a put request" do
         result = @client.put(@path, @request_body, @request_headers)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
-        assert_requested :put, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+        assert_requested :put, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
   end

@@ -3,7 +3,7 @@ module Xeroizer
 
     attr_reader :client, :access_token
 
-    attr_accessor :tenent_id
+    attr_accessor :tenant_id
 
     def initialize(client_key, client_secret, options = {})
       @client = ::OAuth2::Client.new(client_key, client_secret, options)
@@ -32,8 +32,8 @@ module Xeroizer
     private
 
     def wrap_headers(headers)
-      if tenent_id
-        headers.merge("Xero-tenant-id" => tenent_id)
+      if tenant_id
+        headers.merge("Xero-tenant-id" => tenant_id)
       else
         headers
       end
