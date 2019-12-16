@@ -31,12 +31,12 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
 
   context "when requesting all bank transactions (i.e., without filter)" do
     setup do
-      @the_first_bank_transaction = client.BankTransaction.all.first
+      @the_first_bank_transaction = client.BankTransaction.all.detect { |trans| trans.attributes.keys.include?(:reference) }
     end
 
     it "has the limited set of attributes" do
-      keys = [:line_amount_types, :contact, :date, :status, :updated_date_utc, 
-              :currency_code, :bank_transaction_id, :bank_account, :type, :reference, 
+      keys = [:line_amount_types, :contact, :date, :status, :updated_date_utc,
+              :currency_code, :bank_transaction_id, :bank_account, :type, :reference,
               :is_reconciled]
       assert_equal(keys, @the_first_bank_transaction.attributes.keys)
     end
@@ -50,4 +50,3 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
     end
   end
 end
-
