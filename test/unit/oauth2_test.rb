@@ -1,9 +1,9 @@
 require 'unit_test_helper'
 
-class OAuth2Test < Test::Unit::TestCase
+class OAuth2Test < UnitTestCase
   include TestHelper
 
-  def setup
+  setup do
     @client_id = 'client_id'
     @client_secret = 'client_secret'
     @access_token = 'access_token'
@@ -17,7 +17,6 @@ class OAuth2Test < Test::Unit::TestCase
     @request_body = "xml"
     @request_headers = { 'Content-Type' => @content_type }
     @tenant_id = "tenant"
-    WebMock.reset!
   end
 
   def instance
