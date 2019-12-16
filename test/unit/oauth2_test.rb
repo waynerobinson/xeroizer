@@ -37,6 +37,18 @@ class OAuth2Test < Test::Unit::TestCase
     assert_equal(result.plain_body, @response_body)
   end
 
+  should "make a delete request" do
+    stub_request(:delete, @uri).
+        with(
+            headers: {
+                'Authorization' => "Bearer #{@access_token}",
+            }
+        ).to_return(status: @status_code, body: @response_body, headers: {})
+
+    result = instance.delete(@path)
+    assert_equal(result.code, @status_code)
+  end
+
   should "make a post request" do
     request_body = "xml"
     request_headers = {'Content-Type' => @content_type}
@@ -52,6 +64,25 @@ class OAuth2Test < Test::Unit::TestCase
 
 
     result = instance.post(@path, request_body, request_headers)
+    assert_equal(result.code, @status_code)
+    assert_equal(result.plain_body, @response_body)
+  end
+
+  should "make a put request" do
+    request_body = "xml"
+    request_headers = {'Content-Type' => @content_type}
+
+    stub_request(:put, @uri).
+        with(
+            body: request_body,
+            headers: {
+                'Authorization' => "Bearer #{@access_token}",
+                'Content-Type' => @content_type,
+            }).
+        to_return(status: @status_code, body: @response_body, headers: request_headers)
+
+
+    result = instance.put(@path, request_body, request_headers)
     assert_equal(result.code, @status_code)
     assert_equal(result.plain_body, @response_body)
   end

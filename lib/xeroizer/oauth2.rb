@@ -20,11 +20,11 @@ module Xeroizer
     end
 
     def put(path, body = "", headers = {})
-      wrap_response(access_token.put(uri, body: body, headers: headers))
+      wrap_response(access_token.put(path, body: body, headers: headers))
     end
 
     def delete(path, headers = {})
-      wrap_response(access_token.delete(uri, headers: headers))
+      wrap_response(access_token.delete(path, headers: headers))
     end
 
     private
