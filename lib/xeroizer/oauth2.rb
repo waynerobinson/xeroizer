@@ -12,7 +12,7 @@ module Xeroizer
     end
 
     def get(path, headers = {})
-      wrap_response(access_token.get(uri, headers: headers))
+      wrap_response(access_token.get(path, headers: headers))
     end
 
     def post(path, body = "", headers = {})
