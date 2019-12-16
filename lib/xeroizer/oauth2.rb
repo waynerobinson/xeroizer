@@ -3,6 +3,8 @@ module Xeroizer
 
     attr_reader :client, :access_token
 
+    attr_accessor :tenent_id
+
     def initialize(client_key, client_secret, options = {})
       @client = ::OAuth2::Client.new(client_key, client_secret, options)
     end
@@ -12,7 +14,7 @@ module Xeroizer
     end
 
     def get(path, headers = {})
-      wrap_response(access_token.get(path, headers: headers))
+      wrap_response(access_token.get(path, headers: wrap_headers(headers)))
     end
 
     def post(path, body = "", headers = {})
@@ -28,6 +30,14 @@ module Xeroizer
     end
 
     private
+
+    def wrap_headers(headers)
+      if tenent_id
+        headers.merge("Xero-tenant-id" => tenent_id)
+      else
+        headers
+      end
+    end
 
     def wrap_response(response)
       Response.new(response)
