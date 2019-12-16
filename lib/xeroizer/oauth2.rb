@@ -8,7 +8,7 @@ module Xeroizer
     end
 
     def authorize_from_access(access_token, options = {})
-      @access_token = ::OAuth2::AccessToken.new(client, access_token, options)
+      @access_token = ::OAuth2::AccessToken.new(client, access_token)
     end
 
     def get(path, headers = {})
@@ -16,7 +16,7 @@ module Xeroizer
     end
 
     def post(path, body = "", headers = {})
-      wrap_response(access_token.post(uri, body: body, headers: headers))
+      wrap_response(access_token.post(path, {body: body, headers: headers}))
     end
 
     def put(path, body = "", headers = {})
@@ -33,6 +33,12 @@ module Xeroizer
       Response.new(response)
     end
 
+    def set_headers(req, headers)
+      puts headers
+      headers.each do |key, value|
+        req.headers[key] = value
+      end
+    end
 
     class Response
       attr_reader :response
