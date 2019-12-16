@@ -14,6 +14,8 @@ class OAuth2Test < Test::Unit::TestCase
     @response_body = '{"test": true}'
     @status_code = 200
     @additional_headers = {foo: 'bar'}
+    @request_body = "xml"
+    @request_headers = { 'Content-Type' => @content_type }
     @tenent_id = "tenent"
     WebMock.reset!
   end
@@ -61,58 +63,109 @@ class OAuth2Test < Test::Unit::TestCase
   end
 
   context "delete" do
-    should "make a delete request" do
+    setup do
       stub_request(:delete, @uri).
           with(
               headers: {
                   'Authorization' => "Bearer #{@access_token}",
               }
           ).to_return(status: @status_code, body: @response_body, headers: {})
+    end
 
-      result = instance.delete(@path)
-      assert_equal(result.code, @status_code)
+    context "when tenent_id is not present" do
+      should "make a delete request" do
+        result = instance.delete(@path)
+        assert_equal(result.code, @status_code)
+        assert_not_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
+    end
+
+
+    context "when tenent_id is present" do
+      setup do
+        @client = instance
+        @client.tenent_id = @tenent_id
+      end
+
+      should "make a delete request with the tenent_id" do
+        result = @client.delete(@path)
+        assert_equal(result.code, @status_code)
+        assert_equal(result.plain_body, @response_body)
+        assert_requested :delete, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
     end
   end
 
   context "post" do
-    should "make a post request" do
-      request_body = "xml"
-      request_headers = {'Content-Type' => @content_type}
-
+    setup do
       stub_request(:post, @uri).
           with(
-              body: request_body,
+              body: @request_body,
               headers: {
                   'Authorization' => "Bearer #{@access_token}",
                   'Content-Type' => @content_type,
               }).
-          to_return(status: @status_code, body: @response_body, headers: request_headers)
+          to_return(status: @status_code, body: @response_body, headers: @request_headers)
 
+    end
 
-      result = instance.post(@path, request_body, request_headers)
-      assert_equal(result.code, @status_code)
-      assert_equal(result.plain_body, @response_body)
+    context "when tenent_id is not present" do
+      should "make a post request" do
+        result = instance.post(@path, @request_body, @request_headers)
+        assert_equal(result.code, @status_code)
+        assert_equal(result.plain_body, @response_body)
+        assert_not_requested :post, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
+    end
+
+    context "when tenent_id is present" do
+      setup do
+        @client = instance
+        @client.tenent_id = @tenent_id
+      end
+
+      should "make a post request with the tenent_id" do
+        result = @client.post(@path, @request_body, @request_headers)
+        assert_equal(result.code, @status_code)
+        assert_equal(result.plain_body, @response_body)
+        assert_requested :post, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
     end
   end
 
   context "put" do
-    should "make a put request" do
-      request_body = "xml"
-      request_headers = {'Content-Type' => @content_type}
-
+    setup do
       stub_request(:put, @uri).
           with(
-              body: request_body,
+              body: @request_body,
               headers: {
                   'Authorization' => "Bearer #{@access_token}",
                   'Content-Type' => @content_type,
               }).
-          to_return(status: @status_code, body: @response_body, headers: request_headers)
+          to_return(status: @status_code, body: @response_body, headers: @request_headers)
+    end
 
+    context "when tenent_id is not present" do
+      should "make a put request" do
+        result = instance.put(@path, @request_body, @request_headers)
+        assert_equal(result.code, @status_code)
+        assert_equal(result.plain_body, @response_body)
+        assert_not_requested :put, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
+    end
 
-      result = instance.put(@path, request_body, request_headers)
-      assert_equal(result.code, @status_code)
-      assert_equal(result.plain_body, @response_body)
+    context "when tenent_id is present" do
+      setup do
+        @client = instance
+        @client.tenent_id = @tenent_id
+      end
+
+      should "make a put request" do
+        result = @client.put(@path, @request_body, @request_headers)
+        assert_equal(result.code, @status_code)
+        assert_equal(result.plain_body, @response_body)
+        assert_requested :put, @uri, headers: { "Xero-tenant-id" => @tenent_id }
+      end
     end
   end
 end

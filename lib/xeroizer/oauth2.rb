@@ -18,15 +18,15 @@ module Xeroizer
     end
 
     def post(path, body = "", headers = {})
-      wrap_response(access_token.post(path, {body: body, headers: headers}))
+      wrap_response(access_token.post(path, {body: body, headers: wrap_headers(headers)}))
     end
 
     def put(path, body = "", headers = {})
-      wrap_response(access_token.put(path, body: body, headers: headers))
+      wrap_response(access_token.put(path, body: body, headers: wrap_headers(headers)))
     end
 
     def delete(path, headers = {})
-      wrap_response(access_token.delete(path, headers: headers))
+      wrap_response(access_token.delete(path, headers: wrap_headers(headers)))
     end
 
     private
