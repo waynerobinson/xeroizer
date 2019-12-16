@@ -22,6 +22,7 @@ module Xeroizer
         :authorize_url    => 'https://login.xero.com/identity/connect/authorize',
         :token_url        => 'https://identity.xero.com/connect/token',
         :tenets_url       => 'https://api.xero.com/connections',
+        :raise_errors     => false
       }
       options = default_options.merge(options)
       client = OAuth2.new(client_key, client_secret, options)
@@ -32,7 +33,7 @@ module Xeroizer
       end
 
       if options[:tenant_id]
-        tenant_id = options[:tenant_id]
+        client.tenant_id = options[:tenant_id]
       end
     end
   end
