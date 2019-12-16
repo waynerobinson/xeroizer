@@ -31,6 +31,12 @@ module AcceptanceTest
     @key_file = config.key_file
     @consumer_key = config.consumer_key
     @consumer_secret = config.consumer_secret
+
+    config2 = load_oauth2_config_from_env
+    @client_id = config2.client_id
+    @client_secret = config2.client_secret
+    @access_token = config2.access_token
+    @tenant_id = config2.tenant_id
   end
 
   private
@@ -49,5 +55,16 @@ module AcceptanceTest
     assert_not_nil ENV["PRIVATE_KEY_PATH"], "No PRIVATE_KEY_PATH environment variable specified."
     assert File.exist?(ENV["PRIVATE_KEY_PATH"]), "The file <#{ENV["PRIVATE_KEY_PATH"]}> does not exist."
     Xeroizer::OAuthCredentials.new ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], ENV["PRIVATE_KEY_PATH"]
+  end
+
+  def load_oauth2_config_from_env
+    assert_not_nil ENV["XERO_CLIENT_ID"], "No XERO_CLIENT_ID environment variable specified."
+    assert_not_nil ENV["XERO_CLIENT_SECRET"], "No XERO_CLIENT_SECRET environment variable specified."
+    assert_not_nil ENV["XERO_ACCESS_TOKEN"], "No XERO_ACCESS_TOKEN environment variable specified."
+    assert_not_nil ENV["XERO_TENANT_ID"], "No XERO_TENANT_ID environment variable specified."
+    OpenStruct.new(client_id: ENV["XERO_CLIENT_ID"],
+                   client_secret: ENV["XERO_CLIENT_SECRET"],
+                   access_token: ENV["XERO_ACCESS_TOKEN"],
+                   tenant_id: ENV["XERO_TENANT_ID"])
   end
 end

@@ -2,7 +2,7 @@ module Xeroizer
   class OAuth2Application < GenericApplication
 
     extend Forwardable
-    def_delegators :client, :request_token, :authorize_from_request, :renew_access_token, :expires_at, :authorization_expires_at, :session_handle, :authorize_from_access
+    def_delegators :client, :authorize_from_access, :tenant_id, :tenant_id=
 
     public
 
@@ -29,6 +29,10 @@ module Xeroizer
 
       if options[:access_token]
         authorize_from_access(options[:access_token], options)
+      end
+
+      if options[:tenant_id]
+        tenant_id = options[:tenant_id]
       end
     end
   end
