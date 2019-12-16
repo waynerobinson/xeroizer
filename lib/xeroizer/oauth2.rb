@@ -33,13 +33,6 @@ module Xeroizer
       Response.new(response)
     end
 
-    def set_headers(req, headers)
-      puts headers
-      headers.each do |key, value|
-        req.headers[key] = value
-      end
-    end
-
     class Response
       attr_reader :response
 
