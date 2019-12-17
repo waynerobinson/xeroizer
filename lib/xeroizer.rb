@@ -23,6 +23,7 @@ require 'xeroizer/oauth_factory'
 require 'xeroizer/oauth2_factory'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
+require 'xeroizer/connection'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/payroll_base_model'
