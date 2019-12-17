@@ -33,6 +33,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "ansi"
   s.add_development_dependency "redcarpet"
   s.add_development_dependency "yard"
+  s.add_development_dependency "webmock"
+  s.add_development_dependency "pry"
   s.add_dependency "builder", ">= 2.1.2"
   s.add_dependency "oauth", ">= 0.4.5"
   s.add_dependency "oauth2", ">= 1.4.0"
@@ -40,5 +42,4 @@ Gem::Specification.new do |s|
   s.add_dependency "nokogiri"
   s.add_dependency "tzinfo"
   s.add_dependency "i18n"
-  s.add_dependency "webmock"
 end
