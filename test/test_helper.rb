@@ -4,6 +4,7 @@ require 'test/unit'
 require 'mocha'
 require 'shoulda'
 require 'pp'
+require 'pry'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
@@ -60,7 +61,6 @@ module TestHelper
   def mock_report_api(report_type)
     @client.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
   end
-
 end
 
 Shoulda::Context::ClassMethods.class_eval do
