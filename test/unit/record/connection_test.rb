@@ -9,15 +9,7 @@ class ConnectionTest < UnitTestCase
 
   context "when the request succeeds" do
     setup do
-      stub_request(:get, "https://api.xero.com/connections").
-        with(
-          headers: {
-            'Accept'=>'*/*',
-            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-            'Authorization'=>'Bearer access token',
-            'User-Agent'=>'Faraday v0.17.1'
-          }
-        ).to_return(
+      stub_request(:get, "https://api.xero.com/connections").to_return(
         body: [
           {
             id: "fe4cd81c-624a-4506-ab18-11c656742436",
@@ -53,15 +45,7 @@ class ConnectionTest < UnitTestCase
         instance: "e1d2cb91-82bf-41a5-84dd-fe6a5c6f070c"
       }.to_json
 
-      stub_request(:get, "https://api.xero.com/connections").
-        with(
-          headers: {
-            'Accept'=>'*/*',
-            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-            'Authorization'=>'Bearer access token',
-            'User-Agent'=>'Faraday v0.17.1'
-          }
-        ).to_return(
+      stub_request(:get, "https://api.xero.com/connections").to_return(
         status: 401,
         body: @body
       )
