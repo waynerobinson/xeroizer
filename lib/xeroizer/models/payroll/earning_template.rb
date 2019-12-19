@@ -21,6 +21,10 @@ module Xeroizer
 
       end
 
+      def api_url
+        json? ? "employees/#{employee_id}/paytemplates/earnings/#{pay_template_earning_id}" : super
+      end
+
     end
   end
 end
