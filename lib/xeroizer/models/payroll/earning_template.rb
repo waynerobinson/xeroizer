@@ -26,6 +26,10 @@ module Xeroizer
 
       end
 
+      def api_url
+        "employees/#{employee_id}/leave/paytemplates/earnings/#{pay_template_earning_id}"
+      end
+
     end
   end
 end
