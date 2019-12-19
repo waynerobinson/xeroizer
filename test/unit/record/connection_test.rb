@@ -1,20 +1,10 @@
 require 'unit_test_helper'
 
-class ConnectionTest < Test::Unit::TestCase
+class ConnectionTest < UnitTestCase
   include TestHelper
 
-  class FakeClient
-    def initialize(get_result)
-      @get_result = get_result
-    end
-
-    def get(path, _headers = {})
-      if path == 'https://api.xero.com/connections'
-        OpenStruct.new(plain_body: @get_result, code: 200)
-      else
-        raise 'unknown url'
-      end
-    end
+  setup do
+    @client = Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token")
   end
 
   it 'returns connections using the passed client' do

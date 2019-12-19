@@ -54,6 +54,10 @@ module Xeroizer
         response.status
       end
 
+      def success?
+        (200..299).to_a.include?(code)
+      end
+
       def plain_body
         response.body
       end
