@@ -62,7 +62,6 @@ module AcceptanceTest
           raise "No XERO_CLIENT_ID environment variable specified." unless ENV["XERO_CLIENT_ID"]
           raise "No XERO_CLIENT_SECRET environment variable specified." unless ENV["XERO_CLIENT_SECRET"]
           raise "No XERO_ACCESS_TOKEN environment variable specified." unless ENV["XERO_ACCESS_TOKEN"]
-          raise "No XERO_TENANT_ID environment variable specified." unless ENV["XERO_TENANT_ID"]
 
           OpenStruct.new(client_id: ENV["XERO_CLIENT_ID"],
                          client_secret: ENV["XERO_CLIENT_SECRET"],
