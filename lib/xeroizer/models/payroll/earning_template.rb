@@ -11,6 +11,13 @@ module Xeroizer
           json? ? "employees/#{options.delete(:employee_id)}/paytemplates/earnings/#{options.delete(:pay_template_earning_id)}" : super
         end
 
+        def update
+          params = extra_params_for_create_or_update
+          params[:url] = api_url
+          response = parent.send(:http_put, {}, params)
+          parse_save_response(response)
+        end
+
       end
       # https://developer.xero.com/documentation/payroll-api-uk/employeepaytemplates
       class EarningTemplate < PayrollBase
