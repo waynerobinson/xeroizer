@@ -22,7 +22,7 @@ class GenericApplicationTest < Test::Unit::TestCase
 
   context "oauth" do
     setup do
-      client = Xeroizer::OAuthFactory.build(CONSUMER_KEY, CONSUMER_SECRET, @options)
+      client = Xeroizer::OAuth.new(CONSUMER_KEY, CONSUMER_SECRET, @options)
       @application = Xeroizer::GenericApplication.new(client, @options)
     end
 
@@ -37,7 +37,7 @@ class GenericApplicationTest < Test::Unit::TestCase
 
   context "oauth 2" do
     setup do
-      client = Xeroizer::OAuth2Factory.build(CLIENT_ID, CLIENT_SECRET, @options)
+      client = Xeroizer::OAuth2.new(CLIENT_ID, CLIENT_SECRET, @options)
       @application = Xeroizer::GenericApplication.new(client, @options)
     end
 
