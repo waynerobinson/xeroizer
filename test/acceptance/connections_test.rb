@@ -5,7 +5,7 @@ class ConnectionsTest < Test::Unit::TestCase
   include AcceptanceTest
 
   should "be able to hit Xero to get current connections via OAuth2" do
-    connections = self.class.oauth2_client.current_connections
+    connections = AcceptanceTestHelpers.oauth2_client.current_connections
     assert_not_nil connections.first.tenant_id
   end
 end
