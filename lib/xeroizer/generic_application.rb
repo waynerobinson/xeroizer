@@ -64,6 +64,7 @@ module Xeroizer
       # @see PrivateApplication
       # @see PartnerApplication
       def initialize(client, options = {})
+        raise Xeroizer::InvalidClientError.new unless [OAuth, OAuth2].member?(client.class)
         @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5

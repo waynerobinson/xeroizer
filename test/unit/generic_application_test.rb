@@ -12,6 +12,14 @@ class GenericApplicationTest < Test::Unit::TestCase
     }
   end
 
+  it "fails when provided an invalid client" do
+    client = "an invalid client"
+
+    assert_raises Xeroizer::InvalidClientError do
+      Xeroizer::GenericApplication.new(client, {})
+    end
+  end
+
   context "oauth" do
     setup do
       client = Xeroizer::OAuthFactory.build(CONSUMER_KEY, CONSUMER_SECRET, @options)
