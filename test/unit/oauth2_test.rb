@@ -42,6 +42,7 @@ class OAuth2Test < UnitTestCase
         result = instance.get(@path)
         assert_equal(result.code, @status_code)
         assert_equal(result.plain_body, @response_body)
+        assert_requested :get, @uri
         assert_not_requested :get, @uri, headers: { "Xero-tenant-id" => @tenant_id }
       end
     end
