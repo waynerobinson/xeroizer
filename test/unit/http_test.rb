@@ -267,7 +267,7 @@ class HttpTest < UnitTestCase
       end
 
       should "raise an BadRespone" do
-        error = assert_raises(Xeroizer::Http::BadResponse) { @application.http_get(@application.client, @uri) }
+        error = assert_raises(Xeroizer::BadResponse) { @application.http_get(@application.client, @uri) }
         assert_equal "Unknown response code: 418", error.message
       end
 
