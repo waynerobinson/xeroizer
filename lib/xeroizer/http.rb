@@ -108,7 +108,7 @@ module Xeroizer
         log_response(response, uri)
         after_request.call(request_info, response) if after_request
 
-        ResponseErrorHandler.handle_errors(response, body, url)
+        OauthResponseErrorHandler.handle_errors(response, body, url)
       rescue Xeroizer::OAuth::NonceUsed => exception
         raise if attempts > nonce_used_max_attempts
         logger.info("Nonce used: " + exception.to_s) if self.logger
