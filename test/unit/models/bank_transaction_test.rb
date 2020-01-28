@@ -1,4 +1,4 @@
-require "test_helper"
+require 'unit_test_helper'
 
 class BankTransactionTest < Test::Unit::TestCase
   include Xeroizer::Record

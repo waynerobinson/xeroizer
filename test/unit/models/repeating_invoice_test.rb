@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'unit_test_helper'
 
 class RepeatingInvoiceTest < Test::Unit::TestCase
   include TestHelper

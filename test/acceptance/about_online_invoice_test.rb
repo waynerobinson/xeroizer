@@ -4,17 +4,13 @@ require "acceptance_test"
 class AboutGetOnlineInvoiceUrl < Test::Unit::TestCase
   include AcceptanceTest
 
-  let :client do
-    Xeroizer::PrivateApplication.new(@consumer_key, @consumer_secret, @key_file)
+  setup do
+    @client = AcceptanceTestHelpers.oauth2_client
+    @invoice = @client.Invoice.all(:where => 'Type=="ACCREC"').first
+    @invoice_acc_pay = @client.Invoice.all(:where => 'Type=="ACCPAY"').first
   end
 
-  def setup
-    super
-    @invoice = client.Invoice.all(:where => 'Type=="ACCREC"').first
-    @invoice_acc_pay = client.Invoice.all(:where => 'Type=="ACCPAY"').first
-  end
-
-  can "Request OnlineInvoice of an AccRec invoice" do 
+  can "Request OnlineInvoice of an AccRec invoice" do
     @online_invoice = @invoice.online_invoice
 
     assert @online_invoice.online_invoice_url, "online_invoice_url not found"

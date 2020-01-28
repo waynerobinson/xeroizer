@@ -1,16 +1,16 @@
-require 'test_helper'
+require 'unit_test_helper'
 
 class ReportDefinitionTest < Test::Unit::TestCase
   include TestHelper
-  
+
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
   end
-  
+
   context "report definitions" do
-    
+
     should "be defined correctly" do
-      [ 
+      [
         :AgedPayablesByContact, :AgedReceivablesByContact, :BalanceSheet, :BankStatement, :BankSummary,
         :BudgetSummary, :ExecutiveSummary, :ProfitAndLoss, :TrialBalance
       ].each do | report_type |
@@ -20,7 +20,7 @@ class ReportDefinitionTest < Test::Unit::TestCase
         assert_equal(report_type.to_s, report_factory.report_type)
       end
     end
-    
+
   end
 
 end

@@ -1,9 +1,9 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'test_helper'))
+require 'unit_test_helper'
 
 class JournalTest < Test::Unit::TestCase
   include TestHelper
   include Xeroizer::Record
-  
+
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
 
@@ -39,6 +39,6 @@ class JournalTest < Test::Unit::TestCase
     it "should render date" do
       assert_equal "2015-01-01", @doc.xpath("//JournalDate").text
     end
-  end 
+  end
 
 end
