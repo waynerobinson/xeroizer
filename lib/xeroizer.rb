@@ -5,6 +5,7 @@ require 'active_support/inflector'
 require "active_support/core_ext/array"
 require "active_support/core_ext/big_decimal/conversions"
 require 'oauth'
+require 'oauth2'
 require 'oauth/signature/rsa/sha1'
 require 'nokogiri'
 require 'builder'
@@ -17,14 +18,18 @@ $: << File.expand_path(File.dirname(__FILE__))
 require 'class_level_inheritable_attributes'
 require 'xeroizer/exceptions'
 require 'xeroizer/oauth'
+require 'xeroizer/oauth2'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
+require 'xeroizer/connection'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/payroll_base_model'
 require 'xeroizer/record/base'
 require 'xeroizer/record/payroll_base'
 require 'xeroizer/configuration'
+require 'xeroizer/oauth_response_error_handler'
+require 'xeroizer/oauth2_response_handler'
 
 # Include models
 require 'xeroizer/models/account'
@@ -107,4 +112,5 @@ require 'xeroizer/generic_application'
 require 'xeroizer/public_application'
 require 'xeroizer/private_application'
 require 'xeroizer/partner_application'
+require 'xeroizer/oauth2_application'
 require 'xeroizer/payroll_application'

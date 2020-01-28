@@ -25,7 +25,8 @@ module Xeroizer
         options = default_options.merge(options).merge(
           :private_key_file => path_to_private_key
         )
-        super(consumer_key, consumer_secret, options)
+        client = OAuth.new(consumer_key, consumer_secret, options)
+        super(client, options)
 
         # Load up an existing token if passed the token/key.
         if options[:access_token] && options[:access_key]

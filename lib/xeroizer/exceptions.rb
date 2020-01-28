@@ -155,5 +155,7 @@ module Xeroizer
     end
 
   end
+
+  class InvalidClientError < XeroizerError; end
   
 end

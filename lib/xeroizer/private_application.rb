@@ -17,7 +17,8 @@ module Xeroizer
       def initialize(consumer_key, consumer_secret, path_to_private_key, options = {})
         options[:signature_method] = 'RSA-SHA1'
         options[:private_key_file] = path_to_private_key
-        super(consumer_key, consumer_secret, options)
+        client = OAuth.new(consumer_key, consumer_secret, options)
+        super(client, options)
         @client.authorize_from_access(consumer_key, consumer_secret)
       end
 
