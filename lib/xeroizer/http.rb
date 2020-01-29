@@ -52,7 +52,7 @@ module Xeroizer
 
     private
 
-    def http_request(client, method, url, body, params = {})
+    def http_request(client, method, url, request_body, params = {})
       # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
       headers = self.default_headers.merge({ 'charset' => 'utf-8' })
@@ -88,14 +88,14 @@ module Xeroizer
 
       attempts = 0
 
-      request_info = RequestInfo.new(url, headers, params, body)
+      request_info = RequestInfo.new(url, headers, params, request_body)
       before_request.call(request_info) if before_request
 
       begin
         attempts += 1
         logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
 
-        raw_body = params.delete(:raw_body) ? body : {:xml => body}
+        raw_body = params.delete(:raw_body) ? request_body : {:xml => request_body}
 
         response = with_around_request(request_info) do
           case method
@@ -108,7 +108,7 @@ module Xeroizer
         log_response(response, uri)
         after_request.call(request_info, response) if after_request
 
-        HttpResponse.body(response, body, url)
+        HttpResponse.from_response(response, request_body, url).body
       rescue Xeroizer::OAuth::NonceUsed => exception
         raise if attempts > nonce_used_max_attempts
         logger.info("Nonce used: " + exception.to_s) if self.logger
