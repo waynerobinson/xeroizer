@@ -1,6 +1,63 @@
 module Xeroizer
   class BadResponse < XeroizerError; end
 
+  class AuthFailure
+    def initialize(body)
+      @body = body
+      @problem = ""
+    end
+
+    def raise_error
+      description, problem = parse
+
+      # see http://oauth.pbworks.com/ProblemReporting
+      # In addition to token_expired and token_rejected, Xero also returns
+      # 'rate limit exceeded' when more than 60 requests have been made in
+      # a second.
+      if problem
+        case problem
+        when "token_expired"                then raise OAuth::TokenExpired.new(description)
+        when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
+        when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
+        when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
+        when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
+        when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
+        when "invalid_tenant_id"            then raise OAuth::InvalidTenantId.new(description)
+        else raise OAuth::UnknownError.new(problem + ':' + description)
+        end
+      else
+        raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+      end
+    end
+
+    private
+
+    attr_reader :body
+
+    def parse
+      begin
+        error_details = JSON.parse(body)
+        description   = error_details["detail"]
+        if description == "AuthenticationUnsuccessful"
+          if error_details["title"] == "Forbidden"
+            problem = "invalid_tenant_id"
+            description = "Invalid or missing Xero-tenant-id header"
+          else
+            problem = "token_rejected"
+          end
+        else
+          problem = "token_expired"
+        end
+        [description, problem]
+      rescue JSON::ParserError
+        error_details = CGI.parse(body)
+        description   = error_details["oauth_problem_advice"].first
+        problem = error_details["oauth_problem"].first
+        [description, problem]
+      end
+    end
+  end
+
   class HttpResponse
     def self.from_response(response, request_body, url)
       new(response, request_body, url)
@@ -21,13 +78,13 @@ module Xeroizer
       when 400
         raise_bad_request!
       when 401
-        raise_auth_error!
+        AuthFailure.new(response.plain_body).raise_error
       when 403
-        raise_auth_error!
+        AuthFailure.new(response.plain_body).raise_error
       when 404
         raise_not_found!
       when 503
-        raise_auth_error!
+        AuthFailure.new(response.plain_body).raise_error
       else
         raise_unknown_response_error!
       end
@@ -37,51 +94,6 @@ module Xeroizer
 
     attr_reader :request_body, :response, :url
 
-    def raise_auth_error!
-      description, problem = parse_oauth_error
-
-      # see http://oauth.pbworks.com/ProblemReporting
-      # In addition to token_expired and token_rejected, Xero also returns
-      # 'rate limit exceeded' when more than 60 requests have been made in
-      # a second.
-      if problem
-        case problem
-          when "token_expired"                then raise OAuth::TokenExpired.new(description)
-          when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
-          when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
-          when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
-          when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
-          when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
-          when "invalid_tenant_id"            then raise OAuth::InvalidTenantId.new(description)
-          else raise OAuth::UnknownError.new(problem + ':' + description)
-        end
-      else
-        raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
-      end
-    end
-
-    def parse_oauth_error
-      begin
-        error_details = JSON.parse(response.plain_body)
-        description   = error_details["detail"]
-        if description == "AuthenticationUnsuccessful"
-          if error_details["title"] == "Forbidden"
-            problem = "invalid_tenant_id"
-            description = "Invalid or missing Xero-tenant-id header"
-          else
-            problem = "token_rejected"
-          end
-        else
-          problem = "token_expired"
-        end
-        [description, problem]
-      rescue JSON::ParserError
-        error_details = CGI.parse(response.plain_body)
-        description   = error_details["oauth_problem_advice"].first
-        problem = error_details["oauth_problem"].first
-        [description, problem]
-      end
-    end
 
     def raise_bad_request!
 
