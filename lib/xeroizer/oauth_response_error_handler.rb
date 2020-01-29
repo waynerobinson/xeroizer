@@ -13,6 +13,8 @@ module Xeroizer
           handle_error!(response, body)
         when 401
           handle_oauth_error!(response)
+        when 403
+          handle_oauth_error!(response)
         when 404
           handle_object_not_found!(response, url)
         when 503
@@ -25,9 +27,7 @@ module Xeroizer
       private
 
       def handle_oauth_error!(response)
-        error_details = CGI.parse(response.plain_body)
-        description   = error_details["oauth_problem_advice"].first
-        problem = error_details["oauth_problem"].first
+        description, problem = parse_oauth_error(response)
 
         # see http://oauth.pbworks.com/ProblemReporting
         # In addition to token_expired and token_rejected, Xero also returns
@@ -41,10 +41,34 @@ module Xeroizer
             when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
             when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
             when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
+            when "invalid_tenant_id"            then raise OAuth::InvalidTenantId.new(description)
             else raise OAuth::UnknownError.new(problem + ':' + description)
           end
         else
           raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+        end
+      end
+
+      def parse_oauth_error(response)
+        begin
+          error_details = JSON.parse(response.plain_body)
+          description   = error_details["detail"]
+          if description == "AuthenticationUnsuccessful"
+            if error_details["title"] == "Forbidden"
+              problem = "invalid_tenant_id"
+              description = "Invalid or missing Xero-tenant-id header"
+            else
+              problem = "token_rejected"
+            end
+          else
+            problem = "token_expired"
+          end
+          [description, problem]
+        rescue JSON::ParserError
+          error_details = CGI.parse(response.plain_body)
+          description   = error_details["oauth_problem_advice"].first
+          problem = error_details["oauth_problem"].first
+          [description, problem]
         end
       end
 
