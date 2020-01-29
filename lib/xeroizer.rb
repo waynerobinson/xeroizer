@@ -28,7 +28,7 @@ require 'xeroizer/record/payroll_base_model'
 require 'xeroizer/record/base'
 require 'xeroizer/record/payroll_base'
 require 'xeroizer/configuration'
-require 'xeroizer/oauth_response_error_handler'
+require 'xeroizer/http_response'
 
 # Include models
 require 'xeroizer/models/account'

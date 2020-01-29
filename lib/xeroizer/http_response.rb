@@ -1,16 +1,16 @@
 module Xeroizer
   class BadResponse < XeroizerError; end
 
-  class OauthResponseErrorHandler
+  class HttpResponse
     class << self
-      def handle_errors(response, body, url)
+      def body(response, request_body, url)
         case response.code.to_i
         when 200
           response.plain_body
         when 204
           nil
         when 400
-          handle_error!(response, body)
+          handle_error!(response, request_body)
         when 401
           handle_oauth_error!(response)
         when 403
