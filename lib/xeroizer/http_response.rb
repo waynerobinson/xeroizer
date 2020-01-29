@@ -19,17 +19,17 @@ module Xeroizer
       when 204
         nil
       when 400
-        handle_error!
+        raise_bad_request!
       when 401
-        handle_oauth_error!
+        raise_auth_error!
       when 403
-        handle_oauth_error!
+        raise_auth_error!
       when 404
-        handle_object_not_found!
+        raise_not_found!
       when 503
-        handle_oauth_error!
+        raise_auth_error!
       else
-        handle_unknown_response_error!
+        raise_unknown_response_error!
       end
     end
 
@@ -37,7 +37,7 @@ module Xeroizer
 
     attr_reader :request_body, :response, :url
 
-    def handle_oauth_error!
+    def raise_auth_error!
       description, problem = parse_oauth_error
 
       # see http://oauth.pbworks.com/ProblemReporting
@@ -83,7 +83,7 @@ module Xeroizer
       end
     end
 
-    def handle_error!
+    def raise_bad_request!
 
       raw_response = response.plain_body
 
@@ -107,7 +107,7 @@ module Xeroizer
       end
     end
 
-    def handle_object_not_found!
+    def raise_not_found!
       case url
       when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
       when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
@@ -115,7 +115,7 @@ module Xeroizer
       end
     end
 
-    def handle_unknown_response_error!
+    def raise_unknown_response_error!
       raise Xeroizer::BadResponse.new("Unknown response code: #{response.code.to_i}")
     end
   end
