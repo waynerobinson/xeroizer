@@ -13,6 +13,8 @@ module Xeroizer
         error_details = JSON.parse(response.plain_body)
         description  = error_details["detail"]
         case response.code.to_i
+        when 400
+          raise Xeroizer::BadResponse.new(description)
         when 401
           raise OAuth::TokenExpired.new(description) if description.include?("TokenExpired")
           raise OAuth::TokenInvalid.new(description)

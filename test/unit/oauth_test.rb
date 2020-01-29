@@ -145,5 +145,15 @@ class OAuthTest < Test::Unit::TestCase
         end
       end
     end
+
+    context "when a bad request was made" do
+      should "handle a json payload" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("bad_request.json"), :code => "400"))
+
+        assert_raises Xeroizer::BadResponse do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
   end
 end
