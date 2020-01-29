@@ -21,8 +21,10 @@ module Xeroizer
         when 403
           message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
           raise OAuth::Forbidden.new(message)
+        when 404
+          raise Xeroizer::ObjectNotFound.new(url)
         else
-          raise Error.new("we shouldn't get here with our test suite")
+          raise Xeroizer::OAuth::UnknownError.new(description)
         end
       rescue JSON::ParserError
         case response.code.to_i

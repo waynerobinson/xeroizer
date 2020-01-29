@@ -155,5 +155,25 @@ class OAuthTest < Test::Unit::TestCase
         end
       end
     end
+
+    context "when an object is not found" do
+      should "raise an object not found error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("object_not_found.json"), :code => "404"))
+
+        assert_raises Xeroizer::ObjectNotFound do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
+
+    context "when an error that isn't explicitly handled is received" do
+      should "raise an unknown error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("generic_response_error.json"), :code => "409"))
+
+        assert_raises Xeroizer::OAuth::UnknownError do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
   end
 end
