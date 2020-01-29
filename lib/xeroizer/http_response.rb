@@ -70,30 +70,32 @@ module Xeroizer
     end
 
     def body
-      case response.code.to_i
-      when 200
-        response.plain_body
-      when 204
-        nil
-      when 400
-        raise_bad_request!
-      when 401
-        AuthFailure.new(response.plain_body).raise_error
-      when 403
-        AuthFailure.new(response.plain_body).raise_error
-      when 404
-        raise_not_found!
-      when 503
-        AuthFailure.new(response.plain_body).raise_error
-      else
-        raise_unknown_response_error!
-      end
+      response_code = response.code.to_i
+      return nil if response_code == 204
+      raise_error! unless response.code.to_i == 200
+      response.plain_body
     end
 
     private
 
     attr_reader :request_body, :response, :url
 
+    def raise_error!
+      case response.code.to_i
+      when 400
+      raise_bad_request!
+      when 401
+      AuthFailure.new(response.plain_body).raise_error
+      when 403
+      AuthFailure.new(response.plain_body).raise_error
+      when 404
+      raise_not_found!
+      when 503
+      AuthFailure.new(response.plain_body).raise_error
+      else
+        raise_unknown_response_error!
+      end
+    end
 
     def raise_bad_request!
 
