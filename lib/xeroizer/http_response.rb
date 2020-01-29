@@ -11,13 +11,14 @@ module Xeroizer
     def raise_error!
       begin
         error_details = JSON.parse(response.plain_body)
+        description  = error_details["detail"]
         case response.code.to_i
         when 401
-          description  = error_details["detail"]
           raise OAuth::TokenExpired.new(description) if description.include?("TokenExpired")
           raise OAuth::TokenInvalid.new(description)
         when 403
-          raise OAuth::InvalidTenantId.new("Invalid or missing Xero-tenant-id header")
+          message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
+          raise OAuth::Forbidden.new(message)
         else
           raise Error.new("we shouldn't get here with our test suite")
         end

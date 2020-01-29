@@ -140,7 +140,7 @@ class OAuthTest < Test::Unit::TestCase
       should "handle oauth2 invalid tenant_id" do
         Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invalid_tenant_header.json"), :code => "403"))
 
-        assert_raises Xeroizer::OAuth::InvalidTenantId do
+        assert_raises Xeroizer::OAuth::Forbidden do
           Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
         end
       end
