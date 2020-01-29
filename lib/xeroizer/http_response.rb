@@ -9,19 +9,33 @@ module Xeroizer
     end
 
     def raise_error!
-      case response.code.to_i
-      when 400
-        raise_bad_request!
-      when 401
-        AuthFailure.new(response.plain_body).raise_error
-      when 403
-        AuthFailure.new(response.plain_body).raise_error
-      when 404
-        raise_not_found!
-      when 503
-        AuthFailure.new(response.plain_body).raise_error
-      else
-        raise_unknown_response_error!
+      begin
+        error_details = JSON.parse(response.plain_body)
+        case response.code.to_i
+        when 401
+          description  = error_details["detail"]
+          raise OAuth::TokenExpired.new(description) if description.include?("TokenExpired")
+          raise OAuth::TokenInvalid.new(description)
+        when 403
+          raise OAuth::InvalidTenantId.new("Invalid or missing Xero-tenant-id header")
+        else
+          raise Error.new("we shouldn't get here with our test suite")
+        end
+      rescue JSON::ParserError
+        case response.code.to_i
+        when 400
+          raise_bad_request!
+        when 401
+          AuthFailure.new(response.plain_body).raise_error
+        when 403
+          AuthFailure.new(response.plain_body).raise_error
+        when 404
+          raise_not_found!
+        when 503
+          AuthFailure.new(response.plain_body).raise_error
+        else
+          raise_unknown_response_error!
+        end
       end
     end
 
@@ -86,7 +100,6 @@ module Xeroizer
         when "consumer_key_unknown"         then raise OAuth::ConsumerKeyUnknown.new(description)
         when "nonce_used"                   then raise OAuth::NonceUsed.new(description)
         when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
-        when "invalid_tenant_id"            then raise OAuth::InvalidTenantId.new(description)
         else raise OAuth::UnknownError.new(problem + ':' + description)
         end
       else
@@ -99,26 +112,10 @@ module Xeroizer
     attr_reader :body
 
     def parse
-      begin
-        error_details = JSON.parse(body)
-        description   = error_details["detail"]
-        if description == "AuthenticationUnsuccessful"
-          if error_details["title"] == "Forbidden"
-            problem = "invalid_tenant_id"
-            description = "Invalid or missing Xero-tenant-id header"
-          else
-            problem = "token_rejected"
-          end
-        else
-          problem = "token_expired"
-        end
-        [description, problem]
-      rescue JSON::ParserError
-        error_details = CGI.parse(body)
-        description   = error_details["oauth_problem_advice"].first
-        problem = error_details["oauth_problem"].first
-        [description, problem]
-      end
+      error_details = CGI.parse(body)
+      description   = error_details["oauth_problem_advice"].first
+      problem = error_details["oauth_problem"].first
+      [description, problem]
     end
   end
 
