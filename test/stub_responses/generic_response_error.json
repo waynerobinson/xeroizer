@@ -1,0 +1,6 @@
+{
+  "type": "duplicate-statement",
+  "title": "Duplicate Statement Received",
+  "status": 409,
+  "detail": "The received statement was marked as a duplicate."
+}

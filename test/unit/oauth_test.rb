@@ -115,4 +115,65 @@ class OAuthTest < Test::Unit::TestCase
 
   end
 
+  context "with oauth2 error handling" do
+    context "when token is invalid" do
+      should "raise an invalid token error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invalid_oauth2_request_token.json"), :code => "401"))
+
+        assert_raises Xeroizer::OAuth::TokenInvalid do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Organisation.first
+        end
+      end
+    end
+
+    context "when token is expired" do
+      should "raise an expired token error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("expired_oauth2_token.json"), :code => "401"))
+
+        assert_raises Xeroizer::OAuth::TokenExpired do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Organisation.first
+        end
+      end
+    end
+
+    context "when the tenant_id header is invalid or not present" do
+      should "handle oauth2 invalid tenant_id" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("invalid_tenant_header.json"), :code => "403"))
+
+        assert_raises Xeroizer::OAuth::Forbidden do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
+
+    context "when a bad request was made" do
+      should "handle a json payload" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("bad_request.json"), :code => "400"))
+
+        assert_raises Xeroizer::BadResponse do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
+
+    context "when an object is not found" do
+      should "raise an object not found error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("object_not_found.json"), :code => "404"))
+
+        assert_raises Xeroizer::ObjectNotFound do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
+
+    context "when an error that isn't explicitly handled is received" do
+      should "raise an unknown error" do
+        Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_file_as_string("generic_response_error.json"), :code => "409"))
+
+        assert_raises Xeroizer::OAuth::UnknownError do
+          Xeroizer::OAuth2Application.new("client id", "client secret", access_token: "access token").Account.first
+        end
+      end
+    end
+  end
 end
