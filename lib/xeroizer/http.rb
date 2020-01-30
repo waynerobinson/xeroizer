@@ -14,7 +14,8 @@
 
 module Xeroizer
   module Http
-    RequestInfo = Struct.new(:url, :headers, :params, :body)
+    class BadResponse < XeroizerError; end
+    RequestInfo = Struct.new(:url, :headers, :params, :body, :method)
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
