@@ -1,39 +1,6 @@
 module Xeroizer
   class BadResponse < XeroizerError; end
 
-  class ResponseFailure
-    attr_reader :request_body, :response, :url
-
-    def initialize(response, request_body, url)
-      @response = response
-      @request_body = request_body
-      @url = url
-    end
-
-    def raise_error!
-      begin
-        error_details = JSON.parse(response.plain_body)
-        description  = error_details["detail"]
-        case response.code.to_i
-        when 400
-          raise Xeroizer::BadResponse.new(description)
-        when 401
-          raise OAuth::TokenExpired.new(description) if description.include?("TokenExpired")
-          raise OAuth::TokenInvalid.new(description)
-        when 403
-          message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
-          raise OAuth::Forbidden.new(message)
-        when 404
-          raise Xeroizer::ObjectNotFound.new(url)
-        else
-          raise Xeroizer::OAuth::UnknownError.new(description)
-        end
-      rescue JSON::ParserError
-        XmlErrorResponse.new(response, request_body, url).raise_error!
-      end
-    end
-  end
-
   class XmlErrorResponse
     def initialize(response, request_body, url)
       @response = response
@@ -142,11 +109,34 @@ module Xeroizer
     def body
       response_code = response.code.to_i
       return nil if response_code == 204
-      ResponseFailure.new(response, request_body, url).raise_error! unless response.code.to_i == 200
+      raise_error! unless response.code.to_i == 200
       response.plain_body
     end
 
     private
+
+    def raise_error!
+      begin
+        error_details = JSON.parse(response.plain_body)
+        description  = error_details["detail"]
+        case response.code.to_i
+        when 400
+          raise Xeroizer::BadResponse.new(description)
+        when 401
+          raise OAuth::TokenExpired.new(description) if description.include?("TokenExpired")
+          raise OAuth::TokenInvalid.new(description)
+        when 403
+          message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
+          raise OAuth::Forbidden.new(message)
+        when 404
+          raise Xeroizer::ObjectNotFound.new(url)
+        else
+          raise Xeroizer::OAuth::UnknownError.new(description)
+        end
+      rescue JSON::ParserError
+        XmlErrorResponse.new(response, request_body, url).raise_error!
+      end
+    end
 
     attr_reader :request_body, :response, :url
   end
