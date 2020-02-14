@@ -1,0 +1,6 @@
+{
+  "title": "Unauthorized",
+  "status": 401,
+  "detail": "TokenExpired: token expired at 01/23/2020 18:21:16",
+  "instance": "eac0fd6e-8d19-4bae-8121-cb7f7549ec67"
+}

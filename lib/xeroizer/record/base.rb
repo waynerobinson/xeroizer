@@ -30,7 +30,7 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            attr = record.respond_to?("#{key}=") ? key : record.class.fields[key][:internal_name]
+            attr = record.respond_to?("#{key}=") || record.class.fields[key].nil? ? key : record.class.fields[key][:internal_name]
             record.send("#{attr}=", value)
           end
           record
@@ -105,12 +105,21 @@ module Xeroizer
         end
 
         def save
-          return false unless valid?
+          save!
+          true
+        rescue XeroizerError => e
+          log "[ERROR SAVING] (#{__FILE__}:#{__LINE__}) - #{e.message}"
+          false
+        end
+
+        def save!
+          raise RecordInvalid unless valid?
           if new_record?
             create
           else
             update
           end
+
           saved!
         end
 

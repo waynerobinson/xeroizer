@@ -1,4 +1,4 @@
-require "test_helper"
+require 'unit_test_helper'
 
 class BlockValidatorTest < Test::Unit::TestCase
   def setup

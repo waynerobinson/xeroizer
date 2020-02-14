@@ -12,3 +12,4 @@ pkg/
 .DS_Store
 .idea/
 Gemfile.lock
+tmp/

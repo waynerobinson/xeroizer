@@ -97,6 +97,8 @@ module Xeroizer
     
   end
 
+  class RecordInvalid < XeroizerError; end
+
   class SettingTotalDirectlyNotSupported < XeroizerError
     
     def initialize(attribute_name)
@@ -143,7 +145,7 @@ module Xeroizer
     end
 
     def message
-      case new_status
+      case @new_status
         when 'DELETED', 'VOIDED'
           unless @invoice.payments.size == 0
             "There must be no payments in this invoice to change to '#{@new_status}'"
@@ -153,5 +155,7 @@ module Xeroizer
     end
 
   end
+
+  class InvalidClientError < XeroizerError; end
   
 end

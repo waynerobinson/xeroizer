@@ -6,6 +6,7 @@ module Xeroizer
     
     class BalancesModel < BaseModel
       set_permissions :read
+      set_api_controller_name 'Balances'
     end
     
     class Balances < Base
