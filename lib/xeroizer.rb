@@ -102,6 +102,8 @@ require 'xeroizer/models/payroll/tax_declaration'
 require 'xeroizer/models/payroll/time_off_line'
 require 'xeroizer/models/payroll/time_off_type'
 require 'xeroizer/models/payroll/work_location'
+require 'xeroizer/models/payroll/leave_application'
+require 'xeroizer/models/payroll/leave_period'
 
 require 'xeroizer/report/factory'
 
