@@ -1,0 +1,15 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>49713875-ad73-492c-b6ac-2d265a5fe862</Id>
+  <Status>OK</Status>
+  <ProviderName>Demo AU</ProviderName>
+  <DateTimeUTC>2011-05-31T01:18:05.1105867Z</DateTimeUTC>
+  <PayrollCalendars>
+    <PayrollCalendar>
+      <CalendarType>WEEKLY</CalendarType>
+      <Name>What</Name>
+      <PaymentDate>2012-11-16T00:00:00Z</PaymentDate>
+      <PayrollCalendarID>49713875-ad73-492c-b6ac-2d265a5fe862</PayrollCalendarID>
+      <StartDate>2012-11-08T00:00:00</StartDate>
+    </PayrollCalendar>
+  </PayrollCalendars>
+</Response>

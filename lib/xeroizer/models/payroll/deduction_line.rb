@@ -1,11 +1,11 @@
 module Xeroizer
   module Record
     module Payroll
-
       class DeductionLineModel < PayrollBaseModel
 
       end
 
+      # child of PayTemplate
       class DeductionLine < PayrollBase
 
         DEDUCTION_TYPE_CALCULATION_TYPE = {
@@ -15,7 +15,7 @@ module Xeroizer
         } unless defined?(DEDUCTION_TYPE_CALCULATION_TYPE)
 
         guid          :deduction_type_id, :api_name => 'DeductionTypeID'
-        string        :calculation_type
+        string        :calculation_type # http://developer.xero.com/payroll-api/types-and-codes#DeductionTypeCalculationType
 
         decimal :percentage
         decimal :amount

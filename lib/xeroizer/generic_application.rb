@@ -6,8 +6,9 @@ module Xeroizer
     include Http
     extend Record::ApplicationHelper
 
-    attr_reader :client, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
+    attr_reader :client, :xero_url, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
                 :default_headers, :unitdp, :before_request, :after_request, :around_request, :nonce_used_max_attempts
+    attr_accessor :logger
 
     attr_accessor :xero_url
 
@@ -34,6 +35,7 @@ module Xeroizer
     record :LineItem
     record :ManualJournal
     record :Organisation
+    record :User
     record :Payment
     record :PaymentService
     record :Prepayment
@@ -82,9 +84,13 @@ module Xeroizer
 
       def payroll(options = {})
         xero_client = self.clone
-        xero_client.xero_url = options[:xero_url] || "https://api.xero.com/payroll.xro/1.0"
+        xero_client.xero_url_suffix = options[:xero_url_suffix] || "payroll.xro/1.0"
+        xero_client.api_format = options[:api_format] || :xml
         @payroll ||= PayrollApplication.new(xero_client)
       end
 
+      def xero_url
+        @xero_url_prefix + '/' + @xero_url_suffix
+      end
   end
 end

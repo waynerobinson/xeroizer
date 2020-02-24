@@ -1,6 +1,5 @@
 module Xeroizer
   module Record
-
     class UserModel < BaseModel
 
       set_api_controller_name 'User'
@@ -21,6 +20,5 @@ module Xeroizer
       string       :organisation_role
 
     end
-
   end
 end

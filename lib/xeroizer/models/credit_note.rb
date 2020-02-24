@@ -1,12 +1,11 @@
 module Xeroizer
   module Record
-    
+
     class CreditNoteModel < BaseModel
-        
-      set_permissions :read, :write, :update
-      
+
+      set_permissions :read, :write, :update 
       include AttachmentModel::Extensions
-      
+
       public
 
         # Retrieve the PDF version of the credit matching the `id`.
@@ -21,11 +20,11 @@ module Xeroizer
             pdf_data
           end
         end
-      
+
     end
-    
+
     class CreditNote < Base
-      
+
       CREDIT_NOTE_STATUS = {
         'AUTHORISED' =>       'Approved credit_notes awaiting payment',
         'DELETED' =>          'Draft credit_notes that are deleted',
@@ -35,7 +34,7 @@ module Xeroizer
         'VOIDED' =>           'Approved credit_notes that are voided'
       } unless defined?(CREDIT_NOTE_STATUS)
       CREDIT_NOTE_STATUSES = CREDIT_NOTE_STATUS.keys.sort
-      
+
       CREDIT_NOTE_TYPE = {
         'ACCRECCREDIT' =>           'Accounts Receivable',
         'ACCPAYCREDIT' =>           'Accounts Payable'
@@ -47,7 +46,7 @@ module Xeroizer
       set_primary_key :credit_note_id
       set_possible_primary_keys :credit_note_id, :credit_note_number
       list_contains_summary_only true
-      
+
       guid          :credit_note_id
       string        :credit_note_number
       string        :reference
@@ -72,15 +71,15 @@ module Xeroizer
       belongs_to    :contact
       has_many      :line_items
       has_many      :allocations
-      
+
       validates_inclusion_of :type, :in => CREDIT_NOTE_TYPES
       validates_inclusion_of :status, :in => CREDIT_NOTE_STATUSES, :allow_blanks => true
       validates_associated :contact
       validates_associated :line_items
       validates_associated :allocations, :allow_blanks => true
-      
+
       public
-      
+
         # Access the contact name without forcing a download of
         # an incomplete, summary credit note.
         def contact_name
@@ -91,13 +90,13 @@ module Xeroizer
         # incomplete, summary credit note.
         def contact_id
           attributes[:contact] && attributes[:contact][:contact_id]
-        end      
-      
+        end
+
         # Swallow assignment of attributes that should only be calculated automatically.
         def sub_total=(value);  raise SettingTotalDirectlyNotSupported.new(:sub_total);   end
         def total_tax=(value);  raise SettingTotalDirectlyNotSupported.new(:total_tax);   end
         def total=(value);      raise SettingTotalDirectlyNotSupported.new(:total);       end
-      
+
         # Calculate sub_total from line_items.
         def sub_total(always_summary = false)
           if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
@@ -128,7 +127,7 @@ module Xeroizer
             attributes[:total]
           end
         end
-        
+
         # Retrieve the PDF version of this credit note.
         # @param [String] filename optional filename to store the PDF in instead of returning the data.
         def pdf(filename = nil)

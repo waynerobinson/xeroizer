@@ -37,6 +37,8 @@ module Xeroizer
             params[:DateFrom] = options[:date_from] if options[:date_from]
             params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
+            params[:response] = options[:api_format] || @application.api_format
+            params[:url] = self.send(:api_url, options) if self.respond_to?(:api_url)
             params
           end
 
@@ -115,9 +117,9 @@ module Xeroizer
               when :boolean     then [field[:api_name], expression, value ? 'true' : 'false']
               when :integer     then [field[:api_name], expression, value.to_s]
               when :decimal     then [field[:api_name], expression, value.to_s]
-              when :date        then [field[:api_name], expression, "DateTime.Parse(\"#{value.strftime("%Y-%m-%d")}\")"]
-              when :datetime    then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
-              when :datetime_utc then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
+              when :date        then [field[:api_name], expression, "DateTime(#{value.strftime("%Y,%m,%d")})"]
+              when :datetime    then [field[:api_name], expression, "DateTime(#{value.utc.strftime("%Y,%m,%d,%H,%M,%S")})"]
+              when :datetime_utc then [field[:api_name], expression, "DateTime(#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")})"]
               when :belongs_to  then
               when :has_many    then
               when :has_one    then

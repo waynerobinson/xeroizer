@@ -32,7 +32,15 @@ module Xeroizer
 
         set_primary_key :deduction_type_id
 
-        guid    :deduction_type_id
+        string        :name
+        string        :account_code # http://developer.xero.com/api/Accounts
+        boolean       :reduces_super
+        boolean       :reduces_tax
+
+        guid          :deduction_type_id
+
+        datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+
         string  :deduction_type
         string  :deduction_category
         string  :calculation_type
@@ -43,7 +51,9 @@ module Xeroizer
         validates_inclusion_of :deduction_category, :in => DEDUCTION_CATEGORIES
         validates_inclusion_of :calculation_type, :in => CALCULATION_TYPES
 
+        validates_presence_of :name, :account_code, :reduces_tax, :reduces_super
       end
-    end
+
+    end 
   end
 end

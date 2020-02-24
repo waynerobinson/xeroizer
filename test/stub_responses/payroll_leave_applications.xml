@@ -1,0 +1,15 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a1b8088e-4166-48e9-9e29-5b5919cac0a0</Id>
+  <Status>OK</Status>
+  <ProviderName>Xeroizer test</ProviderName>
+  <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
+  <Employees>
+    <Employee>
+      <EmployeeID>fb4ebd68-6568-41eb-96ab-628a0f54b4b8</EmployeeID>
+      <Status>ACTIVE</Status>
+      <FirstName>LeBron</FirstName>
+      <LastName>James</LastName>
+      <UpdatedDateUTC>2013-04-18T01:29:53</UpdatedDateUTC>
+    </Employee>
+  </Employees>
+</Response>

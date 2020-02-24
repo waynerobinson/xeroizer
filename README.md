@@ -47,6 +47,22 @@ There are three methods of authentication detailed below:
 All methods of authentication require your OAuth consumer key and secret. This can be found for your application
 in the API management console at [http://api.xero.com](http://api.xero.com).
 
+##### Payroll Applications
+
+Applications accessing the [Payroll API](http://developer.xero.com/payroll-api/) need to do things slightly differently. To change a client into a payroll client, call `.payroll` on the client. For example, for a public application, change:
+
+```ruby
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+```
+
+to:
+
+```ruby
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET).payroll
+```
+
+Some kinds of applications will also need to provide scopes when navigating to the request URL. See below for more details.
+
 ### Public Applications
 
 Public applications use a 3-legged authorisation process. A user will need to authorise your
@@ -85,6 +101,23 @@ You can now use the client to access the Xero API methods, e.g.
 
 ```ruby
 contacts = client.Contact.all
+```
+
+#### Payroll Applications
+
+Payroll applications need to get permission to the appropriate API endpoints. Do this by providing a `scope` parameter when calling `request_token.authorize_url`.
+
+
+```ruby
+client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET).payroll
+request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
+redirect_to request_token.authorize_url(scope: Xeroizer::Scopes.all_payroll)
+```
+
+`Xeroizer::Scopes.all_payroll` requests access to all payroll endpoints. If you prefer, you can specify only specific endpoints:
+
+```ruby
+redirect_to request_token.authorize_url(scope: 'payroll.employees,payroll.payitems')
 ```
 
 #### Example Rails Controller
@@ -388,6 +421,8 @@ in the resulting response, including all nested XML elements.
 		contacts = xero.Contact.all(:where => 'Name.Contains("Peter")')
 		contacts = xero.Contact.all(:where => 'Name.StartsWith("Pet")')
 		contacts = xero.Contact.all(:where => 'Name.EndsWith("er")')
+
+See [Xero's documentation on filters](http://developer.xero.com/api-overview/http-requests-and-responses/#get-filtered) for more information.
 
 Associations
 ------------

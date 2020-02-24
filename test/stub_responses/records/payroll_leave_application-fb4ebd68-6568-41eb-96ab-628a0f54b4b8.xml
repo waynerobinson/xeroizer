@@ -1,0 +1,25 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>a1b8088e-4166-48e9-9e29-5b5919cac0a0</Id>
+  <Status>OK</Status>
+  <ProviderName>Xeroizer test</ProviderName>
+  <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
+  <LeaveApplications>
+    <LeaveApplication>
+      <LeaveApplicationID>e0eb6747-7c17-4075-b804-989f8d4e5d39</LeaveApplicationID>
+      <EmployeeID>fb4ebd68-6568-41eb-96ab-628a0f54b4b8</EmployeeID>
+      <LeaveTypeID>742998cb-7584-4ecf-aa88-d694f59c50f9</LeaveTypeID>
+      <LeavePeriods>
+        <LeavePeriod>
+          <PayPeriodStartDate>2013-04-29T00:00:00</PayPeriodStartDate>
+          <PayPeriodEndDate>2013-05-12T00:00:00</PayPeriodEndDate>
+          <LeavePeriodStatus>SCHEDULED</LeavePeriodStatus>
+          <NumberOfUnits>22.8000</NumberOfUnits>
+        </LeavePeriod>
+      </LeavePeriods>
+      <Title>Annual Leave</Title>
+      <StartDate>2013-05-08T00:00:00</StartDate>
+      <EndDate>2013-05-10T00:00:00</EndDate>
+      <UpdatedDateUTC>2013-04-01T23:02:36</UpdatedDateUTC>
+    </LeaveApplication>
+  </LeaveApplications>
+</Response>

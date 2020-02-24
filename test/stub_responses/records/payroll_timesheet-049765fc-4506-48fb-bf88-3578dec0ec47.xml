@@ -1,0 +1,43 @@
+<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>049765fc-4506-48fb-bf88-3578dec0ec47</Id>
+  <Status>OK</Status>
+  <ProviderName>Xeroizer test</ProviderName>
+  <DateTimeUTC>2013-05-30T05:25:03.0599507Z</DateTimeUTC>
+  <Timesheet>
+    <TimesheetID>049765fc-4506-48fb-bf88-3578dec0ec47</TimesheetID>
+    <EmployeeID>72a0d0c2-0cf8-4f0b-ade1-33231f47b41b</EmployeeID>
+    <StartDate>2013-02-01T00:00:00</StartDate>
+    <EndDate>2013-02-07T00:00:00</EndDate>
+    <Status>Processed</Status>
+    <Hours>31.0000</Hours>
+    <TimesheetLines>
+      <TimesheetLine>
+        <EarningsRateID>966c5c77-2ef0-4320-b6a9-6c27b080ecc5</EarningsRateID>
+        <NumberOfUnits>
+          <NumberOfUnit>7.00</NumberOfUnit>
+          <NumberOfUnit>6.00</NumberOfUnit>
+          <NumberOfUnit>6.00</NumberOfUnit>
+          <NumberOfUnit>5.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+        </NumberOfUnits>
+        <UpdatedDateUTC>2013-03-21T20:14:28</UpdatedDateUTC>
+      </TimesheetLine>
+      <TimesheetLine>
+        <EarningsRateID>677b6175-dc1c-4255-99e2-157117ae5bcc</EarningsRateID>
+        <NumberOfUnits>
+          <NumberOfUnit>3.00</NumberOfUnit>
+          <NumberOfUnit>4.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+          <NumberOfUnit>0.00</NumberOfUnit>
+        </NumberOfUnits>
+        <UpdatedDateUTC>2013-03-21T20:14:28</UpdatedDateUTC>
+      </TimesheetLine>
+    </TimesheetLines>
+    <UpdatedDateUTC>2013-03-21T20:14:28</UpdatedDateUTC>
+  </Timesheet>
+</Response>

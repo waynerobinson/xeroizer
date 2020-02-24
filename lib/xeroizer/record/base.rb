@@ -3,6 +3,7 @@ require 'xeroizer/record/record_association_helper'
 require 'xeroizer/record/validation_helper'
 require 'xeroizer/record/xml_helper'
 require 'xeroizer/logging'
+require 'active_support/inflector'
 
 module Xeroizer
   module Record
@@ -17,7 +18,12 @@ module Xeroizer
       attr_reader :model
       attr_accessor :errors
       attr_accessor :complete_record_downloaded
+
+      attr_writer :api_method_for_creating
+      attr_writer :api_method_for_updating
+
       attr_accessor :paged_record_downloaded
+      attr_accessor :after_initialize
 
       include ModelDefinitionHelper
       include RecordAssociationHelper
@@ -30,8 +36,12 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            attr = record.respond_to?("#{key}=") || record.class.fields[key].nil? ? key : record.class.fields[key][:internal_name]
-            record.send("#{attr}=", value)
+            attr_to_set = if record.respond_to?("#{key}=")
+              key
+            elsif record.class.fields.key?(key)
+              record.class.fields[key][:internal_name]
+            end
+            record.send("#{attr_to_set}=", value) if attr_to_set
           end
           record
         end
@@ -152,15 +162,22 @@ module Xeroizer
           "#<#{self.class} #{attribute_string}>"
         end
 
-      protected
+        # TODO Is this necessary with parent.create?
+        def api_method_for_creating
+          @api_method_for_creating || parent.create || :http_put
+        end
+        def api_method_for_updating
+          @api_method_for_updating || :http_post
+        end
 
+      protected
+      
         # Attempt to create a new record.
         def create
-          request = to_xml
+          request = json? ? to_api_json : to_xml
           log "[CREATE SENT] (#{__FILE__}:#{__LINE__}) #{request}"
 
-          response = parent.send(parent.create_method, request)
-
+          response = parent.send(api_method_for_creating, request, extra_params_for_create_or_update)
           log "[CREATE RECEIVED] (#{__FILE__}:#{__LINE__}) #{response}"
 
           parse_save_response(response)
@@ -172,15 +189,40 @@ module Xeroizer
             raise RecordKeyMustBeDefined.new(self.class.possible_primary_keys)
           end
 
-          request = to_xml
-
+          request = json? ? to_api_json : to_xml
           log "[UPDATE SENT] (#{__FILE__}:#{__LINE__}) \r\n#{request}"
 
-          response = parent.http_post(request)
+          response = parent.send(api_method_for_updating, request, extra_params_for_create_or_update)
 
           log "[UPDATE RECEIVED] (#{__FILE__}:#{__LINE__}) \r\n#{response}"
 
           parse_save_response(response)
+        end
+
+        def extra_params_for_create_or_update
+          json? ? {raw_body: true, content_type: "application/json", url: api_url} : {}
+        end
+
+        def api_url; end # individual models can override this
+
+        def to_api_json
+          attrs = self.attributes.reject {|k, v| k == :parent }.map do |k, v|
+            value = if v.respond_to?(:to_api_json)
+              v.to_api_json
+            elsif k == :periods # hack for leave request periods for xero uk
+              v.map(&:to_api_json)
+            elsif v.is_a?(Array) && [0, 1].include?(v.count)
+              v.first # hack for timesheet line has_array values
+            else
+              v
+            end
+            [k.to_s.camelize(:lower), value]
+          end
+          Hash[attrs].to_json
+        end
+
+        def json?
+          parent.application.api_format == :json
         end
 
         # Parse the response from a create/update request.

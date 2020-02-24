@@ -19,7 +19,8 @@ module Xeroizer
 
     ACCEPT_MIME_MAP = {
       :pdf  => 'application/pdf',
-      :json => 'application/json'
+      :json => 'application/json',
+      :xml  => 'application/xml',
     }
 
     # Shortcut method for #http_request with `method` = :get.
@@ -79,6 +80,8 @@ module Xeroizer
           when Symbol then  ACCEPT_MIME_MAP[response_type]
           else              response_type
         end
+      else
+        headers['Accept'] = "application/xml"
       end
 
       if params.any?

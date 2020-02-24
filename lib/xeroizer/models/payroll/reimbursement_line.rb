@@ -6,6 +6,7 @@ module Xeroizer
           
       end
       
+      # child of PayTemplate
       class ReimbursementLine < PayrollBase
         
         guid :reimbursement_type_id, :api_name => 'ReimbursementTypeID'

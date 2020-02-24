@@ -16,6 +16,7 @@ module Xeroizer
 
           # Create a #build_record_name method to build the record.
           define_method "build_#{internal_singular_field_name}" do | *args |
+
             attributes = args.size == 1 ? args.first : {}
 
             # The name of the record model.
@@ -27,9 +28,56 @@ module Xeroizer
             # Create a new record, binding it to it's parent instance.
             record = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(attributes, model_parent)
             self.attributes[field_name] = record
+            self.parent.mark_dirty(self) if self.parent
           end
         end
-        
+
+        def has_array(field_name, options = {})
+          internal_field_name = options[:internal_name] || field_name
+          internal_plural_field_name = options[:internal_name_plural] || internal_field_name.to_s
+
+          define_association_attribute(field_name, internal_field_name, :has_array, options)
+
+          define_method "add_to_#{internal_plural_field_name}" do | *args |
+            # The name of the record model.
+            model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
+
+            # The record's parent instance for this current application.
+            model_parent = new_model_class(model_name)
+
+            # The class of this record.
+            record_class = (options[:base_module] || Xeroizer::Record).const_get(model_name)
+
+            # Parse the *args variable so that we can use this method like:
+            #   add_to_records([value, value, value])
+            #   add_to_records(value)
+            values = []
+            if args.size == 1 && args.first.is_a?(Array)
+              values = args.first
+            elsif args.size > 0
+              values = args
+            else
+              raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
+            end
+
+            # Ensure that complete record is downloaded before adding new records
+            self.send(field_name)
+
+            # Add each value.
+            last_record = nil
+            values.each do |value|
+              record = record_class.build(value, model_parent)
+              raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
+              self.attributes[field_name] ||= []
+              self.attributes[field_name] << record
+              self.parent.mark_dirty(self) if self.parent
+              last_record = record
+            end
+
+            last_record
+          end
+        end
+
         alias_method :has_one, :belongs_to
 
         def has_many(field_name, options = {})
@@ -73,6 +121,7 @@ module Xeroizer
               raise XeroizerError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
+              self.parent.mark_dirty(self) if self.parent
               last_record = record
             end
 
@@ -82,16 +131,16 @@ module Xeroizer
         end
      
         def define_association_attribute(field_name, internal_field_name, association_type, options)
-          define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), ((association_type == :has_many) ? [] : nil))
-
+          define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), value_if_nil(association_type))
+          
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
           model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
           define_method "#{internal_field_name}=".to_sym do | value |    
             record_class = (options[:base_module] || Xeroizer::Record).const_get(model_name)
             case value
-              when Hash
-                self.attributes[field_name] = ((association_type == :has_many) ? [] : nil)
+              when Hash 
+                self.attributes[field_name] = self.class.value_if_nil(association_type)
                 case association_type
                   when :has_many
                     self.attributes[field_name] = []
@@ -99,11 +148,10 @@ module Xeroizer
                    
                   when :belongs_to  
                     self.attributes[field_name] = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(value, new_model_class(model_name))
-                   
                 end
 
               when Array
-                self.attributes[field_name] = ((association_type == :has_many) ? [] : nil)
+                self.attributes[field_name] = self.class.value_if_nil(association_type)
                 value.each do | single_value |
                   case single_value
                     when Hash         then send("add_#{internal_singular_field_name}".to_sym, single_value)
@@ -113,10 +161,17 @@ module Xeroizer
                 end
 
               when record_class
-                self.attributes[field_name] = ((association_type == :has_many) ? [value] : value)
+                self.attributes[field_name] = self.class.value_if_nil(association_type, value)
 
               when NilClass
                 self.attributes[field_name] = []
+
+              when Float, Fixnum
+                if record_class.fields.count == 1 && record_class.fields.keys.first == :value
+                  self.attributes[field_name] = self.class.value_if_nil(association_type, value)
+                else
+                  raise AssociationTypeMismatch.new(record_class, value.class)
+                end
 
               else
                 raise AssociationTypeMismatch.new(record_class, value.class)
@@ -129,8 +184,19 @@ module Xeroizer
           if list_contains_summary_only?
             define_method internal_field_name do
               download_complete_record! unless new_record? || options[:list_complete] || options[:complete_on_page] && paged_record_downloaded? || complete_record_downloaded?
-              self.attributes[field_name] || ((association_type == :has_many) ? [] : nil)
+              self.attributes[field_name] || self.class.value_if_nil(association_type)
             end
+          end
+        end
+
+        def value_if_nil(association_type, boxed_value = nil)
+          case association_type
+          when :has_many
+            [boxed_value].compact
+          when :has_array
+            [boxed_value].compact
+          when :belongs_to
+            boxed_value
           end
         end
 

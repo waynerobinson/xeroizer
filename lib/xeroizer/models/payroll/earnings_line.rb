@@ -1,11 +1,11 @@
 module Xeroizer
   module Record
     module Payroll
-
       class EarningsLineModel < PayrollBaseModel
 
       end
-
+      
+      # child of PayTemplate, Payslip, OpeningBalance
       class EarningsLine < PayrollBase
 
         EARNINGS_RATE_CALCULATION_TYPE = {
@@ -15,12 +15,14 @@ module Xeroizer
         } unless defined?(EARNINGS_RATE_CALCULATION_TYPE)
 
         guid          :earning_rate_id, :api_name => 'EarningsRateID'
-        string        :calculation_type
+        string        :calculation_type # http://developer.xero.com/payroll-api/types-and-codes/#EarningsRateCalculationType
 
         decimal       :number_of_units_per_week
+        decimal       :number_of_units
         decimal       :annual_salary
         decimal       :rate_per_unit
         decimal       :normal_number_of_units
+        decimal       :amount
 
         # US Payroll fields
         guid          :earnings_type_id
