@@ -1,16 +1,16 @@
-require 'test_helper'
+require 'unit_test_helper'
 
 class RecordDefinitionTest < Test::Unit::TestCase
   include TestHelper
-  
+
   def setup
     @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
   end
-  
+
   context "record definitions" do
-    
+
     should "be defined correctly" do
-      [ 
+      [
         :Account, :BrandingTheme, :Contact, :CreditNote, :Currency, :Invoice,
         :Item, :Journal, :ManualJournal, :Organisation, :Payment, :TaxRate,
         :TrackingCategory, :User
@@ -21,7 +21,7 @@ class RecordDefinitionTest < Test::Unit::TestCase
         assert_equal(record_type.to_s, record_factory.model_name)
       end
     end
-    
+
   end
 
 end

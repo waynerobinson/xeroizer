@@ -47,7 +47,6 @@ module Xeroizer
     record :PayTemplate # UK
     record :SalaryAndWages # UK
 
-
     def initialize(application)
       @application = application
     end

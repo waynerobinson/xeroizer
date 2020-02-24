@@ -4,7 +4,7 @@ require 'xeroizer/models/line_amount_type'
 module Xeroizer
   module Record
     class LineItemModel < BaseModel
-
+      set_permissions
     end
 
     class LineItem < Base

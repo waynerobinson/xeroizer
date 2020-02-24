@@ -1,4 +1,4 @@
-require "test_helper"
+require 'unit_test_helper'
 
 class OAuthConfigTest < Test::Unit::TestCase
   include Xeroizer
