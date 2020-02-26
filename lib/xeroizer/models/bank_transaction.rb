@@ -40,6 +40,7 @@ module Xeroizer
       string        :status
       string        :currency_code
       decimal       :currency_rate
+      boolean       :has_attachments
 
       alias_method :reconciled?, :is_reconciled
 
