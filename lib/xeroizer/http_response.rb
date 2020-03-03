@@ -118,7 +118,7 @@ module Xeroizer
     def raise_error!
       begin
         error_details = JSON.parse(response.plain_body)
-        description  = error_details["detail"]
+        description  = error_details["Detail"]
         case response.code.to_i
         when 400
           raise Xeroizer::BadResponse.new(description)
