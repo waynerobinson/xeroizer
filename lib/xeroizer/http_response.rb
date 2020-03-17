@@ -18,6 +18,8 @@ module Xeroizer
         raise_error
       when 404
         raise_not_found!
+      when 429
+        raise_rate_limit_exceeded!
       when 503
         raise_error
       else
@@ -88,6 +90,15 @@ module Xeroizer
       when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
       else raise ObjectNotFound.new(url)
       end
+    end
+
+    def raise_rate_limit_exceeded!
+      byebug
+      retry_after = response.response.headers["retry-after"].to_i
+      daily_limit_remaining = response.response.headers["x-daylimit-remaining"].to_i
+
+      description = "Rate limit exceeded: #{daily_limit_remaining} requests left for the day, #{retry_after} seconds until you can make another request"
+      raise OAuth::RateLimitExceeded.new(description)
     end
 
     def raise_unknown_response_error!
