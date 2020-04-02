@@ -93,7 +93,6 @@ module Xeroizer
     end
 
     def raise_rate_limit_exceeded!
-      byebug
       retry_after = response.response.headers["retry-after"].to_i
       daily_limit_remaining = response.response.headers["x-daylimit-remaining"].to_i
 
