@@ -26,12 +26,22 @@ module Xeroizer
     class OAuthError < XeroizerError; end
     class TokenExpired < OAuthError; end
     class TokenInvalid < OAuthError; end
-    class RateLimitExceeded < OAuthError; end
     class ConsumerKeyUnknown < OAuthError; end
     class NonceUsed < OAuthError; end
     class OrganisationOffline < OAuthError; end
     class Forbidden < OAuthError; end
     class UnknownError < OAuthError; end
+
+    class RateLimitExceeded < OAuthError
+      def initialize(description, retry_after: nil, daily_limit_remaining: nil)
+        super(description)
+
+        @retry_after = retry_after
+        @daily_limit_remaining = @daily_limit_remaining
+      end
+
+      attr_reader :retry_after, :daily_limit_remaining
+    end
 
     unless defined? XERO_CONSUMER_OPTIONS
       XERO_CONSUMER_OPTIONS = {
