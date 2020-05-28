@@ -34,7 +34,8 @@ module Xeroizer
       string        :external_link_provider_name # only seems to be read-only at the moment
       boolean       :show_on_cash_basis_reports
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
-      
+      boolean       :has_attachments
+
       has_many      :journal_lines, :model_name => 'ManualJournalLine', :complete_on_page => true
       
       validates_presence_of :narration
