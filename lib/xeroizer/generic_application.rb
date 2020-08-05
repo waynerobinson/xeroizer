@@ -39,6 +39,7 @@ module Xeroizer
     record :Prepayment
     record :Overpayment
     record :PurchaseOrder
+    record :Quote
     record :Receipt
     record :RepeatingInvoice
     record :Schedule
