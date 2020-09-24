@@ -24,6 +24,8 @@ module Xeroizer
 
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
 
+      validates_presence_of :description
+
       def initialize(parent)
         super(parent)
         @line_amount_set = false
