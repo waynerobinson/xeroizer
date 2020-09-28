@@ -2,10 +2,13 @@ module Xeroizer
   module Record
 
     class BatchPaymentModel < BaseModel
-      set_permissions :read
+      set_permissions :read, :write
     end
 
     class BatchPayment < Base
+      set_primary_key :batch_payment_id
+      list_contains_summary_only false
+
       guid    :batch_payment_id
       string  :reference
       string  :details
