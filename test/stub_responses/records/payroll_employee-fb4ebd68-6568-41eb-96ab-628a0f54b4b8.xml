@@ -29,6 +29,7 @@
         <TaxDeclaration>
           <TFNPendingOrExemptionHeld>false</TFNPendingOrExemptionHeld>
           <AustralianResidentForTaxPurposes>true</AustralianResidentForTaxPurposes>
+          <ResidencyStatus>RESIDENT</ResidencyStatus>
           <TaxFreeThresholdClaimed>true</TaxFreeThresholdClaimed>
           <HasHELPDebt>false</HasHELPDebt>
           <HasSFSSDebt>false</HasSFSSDebt>
