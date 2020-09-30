@@ -13,6 +13,7 @@ module Xeroizer
         string       :tax_file_number
         string       :tfn_exemption_type, :api_name => 'TFNExemptionType'
         boolean      :australian_resident_for_tax_purposes
+        string       :residency_status, :api_name => 'ResidencyStatus'
         boolean      :tax_free_threshold_claimed
         decimal      :tax_offset_estimated_amount
         boolean      :has_help_debt, :api_name => 'HasHELPDebt'
