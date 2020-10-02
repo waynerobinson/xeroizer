@@ -11,7 +11,7 @@ module Xeroizer
       
       guid   :tracking_option_id
       string :name
-      
+      string :status
     end
     
   end
