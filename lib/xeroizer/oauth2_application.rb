@@ -2,7 +2,11 @@ module Xeroizer
   class OAuth2Application < GenericApplication
 
     extend Forwardable
-    def_delegators :client, :authorize_from_access, :tenant_id, :tenant_id=
+    def_delegators :client,
+                   :authorize_from_access,
+                   :authorize_from_code,
+                   :tenant_id,
+                   :tenant_id=
 
     public
 
