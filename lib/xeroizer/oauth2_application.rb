@@ -6,6 +6,7 @@ module Xeroizer
                    :authorize_from_access,
                    :authorize_from_code,
                    :authorize_url,
+                   :renew_access_token,
                    :tenant_id,
                    :tenant_id=
 

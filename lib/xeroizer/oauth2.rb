@@ -21,6 +21,10 @@ module Xeroizer
       @access_token = @client.auth_code.get_token(code, options)
     end
 
+    def renew_access_token
+      @access_token = @access_token.refresh!
+    end
+
     def get(path, headers = {})
       wrap_response(access_token.get(path, headers: wrap_headers(headers)))
     end
