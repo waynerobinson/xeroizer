@@ -5,6 +5,7 @@ module Xeroizer
     def_delegators :client,
                    :authorize_from_access,
                    :authorize_from_code,
+                   :authorize_url,
                    :tenant_id,
                    :tenant_id=
 

@@ -9,6 +9,10 @@ module Xeroizer
       @client = ::OAuth2::Client.new(client_key, client_secret, options)
     end
 
+    def authorize_url(options)
+      @client.auth_code.authorize_url(options)
+    end
+
     def authorize_from_access(access_token, options = {})
       @access_token = ::OAuth2::AccessToken.new(client, access_token, options)
     end
