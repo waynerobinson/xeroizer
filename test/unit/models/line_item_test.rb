@@ -56,4 +56,21 @@ class LineItemTest < Test::Unit::TestCase
     assert_equal 50, line_item.line_amount,
                  "expected line amount to be calculated from coerced values"
   end
+
+  context "line_item validations" do
+
+    it "is an invalid line_item if there is no description" do
+      line_item = LineItem.new(nil)
+
+      assert_equal(false, line_item.valid?)
+    end
+
+    it "is a valid line_item with minimal attributes" do
+      line_item = LineItem.new(nil)
+      line_item.description = "Test Description"
+
+      assert_equal(true, line_item.valid?)
+    end
+
+  end
 end
