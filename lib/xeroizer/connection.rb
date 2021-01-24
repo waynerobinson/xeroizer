@@ -27,5 +27,9 @@ module Xeroizer
     def method_missing(name, *_args)
       @json.send(:[], name.to_s.camelcase(:lower))
     end
+    
+    def to_h
+      @json.transform_keys(&:underscore)
+    end
   end
 end
