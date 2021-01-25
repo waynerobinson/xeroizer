@@ -134,7 +134,7 @@ module Xeroizer
           parent.pdf(id, filename)
         end
 
-        def save
+        def save!
           # Calling parse_save_response() on the credit note will wipe out
           # the allocations, so we have to manually preserve them.
           allocations_backup = self.allocations
