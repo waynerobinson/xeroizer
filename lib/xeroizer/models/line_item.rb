@@ -24,7 +24,7 @@ module Xeroizer
 
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
 
-      validates_presence_of :description
+      validates_presence_of :description, :unless => Proc.new { |line_item| line_item.item_code.present? }
 
       def initialize(parent)
         super(parent)
