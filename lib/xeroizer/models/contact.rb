@@ -2,6 +2,7 @@ require "xeroizer/models/contact_person"
 require "xeroizer/models/balances"
 require "xeroizer/models/batch_payments"
 require "xeroizer/models/payment_terms"
+require "xeroizer/models/history_record"
 
 module Xeroizer
   module Record
@@ -11,6 +12,7 @@ module Xeroizer
       set_permissions :read, :write, :update
 
       include AttachmentModel::Extensions
+      include HistoryRecordModel::Extensions
 
     end
 
@@ -23,6 +25,7 @@ module Xeroizer
       } unless defined?(CONTACT_STATUS)
 
       include Attachment::Extensions
+      include HistoryRecord::Extensions
 
       set_primary_key :contact_id
       set_possible_primary_keys :contact_id, :contact_number

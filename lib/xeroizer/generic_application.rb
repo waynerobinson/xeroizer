@@ -28,6 +28,7 @@ module Xeroizer
     record :ExpenseClaim
     record :Invoice
     record :InvoiceReminder
+    record :HistoryRecord
     record :OnlineInvoice
     record :Item
     record :Journal
