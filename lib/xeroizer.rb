@@ -5,6 +5,7 @@ require 'active_support/inflector'
 require "active_support/core_ext/array"
 require "active_support/core_ext/big_decimal/conversions"
 require 'oauth'
+require 'oauth2'
 require 'oauth/signature/rsa/sha1'
 require 'nokogiri'
 require 'builder'
@@ -15,11 +16,13 @@ require 'cgi'
 $: << File.expand_path(File.dirname(__FILE__))
 
 require 'class_level_inheritable_attributes'
+require 'xeroizer/exceptions'
 require 'xeroizer/oauth'
+require 'xeroizer/oauth2'
 require 'xeroizer/scopes'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
-require 'xeroizer/exceptions'
+require 'xeroizer/connection'
 
 require 'xeroizer/record/base_model'
 require 'xeroizer/record/payroll_base_model'
