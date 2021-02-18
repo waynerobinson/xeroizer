@@ -100,7 +100,7 @@ module Xeroizer
         # Calculate sub_total from line_items.
         def sub_total(always_summary = false)
           if !always_summary && (new_record? || (!new_record? && line_items && line_items.size > 0))
-            overall_sum = (line_items || []).inject(BigDecimal.new('0')) { | sum, line_item | sum + line_item.line_amount }
+            overall_sum = (line_items || []).inject(BigDecimal('0')) { | sum, line_item | sum + line_item.line_amount }
 
             # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
             overall_sum -= total_tax if line_amount_types == 'Inclusive'
