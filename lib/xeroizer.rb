@@ -22,6 +22,7 @@ require 'xeroizer/oauth2'
 require 'xeroizer/scopes'
 require 'xeroizer/http_encoding_helper'
 require 'xeroizer/http'
+require 'xeroizer/http_response'
 require 'xeroizer/connection'
 
 require 'xeroizer/record/base_model'
