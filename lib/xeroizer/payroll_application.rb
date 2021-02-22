@@ -4,7 +4,7 @@ module Xeroizer
     attr_reader :application
 
     extend Forwardable
-    def_delegators :application, :client, :request_token, :access_token, :authorize_from_request
+    def_delegators :application, :client, :request_token, :access_token, :authorize_from_request,
                    :authorize_from_access, :logger, :xero_url, :logger=, :xero_url=, :client,
                    :rate_limit_sleep, :rate_limit_max_attempts, # all from generic_application.rb
                    :renew_access_token, :expires_at, :authorization_expires_at, :session_handle, # partner_application.rb
