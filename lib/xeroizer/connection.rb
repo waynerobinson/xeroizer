@@ -45,9 +45,5 @@ module Xeroizer
     def to_h
       attributes.transform_keys(&:underscore)
     end
-    
-    def to_h
-      @json.transform_keys(&:underscore)
-    end
   end
 end
