@@ -64,6 +64,7 @@ module Xeroizer
       string        :currency_code
       decimal       :currency_rate
       datetime      :fully_paid_on_date
+      boolean       :sent_to_contact
       decimal       :remaining_credit
       decimal       :applied_amount
       boolean       :has_attachments
