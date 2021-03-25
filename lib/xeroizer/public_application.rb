@@ -14,8 +14,8 @@ module Xeroizer
       # @param [Hash] options other options to pass to the GenericApplication constructor
       # @return [PublicApplication] instance of PrivateApplication
       def initialize(consumer_key, consumer_secret, options = {})
-        super(consumer_key, consumer_secret, options)
+        client = OAuth.new(consumer_key, consumer_secret, options)
+        super(client, options)
       end
-
   end
 end
