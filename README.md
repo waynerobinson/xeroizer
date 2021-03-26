@@ -287,8 +287,7 @@ redirect_to url
 ```ruby
 token = client.authorize_from_code(
 	params[:code],
-	redirect_uri: YOUR_CALLBACK_URL,
-	grant_type: 'authorization_code'
+	redirect_uri: YOUR_CALLBACK_URL
 )
 token.to_hash
 # {
