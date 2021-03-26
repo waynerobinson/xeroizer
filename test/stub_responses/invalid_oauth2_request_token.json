@@ -1,0 +1,6 @@
+{
+  "title": "Unauthorized",
+  "status": 401,
+  "detail": "AuthenticationUnsuccessful",
+  "instance": "51e9d1af-397c-469f-a703-82a3003aef75"
+}

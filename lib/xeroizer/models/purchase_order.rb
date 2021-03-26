@@ -30,15 +30,15 @@ module Xeroizer
       boolean :is_discounted 
       string  :reference
       string  :type
-      string  :currency_rate
+      decimal  :currency_rate
       string  :currency_code
-      guid  :branding_theme_id 
+      guid    :branding_theme_id 
       string  :status 
       string  :line_amount_types
-      string  :sub_total
-      string  :total_tax
-      string  :total 
-      date    :updated_date_UTC
+      decimal  :sub_total
+      decimal  :total_tax
+      decimal  :total 
+      datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean :has_attachments
 
       has_many     :line_items

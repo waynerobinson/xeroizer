@@ -1,3 +1,4 @@
+require "xeroizer/models/payment_terms"
 module Xeroizer
   module Record
     
@@ -36,9 +37,12 @@ module Xeroizer
       string    :name
       string    :legal_name
       string    :short_code
+      string    :organisation_id
       boolean   :pays_tax
       string    :version
       string    :organisation_type
+      string    :organisation_entity_type
+      string    :line_of_business
       string    :base_currency
       string    :country_code
       boolean   :is_demo_company
@@ -58,6 +62,8 @@ module Xeroizer
 
       has_many :addresses
       has_many :phones
+      has_many :external_links
+      has_one :payment_terms, :model_name => 'PaymentTerms'
 
       validates :sales_tax_basis, :message => "is not a valid option" do
         valid = true

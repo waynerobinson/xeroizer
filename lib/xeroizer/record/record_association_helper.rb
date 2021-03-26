@@ -10,7 +10,6 @@ module Xeroizer
 
         def belongs_to(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
-
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
 
           define_association_attribute(field_name, internal_singular_field_name, :belongs_to, options)
@@ -83,7 +82,6 @@ module Xeroizer
 
         def has_many(field_name, options = {})
           internal_field_name = options[:internal_name] || field_name
-
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
 
           define_association_attribute(field_name, internal_field_name, :has_many, options)
@@ -110,7 +108,7 @@ module Xeroizer
             elsif args.size > 0
               records = args
             else
-              raise StandardError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
+              raise XeroizerError.new("Invalid arguments for #{self.class.name}#add_#{internal_singular_field_name}(#{args.inspect}).")
             end
 
             # Ensure that complete record is downloaded before adding new records
@@ -120,7 +118,7 @@ module Xeroizer
             last_record = nil
             records.each do | record |
               record = record_class.build(record, model_parent) if record.is_a?(Hash)
-              raise StandardError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
+              raise XeroizerError.new("Record #{record.class.name} is not a #{record_class.name}.") unless record.is_a?(record_class)
               self.attributes[field_name] ||= []
               self.attributes[field_name] << record
               self.parent.mark_dirty(self) if self.parent
@@ -131,24 +129,24 @@ module Xeroizer
           end
 
         end
-
+     
         def define_association_attribute(field_name, internal_field_name, association_type, options)
           define_simple_attribute(field_name, association_type, options.merge!(:skip_writer => true), value_if_nil(association_type))
-
+          
           internal_field_name = options[:internal_name] || field_name
           internal_singular_field_name = options[:internal_name_singular] || internal_field_name.to_s.singularize
           model_name = options[:model_name] ? options[:model_name].to_sym : field_name.to_s.singularize.camelize.to_sym
-
-          define_method "#{internal_field_name}=".to_sym do | value |
+          define_method "#{internal_field_name}=".to_sym do | value |    
             record_class = (options[:base_module] || Xeroizer::Record).const_get(model_name)
             case value
-              when Hash
+              when Hash 
                 self.attributes[field_name] = self.class.value_if_nil(association_type)
                 case association_type
                   when :has_many
                     self.attributes[field_name] = []
                     self.send("add_#{internal_singular_field_name}".to_sym, value)
-                  when :belongs_to
+                   
+                  when :belongs_to  
                     self.attributes[field_name] = (options[:base_module] || Xeroizer::Record).const_get(model_name).build(value, new_model_class(model_name))
                 end
 
@@ -185,12 +183,11 @@ module Xeroizer
           # the complete version of the record before accessing the association.
           if list_contains_summary_only?
             define_method internal_field_name do
-              download_complete_record! unless new_record? || options[:list_complete] || complete_record_downloaded?
+              download_complete_record! unless new_record? || options[:list_complete] || options[:complete_on_page] && paged_record_downloaded? || complete_record_downloaded?
               self.attributes[field_name] || self.class.value_if_nil(association_type)
             end
           end
         end
-
 
         def value_if_nil(association_type, boxed_value = nil)
           case association_type

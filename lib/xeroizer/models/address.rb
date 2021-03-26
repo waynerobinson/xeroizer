@@ -25,8 +25,16 @@ module Xeroizer
       string :country
       string :addressLine1, api_name: 'addressLine1' # UK
       string :postCode, api_name: 'postCode' # UK
-
       validates_inclusion_of :type, :in => ADDRESS_TYPE.keys
+      validates_length_of :address_line1, :max => 500
+      validates_length_of :address_line2, :max => 500
+      validates_length_of :address_line3, :max => 500
+      validates_length_of :address_line4, :max => 500
+      validates_length_of :city, :max => 255
+      validates_length_of :region, :max => 255
+      validates_length_of :postal_code, :max => 50
+      validates_length_of :country, :max => 50
+      validates_length_of :attention_to, :max => 255
 
     end
 

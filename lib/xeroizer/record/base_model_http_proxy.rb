@@ -19,6 +19,12 @@ module Xeroizer
             params[:ModifiedAfter]  = options[:modified_since] if options[:modified_since]
             params[:includeArchived]  = options[:include_archived] if options[:include_archived]
             params[:order]        = options[:order] if options[:order]
+            params[:createdByMyApp] = options[:createdByMyApp] if options[:createdByMyApp]
+
+            params[:IDs]            = filterize(options[:IDs]) if options[:IDs]
+            params[:InvoiceNumbers] = filterize(options[:InvoiceNumbers]) if options[:InvoiceNumbers]
+            params[:ContactIDs]     = filterize(options[:ContactIDs]) if options[:ContactIDs]
+            params[:Statuses]       = filterize(options[:Statuses]) if options[:Statuses]
 
             if options[:where]
               params[:where] =  case options[:where]
@@ -27,6 +33,9 @@ module Xeroizer
                                 end
             end
             params[:offset] = options[:offset] if options[:offset]
+            params[:Status] = options[:status] if options[:status]
+            params[:DateFrom] = options[:date_from] if options[:date_from]
+            params[:DateTo] = options[:date_to] if options[:date_to]
             params[:page] = options[:page] if options[:page]
             params[:response] = options[:api_format] || @application.api_format
             params[:url] = self.send(:api_url, options) if self.respond_to?(:api_url)
@@ -46,7 +55,7 @@ module Xeroizer
             conditions = []
             where.each do | key, value |
               (attribute_name, expression) = extract_expression_from_attribute_name(key)
-              (field_name, field) = model_class.fields.find { | k, v | v[:internal_name] == attribute_name }
+              (_, field) = model_class.fields.find { | k, v | v[:internal_name] == attribute_name }
               if field
                 conditions << where_condition_part(field, expression, value)
               else
@@ -113,6 +122,17 @@ module Xeroizer
               when :datetime_utc then [field[:api_name], expression, "DateTime(#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")})"]
               when :belongs_to  then
               when :has_many    then
+              when :has_one    then
+            end
+          end
+
+        private
+
+          # Filtering params expect a comma separated list of strings 
+          def filterize(values)
+            case values
+              when String then values
+              when Array  then values.join(',')
             end
           end
 

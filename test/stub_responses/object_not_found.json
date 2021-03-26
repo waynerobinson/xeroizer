@@ -1,0 +1,6 @@
+{
+  "type": "statement-not-found",
+  "title": "Statement Not Found",
+  "status": 404,
+  "detail": "The statement was not found."
+}

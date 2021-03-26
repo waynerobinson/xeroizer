@@ -7,6 +7,7 @@ module Xeroizer
         set_permissions :read, :write, :update
 
         set_standalone_model true
+          
         set_xml_root_name 'PayTemplate'
         set_xml_node_name 'PayTemplate'
 
@@ -25,6 +26,8 @@ module Xeroizer
         has_many      :reimbursement_lines
         has_many      :leave_lines
 
+        # US Payroll fields
+        has_many      :benefit_lines
         # UK: https://developer.xero.com/documentation/payroll-api-uk/employeepaytemplates
         has_many      :earning_templates
         guid          :employee_id

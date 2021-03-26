@@ -1,4 +1,5 @@
 require "xeroizer/models/attachment"
+require "xeroizer/models/online_invoice"
 
 module Xeroizer
   module Record
@@ -14,6 +15,7 @@ module Xeroizer
       set_permissions :read, :write, :update
 
       include AttachmentModel::Extensions
+      include OnlineInvoiceModel::Extensions
 
       public
 
@@ -51,6 +53,7 @@ module Xeroizer
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 
       include Attachment::Extensions
+      include OnlineInvoice::Extensions
 
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
@@ -69,6 +72,7 @@ module Xeroizer
       decimal      :sub_total, :calculated => true
       decimal      :total_tax, :calculated => true
       decimal      :total, :calculated => true
+      decimal      :total_discount
       decimal      :amount_due
       decimal      :amount_paid
       decimal      :amount_credited
@@ -77,6 +81,7 @@ module Xeroizer
       decimal      :currency_rate
       datetime     :fully_paid_on_date
       datetime     :expected_payment_date
+      datetime     :planned_payment_date
       boolean      :sent_to_contact
       boolean      :has_attachments
 
@@ -84,6 +89,7 @@ module Xeroizer
       has_many     :line_items, :complete_on_page => true
       has_many     :payments
       has_many     :credit_notes
+      has_many     :prepayments
 
       validates_presence_of :date, :due_date, :unless => :new_record?
       validates_inclusion_of :type, :in => INVOICE_TYPES
@@ -94,6 +100,12 @@ module Xeroizer
       validates_associated :line_items, :if => :approved?
 
       public
+        def initialize(parent)
+          super(parent)
+          @sub_total_is_set = false
+          @total_tax_is_set = false
+          @total_is_set = false
+        end
 
         # Access the contact name without forcing a download of
         # an incomplete, summary invoice.
@@ -196,6 +208,12 @@ module Xeroizer
         # Approve a draft invoice
         def approve!
           change_status!('AUTHORISED')
+        end
+
+        # Send an email containing the invoice.
+        def email
+          email_url = "#{parent.url}/#{CGI.escape(id)}/Email"
+          parent.application.http_post(parent.application.client, email_url, "")
         end
 
       protected

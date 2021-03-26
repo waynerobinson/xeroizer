@@ -26,6 +26,10 @@ module Xeroizer
     end
 
     record :Employee
+    record :PayRun
+    record :Paystub
+    record :PayItems
+    record :PaySchedule
     record :Timesheet
     record :PayItem
     record :PayrollCalendar
@@ -43,7 +47,6 @@ module Xeroizer
     record :EmployeeLeaveType # UK
     record :PayTemplate # UK
     record :SalaryAndWages # UK
-
 
     def initialize(application)
       @application = application

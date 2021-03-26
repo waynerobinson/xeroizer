@@ -26,6 +26,7 @@ module Xeroizer
     class OAuthError < XeroizerError; end
     class TokenExpired < OAuthError; end
     class TokenInvalid < OAuthError; end
+    class RateLimitExceeded < OAuthError; end
     class ConsumerKeyUnknown < OAuthError; end
     class NonceUsed < OAuthError; end
     class OrganisationOffline < OAuthError; end
@@ -144,7 +145,6 @@ module Xeroizer
           consumer.http.cert = @consumer_options[:ssl_client_cert]
           consumer.http.key = @consumer_options[:ssl_client_key]
         end
-        consumer
 
         if @consumer_options[:http_debug_output]
           consumer.http.set_debug_output(@consumer_options[:http_debug_output])

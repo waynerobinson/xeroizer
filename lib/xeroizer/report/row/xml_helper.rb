@@ -16,7 +16,7 @@ module Xeroizer
             row = nil
             case row_type
               when 'Header'
-                row = HeaderRow.new(report);
+                row = HeaderRow.new(report)
                 parent.header = row if parent
                 report.header ||= row
                 
@@ -26,7 +26,7 @@ module Xeroizer
                 report.sections << row
                 
               when 'SummaryRow'
-                row = SummaryRow.new(report);
+                row = SummaryRow.new(report)
                 row.header = report.header
                 if parent
                   parent.summary = row

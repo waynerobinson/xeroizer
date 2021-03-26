@@ -22,6 +22,7 @@ module Xeroizer
               else
                 record.errors << [attribute, "must have one or more records"] 
               end
+
           end
         end
         

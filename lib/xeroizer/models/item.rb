@@ -18,7 +18,6 @@ module Xeroizer
       string  :purchase_description
       string  :name
 
-      decimal :unit_price
       decimal :total_cost_pool # read only
       decimal :quantity_on_hand # read only
 
@@ -27,6 +26,8 @@ module Xeroizer
       boolean :is_tracked_as_inventory # read only, infered from inventory_asset_account_code, cogs_account_code, is_sold and is_purchased
       string  :inventory_asset_account_code
 
+      datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
+      
       belongs_to :purchase_details, :model_name => 'ItemPurchaseDetails'
       belongs_to :sales_details, :model_name => 'ItemSalesDetails'
       

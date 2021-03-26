@@ -54,7 +54,8 @@ module Xeroizer
 
     private
 
-    def http_request(client, method, url, body, params = {})
+    def http_request(client, method, url, request_body, params = {})
+
       # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
       headers = self.default_headers.merge({ 'charset' => 'utf-8' })
@@ -84,22 +85,22 @@ module Xeroizer
         headers['Accept'] = "application/xml"
       end
 
-      raw_body = params.delete(:raw_body) ? body : {:xml => body}
-
       if params.any?
-        url += "?" + params.map {|key,value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
+        url += "?" + params.map {|key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
       end
 
       uri = URI.parse(url)
 
       attempts = 0
 
-      request_info = RequestInfo.new(url, headers, params, body, method)
+      request_info = RequestInfo.new(url, headers, params, request_body, method)
       before_request.call(request_info) if before_request
 
       begin
         attempts += 1
         logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
+
+        raw_body = params.delete(:raw_body) ? request_body : {:xml => request_body}
 
         response = with_around_request(request_info) do
           case method
@@ -112,7 +113,7 @@ module Xeroizer
         log_response(response, uri)
         after_request.call(request_info, response) if after_request
 
-        HttpResponse.from_response(response, body, url).body
+        HttpResponse.from_response(response, request_body, url).body
       rescue Xeroizer::OAuth::NonceUsed => exception
         raise if attempts > nonce_used_max_attempts
         logger.info("Nonce used: " + exception.to_s) if self.logger
@@ -153,9 +154,9 @@ module Xeroizer
 
     # unitdp query string parameter to be added to request params
     # when the application option has been set and the model has line items
-    # http://developer.xero.com/documentation/advanced-docs/rounding-in-xero/#unitamount
+    # https://developer.xero.com/documentation/api-guides/rounding-in-xero#unitamount
     def unitdp_param(request_url)
-      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/]
+      models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/, /Items/, /Overpayments/, /Prepayments/]
       self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
     end
   end

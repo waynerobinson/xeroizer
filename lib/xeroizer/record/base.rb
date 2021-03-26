@@ -115,12 +115,21 @@ module Xeroizer
         end
 
         def save
-          return false unless valid?
+          save!
+          true
+        rescue XeroizerError => e
+          log "[ERROR SAVING] (#{__FILE__}:#{__LINE__}) - #{e.message}"
+          false
+        end
+
+        def save!
+          raise RecordInvalid unless valid?
           if new_record?
             create
           else
             update
           end
+
           saved!
         end
 
@@ -153,15 +162,16 @@ module Xeroizer
           "#<#{self.class} #{attribute_string}>"
         end
 
+        # TODO Is this necessary with parent.create?
         def api_method_for_creating
-          @api_method_for_creating || :http_put
+          @api_method_for_creating || parent.create || :http_put
         end
         def api_method_for_updating
           @api_method_for_updating || :http_post
         end
 
       protected
-
+      
         # Attempt to create a new record.
         def create
           request = json? ? to_api_json : to_xml

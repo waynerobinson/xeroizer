@@ -92,6 +92,7 @@ module Xeroizer
       end
     end
 
+
     def raise_rate_limit_exceeded!
       retry_after = response.response.headers["retry-after"].to_i
       daily_limit_remaining = response.response.headers["x-daylimit-remaining"].to_i
@@ -128,7 +129,8 @@ module Xeroizer
     def raise_error!
       begin
         error_details = JSON.parse(response.plain_body)
-        description  = error_details["Detail"]
+        description  = error_details["detail"]
+
         case response.code.to_i
         when 400
           raise Xeroizer::BadResponse.new(description)

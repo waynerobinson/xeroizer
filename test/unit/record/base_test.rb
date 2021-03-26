@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'unit_test_helper'
 
 class RecordBaseTest < Test::Unit::TestCase
   include TestHelper
@@ -55,13 +55,16 @@ class RecordBaseTest < Test::Unit::TestCase
   end
 
   context "about logging" do
+    # Setup we only wish to do once:
+    class ExampleRecordClass < Xeroizer::Record::Base
+      def valid?; true; end
+      def to_xml(b = nil); "<FakeRequest />" end
+      string :id
+    end
+    class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel; end
+
+    # Setup before each test
     setup do
-      class ExampleRecordClass < Xeroizer::Record::Base
-        def valid?; true; end
-        def to_xml(b = nil); "<FakeRequest />" end
-        string :id
-      end
-      class Xeroizer::Record::ExampleRecordClassModel < Xeroizer::Record::BaseModel ; end
       @example_class = ExampleRecordClass
     end
 
@@ -98,6 +101,74 @@ class RecordBaseTest < Test::Unit::TestCase
 
       an_example_instance.id = "phil's lunch box"
       an_example_instance.save
+    end
+  end
+
+  context 'build' do
+
+    should "raise an undefined method error with useful message" do
+      assert_raise_message("undefined method `this_method_does_not_exist=' for #<Xeroizer::Record::Contact >") do
+        @client.Contact.build(:this_method_does_not_exist =>  true)
+      end
+    end
+
+  end
+
+  context 'saving' do
+    context 'invalid record' do
+      setup do
+        @contact.stubs(:valid?).returns(false)
+      end
+
+      must 'raise an exception saving with #save!' do
+        assert_raise(Xeroizer::RecordInvalid) do
+          @contact.save!
+        end
+      end
+
+      must 'return false saving with #save' do
+        assert_equal(false, @contact.save)
+      end
+    end
+
+    context 'api error received' do
+      setup do
+        response = get_file_as_string('api_exception.xml')
+        doc = Nokogiri::XML(response)
+        exception = Xeroizer::ApiException.new(doc.root.xpath("Type").text,
+                                               doc.root.xpath("Message").text,
+                                               response,
+                                               doc,
+                                               '<FakeRequest />')
+
+        @contact.stubs(:valid?).returns(true)
+        @contact.stubs(:create).raises(exception)
+        @contact.stubs(:update).raises(exception)
+      end
+
+      must 'raise an exception creating records with #save!' do
+        @contact.stubs(:new_record?).returns(true)
+        assert_raise(Xeroizer::ApiException) do
+          @contact.save!
+        end
+      end
+
+      must 'raise an exception updating records with #save!' do
+        @contact.stubs(:new_record?).returns(false)
+        assert_raise(Xeroizer::ApiException) do
+          @contact.save!
+        end
+      end
+
+      must 'return false creating records with #save' do
+        @contact.stubs(:new_record?).returns(true)
+        assert_equal(false, @contact.save)
+      end
+
+      must 'return false updating records with #save' do
+        @contact.stubs(:new_record?).returns(false)
+        assert_equal(false, @contact.save)
+      end
     end
   end
 end

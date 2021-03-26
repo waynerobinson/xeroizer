@@ -1,0 +1,16 @@
+[
+  {
+    "id": "9332e669-0a35-4084-8f05-cd1ff31918c2",
+    "tenantId": "7f5fabdd-9565-416a-9b62-d53d852bb2a3",
+    "tenantType": "ORGANISATION",
+    "createdDateUtc": "2019-12-13T18:10:43.3063640",
+    "updatedDateUtc": "2019-12-13T18:10:43.3084790"
+  },
+  {
+    "id": "8774aba8-708f-48d1-865e-zedf93a0d5d5",
+    "tenantId": "b4aca7b2-6fab-4ee7-a969-477f9128f636",
+    "tenantType": "ORGANISATION",
+    "createdDateUtc": "2019-12-13T18:06:31.5600280",
+    "updatedDateUtc": "2019-12-13T18:16:38.2095570"
+  }
+]

@@ -25,10 +25,12 @@ module Xeroizer
       string        :reference
       decimal       :currency_rate
       decimal       :remaining_credit
+      decimal       :applied_amount
       boolean       :has_attachments
 
       belongs_to    :contact
       has_many      :line_items
+      has_many      :payments
 
       def contact_id
         contact.id if contact

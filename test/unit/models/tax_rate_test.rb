@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'unit_test_helper'
 require 'mocha/test_unit'
 
 class TaxRateTest < Test::Unit::TestCase

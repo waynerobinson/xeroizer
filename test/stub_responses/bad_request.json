@@ -1,0 +1,6 @@
+{
+"type": "invalid-request",
+"title": "Invalid Request",
+"status": 400,
+"detail": "For the request field 'StatementLine.ChequeNumber' exceeded the maximum length of 20."
+}

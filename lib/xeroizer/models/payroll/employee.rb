@@ -6,6 +6,9 @@ module Xeroizer
 
         set_permissions :read, :write, :update
 
+        def create_method
+          :http_post
+        end
       end
 
       class Employee < PayrollBase
@@ -58,7 +61,6 @@ module Xeroizer
         def api_url
           json? ? "employees/#{employee_id}" : super
         end
-
       end
 
     end
