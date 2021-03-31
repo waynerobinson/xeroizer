@@ -29,7 +29,10 @@ module Xeroizer
         def approve
           params = extra_params_for_create_or_update
           params[:url] = "Timesheets/#{attributes[:timesheet_id]}/approve"
-          response = parent.send(:http_post, {}, params)
+
+          request = parent.application.api_format == :json ? '{}' : ''
+          response = parent.send(:http_post, request, params)
+
           parse_save_response(response)
         end
 
