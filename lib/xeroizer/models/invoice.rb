@@ -1,5 +1,6 @@
 require "xeroizer/models/attachment"
 require "xeroizer/models/online_invoice"
+require "xeroizer/models/history_record"
 
 module Xeroizer
   module Record
@@ -16,6 +17,7 @@ module Xeroizer
 
       include AttachmentModel::Extensions
       include OnlineInvoiceModel::Extensions
+      include HistoryRecordModel::Extensions
 
       public
 
@@ -54,6 +56,7 @@ module Xeroizer
 
       include Attachment::Extensions
       include OnlineInvoice::Extensions
+      include HistoryRecord::Extensions
 
       set_primary_key :invoice_id
       set_possible_primary_keys :invoice_id, :invoice_number
