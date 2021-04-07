@@ -82,6 +82,7 @@ module Xeroizer
       datetime     :fully_paid_on_date
       datetime     :expected_payment_date
       datetime     :planned_payment_date
+      boolean      :sent_to_contact
       boolean      :has_attachments
 
       belongs_to   :contact
