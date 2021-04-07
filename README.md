@@ -259,6 +259,93 @@ If you lose these details at any stage you can always reauthorise by redirecting
 
 Once you are approved as a Xero Partner you can request unofficial documentation to do with customizing Payment Services and Branding Themes using the API. There is more info on that [here](  https://github.com/waynerobinson/xeroizer/pull/439).
 
+### OAuth2 Applications
+
+For more details, checkout Xero's [documentation](https://developer.xero.com/documentation/oauth2/auth-flow) and [migration steps](https://developer.xero.com/documentation/oauth2/migrate).
+
+1. Generate the authorization url and redirect the user to authenticate
+```ruby
+client = Xeroizer::OAuth2Application.new(
+	YOUR_OAUTH2_CLIENT_ID,
+	YOUR_OAUTH2_CLIENT_SECRET,
+)
+url = client.authorize_url(
+	# The URL's domain must match that listed for your application
+	# otherwise the user will see an invalid redirect_uri error
+	redirect_uri: YOUR_CALLBACK_URL,
+	# space separated, see all scopes at https://developer.xero.com/documentation/oauth2/scopes.
+	# note that `offline_access` is required to get a refresh token, otherwise the access only lasts for 30 mins and cannot be refreshed.
+	scope: "accounting.settings.read offline_access"
+)
+
+# Rails as an example
+redirect_to url
+```
+
+2. In the callback route, use the provided code to retrieve an access token.
+
+```ruby
+token = client.authorize_from_code(
+	params[:code],
+	redirect_uri: YOUR_CALLBACK_URL
+)
+token.to_hash
+# {
+#   "token_type"=>"Bearer",
+#   "scope"=>"accounting.transactions.read accounting.settings.read",
+#   :access_token=>"...",
+#   :refresh_token=>nil,
+#   :expires_at=>1615220292
+# }
+
+# Save the access_token, refresh_token...
+```
+
+3. Retrieve the tenant ids.
+```ruby
+connections = client.current_connections
+# returns Xeroizer::Connection instances
+
+# Save the tenant ids
+
+```
+
+4. Use access token and tenant ids to retrieve data.
+```ruby
+client = Xeroizer::OAuth2Application.new(
+	YOUR_OAUTH2_CLIENT_ID,
+	YOUR_OAUTH2_CLIENT_SECRET,
+	access_token: access_token,
+	tenant_id: tenant_id
+)
+# OR
+client = Xeroizer::OAuth2Application.new(
+	YOUR_OAUTH2_CLIENT_ID,
+	YOUR_OAUTH2_CLIENT_SECRET,
+	tenant_id: tenant_id
+).authorize_from_access(access_token)
+
+# use the client
+client.Organisation.first
+```
+
+#### AccessToken Renewal
+Renewal of an access token requires the refresh token generated for this organisation. To renew:
+
+```ruby
+client = Xeroizer::OAuth2Application.new(
+	YOUR_OAUTH2_CLIENT_ID,
+	YOUR_OAUTH2_CLIENT_SECRET,
+	access_token: access_token,
+	refresh_token: refresh_token,
+	tenant_id: tenant_id
+)
+
+client.renew_access_token
+```
+If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.
+
+
 Retrieving Data
 ---------------
 
