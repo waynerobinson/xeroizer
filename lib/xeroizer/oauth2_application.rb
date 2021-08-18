@@ -4,6 +4,7 @@ module Xeroizer
     extend Forwardable
     def_delegators :client,
                    :authorize_from_access,
+                   :authorize_from_client_credentials,
                    :authorize_from_code,
                    :authorize_url,
                    :renew_access_token,

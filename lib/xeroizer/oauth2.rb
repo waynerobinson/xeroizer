@@ -21,6 +21,10 @@ module Xeroizer
       @access_token = @client.auth_code.get_token(code, options)
     end
 
+    def authorize_from_client_credentials(params = {}, options = {})
+      @access_token = @client.client_credentials.get_token(params, options)
+    end
+
     def renew_access_token
       @access_token = @access_token.refresh!
     end

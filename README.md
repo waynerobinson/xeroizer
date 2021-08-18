@@ -152,6 +152,8 @@ access_secret = client.access_token.secret
 
 ### Private Applications
 
+Note: Private Applications are now deprecated by Xero. Please see the section below on Custom Connections for their replacement.
+
 Private applications use a 2-legged authorisation process. When you register your application, you will select
 the organisation that is authorised to your application. This cannot be changed afterwards, although you can
 register another private application if you have multiple organisations.
@@ -344,6 +346,19 @@ client = Xeroizer::OAuth2Application.new(
 client.renew_access_token
 ```
 If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.
+
+#### Custom Connections
+Custom Connections are a paid-for option for private M2M applications. The generated token expires and needs recreating if expired. 
+
+```ruby
+client = Xeroizer::OAuth2Application.new(
+	YOUR_OAUTH2_CLIENT_ID,
+	YOUR_OAUTH2_CLIENT_SECRET
+)
+
+token = client.authorize_from_client_credentials
+```
+You can check the status of the token with the `expires?` and `expired?` methods.
 
 
 Retrieving Data
