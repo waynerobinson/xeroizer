@@ -339,8 +339,7 @@ client = Xeroizer::OAuth2Application.new(
 	YOUR_OAUTH2_CLIENT_ID,
 	YOUR_OAUTH2_CLIENT_SECRET,
 	access_token: access_token,
-	refresh_token: refresh_token,
-	tenant_id: tenant_id
+	refresh_token: refresh_token
 )
 
 client.renew_access_token
