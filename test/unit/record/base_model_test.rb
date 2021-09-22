@@ -18,7 +18,7 @@ class RecordBaseModelTest < Test::Unit::TestCase
   end
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
     @apple_model = AppleModel.new(@client, 'Apple')
     @pear_model = PearModel.new(@client, 'Pear')
     @orange_model = OrangeModel.new(@client, 'Orange')

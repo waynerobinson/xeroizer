@@ -29,8 +29,10 @@ module TestHelper
   CONSUMER_SECRET   = ENV["CONSUMER_SECRET"]  || "fake_secret"  unless defined?(CONSUMER_SECRET)
   PRIVATE_KEY_PATH  = ENV["PRIVATE_KEY_PATH"] || "fake_key"     unless defined?(PRIVATE_KEY_PATH)
 
-  CLIENT_ID     = ENV["XERO_CLIENT_ID"]     || "fake_client_id"     unless defined?(XERO_CLIENT_ID)
-  CLIENT_SECRET = ENV["XERO_CLIENT_SECRET"] || "fake_client_secret" unless defined?(XERO_CLIENT_SECRET)
+  CLIENT_ID     = ENV["XERO_CLIENT_ID"]     || "fake_client_id"     unless defined?(CLIENT_ID)
+  CLIENT_SECRET = ENV["XERO_CLIENT_SECRET"] || "fake_client_secret" unless defined?(CLIENT_SECRET)
+  ACCESS_TOKEN = ENV["XERO_ACCESS_TOKEN"] || "fake_access_token" unless defined?(ACCESS_TOKEN)
+  TENANT_ID = ENV["XERO_TENANT_ID"] || "fake_tenant_id" unless defined?(TENANT_ID)
 
   # Helper constant for checking regex
   GUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/ unless defined?(GUID_REGEX)

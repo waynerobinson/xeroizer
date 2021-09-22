@@ -593,8 +593,8 @@ You can set this option when initializing an application:
 
 ```ruby
 # Sleep for 2 seconds every time the rate limit is exceeded.
-client = Xeroizer::OAuth2Application.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :rate_limit_sleep => 2)
 ```
 
@@ -611,8 +611,8 @@ You can set this option when initializing an application:
 
 ```ruby
 # Sleep for 1 second and retry up to 3 times when Xero claims the nonce was used.
-client = Xeroizer::OAuth2Application.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :nonce_used_max_attempts => 3)
 ```
 
@@ -624,8 +624,8 @@ You can add an optional parameter to the Xeroizer Application initialization, to
 
 ```ruby
 XeroLogger = Logger.new('log/xero.log', 'weekly')
-client = Xeroizer::OAuth2Application.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :logger => XeroLogger)
 ```
 
@@ -656,8 +656,8 @@ By default, the API accepts unit prices (UnitAmount) to two decimals places. If 
 
 
 ```ruby
-client = Xeroizer::OAuth2Application.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :unitdp => 4)
 ```
 

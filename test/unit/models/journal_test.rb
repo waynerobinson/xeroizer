@@ -5,7 +5,7 @@ class JournalTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
 
     @journal = @client.Journal.build
     @journal.journal_id = "0d926df3-459f-4264-a3a3-49ac065eb0ed"

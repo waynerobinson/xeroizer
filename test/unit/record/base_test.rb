@@ -4,7 +4,8 @@ class RecordBaseTest < Test::Unit::TestCase
   include TestHelper
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET, tenant_id: TENANT_ID)
+    @client.authorize_from_access(ACCESS_TOKEN)
     @contact = @client.Contact.build(:name => 'Test Contact Name ABC')
   end
 
@@ -26,14 +27,14 @@ class RecordBaseTest < Test::Unit::TestCase
   context "new_record? states" do
 
     should "new_record? should be false when loading data" do
-      Xeroizer::OAuth.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
+      Xeroizer::OAuth2.any_instance.stubs(:get).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       contact = @client.Contact.find('TESTID')
       assert_kind_of(Xeroizer::Record::Contact, contact)
       assert_equal(false, contact.new_record?)
     end
 
     should "new_record? should be false after successfully creating a record" do
-      Xeroizer::OAuth.any_instance.stubs(:put).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
+      Xeroizer::OAuth2.any_instance.stubs(:put).returns(stub(:plain_body => get_record_xml(:contact), :code => '200'))
       assert_equal(true, @contact.new_record?)
       assert_nil(@contact.contact_id)
       assert_equal(true, @contact.save, "Error saving contact: #{@contact.errors.inspect}")

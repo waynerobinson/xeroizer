@@ -63,7 +63,7 @@ class ModelDefinitionsTest < Test::Unit::TestCase
   end
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
     parent = stub(:application => @client, :mark_dirty => nil)
     @first = FirstRecord.new(parent)
     @second = SecondRecord.new(parent)
