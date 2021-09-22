@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files -- test/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "bundler", "~> 1.5"
+  s.add_development_dependency "bundler", "~> 2.2"
   s.add_development_dependency "rake"
   s.add_development_dependency "mocha"
   s.add_development_dependency "shoulda", "~> 3.6.0"

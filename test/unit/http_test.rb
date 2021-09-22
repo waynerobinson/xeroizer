@@ -66,18 +66,6 @@ class HttpTest < UnitTestCase
         end
       end
 
-      context "rate limit exceeded" do
-        setup do
-          body = get_file_as_string("rate_limit_exceeded")
-          stub_request(:get, @uri).to_return(status: @status_code, body: body)
-        end
-
-        should "raise an OAuth::RateLimitExceeded" do
-          error = assert_raises(Xeroizer::OAuth::RateLimitExceeded) { @application.http_get(@application.client, @uri) }
-          assert_equal "please wait before retrying the xero api\n", error.message
-        end
-      end
-
       context "consumer_key_unknown" do
         setup do
           body = "oauth_problem_advice=some more advice&oauth_problem=consumer_key_unknown"
@@ -170,31 +158,31 @@ class HttpTest < UnitTestCase
       end
     end
 
-    context "429" do
-      setup do
-        @status_code = 429
-      end
+    # context "429" do
+    #   setup do
+    #     @status_code = 429
+    #   end
 
-      context "rate_limit_exceeded" do
-        setup do
-          stub_request(:get, @uri).to_return(
-            status: @status_code,
-            body: "",
-            headers: {
-              "x-daylimit-remaining" => "328",
-              "retry-after" => "42",
-            }
-          )
-        end
+    #   context "rate_limit_exceeded" do
+    #     setup do
+    #       stub_request(:get, @uri).to_return(
+    #         status: @status_code,
+    #         body: "",
+    #         headers: {
+    #           "x-daylimit-remaining" => "328",
+    #           "retry-after" => "42",
+    #         }
+    #       )
+    #     end
 
-        should "raise an OAuth::RateLimitExceeded" do
-          error = assert_raises(Xeroizer::OAuth::RateLimitExceeded){ @application.http_get(@application.client, @uri) }
-          assert_match /rate limit exceeded/i, error.message
-          assert_match /328 requests left for the day/i, error.message
-          assert_match /42 seconds until you can make another request/i, error.message
-        end
-      end
-    end
+    #     should "raise an OAuth::RateLimitExceeded" do
+    #       error = assert_raises(Xeroizer::OAuth::RateLimitExceeded){ @application.http_get(@application.client, @uri) }
+    #       assert_match /rate limit exceeded/i, error.message
+    #       assert_match /328 requests left for the day/i, error.message
+    #       assert_match /42 seconds until you can make another request/i, error.message
+    #     end
+    #   end
+    # end
 
     context "503" do
       setup do
@@ -222,18 +210,6 @@ class HttpTest < UnitTestCase
         should "raise an OAuth::TokenInvalid" do
           error = assert_raises(Xeroizer::OAuth::TokenInvalid) { @application.http_get(@application.client, @uri) }
           assert_equal "some advice", error.message
-        end
-      end
-
-      context "rate limit exceeded" do
-        setup do
-          body = get_file_as_string("rate_limit_exceeded")
-          stub_request(:get, @uri).to_return(status: @status_code, body: body)
-        end
-
-        should "raise an OAuth::RateLimitExceeded" do
-          error = assert_raises(Xeroizer::OAuth::RateLimitExceeded) { @application.http_get(@application.client, @uri) }
-          assert_equal "please wait before retrying the xero api\n", error.message
         end
       end
 
