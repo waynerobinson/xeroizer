@@ -44,7 +44,7 @@ module Xeroizer
         if quantity && unit_amount
           total = coerce_numeric(quantity) * coerce_numeric(unit_amount)
           if discount_rate.nonzero?
-            BigDecimal((total * ((100 - discount_rate) / 100)).to_s).round(2)
+            BigDecimal((total * ((100 - discount_rate.to_f) / 100)).to_s).round(2)
           elsif discount_amount
             BigDecimal((total - discount_amount).to_s).round(2)
           else
