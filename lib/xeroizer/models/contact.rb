@@ -21,7 +21,8 @@ module Xeroizer
       CONTACT_STATUS = {
         'ACTIVE' =>     'Active',
         'DELETED' =>    'Deleted',
-        'ARCHIVED' => 'Archived'
+        'ARCHIVED' => 'Archived',
+        'GDPRREQUEST' => 'GDPR Request'
       } unless defined?(CONTACT_STATUS)
 
       include Attachment::Extensions
