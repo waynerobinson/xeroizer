@@ -668,31 +668,16 @@ Tests
 
 OAuth2 Tests
 
+The tests within the repository can be run by setting up a [OAuth2 App](https://developer.xero.com/documentation/guides/oauth2/auth-flow/).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and re-connect to it if your Demo Company has expired. Make sure you create the Demo Company in Australia region.
+
 ```
 export XERO_CLIENT_ID="asd"
 export XERO_CLIENT_SECRET="asdfg"
+export XERO_ACCESS_TOKEN="sadfsdf"
+export XERO_TENANT_ID="asdfasdfasdfasd"
 
 rake test
 ```
-
-
-
-The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired. Make sure you create the Demo Company in Australia region.
-
-Once you have created your Private App, set these environment variables:
-```
-EXPORT CONSUMER_KEY="your private app's consumer key"
-EXPORT CONSUMER_SECRET="your private app's consumer secret"
-EXPORT PRIVATE_KEY_PATH="the path to your private app's private key"
-```
-
-PRIVATE_KEY_PATH is the path to the private key for your Private App (you uploaded the Public Key when you created the Private App)
-
-Then run the tests
-```
-rake test
-```
-
 
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor
