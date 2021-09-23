@@ -59,7 +59,7 @@ class InvoiceTest < Test::Unit::TestCase
     end
 
     should "build a valid DRAFT invoice with minimal attributes" do
-      invoice = @client.Invoice.build :type => "ACCREC", :contact => { :name => "ABC Limited" }
+      invoice = @client.Invoice.build :type => "ACCREC", :date => Date.today, :contact => { :name => "ABC Limited" }
       assert_equal(true, invoice.valid?)
     end
 
