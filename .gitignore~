@@ -1,0 +1,15 @@
+certs
+.bundle
+.yardoc
+test*.rb
+doc/
+.redcar
+pkg/
+/tmp
+.rvmrc
+.ruby-version
+.oauth
+.DS_Store
+.idea/
+Gemfile.lock
+tmp/

@@ -1,0 +1,1584 @@
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/oauth2_test.rb,45
+class OAuth2Test 3,28
+  def instance22,534
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/model_definition_test.rb,485
+class ModelDefinitionsTest 3,28
+  class FirstRecord 6,100
+  class Xeroizer::Record::FirstRecordModel 19,361
+  class SecondRecord 21,440
+  class Xeroizer::Record::SecondRecordModel 34,702
+  class TestRecord 36,782
+  class Xeroizer::Record::TestRecordModel 42,945
+  class SummaryOnlyRecord 44,1023
+    class Xeroizer::Record::SummaryOnlyRecordModel 45,1074
+  class SummaryOnlyOffRecord 55,1331
+    class Xeroizer::Record::SummaryOnlyOffRecordModel 56,1385
+  def setup65,1609
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/base_model_test.rb,130
+class RecordBaseModelTest 3,28
+  class AppleModel 6,99
+  class PearModel 11,235
+  class OrangeModel 16,361
+  def setup20,461
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/parse_where_hash_test.rb,160
+module Xeroizer3,28
+  module Record4,44
+    class WhereHashTestModel 6,61
+    class WhereHashTest 9,111
+class ParseWhereHashTest 26,388
+  def setup29,458
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/record_association_test.rb,52
+class RecordAssociationTest 3,28
+  def setup6,101
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/validators_test.rb,198
+class ValidatorsTest 3,28
+  class Xeroizer::Record::TestModel 6,94
+  class Xeroizer::Record::Test 9,167
+    def value_equals_ten?33,1438
+    def value_equals_twenty?37,1491
+  def setup42,1553
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/connection_test.rb,27
+class ConnectionTest 3,28
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/parse_params_test.rb,159
+module Xeroizer3,28
+  module Record4,44
+    class ParseParamTestModel 6,61
+    class ParseParamTest 9,112
+class ParseParamsTest 26,390
+  def setup29,457
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/block_validator_test.rb,159
+class BlockValidatorTest 3,28
+  def setup4,76
+      attr_accessor :errorserrors6,126
+      attr_accessor :errorserrors=6,126
+      def initialize;7,154
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record/base_test.rb,195
+class RecordBaseTest 3,28
+  def setup6,94
+    class ExampleRecordClass 59,2137
+      def valid?;60,2191
+      def to_xml(61,2219
+    class Xeroizer::Record::ExampleRecordClassModel 64,2293
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/report_definition_test.rb,51
+class ReportDefinitionTest 3,28
+  def setup6,100
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/report_test.rb,155
+class MockNonReportClassDefinition;3,28
+class FactoryTest 5,69
+  def setup8,132
+      def assess_row(66,2151
+    def check_valid_report_type(143,4588
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/oauth_test.rb,39
+class OAuthTest 3,28
+  def setup6,89
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/oauth_config_test.rb,28
+class OAuthConfigTest 3,28
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/journal_line_test.rb,46
+class JournalLineTest 3,28
+  def setup7,122
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/bank_transaction_validation_test.rb,42
+class BankTransactionValidationTest 3,28
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/employee_test.rb,43
+class EmployeeTest 3,28
+  def setup7,119
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/contact_test.rb,41
+class ContactTest 3,28
+  def setup6,91
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/tax_rate_test.rb,173
+class TaxRateTest 4,54
+  def setup7,117
+  def expected_tax_rate_create_body54,1832
+  def tax_rate_create_successful_response68,2077
+  def tax_rate_get_response100,3145
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/bank_transaction_test.rb,50
+class BankTransactionTest 3,28
+  def setup6,105
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/phone_test.rb,39
+class PhoneTest 3,28
+  def setup6,89
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/repeating_invoice_test.rb,51
+class RepeatingInvoiceTest 3,28
+  def setup6,100
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/credit_note_test.rb,44
+class CreditNoteTest 3,28
+  def setup6,94
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/line_item_sum_test.rb,46
+class LineItemSumTest 3,28
+  def setup6,101
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/payment_service_test.rb,48
+class PaymentServiceTest 3,28
+  def setup6,98
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/line_item_test.rb,43
+class LineItemTest 3,28
+  def setup7,119
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/invoice_test.rb,85
+class InvoiceTest 3,28
+  def setup6,91
+  def build_valid_authorised_invoice12,249
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/bank_transaction_model_parsing_test.rb,61
+class BankTransactionModelParsingTest 3,28
+  def setup4,89
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/organisation_test.rb,46
+class OrganisationTest 3,28
+  def setup6,96
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/manual_journal_test.rb,47
+class ManualJournalTest 3,28
+  def setup6,97
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/prepayment_test.rb,44
+class PrepaymentTest 3,28
+  def setup6,94
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/address_test.rb,111
+class AddressTest 3,28
+  def setup6,91
+  def build_valid_address11,224
+  def generate_random_string(26,622
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/models/journal_test.rb,42
+class JournalTest 3,28
+  def setup7,118
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/record_definition_test.rb,51
+class RecordDefinitionTest 3,28
+  def setup6,100
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/private_application_test.rb,53
+class PrivateApplicationTest 3,28
+  def setup6,102
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/http_test.rb,21
+class HttpTest 3,28
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit/generic_application_test.rb,35
+class GenericApplicationTest 3,28
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/acceptance_test.rb,593
+module AcceptanceTestHelpers1,0
+  def self.oauth_clientoauth_client2,29
+  def self.oauth2_clientoauth2_client7,218
+  def self.load_config_from_fileload_config_from_file17,466
+  def self.load_config_from_envload_config_from_env25,685
+  def self.load_oauth2_config_from_envload_oauth2_config_from_env33,1213
+module AcceptanceTest46,1829
+    def included(48,1867
+        def self.it_works_using_oauth1_and_oauth2(it_works_using_oauth1_and_oauth250,1917
+        def self.log_to_consolelog_to_console55,2144
+        def self.no_logno_log59,2262
+        def self.let(let63,2373
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/bank_transfer_test.rb,25
+class BankTransfer 4,49
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/bulk_operations_test.rb,57
+class BulkOperationsTest 7,103
+  def random_name10,177
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/about_online_invoice_test.rb,37
+class AboutGetOnlineInvoiceUrl 4,49
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/about_creating_prepayment_test.rb,92
+class AboutCreatingPrepayment 4,49
+  def any_line_items(7,128
+  def assert_exists(17,369
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/connections_test.rb,28
+class ConnectionsTest 4,49
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/about_fetching_bank_transactions_test.rb,42
+class AboutFetchingBankTransactions 5,91
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/bank_transaction_reference_data.rb,124
+class BankTransactionReferenceData1,0
+  def initialize(2,35
+  def bank_transaction;3,83
+  def new_bank_transaction7,167
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/acceptance/about_creating_bank_transactions_test.rb,189
+class AboutCreatingBankTransactions 4,49
+  def assert_exists(7,134
+  def any_line_items(13,393
+  def get_inclusive_tax(23,633
+  def get_exclusive_tax(28,784
+  def get_tax_rate(33,921
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/unit_test_helper.rb,66
+class UnitTestCase 7,115
+  def setup8,157
+  def teardown13,215
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/test_helper.rb,444
+module TestHelper13,213
+  STUB_XERO_CALLS 26,634
+  CONSUMER_KEY 28,761
+  CONSUMER_SECRET 29,855
+  PRIVATE_KEY_PATH 30,952
+  CLIENT_ID 32,1051
+  CLIENT_SECRET 33,1141
+  GUID_REGEX 36,1275
+  def get_file_as_string(38,1384
+  def get_record_xml(42,1496
+  def get_report_xml(50,1666
+  def mock_api(54,1771
+  def mock_report_api(61,2222
+    alias_method m, :shouldshould68,2476
+  alias_method :must_eventually,must_eventually71,2511
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/class_level_inheritable_attributes.rb,176
+module ClassLevelInheritableAttributes1,0
+  def self.included(included2,39
+  module ClassMethods6,108
+    def class_inheritable_attributes(7,130
+    def inherited(18,460
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/payroll_application.rb,160
+module Xeroizer1,0
+  class PayrollApplication2,16
+    attr_reader :applicationapplication4,44
+    def self.record(record11,383
+    def initialize(28,908
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/oauth.rb,1361
+module Xeroizer15,774
+  class OAuth25,1084
+    class OAuthError 26,1098
+    class TokenExpired 27,1140
+    class TokenInvalid 28,1181
+    class ConsumerKeyUnknown 29,1222
+    class NonceUsed 30,1269
+    class OrganisationOffline 31,1307
+    class Forbidden 32,1355
+    class UnknownError 33,1393
+    class RateLimitExceeded 35,1435
+      def initialize(36,1476
+      attr_reader :retry_after,retry_after43,1686
+      attr_reader :retry_after, :daily_limit_remainingdaily_limit_remaining43,1686
+      XERO_CONSUMER_OPTIONS 47,1792
+    attr_reader :ctoken,ctoken64,2840
+    attr_reader :ctoken, :csecret,csecret64,2840
+    attr_reader :ctoken, :csecret, :consumer_options,consumer_options64,2840
+    attr_reader :ctoken, :csecret, :consumer_options, :expires_at,expires_at64,2840
+    attr_reader :ctoken, :csecret, :consumer_options, :expires_at, :authorization_expires_atauthorization_expires_at64,2840
+    attr_accessor :session_handlesession_handle68,3178
+    attr_accessor :session_handlesession_handle=68,3178
+    def initialize(84,4723
+    def consumer92,4997
+    def request_token(100,5405
+    def authorize_from_request(105,5596
+    def access_token112,5952
+    def authorize_from_access(122,6347
+    def renew_access_token(128,6541
+      def create_consumer141,7113
+      def update_attributes_from_token(155,7683
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/private_application.rb,82
+module Xeroizer1,0
+  class PrivateApplication 2,16
+      def initialize(17,898
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/base.rb,1364
+module Xeroizer7,211
+  module Record8,227
+    class Base10,244
+      attr_reader :attributesattributes15,421
+      attr_reader :parentparent16,451
+      attr_reader :modelmodel17,477
+      attr_accessor :errorserrors18,502
+      attr_accessor :errorserrors=18,502
+      attr_accessor :complete_record_downloadedcomplete_record_downloaded19,530
+      attr_accessor :complete_record_downloadedcomplete_record_downloaded=19,530
+      attr_accessor :paged_record_downloadedpaged_record_downloaded20,578
+      attr_accessor :paged_record_downloadedpaged_record_downloaded=20,578
+        def build(30,848
+        def initialize(43,1204
+        def new_model_class(49,1365
+        def [](53,1531
+        def []=([]=57,1601
+        def non_calculated_attributes62,1743
+        def attributes=(attributes=66,1869
+        def update_attributes(75,2209
+        def new_record?80,2318
+        def complete_record_downloaded?85,2434
+        def paged_record_downloaded?94,2629
+        def download_complete_record!99,2796
+        def save107,3038
+        def save!115,3221
+        def saved!126,3406
+        def to_json(132,3532
+        def as_json(137,3623
+        def to_h141,3693
+        def inspect148,3926
+        def create158,4210
+        def update170,4563
+        def parse_save_response(187,5145
+        def log(196,5471
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/payroll_base.rb,229
+module Xeroizer1,0
+  module Record2,16
+    class PayrollBase 4,37
+      def self.belongs_to(belongs_to8,206
+      def self.has_many(has_many12,355
+      def self.has_one(has_one16,502
+        def new_model_class(22,668
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/record_association_helper.rb,310
+module Xeroizer1,0
+  module Record2,16
+    module RecordAssociationHelper3,32
+      def self.included(included5,68
+      module ClassMethods9,143
+        def belongs_to(11,170
+        alias_method :has_one,has_one33,1282
+        def has_many(35,1326
+        def define_association_attribute(84,3557
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/xml_helper.rb,371
+module Xeroizer3,31
+  module Record4,47
+    module XmlHelper5,63
+      def self.included(included7,85
+      module ClassMethods12,204
+        def build_from_node(15,284
+      module InstanceMethods57,2148
+          def to_xml(62,2249
+          def optional_root_tag(83,3011
+          def xml_value_from_field(92,3277
+          def association_to_xml(132,4947
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/base_model_http_proxy.rb,369
+module Xeroizer3,43
+  module Record4,59
+    module BaseModelHttpProxy5,75
+      def self.included(included7,106
+      module InstanceMethods12,250
+          def parse_params(17,346
+          def parse_where_hash(52,2392
+          def extract_expression_from_attribute_name(69,3197
+          def where_condition_part(111,4415
+          def filterize(130,5563
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/base_model.rb,1239
+module Xeroizer3,49
+  module Record4,65
+    class BaseModel6,82
+      module InvaidPermissionError;11,206
+      class InvalidPermissionError 12,246
+      ALLOWED_PERMISSIONS 15,345
+      DEFAULT_RECORDS_PER_BATCH_SAVE 22,607
+      attr_reader :applicationapplication26,684
+      attr_reader :model_namemodel_name27,715
+      attr_writer :model_classmodel_class=28,745
+      attr_reader :responseresponse29,776
+        def set_api_controller_name(38,1056
+        def set_permissions(45,1341
+        def set_xml_node_name(56,1787
+        def set_xml_root_name(62,1989
+        def set_optional_xml_root_name(67,2165
+      def initialize(75,2321
+      def api_controller_name86,2672
+      def model_class90,2776
+      def build(95,2951
+      def mark_dirty(101,3100
+      def mark_clean(108,3293
+      def create(115,3541
+      def all(120,3695
+      def find_in_batches(129,4112
+      def first(143,4472
+      def find(150,4722
+      def save_records(159,5171
+      def batch_save(182,6158
+      def parse_response(199,6575
+      def create_method208,6964
+      def paged_records_requested?(215,7035
+      def parse_records(220,7243
+      def to_bulk_xml(234,7832
+      def parse_save_response(242,8142
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/model_definition_helper.rb,693
+module Xeroizer1,0
+  module Record2,16
+    module ModelDefinitionHelper3,32
+      def self.included(included5,72
+      module ClassMethods10,197
+        def set_possible_primary_keys(13,328
+        def set_primary_key(19,546
+        def list_contains_summary_only(30,988
+        def list_contains_summary_only?34,1093
+        def string(39,1252
+        def boolean(40,1361
+        def integer(41,1471
+        def decimal(42,1584
+        def date(43,1699
+        def datetime(44,1806
+        def datetime_utc(45,1917
+        def guid(47,2045
+        def define_simple_attribute(61,2869
+      module InstanceMethods84,3736
+        def id87,3856
+        def id=(id=92,4007
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/inclusion_of_validator.rb,131
+module Xeroizer1,0
+  module Record2,16
+    class Validator4,37
+      class InclusionOfValidator 6,60
+        def valid?(8,114
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/length_of_validator.rb,128
+module Xeroizer1,0
+  module Record2,16
+    class Validator4,37
+      class LengthOfValidator 6,60
+        def valid?(8,111
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/associated_validator.rb,130
+module Xeroizer1,0
+  module Record2,16
+    class Validator4,37
+      class AssociatedValidator 6,60
+        def valid?(8,113
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/block_validator.rb,151
+module Xeroizer1,0
+  module Record2,16
+    class Validator3,32
+      class BlockValidator 4,52
+        def valid?(5,91
+        def message15,363
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/presence_of_validator.rb,130
+module Xeroizer1,0
+  module Record2,16
+    class Validator4,37
+      class PresenceOfValidator 6,60
+        def valid?(8,113
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validators/validator.rb,267
+module Xeroizer1,0
+  module Record2,16
+    class Validator4,37
+      attr_reader :attributeattribute6,64
+      attr_reader :optionsoptions7,93
+      def initialize(9,127
+      def validate(14,244
+      def run_validator?(18,340
+      def condition?(24,561
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/validation_helper.rb,491
+module Xeroizer3,159
+  module Record4,175
+    module ValidationHelper5,191
+      def self.included(included7,226
+      module ClassMethods12,351
+        def validates_with_validator(15,458
+        def validates_associated(24,743
+        def validates_inclusion_of(28,877
+        def validates_presence_of(32,1006
+        def validates_length_of(36,1133
+        def validates(40,1257
+      module InstanceMethods53,1586
+        def valid?55,1622
+        def errors_for(65,1873
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/payroll_base_model.rb,141
+module Xeroizer3,49
+  module Record4,65
+    class PayrollBaseModel 6,86
+        def model_class18,470
+        def parse_response(22,589
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/record/application_helper.rb,125
+module Xeroizer1,0
+  module Record2,16
+    module ApplicationHelper3,32
+      def record(10,379
+      def report(20,769
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/http.rb,363
+module Xeroizer15,774
+  module Http16,790
+    class BadResponse 17,804
+    RequestInfo 18,847
+    ACCEPT_MIME_MAP 20,918
+    def http_get(30,1231
+    def http_post(40,1609
+    def http_put(50,1994
+    def http_request(56,2129
+    def with_around_request(130,4780
+    def log_response(138,4943
+    def sleep_for(147,5268
+    def unitdp_param(154,5556
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/custom_connection.rb,114
+module Xeroizer1,0
+  class CustomConnection 2,16
+    def initialize(22,913
+    def current_connections44,1717
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/exceptions.rb,1350
+module Xeroizer15,776
+  class XeroizerError 17,795
+  class ApiException 19,841
+    attr_reader :type,type21,883
+    attr_reader :type, :message,message21,883
+    attr_reader :type, :message, :xml,xml21,883
+    attr_reader :type, :message, :xml, :parsed_xml,parsed_xml21,883
+    attr_reader :type, :message, :xml, :parsed_xml, :request_bodyrequest_body21,883
+    def initialize(23,954
+    def message31,1183
+    def validation_errors35,1284
+  class UnparseableResponse 47,1513
+    def initialize(49,1562
+    def message53,1658
+  class ObjectNotFound 59,1790
+    def initialize(61,1834
+    def message65,1915
+  class InvoiceNotFoundError 71,2016
+  class CreditNoteNotFoundError 73,2067
+  class MethodNotAllowed 75,2123
+    def initialize(77,2169
+    def message82,2260
+  class RecordKeyMustBeDefined 88,2349
+    def initialize(90,2401
+    def message94,2485
+  class RecordInvalid 100,2615
+  class SettingTotalDirectlyNotSupported 102,2659
+    def initialize(104,2721
+    def message108,2808
+  class InvalidAttributeInWhere 114,2937
+    def initialize(116,2990
+    def message121,3120
+  class AssociationTypeMismatch 127,3224
+    def initialize(129,3277
+    def message134,3402
+  class CannotChangeInvoiceStatus 140,3493
+    def initialize(142,3544
+    def message147,3649
+  class InvalidClientError 159,3893
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/connection.rb,363
+module Xeroizer1,0
+  class Connection2,16
+    attr_accessor :attributesattributes3,35
+    attr_accessor :attributesattributes=3,35
+    attr_reader :parentparent4,65
+      def current_connections(7,108
+      def build(19,441
+      def do_request(27,586
+    def initialize(32,689
+    def method_missing(37,771
+    def delete41,874
+    def to_h45,960
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/application_http_proxy.rb,228
+module Xeroizer1,0
+  module ApplicationHttpProxy2,16
+    def self.included(included4,51
+    module InstanceMethods8,134
+      def url11,206
+      def http_get(15,289
+      def http_put(19,406
+      def http_post(23,533
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payment.rb,214
+module Xeroizer1,0
+  module Record2,16
+    class PaymentModel 4,33
+    class Payment 11,150
+      def invoice_id29,622
+      def credit_note_id33,684
+      def account_id37,758
+      def account_code41,820
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/invoice_reminder.rb,112
+module Xeroizer1,0
+  module Record2,16
+    class InvoiceReminderModel 4,37
+    class InvoiceReminder 12,197
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/batch_payments.rb,107
+module Xeroizer1,0
+  module Record2,16
+    class BatchPaymentsModel 4,37
+    class BatchPayments 8,119
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/invoice.rb,935
+module Xeroizer5,120
+  module Record6,136
+    class InvoiceModel 8,153
+        def pdf(27,1080
+    class Invoice 39,1404
+      INVOICE_TYPE 41,1430
+      INVOICE_TYPES 45,1593
+      INVOICE_STATUS 47,1639
+      INVOICE_STATUSES 55,2128
+        def initialize(106,4034
+        def contact_name115,4312
+        def contact_id121,4516
+        def approved?126,4687
+        def accounts_payable?131,4852
+        def accounts_receivable?136,4994
+        def sub_total=(sub_total=140,5067
+        def total_tax=(total_tax=145,5194
+        def total=(total=150,5321
+        def sub_total(156,5475
+        def total_tax(169,6056
+        def total(178,6411
+        def not_summary_or_loaded_record(186,6636
+        def loaded_record?190,6750
+        def pdf(197,7035
+        def delete!202,7170
+        def void!207,7292
+        def approve!212,7392
+        def email217,7513
+        def change_status!(224,7704
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/line_amount_type.rb,70
+module Xeroizer1,0
+  module Record2,16
+    LINE_AMOUNT_TYPES 9,253
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/account.rb,168
+module Xeroizer1,0
+  module Record2,16
+    class AccountModel 4,33
+      def create_method9,173
+    class Account 14,234
+      TYPE 16,260
+      TAX_TYPE 33,753
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/external_link.rb,105
+module Xeroizer1,0
+  module Record2,16
+    class ExternalLinkModel 4,37
+    class ExternalLink 8,107
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/item.rb,90
+module Xeroizer1,0
+  module Record2,16
+    class ItemModel 4,37
+    class Item 10,143
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/contact.rb,163
+module Xeroizer7,199
+  module Record8,215
+    class ContactModel 10,232
+    class Contact 19,411
+      CONTACT_STATUS 21,437
+      def email_address?75,2793
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/contact_purchases_tracking_category.rb,146
+module Xeroizer1,0
+  module Record2,16
+    class ContactPurchasesTrackingCategoryModel 4,37
+    class ContactPurchasesTrackingCategory 11,228
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/branding_theme.rb,300
+module Xeroizer3,43
+  module Record4,59
+    class BrandingThemeModel 6,76
+      def payment_services(12,169
+      def add_payment_service(16,315
+      def payment_services_endpoint(28,608
+    class BrandingTheme 34,707
+      def payment_services52,1333
+      def add_payment_service(56,1407
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/schedule.rb,142
+module Xeroizer1,0
+  module Record2,16
+    class ScheduleModel 4,33
+    class Schedule 8,79
+      UNIT 10,106
+      PAYMENT_TERM 16,246
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/balances.rb,101
+module Xeroizer4,90
+  module Record5,106
+    class BalancesModel 7,127
+    class Balances 12,245
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/tax_rate.rb,127
+module Xeroizer1,0
+  module Record2,16
+    class TaxRateModel 4,33
+      def create_method11,262
+    class TaxRate 16,323
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/contact_sales_tracking_category.rb,138
+module Xeroizer1,0
+  module Record2,16
+    class ContactSalesTrackingCategoryModel 4,37
+    class ContactSalesTrackingCategory 11,216
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/currency.rb,157
+module Xeroizer1,0
+  module Record2,16
+    class CurrencyModel 4,37
+      def create_method9,199
+    class Currency 15,271
+      def new_record?20,511
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/contact_person.rb,110
+module Xeroizer4,78
+  module Record5,94
+    class ContactPersonModel 6,110
+    class ContactPerson 10,201
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/bills.rb,91
+module Xeroizer1,0
+  module Record2,16
+    class BillsModel 4,37
+    class Bills 8,111
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/receipt.rb,96
+module Xeroizer1,0
+  module Record2,16
+    class ReceiptModel 4,37
+    class Receipt 12,189
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/employee.rb,99
+module Xeroizer3,41
+  module Record4,57
+    class EmployeeModel 6,78
+    class Employee 12,190
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/allocation.rb,100
+module Xeroizer1,0
+  module Record2,16
+    class AllocationModel 3,32
+    class Allocation 6,79
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/bank_transfer.rb,133
+module Xeroizer1,0
+  module Record2,16
+    class BankTransferModel 3,32
+    class BankTransfer 7,126
+      def initialize(9,157
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/tracking_category.rb,114
+module Xeroizer1,0
+  module Record2,16
+    class TrackingCategoryModel 4,37
+    class TrackingCategory 10,148
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/history_record.rb,367
+module Xeroizer1,0
+  module Record2,16
+    class HistoryRecordModel 4,33
+      module Extensions6,75
+        def history(7,99
+        def add_note(11,189
+      def create_method19,413
+      def history(23,466
+      def add_note(31,688
+    class HistoryRecord 49,1377
+      module Extensions51,1409
+        def history52,1433
+        def add_note(56,1495
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/accounts_payable.rb,111
+module Xeroizer1,0
+  module Record2,16
+    class AccountsPayableModel 4,37
+    class AccountsPayable 8,121
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/tax_component.rb,105
+module Xeroizer1,0
+  module Record2,16
+    class TaxComponentModel 3,32
+    class TaxComponent 7,109
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/manual_journal.rb,169
+module Xeroizer3,38
+  module Record4,54
+    class ManualJournalModel 6,75
+    class ManualJournal 14,245
+      JOURNAL_STATUS 16,283
+      JOURNAL_STATUSES 20,414
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/accounts_receivable.rb,117
+module Xeroizer1,0
+  module Record2,16
+    class AccountsReceivableModel 4,37
+    class AccountsReceivable 8,124
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/item_sales_details.rb,114
+module Xeroizer1,0
+  module Record2,16
+    class ItemSalesDetailsModel 4,37
+    class ItemSalesDetails 10,151
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/attachment.rb,475
+module Xeroizer1,0
+  module Record2,16
+    class AttachmentModel 4,33
+      module Extensions6,72
+        def attach_data(7,96
+        def attach_file(11,303
+        def attachments(15,510
+      def attach_data(22,648
+      def attach_file(38,1457
+      def attachments_for(42,1622
+    class Attachment 56,2021
+      module Extensions58,2050
+        def attach_file(59,2074
+        def attach_data(63,2256
+        def attachments67,2438
+      def get(82,2832
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/repeating_invoice.rb,344
+module Xeroizer3,38
+  module Record4,54
+    class RepeatingInvoiceModel 6,71
+    class RepeatingInvoice 14,197
+      INVOICE_TYPE 16,232
+      INVOICE_STATUS 21,376
+        def contact_name52,1344
+        def contact_id58,1548
+        def approved?63,1719
+        def accounts_payable?68,1866
+        def accounts_receivable?73,2008
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/prepayment.rb,130
+module Xeroizer1,0
+  module Record2,16
+    class PrepaymentModel 4,33
+    class Prepayment 11,148
+      def contact_id35,871
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/item_purchase_details.rb,120
+module Xeroizer1,0
+  module Record2,16
+    class ItemPurchaseDetailsModel 4,37
+    class ItemPurchaseDetails 10,157
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/overpayment.rb,132
+module Xeroizer1,0
+  module Record2,16
+    class OverpaymentModel 4,33
+    class Overpayment 12,194
+      def contact_id34,840
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/to_bank_account.rb,107
+module Xeroizer1,0
+  module Record2,16
+    class ToBankAccountModel 3,32
+    class ToBankAccount 7,110
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/expense_claim.rb,106
+module Xeroizer1,0
+  module Record2,16
+    class ExpenseClaimModel 4,37
+    class ExpenseClaim 10,151
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/purchase_order.rb,109
+module Xeroizer3,38
+  module Record4,54
+    class PurchaseOrderModel 6,75
+    class PurchaseOrder 13,226
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/bank_transaction.rb,519
+module Xeroizer5,114
+  module Record6,130
+    class BankTransactionModel 7,146
+    class BankTransaction 13,269
+      BANK_TRANSACTION_STATUS 15,303
+      BANK_TRANSACTION_STATUSES 19,507
+      def initialize(23,614
+      alias_method :reconciled?,reconciled?45,1250
+      def sub_total=(sub_total=66,2251
+      def total_tax=(total_tax=67,2340
+      def total=(total=68,2429
+      def total;70,2519
+      def sub_total72,2564
+      def total_tax82,2834
+      def ought_to_recalculate_totals?90,3010
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/from_bank_account.rb,111
+module Xeroizer1,0
+  module Record2,16
+    class FromBankAccountModel 3,32
+    class FromBankAccount 7,112
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/online_invoice.rb,269
+module Xeroizer1,0
+  module Record2,16
+    class OnlineInvoiceModel 4,37
+      module Extensions6,79
+        def online_invoice(7,103
+      def online_invoice(14,250
+    class OnlineInvoice 24,512
+      module Extensions26,544
+        def online_invoice27,568
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payment_terms.rb,108
+module Xeroizer4,65
+  module Record5,81
+    class PaymentTermsModel 7,102
+    class PaymentTerms 11,183
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/quote.rb,197
+module Xeroizer3,38
+  module Record4,54
+    class QuoteModel 6,71
+        def pdf(16,419
+    class Quote 28,743
+      QUOTE_STATUS 30,767
+      QUOTE_STATUSES 38,1163
+      def pdf(71,2213
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/batch_payment.rb,105
+module Xeroizer1,0
+  module Record2,16
+    class BatchPaymentModel 4,33
+    class BatchPayment 8,118
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/sales.rb,91
+module Xeroizer1,0
+  module Record2,16
+    class SalesModel 4,37
+    class Sales 8,111
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/credit_note.rb,620
+module Xeroizer1,0
+  module Record2,16
+    class CreditNoteModel 4,33
+        def pdf(15,390
+    class CreditNote 27,713
+      CREDIT_NOTE_STATUS 29,742
+      CREDIT_NOTE_STATUSES 37,1260
+      CREDIT_NOTE_TYPE 39,1319
+      CREDIT_NOTE_TYPES 43,1502
+        def contact_name86,3023
+        def contact_id92,3231
+        def sub_total=(sub_total=97,3424
+        def total_tax=(total_tax=98,3518
+        def total=(total=99,3612
+        def sub_total(102,3754
+        def total_tax(115,4356
+        def total(124,4732
+        def pdf(134,5073
+        def save!138,5153
+        def allocate149,5526
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payment_service.rb,110
+module Xeroizer1,0
+  module Record2,16
+    class PaymentServiceModel 4,33
+    class PaymentService 10,131
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/tracking_category_child.rb,124
+module Xeroizer1,0
+  module Record2,16
+    class TrackingCategoryChildModel 4,37
+    class TrackingCategoryChild 11,189
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/bank_account.rb,103
+module Xeroizer1,0
+  module Record2,16
+    class BankAccountModel 3,32
+    class BankAccount 7,108
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/organisation.rb,167
+module Xeroizer2,40
+  module Record3,56
+    class OrganisationModel 5,77
+    class Organisation 12,215
+      SALES_TAX_BASIS 14,252
+      SALES_TAX_BASES 34,811
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/contact_group.rb,271
+module Xeroizer1,0
+  module Record2,16
+    class ContactGroupModel 4,33
+    class ContactGroup 8,110
+      def add_contact(20,461
+      def delete25,558
+      def name=(name=29,613
+      def status=(status=34,769
+      def save!39,933
+      def cg_xml50,1244
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/journal.rb,96
+module Xeroizer1,0
+  module Record2,16
+    class JournalModel 4,37
+    class Journal 10,129
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/option.rb,92
+module Xeroizer1,0
+  module Record2,16
+    class OptionModel 4,37
+    class Option 8,97
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/earnings_line.rb,180
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class EarningsLineModel 5,52
+      class EarningsLine 9,113
+        EARNINGS_RATE_CALCULATION_TYPE 11,153
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/pay_schedule.rb,195
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PayScheduleModel 5,52
+        def create_method9,149
+      class PaySchedule 14,219
+        SCHEDULE_TYPES 16,258
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/work_location.rb,133
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class WorkLocationModel 5,52
+      class WorkLocation 9,113
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/earnings_type.rb,197
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class EarningsTypeModel 5,52
+      class EarningsType 11,144
+        EARNINGS_CATEGORIES 13,184
+        RATE_TYPES 27,630
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/pay_template.rb,131
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PayTemplateModel 5,52
+      class PayTemplate 9,112
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/paystub.rb,124
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PaystubModel 5,52
+      class Paystub 11,156
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/employee.rb,158
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class EmployeeModel 5,52
+        def create_method9,146
+      class Employee 14,216
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/pay_run.rb,122
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PayRunModel 5,52
+      class PayRun 11,155
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/leave_period.rb,131
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class LeavePeriodModel 4,51
+      class LeavePeriod 7,110
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/pay_items.rb,126
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PayItemsModel 5,52
+      class PayItems 11,140
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/benefit_line.rb,177
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class BenefitLineModel 5,52
+      class BenefitLine 9,112
+        BENEFIT_TYPE_CALCULATION_TYPE 11,151
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/leave_application.rb,141
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class LeaveApplicationModel 4,51
+      class LeaveApplication 8,162
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/tax_declaration.rb,205
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class TaxDeclarationModel 5,56
+      class TaxDeclaration 9,167
+        EMPLOYMENT_BASIS 11,217
+        TFN_EXEMPTION_TYPE 20,450
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/deduction_line.rb,183
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class DeductionLineModel 5,52
+      class DeductionLine 9,114
+        DEDUCTION_TYPE_CALCULATION_TYPE 11,155
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/benefit_type.rb,167
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class BenefitTypeModel 5,52
+      class BenefitType 11,143
+        BENEFIT_CATEGORIES 13,182
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/bank_account.rb,165
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class BankAccountModel 5,52
+      class BankAccount 9,112
+        BANK_ACCOUNT_TYPE 21,423
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/leave_line.rb,171
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class LeaveLineModel 5,52
+      class LeaveLine 9,110
+        LEAVE_TYPE_CALCULATION_TYPE 11,147
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/deduction_type.rb,207
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class DeductionTypeModel 5,52
+      class DeductionType 11,145
+        DEDUCTION_CATEGORIES 13,186
+        CALCULATION_TYPES 28,754
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/super_line.rb,224
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class SuperLineModel 5,56
+      class SuperLine 9,130
+        SUPERANNUATION_CONTRIBUTION_TYPE 11,167
+        SUPERANNUATION_CALCULATION_TYPE 18,677
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/payment_method.rb,171
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class PaymentMethodModel 5,52
+      class PaymentMethod 9,114
+        PAYMENT_METHOD_TYPE 11,155
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/time_off_line.rb,131
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class TimeOffLineModel 5,52
+      class TimeOffLine 9,112
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/reimbursement_type.rb,144
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class ReimbursementTypeModel 5,52
+      class ReimbursementType 11,149
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/address.rb,271
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class AddressModel 5,52
+      class Address 15,382
+      class HomeAddressModel 37,953
+      class HomeAddress 41,1048
+      class MailingAddressModel 44,1093
+      class MailingAddress 48,1194
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/salary_and_wage.rb,172
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class SalaryAndWageModel 5,52
+      class SalaryAndWage 9,114
+        SALARY_AND_WAGE_TYPE 11,155
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/time_off_type.rb,168
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class TimeOffTypeModel 5,52
+      class TimeOffType 11,143
+        TIME_OFF_CATEGORIES 13,182
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/payroll/reimbursement_line.rb,143
+module Xeroizer1,0
+  module Record2,16
+    module Payroll3,32
+      class ReimbursementLineModel 5,56
+      class ReimbursementLine 9,138
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/journal_line.rb,102
+module Xeroizer1,0
+  module Record2,16
+    class JournalLineModel 4,37
+    class JournalLine 8,98
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/address.rb,121
+module Xeroizer1,0
+  module Record2,16
+    class AddressModel 4,33
+    class Address 8,78
+      ADDRESS_TYPE 10,104
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/phone.rb,115
+module Xeroizer1,0
+  module Record2,16
+    class PhoneModel 4,37
+    class Phone 8,96
+      PHONE_TYPE 10,126
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/line_item.rb,261
+module Xeroizer4,78
+  module Record5,94
+    class LineItemModel 6,110
+    class LineItem 10,177
+      TAX_TYPE 11,203
+      def initialize(29,758
+      def line_amount=(line_amount=34,853
+      def line_amount(41,1121
+      def coerce_numeric(58,1671
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/manual_journal_line.rb,116
+module Xeroizer1,0
+  module Record2,16
+    class ManualJournalLineModel 4,37
+    class ManualJournalLine 11,214
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/user.rb,90
+module Xeroizer1,0
+  module Record2,16
+    class UserModel 4,33
+    class User 11,141
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/line_item_sum.rb,186
+module Xeroizer1,0
+  module Record2,16
+    class LineItemSum3,32
+      def self.total(total4,54
+      def self.sub_total(sub_total8,152
+      def self.total_tax(total_tax14,330
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/models/journal_line_tracking_category.rb,136
+module Xeroizer1,0
+  module Record2,16
+    class JournalLineTrackingCategoryModel 4,37
+    class JournalLineTrackingCategory 11,205
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/generic_application.rb,1026
+module Xeroizer3,46
+  class GenericApplication4,62
+    attr_reader :client,client9,145
+    attr_reader :client, :logger,logger9,145
+    attr_reader :client, :logger, :rate_limit_sleep,rate_limit_sleep9,145
+    attr_reader :client, :logger, :rate_limit_sleep, :rate_limit_max_attempts,rate_limit_max_attempts9,145
+                :default_headers,default_headers10,224
+                :default_headers, :unitdp,unitdp10,224
+                :default_headers, :unitdp, :before_request,before_request10,224
+                :default_headers, :unitdp, :before_request, :after_request,after_request10,224
+                :default_headers, :unitdp, :before_request, :after_request, :around_request,around_request10,224
+                :default_headers, :unitdp, :before_request, :after_request, :around_request, :nonce_used_max_attemptsnonce_used_max_attempts10,224
+    attr_accessor :xero_urlxero_url12,343
+    attr_accessor :xero_urlxero_url=12,343
+      def initialize(70,1696
+      def payroll(85,2471
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/public_application.rb,81
+module Xeroizer1,0
+  class PublicApplication 2,16
+      def initialize(16,849
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/response.rb,1727
+module Xeroizer15,774
+  class Response16,790
+    attr_accessor :id,id18,808
+    attr_accessor :id,id=18,808
+    attr_accessor :id, :status,status18,808
+    attr_accessor :id, :status,status=18,808
+    attr_accessor :id, :status, :errors,errors18,808
+    attr_accessor :id, :status, :errors,errors=18,808
+    attr_accessor :id, :status, :errors, :provider,provider18,808
+    attr_accessor :id, :status, :errors, :provider,provider=18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time,date_time18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time,date_time=18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items,response_items18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items,response_items=18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params,request_params18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params,request_params=18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params, :request_xml,request_xml18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params, :request_xml,request_xml=18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params, :request_xml, :response_xmlresponse_xml18,808
+    attr_accessor :id, :status, :errors, :provider, :date_time, :response_items, :request_params, :request_xml, :response_xmlresponse_xml=18,808
+      def parse(23,1011
+      def initialize61,2450
+      def success?65,2511
+      def error69,2564
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/partner_application.rb,119
+module Xeroizer1,0
+  class PartnerApplication 2,16
+      def initialize(18,1106
+      def read_certificate(44,2097
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/oauth2.rb,714
+module Xeroizer1,0
+  class OAuth22,16
+    attr_reader :client,client4,32
+    attr_reader :client, :access_tokenaccess_token4,32
+    attr_accessor :tenant_idtenant_id6,72
+    attr_accessor :tenant_idtenant_id=6,72
+    def initialize(8,102
+    def authorize_url(12,244
+    def authorize_from_access(16,331
+    def authorize_from_code(20,477
+    def renew_access_token24,599
+    def get(28,680
+    def post(32,797
+    def put(36,941
+    def delete(40,1081
+    def wrap_headers(46,1217
+    def wrap_response(54,1365
+    class Response58,1435
+      attr_reader :responseresponse59,1454
+      def initialize(61,1483
+      def code65,1554
+      def success?69,1604
+      def plain_body73,1673
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/http_response.rb,841
+module Xeroizer1,0
+  class BadResponse 2,16
+  class XmlErrorResponse4,58
+    def initialize(5,83
+    def raise_error!11,219
+    def raise_error30,575
+    attr_reader :request_body,request_body54,1710
+    attr_reader :request_body, :response,response54,1710
+    attr_reader :request_body, :response, :urlurl54,1710
+    def parse56,1758
+    def raise_bad_request!63,1982
+    def raise_not_found!87,2762
+    def raise_rate_limit_exceeded!95,3048
+    def raise_unknown_response_error!103,3523
+  class HttpResponse108,3662
+    def self.from_response(from_response109,3683
+    def initialize(113,3787
+    def body119,3923
+    def raise_error!128,4118
+    attr_reader :request_body,request_body151,4947
+    attr_reader :request_body, :response,response151,4947
+    attr_reader :request_body, :response, :urlurl151,4947
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/base.rb,969
+module Xeroizer8,216
+  module Report9,232
+    class Base10,248
+      attr_reader :factoryfactory14,301
+      attr_accessor :idid16,335
+      attr_accessor :idid=16,335
+      attr_accessor :namename17,359
+      attr_accessor :namename=17,359
+      attr_accessor :typetype18,385
+      attr_accessor :typetype=18,385
+      attr_accessor :titlestitles19,411
+      attr_accessor :titlestitles=19,411
+      attr_accessor :datedate20,439
+      attr_accessor :datedate=20,439
+      attr_accessor :updated_atupdated_at21,465
+      attr_accessor :updated_atupdated_at=21,465
+      attr_accessor :rowsrows23,504
+      attr_accessor :rowsrows=23,504
+      attr_accessor :headerheader25,537
+      attr_accessor :headerheader=25,537
+      attr_accessor :summarysummary26,565
+      attr_accessor :summarysummary=26,565
+      attr_accessor :sectionssections27,594
+      attr_accessor :sectionssections=27,594
+        def initialize(31,657
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/cell_xml_helper.rb,292
+module Xeroizer1,0
+  module Report2,16
+    module CellXmlHelper3,32
+      def self.included(included5,58
+      module ClassMethods10,177
+          def build_from_node(31,821
+          def parse_value(48,1353
+          def parse_attribute(56,1682
+      module InstanceMethods69,2058
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/xml_helper.rb,295
+module Xeroizer1,0
+  module Report2,16
+    module XmlHelper3,32
+      def self.included(included5,60
+      module ClassMethods10,185
+          def build_from_node(14,244
+          def extract_report_details(28,638
+          def extract_rows(45,1420
+      module InstanceMethods53,1624
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/row/row.rb,806
+module Xeroizer3,42
+  module Report4,58
+    class Row5,74
+      attr_reader :reportreport9,129
+      attr_accessor :typetype11,162
+      attr_accessor :typetype=11,162
+      attr_accessor :titletitle12,188
+      attr_accessor :titletitle=12,188
+      attr_accessor :rowsrows13,215
+      attr_accessor :rowsrows=13,215
+      attr_accessor :cellscells14,241
+      attr_accessor :cellscells=14,241
+      attr_accessor :parentparent16,275
+      attr_accessor :parentparent=16,275
+      attr_accessor :headerheader18,310
+      attr_accessor :headerheader=18,310
+        def initialize(22,365
+        def header?;28,487
+        def summary?;29,537
+        def section?;30,587
+        def row?;31,637
+        def child?33,699
+        def parent?37,762
+        def cell(41,819
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/row/summary.rb,149
+module Xeroizer1,0
+  module Report2,16
+    class SummaryRow 3,32
+      attr_accessor :headerheader5,63
+      attr_accessor :headerheader=5,63
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/row/xml_helper.rb,217
+module Xeroizer1,0
+  module Report2,16
+    module RowXmlHelper3,32
+      def self.included(included5,61
+      module ClassMethods10,184
+          def build_from_node(14,239
+      module InstanceMethods72,2229
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/row/section.rb,234
+module Xeroizer1,0
+  module Report2,16
+    class SectionRow 3,32
+      attr_accessor :headerheader5,66
+      attr_accessor :headerheader=5,66
+      attr_accessor :summarysummary6,94
+      attr_accessor :summarysummary=6,94
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/row/header.rb,96
+module Xeroizer1,0
+  module Report2,16
+    class HeaderRow 3,32
+      def column_index(5,59
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/factory.rb,375
+module Xeroizer5,129
+  module Report6,145
+    class Factory7,161
+      attr_reader :applicationapplication11,222
+      attr_reader :report_typereport_type12,253
+      attr_reader :response_xmlresponse_xml13,284
+        def initialize(17,343
+        def get(24,613
+        def api_controller_name32,983
+        def klass36,1063
+        def parse_reports(46,1296
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/cell.rb,339
+module Xeroizer3,43
+  module Report4,59
+    class Cell5,75
+      attr_accessor :valuevalue9,132
+      attr_accessor :valuevalue=9,132
+      attr_accessor :attributesattributes10,159
+      attr_accessor :attributesattributes=10,159
+        def initialize14,218
+        def attribute_id20,470
+        def attribute_value26,757
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/report/aged_receivables_by_contact.rb,255
+module Xeroizer1,0
+  module Report2,16
+    class AgedReceivablesByContact 3,32
+        def total7,89
+        def total_paid11,176
+        def total_credited15,271
+        def total_due19,378
+        def total_overdue23,470
+        def sum(33,756
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/version.rb,36
+module Xeroizer1,0
+  VERSION 2,16
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/oauth2_application.rb,115
+module Xeroizer1,0
+  class OAuth2Application 2,16
+    def initialize(22,914
+    def current_connections44,1718
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/configuration.rb,93
+module Xeroizer1,0
+  OAuthCredentials 2,16
+  class OAuthConfig4,112
+      def load 6,150
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/logging.rb,110
+module Xeroizer1,0
+  module Logging2,16
+    class DevNullLog;3,33
+    class StdOutLog;4,85
+    Log 6,148
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer/http_encoding_helper.rb,55
+class Net::HTTPResponse28,847
+  def plain_body30,907
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/lib/xeroizer.rb,0
+
+/Users/jasonh/Dev/Ruby/gems/xeroizer/test/stub_responses/refresh_responses.rb,0
