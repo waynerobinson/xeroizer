@@ -14,3 +14,4 @@ pkg/
 Gemfile.lock
 tmp/
 *~
+TAGS
