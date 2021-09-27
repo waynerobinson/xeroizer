@@ -7,21 +7,9 @@ class HttpTest < UnitTestCase
     @uri = "https://api.xero.com/path"
   end
 
-  context "default_headers" do
-    setup do
-      @headers = { "User-Agent" => "Xeroizer/2.15.5" }
-      @application = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET, :default_headers => @headers)
-    end
-
-    should "recognize default_headers" do
-      # Xeroizer::OAuth.any_instance.expects(:get).with("/test", has_entry(@headers)).returns(stub(:plain_body => "", :code => "200"))
-      # @application.http_get(@application.client, "http://example.com/test")
-    end
-  end
-
   context "errors" do
     setup do
-      @application = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+      @application = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET, tenant_id: TENANT_ID, access_token: ACCESS_TOKEN)
     end
 
     context "400" do

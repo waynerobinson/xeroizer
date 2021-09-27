@@ -40,7 +40,7 @@ class ValidatorsTest < Test::Unit::TestCase
   end
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
     @record = Xeroizer::Record::TestModel.new(@client, 'Test').build
   end
 

@@ -8,6 +8,7 @@ module Xeroizer
       string      :name
       decimal     :rate
       boolean     :is_compound
+      boolean     :is_non_recoverable
     end
   end
 end

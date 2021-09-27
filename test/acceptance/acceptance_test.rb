@@ -1,9 +1,4 @@
 module AcceptanceTestHelpers
-  def self.oauth_client
-    config = load_config_from_file || load_config_from_env
-    Xeroizer::PrivateApplication.new(config.consumer_key, config.consumer_secret, config.key_file)
-  end
-
   def self.oauth2_client
     config = self.load_oauth2_config_from_env
     Xeroizer::OAuth2Application.new(
@@ -12,22 +7,6 @@ module AcceptanceTestHelpers
       access_token: config.access_token,
       tenant_id: config.tenant_id
     )
-  end
-
-  def self.load_config_from_file
-    the_file_name = File.join(File.dirname(__FILE__), '..', '..', '.oauth')
-
-    return nil unless File.exist? the_file_name
-
-    Xeroizer::OAuthConfig.load IO.read the_file_name
-  end
-
-  def self.load_config_from_env
-    raise "No CONSUMER_KEY environment variable specified." unless ENV["CONSUMER_KEY"]
-    raise "No CONSUMER_SECRET environment variable specified." unless ENV["CONSUMER_SECRET"]
-    raise "No PRIVATE_KEY_PATH environment variable specified." unless ENV["PRIVATE_KEY_PATH"]
-    raise "The file <#{ENV["PRIVATE_KEY_PATH"]}> does not exist." unless File.exist?(ENV["PRIVATE_KEY_PATH"])
-    Xeroizer::OAuthCredentials.new ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], ENV["PRIVATE_KEY_PATH"]
   end
 
   def self.load_oauth2_config_from_env
@@ -47,8 +26,7 @@ module AcceptanceTest
   class << self
     def included(klass)
       klass.class_eval do
-        def self.it_works_using_oauth1_and_oauth2(&block)
-          instance_exec(AcceptanceTestHelpers.oauth_client, 'oauth', &block)
+        def self.it_works_using_oauth2(&block)
           instance_exec(AcceptanceTestHelpers.oauth2_client, 'oauth2', &block)
         end
 

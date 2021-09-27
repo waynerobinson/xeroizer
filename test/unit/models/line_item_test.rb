@@ -5,7 +5,7 @@ class LineItemTest < Test::Unit::TestCase
   include Xeroizer::Record
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
   end
 
   it "line_item tracking specified correctly" do

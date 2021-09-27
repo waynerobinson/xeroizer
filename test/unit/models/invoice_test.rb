@@ -4,7 +4,7 @@ class InvoiceTest < Test::Unit::TestCase
   include TestHelper
 
   def setup
-    @client = Xeroizer::PublicApplication.new(CONSUMER_KEY, CONSUMER_SECRET)
+    @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
     mock_api('Invoices')
     @invoice = @client.Invoice.first
   end
@@ -59,7 +59,7 @@ class InvoiceTest < Test::Unit::TestCase
     end
 
     should "build a valid DRAFT invoice with minimal attributes" do
-      invoice = @client.Invoice.build :type => "ACCREC", :contact => { :name => "ABC Limited" }
+      invoice = @client.Invoice.build :type => "ACCREC", :date => Date.today, :contact => { :name => "ABC Limited" }
       assert_equal(true, invoice.valid?)
     end
 

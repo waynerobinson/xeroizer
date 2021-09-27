@@ -37,7 +37,7 @@ class AboutFetchingBankTransactions < Test::Unit::TestCase
     it "has the limited set of attributes" do
       keys = [:line_amount_types, :contact, :date, :status, :updated_date_utc,
               :currency_code, :bank_transaction_id, :bank_account, :type, :reference,
-              :is_reconciled]
+              :is_reconciled, :has_attachments]
       assert_equal(keys, @the_first_bank_transaction.attributes.keys)
     end
 

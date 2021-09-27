@@ -4,7 +4,7 @@ require "acceptance_test"
 class BankTransfer < Test::Unit::TestCase
   include AcceptanceTest
 
-  it_works_using_oauth1_and_oauth2 do |client, client_type|
+  it_works_using_oauth2 do |client, client_type|
     can "create a bank for #{client_type}" do
       all_accounts = client.Account.all
       @from_bank_account = all_accounts.select { |acct| acct.status == "ACTIVE" && acct.type == "BANK" }.first

@@ -1,13 +1,20 @@
-Xeroizer API Library ![Project status](http://stillmaintained.com/waynerobinson/xeroizer.png) [![Build Status](https://travis-ci.org/waynerobinson/xeroizer.svg)](https://travis-ci.org/waynerobinson/xeroizer)
+Xeroizer API Library
 ====================
 
 **Homepage**: 		[http://waynerobinson.github.com/xeroizer](http://waynerobinson.github.com/xeroizer)
+
 **Git**: 					[git://github.com/waynerobinson/xeroizer.git](git://github.com/waynerobinson/xeroizer.git)
+
 **Github**: 			[https://github.com/waynerobinson/xeroizer](https://github.com/waynerobinson/xeroizer)
+
 **Author**: 			Wayne Robinson [http://www.wayne-robinson.com](http://www.wayne-robinson.com)
+
 **Contributors**: See Contributors section below
+
 **Copyright**:    2007-2013
+
 **License**:      MIT License
+
 
 Introduction
 ------------
@@ -29,7 +36,7 @@ require 'rubygems'
 require 'xeroizer'
 
 # Create client (used to communicate with the API).
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID, YOUR_OAUTH2_CLIENT_SECRET)
 
 # Retrieve list of contacts (note: all communication must be made through the client).
 contacts = client.Contact.all(:order => 'Name')
@@ -37,55 +44,6 @@ contacts = client.Contact.all(:order => 'Name')
 
 Authentication
 --------------
-
-Xero uses OAuth to authenticate API clients. The OAuth gem (with minor modification) by John Nunemaker ([http://github.com/jnunemaker/twitter](http://github.com/jnunemaker/twitter)) is used in this library. If you've used this before, things will all seem very familar.
-
-There are three methods of authentication detailed below:
-
-### All: Consumer Key/Secret
-
-All methods of authentication require your OAuth consumer key and secret. This can be found for your application
-in the API management console at [http://api.xero.com](http://api.xero.com).
-
-### Public Applications
-
-Public applications use a 3-legged authorisation process. A user will need to authorise your
-application against each organisation that you want access to. Your application can have access
-to many organisations at once by going through the authorisation process for each organisation.
-
-The access token received will expire after 30 minutes. If you want access for longer you will need
-the user to re-authorise your application.
-
-Authentication occurs in 3 steps:
-
-```ruby
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-
-# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
-#    after they have authenticated your application.
-#
-#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
-#          otherwise the user will not be redirected and only be shown the authentication code.
-request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
-
-# 2. Redirect the user to the URL specified by the RequestToken.
-#
-#    Note: example uses redirect_to method defined in Rails controllers.
-redirect_to request_token.authorize_url
-
-# 3. Exchange RequestToken for AccessToken.
-#    This access token will be used for all subsequent requests but it is stored within the client
-#    application so you don't have to record it.
-#
-#    Note: This example assumes the callback URL is a Rails action.
-client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
-```
-
-You can now use the client to access the Xero API methods, e.g.
-
-```ruby
-contacts = client.Contact.all
-```
 
 #### Example Rails Controller
 
@@ -97,25 +55,32 @@ class XeroSessionController < ApplicationController
 	public
 
 		def new
-			request_token = @xero_client.request_token(:oauth_callback => 'http://yourapp.com/xero_session/create')
-			session[:request_token] = request_token.token
-			session[:request_secret] = request_token.secret
+			url = @xero_client.authorize_url(
+				# The URL's domain must match that listed for your application
+				# otherwise the user will see an invalid redirect_uri error
+				redirect_uri: YOUR_CALLBACK_URL,
+				# space separated, see all scopes at https://developer.xero.com/documentation/oauth2/scopes.
+				# note that `offline_access` is required to get a refresh token, otherwise the access only lasts for 30 mins and cannot be refreshed.
+				scope: "accounting.settings.read offline_access"
+			)
 
-			redirect_to request_token.authorize_url
+			redirect_to url
 		end
 
 		def create
-			@xero_client.authorize_from_request(
-					session[:request_token],
-					session[:request_secret],
-					:oauth_verifier => params[:oauth_verifier] )
+			token = @xero_client.authorize_from_code(
+				params[:code],
+				redirect_uri: YOUR_CALLBACK_URL
+			)
+
+			connections = @xero_client.current_connections
 
 			session[:xero_auth] = {
-					:access_token => @xero_client.access_token.token,
-					:access_key => @xero_client.access_token.secret }
+				:access_token => token[:access_token],
+				:refresh_token => token[:refresh_token],
+				:tenant_id => connections[1][:tenant_id]
+			}
 
-			session.data.delete(:request_token)
-			session.data.delete(:request_secret)
 		end
 
 		def destroy
@@ -125,145 +90,24 @@ class XeroSessionController < ApplicationController
 	private
 
 		def get_xero_client
-			@xero_client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
+			@xero_client = Xeroizer::OAuth2Application.new(
+				YOUR_OAUTH2_CLIENT_ID,
+				YOUR_OAUTH2_CLIENT_SECRET,
+			)
 
 			# Add AccessToken if authorised previously.
 			if session[:xero_auth]
-				@xero_client.authorize_from_access(
-					session[:xero_auth][:access_token],
-					session[:xero_auth][:access_key] )
+				@xero_client.tenant_id = session[:xero_auth][:tenant_id]
+
+				@xero_client.authorize_from_access(session[:xero_auth][:acesss_token])
 			end
 		end
 end
 ```
 
-#### Storing AccessToken
-
-You can store the access token/secret pair so you can access the API again without user intervention. Currently these
-tokens are only valid for 30 minutes and will raise a `Xeroizer::OAuth::TokenExpired` exception if you try to access
-the API beyond the token's expiry time.
-
-If you want API access for longer consider creating a PartnerApplication which will allow you to renew tokens.
-
-```ruby
-access_key = client.access_token.token
-access_secret = client.access_token.secret
-```
-
-### Private Applications
-
-Note: Private Applications are now deprecated by Xero. Please see the section below on Custom Connections for their replacement.
-
-Private applications use a 2-legged authorisation process. When you register your application, you will select
-the organisation that is authorised to your application. This cannot be changed afterwards, although you can
-register another private application if you have multiple organisations.
-
-Note: You can only register organisations you are authorised to yourself.
-
-Private applications require a private RSA keypair which is used to sign each request to the API. You can
-generate this keypair on Mac OSX or Linux with OpenSSL. For example:
-
-	openssl genrsa -out privatekey.pem 1024
-	openssl req -newkey rsa:1024 -x509 -key privatekey.pem -out publickey.cer -days 365
-	openssl pkcs12 -export -out public_privatekey.pfx -inkey privatekey.pem -in publickey.cer
-
-You need to upload this `public_privatekey.pfx` file to your private application in [http://api.xero.com](http://api.xero.com).
-
-Example usage:
-
-```ruby
-client = Xeroizer::PrivateApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET, "/path/to/privatekey.pem")
-contacts = client.Contact.all
-```
-
-To provide a private key directly, set the path to nil and pass in a `private_key` option instead. For example:
-
-```ruby
-# Using environment variables (e.g. Heroku):
-client = Xeroizer::PrivateApplication.new(key, secret, nil, private_key: ENV["XERO_PRIVATE_KEY"])
-
-# Using Rails Credentials (Rails 5.2+):
-client = Xeroizer::PrivateApplication.new(key, secret, nil, private_key: Rails.application.credentials.xero_private_key)
-```
-
-### Partner Applications
-
-Partner applications use a combination of 3-legged authorisation and private key message signing.
-
-Visit the [https://developer.xero.com/partner/app-partner](Becoming an app partner) page to get permission to create a partner application.
-
-After you have followed the instructions provided by Xero for partner applications and uploaded your certificate you can
-access the partner application in a similar way to public applications.
-
-Authentication occcurs in 3 steps:
-
-```ruby
-client = Xeroizer::PartnerApplication.new(
-					YOUR_OAUTH_CONSUMER_KEY,
-					YOUR_OAUTH_CONSUMER_SECRET,
-					"/path/to/privatekey.pem"
-					)
-
-# 1. Get a RequestToken from Xero. :oauth_callback is the URL the user will be redirected to
-#    after they have authenticated your application.
-#
-#    Note: The callback URL's domain must match that listed for your application in http://api.xero.com
-#          otherwise the user will not be redirected and only be shown the authentication code.
-request_token = client.request_token(:oauth_callback => 'http://yourapp.com/oauth/callback')
-
-# 2. Redirect the user to the URL specified by the RequestToken.
-#
-#    Note: example uses redirect_to method defined in Rails controllers.
-redirect_to request_token.authorize_url
-
-# 3. Exchange RequestToken for AccessToken.
-#    This access token will be used for all subsequent requests but it is stored within the client
-#    application so you don't have to record it.
-#
-#    Note: This example assumes the callback URL is a Rails action.
-client.authorize_from_request(request_token.token, request_token.secret, :oauth_verifier => params[:oauth_verifier])
-```
-
-This AccessToken will last for 30 minutes however, when using the partner application API you can
-renew this token. To be able to renew this token, you need to save the following data from this organisation's
-AccessToken:
-
-```ruby
-session_handle = client.session_handle
-access_key = client.access_token.token
-access_secret = client.access_token.secret
-```
-
-Two other interesting attributes of the PartnerApplication client are:
-
-> **`#expires_at`**:								Time this AccessToken will expire (usually 30 minutes into the future).
-> **`#authorization_expires_at`**:	How long this organisation has authorised you to access their data (usually 10 years into the future).
-
-#### AccessToken Renewal
-
-Renewal of an access token requires knowledge of the previous access token generated for this organisation. To renew:
-
-```ruby
-# If you still have a client instance.
-client.renew_access_token
-
-# If you are renewing from stored token/session details.
-client.renew_access_token(access_token, access_secret, session_handle)
-```
-
-This will invalidate the previous token and refresh the `access_key` and `access_secret` as specified in the
-initial authorisation process. You must always know the previous token's details to renew access to this
-session.
-
-If you lose these details at any stage you can always reauthorise by redirecting the user back to the Xero OAuth gateway.
-
-#### Branding Themes API
-
-Once you are approved as a Xero Partner you can request unofficial documentation to do with customizing Payment Services and Branding Themes using the API. There is more info on that [here](  https://github.com/waynerobinson/xeroizer/pull/439).
-
 ### OAuth2 Applications
 
-For more details, checkout Xero's [documentation](https://developer.xero.com/documentation/oauth2/auth-flow) and [migration steps](https://developer.xero.com/documentation/oauth2/migrate).
+For more details, checkout Xero's [documentation](https://developer.xero.com/documentation/oauth2/auth-flow)
 
 1. Generate the authorization url and redirect the user to authenticate
 ```ruby
@@ -365,12 +209,11 @@ Retrieving Data
 ---------------
 
 Each of the below record types is implemented within this library. To allow for multiple access tokens to be used at the same
-time in a single application, the model classes are accessed from the instance of PublicApplication, PrivateApplication
-or PartnerApplication. All class-level operations occur on this singleton. For example:
+time in a single application, the model classes are accessed from the instance of OAuth2Application. All class-level operations occur on this singleton. For example:
 
 ```ruby
-xero = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY, YOUR_OAUTH_CONSUMER_SECRET)
-xero.authorize_from_access(session[:xero_auth][:access_token], session[:xero_auth][:access_key])
+xero = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID, YOUR_OAUTH2_CLIENT_SECRET, tenant_id: tenant_id)
+xero.authorize_from_access(session[:xero_auth][:access_token])
 
 contacts = xero.Contact.all(:order => 'Name')
 
@@ -750,8 +593,8 @@ You can set this option when initializing an application:
 
 ```ruby
 # Sleep for 2 seconds every time the rate limit is exceeded.
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :rate_limit_sleep => 2)
 ```
 
@@ -768,8 +611,8 @@ You can set this option when initializing an application:
 
 ```ruby
 # Sleep for 1 second and retry up to 3 times when Xero claims the nonce was used.
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :nonce_used_max_attempts => 3)
 ```
 
@@ -781,8 +624,8 @@ You can add an optional parameter to the Xeroizer Application initialization, to
 
 ```ruby
 XeroLogger = Logger.new('log/xero.log', 'weekly')
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :logger => XeroLogger)
 ```
 
@@ -794,7 +637,7 @@ time Xeroizer makes an HTTP request, which is potentially useful for both
 throttling and logging:
 
 ```ruby
-Xeroizer::PublicApplication.new(
+Xeroizer::OAuth2Application.new(
   credentials[:key], credentials[:secret],
   before_request: ->(request) { puts "Hitting this URL: #{request.url}" },
   after_request: ->(request, response) { puts "Got this response: #{response.code}" },
@@ -813,8 +656,8 @@ By default, the API accepts unit prices (UnitAmount) to two decimals places. If 
 
 
 ```ruby
-client = Xeroizer::PublicApplication.new(YOUR_OAUTH_CONSUMER_KEY,
-                                         YOUR_OAUTH_CONSUMER_SECRET,
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
                                          :unitdp => 4)
 ```
 
@@ -823,22 +666,18 @@ This option adds the unitdp=4 query string parameter to all requests for models 
 Tests
 -----
 
-The tests within the repository can be run by setting up a [Private App](https://developer.xero.com/documentation/auth-and-limits/private-applications).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and create a new Private App if you Demo Company has expired. Make sure you create the Demo Company in Australia region.
+OAuth2 Tests
 
-Once you have created your Private App, set these environment variables:
-```
-EXPORT CONSUMER_KEY="your private app's consumer key"
-EXPORT CONSUMER_SECRET="your private app's consumer secret"
-EXPORT PRIVATE_KEY_PATH="the path to your private app's private key"
-```
+The tests within the repository can be run by setting up a [OAuth2 App](https://developer.xero.com/documentation/guides/oauth2/auth-flow/).  You can create a Private App in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and re-connect to it if your Demo Company has expired. Make sure you create the Demo Company in Australia region.
 
-PRIVATE_KEY_PATH is the path to the private key for your Private App (you uploaded the Public Key when you created the Private App)
-
-Then run the tests
 ```
+export XERO_CLIENT_ID="asd"
+export XERO_CLIENT_SECRET="asdfg"
+export XERO_ACCESS_TOKEN="sadfsdf"
+export XERO_TENANT_ID="asdfasdfasdfasd"
+
 rake test
 ```
-
 
 ### Contributors
 Xeroizer was inspired by the https://github.com/tlconnor/xero_gateway gem created by Tim Connor

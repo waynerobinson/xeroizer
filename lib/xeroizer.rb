@@ -112,8 +112,5 @@ require 'xeroizer/report/factory'
 require 'xeroizer/response'
 
 require 'xeroizer/generic_application'
-require 'xeroizer/public_application'
-require 'xeroizer/private_application'
-require 'xeroizer/partner_application'
 require 'xeroizer/oauth2_application'
 require 'xeroizer/payroll_application'
