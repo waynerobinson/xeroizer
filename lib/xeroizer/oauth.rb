@@ -37,7 +37,7 @@ module Xeroizer
         super(description)
 
         @retry_after = retry_after
-        @daily_limit_remaining = @daily_limit_remaining
+        @daily_limit_remaining = daily_limit_remaining
       end
 
       attr_reader :retry_after, :daily_limit_remaining

@@ -180,6 +180,8 @@ class HttpTest < UnitTestCase
           assert_match /rate limit exceeded/i, error.message
           assert_match /328 requests left for the day/i, error.message
           assert_match /42 seconds until you can make another request/i, error.message
+          assert_equal 42, error.retry_after
+          assert_equal 328, error.daily_limit_remaining
         end
       end
     end
