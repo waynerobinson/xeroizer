@@ -135,6 +135,11 @@ class RecordBaseTest < Test::Unit::TestCase
     context 'api error received' do
       setup do
         response = get_file_as_string('api_exception.xml')
+
+        # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but are not
+        # @see http_response.rb Xeroizer::XmlErrorResponse#raise_bad_request!
+        response.gsub! '<?xml version="1.0" encoding="utf-16"?>', ''
+
         doc = Nokogiri::XML(response)
         exception = Xeroizer::ApiException.new(doc.root.xpath("Type").text,
                                                doc.root.xpath("Message").text,
@@ -142,7 +147,6 @@ class RecordBaseTest < Test::Unit::TestCase
                                                doc,
                                                '<FakeRequest />')
 
-        @contact.stubs(:valid?).returns(true)
         @contact.stubs(:create).raises(exception)
         @contact.stubs(:update).raises(exception)
       end
@@ -169,6 +173,20 @@ class RecordBaseTest < Test::Unit::TestCase
       must 'return false updating records with #save' do
         @contact.stubs(:new_record?).returns(false)
         assert_equal(false, @contact.save)
+      end
+
+      must 'set errors creating records with #save' do
+        @contact.stubs(:new_record?).returns(true)
+        @contact.save
+        assert_equal([[:base, "Users Organisation is not subscribed to currency NZD"]], @contact.errors)
+      end
+
+      must 'set errors updating records with #save!' do
+        @contact.stubs(:new_record?).returns(false)
+        assert_raise(Xeroizer::ApiException) do
+          @contact.save!
+        end
+        assert_equal([[:base, "Users Organisation is not subscribed to currency NZD"]], @contact.errors)
       end
     end
   end
