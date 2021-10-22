@@ -105,15 +105,20 @@ module Xeroizer
         end
 
         def save
-          save!
-          true
+          saves_successfully
         rescue XeroizerError => e
           log "[ERROR SAVING] (#{__FILE__}:#{__LINE__}) - #{e.message}"
           false
         end
 
         def save!
-          raise RecordInvalid unless valid?
+          raise RecordInvalid unless saves_successfully
+        end
+
+        private
+
+        def saves_successfully
+          return false unless valid?
           if new_record?
             create
           else
@@ -125,8 +130,10 @@ module Xeroizer
           e.validation_errors.each do |error|
             errors << [:base, error]
           end
-          raise
+          false
         end
+
+        public
 
         def saved!
           @complete_record_downloaded = true

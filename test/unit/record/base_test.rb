@@ -132,7 +132,7 @@ class RecordBaseTest < Test::Unit::TestCase
       end
     end
 
-    context 'api error received' do
+    context 'ApiException received' do
       setup do
         response = get_file_as_string('api_exception.xml')
 
@@ -160,7 +160,7 @@ class RecordBaseTest < Test::Unit::TestCase
 
       must 'raise an exception updating records with #save!' do
         @contact.stubs(:new_record?).returns(false)
-        assert_raise(Xeroizer::ApiException) do
+        assert_raise(Xeroizer::XeroizerError) do
           @contact.save!
         end
       end
@@ -183,7 +183,7 @@ class RecordBaseTest < Test::Unit::TestCase
 
       must 'set errors updating records with #save!' do
         @contact.stubs(:new_record?).returns(false)
-        assert_raise(Xeroizer::ApiException) do
+        assert_raise(Xeroizer::XeroizerError) do
           @contact.save!
         end
         assert_equal([[:base, "Users Organisation is not subscribed to currency NZD"]], @contact.errors)
