@@ -71,7 +71,7 @@ module Xeroizer
 
       belongs_to    :contact
       has_many      :line_items
-      has_many      :allocations
+      has_many      :allocations, :list_complete => true
 
       validates_inclusion_of :type, :in => CREDIT_NOTE_TYPES
       validates_inclusion_of :status, :in => CREDIT_NOTE_STATUSES, :allow_blanks => true
