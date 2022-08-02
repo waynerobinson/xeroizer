@@ -38,6 +38,7 @@ module Xeroizer
       string        :account_number
       string        :name
       string        :tax_number
+      string        :company_number
       string        :bank_account_details
       string        :accounts_receivable_tax_type
       string        :accounts_payable_tax_type
