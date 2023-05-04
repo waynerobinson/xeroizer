@@ -20,7 +20,7 @@ module Xeroizer
       decimal :line_amount, :calculated => true
       decimal :discount_rate
       decimal :discount_amount
-      string  :line_item_id
+      guid  :line_item_id
 
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
 
