@@ -59,6 +59,7 @@ module Xeroizer
       datetime_utc  :created_date_utc, :api_name => 'CreatedDateUTC'
       string    :sales_tax_basis
       string    :sales_tax_period
+      string    :edition
 
       has_many :addresses
       has_many :phones
