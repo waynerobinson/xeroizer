@@ -106,7 +106,7 @@ module Xeroizer
               when :date
                 real_value = case value
                   when Date         then value.strftime("%Y-%m-%d")
-                  when Time         then value.utc.strftime("%Y-%m-%d")
+                  when Time         then value.strftime("%Y-%m-%d")
                   when NilClass     then nil
                   else raise ArgumentError.new("Expected Date or Time object for the #{field[:api_name]} field")
                 end
