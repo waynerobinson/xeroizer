@@ -186,6 +186,79 @@ class HttpTest < UnitTestCase
       end
     end
 
+    context "rate_limit_sleep with retry-after" do
+      setup do
+        @retry_after_seconds = 42
+        stub_request(:get, @uri).to_return(
+          status: 429,
+          body: "",
+          headers: {
+            "x-daylimit-remaining" => "328",
+            "retry-after" => @retry_after_seconds.to_s,
+          }
+        ).then.to_return(status: 200, body: "<Response/>")
+      end
+
+      context "when rate_limit_sleep is true" do
+        setup do
+          @application = Xeroizer::OAuth2Application.new(
+            CLIENT_ID, CLIENT_SECRET,
+            tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+            rate_limit_sleep: true
+          )
+        end
+
+        should "sleep for the retry-after duration from the response" do
+          @application.expects(:sleep_for).with(@retry_after_seconds)
+          @application.http_get(@application.client, @uri)
+        end
+      end
+
+      context "when rate_limit_sleep is a number" do
+        setup do
+          @application = Xeroizer::OAuth2Application.new(
+            CLIENT_ID, CLIENT_SECRET,
+            tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+            rate_limit_sleep: 5
+          )
+        end
+
+        should "sleep for the configured number of seconds" do
+          @application.expects(:sleep_for).with(5)
+          @application.http_get(@application.client, @uri)
+        end
+      end
+
+      context "when rate_limit_sleep is true but retry-after is missing" do
+        setup do
+          WebMock.reset!
+          stub_request(:get, @uri).to_return(
+            status: 429,
+            body: "",
+            headers: {}
+          ).then.to_return(status: 200, body: "<Response/>")
+          @application = Xeroizer::OAuth2Application.new(
+            CLIENT_ID, CLIENT_SECRET,
+            tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+            rate_limit_sleep: true
+          )
+        end
+
+        should "fall back to sleeping for 1 second" do
+          @application.expects(:sleep_for).with(1)
+          @application.http_get(@application.client, @uri)
+        end
+      end
+
+      context "when rate_limit_sleep is false" do
+        should "raise without retrying" do
+          assert_raises(Xeroizer::OAuth::RateLimitExceeded) {
+            @application.http_get(@application.client, @uri)
+          }
+        end
+      end
+    end
+
     context "503" do
       setup do
         @status_code = 503
