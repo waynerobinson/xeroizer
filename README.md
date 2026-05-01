@@ -587,15 +587,24 @@ By default, the library will raise a `Xeroizer::OAuth::RateLimitExceeded`
 exception when one of these limits is exceeded.
 
 If required, the library can handle these exceptions internally by sleeping
-for a configurable number of seconds and then repeating the last request.
-You can set this option when initializing an application:
+and then repeating the last request. You can set this option when initializing
+an application:
 
 ```ruby
-# Sleep for 2 seconds every time the rate limit is exceeded.
+# Sleep for the duration specified in Xero's Retry-After header.
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
+                                         :rate_limit_sleep => true)
+
+# Sleep for a fixed 2 seconds every time the rate limit is exceeded.
 client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
                                          YOUR_OAUTH2_CLIENT_SECRET,
                                          :rate_limit_sleep => 2)
 ```
+
+When set to `true`, the library uses the `Retry-After` value from the API
+response to determine how long to wait. When set to a number, it always
+sleeps for that many seconds instead.
 
 Xero API Nonce Used
 -------------------
