@@ -21,6 +21,7 @@ module Xeroizer
       string        :reference
       datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
       boolean       :is_reconciled
+      string        :batch_payment_id
 
       belongs_to    :account
       belongs_to    :invoice
