@@ -30,8 +30,7 @@ module Xeroizer
         def build(attributes, parent)
           record = new(parent)
           attributes.each do | key, value |
-            attr = record.respond_to?("#{key}=") || record.class.fields[key].nil? ? key : record.class.fields[key][:internal_name]
-            record.send("#{attr}=", value)
+            record.send("#{record.resolve_attribute_key(key)}=", value)
           end
           record
         end
@@ -67,9 +66,13 @@ module Xeroizer
           return unless new_attributes.is_a?(Hash)
           parent.mark_dirty(self) if parent
           new_attributes.each do | key, value |
-            attr = respond_to?("#{key}=") ? key : self.class.fields[key][:internal_name]
-            self.send("#{attr}=", value)
+            self.send("#{resolve_attribute_key(key)}=", value)
           end
+        end
+
+        def resolve_attribute_key(key)
+          field = self.class.fields[key]
+          respond_to?("#{key}=") || field.nil? ? key : field[:internal_name]
         end
 
         def update_attributes(attributes)
