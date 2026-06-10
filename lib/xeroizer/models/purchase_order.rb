@@ -1,21 +1,19 @@
-require "xeroizer/models/attachment"
+require 'xeroizer/models/attachment'
 
 module Xeroizer
   module Record
-    
     class PurchaseOrderModel < BaseModel
-        
       set_permissions :read, :write, :update
 
       include AttachmentModel::Extensions
     end
-    
+
     class PurchaseOrder < Base
       include Attachment::Extensions
-      
+
       set_primary_key :purchase_order_id
       set_possible_primary_keys :purchase_order_id
-      
+
       guid    :purchase_order_id
       string  :purchase_order_number
       string  :date_string
@@ -26,24 +24,23 @@ module Xeroizer
       string  :attention_to
       string  :telephone
       string  :delivery_instructions
-      boolean :has_errors 
-      boolean :is_discounted 
+      boolean :has_errors
+      boolean :is_discounted
       string  :reference
       string  :type
-      decimal  :currency_rate
+      decimal :currency_rate
       string  :currency_code
-      guid    :branding_theme_id 
-      string  :status 
+      guid    :branding_theme_id
+      string  :status
       string  :line_amount_types
       decimal  :sub_total
       decimal  :total_tax
-      decimal  :total 
-      datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      decimal  :total
+      datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
       boolean :has_attachments
 
-      has_many     :line_items
-      belongs_to :contact, :model_name => 'Contact'      
+      has_many :line_items
+      belongs_to :contact, model_name: 'Contact'
     end
-    
   end
 end

@@ -1,12 +1,9 @@
 module Xeroizer
   module Record
-
     class OverpaymentModel < BaseModel
-
       set_xml_root_name 'Overpayments'
       set_api_controller_name 'Overpayment'
       set_permissions :read
-
     end
 
     class Overpayment < Base
@@ -19,7 +16,7 @@ module Xeroizer
       decimal       :sub_total
       decimal       :total_tax
       decimal       :total
-      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
       string        :currency_code
       string        :type
       decimal       :remaining_credit
@@ -34,7 +31,6 @@ module Xeroizer
       def contact_id
         contact.id if contact
       end
-
     end
   end
 end

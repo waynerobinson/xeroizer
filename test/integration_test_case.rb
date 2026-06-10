@@ -1,5 +1,5 @@
-require "test_helper"
-require "vcr_setup"
+require 'test_helper'
+require 'vcr_setup'
 
 # Base class for integration tests. Each test replays a recorded Xero API
 # interaction (a "cassette" under test/fixtures/vcr_cassettes/), so the suite
@@ -26,8 +26,8 @@ class IntegrationTestCase < Minitest::Test
       )
     end
 
-    def it_works_using_oauth2(&block)
-      instance_exec(oauth2_client, "oauth2", &block)
+    def it_works_using_oauth2(&)
+      instance_exec(oauth2_client, 'oauth2', &)
     end
 
     def log_to_console

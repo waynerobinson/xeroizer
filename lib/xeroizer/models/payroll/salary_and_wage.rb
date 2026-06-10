@@ -1,17 +1,16 @@
 module Xeroizer
   module Record
     module Payroll
-
       class SalaryAndWageModel < PayrollBaseModel
-
       end
 
       class SalaryAndWage < PayrollBase
-
-        SALARY_AND_WAGE_TYPE = {
-          'HOURLY' => '',
-          'SALARY' => ''
-        } unless defined?(SALARY_AND_WAGE_TYPE)
+        unless defined?(SALARY_AND_WAGE_TYPE)
+          SALARY_AND_WAGE_TYPE = {
+            'HOURLY' => '',
+            'SALARY' => ''
+          }
+        end
 
         guid          :salary_and_wages_id
         guid          :earnings_type_id
@@ -21,8 +20,8 @@ module Xeroizer
         decimal       :standard_hours_per_week
         datetime      :effective_date
 
-        validates_presence_of :salary_and_wage_id, :unless => :new_record?
-        validates_inclusion_of :salary_wages_type, :in => SALARY_AND_WAGE_TYPE
+        validates_presence_of :salary_and_wage_id, unless: :new_record?
+        validates_inclusion_of :salary_wages_type, in: SALARY_AND_WAGE_TYPE
       end
     end
   end

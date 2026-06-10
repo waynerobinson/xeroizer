@@ -17,17 +17,17 @@ module Xeroizer
       string  :account_code
       string  :tax_type
       decimal :tax_amount
-      decimal :line_amount, :calculated => true
+      decimal :line_amount, calculated: true
       decimal :discount_rate
       decimal :discount_amount
-      guid  :line_item_id
+      guid :line_item_id
 
-      has_many  :tracking, :model_name => 'TrackingCategoryChild'
+      has_many :tracking, model_name: 'TrackingCategoryChild'
 
-      validates_presence_of :description, :unless => Proc.new { |line_item| line_item.item_code.present? }
+      validates_presence_of :description, unless: proc { |line_item| line_item.item_code.present? }
 
       def initialize(parent)
-        super(parent)
+        super
         @line_amount_set = false
       end
 
@@ -41,15 +41,15 @@ module Xeroizer
       def line_amount(summary_only = false)
         return attributes[:line_amount] if summary_only || @line_amount_set
 
-        if quantity && unit_amount
-          total = coerce_numeric(quantity) * coerce_numeric(unit_amount)
-          if discount_rate.nonzero?
-            BigDecimal((total * ((100 - discount_rate.to_f) / 100)).to_s).round(2)
-          elsif discount_amount
-            BigDecimal((total - discount_amount).to_s).round(2)
-          else
-            BigDecimal(total.to_s).round(2)
-          end
+        return unless quantity && unit_amount
+
+        total = coerce_numeric(quantity) * coerce_numeric(unit_amount)
+        if discount_rate.nonzero?
+          BigDecimal((total * ((100 - discount_rate.to_f) / 100)).to_s).round(2)
+        elsif discount_amount
+          BigDecimal((total - discount_amount).to_s).round(2)
+        else
+          BigDecimal(total.to_s).round(2)
         end
       end
 
@@ -57,10 +57,9 @@ module Xeroizer
 
       def coerce_numeric(number)
         return number if number.is_a? Numeric
+
         BigDecimal(number)
       end
-
     end
-
   end
 end

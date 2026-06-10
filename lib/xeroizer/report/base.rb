@@ -8,35 +8,18 @@ require 'xeroizer/report/xml_helper'
 module Xeroizer
   module Report
     class Base
-      
       include XmlHelper
-      
+
       attr_reader :factory
-      
-      attr_accessor :id
-      attr_accessor :name
-      attr_accessor :type
-      attr_accessor :titles
-      attr_accessor :date
-      attr_accessor :updated_at
-      
-      attr_accessor :rows
-      
-      attr_accessor :header
-      attr_accessor :summary
-      attr_accessor :sections
-            
-      public
-      
-        def initialize(factory)
-          @titles = []
-          @rows = []
-          @sections = []
-          @factory = factory
-        end
-      
-      protected
-                  
+
+      attr_accessor :id, :name, :type, :titles, :date, :updated_at, :rows, :header, :summary, :sections
+
+      def initialize(factory)
+        @titles = []
+        @rows = []
+        @sections = []
+        @factory = factory
+      end
     end
   end
 end

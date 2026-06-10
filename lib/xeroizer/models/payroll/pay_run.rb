@@ -1,15 +1,11 @@
 module Xeroizer
   module Record
     module Payroll
-
       class PayRunModel < PayrollBaseModel
-
         set_permissions :read, :write, :update
-
       end
 
       class PayRun < PayrollBase
-
         set_primary_key :pay_run_id
 
         guid :pay_run_id
@@ -23,10 +19,9 @@ module Xeroizer
         decimal :reimbursement
         decimal :net_pay
         decimal :tax
-        datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
+        datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
 
         has_many :paystubs
-
       end
     end
   end

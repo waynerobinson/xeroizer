@@ -8,8 +8,8 @@ class ManualJournalTest < Minitest::Test
     mock_api('ManualJournals')
   end
 
-  context "paging" do
-    should "have journal lines without downloading full manual journal when paging" do
+  context 'paging' do
+    should 'have journal lines without downloading full manual journal when paging' do
       manual_journals = @client.ManualJournal.all(page: 1)
 
       manual_journals.each do |manual_journal|

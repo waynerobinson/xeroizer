@@ -5,13 +5,12 @@ class CreditNoteTest < Minitest::Test
 
   def setup
     @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
-    mock_api("CreditNotes")
+    mock_api('CreditNotes')
     @credit_note = @client.CreditNote.first
   end
 
-  context "credit note totals" do
-
-    should "raise error when trying to set totals directly" do
+  context 'credit note totals' do
+    should 'raise error when trying to set totals directly' do
       assert_raises Xeroizer::SettingTotalDirectlyNotSupported do
         @credit_note.sub_total = 500.0
       end
@@ -23,15 +22,13 @@ class CreditNoteTest < Minitest::Test
       end
     end
 
-    should "large-scale testing from API XML" do
+    should 'large-scale testing from API XML' do
       credit_notes = @client.CreditNote.all
-      credit_notes.each do | credit_note |
+      credit_notes.each do |credit_note|
         assert_equal(credit_note.attributes[:sub_total], credit_note.sub_total)
         assert_equal(credit_note.attributes[:total_tax], credit_note.total_tax)
         assert_equal(credit_note.attributes[:total], credit_note.total)
       end
     end
-
   end
-
 end

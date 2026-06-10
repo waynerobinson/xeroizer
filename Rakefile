@@ -6,11 +6,11 @@ require 'yard'
 require 'bundler/gem_tasks'
 
 desc 'Default: run all tests.'
-task :default => :test
+task default: :test
 
 desc 'Run all tests (unit + integration).'
 # Separate processes: the unit suite's WebMock teardown would clash with VCR in-process.
-task :test => ['test:unit', 'test:integration']
+task test: ['test:unit', 'test:integration']
 
 namespace :test do
   desc 'Run unit tests'

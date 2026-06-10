@@ -1,20 +1,16 @@
-require "xeroizer/models/payment_service"
+require 'xeroizer/models/payment_service'
 
 module Xeroizer
   module Record
-
     class BrandingThemeModel < BaseModel
-
       set_permissions :read, :write
-
-      public
 
       def payment_services(id)
         @payment_services ||= @application.http_get(@application.client, payment_services_endpoint(id))
       end
 
       def add_payment_service(id:, payment_service_id:)
-        b = Builder::XmlMarkup.new(:indent => 2)
+        b = Builder::XmlMarkup.new(indent: 2)
         xml = b.tag!('PaymentService') do
           b.tag!('PaymentServiceID', payment_service_id)
         end
@@ -27,17 +23,15 @@ module Xeroizer
       def payment_services_endpoint(id)
         "#{url}/#{id}/PaymentServices"
       end
-
     end
 
     class BrandingTheme < Base
-
       set_primary_key :branding_theme_id
 
       guid      :branding_theme_id
       string    :name
       integer   :sort_order
-      datetime_utc  :created_date_utc, :api_name => 'CreatedDateUTC'
+      datetime_utc :created_date_utc, api_name: 'CreatedDateUTC'
 
       # Unfortunately, this part of the API does not work the same as the rest.
       # You cannot POST child records to Branding Themes.
@@ -56,6 +50,5 @@ module Xeroizer
         parent.add_payment_service(id: id, payment_service_id: payment_service_id)
       end
     end
-
   end
 end

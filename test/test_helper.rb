@@ -1,4 +1,4 @@
-require "rubygems"
+require 'rubygems'
 
 require 'minitest/autorun'
 require 'mocha/minitest'
@@ -7,10 +7,9 @@ require 'pp'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
-$: << File.join(File.dirname(__FILE__), "integration")
+$: << File.join(File.dirname(__FILE__), 'integration')
 
 module TestHelper
-
   # The integration tests can be run against the Xero test environment.  You must have a company set up in the test
   # environment, and you must have set up a customer key for that account.
   #
@@ -19,20 +18,20 @@ module TestHelper
   # rake test
   #
 
-  $VERBOSE=nil
+  $VERBOSE = nil
 
-  STUB_XERO_CALLS   = ENV["STUB_XERO_CALLS"].nil? ? true : (ENV["STUB_XERO_CALLS"] == "true") unless defined? STUB_XERO_CALLS
+  STUB_XERO_CALLS = ENV['STUB_XERO_CALLS'].nil? || (ENV['STUB_XERO_CALLS'] == 'true') unless defined? STUB_XERO_CALLS
 
-  CLIENT_ID     = ENV["XERO_CLIENT_ID"]     || "fake_client_id"     unless defined?(CLIENT_ID)
-  CLIENT_SECRET = ENV["XERO_CLIENT_SECRET"] || "fake_client_secret" unless defined?(CLIENT_SECRET)
-  ACCESS_TOKEN = ENV["XERO_ACCESS_TOKEN"] || "fake_access_token" unless defined?(ACCESS_TOKEN)
-  TENANT_ID = ENV["XERO_TENANT_ID"] || "fake_tenant_id" unless defined?(TENANT_ID)
+  CLIENT_ID     = ENV['XERO_CLIENT_ID']     || 'fake_client_id'     unless defined?(CLIENT_ID)
+  CLIENT_SECRET = ENV['XERO_CLIENT_SECRET'] || 'fake_client_secret' unless defined?(CLIENT_SECRET)
+  ACCESS_TOKEN = ENV['XERO_ACCESS_TOKEN'] || 'fake_access_token' unless defined?(ACCESS_TOKEN)
+  TENANT_ID = ENV['XERO_TENANT_ID'] || 'fake_tenant_id' unless defined?(TENANT_ID)
 
   # Helper constant for checking regex
   GUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/ unless defined?(GUID_REGEX)
 
   def get_file_as_string(filename)
-    File.read(File.dirname(__FILE__) + "/stub_responses/" + filename)
+    File.read(File.dirname(__FILE__) + '/stub_responses/' + filename)
   end
 
   def get_record_xml(type, id = nil)
@@ -48,19 +47,26 @@ module TestHelper
   end
 
   def mock_api(model_name)
-    @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}$/ }.returns(get_record_xml(model_name.underscore.pluralize.to_s.to_sym))
-    @client.send(model_name.singularize.to_s.to_sym).all.each do | record |
-      @client.stubs(:http_get).with {|client, url, params| url =~ /#{model_name}\/#{record.id}$/ }.returns(get_record_xml(model_name.underscore.singularize.to_s.to_sym, record.id))
+    @client.stubs(:http_get).with do |_client, url, _params|
+      url =~ /#{model_name}$/
+    end.returns(get_record_xml(model_name.underscore.pluralize.to_s.to_sym))
+    @client.send(model_name.singularize.to_s.to_sym).all.each do |record|
+      @client.stubs(:http_get).with do |_client, url, _params|
+        url =~ %r{#{model_name}/#{record.id}$}
+      end.returns(get_record_xml(model_name.underscore.singularize.to_s.to_sym,
+                                 record.id))
     end
   end
 
   def mock_report_api(report_type)
-    @client.stubs(:http_get).with { | client, url, params | url =~ /Reports\/#{report_type}$/ }.returns(get_report_xml(report_type))
+    @client.stubs(:http_get).with do |_client, url, _params|
+      url =~ %r{Reports/#{report_type}$}
+    end.returns(get_report_xml(report_type))
   end
 end
 
 Shoulda::Context::DSL::ClassMethods.class_eval do
-  %w{it must can}.each do |m|
+  %w[it must can].each do |m|
     alias_method m, :should
   end
 

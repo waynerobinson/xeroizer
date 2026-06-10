@@ -1,14 +1,11 @@
 module Xeroizer
   module Record
-    
     class JournalLineModel < BaseModel
-        
     end
-    
+
     class JournalLine < Base
-      
       set_primary_key :journal_line_id
-      
+
       guid     :journal_line_id
       guid     :account_id
       string   :account_code
@@ -21,9 +18,7 @@ module Xeroizer
       string   :tax_name
       string   :description
 
-      has_many :tracking_categories, :model_name => 'JournalLineTrackingCategory'
-       
+      has_many :tracking_categories, model_name: 'JournalLineTrackingCategory'
     end
-    
   end
 end

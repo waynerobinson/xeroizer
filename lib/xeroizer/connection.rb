@@ -7,12 +7,10 @@ module Xeroizer
       def current_connections(client)
         response = do_request(client)
 
-        if response.success?
-          JSON.parse(response.plain_body).map do |connection_json|
-            build(connection_json, client)
-          end
-        else
-          raise Xeroizer::OAuth::TokenInvalid, response.plain_body
+        raise Xeroizer::OAuth::TokenInvalid, response.plain_body unless response.success?
+
+        JSON.parse(response.plain_body).map do |connection_json|
+          build(connection_json, client)
         end
       end
 

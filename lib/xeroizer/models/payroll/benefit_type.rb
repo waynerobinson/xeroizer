@@ -1,29 +1,27 @@
 module Xeroizer
   module Record
     module Payroll
-
       class BenefitTypeModel < PayrollBaseModel
-
         set_permissions :read
-
       end
 
       class BenefitType < PayrollBase
-
-        BENEFIT_CATEGORIES = {
-          'AFTERTAXBENEFIT' => '',
-          'DEPENDENTCARE' => '',
-          'FLEXIBLESPENDINGACCOUNT' => '',
-          'HEALTHSAVINGSACCOUNTSINGLEPLAN' => '',
-          'HEALTHSAVINGSACCOUNTFAMILYPLAN' => '',
-          'ROTH401KREITREMENTPLAN' => '',
-          'ROTH403BRETIREMENTPLAN' => '',
-          'SECTION125PLAN' => '',
-          'SIMPLEIRARETIREMENTPLAN' => '',
-          '401KRETIREMENTPLAN' => '',
-          '403BRETIREMENTPLAN' => '',
-          '457RETIREMENTPLAN' => ''
-        } unless defined?(BENEFIT_CATEGORIES)
+        unless defined?(BENEFIT_CATEGORIES)
+          BENEFIT_CATEGORIES = {
+            'AFTERTAXBENEFIT' => '',
+            'DEPENDENTCARE' => '',
+            'FLEXIBLESPENDINGACCOUNT' => '',
+            'HEALTHSAVINGSACCOUNTSINGLEPLAN' => '',
+            'HEALTHSAVINGSACCOUNTFAMILYPLAN' => '',
+            'ROTH401KREITREMENTPLAN' => '',
+            'ROTH403BRETIREMENTPLAN' => '',
+            'SECTION125PLAN' => '',
+            'SIMPLEIRARETIREMENTPLAN' => '',
+            '401KRETIREMENTPLAN' => '',
+            '403BRETIREMENTPLAN' => '',
+            '457RETIREMENTPLAN' => ''
+          }
+        end
 
         set_primary_key :benefit_type_id
 
@@ -37,8 +35,7 @@ module Xeroizer
         decimal :percentage
         boolean :show_balance_on_paystub
 
-        validates_inclusion_of :benefit_category, :in => BENEFIT_CATEGORIES
-
+        validates_inclusion_of :benefit_category, in: BENEFIT_CATEGORIES
       end
     end
   end

@@ -1,8 +1,8 @@
 module ClassLevelInheritableAttributes
   def self.included(base)
-    base.extend(ClassMethods)    
+    base.extend(ClassMethods)
   end
-  
+
   module ClassMethods
     def class_inheritable_attributes(*args)
       @xeroizer_inheritable_attributes ||= [:inheritable_attributes]
@@ -10,19 +10,19 @@ module ClassLevelInheritableAttributes
       args.each do |arg|
         class_eval %(
           class << self; attr_accessor :#{arg} end
-        )
+        ), __FILE__, __LINE__ - 2
       end
       @xeroizer_inheritable_attributes
     end
-    
+
     def inherited(subclass)
-      original_verbose, $VERBOSE = $VERBOSE, nil
+      original_verbose = $VERBOSE
+      $VERBOSE = nil
       @xeroizer_inheritable_attributes.each do |inheritable_attribute|
         instance_var = "@#{inheritable_attribute}"
         subclass.instance_variable_set(instance_var, instance_variable_get(instance_var))
       end
       $VERBOSE = original_verbose
-
     end
   end
 end

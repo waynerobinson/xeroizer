@@ -1,69 +1,69 @@
-require "integration_test_case"
+require 'integration_test_case'
 
 class AboutCreatingBankTransactions < IntegrationTestCase
   def assert_exists(bank_transaction, client)
     refute_nil bank_transaction.id,
-                   "Cannot check for exitence unless the bank transaction has non-null identifier"
+               'Cannot check for exitence unless the bank transaction has non-null identifier'
     refute_nil client.BankTransaction.find bank_transaction.id
   end
 
   def any_line_items(account)
     [{
-         :description => "Clingfilm bike shorts",
-         :quantity => 1,
-         :unit_amount => "17.00",
-         :account_code => account.code,
-         :tax_type => account.tax_type
-     }]
+      description: 'Clingfilm bike shorts',
+      quantity: 1,
+      unit_amount: '17.00',
+      account_code: account.code,
+      tax_type: account.tax_type
+    }]
   end
 
   def get_inclusive_tax(amount, tax_rate)
-    inclusive_tax = amount * (1 - (100/(100 + tax_rate)))
+    inclusive_tax = amount * (1 - (100 / (100 + tax_rate)))
     BigDecimal(inclusive_tax.to_s).round(2)
   end
 
   def get_exclusive_tax(amount, tax_rate)
-    exclusive_tax = amount * (tax_rate/100)
+    exclusive_tax = amount * (tax_rate / 100)
     BigDecimal(exclusive_tax.to_s).round(2)
   end
 
   def get_tax_rate(tax_type, client)
     @all_tax_types ||= client.TaxRate.all
-    @all_tax_types.select{|tax_rate| tax_rate.tax_type == tax_type}.first
+    @all_tax_types.select { |tax_rate| tax_rate.tax_type == tax_type }.first
   end
 
   def setup
     @client = oauth2_client
     all_accounts = @client.Account.all
-    @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
-    @bank_account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "BANK"}.first
+    @account = all_accounts.select { |acct| acct.status == 'ACTIVE' && acct.type == 'REVENUE' }.first
+    @bank_account = all_accounts.select { |acct| acct.status == 'ACTIVE' && acct.type == 'BANK' }.first
   end
 
-  can "create a new SPEND bank transaction" do
+  can 'create a new SPEND bank transaction' do
     new_transaction = @client.BankTransaction.build(
-        :type => "SPEND",
-        :contact => { :name => "Jazz Kang" },
-        :line_items => any_line_items(@account),
-        :bank_account => { :account_id => @bank_account.account_id }
+      type: 'SPEND',
+      contact: { name: 'Jazz Kang' },
+      line_items: any_line_items(@account),
+      bank_account: { account_id: @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
     assert_exists(new_transaction, @client)
   end
 
-  can "update a SPEND bank transaction, for example by setting its status" do
+  can 'update a SPEND bank transaction, for example by setting its status' do
     new_transaction = @client.BankTransaction.build(
-        :type => "SPEND",
-        :contact => { :name => "Jazz Kang" },
-        :line_items => any_line_items(@account),
-        :bank_account => { :account_id => @bank_account.account_id }
+      type: 'SPEND',
+      contact: { name: 'Jazz Kang' },
+      line_items: any_line_items(@account),
+      bank_account: { account_id: @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
 
     assert_exists new_transaction, @client
 
-    the_new_type = "RECEIVE"
+    the_new_type = 'RECEIVE'
 
     expected_id = new_transaction.id
 
@@ -71,7 +71,7 @@ class AboutCreatingBankTransactions < IntegrationTestCase
 
     assert new_transaction.save, "Update failed with the following errors: #{new_transaction.errors.inspect}"
 
-    assert_equal expected_id, new_transaction.id, "Expected the id to be the same because it has been updated"
+    assert_equal expected_id, new_transaction.id, 'Expected the id to be the same because it has been updated'
 
     refreshed_bank_transaction = @client.BankTransaction.find expected_id
 
@@ -79,13 +79,13 @@ class AboutCreatingBankTransactions < IntegrationTestCase
                  "Expected the bank transaction to've had its type updated"
   end
 
-  can "update a bank transaction by adding line items provided you calculate the tax_amount correctly" do
+  can 'update a bank transaction by adding line items provided you calculate the tax_amount correctly' do
     new_transaction = @client.BankTransaction.build(
-        :type => "SPEND",
-        :contact => { :name => "Jazz Kang" },
-        :line_items => any_line_items(@account),
-        :bank_account => { :account_id => @bank_account.account_id },
-        :line_amount_types => "Exclusive"
+      type: 'SPEND',
+      contact: { name: 'Jazz Kang' },
+      line_items: any_line_items(@account),
+      bank_account: { account_id: @bank_account.account_id },
+      line_amount_types: 'Exclusive'
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
@@ -95,17 +95,17 @@ class AboutCreatingBankTransactions < IntegrationTestCase
 
     tax_rate = get_tax_rate(@account.tax_type, @client).effective_rate
 
-    unit_price = BigDecimal("1337.00")
+    unit_price = BigDecimal('1337.00')
 
     the_new_line_items = [
-        {
-            :description => "Burrito skin",
-            :quantity => 1,
-            :unit_amount => unit_price,
-            :account_code => @account.code,
-            :tax_type => @account.tax_type,
-            :tax_amount => get_exclusive_tax(unit_price, tax_rate)
-        }
+      {
+        description: 'Burrito skin',
+        quantity: 1,
+        unit_amount: unit_price,
+        account_code: @account.code,
+        tax_type: @account.tax_type,
+        tax_amount: get_exclusive_tax(unit_price, tax_rate)
+      }
     ]
 
     new_transaction.line_items = the_new_line_items
@@ -115,39 +115,37 @@ class AboutCreatingBankTransactions < IntegrationTestCase
     refreshed_bank_transaction = @client.BankTransaction.find expected_id
 
     assert_equal expected_id, new_transaction.id,
-                 "Expected the id to be the same because it has been updated"
+                 'Expected the id to be the same because it has been updated'
 
     assert_equal 1, refreshed_bank_transaction.line_items.size,
                  "Expected the bank transaction to've had its line items updated to just one"
 
     the_first_line_item = refreshed_bank_transaction.line_items.first
 
-    assert_equal "Burrito skin", the_first_line_item.description,
+    assert_equal 'Burrito skin', the_first_line_item.description,
                  "Expected the bank transaction to've had its line items updated, " +
-                     "but the first one's description does not match: #{the_first_line_item.inspect}"
+                 "but the first one's description does not match: #{the_first_line_item.inspect}"
   end
 
-  can "create a new RECEIVE bank transaction" do
+  can 'create a new RECEIVE bank transaction' do
     new_transaction = @client.BankTransaction.build(
-        :type => "RECEIVE",
-        :contact => { :name => "Jazz Kang" },
-        :line_items => any_line_items(@account),
-        :bank_account => { :account_id => @bank_account.account_id }
+      type: 'RECEIVE',
+      contact: { name: 'Jazz Kang' },
+      line_items: any_line_items(@account),
+      bank_account: { account_id: @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"
     assert_exists new_transaction, @client
   end
 
-  it "treats line item unit_amounts as tax EXCLUSIVE"
-  must "not set the tax_amount manually on line items"
+  it 'treats line item unit_amounts as tax EXCLUSIVE'
+  must 'not set the tax_amount manually on line items'
 
-
-
-  it "fails with ApiException when you try and create a new bank account with missing account type with save! method" do
+  it 'fails with ApiException when you try and create a new bank account with missing account type with save! method' do
     new_account = @client.Account.build(
-        :name => "Example bank account",
-        :code => "ACC-001"
+      name: 'Example bank account',
+      code: 'ACC-001'
     )
 
     assert_raises Xeroizer::ApiException do
@@ -155,13 +153,12 @@ class AboutCreatingBankTransactions < IntegrationTestCase
     end
   end
 
-  it "returns false when you try and create a new bank account with a missing account type with save method" do
+  it 'returns false when you try and create a new bank account with a missing account type with save method' do
     new_account = @client.Account.build(
-        :name => "Example bank account",
-        :code => "ACC-001"
+      name: 'Example bank account',
+      code: 'ACC-001'
     )
 
-    assert new_account.save == false, "Account save method expected to return false"
-
+    assert new_account.save == false, 'Account save method expected to return false'
   end
 end

@@ -1,6 +1,5 @@
 module Xeroizer
   module Record
-
     class BatchPaymentModel < BaseModel
       set_permissions :read, :write
     end
@@ -18,7 +17,7 @@ module Xeroizer
       decimal :total_amount
       boolean :is_reconciled
 
-      datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
 
       belongs_to :account
       has_many   :payments

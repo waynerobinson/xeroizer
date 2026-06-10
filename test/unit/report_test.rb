@@ -7,45 +7,44 @@ class FactoryTest < Minitest::Test
 
   def setup
     @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
-    mock_report_api("TrialBalance")
+    mock_report_api('TrialBalance')
     @report = @client.TrialBalance.get
   end
 
-  context "report factory" do
-
-    should "have correct API-part of URL based on its type" do
-      [
-        :AgedPayablesByContact, :AgedReceivablesByContact, :BalanceSheet, :BankStatement, :BankSummary,
-        :BudgetSummary, :ExecutiveSummary, :ProfitAndLoss, :TrialBalance
-      ].each do | report_type |
+  context 'report factory' do
+    should 'have correct API-part of URL based on its type' do
+      %i[
+        AgedPayablesByContact AgedReceivablesByContact BalanceSheet BankStatement BankSummary
+        BudgetSummary ExecutiveSummary ProfitAndLoss TrialBalance
+      ].each do |report_type|
         report_factory = @client.send(report_type)
         assert_equal("Reports/#{report_type}", report_factory.api_controller_name)
       end
     end
 
-    should "build report model from XML" do
+    should 'build report model from XML' do
       assert_kind_of(Xeroizer::Report::Base, @report)
     end
 
-    should "have all attributes in report summary" do
-      assert_equal("TrialBalance", @report.id)
-      assert_equal("TrialBalance", @report.type)
-      assert_equal("Trial Balance", @report.name)
+    should 'have all attributes in report summary' do
+      assert_equal('TrialBalance', @report.id)
+      assert_equal('TrialBalance', @report.type)
+      assert_equal('Trial Balance', @report.name)
       assert_equal(['Trial Balance', 'Demo Company (AU)', 'As at 23 March 2011'], @report.titles)
       assert_equal(Date.parse('2011-03-23'), @report.date)
       assert_equal(Time.parse('2011-03-23T00:29:12.6021453Z'), @report.updated_at)
     end
 
-    should "have valid rows" do
+    should 'have valid rows' do
       refute_equal(0, @report.rows.size)
-      @report.rows.each do | row |
+      @report.rows.each do |row|
         assert_kind_of(Xeroizer::Report::Row, row)
-        assert(%w(Header Row SummaryRow Section).include?(row.type), "'#{row.type}' is not a valid row type.")
+        assert(%w[Header Row SummaryRow Section].include?(row.type), "'#{row.type}' is not a valid row type.")
       end
     end
 
-    should "have cells and no rows if not Section" do
-      @report.rows.each do | row |
+    should 'have cells and no rows if not Section' do
+      @report.rows.each do |row|
         if row.type != 'Section'
           refute_equal(0, row.cells.size)
           assert_equal(0, row.rows.size)
@@ -53,8 +52,8 @@ class FactoryTest < Minitest::Test
       end
     end
 
-    should "have rows and no cells if Section" do
-      @report.rows.each do | row |
+    should 'have rows and no cells if Section' do
+      @report.rows.each do |row|
         if row.type == 'Section'
           assert_equal(0, row.cells.size)
           refute_equal(0, row.rows.size)
@@ -62,11 +61,11 @@ class FactoryTest < Minitest::Test
       end
     end
 
-    should "convert cells to BigDecimal where possible" do
+    should 'convert cells to BigDecimal where possible' do
       def assess_row(row)
         return 0 unless row.row? || row.summary?
 
-        row.cells.select {|cell| cell.value.is_a?(BigDecimal) && cell.value > 0}.length
+        row.cells.select { |cell| cell.value.is_a?(BigDecimal) && cell.value > 0 }.length
       end
 
       counter = 0
@@ -80,75 +79,76 @@ class FactoryTest < Minitest::Test
           counter += assess_row(row)
         end
       end
-      refute_equal(0, counter, "at least one converted number in the report should be greater than 0")
+      refute_equal(0, counter, 'at least one converted number in the report should be greater than 0')
     end
 
-    should "be at least one Section row with a title" do
+    should 'be at least one Section row with a title' do
       counter = 0
-      @report.rows.each do | row |
+      @report.rows.each do |row|
         counter += 1 if row.section? && row.title.to_s != ''
       end
       refute_equal(0, counter, "at least one row with type 'Section' should have a title")
     end
 
-    should "have working report type helpers" do
-      @report.rows.each do | row |
+    should 'have working report type helpers' do
+      @report.rows.each do |row|
         check_valid_report_type(row)
 
         next unless row.type == 'Section'
+
         row.rows.each do |inner_row|
           check_valid_report_type(inner_row)
         end
       end
     end
 
-    should "have valid header row" do
+    should 'have valid header row' do
       assert_kind_of(Xeroizer::Report::HeaderRow, @report.header)
-      assert_equal(['Account', 'Debit', 'Credit', 'YTD Debit', 'YTD Credit'], @report.header.cells.map { | c | c.value })
+      assert_equal(['Account', 'Debit', 'Credit', 'YTD Debit', 'YTD Credit'], @report.header.cells.map do |c|
+        c.value
+      end)
     end
 
-    should "have sections" do
+    should 'have sections' do
       refute_equal(0, @report.sections)
-      @report.sections.each do | section |
+      @report.sections.each do |section|
         assert_kind_of(Xeroizer::Report::SectionRow, section)
       end
     end
 
-    should "have summary" do
+    should 'have summary' do
       assert_kind_of(Xeroizer::Report::SummaryRow, @report.summary)
-      assert_equal(['Total', '33244.04', '33244.04', '80938.93', '80938.93'], @report.summary.cells.map { | c | c.value.to_s })
+      assert_equal(['Total', '33244.04', '33244.04', '80938.93', '80938.93'], @report.summary.cells.map do |c|
+        c.value.to_s
+      end)
     end
 
-    should "have summary on final section for trial balance (which has a blank title)" do
+    should 'have summary on final section for trial balance (which has a blank title)' do
       section = @report.sections.last
       summary = section.rows.last
       assert_kind_of(Xeroizer::Report::SummaryRow, summary)
       assert_nil(section.title)
-      assert_equal(['Total', '33244.04', '33244.04', '80938.93', '80938.93'], summary.cells.map { | c | c.value.to_s })
+      assert_equal(['Total', '33244.04', '33244.04', '80938.93', '80938.93'], summary.cells.map { |c| c.value.to_s })
     end
-
   end
 
-  context "report factory in the dirty real world" do
-
-    should "not use inheritance to find report class" do
+  context 'report factory in the dirty real world' do
+    should 'not use inheritance to find report class' do
       report = Xeroizer::Report::Factory.new(@client, :MockNonReportClassDefinition).klass
       assert_equal(Xeroizer::Report::Base, report)
     end
-
   end
 
   private
 
-    def check_valid_report_type(row)
-      case row.type
-        when 'Header'       then assert_equal(true, row.header?)
-        when 'Row'          then assert_equal(true, row.row?)
-        when 'SummaryRow'   then assert_equal(true, row.summary?)
-        when 'Section'      then assert_equal(true, row.section?)
-        else
-          assert(false, "Invalid type: #{row.type}")
-      end
+  def check_valid_report_type(row)
+    case row.type
+    when 'Header'       then assert_equal(true, row.header?)
+    when 'Row'          then assert_equal(true, row.row?)
+    when 'SummaryRow'   then assert_equal(true, row.summary?)
+    when 'Section'      then assert_equal(true, row.section?)
+    else
+      assert(false, "Invalid type: #{row.type}")
     end
-
+  end
 end

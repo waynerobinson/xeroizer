@@ -1,12 +1,10 @@
 module Xeroizer
   module ApplicationHttpProxy
-    
     def self.included(base)
       base.send :include, InstanceMethods
     end
-    
+
     module InstanceMethods
-      
       # URL end-point for this model.
       def url
         @application.xero_url + '/' + api_controller_name
@@ -23,8 +21,6 @@ module Xeroizer
       def http_post(xml, extra_params = {})
         application.http_post(application.client, url, xml, extra_params)
       end
-      
     end
-    
   end
 end

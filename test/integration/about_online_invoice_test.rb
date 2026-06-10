@@ -1,20 +1,21 @@
-require "integration_test_case"
+require 'integration_test_case'
 
 class AboutGetOnlineInvoiceUrl < IntegrationTestCase
   def setup
     @client = oauth2_client
-    @invoice = @client.Invoice.all(:where => 'Type=="ACCREC"').first
-    @invoice_acc_pay = @client.Invoice.all(:where => 'Type=="ACCPAY"').first
+    @invoice = @client.Invoice.all(where: 'Type=="ACCREC"').first
+    @invoice_acc_pay = @client.Invoice.all(where: 'Type=="ACCPAY"').first
   end
 
-  can "Request OnlineInvoice of an AccRec invoice" do
+  can 'Request OnlineInvoice of an AccRec invoice' do
     @online_invoice = @invoice.online_invoice
 
-    assert @online_invoice.online_invoice_url, "online_invoice_url not found"
-    assert @online_invoice.online_invoice_url.start_with?('https://in.xero.com/'), "online_invoice_url returned in unexpected format"
+    assert @online_invoice.online_invoice_url, 'online_invoice_url not found'
+    assert @online_invoice.online_invoice_url.start_with?('https://in.xero.com/'),
+           'online_invoice_url returned in unexpected format'
   end
 
-  can "Not request OnlineInvoice of an AccPay invoice" do
+  can 'Not request OnlineInvoice of an AccPay invoice' do
     assert_raises do
       @online_invoice_acc_pay = @invoice_acc_pay.online_invoice
     end

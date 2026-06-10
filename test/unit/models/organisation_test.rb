@@ -7,46 +7,46 @@ class OrganisationTest < Minitest::Test
     @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
   end
 
-  context "sales_tax_basis_validations" do
-    should "allow nil sales tax bases and countries" do
+  context 'sales_tax_basis_validations' do
+    should 'allow nil sales tax bases and countries' do
       organisation = @client.Organisation.build
 
       assert(organisation.valid?)
     end
 
     it 'should validate sales_tax_basis' do
-      organisation = @client.Organisation.build(:sales_tax_basis => "Cat")
+      organisation = @client.Organisation.build(sales_tax_basis: 'Cat')
 
       assert(!organisation.valid?)
 
-      organisation.sales_tax_basis = "ACCRUALS"
+      organisation.sales_tax_basis = 'ACCRUALS'
 
       assert(organisation.valid?)
     end
 
     it 'should validate sales_tax_basis for a specific country like NZ' do
-      organisation = @client.Organisation.build(:sales_tax_basis => "FLATRATECASH", :country_code => "NZ")
+      organisation = @client.Organisation.build(sales_tax_basis: 'FLATRATECASH', country_code: 'NZ')
 
       assert(!organisation.valid?)
 
-      organisation.sales_tax_basis = "NONE"
+      organisation.sales_tax_basis = 'NONE'
 
       assert(organisation.valid?)
     end
   end
 
-  context "parse response" do
-    it "includes payment_terms" do
-      @instance = Xeroizer::Record::OrganisationModel.new(nil, "Organisation")
-      some_xml = get_record_xml("organisations")
+  context 'parse response' do
+    it 'includes payment_terms' do
+      @instance = Xeroizer::Record::OrganisationModel.new(nil, 'Organisation')
+      some_xml = get_record_xml('organisations')
 
       result = @instance.parse_response(some_xml)
       organisation = result.response_items.first
 
-      assert_equal(organisation.payment_terms.bills.day, "4")
-      assert_equal(organisation.payment_terms.bills.type, "OFFOLLOWINGMONTH")
-      assert_equal(organisation.payment_terms.sales.day, "2")
-      assert_equal(organisation.payment_terms.sales.type, "OFFOLLOWINGMONTH")
+      assert_equal(organisation.payment_terms.bills.day, '4')
+      assert_equal(organisation.payment_terms.bills.type, 'OFFOLLOWINGMONTH')
+      assert_equal(organisation.payment_terms.sales.day, '2')
+      assert_equal(organisation.payment_terms.sales.type, 'OFFOLLOWINGMONTH')
     end
   end
 end

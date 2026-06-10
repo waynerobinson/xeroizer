@@ -1,29 +1,27 @@
-require "xeroizer/models/contact_person"
-require "xeroizer/models/balances"
-require "xeroizer/models/batch_payments"
-require "xeroizer/models/payment_terms"
-require "xeroizer/models/history_record"
+require 'xeroizer/models/contact_person'
+require 'xeroizer/models/balances'
+require 'xeroizer/models/batch_payments'
+require 'xeroizer/models/payment_terms'
+require 'xeroizer/models/history_record'
 
 module Xeroizer
   module Record
-
     class ContactModel < BaseModel
-
       set_permissions :read, :write, :update
 
       include AttachmentModel::Extensions
       include HistoryRecordModel::Extensions
-
     end
 
     class Contact < Base
-
-      CONTACT_STATUS = {
-        'ACTIVE' =>     'Active',
-        'DELETED' =>    'Deleted',
-        'ARCHIVED' => 'Archived',
-        'GDPRREQUEST' => 'GDPR Request'
-      } unless defined?(CONTACT_STATUS)
+      unless defined?(CONTACT_STATUS)
+        CONTACT_STATUS = {
+          'ACTIVE' => 'Active',
+          'DELETED' => 'Deleted',
+          'ARCHIVED' => 'Archived',
+          'GDPRREQUEST' => 'GDPR Request'
+        }
+      end
 
       include Attachment::Extensions
       include HistoryRecord::Extensions
@@ -49,7 +47,7 @@ module Xeroizer
       string        :default_currency
       string        :purchases_default_account_code
       string        :sales_default_account_code
-      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
       boolean       :is_supplier
       boolean       :is_customer
       string        :website # read only
@@ -57,28 +55,28 @@ module Xeroizer
       boolean       :has_attachments
       string        :xero_network_key
 
-      has_many  :addresses, :list_complete => true
-      has_many  :phones, :list_complete => true
-      has_many  :contact_groups, :list_complete => true
-      has_many  :contact_persons, :internal_name => :contact_people, :list_complete => true
+      has_many  :addresses, list_complete: true
+      has_many  :phones, list_complete: true
+      has_many  :contact_groups, list_complete: true
+      has_many  :contact_persons, internal_name: :contact_people, list_complete: true
 
-      has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory', :list_complete => true
-      has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory', :list_complete => true
+      has_many :sales_tracking_categories, model_name: 'ContactSalesTrackingCategory', list_complete: true
+      has_many :purchases_tracking_categories, model_name: 'ContactPurchasesTrackingCategory', list_complete: true
 
-      has_one :balances, :model_name => 'Balances', :list_complete => true
-      has_one :batch_payments, :model_name => 'BatchPayments', :list_complete => true
-      has_one :payment_terms, :model_name => 'PaymentTerms', :list_complete => true
-      has_one :branding_theme, :list_complete => true
+      has_one :balances, model_name: 'Balances', list_complete: true
+      has_one :batch_payments, model_name: 'BatchPayments', list_complete: true
+      has_one :payment_terms, model_name: 'PaymentTerms', list_complete: true
+      has_one :branding_theme, list_complete: true
 
-      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present? || contact.contact_number.present? }
-      validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
+      validates_presence_of :name, unless: proc { |contact|
+        contact.contact_id.present? || contact.contact_number.present?
+      }
+      validates_inclusion_of :contact_status, in: CONTACT_STATUS.keys, allow_blanks: true
       validates_associated :addresses, allow_blanks: true
 
       def email_address?
         email_address.present?
       end
-
     end
-
   end
 end

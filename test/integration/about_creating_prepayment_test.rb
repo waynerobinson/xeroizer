@@ -1,35 +1,35 @@
-require "integration_test_case"
+require 'integration_test_case'
 
 class AboutCreatingPrepayment < IntegrationTestCase
   def any_line_items(account)
     [{
-         :description => "Clingfilm bike shorts",
-         :quantity => 1,
-         :unit_amount => "200.00",
-         :account_code => account.code,
-         :tax_type => account.tax_type
-     }]
+      description: 'Clingfilm bike shorts',
+      quantity: 1,
+      unit_amount: '200.00',
+      account_code: account.code,
+      tax_type: account.tax_type
+    }]
   end
 
   def assert_exists(prepayment, client)
     refute_nil prepayment.id,
-                   "Cannot check for exitence unless the prepayment (bank transaction) has non-null identifier"
+               'Cannot check for exitence unless the prepayment (bank transaction) has non-null identifier'
     refute_nil client.BankTransaction.find prepayment.id
   end
 
   def setup
     @client = oauth2_client
     all_accounts = @client.Account.all
-    @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
-    @bank_account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "BANK"}.first
+    @account = all_accounts.select { |acct| acct.status == 'ACTIVE' && acct.type == 'REVENUE' }.first
+    @bank_account = all_accounts.select { |acct| acct.status == 'ACTIVE' && acct.type == 'BANK' }.first
   end
 
-  can "create a new PrePayment bank transaction" do
+  can 'create a new PrePayment bank transaction' do
     new_transaction = @client.BankTransaction.build(
-        :type => "RECEIVE-PREPAYMENT",
-        :contact => { :name => "Jazz Kang" },
-        :line_items => any_line_items(@account),
-        :bank_account => { :account_id => @bank_account.account_id }
+      type: 'RECEIVE-PREPAYMENT',
+      contact: { name: 'Jazz Kang' },
+      line_items: any_line_items(@account),
+      bank_account: { account_id: @bank_account.account_id }
     )
 
     assert new_transaction.save, "Save failed with the following errors: #{new_transaction.errors.inspect}"

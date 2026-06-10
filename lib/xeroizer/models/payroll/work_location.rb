@@ -1,13 +1,10 @@
 module Xeroizer
   module Record
     module Payroll
-
       class WorkLocationModel < PayrollBaseModel
-
       end
 
       class WorkLocation < PayrollBase
-
         guid        :work_location_id
         boolean     :is_primary
         string      :street_address
@@ -18,7 +15,7 @@ module Xeroizer
         decimal     :latitude
         decimal     :longitude
 
-        validates_presence_of :work_location_id, :unless => :new_record?
+        validates_presence_of :work_location_id, unless: :new_record?
       end
     end
   end

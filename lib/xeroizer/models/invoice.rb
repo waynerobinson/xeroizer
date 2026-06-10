@@ -1,10 +1,9 @@
-require "xeroizer/models/attachment"
-require "xeroizer/models/online_invoice"
-require "xeroizer/models/history_record"
+require 'xeroizer/models/attachment'
+require 'xeroizer/models/online_invoice'
+require 'xeroizer/models/history_record'
 
 module Xeroizer
   module Record
-
     class InvoiceModel < BaseModel
       # To create a new invoice, use the folowing
       # $xero_client.Invoice.build(type: 'ACCREC', ..., contact: {name: 'Foo Bar'},...)
@@ -19,39 +18,39 @@ module Xeroizer
       include OnlineInvoiceModel::Extensions
       include HistoryRecordModel::Extensions
 
-      public
-
-        # Retrieve the PDF version of the invoice matching the `id`.
-        # @param [String] id invoice's ID.
-        # @param [String] filename optional filename to store the PDF in instead of returning the data.
-        def pdf(id, filename = nil)
-          pdf_data = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", :response => :pdf)
-          if filename
-            File.open(filename, "wb") { | fp | fp.write pdf_data }
-            nil
-          else
-            pdf_data
-          end
+      # Retrieve the PDF version of the invoice matching the `id`.
+      # @param [String] id invoice's ID.
+      # @param [String] filename optional filename to store the PDF in instead of returning the data.
+      def pdf(id, filename = nil)
+        pdf_data = @application.http_get(@application.client, "#{url}/#{CGI.escape(id)}", response: :pdf)
+        if filename
+          File.binwrite(filename, pdf_data)
+          nil
+        else
+          pdf_data
         end
-
+      end
     end
 
     class Invoice < Base
-
-      INVOICE_TYPE = {
-        'ACCREC' =>           'Accounts Receivable',
-        'ACCPAY' =>           'Accounts Payable'
-      } unless defined?(INVOICE_TYPE)
+      unless defined?(INVOICE_TYPE)
+        INVOICE_TYPE = {
+          'ACCREC' => 'Accounts Receivable',
+          'ACCPAY' => 'Accounts Payable'
+        }
+      end
       INVOICE_TYPES = INVOICE_TYPE.keys.sort
 
-      INVOICE_STATUS = {
-        'AUTHORISED' =>       'Approved invoices awaiting payment',
-        'DELETED' =>          'Draft invoices that are deleted',
-        'DRAFT' =>            'Invoices saved as draft or entered via API',
-        'PAID' =>             'Invoices approved and fully paid',
-        'SUBMITTED' =>        'Invoices entered by an employee awaiting approval',
-        'VOIDED' =>           'Approved invoices that are voided'
-      } unless defined?(INVOICE_STATUS)
+      unless defined?(INVOICE_STATUS)
+        INVOICE_STATUS = {
+          'AUTHORISED' => 'Approved invoices awaiting payment',
+          'DELETED' => 'Draft invoices that are deleted',
+          'DRAFT' => 'Invoices saved as draft or entered via API',
+          'PAID' => 'Invoices approved and fully paid',
+          'SUBMITTED' => 'Invoices entered by an employee awaiting approval',
+          'VOIDED' => 'Approved invoices that are voided'
+        }
+      end
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 
       include Attachment::Extensions
@@ -72,14 +71,14 @@ module Xeroizer
       date         :due_date
       string       :status
       string       :line_amount_types
-      decimal      :sub_total, :calculated => true
-      decimal      :total_tax, :calculated => true
-      decimal      :total, :calculated => true
+      decimal      :sub_total, calculated: true
+      decimal      :total_tax, calculated: true
+      decimal      :total, calculated: true
       decimal      :total_discount
       decimal      :amount_due
       decimal      :amount_paid
       decimal      :amount_credited
-      datetime_utc :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
       string       :currency_code
       decimal      :currency_rate
       datetime     :fully_paid_on_date
@@ -89,146 +88,144 @@ module Xeroizer
       boolean      :has_attachments
 
       belongs_to   :contact
-      has_many     :line_items, :complete_on_page => true
+      has_many     :line_items, complete_on_page: true
       has_many     :payments
       has_many     :credit_notes
       has_many     :prepayments
 
-      validates_presence_of :date, :if => :new_record?
-      validates_presence_of :due_date, :if => :approved?
-      validates_inclusion_of :type, :in => INVOICE_TYPES
-      validates_inclusion_of :status, :in => INVOICE_STATUSES, :unless => :new_record?
-      validates_inclusion_of :line_amount_types, :in => LINE_AMOUNT_TYPES, :unless => :new_record?
+      validates_presence_of :date, if: :new_record?
+      validates_presence_of :due_date, if: :approved?
+      validates_inclusion_of :type, in: INVOICE_TYPES
+      validates_inclusion_of :status, in: INVOICE_STATUSES, unless: :new_record?
+      validates_inclusion_of :line_amount_types, in: LINE_AMOUNT_TYPES, unless: :new_record?
       validates_associated :contact
-      validates_associated :line_items, :allow_blanks => true, :unless => :approved?
-      validates_associated :line_items, :if => :approved?
+      validates_associated :line_items, allow_blanks: true, unless: :approved?
+      validates_associated :line_items, if: :approved?
 
-      public
-        def initialize(parent)
-          super(parent)
-          @sub_total_is_set = false
-          @total_tax_is_set = false
-          @total_is_set = false
+      def initialize(parent)
+        super
+        @sub_total_is_set = false
+        @total_tax_is_set = false
+        @total_is_set = false
+      end
+
+      # Access the contact name without forcing a download of
+      # an incomplete, summary invoice.
+      def contact_name
+        attributes[:contact] && attributes[:contact][:name]
+      end
+
+      # Access the contact ID without forcing a download of an
+      # incomplete, summary invoice.
+      def contact_id
+        attributes[:contact] && attributes[:contact][:contact_id]
+      end
+
+      # Helper method to check if the invoice has been approved.
+      def approved?
+        %w[AUTHORISED PAID VOIDED].include? status
+      end
+
+      # Helper method to check if the invoice is accounts payable.
+      def accounts_payable?
+        type == 'ACCPAY'
+      end
+
+      # Helper method to check if the invoice is accounts receivable.
+      def accounts_receivable?
+        type == 'ACCREC'
+      end
+
+      def sub_total=(sub_total)
+        @sub_total_is_set = true
+        attributes[:sub_total] = sub_total
+      end
+
+      def total_tax=(total_tax)
+        @total_tax_is_set = true
+        attributes[:total_tax] = total_tax
+      end
+
+      def total=(total)
+        @total_is_set = true
+        attributes[:total] = total
+      end
+
+      # Calculate sub_total from line_items.
+      def sub_total(always_summary = false)
+        if !@sub_total_is_set && not_summary_or_loaded_record(always_summary)
+          overall_sum = (line_items || []).inject(BigDecimal('0')) { |sum, line_item| sum + line_item.line_amount }
+
+          # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
+          overall_sum -= total_tax if line_amount_types == 'Inclusive'
+          overall_sum
+        else
+          attributes[:sub_total]
         end
+      end
 
-        # Access the contact name without forcing a download of
-        # an incomplete, summary invoice.
-        def contact_name
-          attributes[:contact] && attributes[:contact][:name]
+      # Calculate total_tax from line_items.
+      def total_tax(always_summary = false)
+        if !@total_tax_is_set && not_summary_or_loaded_record(always_summary)
+          (line_items || []).inject(BigDecimal('0')) { |sum, line_item| sum + line_item.tax_amount }
+        else
+          attributes[:total_tax]
         end
+      end
 
-        # Access the contact ID without forcing a download of an
-        # incomplete, summary invoice.
-        def contact_id
-          attributes[:contact] && attributes[:contact][:contact_id]
+      # Calculate the total from line_items.
+      def total(always_summary = false)
+        if !@total_is_set && not_summary_or_loaded_record(always_summary)
+          sub_total + total_tax
+        else
+          attributes[:total]
         end
+      end
 
-        # Helper method to check if the invoice has been approved.
-        def approved?
-          [ 'AUTHORISED', 'PAID', 'VOIDED' ].include? status
-        end
+      def not_summary_or_loaded_record(always_summary)
+        !always_summary && loaded_record?
+      end
 
-        # Helper method to check if the invoice is accounts payable.
-        def accounts_payable?
-          type == 'ACCPAY'
-        end
+      def loaded_record?
+        new_record? ||
+          (!new_record? && line_items && line_items.size > 0)
+      end
 
-        # Helper method to check if the invoice is accounts receivable.
-        def accounts_receivable?
-          type == 'ACCREC'
-        end
+      # Retrieve the PDF version of this invoice.
+      # @param [String] filename optional filename to store the PDF in instead of returning the data.
+      def pdf(filename = nil)
+        parent.pdf(id, filename)
+      end
 
-        def sub_total=(sub_total)
-          @sub_total_is_set = true
-          attributes[:sub_total] = sub_total
-        end
+      # Delete an approved invoice with no payments.
+      def delete!
+        change_status!('DELETED')
+      end
 
-        def total_tax=(total_tax)
-          @total_tax_is_set = true
-          attributes[:total_tax] = total_tax
-        end
+      # Void an approved invoice with no payments.
+      def void!
+        change_status!('VOIDED')
+      end
 
-        def total=(total)
-          @total_is_set = true
-          attributes[:total] = total
-        end
+      # Approve a draft invoice
+      def approve!
+        change_status!('AUTHORISED')
+      end
 
-        # Calculate sub_total from line_items.
-        def sub_total(always_summary = false)
-          if !@sub_total_is_set && not_summary_or_loaded_record(always_summary)
-            overall_sum = (line_items || []).inject(BigDecimal('0')) { | sum, line_item | sum + line_item.line_amount }
-
-            # If the default amount types are inclusive of 'tax' then remove the tax amount from this sub-total.
-            overall_sum -= total_tax if line_amount_types == 'Inclusive'
-            overall_sum
-          else
-            attributes[:sub_total]
-          end
-        end
-
-        # Calculate total_tax from line_items.
-        def total_tax(always_summary = false)
-          if !@total_tax_is_set && not_summary_or_loaded_record(always_summary)
-            (line_items || []).inject(BigDecimal('0')) { | sum, line_item | sum + line_item.tax_amount }
-          else
-            attributes[:total_tax]
-          end
-        end
-
-        # Calculate the total from line_items.
-        def total(always_summary = false)
-          if !@total_is_set && not_summary_or_loaded_record(always_summary)
-            sub_total + total_tax
-          else
-            attributes[:total]
-          end
-        end
-
-        def not_summary_or_loaded_record(always_summary)
-          !always_summary && loaded_record?
-        end
-
-        def loaded_record?
-          new_record? ||
-            (!new_record? && line_items && line_items.size > 0)
-        end
-
-        # Retrieve the PDF version of this invoice.
-        # @param [String] filename optional filename to store the PDF in instead of returning the data.
-        def pdf(filename = nil)
-          parent.pdf(id, filename)
-        end
-
-        # Delete an approved invoice with no payments.
-        def delete!
-          change_status!('DELETED')
-        end
-
-        # Void an approved invoice with no payments.
-        def void!
-          change_status!('VOIDED')
-        end
-
-        # Approve a draft invoice
-        def approve!
-          change_status!('AUTHORISED')
-        end
-
-        # Send an email containing the invoice.
-        def email
-          email_url = "#{parent.url}/#{CGI.escape(id)}/Email"
-          parent.application.http_post(parent.application.client, email_url, "")
-        end
+      # Send an email containing the invoice.
+      def email
+        email_url = "#{parent.url}/#{CGI.escape(id)}/Email"
+        parent.application.http_post(parent.application.client, email_url, '')
+      end
 
       protected
 
-        def change_status!(new_status)
-          raise CannotChangeInvoiceStatus.new(self, new_status) unless self.payments.size == 0
-          self.status = new_status
-          self.save
-        end
+      def change_status!(new_status)
+        raise CannotChangeInvoiceStatus.new(self, new_status) unless payments.size == 0
 
+        self.status = new_status
+        save
+      end
     end
-
   end
 end

@@ -1,8 +1,6 @@
 module Xeroizer
   module Record
-
     class HistoryRecordModel < BaseModel
-
       module Extensions
         def history(id)
           application.HistoryRecord.history(url, id)
@@ -32,10 +30,9 @@ module Xeroizer
         record = build(details: details)
         xml = to_bulk_xml([record])
         response_xml = @application.http_put(@application.client,
-                                              "#{url}/#{CGI.escape(id)}/history",
-                                              xml,
-                                              raw_body: true
-                                             )
+                                             "#{url}/#{CGI.escape(id)}/history",
+                                             xml,
+                                             raw_body: true)
         response = parse_response(response_xml)
         if (response_items = response.response_items) && response_items.size > 0
           response_items.size == 1 ? response_items.first : response_items
@@ -43,11 +40,9 @@ module Xeroizer
           response
         end
       end
-
     end
 
     class HistoryRecord < Base
-
       module Extensions
         def history
           parent.history(id)
@@ -58,15 +53,13 @@ module Xeroizer
         end
       end
 
-      datetime_utc :date_utc, :api_name => 'DateUTC'
-      string :date_utc_string, :api_name => 'DateUTCString'
+      datetime_utc :date_utc, api_name: 'DateUTC'
+      string :date_utc_string, api_name: 'DateUTCString'
       string :changes
       string :user
       string :details
 
       validates_presence_of :details
-
     end
-
   end
 end

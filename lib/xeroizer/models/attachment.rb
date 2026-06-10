@@ -1,14 +1,12 @@
 module Xeroizer
   module Record
-
     class AttachmentModel < BaseModel
-
       module Extensions
-        def attach_data(id, filename, data, content_type = "application/octet-stream", options = {})
+        def attach_data(id, filename, data, content_type = 'application/octet-stream', options = {})
           application.Attachment.attach_data(url, id, filename, data, content_type, options)
         end
 
-        def attach_file(id, filename, path, content_type = "application/octet-stream", options = {})
+        def attach_file(id, filename, path, content_type = 'application/octet-stream', options = {})
           application.Attachment.attach_file(url, id, filename, path, content_type, options)
         end
 
@@ -23,10 +21,9 @@ module Xeroizer
         options = { include_online: false }.merge(options)
 
         response_xml = @application.http_put(@application.client,
-                                              "#{url}/#{CGI.escape(id)}/Attachments/#{CGI.escape(filename)}",
-                                              data,
-                                              :raw_body => true, :content_type => content_type, "IncludeOnline" => options[:include_online]
-                                             )
+                                             "#{url}/#{CGI.escape(id)}/Attachments/#{CGI.escape(filename)}",
+                                             data,
+                                             :raw_body => true, :content_type => content_type, 'IncludeOnline' => options[:include_online])
         response = parse_response(response_xml)
         if (response_items = response.response_items) && response_items.size > 0
           response_items.size == 1 ? response_items.first : response_items
@@ -50,17 +47,15 @@ module Xeroizer
           []
         end
       end
-
     end
 
     class Attachment < Base
-
       module Extensions
-        def attach_file(filename, path, content_type = "application/octet-stream", options = {})
+        def attach_file(filename, path, content_type = 'application/octet-stream', options = {})
           parent.attach_file(id, filename, path, content_type, options)
         end
 
-        def attach_data(filename, data, content_type = "application/octet-stream", options = {})
+        def attach_data(filename, data, content_type = 'application/octet-stream', options = {})
           parent.attach_data(id, filename, data, content_type, options)
         end
 
@@ -82,14 +77,12 @@ module Xeroizer
       def get(filename = nil)
         data = parent.application.http_get(parent.application.client, url)
         if filename
-          File.open(filename, "wb") { | fp | fp.write data }
+          File.binwrite(filename, data)
           nil
         else
           data
         end
       end
-
     end
-
   end
 end

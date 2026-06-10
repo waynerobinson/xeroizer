@@ -1,34 +1,34 @@
 module Xeroizer
   module Record
     module Payroll
-
       class EarningsTypeModel < PayrollBaseModel
-
         set_permissions :read
-
       end
 
       class EarningsType < PayrollBase
+        unless defined?(EARNINGS_CATEGORIES)
+          EARNINGS_CATEGORIES = {
+            'REGULAREARNINGS' => '',
+            'OVERTIMEEARNINGS' => '',
+            'ALLOWANCE' => '',
+            'COMMISSION' => '',
+            'BONUS' => '',
+            'CASHTIPS' => '',
+            'NONCASHTIPS' => '',
+            'ADDITIONALEARNINGS' => '',
+            'RETROACTIVEPAY' => '',
+            'CLERGYHOUSINGALLOWANCE' => '',
+            'CLERGYHOUSINGINKIND' => ''
+          }
+        end
 
-        EARNINGS_CATEGORIES = {
-          'REGULAREARNINGS' => '',
-          'OVERTIMEEARNINGS' => '',
-          'ALLOWANCE' => '',
-          'COMMISSION' => '',
-          'BONUS' => '',
-          'CASHTIPS' => '',
-          'NONCASHTIPS' => '',
-          'ADDITIONALEARNINGS' => '',
-          'RETROACTIVEPAY' => '',
-          'CLERGYHOUSINGALLOWANCE' => '',
-          'CLERGYHOUSINGINKIND' => ''
-        } unless defined?(EARNINGS_CATEGORIES)
-
-        RATE_TYPES = {
-          'FIXEDAMOUNT' => '',
-          'MULTIPLE' => '',
-          'RATEPERUNIT' => ''
-        } unless defined?(RATE_TYPES)
+        unless defined?(RATE_TYPES)
+          RATE_TYPES = {
+            'FIXEDAMOUNT' => '',
+            'MULTIPLE' => '',
+            'RATEPERUNIT' => ''
+          }
+        end
 
         set_primary_key :earnings_type_id
 
@@ -44,9 +44,8 @@ module Xeroizer
         boolean :is_supplemental
         decimal :amount
 
-        validates_inclusion_of :earnings_category, :in => EARNINGS_CATEGORIES
-        validates_inclusion_of :rate_type, :in => RATE_TYPES
-
+        validates_inclusion_of :earnings_category, in: EARNINGS_CATEGORIES
+        validates_inclusion_of :rate_type, in: RATE_TYPES
       end
     end
   end

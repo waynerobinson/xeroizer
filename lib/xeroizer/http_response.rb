@@ -36,16 +36,16 @@ module Xeroizer
       # In addition to token_expired and token_rejected, Xero also returns
       # 'rate limit exceeded' when more than 60 requests have been made in
       # a second.
-      if problem
-        case problem
-        when "token_expired"                then raise OAuth::TokenExpired.new(description)
-        when "token_rejected"               then raise OAuth::TokenInvalid.new(description)
-        when "rate limit exceeded"          then raise OAuth::RateLimitExceeded.new(description)
-        when "organisation offline"         then raise OAuth::OrganisationOffline.new(description)
-        else raise OAuth::UnknownError.new(problem + ':' + description)
-        end
-      else
-        raise OAuth::UnknownError.new("Xero API may be down or the way OAuth errors are provided by Xero may have changed.")
+      unless problem
+        raise OAuth::UnknownError.new('Xero API may be down or the way OAuth errors are provided by Xero may have changed.')
+      end
+
+      case problem
+      when 'token_expired'                then raise OAuth::TokenExpired.new(description)
+      when 'token_rejected'               then raise OAuth::TokenInvalid.new(description)
+      when 'rate limit exceeded'          then raise OAuth::RateLimitExceeded.new(description)
+      when 'organisation offline'         then raise OAuth::OrganisationOffline.new(description)
+      else raise OAuth::UnknownError.new(problem + ':' + description)
       end
     end
 
@@ -55,14 +55,13 @@ module Xeroizer
 
     def parse
       fields = URI.decode_www_form(response.plain_body).to_h
-      [fields["oauth_problem_advice"], fields["oauth_problem"]]
+      [fields['oauth_problem_advice'], fields['oauth_problem']]
     rescue ArgumentError
       # Non-form bodies (e.g. plain-text 503 pages) carry no oauth_problem fields.
       [nil, nil]
     end
 
     def raise_bad_request!
-
       raw_response = response.plain_body
 
       # XeroGenericApplication API Exceptions *claim* to be UTF-16 encoded, but fail REXML/Iconv parsing...
@@ -72,23 +71,21 @@ module Xeroizer
       # doc = REXML::Document.new(raw_response, :ignore_whitespace_nodes => :all)
       doc = Nokogiri::XML(raw_response)
 
-      if doc && doc.root && (doc.root.name == "ApiException" || doc.root.name == 'Response')
-
-        raise ApiException.new(doc.root.xpath("Type").text,
-          doc.root.xpath("Message").text,
-          raw_response,
-          doc,
-          request_body)
-
-      else
+      unless doc && doc.root && %w[ApiException Response].include?(doc.root.name)
         raise Xeroizer::BadResponse.new("Unparseable 400 Response: #{raw_response}")
       end
+
+      raise ApiException.new(doc.root.xpath('Type').text,
+                             doc.root.xpath('Message').text,
+                             raw_response,
+                             doc,
+                             request_body)
     end
 
     def raise_not_found!
       case url
-      when /Invoices/ then raise InvoiceNotFoundError.new("Invoice not found in Xero.")
-      when /CreditNotes/ then raise CreditNoteNotFoundError.new("Credit Note not found in Xero.")
+      when /Invoices/ then raise InvoiceNotFoundError.new('Invoice not found in Xero.')
+      when /CreditNotes/ then raise CreditNoteNotFoundError.new('Credit Note not found in Xero.')
       else raise ObjectNotFound.new(url)
       end
     end
@@ -116,6 +113,7 @@ module Xeroizer
     def body
       response_code = response.code.to_i
       return nil if response_code == 204
+
       raise_error! unless response.code.to_i == 200
       response.plain_body
     end
@@ -123,32 +121,28 @@ module Xeroizer
     private
 
     def raise_error!
-      begin
-        error_details = JSON.parse(response.plain_body)
-        description  = error_details["Detail"]
-        case response.code.to_i
-        when 400
-          raise Xeroizer::BadResponse.new(description)
-        when 401
-          if description.include?("TokenExpired")
-            raise OAuth::TokenExpired.new(description)
-          else
-            raise OAuth::TokenInvalid.new(description)
-          end
-        when 403
-          message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
-          raise OAuth::Forbidden.new(message)
-        when 404
-          raise Xeroizer::ObjectNotFound.new(url)
-        else
-          raise Xeroizer::OAuth::UnknownError.new(description)
-        end
-      rescue JSON::ParserError
-        XmlErrorResponse.new(response, request_body, url).raise_error!
+      error_details = JSON.parse(response.plain_body)
+      description = error_details['Detail']
+      case response.code.to_i
+      when 400
+        raise Xeroizer::BadResponse.new(description)
+      when 401
+        raise OAuth::TokenExpired.new(description) if description.include?('TokenExpired')
+
+        raise OAuth::TokenInvalid.new(description)
+
+      when 403
+        message = "Possible xero-tenant-id header issue. Xero Error: #{description}"
+        raise OAuth::Forbidden.new(message)
+      when 404
+        raise Xeroizer::ObjectNotFound.new(url)
+      else
+        raise Xeroizer::OAuth::UnknownError.new(description)
       end
+    rescue JSON::ParserError
+      XmlErrorResponse.new(response, request_body, url).raise_error!
     end
 
     attr_reader :request_body, :response, :url
   end
 end
-

@@ -1,8 +1,6 @@
 module Xeroizer
   module Record
-
     class TaxRateModel < BaseModel
-
       set_permissions :read
 
       # TaxRates can be created using either POST or PUT.
@@ -31,6 +29,5 @@ module Xeroizer
 
       has_many :tax_components
     end
-
   end
 end

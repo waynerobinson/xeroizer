@@ -13,10 +13,10 @@ begin
 rescue LoadError
 end
 require 'active_support/inflector'
-require "active_support/core_ext/array"
-require "active_support/core_ext/big_decimal/conversions"
-require "active_support/core_ext/object/blank"
-require "active_support/core_ext/object/try"
+require 'active_support/core_ext/array'
+require 'active_support/core_ext/big_decimal/conversions'
+require 'active_support/core_ext/object/blank'
+require 'active_support/core_ext/object/try'
 require 'oauth2'
 require 'nokogiri'
 require 'builder'
@@ -25,7 +25,7 @@ require 'bigdecimal'
 require 'cgi/escape'
 require 'json'
 
-$: << File.expand_path(File.dirname(__FILE__))
+$: << __dir__
 
 require 'class_level_inheritable_attributes'
 require 'xeroizer/exceptions'

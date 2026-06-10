@@ -1,9 +1,7 @@
 module Xeroizer
   module Record
     module Payroll
-
       class EmployeeModel < PayrollBaseModel
-
         set_permissions :read, :write, :update
 
         def create_method
@@ -12,7 +10,6 @@ module Xeroizer
       end
 
       class Employee < PayrollBase
-
         set_primary_key :employee_id
 
         guid          :employee_id
@@ -36,11 +33,11 @@ module Xeroizer
         guid          :payroll_calendar_id
         string        :employee_group_name
         date          :termination_date
-        datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+        datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
 
-        has_one       :home_address, :internal_name_singular => "home_address", :model_name => "HomeAddress"
-        has_one       :tax_declaration, :internal_name_singular => "tax_declaration", :model_name => "TaxDeclaration"
-        has_one       :pay_template, :internal_name_singular => "pay_template", :model_name => "PayTemplate"
+        has_one       :home_address, internal_name_singular: 'home_address', model_name: 'HomeAddress'
+        has_one       :tax_declaration, internal_name_singular: 'tax_declaration', model_name: 'TaxDeclaration'
+        has_one       :pay_template, internal_name_singular: 'pay_template', model_name: 'PayTemplate'
         has_many      :bank_accounts
 
         # US Payroll fields
@@ -54,14 +51,13 @@ module Xeroizer
 
         has_many      :salary_and_wages
         has_many      :work_locations
-        has_one       :payment_method, :model_name => "PaymentMethod"
-        has_one       :mailing_address, :internal_name_singular => "mailing_address", :model_name => "MailingAddress"
+        has_one       :payment_method, model_name: 'PaymentMethod'
+        has_one       :mailing_address, internal_name_singular: 'mailing_address', model_name: 'MailingAddress'
 
-        validates_presence_of :first_name, :last_name, :unless => :new_record?
+        validates_presence_of :first_name, :last_name, unless: :new_record?
         validates_presence_of :date_of_birth
-        validates_presence_of :pay_schedule_id, :if => Proc.new { | record | !record.salary_and_wages.blank? }
+        validates_presence_of :pay_schedule_id, if: proc { |record| !record.salary_and_wages.blank? }
       end
-
     end
   end
 end

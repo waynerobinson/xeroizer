@@ -7,21 +7,20 @@ class PaymentServiceTest < Minitest::Test
     @client = Xeroizer::OAuth2Application.new(CLIENT_ID, CLIENT_SECRET)
   end
 
-  context "response parsing" do
-    it "parses default attributes" do
-      @instance = Xeroizer::Record::PaymentServiceModel.new(nil, "PaymentService")
+  context 'response parsing' do
+    it 'parses default attributes' do
+      @instance = Xeroizer::Record::PaymentServiceModel.new(nil, 'PaymentService')
 
-      some_xml = get_record_xml("payment_service")
+      some_xml = get_record_xml('payment_service')
 
       result = @instance.parse_response(some_xml)
       payment_service = result.response_items.first
 
-      keys = [:payment_service_id,
-              :payment_service_name,
-              :payment_service_type,
-              :payment_service_url,
-              :pay_now_text
-      ]
+      keys = %i[payment_service_id
+                payment_service_name
+                payment_service_type
+                payment_service_url
+                pay_now_text]
 
       assert_equal(payment_service.attributes.keys, keys)
     end

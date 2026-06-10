@@ -1,34 +1,34 @@
 module Xeroizer
   module Record
     module Payroll
-
       class DeductionTypeModel < PayrollBaseModel
-
         set_permissions :read
-
       end
 
       class DeductionType < PayrollBase
+        unless defined?(DEDUCTION_CATEGORIES)
+          DEDUCTION_CATEGORIES = {
+            'AFTERTAXDEDUCTION' => '',
+            'DEPENDENTCARE' => '',
+            'FLEXIBLESPENDINGACCOUNT' => '',
+            'HEALTHSAVINGSACCOUNTSINGLEPLAN' => '',
+            'HEALTHSAVINGSACCOUNTFAMILYPLAN' => '',
+            'ROTH401KREITREMENTPLAN' => '',
+            'ROTH403BRETIREMENTPLAN' => '',
+            'SECTION125PLAN' => '',
+            'SIMPLEIRARETIREMENTPLAN' => '',
+            '401KRETIREMENTPLAN' => '',
+            '403BRETIREMENTPLAN' => '',
+            '457RETIREMENTPLAN' => ''
+          }
+        end
 
-        DEDUCTION_CATEGORIES = {
-          'AFTERTAXDEDUCTION' => '',
-          'DEPENDENTCARE' => '',
-          'FLEXIBLESPENDINGACCOUNT' => '',
-          'HEALTHSAVINGSACCOUNTSINGLEPLAN' => '',
-          'HEALTHSAVINGSACCOUNTFAMILYPLAN' => '',
-          'ROTH401KREITREMENTPLAN' => '',
-          'ROTH403BRETIREMENTPLAN' => '',
-          'SECTION125PLAN' => '',
-          'SIMPLEIRARETIREMENTPLAN' => '',
-          '401KRETIREMENTPLAN' => '',
-          '403BRETIREMENTPLAN' => '',
-          '457RETIREMENTPLAN' => ''
-        } unless defined?(DEDUCTION_CATEGORIES)
-
-        CALCULATION_TYPES = {
-          'CATCHUPPLAN' => '',
-          'STANDARDPLAN' => ''
-        } unless defined?(CALCULATION_TYPES)
+        unless defined?(CALCULATION_TYPES)
+          CALCULATION_TYPES = {
+            'CATCHUPPLAN' => '',
+            'STANDARDPLAN' => ''
+          }
+        end
 
         set_primary_key :deduction_type_id
 
@@ -40,9 +40,8 @@ module Xeroizer
         decimal :standard_amount
         decimal :company_max
 
-        validates_inclusion_of :deduction_category, :in => DEDUCTION_CATEGORIES
-        validates_inclusion_of :calculation_type, :in => CALCULATION_TYPES
-
+        validates_inclusion_of :deduction_category, in: DEDUCTION_CATEGORIES
+        validates_inclusion_of :calculation_type, in: CALCULATION_TYPES
       end
     end
   end

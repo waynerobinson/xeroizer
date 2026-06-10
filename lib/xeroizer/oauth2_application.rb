@@ -1,7 +1,7 @@
 module Xeroizer
   class OAuth2Application < GenericApplication
-
     extend Forwardable
+
     def_delegators :client,
                    :authorize_from_access,
                    :authorize_from_client_credentials,
@@ -11,8 +11,6 @@ module Xeroizer
                    :tenant_id,
                    :tenant_id=
 
-    public
-
     # Configures an OAuth2 client to connect to the Xero API.
     #
     # @param [String] client_id client id/token from application developer (found at http://api.xero.com for your application).
@@ -21,24 +19,22 @@ module Xeroizer
     # @return [OAuth2Application] instance of OAuth2Application
     def initialize(client_id, client_secret, options = {})
       default_options = {
-        :xero_url         => 'https://api.xero.com/api.xro/2.0',
-        :site             => 'https://api.xero.com',
-        :authorize_url    => 'https://login.xero.com/identity/connect/authorize',
-        :token_url        => 'https://identity.xero.com/connect/token',
-        :tenets_url       => 'https://api.xero.com/connections',
-        :raise_errors     => false
+        xero_url: 'https://api.xero.com/api.xro/2.0',
+        site: 'https://api.xero.com',
+        authorize_url: 'https://login.xero.com/identity/connect/authorize',
+        token_url: 'https://identity.xero.com/connect/token',
+        tenets_url: 'https://api.xero.com/connections',
+        raise_errors: false
       }
       options = default_options.merge(options)
       client = OAuth2.new(client_id, client_secret, options)
       super(client, options)
 
-      if options[:access_token]
-        authorize_from_access(options[:access_token], options)
-      end
+      authorize_from_access(options[:access_token], options) if options[:access_token]
 
-      if options[:tenant_id]
-        client.tenant_id = options[:tenant_id]
-      end
+      return unless options[:tenant_id]
+
+      client.tenant_id = options[:tenant_id]
     end
 
     def current_connections

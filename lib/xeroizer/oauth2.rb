@@ -1,6 +1,5 @@
 module Xeroizer
   class OAuth2
-
     attr_reader :client, :access_token
 
     attr_accessor :tenant_id
@@ -33,11 +32,11 @@ module Xeroizer
       wrap_response(access_token.get(path, headers: wrap_headers(headers)))
     end
 
-    def post(path, body = "", headers = {})
-      wrap_response(access_token.post(path, {body: body, headers: wrap_headers(headers)}))
+    def post(path, body = '', headers = {})
+      wrap_response(access_token.post(path, { body: body, headers: wrap_headers(headers) }))
     end
 
-    def put(path, body = "", headers = {})
+    def put(path, body = '', headers = {})
       wrap_response(access_token.put(path, body: body, headers: wrap_headers(headers)))
     end
 
@@ -49,7 +48,7 @@ module Xeroizer
 
     def wrap_headers(headers)
       if tenant_id
-        headers.merge("Xero-tenant-id" => tenant_id)
+        headers.merge('Xero-tenant-id' => tenant_id)
       else
         headers
       end
