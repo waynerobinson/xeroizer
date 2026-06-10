@@ -11,7 +11,7 @@ module Xeroizer
           'STREET' => 'Street',
           'POBOX' => 'PO Box',
           'DEFAULT' => 'Default address type'
-        }
+        }.freeze
       end
 
       string :address_type, internal_name: :type

@@ -11,7 +11,7 @@ module Xeroizer
           'WEEKLY' => 'Weekly',
           'MONTHLY' => 'Monthly',
           'YEARLY' => 'Yearly'
-        }
+        }.freeze
       end
 
       unless defined?(PAYMENT_TERM)
@@ -20,7 +20,7 @@ module Xeroizer
           'DAYSAFTERBILLMONTH' => 'day(s) after bill month',
           'OFCURRENTMONTH' => 'of the current month',
           'OFFOLLOWINGMONTH' => 'of the following month'
-        }
+        }.freeze
       end
 
       integer :period

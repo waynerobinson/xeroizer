@@ -28,7 +28,7 @@ module Xeroizer
               'ACCRUALS' => 'Accruals Basis',
               'NONE' => 'None'
             }
-        }
+        }.freeze
       end
 
       SALES_TAX_BASES = SALES_TAX_BASIS.values.map(&:keys).flatten.sort

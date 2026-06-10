@@ -14,7 +14,7 @@ module Xeroizer
       class InvalidPermissionError < XeroizerError
         include InvaidPermissionError
       end
-      ALLOWED_PERMISSIONS = %i[read write update]
+      ALLOWED_PERMISSIONS = %i[read write update].freeze
       class_inheritable_attributes :permissions
 
       class_inheritable_attributes :xml_root_name

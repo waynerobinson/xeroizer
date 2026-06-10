@@ -15,7 +15,7 @@ module Xeroizer
         JOURNAL_STATUS = {
           'DRAFT' => 'Draft',
           'POSTED' => 'Posted'
-        }
+        }.freeze
       end
       JOURNAL_STATUSES = JOURNAL_STATUS.keys.sort
 

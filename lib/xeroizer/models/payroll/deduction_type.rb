@@ -22,14 +22,14 @@ module Xeroizer
             '401KRETIREMENTPLAN' => '',
             '403BRETIREMENTPLAN' => '',
             '457RETIREMENTPLAN' => ''
-          }
+          }.freeze
         end
 
         unless defined?(CALCULATION_TYPES)
           CALCULATION_TYPES = {
             'CATCHUPPLAN' => '',
             'STANDARDPLAN' => ''
-          }
+          }.freeze
         end
 
         set_primary_key :deduction_type_id

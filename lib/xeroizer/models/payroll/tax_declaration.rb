@@ -16,7 +16,7 @@ module Xeroizer
             'LABOURHIRE' => '',
             'SUPERINCOMESTREAM' => ''
 
-          }
+          }.freeze
         end
 
         unless defined?(TFN_EXEMPTION_TYPE)
@@ -25,7 +25,7 @@ module Xeroizer
             'PENDING' => 'Employee has made a separate application or Enquiry to the ATO for a new or existing TFN.',
             'PENSIONER' => 'Employee is claiming that they are in receipt of a pension, benefit or allowance.',
             'UNDER18' => 'Employee is claiming an exemption as they are under the age of 18 and do not earn enough to pay tax.'
-          }
+          }.freeze
         end
 
         string      :tax_file_number

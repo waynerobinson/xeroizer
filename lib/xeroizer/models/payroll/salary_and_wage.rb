@@ -11,7 +11,7 @@ module Xeroizer
           SALARY_AND_WAGE_TYPE = {
             'HOURLY' => '',
             'SALARY' => ''
-          }
+          }.freeze
         end
 
         guid          :salary_and_wages_id

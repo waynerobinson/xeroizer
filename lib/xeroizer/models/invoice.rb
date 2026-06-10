@@ -39,7 +39,7 @@ module Xeroizer
         INVOICE_TYPE = {
           'ACCREC' => 'Accounts Receivable',
           'ACCPAY' => 'Accounts Payable'
-        }
+        }.freeze
       end
       INVOICE_TYPES = INVOICE_TYPE.keys.sort
 
@@ -51,7 +51,7 @@ module Xeroizer
           'PAID' => 'Invoices approved and fully paid',
           'SUBMITTED' => 'Invoices entered by an employee awaiting approval',
           'VOIDED' => 'Approved invoices that are voided'
-        }
+        }.freeze
       end
       INVOICE_STATUSES = INVOICE_STATUS.keys.sort
 

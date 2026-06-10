@@ -22,7 +22,7 @@ module Xeroizer
     ACCEPT_MIME_MAP = {
       pdf: 'application/pdf',
       json: 'application/json'
-    }
+    }.freeze
 
     # Shortcut method for #http_request with `method` = :get.
     #

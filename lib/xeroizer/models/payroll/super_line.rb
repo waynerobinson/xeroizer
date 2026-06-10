@@ -13,7 +13,7 @@ module Xeroizer
             'SALARYSACRIFICE' => 'Pre-tax reportable employer superannuation contribution, which is displayed separately on payment summaries',
             'EMPLOYERADDITIONAL' => 'Additional employer superannuation contribution, which is displayed as RESC on payment summaries',
             'EMPLOYEE' => 'Post-tax employee superannuation contribution'
-          }
+          }.freeze
         end
 
         unless defined?(SUPERANNUATION_CALCULATION_TYPE)
@@ -21,7 +21,7 @@ module Xeroizer
             'FIXEDAMOUNT' => 'For voluntary superannuation, the contribution amount can be a fixed rate or a percentage of earnings. For SGC contributions it must be a percentage',
             'PERCENTAGEOFEARNINGS' => '',
             'STATUTORY' => ''
-          }
+          }.freeze
         end
 
         guid :super_membership_id, api_name: 'SuperMembershipID'

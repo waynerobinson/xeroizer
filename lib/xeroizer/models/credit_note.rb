@@ -30,7 +30,7 @@ module Xeroizer
           'PAID' => 'CreditNotes approved and fully paid',
           'SUBMITTED' => 'CreditNotes entered by an employee awaiting approval',
           'VOIDED' => 'Approved credit_notes that are voided'
-        }
+        }.freeze
       end
       CREDIT_NOTE_STATUSES = CREDIT_NOTE_STATUS.keys.sort
 
@@ -38,7 +38,7 @@ module Xeroizer
         CREDIT_NOTE_TYPE = {
           'ACCRECCREDIT' => 'Accounts Receivable',
           'ACCPAYCREDIT' => 'Accounts Payable'
-        }
+        }.freeze
       end
       CREDIT_NOTE_TYPES = CREDIT_NOTE_TYPE.keys.sort
 

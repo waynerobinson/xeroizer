@@ -12,7 +12,7 @@ module Xeroizer
           TIME_OFF_CATEGORIES = {
             'PAID' => '',
             'UNPAID' => ''
-          }
+          }.freeze
         end
 
         set_primary_key :time_off_type_id

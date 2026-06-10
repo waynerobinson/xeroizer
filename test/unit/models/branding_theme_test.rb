@@ -6,8 +6,8 @@ require 'unit_test_helper'
 class BrandingThemeTest < UnitTestCase
   include TestHelper
 
-  OK_RESPONSE = '<Response><Status>OK</Status></Response>'.freeze
-  PS_URL = 'https://api.xero.com/api.xro/2.0/BrandingThemes/BT-1/PaymentServices'.freeze
+  OK_RESPONSE = '<Response><Status>OK</Status></Response>'
+  PS_URL = 'https://api.xero.com/api.xro/2.0/BrandingThemes/BT-1/PaymentServices'
 
   def setup
     super

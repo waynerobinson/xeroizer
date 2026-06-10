@@ -12,7 +12,7 @@ module Xeroizer
             'CHECK' => '',
             'MANUAL' => '',
             'DIRECTDEPOSIT' => ''
-          }
+          }.freeze
         end
 
         string    :payment_method_type

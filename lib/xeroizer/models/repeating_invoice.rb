@@ -15,14 +15,14 @@ module Xeroizer
         INVOICE_TYPE = {
           'ACCREC' => 'Accounts Receivable',
           'ACCPAY' => 'Accounts Payable'
-        }
+        }.freeze
       end
 
       unless defined?(INVOICE_STATUS)
         INVOICE_STATUS = {
           'AUTHORISED' => 'Approved invoices awaiting payment',
           'DRAFT' => 'Invoices saved as draft or entered via API'
-        }
+        }.freeze
       end
 
       include Attachment::Extensions

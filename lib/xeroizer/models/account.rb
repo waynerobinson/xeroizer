@@ -28,7 +28,7 @@ module Xeroizer
           'OTHERINCOME' => '',
           'REVENUE' => '',
           'SALES' => ''
-        }
+        }.freeze
       end
 
       unless defined?(TAX_TYPE)
@@ -47,7 +47,7 @@ module Xeroizer
           'RROUTPUT' => 'Reduced rate VAT on sales (UK Only)',
           'ZERORATED' => 'Zero-rated supplies/sales from overseas (NZ Only)',
           'ECZROUTPUT' => 'Zero-rated EC Income (UK only)'
-        }
+        }.freeze
       end
 
       set_primary_key :account_id

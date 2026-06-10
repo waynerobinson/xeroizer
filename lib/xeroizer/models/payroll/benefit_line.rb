@@ -11,7 +11,7 @@ module Xeroizer
           BENEFIT_TYPE_CALCULATION_TYPE = {
             'FIXEDAMOUNT' => '',
             'STANDARDAMOUNT' => ''
-          }
+          }.freeze
         end
 
         guid :benefit_type_id, api_name: 'BenefitTypeID'

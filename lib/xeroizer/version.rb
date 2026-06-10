@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Xeroizer
-  VERSION = '3.0.1'.freeze
+  VERSION = '3.0.1'
 end

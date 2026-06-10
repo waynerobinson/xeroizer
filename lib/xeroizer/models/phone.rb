@@ -12,7 +12,7 @@ module Xeroizer
           'DDI' => 'Direct Dial-In',
           'MOBILE' => 'Mobile',
           'FAX' => 'Fax'
-        }
+        }.freeze
       end
 
       string :phone_type, internal_name: :type

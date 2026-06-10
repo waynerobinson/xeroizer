@@ -12,7 +12,7 @@ module Xeroizer
             'FIXEDAMOUNT' => '',
             'PRETAX' => '',
             'POSTTAX' => ''
-          }
+          }.freeze
         end
 
         guid          :deduction_type_id, api_name: 'DeductionTypeID'

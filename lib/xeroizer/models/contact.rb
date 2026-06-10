@@ -22,7 +22,7 @@ module Xeroizer
           'DELETED' => 'Deleted',
           'ARCHIVED' => 'Archived',
           'GDPRREQUEST' => 'GDPR Request'
-        }
+        }.freeze
       end
 
       include Attachment::Extensions

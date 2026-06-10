@@ -22,7 +22,7 @@ module Xeroizer
             '401KRETIREMENTPLAN' => '',
             '403BRETIREMENTPLAN' => '',
             '457RETIREMENTPLAN' => ''
-          }
+          }.freeze
         end
 
         set_primary_key :benefit_type_id

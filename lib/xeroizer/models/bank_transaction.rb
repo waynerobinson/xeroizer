@@ -17,7 +17,7 @@ module Xeroizer
         BANK_TRANSACTION_STATUS = {
           'AUTHORISED' => 'Active bank transactions',
           'DELETED' => 'Deleted bank transactions'
-        }
+        }.freeze
       end
       BANK_TRANSACTION_STATUSES = BANK_TRANSACTION_STATUS.keys.sort
 

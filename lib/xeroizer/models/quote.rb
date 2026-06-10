@@ -32,7 +32,7 @@ module Xeroizer
           'DECLINED' => 'A quote that was declined by the customer',
           'ACCEPTED' => 'A quote that was accepted by the customer',
           'INVOICED' => 'A quote that has been invoiced'
-        }
+        }.freeze
       end
       QUOTE_STATUSES = QUOTE_STATUS.keys.sort
 

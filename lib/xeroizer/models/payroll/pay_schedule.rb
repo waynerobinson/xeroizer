@@ -21,7 +21,7 @@ module Xeroizer
             'SEMIMONTHLY' => 'Twice a month on the same 2 Days each period',
             'FOURWEEKLY' => '',
             'YEARLY' => ''
-          }
+          }.freeze
         end
 
         set_primary_key :pay_schedule_id

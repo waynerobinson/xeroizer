@@ -21,7 +21,7 @@ module Xeroizer
           BANK_ACCOUNT_TYPE = {
             'CHECKING' => '',
             'SAVINGS' => ''
-          }
+          }.freeze
         end
 
         string :account_holder_name

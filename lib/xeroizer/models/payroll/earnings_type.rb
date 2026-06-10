@@ -21,7 +21,7 @@ module Xeroizer
             'RETROACTIVEPAY' => '',
             'CLERGYHOUSINGALLOWANCE' => '',
             'CLERGYHOUSINGINKIND' => ''
-          }
+          }.freeze
         end
 
         unless defined?(RATE_TYPES)
@@ -29,7 +29,7 @@ module Xeroizer
             'FIXEDAMOUNT' => '',
             'MULTIPLE' => '',
             'RATEPERUNIT' => ''
-          }
+          }.freeze
         end
 
         set_primary_key :earnings_type_id
