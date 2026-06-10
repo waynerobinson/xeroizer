@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2008 Tim Connor <tlconnor@gmail.com>
 #
 # Permission to use, copy, modify, and/or distribute this software for any
@@ -18,9 +20,9 @@ module Xeroizer
     RequestInfo = Struct.new(:url, :headers, :params, :body, :method)
 
     ACCEPT_MIME_MAP = {
-      :pdf  => 'application/pdf',
-      :json => 'application/json'
-    }
+      pdf: 'application/pdf',
+      json: 'application/json'
+    }.freeze
 
     # Shortcut method for #http_request with `method` = :get.
     #
@@ -56,38 +58,39 @@ module Xeroizer
     def http_request(client, method, url, request_body, params = {})
       # headers = {'Accept-Encoding' => 'gzip, deflate'}
 
-      headers = self.default_headers.merge({ 'charset' => 'utf-8' })
+      headers = default_headers.merge({ 'charset' => 'utf-8' })
 
       # include the unitdp query string parameter
       params.merge!(unitdp_param(url))
 
-      if method != :get
-        headers['Content-Type'] ||= "application/x-www-form-urlencoded"
-      end
+      headers['Content-Type'] ||= 'application/x-www-form-urlencoded' if method != :get
 
       content_type = params.delete(:content_type)
       headers['Content-Type'] = content_type if content_type
 
       # HAX.  Xero completely misuse the If-Modified-Since HTTP header.
-      headers['If-Modified-Since'] = params.delete(:ModifiedAfter).utc.strftime("%Y-%m-%dT%H:%M:%S") if params[:ModifiedAfter]
+      if params[:ModifiedAfter]
+        headers['If-Modified-Since'] =
+          params.delete(:ModifiedAfter).utc.strftime('%Y-%m-%dT%H:%M:%S')
+      end
 
       # Allow 'Accept' header to be specified with :accept parameter.
       # Valid values are :pdf or :json.
       if params[:response]
         response_type = params.delete(:response)
         headers['Accept'] = case response_type
-          when Symbol then  ACCEPT_MIME_MAP[response_type]
-          else              response_type
-        end
+                            when Symbol then ACCEPT_MIME_MAP[response_type]
+                            else response_type
+                            end
       end
 
       # Compute the request body once, before the retry loop, so retries
       # send the same body on every attempt. Also done before URL building
       # so :raw_body isn't serialized into the query string.
-      raw_body = params.delete(:raw_body) ? request_body : {:xml => request_body}
+      raw_body = params.delete(:raw_body) ? request_body : { xml: request_body }
 
       if params.any?
-        url += "?" + params.map {|key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"}.join("&")
+        url += '?' + params.map { |key, value| "#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}" }.join('&')
       end
 
       uri = URI.parse(url)
@@ -99,13 +102,13 @@ module Xeroizer
 
       begin
         attempts += 1
-        logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if self.logger
+        logger.info("XeroGateway Request: #{method.to_s.upcase} #{uri.request_uri}") if logger
 
         response = with_around_request(request_info) do
           case method
-            when :get   then    client.get(uri.request_uri, headers)
-            when :post  then    client.post(uri.request_uri, raw_body, headers)
-            when :put   then    client.put(uri.request_uri, raw_body, headers)
+          when :get   then    client.get(uri.request_uri, headers)
+          when :post  then    client.post(uri.request_uri, raw_body, headers)
+          when :put   then    client.put(uri.request_uri, raw_body, headers)
           end
         end
 
@@ -113,17 +116,19 @@ module Xeroizer
         after_request.call(request_info, response) if after_request
 
         HttpResponse.from_response(response, request_body, url).body
-      rescue Xeroizer::OAuth::RateLimitExceeded => exception
-        sleep_duration = rate_limit_sleep_duration!(exception, attempts)
-        logger.warn(
-          "Rate limit exceeded (attempt #{attempts}/#{rate_limit_max_attempts}, " \
-          "retry_after=#{exception.retry_after}s, " \
-          "daily_remaining=#{exception.daily_limit_remaining}); " \
-          "sleeping #{sleep_duration}s before retry"
-        ) if self.logger
+      rescue Xeroizer::OAuth::RateLimitExceeded => e
+        sleep_duration = rate_limit_sleep_duration!(e, attempts)
+        if logger
+          logger.warn(
+            "Rate limit exceeded (attempt #{attempts}/#{rate_limit_max_attempts}, " \
+            "retry_after=#{e.retry_after}s, " \
+            "daily_remaining=#{e.daily_limit_remaining}); " \
+            "sleeping #{sleep_duration}s before retry"
+          )
+        end
         sleep_for(sleep_duration)
         retry
-      rescue ::OAuth2::Error => exception
+      rescue ::OAuth2::Error => e
         # When raise_errors: true is set on the OAuth2 client, the oauth2 gem
         # raises OAuth2::Error for any non-2xx response before xeroizer's
         # HttpResponse layer can inspect it. This means 429 responses never
@@ -132,23 +137,25 @@ module Xeroizer
         # This rescue intercepts those raw OAuth2::Error exceptions, converts
         # 429s to RateLimitExceeded, and feeds them through the same retry
         # logic so rate_limit_sleep works regardless of raise_errors setting.
-        raise unless exception.response && exception.response.status == 429
+        raise unless e.response && e.response.status == 429
 
         # Run the same observability hooks the raise_errors:false path runs,
         # so log_response/after_request fire for both modes symmetrically.
-        wrapped_response = Xeroizer::OAuth2::Response.new(exception.response)
+        wrapped_response = Xeroizer::OAuth2::Response.new(e.response)
         log_response(wrapped_response, uri)
         after_request.call(request_info, wrapped_response) if after_request
 
-        rate_limit_exception = Xeroizer::OAuth::RateLimitExceeded.from_headers(exception.response.headers)
+        rate_limit_exception = Xeroizer::OAuth::RateLimitExceeded.from_headers(e.response.headers)
         sleep_duration = rate_limit_sleep_duration!(rate_limit_exception, attempts)
-        logger.warn(
-          "Rate limit exceeded (intercepted OAuth2::Error, " \
-          "attempt #{attempts}/#{rate_limit_max_attempts}, " \
-          "retry_after=#{rate_limit_exception.retry_after}s, " \
-          "daily_remaining=#{rate_limit_exception.daily_limit_remaining}); " \
-          "sleeping #{sleep_duration}s before retry"
-        ) if self.logger
+        if logger
+          logger.warn(
+            'Rate limit exceeded (intercepted OAuth2::Error, ' \
+            "attempt #{attempts}/#{rate_limit_max_attempts}, " \
+            "retry_after=#{rate_limit_exception.retry_after}s, " \
+            "daily_remaining=#{rate_limit_exception.daily_limit_remaining}); " \
+            "sleeping #{sleep_duration}s before retry"
+          )
+        end
         sleep_for(sleep_duration)
         retry
       end
@@ -163,11 +170,11 @@ module Xeroizer
     end
 
     def log_response(response, uri)
-      if self.logger
-        logger.info("XeroGateway Response (#{response.code})")
-        logger.add(response.code.to_i == 200 ? Logger::DEBUG : Logger::INFO) {
-          "#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body"
-        }
+      return unless logger
+
+      logger.info("XeroGateway Response (#{response.code})")
+      logger.add(response.code.to_i == 200 ? Logger::DEBUG : Logger::INFO) do
+        "#{uri.request_uri}\n== Response Body\n\n#{response.plain_body}\n== End Response Body"
       end
     end
 
@@ -176,13 +183,13 @@ module Xeroizer
     end
 
     def rate_limit_sleep_duration!(exception, attempts)
-      raise exception unless self.rate_limit_sleep
+      raise exception unless rate_limit_sleep
       raise exception if attempts > rate_limit_max_attempts
 
-      if self.rate_limit_sleep == true
-        (exception.retry_after && exception.retry_after > 0) ? exception.retry_after : 1
+      if rate_limit_sleep == true
+        exception.retry_after && exception.retry_after > 0 ? exception.retry_after : 1
       else
-        [self.rate_limit_sleep.to_f, 0].max
+        [rate_limit_sleep.to_f, 0].max
       end
     end
 
@@ -191,8 +198,7 @@ module Xeroizer
     # https://developer.xero.com/documentation/api-guides/rounding-in-xero#unitamount
     def unitdp_param(request_url)
       models = [/Invoices/, /CreditNotes/, /BankTransactions/, /Receipts/, /Items/, /Overpayments/, /Prepayments/]
-      self.unitdp == 4 && models.any?{ |m| request_url =~ m } ? {:unitdp => 4} : {}
+      unitdp == 4 && models.any? { |m| request_url =~ m } ? { unitdp: 4 } : {}
     end
-
   end
 end

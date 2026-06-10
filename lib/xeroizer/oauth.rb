@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2008 Tim Connor <tlconnor@gmail.com>
 #
 # Permission to use, copy, modify, and/or distribute this software for any
@@ -13,7 +15,6 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 module Xeroizer
-
   # Holds only error classes now (the OAuth 1.0a transport was removed). Keep
   # them here: callers rescue Xeroizer::OAuth::* and the OAuth 2.0 path raises them.
   class OAuth

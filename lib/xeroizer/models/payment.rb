@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 module Xeroizer
   module Record
-
     class PaymentModel < BaseModel
-
       set_xml_root_name 'Payments'
       set_permissions :read, :write
-
     end
 
     class Payment < Base
-
       set_primary_key :payment_id
 
       guid          :payment_id
@@ -19,7 +17,7 @@ module Xeroizer
       string        :payment_type
       string        :status
       string        :reference
-      datetime_utc  :updated_date_utc, :api_name => 'UpdatedDateUTC'
+      datetime_utc  :updated_date_utc, api_name: 'UpdatedDateUTC'
       boolean       :is_reconciled
       string        :batch_payment_id
 
@@ -42,8 +40,6 @@ module Xeroizer
       def account_code
         account.code if account
       end
-
     end
-
   end
 end

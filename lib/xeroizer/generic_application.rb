@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'xeroizer/record/application_helper'
 
 module Xeroizer
   class GenericApplication
-
     include Http
     extend Record::ApplicationHelper
 
@@ -12,6 +13,7 @@ module Xeroizer
     attr_accessor :xero_url
 
     extend Forwardable
+
     def_delegators :client, :access_token
 
     record :Account
@@ -61,29 +63,27 @@ module Xeroizer
     report :ProfitAndLoss
     report :TrialBalance
 
-    public
+    # Never used directly. Use OAuth2Application instead.
+    # @see OAuth2Application
+    def initialize(client, options = {})
+      raise Xeroizer::InvalidClientError.new unless client.is_a?(OAuth2)
 
-      # Never used directly. Use OAuth2Application instead.
-      # @see OAuth2Application
-      def initialize(client, options = {})
-        raise Xeroizer::InvalidClientError.new unless client.is_a?(OAuth2)
-        @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
-        @rate_limit_sleep = options[:rate_limit_sleep] || false
-        @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
-        @default_headers = options[:default_headers] || {}
-        @before_request = options.delete(:before_request)
-        @after_request = options.delete(:after_request)
-        @around_request = options.delete(:around_request)
-        @client = client
-        @logger = options[:logger] || false
-        @unitdp = options[:unitdp] || 2
-      end
+      @xero_url = options[:xero_url] || 'https://api.xero.com/api.xro/2.0'
+      @rate_limit_sleep = options[:rate_limit_sleep] || false
+      @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
+      @default_headers = options[:default_headers] || {}
+      @before_request = options.delete(:before_request)
+      @after_request = options.delete(:after_request)
+      @around_request = options.delete(:around_request)
+      @client = client
+      @logger = options[:logger] || false
+      @unitdp = options[:unitdp] || 2
+    end
 
-      def payroll(options = {})
-        xero_client = self.clone
-        xero_client.xero_url = options[:xero_url] || "https://api.xero.com/payroll.xro/1.0"
-        @payroll ||= PayrollApplication.new(xero_client)
-      end
-
+    def payroll(options = {})
+      xero_client = clone
+      xero_client.xero_url = options[:xero_url] || 'https://api.xero.com/payroll.xro/1.0'
+      @payroll ||= PayrollApplication.new(xero_client)
+    end
   end
 end
