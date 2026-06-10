@@ -41,3 +41,14 @@ jobs:
           bundler-cache: true
       # `rake test` runs unit + integration (replayed cassettes, no credentials).
       - run: bundle exec rake test
+
+  lint:
+    name: RuboCop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - run: bundle exec rubocop --format github
