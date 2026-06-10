@@ -1,9 +1,6 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class AboutCreatingBankTransactions < Minitest::Test
-  include AcceptanceTest
-
+class AboutCreatingBankTransactions < IntegrationTestCase
   def assert_exists(bank_transaction, client)
     refute_nil bank_transaction.id,
                    "Cannot check for exitence unless the bank transaction has non-null identifier"
@@ -36,7 +33,7 @@ class AboutCreatingBankTransactions < Minitest::Test
   end
 
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
     all_accounts = @client.Account.all
     @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
     @bank_account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "BANK"}.first

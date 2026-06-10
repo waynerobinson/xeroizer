@@ -14,9 +14,9 @@ Minitest::TestTask.create(:test) do |t|
 end
 
 namespace :test do
-  desc 'Run acceptance/integration tests'
-  Minitest::TestTask.create(:acceptance) do |t|
-    t.test_globs = ['test/acceptance/**/*_test.rb']
+  desc 'Run integration tests (replay recorded cassettes; see test/integration/README.md)'
+  Minitest::TestTask.create(:integration) do |t|
+    t.test_globs = ['test/integration/**/*_test.rb']
   end
 
   desc 'Run unit tests'

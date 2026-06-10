@@ -1,11 +1,8 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class AboutGetOnlineInvoiceUrl < Minitest::Test
-  include AcceptanceTest
-
+class AboutGetOnlineInvoiceUrl < IntegrationTestCase
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
     @invoice = @client.Invoice.all(:where => 'Type=="ACCREC"').first
     @invoice_acc_pay = @client.Invoice.all(:where => 'Type=="ACCPAY"').first
   end

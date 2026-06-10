@@ -1,15 +1,12 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class BulkOperationsTest < Minitest::Test
-  include AcceptanceTest
-
+class BulkOperationsTest < IntegrationTestCase
   def random_name
     "test-person-#{rand 1000000000}"
   end
 
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
   end
 
   should "create multiple invoices at once" do
