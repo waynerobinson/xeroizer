@@ -1,9 +1,6 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class AboutCreatingPrepayment < Minitest::Test
-  include AcceptanceTest
-
+class AboutCreatingPrepayment < IntegrationTestCase
   def any_line_items(account)
     [{
          :description => "Clingfilm bike shorts",
@@ -21,7 +18,7 @@ class AboutCreatingPrepayment < Minitest::Test
   end
 
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
     all_accounts = @client.Account.all
     @account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "REVENUE"}.first
     @bank_account = all_accounts.select{|acct| acct.status == "ACTIVE" && acct.type == "BANK"}.first

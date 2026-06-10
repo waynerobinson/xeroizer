@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.xero.com/connections
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Xero-Correlation-Id:
+      - adf2e19a-f335-47c1-a66e-04717b775188
+      X-Appminlimit-Remaining:
+      - '9999'
+      Server:
+      - tpzgw-c
+      Content-Length:
+      - '309'
+      Expires:
+      - Wed, 10 Jun 2026 12:08:12 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:12 GMT
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: '[{"id":"<REDACTED>","authEventId":"7402e9a1-3b2e-4a27-a4f4-0e5afc0b582d","tenantId":"<REDACTED>","tenantType":"ORGANISATION","tenantName":"<REDACTED>","createdDateUtc":"2026-06-10T12:05:29.6459790","updatedDateUtc":"2026-06-10T12:05:29.6477450"}]'
+  recorded_at: Wed, 10 Jun 2026 12:08:12 GMT
+recorded_with: VCR 6.4.0

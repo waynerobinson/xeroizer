@@ -154,8 +154,8 @@ Style/AlignParameters:
   Exclude:
     - 'lib/xeroizer/models/attachment.rb'
     - 'lib/xeroizer/models/bank_transaction.rb'
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
-    - 'test/acceptance/about_fetching_bank_transactions_test.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
+    - 'test/integration/about_fetching_bank_transactions_test.rb'
     - 'test/unit/models/bank_transaction_model_parsing_test.rb'
     - 'test/unit/models/bank_transaction_validation_test.rb'
     - 'test/unit/models/line_item_test.rb'
@@ -269,7 +269,7 @@ Style/EmptyLineBetweenDefs:
     - 'lib/xeroizer/models/credit_note.rb'
     - 'lib/xeroizer/record/model_definition_helper.rb'
     - 'lib/xeroizer/report/row/row.rb'
-    - 'test/acceptance/bank_transaction_reference_data.rb'
+    - 'test/integration/bank_transaction_reference_data.rb'
     - 'test/unit/record/base_test.rb'
 
 # Offense count: 6
@@ -361,7 +361,7 @@ Style/GuardClause:
     - 'lib/xeroizer/record/validators/inclusion_of_validator.rb'
     - 'lib/xeroizer/record/validators/length_of_validator.rb'
     - 'lib/xeroizer/record/validators/presence_of_validator.rb'
-    - 'test/acceptance/acceptance_test.rb'
+    - 'test/integration_test_case.rb'
 
 # Offense count: 369
 # Cop supports --auto-correct.
@@ -397,7 +397,7 @@ Style/IndentationConsistency:
 # Cop supports --auto-correct.
 Style/LineEndConcatenation:
   Exclude:
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -405,7 +405,7 @@ Style/LineEndConcatenation:
 # SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
 Style/MethodDefParentheses:
   Exclude:
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
 
 # Offense count: 16
 # Cop supports --auto-correct.
@@ -509,7 +509,7 @@ Style/ParallelAssignment:
   Exclude:
     - 'lib/class_level_inheritable_attributes.rb'
     - 'lib/xeroizer/oauth.rb'
-    - 'test/acceptance/bulk_operations_test.rb'
+    - 'test/integration/bulk_operations_test.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -625,7 +625,7 @@ Style/SignalException:
   Exclude:
     - 'lib/xeroizer/record/validation_helper.rb'
     - 'lib/xeroizer/record/validators/block_validator.rb'
-    - 'test/acceptance/bank_transaction_reference_data.rb'
+    - 'test/integration/bank_transaction_reference_data.rb'
 
 # Offense count: 24
 # Cop supports --auto-correct.
@@ -637,7 +637,7 @@ Style/SingleLineMethods:
     - 'lib/xeroizer/models/credit_note.rb'
     - 'lib/xeroizer/record/model_definition_helper.rb'
     - 'lib/xeroizer/report/row/row.rb'
-    - 'test/acceptance/bank_transaction_reference_data.rb'
+    - 'test/integration/bank_transaction_reference_data.rb'
     - 'test/unit/record/base_test.rb'
     - 'test/unit/record/block_validator_test.rb'
 
@@ -662,7 +662,7 @@ Style/SpaceAroundOperators:
     - 'lib/xeroizer/http_encoding_helper.rb'
     - 'lib/xeroizer/models/bank_transaction.rb'
     - 'lib/xeroizer/record/base_model_http_proxy.rb'
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
 
 # Offense count: 13
 # Cop supports --auto-correct.
@@ -671,8 +671,8 @@ Style/SpaceAroundOperators:
 Style/SpaceBeforeBlockBraces:
   Exclude:
     - 'lib/xeroizer/http.rb'
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
-    - 'test/acceptance/bank_transaction_reference_data.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
+    - 'test/integration/bank_transaction_reference_data.rb'
     - 'test/unit/models/address_test.rb'
     - 'test/unit/record/block_validator_test.rb'
 
@@ -700,9 +700,9 @@ Style/SpaceInsideBlockBraces:
     - 'lib/xeroizer/record/base.rb'
     - 'lib/xeroizer/record/base_model.rb'
     - 'lib/xeroizer/record/base_model_http_proxy.rb'
-    - 'test/acceptance/about_creating_bank_transactions_test.rb'
-    - 'test/acceptance/bank_transaction_reference_data.rb'
-    - 'test/acceptance/bulk_operations_test.rb'
+    - 'test/integration/about_creating_bank_transactions_test.rb'
+    - 'test/integration/bank_transaction_reference_data.rb'
+    - 'test/integration/bulk_operations_test.rb'
     - 'test/test_helper.rb'
     - 'test/unit/record/base_test.rb'
     - 'test/unit/report_test.rb'
@@ -759,7 +759,7 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Exclude:
     - 'lib/xeroizer/record/base_model_http_proxy.rb'
-    - 'test/acceptance/acceptance_test.rb'
+    - 'test/integration_test_case.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

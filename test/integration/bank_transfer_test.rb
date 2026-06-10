@@ -1,9 +1,6 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class BankTransfer < Minitest::Test
-  include AcceptanceTest
-
+class BankTransfer < IntegrationTestCase
   it_works_using_oauth2 do |client, client_type|
     can "create a bank for #{client_type}" do
       all_accounts = client.Account.all
