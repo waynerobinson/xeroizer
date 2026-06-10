@@ -25,7 +25,7 @@ module Xeroizer
         response = Xeroizer::Response.new
         response.response_xml = raw_response
 
-        doc = Nokogiri::XML(raw_response) { |cfg| cfg.noblanks }
+        doc = Nokogiri::XML(raw_response, &:noblanks)
 
         # check for responses we don't understand
         raise Xeroizer::UnparseableResponse.new(doc.root.name) unless doc.root.name == 'Response'

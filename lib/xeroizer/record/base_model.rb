@@ -117,7 +117,7 @@ module Xeroizer
 
       # Create (build and save) a record with attributes set to the value of attributes.
       def create(attributes = {})
-        build(attributes).tap { |resource| resource.save }
+        build(attributes).tap(&:save)
       end
 
       # Retrieve full record list for this model.
@@ -218,7 +218,7 @@ module Xeroizer
       protected
 
       def paged_records_requested?(options)
-        options.has_key?(:page) and options[:page].to_i >= 0
+        options.key?(:page) and options[:page].to_i >= 0
       end
 
       # Parse the records part of the XML response and builds model instances as necessary.

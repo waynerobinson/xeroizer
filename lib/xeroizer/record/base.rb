@@ -136,14 +136,14 @@ module Xeroizer
       end
 
       def to_h
-        attrs = attributes.reject { |k, _v| k == :parent }.map do |k, v|
+        attrs = attributes.except(:parent).map do |k, v|
           [k, if v.is_a?(Array)
                 v.map(&:to_h)
               else
                 (v.respond_to?(:to_h) ? v.to_h : v)
               end]
         end
-        Hash[attrs]
+        attrs.to_h
       end
 
       def inspect

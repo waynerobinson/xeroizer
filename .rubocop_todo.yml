@@ -88,12 +88,6 @@ Lint/UnreachableLoop:
   Exclude:
     - 'lib/xeroizer/report/cell.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Lint/UselessMethodDefinition:
-  Exclude:
-    - 'lib/xeroizer/models/bank_transfer.rb'
-
 # Offense count: 30
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
 Metrics/AbcSize:
@@ -224,34 +218,6 @@ Style/DocumentDynamicEvalDefinition:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 178
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowSplatArgument.
-Style/HashConversion:
-  Exclude:
-    - 'lib/xeroizer/record/base.rb'
-
-# Offense count: 2
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowedReceivers.
-# AllowedReceivers: Thread.current
-Style/HashEachMethods:
-  Exclude:
-    - 'lib/xeroizer/report/cell.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/HashExcept:
-  Exclude:
-    - 'lib/xeroizer/record/base.rb'
-
 # Offense count: 13
 # This cop supports safe autocorrection (--autocorrect).
 Style/IfUnlessModifier:
@@ -266,18 +232,6 @@ Style/IfUnlessModifier:
     - 'test/vcr_setup.rb'
 
 # Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/LineEndConcatenation:
-  Exclude:
-    - 'test/integration/about_creating_bank_transactions_test.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Style/MapIntoArray:
-  Exclude:
-    - 'lib/xeroizer/exceptions.rb'
-
-# Offense count: 1
 Style/MissingRespondToMissing:
   Exclude:
     - 'lib/xeroizer/connection.rb'
@@ -286,13 +240,6 @@ Style/MissingRespondToMissing:
 Style/MixinUsage:
   Exclude:
     - 'test/unit_test_helper.rb'
-
-# Offense count: 37
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: literals, strict
-Style/MutableConstant:
-  Enabled: false
 
 # Offense count: 23
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -310,14 +257,6 @@ Style/OptionalBooleanParameter:
     - 'lib/xeroizer/models/invoice.rb'
     - 'lib/xeroizer/models/line_item.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: short, verbose
-Style/PreferredHashMethods:
-  Exclude:
-    - 'lib/xeroizer/record/base_model.rb'
-
 # Offense count: 32
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle, AllowedCompactTypes.
@@ -333,13 +272,6 @@ Style/RaiseArgs:
     - 'lib/xeroizer/record/record_association_helper.rb'
     - 'lib/xeroizer/record/xml_helper.rb'
     - 'lib/xeroizer/response.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowComments.
-Style/RedundantInitialize:
-  Exclude:
-    - 'lib/xeroizer/models/bank_transfer.rb'
 
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -377,26 +309,12 @@ Style/SpecialGlobalVars:
     - 'lib/xeroizer.rb'
     - 'test/test_helper.rb'
 
-# Offense count: 6
+# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: Mode.
 Style/StringConcatenation:
   Exclude:
-    - 'lib/xeroizer/application_http_proxy.rb'
     - 'lib/xeroizer/http.rb'
-    - 'lib/xeroizer/http_response.rb'
-    - 'test/integration/about_creating_bank_transactions_test.rb'
-    - 'test/test_helper.rb'
-
-# Offense count: 3
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: AllowMethodsWithArguments, AllowedMethods, AllowedPatterns, AllowComments.
-# AllowedMethods: define_method
-Style/SymbolProc:
-  Exclude:
-    - 'lib/xeroizer/record/base_model.rb'
-    - 'lib/xeroizer/response.rb'
-    - 'test/unit/report_test.rb'
 
 # Offense count: 6
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -425,7 +343,7 @@ Style/ZeroLengthPredicate:
     - 'lib/xeroizer/response.rb'
     - 'test/unit/record/record_association_test.rb'
 
-# Offense count: 22
+# Offense count: 23
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowHeredoc, AllowURI, AllowQualifiedName, URISchemes, IgnoreCopDirectives, AllowedPatterns, SplitStrings.
 # URISchemes: http, https

@@ -33,11 +33,9 @@ module Xeroizer
     end
 
     def validation_errors
-      errors = []
-      @parsed_xml.xpath('//ValidationError').each do |err|
-        errors << err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
+      @parsed_xml.xpath('//ValidationError').map do |err|
+        err.text.gsub(/^\s+/, '').gsub(/\s+$/, '')
       end
-      errors
     rescue StandardError
       []
     end

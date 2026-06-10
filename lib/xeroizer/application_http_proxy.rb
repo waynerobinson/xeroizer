@@ -9,7 +9,7 @@ module Xeroizer
     module InstanceMethods
       # URL end-point for this model.
       def url
-        @application.xero_url + '/' + api_controller_name
+        "#{@application.xero_url}/#{api_controller_name}"
       end
 
       def http_get(extra_params = {})

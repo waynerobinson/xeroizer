@@ -7,10 +7,6 @@ module Xeroizer
     end
 
     class BankTransfer < Base
-      def initialize(parent)
-        super
-      end
-
       set_primary_key :bank_transfer_id
 
       string          :bank_transfer_id, api_name: 'BankTransferID'

@@ -7,7 +7,7 @@ require 'mocha/minitest'
 require 'shoulda-context'
 require 'pp'
 
-require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
+require "#{File.dirname(__FILE__)}/../lib/xeroizer.rb"
 
 $: << File.join(File.dirname(__FILE__), 'integration')
 
@@ -33,7 +33,7 @@ module TestHelper
   GUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/ unless defined?(GUID_REGEX)
 
   def get_file_as_string(filename)
-    File.read(File.dirname(__FILE__) + '/stub_responses/' + filename)
+    File.read("#{File.dirname(__FILE__)}/stub_responses/#{filename}")
   end
 
   def get_record_xml(type, id = nil)

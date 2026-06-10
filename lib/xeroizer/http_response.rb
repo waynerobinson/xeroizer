@@ -47,7 +47,7 @@ module Xeroizer
       when 'token_rejected'               then raise OAuth::TokenInvalid.new(description)
       when 'rate limit exceeded'          then raise OAuth::RateLimitExceeded.new(description)
       when 'organisation offline'         then raise OAuth::OrganisationOffline.new(description)
-      else raise OAuth::UnknownError.new(problem + ':' + description)
+      else raise OAuth::UnknownError.new("#{problem}:#{description}")
       end
     end
 

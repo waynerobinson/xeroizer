@@ -106,9 +106,7 @@ class FactoryTest < Minitest::Test
 
     should 'have valid header row' do
       assert_kind_of(Xeroizer::Report::HeaderRow, @report.header)
-      assert_equal(['Account', 'Debit', 'Credit', 'YTD Debit', 'YTD Credit'], @report.header.cells.map do |c|
-        c.value
-      end)
+      assert_equal(['Account', 'Debit', 'Credit', 'YTD Debit', 'YTD Credit'], @report.header.cells.map(&:value))
     end
 
     should 'have sections' do

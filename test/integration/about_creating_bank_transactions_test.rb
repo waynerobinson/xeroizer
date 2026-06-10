@@ -125,8 +125,7 @@ class AboutCreatingBankTransactions < IntegrationTestCase
     the_first_line_item = refreshed_bank_transaction.line_items.first
 
     assert_equal 'Burrito skin', the_first_line_item.description,
-                 "Expected the bank transaction to've had its line items updated, " +
-                 "but the first one's description does not match: #{the_first_line_item.inspect}"
+                 "Expected the bank transaction to've had its line items updated, but the first one's description does not match: #{the_first_line_item.inspect}"
   end
 
   can 'create a new RECEIVE bank transaction' do

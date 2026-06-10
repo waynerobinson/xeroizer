@@ -16,13 +16,13 @@ module Xeroizer
       # Return first attribute's ID in the hash. Assumes there is only one as hashes get out of order.
       # In all cases I've seen so far there is only one attribute returned.
       def attribute_id
-        @attributes.each { |id, _value| return id }
+        @attributes.each_key { |id| return id }
       end
 
       # Return first attribute's value in the hash. Assumes there is only one as hashes get out of order.
       # In all cases I've seen so far there is only one attribute returned.
       def attribute_value
-        @attributes.each { |_id, value| return value }
+        @attributes.each_value { |value| return value }
       end
     end
   end
