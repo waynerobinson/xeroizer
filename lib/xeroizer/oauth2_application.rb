@@ -34,7 +34,7 @@ module Xeroizer
 
       return unless options[:tenant_id]
 
-      client.tenant_id = options[:tenant_id]
+      client.tenant_id = options[:tenant_id] # rubocop:todo Lint/UselessSetterCall -- `client` is a local holding the OAuth2 instance; this is not a self-assignment.
     end
 
     def current_connections

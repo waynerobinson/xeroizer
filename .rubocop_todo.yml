@@ -94,12 +94,6 @@ Lint/UselessMethodDefinition:
   Exclude:
     - 'lib/xeroizer/models/bank_transfer.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Lint/UselessSetterCall:
-  Exclude:
-    - 'lib/xeroizer/oauth2_application.rb'
-
 # Offense count: 30
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
 Metrics/AbcSize:
