@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'integration_test_case'
 require 'bank_transaction_reference_data'
 

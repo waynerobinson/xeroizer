@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   class OAuth2
     attr_reader :client, :access_token

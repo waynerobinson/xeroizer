@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2008 Tim Connor <tlconnor@gmail.com>
 #
 # Permission to use, copy, modify, and/or distribute this software for any

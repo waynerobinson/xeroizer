@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/attachment'
 require 'xeroizer/models/online_invoice'
 require 'xeroizer/models/history_record'

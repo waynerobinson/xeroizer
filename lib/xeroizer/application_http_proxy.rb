@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   module ApplicationHttpProxy
     def self.included(base)

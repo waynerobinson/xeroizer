@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/application_http_proxy'
 require 'xeroizer/report/base'
 require 'xeroizer/report/aged_receivables_by_contact'

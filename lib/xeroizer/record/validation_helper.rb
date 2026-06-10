@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Dir.foreach(File.join(File.dirname(__FILE__), 'validators/')) do |file|
   require File.join(File.dirname(__FILE__), "validators/#{file}") if file =~ /\.rb$/
 end

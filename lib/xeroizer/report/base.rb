@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/report/cell'
 require 'xeroizer/report/row/row'
 require 'xeroizer/report/row/header'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/line_item'
 require 'xeroizer/models/line_item_sum'
 require 'xeroizer/models/attachment'

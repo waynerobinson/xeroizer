@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/account'
 require 'xeroizer/models/line_amount_type'
 

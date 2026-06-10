@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/application_http_proxy'
 
 module Xeroizer

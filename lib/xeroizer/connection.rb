@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   class Connection
     attr_accessor :attributes

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/external_link'
 
 module Xeroizer

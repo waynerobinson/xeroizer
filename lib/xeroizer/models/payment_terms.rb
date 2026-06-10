@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/bills'
 require 'xeroizer/models/sales'
 

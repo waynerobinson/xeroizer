@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rake'
 require 'minitest/test_task'
 require 'rdoc/task'

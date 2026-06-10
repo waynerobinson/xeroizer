@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/record/model_definition_helper'
 require 'xeroizer/record/record_association_helper'
 require 'xeroizer/record/validation_helper'

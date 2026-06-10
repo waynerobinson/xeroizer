@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   class OAuth2Application < GenericApplication
     extend Forwardable

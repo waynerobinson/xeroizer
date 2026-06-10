@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   module Record
     line_amount_type = {

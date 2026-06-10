@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'unit_test_helper'
 
 # BrandingTheme#add_payment_service POSTs a small PaymentService body to Xero.

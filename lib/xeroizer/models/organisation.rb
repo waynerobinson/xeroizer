@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/payment_terms'
 module Xeroizer
   module Record

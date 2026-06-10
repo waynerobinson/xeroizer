@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/record/application_helper'
 
 module Xeroizer

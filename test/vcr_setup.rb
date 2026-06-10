@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'vcr'
 
 # Record mode is driven by VCR_MODE so CI replays and refreshes are explicit:

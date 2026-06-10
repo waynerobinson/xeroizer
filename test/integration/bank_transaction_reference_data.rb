@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BankTransactionReferenceData
   def initialize(client) = @client = client
   def bank_transaction = @bank_transaction ||= new_bank_transaction

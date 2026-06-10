@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/payment_service'
 
 module Xeroizer

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/contact_person'
 require 'xeroizer/models/balances'
 require 'xeroizer/models/batch_payments'

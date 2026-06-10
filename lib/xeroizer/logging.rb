@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   module Logging
     class DevNullLog; def self.info(what); end; end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xeroizer/models/accounts_receivable'
 require 'xeroizer/models/accounts_payable'
 
