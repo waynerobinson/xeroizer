@@ -1,0 +1,359 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.xero.com/api.xro/2.0/BankTransactions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Charset:
+      - utf-8
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '27207'
+      Xero-Correlation-Id:
+      - 91a9d00d-ebdb-4028-a0b8-e6f5fe42be53
+      X-Appminlimit-Remaining:
+      - '9956'
+      X-Minlimit-Remaining:
+      - '46'
+      X-Daylimit-Remaining:
+      - '956'
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Server:
+      - tpzgw-c
+      Expires:
+      - Wed, 10 Jun 2026 12:08:34 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:34 GMT
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: "<Response xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n
+        \ <Id>91a9d00d-ebdb-4028-a0b8-e6f5fe42be53</Id>\r\n  <Status>OK</Status>\r\n
+        \ <ProviderName>nnc-oauth2</ProviderName>\r\n  <DateTimeUTC>2026-06-10T12:08:34.2559071Z</DateTimeUTC>\r\n
+        \ <BankTransactions>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>43d1337e-4360-4589-9a76-1d0538c4ce6f</ContactID>\r\n
+        \       <Name>Ridgeway Bank</Name>\r\n      </Contact>\r\n      <Date>2026-03-30T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>15.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>15.00</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:50:55.09</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>b9d7c42c-506a-4e56-a8a1-a41330580834</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Fee</Reference>\r\n
+        \     <IsReconciled>true</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>cb906ad4-b1d7-44bf-b25a-4862c7059a43</ContactID>\r\n
+        \       <Name>Office Supplies Company</Name>\r\n      </Contact>\r\n      <Date>2026-04-04T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>21.71</SubTotal>\r\n      <TotalTax>1.79</TotalTax>\r\n      <Total>23.50</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:50:58.217</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>eed8d468-31c5-41c9-b34f-37b400be4c6f</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Eft</Reference>\r\n
+        \     <IsReconciled>true</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f5cb9bf0-7aa2-473e-8115-87863dee95f3</ContactID>\r\n
+        \       <Name>Espresso 31</Name>\r\n      </Contact>\r\n      <Date>2026-04-06T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>16.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>16.00</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:53:28.257</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>5ecad915-ffb0-46b6-b349-2168caa40f66</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>be4cfc19-c55a-4f19-817b-4eee4ccf2c01</ContactID>\r\n
+        \       <Name>Woolworths Market</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>60.23</SubTotal>\r\n      <TotalTax>4.97</TotalTax>\r\n      <Total>65.20</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:53:30.447</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>84ff3067-c1ee-4413-b489-9d6b40b41ae2</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>162c177a-3391-4742-890f-f3ebfe0df1f3</ContactID>\r\n
+        \       <Name>Brunswick Petals</Name>\r\n      </Contact>\r\n      <Date>2026-04-13T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>46.19</SubTotal>\r\n      <TotalTax>3.81</TotalTax>\r\n      <Total>50.00</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:53:32.633</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>8e2347a2-f51f-46b8-ba27-c2c25ed93a09</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Gift</Reference>\r\n
+        \     <IsReconciled>true</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4</ContactID>\r\n
+        \       <Name>Berry Brew</Name>\r\n      </Contact>\r\n      <Date>2026-04-16T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>15.60</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>15.60</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-20T22:53:34.273</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>56d679b7-611f-4c94-9760-60e7b019bc24</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f</ContactID>\r\n
+        \       <Name>Melrose Parking</Name>\r\n      </Contact>\r\n      <Date>2026-04-18T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>137.18</SubTotal>\r\n      <TotalTax>11.32</TotalTax>\r\n
+        \     <Total>148.50</Total>\r\n      <UpdatedDateUTC>2008-12-20T22:53:42.587</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>dc615dfb-6450-490a-bd2f-0b5fd532aff2</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Chq 409</Reference>\r\n
+        \     <IsReconciled>true</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f</ContactID>\r\n
+        \       <Name>Melrose Parking</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>137.18</SubTotal>\r\n      <TotalTax>11.32</TotalTax>\r\n
+        \     <Total>148.50</Total>\r\n      <UpdatedDateUTC>2008-12-21T00:02:57.813</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>9e716adc-32a1-4f81-90f2-1aaae24cfc74</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Chq 410</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>43d1337e-4360-4589-9a76-1d0538c4ce6f</ContactID>\r\n
+        \       <Name>Ridgeway Bank</Name>\r\n      </Contact>\r\n      <Date>2026-04-30T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>15.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>15.00</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-21T00:40:36.867</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>548fb3cf-972b-4bff-8559-0d787cde205a</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Fee</Reference>\r\n
+        \     <IsReconciled>true</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>43d1337e-4360-4589-9a76-1d0538c4ce6f</ContactID>\r\n
+        \       <Name>Ridgeway Bank</Name>\r\n      </Contact>\r\n      <Date>2026-06-04T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>15.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>15.00</Total>\r\n
+        \     <UpdatedDateUTC>2008-12-21T02:14:18.843</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>fc5fefd3-a6aa-4a58-954e-4c9352a7b30a</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Fee</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>406e9eba-9939-48de-a300-57853bb1a6a4</ContactID>\r\n
+        \       <Name>Gable Print</Name>\r\n      </Contact>\r\n      <Date>2026-05-22T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>27.25</SubTotal>\r\n      <TotalTax>2.25</TotalTax>\r\n      <Total>29.50</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:04:14.29</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>86ea16b1-e901-409a-8177-4ec117208cc5</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>be4cfc19-c55a-4f19-817b-4eee4ccf2c01</ContactID>\r\n
+        \       <Name>Woolworths Market</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>31.50</SubTotal>\r\n      <TotalTax>2.60</TotalTax>\r\n      <Total>34.10</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:04:14.667</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>8b82178c-c0ad-4515-8f4a-e45a1b203617</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Eft</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f</ContactID>\r\n
+        \       <Name>Melrose Parking</Name>\r\n      </Contact>\r\n      <Date>2026-05-11T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>137.18</SubTotal>\r\n      <TotalTax>11.32</TotalTax>\r\n
+        \     <Total>148.50</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:04:14.947</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>8ded5737-2bbf-4f3a-b437-20d598ea4bcf</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Chq 410</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>cb906ad4-b1d7-44bf-b25a-4862c7059a43</ContactID>\r\n
+        \       <Name>Office Supplies Company</Name>\r\n      </Contact>\r\n      <Date>2026-05-13T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>45.45</SubTotal>\r\n      <TotalTax>3.75</TotalTax>\r\n      <Total>49.20</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:04:15.01</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>a858954b-f646-41e4-a0fb-5823bb896c98</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Eft</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4</ContactID>\r\n
+        \       <Name>Berry Brew</Name>\r\n      </Contact>\r\n      <Date>2026-05-19T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>22.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>22.00</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:04:15.087</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>4ec15cf0-1ee8-46ce-9cd9-34ba80511299</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>2e68080d-b3bd-4051-b33c-9f031550b958</ContactID>\r\n
+        \       <Name>24 Locks</Name>\r\n      </Contact>\r\n      <Date>2026-05-19T00:00:00</Date>\r\n
+        \     <Status>DELETED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>64.20</SubTotal>\r\n      <TotalTax>5.30</TotalTax>\r\n      <Total>69.50</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:04:15.15</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>ef8942cc-a47c-489f-b4c8-fc987fd3d356</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>Chq 411</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n    <BankTransaction>\r\n      <Contact>\r\n        <ContactID>be4cfc19-c55a-4f19-817b-4eee4ccf2c01</ContactID>\r\n
+        \       <Name>Woolworths Market</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>31.50</SubTotal>\r\n      <TotalTax>2.60</TotalTax>\r\n      <Total>34.10</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:09:27.64</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>8997a5fe-c07d-49cc-8936-cb338f9f0ec7</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f</ContactID>\r\n
+        \       <Name>Melrose Parking</Name>\r\n      </Contact>\r\n      <Date>2026-05-11T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>137.18</SubTotal>\r\n      <TotalTax>11.32</TotalTax>\r\n
+        \     <Total>148.50</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:10:40.913</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>190f2da9-f696-4612-9e52-35a277674feb</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>cb906ad4-b1d7-44bf-b25a-4862c7059a43</ContactID>\r\n
+        \       <Name>Office Supplies Company</Name>\r\n      </Contact>\r\n      <Date>2026-05-13T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>45.45</SubTotal>\r\n      <TotalTax>3.75</TotalTax>\r\n      <Total>49.20</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:10:43.253</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>aabb3aeb-6961-4c0a-9ffc-6d43e5283762</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>2e68080d-b3bd-4051-b33c-9f031550b958</ContactID>\r\n
+        \       <Name>24 Locks</Name>\r\n      </Contact>\r\n      <Date>2026-05-19T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>64.20</SubTotal>\r\n      <TotalTax>5.30</TotalTax>\r\n      <Total>69.50</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:15:32.607</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>641ec07c-5d5a-4fe8-b7a3-d985854eed9f</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4</ContactID>\r\n
+        \       <Name>Berry Brew</Name>\r\n      </Contact>\r\n      <Date>2026-05-19T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>22.00</SubTotal>\r\n      <TotalTax>0.00</TotalTax>\r\n      <Total>22.00</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:15:47.723</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>a3984455-2591-4cc0-801c-c8ac98dfc409</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>940f1da6-6d14-46e5-a692-77de93732f96</ContactID>\r\n
+        \       <Name>Orlena Greenville</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>27.25</SubTotal>\r\n      <TotalTax>2.25</TotalTax>\r\n      <Total>29.50</Total>\r\n
+        \     <UpdatedDateUTC>2013-11-21T22:27:44.543</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>823f008c-64e5-4285-b470-7ecf1ab83cd4</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>true</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>200.00</SubTotal>\r\n      <TotalTax>16.50</TotalTax>\r\n
+        \     <Total>216.50</Total>\r\n      <UpdatedDateUTC>2026-06-10T12:08:13.183</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>b3b5b30c-44e7-4b8a-9c9c-25c3d77cd36a</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>RECEIVE-PREPAYMENT</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <PrepaymentID>00c822e9-ccdf-4c19-bc6e-8d7c3e878c4e</PrepaymentID>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>17.00</SubTotal>\r\n      <TotalTax>1.40</TotalTax>\r\n      <Total>18.40</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:17.59</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>39986120-268e-4a02-9539-775a0f41d5c1</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>17.00</SubTotal>\r\n      <TotalTax>1.40</TotalTax>\r\n      <Total>18.40</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:20.327</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>8c6f4ce9-3ba5-4fc9-9d0d-b2d735295968</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>RECEIVE</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>1337.00</SubTotal>\r\n      <TotalTax>110.30</TotalTax>\r\n
+        \     <Total>1447.30</Total>\r\n      <UpdatedDateUTC>2026-06-10T12:08:23.403</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <BankTransactionID>8ba7f94a-44be-434a-80ed-e0a20505925d</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>17.00</SubTotal>\r\n      <TotalTax>1.40</TotalTax>\r\n      <Total>18.40</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:26.527</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>bb15e3d2-cc15-421d-90c6-a64d0f4089ff</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>RECEIVE</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>NoTax</LineAmountTypes>\r\n      <Total>300.00</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:31.14</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>5fbd8e23-3c2c-440b-9a6d-aca9d864c4d3</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>72f1dcfe-5d7d-4239-bf9d-e12469309716</AccountID>\r\n
+        \       <Code>091</Code>\r\n        <Name>Business Savings Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>RECEIVE-TRANSFER</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>NoTax</LineAmountTypes>\r\n      <Total>300.00</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:31.14</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>37dfe134-a4bd-495b-928e-c844d08d7c41</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND-TRANSFER</Type>\r\n      <IsReconciled>false</IsReconciled>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n    </BankTransaction>\r\n
+        \   <BankTransaction>\r\n      <Contact>\r\n        <ContactID>f41e7fc7-d517-4252-a956-c5c8a48a3b61</ContactID>\r\n
+        \       <Name>Jazz Kang</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>39.99</SubTotal>\r\n      <TotalTax>3.30</TotalTax>\r\n      <Total>43.29</Total>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:33.143</UpdatedDateUTC>\r\n      <CurrencyCode>USD</CurrencyCode>\r\n
+        \     <BankTransactionID>2aaca182-3d72-407f-b20d-4753446a2979</BankTransactionID>\r\n
+        \     <BankAccount>\r\n        <AccountID>562555f2-8cde-4ce9-8203-0363922537a4</AccountID>\r\n
+        \       <Code>090</Code>\r\n        <Name>Business Bank Account</Name>\r\n
+        \     </BankAccount>\r\n      <Type>SPEND</Type>\r\n      <Reference>BTF323</Reference>\r\n
+        \     <IsReconciled>false</IsReconciled>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \   </BankTransaction>\r\n  </BankTransactions>\r\n</Response>"
+  recorded_at: Wed, 10 Jun 2026 12:08:34 GMT
+recorded_with: VCR 6.4.0
