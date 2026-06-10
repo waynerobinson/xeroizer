@@ -16,11 +16,13 @@ class BankTransactionReferenceData
       type: 'SPEND',
       contact: { name: 'Jazz Kang' },
       line_items: [
-        description: 'Bike shorts made of clear, unbreathable material',
-        quantity: 1,
-        unit_amount: 39.99,
-        account_code: account.code,
-        tax_type: account.tax_type
+        {
+          description: 'Bike shorts made of clear, unbreathable material',
+          quantity: 1,
+          unit_amount: 39.99,
+          account_code: account.code,
+          tax_type: account.tax_type
+        }
       ],
       bank_account: { account_id: bank_account.account_id },
       reference: 'BTF323'

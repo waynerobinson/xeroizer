@@ -19,7 +19,7 @@ module Xeroizer
 
           self.validators ||= []
           args.flatten.each do |attribute|
-            self.validators << validator.new(attribute, options)
+            validators << validator.new(attribute, options)
           end
         end
 
