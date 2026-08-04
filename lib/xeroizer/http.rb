@@ -180,7 +180,15 @@ module Xeroizer
       raise exception if attempts > rate_limit_max_attempts
 
       if self.rate_limit_sleep == true
-        (exception.retry_after && exception.retry_after > 0) ? exception.retry_after : 1
+        duration = (exception.retry_after && exception.retry_after > 0) ? exception.retry_after : 1
+
+        # A Retry-After beyond the cap means the daily limit is exhausted, not
+        # the per-minute window; raise so callers can reschedule instead of
+        # holding a thread asleep for hours. A fixed numeric rate_limit_sleep
+        # is the caller's own choice and is never capped.
+        raise exception if rate_limit_max_sleep && duration > rate_limit_max_sleep
+
+        duration
       else
         [self.rate_limit_sleep.to_f, 0].max
       end
