@@ -346,6 +346,93 @@ class HttpTest < UnitTestCase
             assert_equal 328, error.daily_limit_remaining
           end
 
+          should "sleep and retry when retry-after is within rate_limit_max_sleep" do
+            @application = Xeroizer::OAuth2Application.new(
+              CLIENT_ID, CLIENT_SECRET,
+              tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+              rate_limit_sleep: true,
+              rate_limit_max_sleep: 90,
+              raise_errors: true
+            )
+
+            stub_request(:get, @uri).to_return(
+              status: 429,
+              body: "",
+              headers: {
+                "retry-after" => "42",
+                "x-daylimit-remaining" => "328",
+              }
+            ).then.to_return(status: 200, body: "<Response/>")
+
+            @application.expects(:sleep_for).with(42)
+            result = @application.http_get(@application.client, @uri)
+            assert_equal "<Response/>", result
+          end
+
+          should "raise RateLimitExceeded without sleeping when retry-after exceeds the default rate_limit_max_sleep" do
+            stub_request(:get, @uri).to_return(
+              status: 429,
+              body: "",
+              headers: {
+                "retry-after" => "14400",
+                "x-daylimit-remaining" => "0",
+              }
+            )
+
+            @application.expects(:sleep_for).never
+
+            error = assert_raises(Xeroizer::OAuth::RateLimitExceeded) {
+              @application.http_get(@application.client, @uri)
+            }
+            assert_equal 14400, error.retry_after
+            assert_equal 0, error.daily_limit_remaining
+          end
+
+          should "never cap a fixed numeric rate_limit_sleep" do
+            @application = Xeroizer::OAuth2Application.new(
+              CLIENT_ID, CLIENT_SECRET,
+              tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+              rate_limit_sleep: 300,
+              raise_errors: true
+            )
+
+            stub_request(:get, @uri).to_return(
+              status: 429,
+              body: "",
+              headers: {
+                "retry-after" => "42",
+                "x-daylimit-remaining" => "328",
+              }
+            ).then.to_return(status: 200, body: "<Response/>")
+
+            @application.expects(:sleep_for).with(300.0)
+            result = @application.http_get(@application.client, @uri)
+            assert_equal "<Response/>", result
+          end
+
+          should "sleep for the full retry-after when rate_limit_max_sleep is false" do
+            @application = Xeroizer::OAuth2Application.new(
+              CLIENT_ID, CLIENT_SECRET,
+              tenant_id: TENANT_ID, access_token: ACCESS_TOKEN,
+              rate_limit_sleep: true,
+              rate_limit_max_sleep: false,
+              raise_errors: true
+            )
+
+            stub_request(:get, @uri).to_return(
+              status: 429,
+              body: "",
+              headers: {
+                "retry-after" => "14400",
+                "x-daylimit-remaining" => "0",
+              }
+            ).then.to_return(status: 200, body: "<Response/>")
+
+            @application.expects(:sleep_for).with(14400)
+            result = @application.http_get(@application.client, @uri)
+            assert_equal "<Response/>", result
+          end
+
           should "raise RateLimitExceeded (not OAuth2::Error) when rate_limit_sleep is false" do
             @application = Xeroizer::OAuth2Application.new(
               CLIENT_ID, CLIENT_SECRET,

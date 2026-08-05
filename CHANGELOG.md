@@ -34,6 +34,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   mis-send request bodies.
 - `LineItem#line_item_id` is now a guid, producing `LineItemID` in XML to match Xero's case-sensitive parsing. (#562)
 - `rate_limit_sleep: true` now respects the `Retry-After` response header. (#569)
+- New `rate_limit_max_sleep` option (default 120) caps the `Retry-After` honored
+  by `rate_limit_sleep: true`; a larger value (daily limit exhausted) raises
+  `Xeroizer::OAuth::RateLimitExceeded` instead of sleeping. Pass `false` to
+  sleep uncapped. A fixed numeric `rate_limit_sleep` is never capped.
 - `rate_limit_sleep` now also works under `raise_errors: true`.
 - A numeric `rate_limit_sleep` is now clamped to a non-negative number.
   Fractional values are preserved (`2.5` sleeps 2.5 seconds). Negative values
