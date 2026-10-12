@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'date'
 require 'forwardable'
+# ActiveSupport's entry point first: it registers the autoloads the cherry-picked
+# core_ext files below rely on (e.g. ActiveSupport::Ractors in time formats).
+require 'active_support'
 # Load the deprecation framework before cherry-picking core_ext: some versions
 # emit a deprecation at load time (e.g. AS 7.1 array, AS 8.2 time), which needs
 # ActiveSupport::Deprecation + ActiveSupport.deprecator already defined.
