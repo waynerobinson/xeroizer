@@ -6,7 +6,7 @@ module Xeroizer
     include Http
     extend Record::ApplicationHelper
 
-    attr_reader :client, :logger, :rate_limit_sleep, :rate_limit_max_attempts,
+    attr_reader :client, :logger, :rate_limit_sleep, :rate_limit_max_attempts, :rate_limit_max_sleep,
                 :default_headers, :unitdp, :before_request, :after_request, :around_request
 
     attr_accessor :xero_url
@@ -70,6 +70,12 @@ module Xeroizer
         @xero_url = options[:xero_url] || "https://api.xero.com/api.xro/2.0"
         @rate_limit_sleep = options[:rate_limit_sleep] || false
         @rate_limit_max_attempts = options[:rate_limit_max_attempts] || 5
+        # Longest Retry-After honored when rate_limit_sleep is true; larger
+        # values (daily limit exhausted) raise instead of sleeping for hours.
+        # Xero's per-minute window sends Retry-After <= 60s, so 120 clears
+        # every minute-window breach. Pass false to sleep uncapped. No effect
+        # unless rate_limit_sleep is true.
+        @rate_limit_max_sleep = options.fetch(:rate_limit_max_sleep, 120)
         @default_headers = options[:default_headers] || {}
         @before_request = options.delete(:before_request)
         @after_request = options.delete(:after_request)

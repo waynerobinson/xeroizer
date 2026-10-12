@@ -609,6 +609,27 @@ When set to `true`, the library uses the `Retry-After` value from the API
 response to determine how long to wait. When set to a number, it always
 sleeps for that many seconds instead.
 
+With `:rate_limit_sleep => true`, the honored `Retry-After` is capped by
+`:rate_limit_max_sleep` (default 120 seconds). A `Retry-After` above the cap
+means the daily limit is exhausted, so the library raises
+`Xeroizer::OAuth::RateLimitExceeded` instead of sleeping for hours:
+
+```ruby
+# Honor Retry-After up to 5 minutes; raise beyond that.
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
+                                         :rate_limit_sleep => true,
+                                         :rate_limit_max_sleep => 300)
+
+# Sleep for the full Retry-After, however long.
+client = Xeroizer::OAuth2Application.new(YOUR_OAUTH2_CLIENT_ID,
+                                         YOUR_OAUTH2_CLIENT_SECRET,
+                                         :rate_limit_sleep => true,
+                                         :rate_limit_max_sleep => false)
+```
+
+`:rate_limit_max_sleep` has no effect when `:rate_limit_sleep` is not `true`.
+
 Logging
 ---------------
 
