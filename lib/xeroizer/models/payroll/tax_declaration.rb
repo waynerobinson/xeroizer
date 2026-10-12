@@ -28,20 +28,20 @@ module Xeroizer
           }.freeze
         end
 
-        string      :tax_file_number
+        string :tax_file_number
 
-        string      :tfn_exemption_type, api_name: 'TFNExemptionType'
-        string      :employment_basis
+        string :tfn_exemption_type, api_name: 'TFNExemptionType'
+        string :employment_basis
 
-        boolean      :australian_resident_for_tax_purposes
-        boolean      :tax_free_threshold_claimed
-        boolean      :has_help_debt, api_name: 'HasHELPDebt'
-        boolean      :has_sfss_debt, api_name: 'HasSFSSDebt'
-        boolean      :eligible_to_receive_leave_loading
+        boolean :australian_resident_for_tax_purposes
+        boolean :tax_free_threshold_claimed
+        boolean :has_help_debt, api_name: 'HasHELPDebt'
+        boolean :has_sfss_debt, api_name: 'HasSFSSDebt'
+        boolean :eligible_to_receive_leave_loading
 
-        decimal      :tax_offset_estimated_amount
-        decimal      :upward_variation_tax_withholding_amount
-        decimal      :approved_withholding_variation_percentage
+        decimal :tax_offset_estimated_amount
+        decimal :upward_variation_tax_withholding_amount
+        decimal :approved_withholding_variation_percentage
 
         datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
 

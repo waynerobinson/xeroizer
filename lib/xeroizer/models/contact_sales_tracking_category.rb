@@ -8,8 +8,8 @@ module Xeroizer
     end
 
     class ContactSalesTrackingCategory < Base
-      string  :tracking_category_name
-      string  :tracking_option_name
+      string :tracking_category_name
+      string :tracking_option_name
     end
   end
 end

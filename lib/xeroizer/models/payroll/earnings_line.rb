@@ -18,10 +18,10 @@ module Xeroizer
         guid          :earning_rate_id, api_name: 'EarningsRateID'
         string        :calculation_type
 
-        decimal       :number_of_units_per_week
-        decimal       :annual_salary
-        decimal       :rate_per_unit
-        decimal       :normal_number_of_units
+        decimal :number_of_units_per_week
+        decimal :annual_salary
+        decimal :rate_per_unit
+        decimal :normal_number_of_units
 
         # US Payroll fields
         guid          :earnings_type_id

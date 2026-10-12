@@ -19,8 +19,8 @@ module Xeroizer
         true
       end
 
-      string  :code
-      string  :description # read only
+      string :code
+      string :description # read only
     end
   end
 end

@@ -34,8 +34,8 @@ class ModelDefinitionsTest < Minitest::Test
   class Xeroizer::Record::SecondRecordModel < Xeroizer::Record::BaseModel; end
 
   class TestRecord < Xeroizer::Record::Base
-    string    :xml_name, api_name: 'ApiNameHere', internal_name: :internal_name_here
-    string    :name
+    string :xml_name, api_name: 'ApiNameHere', internal_name: :internal_name_here
+    string :name
   end
 
   class Xeroizer::Record::TestRecordModel < Xeroizer::Record::BaseModel; end

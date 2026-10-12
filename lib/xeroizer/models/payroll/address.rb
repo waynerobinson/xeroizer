@@ -14,12 +14,12 @@ module Xeroizer
       class Address < PayrollBase
         class_inheritable_attributes :fields, :possible_primary_keys, :primary_key_name, :summary_only, :validators
 
-        string      :address_line1
-        string      :address_line2
-        string      :city
-        string      :region
-        string      :postal_code
-        string      :country
+        string :address_line1
+        string :address_line2
+        string :city
+        string :region
+        string :postal_code
+        string :country
 
         # US Payroll fields
         string      :street_address

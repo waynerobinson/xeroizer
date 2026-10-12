@@ -21,9 +21,9 @@ module Xeroizer
       boolean       :is_reconciled
       string        :batch_payment_id
 
-      belongs_to    :account
-      belongs_to    :invoice
-      belongs_to    :credit_note
+      belongs_to :account
+      belongs_to :invoice
+      belongs_to :credit_note
 
       def invoice_id
         invoice.id if invoice

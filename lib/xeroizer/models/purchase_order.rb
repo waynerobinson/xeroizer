@@ -35,9 +35,9 @@ module Xeroizer
       guid    :branding_theme_id
       string  :status
       string  :line_amount_types
-      decimal  :sub_total
-      decimal  :total_tax
-      decimal  :total
+      decimal :sub_total
+      decimal :total_tax
+      decimal :total
       datetime_utc :updated_date_utc, api_name: 'UpdatedDateUTC'
       boolean :has_attachments
 

@@ -8,11 +8,11 @@ module Xeroizer
       end
 
       class PayItems < PayrollBase
-        has_many      :earnings_types
-        has_many      :benefit_types
-        has_many      :deduction_types
-        has_many      :reimbursement_types
-        has_many      :time_off_types
+        has_many :earnings_types
+        has_many :benefit_types
+        has_many :deduction_types
+        has_many :reimbursement_types
+        has_many :time_off_types
       end
     end
   end
