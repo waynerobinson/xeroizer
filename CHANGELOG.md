@@ -60,6 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `require 'active_support'` before the cherry-picked core extensions; loading
+  `active_support/time` directly fails on Rails main (`ActiveSupport::Ractors`).
 - OAuth error response (401/403/503) parsing on Ruby 4.0, where `CGI.parse` was removed.
 - Models without `set_permissions` now raise `MethodNotAllowed` on read instead
   of `NoMethodError` (e.g. `Schedule`).
