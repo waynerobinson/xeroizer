@@ -1,0 +1,1025 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.xero.com/api.xro/2.0/Invoices?where=Type==%22ACCREC%22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Charset:
+      - utf-8
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '32954'
+      Xero-Correlation-Id:
+      - 8ef1f7d8-93c9-4617-a1eb-28dcfa93eff2
+      X-Appminlimit-Remaining:
+      - '9966'
+      X-Minlimit-Remaining:
+      - '56'
+      X-Daylimit-Remaining:
+      - '966'
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Server:
+      - tpzgw-c
+      Expires:
+      - Wed, 10 Jun 2026 12:08:28 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:28 GMT
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: "<Response xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n
+        \ <Id>8ef1f7d8-93c9-4617-a1eb-28dcfa93eff2</Id>\r\n  <Status>OK</Status>\r\n
+        \ <ProviderName>nnc-oauth2</ProviderName>\r\n  <DateTimeUTC>2026-06-10T12:08:28.8766367Z</DateTimeUTC>\r\n
+        \ <Invoices>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>5b96e86b-418e-48e8-8949-308c14aec278</ContactID>\r\n
+        \       <Name>Marine Systems</Name>\r\n      </Contact>\r\n      <Date>2026-06-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-15T00:00:00</DueDate>\r\n      <BrandingThemeID>d613f7f9-8fcb-477f-97f0-31eb85b7e5cf</BrandingThemeID>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>365.82</SubTotal>\r\n      <TotalTax>30.18</TotalTax>\r\n
+        \     <Total>396.00</Total>\r\n      <UpdatedDateUTC>2008-12-19T01:37:59.057</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>fee88eea-f2aa-4a71-a372-33d6d83d3c45</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0027</InvoiceNumber>\r\n      <Reference>Ref MK815</Reference>\r\n
+        \     <AmountDue>396.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>37918a06-92f6-4edb-bfe0-1fc041c90f8b</ContactID>\r\n
+        \       <Name>Boom FM</Name>\r\n      </Contact>\r\n      <Date>2026-04-17T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-30T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T17:38:32.66</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-28T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>4c4db294-3633-45cd-8706-f0b3b0079609</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0010</InvoiceNumber>\r\n      <Reference>Training</Reference>\r\n
+        \     <CreditNotes>\r\n        <CreditNote>\r\n          <Date>2026-04-28T00:00:00</Date>\r\n
+        \         <Total>541.25</Total>\r\n          <AppliedAmount>541.25</AppliedAmount>\r\n
+        \         <CreditNoteID>602f5486-664e-492f-b4d1-e12df1d4b8ba</CreditNoteID>\r\n
+        \         <CreditNoteNumber>CN-0014</CreditNoteNumber>\r\n          <HasErrors>false</HasErrors>\r\n
+        \       </CreditNote>\r\n      </CreditNotes>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>541.25</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>fd89489e-699c-4d77-a881-10c127bfbeb3</ContactID>\r\n
+        \       <Name>Hamilton Smith Ltd</Name>\r\n      </Contact>\r\n      <Date>2026-04-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T17:39:54.077</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>b7e0c5f4-9f52-4126-b102-45fd12eaa3ca</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0005</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <CreditNotes>\r\n        <CreditNote>\r\n          <Date>2026-05-20T00:00:00</Date>\r\n
+        \         <Total>541.25</Total>\r\n          <AppliedAmount>541.25</AppliedAmount>\r\n
+        \         <CreditNoteID>694c1f99-8085-416c-9ace-40f911303229</CreditNoteID>\r\n
+        \         <CreditNoteNumber>CN-0015</CreditNoteNumber>\r\n          <HasErrors>false</HasErrors>\r\n
+        \       </CreditNote>\r\n      </CreditNotes>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>541.25</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>7c913d33-39d5-4a1c-b8b1-e23f5fc999e0</ContactID>\r\n
+        \       <Name>City Limousines</Name>\r\n      </Contact>\r\n      <Date>2026-04-28T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-08T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>19.95</SubTotal>\r\n
+        \     <TotalTax>1.75</TotalTax>\r\n      <Total>21.70</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:11:39.267</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>07e71ce4-9801-4cce-914b-dc07e9c0ca5e</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0017</InvoiceNumber>\r\n      <Reference>Book</Reference>\r\n
+        \     <AmountDue>21.70</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>fd89489e-699c-4d77-a881-10c127bfbeb3</ContactID>\r\n
+        \       <Name>Hamilton Smith Ltd</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T20:06:27.127</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-18T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>cb5119d0-9759-49d3-800b-7d0a90818178</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0001</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>655ad293-0b35-4c2c-9a97-0ee979dd365f</PaymentID>\r\n
+        \         <BatchPaymentID>ac90d19b-7166-4400-8e34-eb81b39288b7</BatchPaymentID>\r\n
+        \         <Date>2026-04-18T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>541.25</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>021b18f8-b62f-4d8a-889e-71fd5427892a</ContactID>\r\n
+        \       <Name>Young Bros Transport</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T20:06:29.75</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-18T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>ac4883f6-fb22-4f55-9ed1-34929fc53c78</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0002</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>eda94e67-0523-4375-ae3d-f481888b6be6</PaymentID>\r\n
+        \         <BatchPaymentID>f6a03619-d352-45d5-a029-16a801b4e401</BatchPaymentID>\r\n
+        \         <Date>2026-04-18T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>541.25</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>378f211a-64c2-4327-bab3-9b057f4f51d9</ContactID>\r\n
+        \       <Name>Port &amp; Philip Freight</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T22:53:36.57</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-18T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>f61d2da2-3957-42f7-b268-6117b957794e</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0003</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>38eec94e-7f2d-4295-b21c-b74078c628ca</PaymentID>\r\n
+        \         <BatchPaymentID>9748930b-3eb6-486f-8d4a-2edbc1271087</BatchPaymentID>\r\n
+        \         <Date>2026-04-18T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>541.25</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3cbd5263-0965-4c4e-932c-bf50e3297610</ContactID>\r\n
+        \       <Name>Rex Media Group</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T22:53:38.71</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-18T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>043ce7df-fc3d-4e6b-b505-34579d0490f3</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0004</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>f1ffc642-018f-4a74-94f1-41655528e082</PaymentID>\r\n
+        \         <BatchPaymentID>3fa048c1-ded0-4c1e-ba2c-ea12229ca774</BatchPaymentID>\r\n
+        \         <Date>2026-04-18T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>541.25</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>47f61ab1-5245-40a2-a3a5-bc224c850c8d</ContactID>\r\n
+        \       <Name>Bank West</Name>\r\n      </Contact>\r\n      <Date>2026-04-11T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-22T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1200.00</SubTotal>\r\n
+        \     <TotalTax>99.00</TotalTax>\r\n      <Total>1299.00</Total>\r\n      <UpdatedDateUTC>2008-12-20T22:53:59.897</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-19T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>64f222d5-e59a-43e0-8f6b-69f87e42a527</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0008</InvoiceNumber>\r\n      <Reference>Training</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>8fdca282-ae96-4292-92b3-6194fcfb0a24</PaymentID>\r\n
+        \         <BatchPaymentID>c64e0536-fde6-4ab4-810b-57771c33e430</BatchPaymentID>\r\n
+        \         <Date>2026-04-19T00:00:00</Date>\r\n          <Amount>1299.00</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>1299.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>7c913d33-39d5-4a1c-b8b1-e23f5fc999e0</ContactID>\r\n
+        \       <Name>City Limousines</Name>\r\n      </Contact>\r\n      <Date>2026-06-04T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-19T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>650.00</SubTotal>\r\n
+        \     <TotalTax>53.63</TotalTax>\r\n      <Total>703.63</Total>\r\n      <UpdatedDateUTC>2008-12-21T00:07:12.087</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>a909dda4-555b-414b-a395-ba7a4077de72</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0024</InvoiceNumber>\r\n      <Reference>P/O 9711</Reference>\r\n
+        \     <AmountDue>703.63</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>65a44264-dea0-481a-b49d-18a334a72334</ContactID>\r\n
+        \       <Name>Ridgeway University</Name>\r\n      </Contact>\r\n      <Date>2026-05-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-09T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>5715.94</SubTotal>\r\n
+        \     <TotalTax>471.56</TotalTax>\r\n      <Total>6187.50</Total>\r\n      <UpdatedDateUTC>2008-12-21T01:10:50.963</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>3f887d04-cbd9-4853-b594-bc1ab207558c</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0025</InvoiceNumber>\r\n      <Reference>P/O CRM08-12</Reference>\r\n
+        \     <AmountDue>6187.50</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>7c913d33-39d5-4a1c-b8b1-e23f5fc999e0</ContactID>\r\n
+        \       <Name>City Limousines</Name>\r\n      </Contact>\r\n      <Date>2026-04-25T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-05T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>200.00</SubTotal>\r\n
+        \     <TotalTax>16.50</TotalTax>\r\n      <Total>216.50</Total>\r\n      <UpdatedDateUTC>2008-12-21T01:28:08.727</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-10T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>50e1cbd2-86c6-42df-9538-5691dd54bbee</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0012</InvoiceNumber>\r\n      <Reference>P/O 9711</Reference>\r\n
+        \     <AmountDue>216.50</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>fa52f698-1244-47cd-8fb9-5f32b6490a55</ContactID>\r\n
+        \       <Name>City Agency</Name>\r\n      </Contact>\r\n      <Date>2026-04-12T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-23T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>547.80</SubTotal>\r\n
+        \     <TotalTax>45.43</TotalTax>\r\n      <Total>593.23</Total>\r\n      <UpdatedDateUTC>2009-02-15T14:25:46.07</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-23T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>50a8143e-f9a5-4b84-8560-0daeba260020</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0007</InvoiceNumber>\r\n      <Reference>Workshop</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>9e2a70e4-7dbb-4b8a-bb64-cb6c6c45050d</PaymentID>\r\n
+        \         <Date>2026-04-23T00:00:00</Date>\r\n          <Amount>593.23</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>593.23</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>7c913d33-39d5-4a1c-b8b1-e23f5fc999e0</ContactID>\r\n
+        \       <Name>City Limousines</Name>\r\n      </Contact>\r\n      <Date>2026-04-08T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-18T00:00:00</DueDate>\r\n      <BrandingThemeID>d613f7f9-8fcb-477f-97f0-31eb85b7e5cf</BrandingThemeID>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>230.95</SubTotal>\r\n      <TotalTax>19.05</TotalTax>\r\n
+        \     <Total>250.00</Total>\r\n      <UpdatedDateUTC>2013-01-05T20:02:25.28</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>bd63b5f1-5503-4c62-9c4a-e4b9e4257dc9</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0006</InvoiceNumber>\r\n      <Reference>P/O 9711</Reference>\r\n
+        \     <AmountDue>250.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>85d15bf3-207f-4278-8449-e12dade98c66</ContactID>\r\n
+        \       <Name>Basket Case</Name>\r\n      </Contact>\r\n      <Date>2026-06-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-19T00:00:00</DueDate>\r\n      <BrandingThemeID>92f08561-bd65-469b-93fb-65dd1552c678</BrandingThemeID>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>844.85</SubTotal>\r\n      <TotalTax>69.70</TotalTax>\r\n
+        \     <Total>914.55</Total>\r\n      <UpdatedDateUTC>2013-01-07T20:23:02.357</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>016a64c7-be0b-45a2-acae-13057fdf1566</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0026</InvoiceNumber>\r\n      <AmountDue>914.55</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>b68deed5-49c8-416a-9f35-2ab14bb1fb6b</ContactID>\r\n
+        \       <Name>Bayside Club</Name>\r\n      </Contact>\r\n      <Date>2026-06-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-28T00:00:00</DueDate>\r\n      <BrandingThemeID>d613f7f9-8fcb-477f-97f0-31eb85b7e5cf</BrandingThemeID>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>216.93</SubTotal>\r\n      <TotalTax>17.07</TotalTax>\r\n
+        \     <Total>234.00</Total>\r\n      <UpdatedDateUTC>2013-01-14T21:19:11.037</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>88617351-56ed-4c14-a30d-34a006d0a75a</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0028</InvoiceNumber>\r\n      <Reference>GB1-White</Reference>\r\n
+        \     <AmountDue>234.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>2aaaeb6b-b519-4698-9b0a-f74ba1d39be6</ContactID>\r\n
+        \       <Name>Petrie McLoud Watson &amp; Associates</Name>\r\n      </Contact>\r\n
+        \     <Date>2026-04-23T00:00:00</Date>\r\n      <DueDate>2026-05-10T00:00:00</DueDate>\r\n
+        \     <Status>PAID</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>1300.00</SubTotal>\r\n      <TotalTax>107.25</TotalTax>\r\n
+        \     <Total>1407.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:07:47.72</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-10T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>463042ef-4343-4a5a-abb8-9a1a3e2e1057</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0011</InvoiceNumber>\r\n      <Reference>Portal Proj</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>002b45b9-891e-43f9-9bfd-2ba9cabc43a4</PaymentID>\r\n
+        \         <Date>2026-05-10T00:00:00</Date>\r\n          <Amount>1407.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1407.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>37918a06-92f6-4edb-bfe0-1fc041c90f8b</ContactID>\r\n
+        \       <Name>Boom FM</Name>\r\n      </Contact>\r\n      <Date>2026-04-28T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-10T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1000.00</SubTotal>\r\n
+        \     <TotalTax>82.50</TotalTax>\r\n      <Total>1082.50</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:07:51.993</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-10T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>11e353a8-73f8-4f50-82e0-ff1a2ff8ffba</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0013</InvoiceNumber>\r\n      <Reference>Training</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>f8ff15b6-8210-4350-9bec-c5132dfca4b7</PaymentID>\r\n
+        \         <Date>2026-05-10T00:00:00</Date>\r\n          <Amount>1082.50</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1082.50</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>65a44264-dea0-481a-b49d-18a334a72334</ContactID>\r\n
+        \       <Name>Ridgeway University</Name>\r\n      </Contact>\r\n      <Date>2026-04-18T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-10T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>5715.94</SubTotal>\r\n
+        \     <TotalTax>471.56</TotalTax>\r\n      <Total>6187.50</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:09:34.503</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-10T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>cb43aadd-8836-4e95-aa2c-c4ba66c2ca9e</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0009</InvoiceNumber>\r\n      <Reference>P/O CRM08-12</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>f7bc9e8d-e224-48f7-9e0c-815767f20834</PaymentID>\r\n
+        \         <Date>2026-05-10T00:00:00</Date>\r\n          <Amount>6187.50</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>6187.50</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>a3cf95c5-9d26-42e1-80c0-69e5f24886d3</ContactID>\r\n
+        \       <Name>DIISR - Small Business Services</Name>\r\n      </Contact>\r\n
+        \     <Date>2026-05-10T00:00:00</Date>\r\n      <DueDate>2026-05-20T00:00:00</DueDate>\r\n
+        \     <Status>PAID</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>219.95</SubTotal>\r\n      <TotalTax>18.25</TotalTax>\r\n
+        \     <Total>238.20</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:10:01.43</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-15T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>2c916a34-14fe-4b38-af86-6b0fcc371a89</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0022</InvoiceNumber>\r\n      <Reference>Yr Ref W08-143</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>b6b2c4bd-27e7-4d00-993d-b91bef6c7dae</PaymentID>\r\n
+        \         <Date>2026-05-10T00:00:00</Date>\r\n          <Amount>216.50</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <CreditNotes>\r\n        <CreditNote>\r\n          <Date>2026-05-15T00:00:00</Date>\r\n
+        \         <Total>21.70</Total>\r\n          <AppliedAmount>21.70</AppliedAmount>\r\n
+        \         <CreditNoteID>4965b2fe-0a1b-471e-ade2-80e0e1f61c91</CreditNoteID>\r\n
+        \         <CreditNoteNumber>CN-0023</CreditNoteNumber>\r\n          <HasErrors>false</HasErrors>\r\n
+        \       </CreditNote>\r\n      </CreditNotes>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>216.50</AmountPaid>\r\n      <AmountCredited>21.70</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>fd89489e-699c-4d77-a881-10c127bfbeb3</ContactID>\r\n
+        \       <Name>Hamilton Smith Ltd</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:11:21.223</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>1371f05a-4cd3-4760-99a9-e4cf8d98e7bb</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0018</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>821adbe7-e2eb-49a1-8fe9-297a78716473</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>541.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>021b18f8-b62f-4d8a-889e-71fd5427892a</ContactID>\r\n
+        \       <Name>Young Bros Transport</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:12:29.883</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>f0065405-e5ad-4c34-ad5b-645e72813c03</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0019</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>706f68c5-46b2-43d8-9aa8-41d1cc2a317f</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>541.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>378f211a-64c2-4327-bab3-9b057f4f51d9</ContactID>\r\n
+        \       <Name>Port &amp; Philip Freight</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:12:48.883</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>72860d4a-207b-4f24-895d-167ffd44ae00</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0020</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>8649fded-cfb4-4acb-a367-714661501d38</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>541.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>3cbd5263-0965-4c4e-932c-bf50e3297610</ContactID>\r\n
+        \       <Name>Rex Media Group</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>500.00</SubTotal>\r\n
+        \     <TotalTax>41.25</TotalTax>\r\n      <Total>541.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:13:02.703</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCREC</Type>\r\n      <InvoiceID>1ee8363f-097f-4fb3-a452-8068b947e75e</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0021</InvoiceNumber>\r\n      <Reference>Monthly
+        Support</Reference>\r\n      <Payments>\r\n        <Payment>\r\n          <PaymentID>49856713-ab68-4411-99df-9b825f152eb6</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>541.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>541.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>a3cf95c5-9d26-42e1-80c0-69e5f24886d3</ContactID>\r\n
+        \       <Name>DIISR - Small Business Services</Name>\r\n      </Contact>\r\n
+        \     <Date>2026-04-30T00:00:00</Date>\r\n      <DueDate>2026-05-10T00:00:00</DueDate>\r\n
+        \     <Status>AUTHORISED</Status>\r\n      <LineAmountTypes>Exclusive</LineAmountTypes>\r\n
+        \     <SubTotal>775.00</SubTotal>\r\n      <TotalTax>63.94</TotalTax>\r\n
+        \     <Total>838.94</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:18:44.57</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>4286e4ee-cc4a-4d74-9568-10935b3600bb</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0016</InvoiceNumber>\r\n      <Reference>Yr Ref W08-143</Reference>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>f38b51a9-44e1-4afe-adc9-bb5c7fbbdf2d</PaymentID>\r\n
+        \         <Date>2026-05-10T00:00:00</Date>\r\n          <Amount>568.31</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>270.63</AmountDue>\r\n      <AmountPaid>568.31</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <SentToContact>true</SentToContact>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3cbd5263-0965-4c4e-932c-bf50e3297610</ContactID>\r\n
+        \       <Name>Rex Media Group</Name>\r\n      </Contact>\r\n      <Date>2026-06-08T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-23T00:00:00</DueDate>\r\n      <BrandingThemeID>d613f7f9-8fcb-477f-97f0-31eb85b7e5cf</BrandingThemeID>\r\n
+        \     <Status>DRAFT</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>508.08</SubTotal>\r\n      <TotalTax>41.92</TotalTax>\r\n
+        \     <Total>550.00</Total>\r\n      <UpdatedDateUTC>2016-06-24T17:23:41.017</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>1bba28a1-2807-4d2e-86a0-c418a91ac12f</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0030</InvoiceNumber>\r\n      <Reference>Monthly
+        support</Reference>\r\n      <AmountDue>550.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>fd89489e-699c-4d77-a881-10c127bfbeb3</ContactID>\r\n
+        \       <Name>Hamilton Smith Ltd</Name>\r\n      </Contact>\r\n      <Date>2026-06-08T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-23T00:00:00</DueDate>\r\n      <BrandingThemeID>d613f7f9-8fcb-477f-97f0-31eb85b7e5cf</BrandingThemeID>\r\n
+        \     <Status>DRAFT</Status>\r\n      <LineAmountTypes>Inclusive</LineAmountTypes>\r\n
+        \     <SubTotal>508.08</SubTotal>\r\n      <TotalTax>41.92</TotalTax>\r\n
+        \     <Total>550.00</Total>\r\n      <UpdatedDateUTC>2016-06-24T17:23:48.673</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCREC</Type>\r\n      <InvoiceID>3f4a783e-6e80-4062-9300-4df2524e8bf7</InvoiceID>\r\n
+        \     <InvoiceNumber>INV-0029</InvoiceNumber>\r\n      <Reference>Monthly
+        support</Reference>\r\n      <AmountDue>550.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n  </Invoices>\r\n</Response>"
+  recorded_at: Wed, 10 Jun 2026 12:08:28 GMT
+- request:
+    method: get
+    uri: https://api.xero.com/api.xro/2.0/Invoices?where=Type==%22ACCPAY%22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Charset:
+      - utf-8
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '46029'
+      Xero-Correlation-Id:
+      - 9c1dfe46-492a-49e3-a422-13f797a7f3f9
+      X-Appminlimit-Remaining:
+      - '9965'
+      X-Minlimit-Remaining:
+      - '55'
+      X-Daylimit-Remaining:
+      - '965'
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Server:
+      - tpzgw-c
+      Expires:
+      - Wed, 10 Jun 2026 12:08:29 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:29 GMT
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: "<Response xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n
+        \ <Id>9c1dfe46-492a-49e3-a422-13f797a7f3f9</Id>\r\n  <Status>OK</Status>\r\n
+        \ <ProviderName>nnc-oauth2</ProviderName>\r\n  <DateTimeUTC>2026-06-10T12:08:29.359548Z</DateTimeUTC>\r\n
+        \ <Invoices>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>78b7299c-4f1f-46d2-acc3-44a46bd361b1</ContactID>\r\n
+        \       <Name>Swanston Security</Name>\r\n      </Contact>\r\n      <Date>2026-05-20T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-27T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>55.00</SubTotal>\r\n
+        \     <TotalTax>4.54</TotalTax>\r\n      <Total>59.54</Total>\r\n      <UpdatedDateUTC>2008-12-20T16:40:33.74</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>9f5bca33-8590-4b6f-acfb-e85712b10217</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>59.54</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>7f9d8073-f224-43d4-bfa9-a8925f25e0ec</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3b30a108-9156-4a42-a893-3bbbe7af1ef8</ContactID>\r\n
+        \       <Name>Xero</Name>\r\n      </Contact>\r\n      <Date>2026-06-06T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-06T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>29.00</SubTotal>\r\n
+        \     <TotalTax>2.39</TotalTax>\r\n      <Total>31.39</Total>\r\n      <UpdatedDateUTC>2008-12-20T16:42:10.237</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>8a3fdcc9-83eb-4fdd-83e0-52ec1b40b072</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>31.39</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>01e01427-6b48-4d5f-aa2e-87c43f2a32a9</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3b30a108-9156-4a42-a893-3bbbe7af1ef8</ContactID>\r\n
+        \       <Name>Xero</Name>\r\n      </Contact>\r\n      <Date>2026-04-06T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-06T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>29.00</SubTotal>\r\n
+        \     <TotalTax>2.39</TotalTax>\r\n      <Total>31.39</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:39:15.777</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-07T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>3a669bd8-b601-4b9a-81d4-cb03f1af3059</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>dac50c7a-d12b-440c-b907-fae1bbbc36a1</PaymentID>\r\n
+        \         <Date>2026-05-07T00:00:00</Date>\r\n          <Amount>31.39</Amount>\r\n
+        \         <Reference>Ref 08162</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>31.39</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>01e01427-6b48-4d5f-aa2e-87c43f2a32a9</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>f4af0a9b-e710-4611-8618-4360944ce1f3</ContactID>\r\n
+        \       <Name>Truxton Property Management</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-09T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1091.22</SubTotal>\r\n
+        \     <TotalTax>90.03</TotalTax>\r\n      <Total>1181.25</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:42:16.177</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-19T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>6a77611c-f9af-483b-aa6e-d0fd23137394</InvoiceID>\r\n
+        \     <InvoiceNumber>RENT</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>63dd1e8e-a600-4ff1-aa10-f2cf43fefc94</PaymentID>\r\n
+        \         <Date>2026-04-19T00:00:00</Date>\r\n          <Amount>1181.25</Amount>\r\n
+        \         <Reference>FP089876</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1181.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>dcd26e24-a848-4492-a452-695b88f66abc</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>8f48b066-e047-459d-80dd-d495b36608d0</ContactID>\r\n
+        \       <Name>PowerDirect</Name>\r\n      </Contact>\r\n      <Date>2026-04-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-19T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>110.00</SubTotal>\r\n
+        \     <TotalTax>9.08</TotalTax>\r\n      <Total>119.08</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:42:42.287</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-19T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>28a34ad7-6c41-4d92-8312-cd07f8328e90</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>2ea66d76-84d6-485a-ba67-148037a0b576</PaymentID>\r\n
+        \         <Date>2026-04-19T00:00:00</Date>\r\n          <Amount>119.08</Amount>\r\n
+        \         <Reference>FP089876</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>119.08</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>9bcc1e13-3e4a-47c5-a300-249bff8a00f6</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>aacecb74-ef1e-44e0-ba52-0bc521639697</ContactID>\r\n
+        \       <Name>PC Complete</Name>\r\n      </Contact>\r\n      <Date>2026-04-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-19T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1804.50</SubTotal>\r\n
+        \     <TotalTax>148.87</TotalTax>\r\n      <Total>1953.37</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:43:03.833</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-25T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>824c6c13-b7a5-49a2-99bd-4a6d77f7866e</InvoiceID>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>ea89abd7-b942-4a69-a652-854cbd5f799e</PaymentID>\r\n
+        \         <Date>2026-04-19T00:00:00</Date>\r\n          <Amount>1682.74</Amount>\r\n
+        \         <Reference>FP089876</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <CreditNotes>\r\n        <CreditNote>\r\n          <Date>2026-04-25T00:00:00</Date>\r\n
+        \         <Total>270.63</Total>\r\n          <AppliedAmount>270.63</AppliedAmount>\r\n
+        \         <CreditNoteID>eb75c5d2-925e-4201-8944-e7f4c69a3518</CreditNoteID>\r\n
+        \         <CreditNoteNumber>OG laptop</CreditNoteNumber>\r\n          <HasErrors>false</HasErrors>\r\n
+        \       </CreditNote>\r\n      </CreditNotes>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>1682.74</AmountPaid>\r\n      <AmountCredited>270.63</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-04-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>41.50</SubTotal>\r\n
+        \     <TotalTax>3.42</TotalTax>\r\n      <Total>44.92</Total>\r\n      <UpdatedDateUTC>2008-12-20T18:43:25.55</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-19T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>236985ea-21a5-4b17-afb9-c16ff9ff3e27</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>48a29539-e218-407b-8a0c-ae00ad011189</PaymentID>\r\n
+        \         <Date>2026-04-19T00:00:00</Date>\r\n          <Amount>44.92</Amount>\r\n
+        \         <Reference>FP089876</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>44.92</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>334e6b25-c876-499c-81da-ab1293bbeac5</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3b30a108-9156-4a42-a893-3bbbe7af1ef8</ContactID>\r\n
+        \       <Name>Xero</Name>\r\n      </Contact>\r\n      <Date>2026-05-07T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-07T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>29.00</SubTotal>\r\n
+        \     <TotalTax>2.39</TotalTax>\r\n      <Total>31.39</Total>\r\n      <UpdatedDateUTC>2008-12-20T22:53:26.29</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-06T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>1938eac0-c2dc-48f1-b4e1-b3ae59362f9b</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>ac203d5b-3efc-4b5f-9601-c754202cec5b</PaymentID>\r\n
+        \         <BatchPaymentID>2f2285ef-9aed-43cd-8a41-021ce41434e7</BatchPaymentID>\r\n
+        \         <Date>2026-04-06T00:00:00</Date>\r\n          <Amount>31.39</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>31.39</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>01e01427-6b48-4d5f-aa2e-87c43f2a32a9</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>cade9142-f5fe-4970-b39e-2f388b8740c0</ContactID>\r\n
+        \       <Name>Central Copiers</Name>\r\n      </Contact>\r\n      <Date>2026-04-17T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-22T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>982.50</SubTotal>\r\n
+        \     <TotalTax>81.06</TotalTax>\r\n      <Total>1063.56</Total>\r\n      <UpdatedDateUTC>2008-12-20T23:23:13.353</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>14aa8bd8-7473-42c7-b8bc-ca83d7a75236</InvoiceID>\r\n
+        \     <InvoiceNumber>945-OCon</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>11e24be4-1f7b-4e40-a81b-bf90b1fe3be9</PaymentID>\r\n
+        \         <Date>2026-04-25T00:00:00</Date>\r\n          <Amount>900.00</Amount>\r\n
+        \         <Reference>FP101897</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>163.56</AmountDue>\r\n      <AmountPaid>900.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>537d4d64-2fc1-4521-89c3-489d20fae20d</ContactID>\r\n
+        \       <Name>MCO Cleaning Services</Name>\r\n      </Contact>\r\n      <Date>2026-04-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-25T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>110.00</SubTotal>\r\n
+        \     <TotalTax>9.08</TotalTax>\r\n      <Total>119.08</Total>\r\n      <UpdatedDateUTC>2008-12-20T23:23:29.417</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-25T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>9a4a5e48-56fb-4ec6-9c3b-07c947239372</InvoiceID>\r\n
+        \     <InvoiceNumber>5679</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>2fe58620-17ef-4f3d-8dd4-83d3ff395e90</PaymentID>\r\n
+        \         <Date>2026-04-25T00:00:00</Date>\r\n          <Amount>119.08</Amount>\r\n
+        \         <Reference>FP101897</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>119.08</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>78b7299c-4f1f-46d2-acc3-44a46bd361b1</ContactID>\r\n
+        \       <Name>Swanston Security</Name>\r\n      </Contact>\r\n      <Date>2026-04-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-26T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>55.00</SubTotal>\r\n
+        \     <TotalTax>4.54</TotalTax>\r\n      <Total>59.54</Total>\r\n      <UpdatedDateUTC>2008-12-20T23:23:49.527</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-25T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>ffbb9f34-f7d7-4f55-91cb-af89552ecdd7</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>c5669150-71bf-4e26-95c9-4504737027da</PaymentID>\r\n
+        \         <Date>2026-04-25T00:00:00</Date>\r\n          <Amount>34.10</Amount>\r\n
+        \         <Reference>FP101897</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <CreditNotes>\r\n        <CreditNote>\r\n          <Date>2026-04-25T00:00:00</Date>\r\n
+        \         <Total>25.44</Total>\r\n          <AppliedAmount>25.44</AppliedAmount>\r\n
+        \         <CreditNoteID>38b0ede6-a89d-4384-8d24-a3b3e8eaabb0</CreditNoteID>\r\n
+        \         <CreditNoteNumber>Refund</CreditNoteNumber>\r\n          <HasErrors>false</HasErrors>\r\n
+        \       </CreditNote>\r\n      </CreditNotes>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>34.10</AmountPaid>\r\n      <AmountCredited>25.44</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>7f9d8073-f224-43d4-bfa9-a8925f25e0ec</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-04-18T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-29T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1350.00</SubTotal>\r\n
+        \     <TotalTax>113.88</TotalTax>\r\n      <Total>1463.88</Total>\r\n      <UpdatedDateUTC>2008-12-20T23:24:58.65</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-28T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>5fe76602-3f0d-48e6-88b6-aadfab4829a8</InvoiceID>\r\n
+        \     <InvoiceNumber>9781</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>879a43e9-0cd0-4752-b167-02e79dee8d1a</PaymentID>\r\n
+        \         <Date>2026-04-28T00:00:00</Date>\r\n          <Amount>1463.88</Amount>\r\n
+        \         <Reference>Ref 0293</Reference>\r\n        </Payment>\r\n      </Payments>\r\n
+        \     <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1463.88</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>aacecb74-ef1e-44e0-ba52-0bc521639697</ContactID>\r\n
+        \       <Name>PC Complete</Name>\r\n      </Contact>\r\n      <Date>2026-04-30T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-30T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>250.00</SubTotal>\r\n
+        \     <TotalTax>20.63</TotalTax>\r\n      <Total>270.63</Total>\r\n      <UpdatedDateUTC>2008-12-20T23:25:33.883</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-04-30T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>0bd7b530-d244-4716-a93e-710de7c61b76</InvoiceID>\r\n
+        \     <InvoiceNumber>OG laptop</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>82fb0ce9-4df2-45a9-b6da-652b67be142e</PaymentID>\r\n
+        \         <Date>2026-04-30T00:00:00</Date>\r\n          <Amount>270.63</Amount>\r\n
+        \       </Payment>\r\n      </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>270.63</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>021b18f8-b62f-4d8a-889e-71fd5427892a</ContactID>\r\n
+        \       <Name>Young Bros Transport</Name>\r\n      </Contact>\r\n      <Date>2026-06-06T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-19T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>115.50</SubTotal>\r\n
+        \     <TotalTax>9.53</TotalTax>\r\n      <Total>125.03</Total>\r\n      <UpdatedDateUTC>2008-12-21T02:15:55.433</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>6b99fc0b-e148-458d-aa8b-da550803c93e</InvoiceID>\r\n
+        \     <AmountDue>125.03</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>8f48b066-e047-459d-80dd-d495b36608d0</ContactID>\r\n
+        \       <Name>PowerDirect</Name>\r\n      </Contact>\r\n      <Date>2026-06-09T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-19T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>100.32</SubTotal>\r\n
+        \     <TotalTax>8.28</TotalTax>\r\n      <Total>108.60</Total>\r\n      <UpdatedDateUTC>2008-12-21T02:17:00.727</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>7a69814e-dc6f-4c8b-80ad-cfe9c78c2763</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>108.60</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>9bcc1e13-3e4a-47c5-a300-249bff8a00f6</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-20T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>50.00</SubTotal>\r\n
+        \     <TotalTax>4.13</TotalTax>\r\n      <Total>54.13</Total>\r\n      <UpdatedDateUTC>2008-12-21T02:17:26.743</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>08e6466f-29f3-4af7-aeac-102944c10033</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>54.13</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>334e6b25-c876-499c-81da-ab1293bbeac5</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>aacecb74-ef1e-44e0-ba52-0bc521639697</ContactID>\r\n
+        \       <Name>PC Complete</Name>\r\n      </Contact>\r\n      <Date>2026-06-04T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-10T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1969.99</SubTotal>\r\n
+        \     <TotalTax>162.52</TotalTax>\r\n      <Total>2132.51</Total>\r\n      <UpdatedDateUTC>2009-03-16T19:58:37.65</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>7f750739-c67a-4acc-9cd7-c133ddbcb7b1</InvoiceID>\r\n
+        \     <AmountDue>2132.51</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-08-11T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-10T00:00:00</DueDate>\r\n      <Status>DELETED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>39.00</SubTotal>\r\n
+        \     <TotalTax>3.22</TotalTax>\r\n      <Total>42.22</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:40:00.55</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>61127f1e-d938-4176-a72e-fd500d5b064f</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>334e6b25-c876-499c-81da-ab1293bbeac5</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>8f48b066-e047-459d-80dd-d495b36608d0</ContactID>\r\n
+        \       <Name>PowerDirect</Name>\r\n      </Contact>\r\n      <Date>2026-08-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-08-28T00:00:00</DueDate>\r\n      <Status>DELETED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>105.00</SubTotal>\r\n
+        \     <TotalTax>8.66</TotalTax>\r\n      <Total>113.66</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:40:00.737</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>323103d0-050b-4538-9abd-b05894f176f5</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>9bcc1e13-3e4a-47c5-a300-249bff8a00f6</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-07-11T00:00:00</Date>\r\n
+        \     <DueDate>2026-08-18T00:00:00</DueDate>\r\n      <Status>DELETED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>39.00</SubTotal>\r\n
+        \     <TotalTax>3.22</TotalTax>\r\n      <Total>42.22</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:40:00.83</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>1ee8729f-0a1f-4e36-8a10-de4c087b92ab</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>334e6b25-c876-499c-81da-ab1293bbeac5</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>8f48b066-e047-459d-80dd-d495b36608d0</ContactID>\r\n
+        \       <Name>PowerDirect</Name>\r\n      </Contact>\r\n      <Date>2026-07-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-31T00:00:00</DueDate>\r\n      <Status>DELETED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>105.00</SubTotal>\r\n
+        \     <TotalTax>8.66</TotalTax>\r\n      <Total>113.66</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:40:00.907</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>927cc424-d1b9-48c8-a6aa-c134b3bc74a4</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>9bcc1e13-3e4a-47c5-a300-249bff8a00f6</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>78b7299c-4f1f-46d2-acc3-44a46bd361b1</ContactID>\r\n
+        \       <Name>Swanston Security</Name>\r\n      </Contact>\r\n      <Date>2026-06-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-27T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>55.00</SubTotal>\r\n
+        \     <TotalTax>4.54</TotalTax>\r\n      <Total>59.54</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:40:41.72</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>f8c11fab-d8b2-4fdc-a803-34501181df3b</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>7f9d8073-f224-43d4-bfa9-a8925f25e0ec</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3b30a108-9156-4a42-a893-3bbbe7af1ef8</ContactID>\r\n
+        \       <Name>Xero</Name>\r\n      </Contact>\r\n      <Date>2026-07-07T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-22T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>29.00</SubTotal>\r\n
+        \     <TotalTax>2.39</TotalTax>\r\n      <Total>31.39</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:41:06.617</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>a8beb072-5464-46ab-b437-cce25e6f2a0a</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>01e01427-6b48-4d5f-aa2e-87c43f2a32a9</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>f4af0a9b-e710-4611-8618-4360944ce1f3</ContactID>\r\n
+        \       <Name>Truxton Property Management</Name>\r\n      </Contact>\r\n      <Date>2026-07-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-22T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1091.22</SubTotal>\r\n
+        \     <TotalTax>90.03</TotalTax>\r\n      <Total>1181.25</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:41:22.763</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>543f7cd8-323d-4baf-96b2-cb76831bccfb</InvoiceID>\r\n
+        \     <InvoiceNumber>RENT</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>dcd26e24-a848-4492-a452-695b88f66abc</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>78b7299c-4f1f-46d2-acc3-44a46bd361b1</ContactID>\r\n
+        \       <Name>Swanston Security</Name>\r\n      </Contact>\r\n      <Date>2026-07-20T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-28T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>55.00</SubTotal>\r\n
+        \     <TotalTax>4.54</TotalTax>\r\n      <Total>59.54</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:42:10.97</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>df852239-2d19-4313-8285-e94957a45020</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>7f9d8073-f224-43d4-bfa9-a8925f25e0ec</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>3b30a108-9156-4a42-a893-3bbbe7af1ef8</ContactID>\r\n
+        \       <Name>Xero</Name>\r\n      </Contact>\r\n      <Date>2026-08-07T00:00:00</Date>\r\n
+        \     <DueDate>2026-08-19T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>29.00</SubTotal>\r\n
+        \     <TotalTax>2.39</TotalTax>\r\n      <Total>31.39</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:42:16.96</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>57f74b0c-137d-4627-8c08-388f49a62510</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>01e01427-6b48-4d5f-aa2e-87c43f2a32a9</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>f4af0a9b-e710-4611-8618-4360944ce1f3</ContactID>\r\n
+        \       <Name>Truxton Property Management</Name>\r\n      </Contact>\r\n      <Date>2026-08-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-08-19T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1091.22</SubTotal>\r\n
+        \     <TotalTax>90.03</TotalTax>\r\n      <Total>1181.25</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:42:28.52</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>2a35b64d-8564-43c8-a43f-e56b3f8dddcd</InvoiceID>\r\n
+        \     <InvoiceNumber>RENT</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>dcd26e24-a848-4492-a452-695b88f66abc</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>78b7299c-4f1f-46d2-acc3-44a46bd361b1</ContactID>\r\n
+        \       <Name>Swanston Security</Name>\r\n      </Contact>\r\n      <Date>2026-08-18T00:00:00</Date>\r\n
+        \     <DueDate>2026-08-25T00:00:00</DueDate>\r\n      <Status>VOIDED</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>55.00</SubTotal>\r\n
+        \     <TotalTax>4.54</TotalTax>\r\n      <Total>59.54</Total>\r\n      <UpdatedDateUTC>2009-09-07T21:42:52.373</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>1a29fe51-c155-4c8e-b91b-baa176655d23</InvoiceID>\r\n
+        \     <InvoiceNumber>AP</InvoiceNumber>\r\n      <AmountDue>0.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>7f9d8073-f224-43d4-bfa9-a8925f25e0ec</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>c01292e3-1a1a-4a70-b120-1218f8f71096</ContactID>\r\n
+        \       <Name>Bayside Wholesale</Name>\r\n      </Contact>\r\n      <Date>2026-06-07T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-18T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>775.98</SubTotal>\r\n
+        \     <TotalTax>64.02</TotalTax>\r\n      <Total>840.00</Total>\r\n      <UpdatedDateUTC>2010-09-29T00:55:14.157</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>f2b3f909-1472-4ee8-98ac-5045bacb5656</InvoiceID>\r\n
+        \     <InvoiceNumber>GB1-White</InvoiceNumber>\r\n      <AmountDue>840.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>f93cd75c-9412-4a8c-91a3-b41fe751aa01</ContactID>\r\n
+        \       <Name>Capital Cab Co</Name>\r\n      </Contact>\r\n      <Date>2026-06-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-16T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>223.56</SubTotal>\r\n
+        \     <TotalTax>18.44</TotalTax>\r\n      <Total>242.00</Total>\r\n      <UpdatedDateUTC>2013-01-04T21:55:31.257</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>93796a50-2fb6-4982-9ccd-01898b419ea0</InvoiceID>\r\n
+        \     <InvoiceNumber>CS815</InvoiceNumber>\r\n      <AmountDue>242.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>3f58af86-b4d9-4ac9-950c-2e4cdd94d5be</ContactID>\r\n
+        \       <Name>SMART Agency</Name>\r\n      </Contact>\r\n      <Date>2026-04-19T00:00:00</Date>\r\n
+        \     <DueDate>2026-04-30T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1847.58</SubTotal>\r\n
+        \     <TotalTax>152.42</TotalTax>\r\n      <Total>2000.00</Total>\r\n      <UpdatedDateUTC>2013-01-05T19:10:09.793</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>84f7c2d0-8383-46ed-bf45-17e00665ceab</InvoiceID>\r\n
+        \     <InvoiceNumber>SM0195</InvoiceNumber>\r\n      <AmountDue>2000.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>3f58af86-b4d9-4ac9-950c-2e4cdd94d5be</ContactID>\r\n
+        \       <Name>SMART Agency</Name>\r\n      </Contact>\r\n      <Date>2026-05-30T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-09T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>2309.47</SubTotal>\r\n
+        \     <TotalTax>190.53</TotalTax>\r\n      <Total>2500.00</Total>\r\n      <UpdatedDateUTC>2013-01-05T19:10:49.607</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>628fc0b0-e65c-47ef-a3e2-99632a1136e7</InvoiceID>\r\n
+        \     <InvoiceNumber>SM0210</InvoiceNumber>\r\n      <AmountDue>2500.00</AmountDue>\r\n
+        \     <AmountPaid>0.00</AmountPaid>\r\n      <AmountCredited>0.00</AmountCredited>\r\n
+        \     <CurrencyRate>1.0000000000</CurrencyRate>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>f4af0a9b-e710-4611-8618-4360944ce1f3</ContactID>\r\n
+        \       <Name>Truxton Property Management</Name>\r\n      </Contact>\r\n      <Date>2026-05-30T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-09T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1091.22</SubTotal>\r\n
+        \     <TotalTax>90.03</TotalTax>\r\n      <Total>1181.25</Total>\r\n      <UpdatedDateUTC>2013-01-05T20:34:05.76</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-30T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>bbf21465-7a03-417d-b41d-48d3000e858e</InvoiceID>\r\n
+        \     <InvoiceNumber>RENT</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>9dbd9caf-d421-45b2-b01a-01d8f5517af3</PaymentID>\r\n
+        \         <Date>2026-05-30T00:00:00</Date>\r\n          <Amount>1181.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1181.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \     <RepeatingInvoiceID>dcd26e24-a848-4492-a452-695b88f66abc</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>ddd4ba65-9b7e-4adf-be7a-e91efbb6c082</ContactID>\r\n
+        \       <Name>Gateway Motors</Name>\r\n      </Contact>\r\n      <Date>2026-06-05T00:00:00</Date>\r\n
+        \     <DueDate>2026-07-06T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>380.00</SubTotal>\r\n
+        \     <TotalTax>31.35</TotalTax>\r\n      <Total>411.35</Total>\r\n      <UpdatedDateUTC>2013-01-05T20:41:18.35</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-06-06T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>361a4980-7f53-4b68-820c-f6487f613284</InvoiceID>\r\n
+        \     <Payments>\r\n        <Payment>\r\n          <PaymentID>5c7ab2aa-5b27-482b-b6e3-21b80d2e213e</PaymentID>\r\n
+        \         <Date>2026-06-06T00:00:00</Date>\r\n          <Amount>411.35</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>411.35</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b68deed5-49c8-416a-9f35-2ab14bb1fb6b</ContactID>\r\n
+        \       <Name>Bayside Club</Name>\r\n      </Contact>\r\n      <Date>2026-06-04T00:00:00</Date>\r\n
+        \     <DueDate>2026-06-14T00:00:00</DueDate>\r\n      <Status>AUTHORISED</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>120.09</SubTotal>\r\n
+        \     <TotalTax>9.91</TotalTax>\r\n      <Total>130.00</Total>\r\n      <UpdatedDateUTC>2013-01-14T23:28:50.843</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <Type>ACCPAY</Type>\r\n      <InvoiceID>f175784c-3ae0-4850-8504-46ad807181f7</InvoiceID>\r\n
+        \     <AmountDue>130.00</AmountDue>\r\n      <AmountPaid>0.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40</ContactID>\r\n
+        \       <Name>Carlton Functions</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>1500.00</SubTotal>\r\n
+        \     <TotalTax>0.00</TotalTax>\r\n      <Total>1500.00</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:13:11.05</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>2a578929-58bf-4eca-90db-1356383aeecb</InvoiceID>\r\n
+        \     <InvoiceNumber>Dep</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>7153e7c8-175d-4d79-957c-34c6e0546f94</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>1500.00</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1500.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>1d80716b-427e-4cad-80c6-c4b3a18eb23d</ContactID>\r\n
+        \       <Name>Hoyt Productions</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>5500.00</SubTotal>\r\n
+        \     <TotalTax>453.75</TotalTax>\r\n      <Total>5953.75</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:13:53.123</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>12d3bc5a-efe2-4093-b0e3-f6474ef7596d</InvoiceID>\r\n
+        \     <InvoiceNumber>08-4123</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>6d898c20-f15b-4242-a3a9-0c7f991502f0</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>5953.75</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>5953.75</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n    </Invoice>\r\n    <Invoice>\r\n
+        \     <Contact>\r\n        <ContactID>39efa556-8dda-4c81-83d3-a631e59eb6d3</ContactID>\r\n
+        \       <Name>ABC Furniture</Name>\r\n      </Contact>\r\n      <Date>2026-05-20T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>923.79</SubTotal>\r\n
+        \     <TotalTax>76.21</TotalTax>\r\n      <Total>1000.00</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:13:57.417</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>6e74d1a5-e95b-406d-8d96-7d8752fa388e</InvoiceID>\r\n
+        \     <InvoiceNumber>710</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>186b5bdc-9707-40da-b716-b412ea5a8770</PaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>1000.00</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1000.00</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <CurrencyRate>1.0000000000</CurrencyRate>\r\n
+        \     <HasAttachments>false</HasAttachments>\r\n      <HasErrors>false</HasErrors>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>f4af0a9b-e710-4611-8618-4360944ce1f3</ContactID>\r\n
+        \       <Name>Truxton Property Management</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-10T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Inclusive</LineAmountTypes>\r\n      <SubTotal>1091.22</SubTotal>\r\n
+        \     <TotalTax>90.03</TotalTax>\r\n      <Total>1181.25</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:26:04.467</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>bc532b0e-dfa7-44fd-99d9-1d24acd55b1c</InvoiceID>\r\n
+        \     <InvoiceNumber>RENT</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>8f7e1fb5-5ccf-4487-9bec-bf38926770e3</PaymentID>\r\n
+        \         <BatchPaymentID>97318868-0172-4b01-8a04-6da0dcd62452</BatchPaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>1181.25</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>1181.25</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>dcd26e24-a848-4492-a452-695b88f66abc</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>b553bc60-5fb9-4d5e-b604-71aaf657cd3d</ContactID>\r\n
+        \       <Name>Net Connect</Name>\r\n      </Contact>\r\n      <Date>2026-05-11T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>43.25</SubTotal>\r\n
+        \     <TotalTax>3.57</TotalTax>\r\n      <Total>46.82</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:26:04.497</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>9d9cd0fc-661b-49fb-9062-6e50c139b78b</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>18df9893-9cc0-4f47-8b15-b5798119d57d</PaymentID>\r\n
+        \         <BatchPaymentID>97318868-0172-4b01-8a04-6da0dcd62452</BatchPaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>46.82</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>46.82</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>334e6b25-c876-499c-81da-ab1293bbeac5</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n    <Invoice>\r\n      <Contact>\r\n        <ContactID>8f48b066-e047-459d-80dd-d495b36608d0</ContactID>\r\n
+        \       <Name>PowerDirect</Name>\r\n      </Contact>\r\n      <Date>2026-05-10T00:00:00</Date>\r\n
+        \     <DueDate>2026-05-20T00:00:00</DueDate>\r\n      <Status>PAID</Status>\r\n
+        \     <LineAmountTypes>Exclusive</LineAmountTypes>\r\n      <SubTotal>125.50</SubTotal>\r\n
+        \     <TotalTax>10.35</TotalTax>\r\n      <Total>135.85</Total>\r\n      <UpdatedDateUTC>2013-11-21T22:26:04.513</UpdatedDateUTC>\r\n
+        \     <CurrencyCode>USD</CurrencyCode>\r\n      <FullyPaidOnDate>2026-05-20T00:00:00</FullyPaidOnDate>\r\n
+        \     <Type>ACCPAY</Type>\r\n      <InvoiceID>47b97878-df82-4330-b731-80610cce65d1</InvoiceID>\r\n
+        \     <InvoiceNumber>Rpt</InvoiceNumber>\r\n      <Payments>\r\n        <Payment>\r\n
+        \         <PaymentID>a13215f8-f573-4ff0-a93b-86fee4dd4ac6</PaymentID>\r\n
+        \         <BatchPaymentID>97318868-0172-4b01-8a04-6da0dcd62452</BatchPaymentID>\r\n
+        \         <Date>2026-05-20T00:00:00</Date>\r\n          <Amount>135.85</Amount>\r\n
+        \         <CurrencyRate>1.0000000000</CurrencyRate>\r\n        </Payment>\r\n
+        \     </Payments>\r\n      <AmountDue>0.00</AmountDue>\r\n      <AmountPaid>135.85</AmountPaid>\r\n
+        \     <AmountCredited>0.00</AmountCredited>\r\n      <HasAttachments>false</HasAttachments>\r\n
+        \     <HasErrors>false</HasErrors>\r\n      <RepeatingInvoiceID>9bcc1e13-3e4a-47c5-a300-249bff8a00f6</RepeatingInvoiceID>\r\n
+        \   </Invoice>\r\n  </Invoices>\r\n</Response>"
+  recorded_at: Wed, 10 Jun 2026 12:08:29 GMT
+- request:
+    method: get
+    uri: https://api.xero.com/api.xro/2.0/Invoices/9f5bca33-8590-4b6f-acfb-e85712b10217/OnlineInvoice
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Charset:
+      - utf-8
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Xero-Correlation-Id:
+      - b088c217-74c9-4ef4-a370-5b759857d261
+      X-Appminlimit-Remaining:
+      - '9964'
+      X-Minlimit-Remaining:
+      - '54'
+      X-Daylimit-Remaining:
+      - '964'
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Server:
+      - tpzgw-c
+      Vary:
+      - Accept-Encoding
+      Expires:
+      - Wed, 10 Jun 2026 12:08:30 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:30 GMT
+      Content-Length:
+      - '47'
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: The resource you're looking for cannot be found
+  recorded_at: Wed, 10 Jun 2026 12:08:30 GMT
+recorded_with: VCR 6.4.0

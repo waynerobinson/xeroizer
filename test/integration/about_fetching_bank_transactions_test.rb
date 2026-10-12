@@ -1,12 +1,9 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 require "bank_transaction_reference_data"
 
-class AboutFetchingBankTransactions < Minitest::Test
-  include AcceptanceTest
-
+class AboutFetchingBankTransactions < IntegrationTestCase
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
   end
 
   context "when requesting a single bank transaction with a reference" do

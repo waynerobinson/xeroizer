@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://api.xero.com/api.xro/2.0/Contacts?summarizeErrors=false
+    body:
+      encoding: UTF-8
+      string: xml=%3CContacts%3E%0A%20%20%3CContact%3E%0A%20%20%20%20%3CName%3Etest-person-120899303%3C%2FName%3E%0A%20%20%3C%2FContact%3E%0A%20%20%3CContact%3E%0A%20%20%20%20%3CName%3Etest-person-806105854%3C%2FName%3E%0A%20%20%3C%2FContact%3E%0A%3C%2FContacts%3E%0A
+    headers:
+      User-Agent:
+      - Faraday v2.14.2
+      Charset:
+      - utf-8
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Authorization:
+      - "<REDACTED>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Content-Length:
+      - '2074'
+      Xero-Correlation-Id:
+      - c347212c-fd74-4aab-8764-9d1d525005f3
+      X-Appminlimit-Remaining:
+      - '9995'
+      X-Minlimit-Remaining:
+      - '56'
+      X-Daylimit-Remaining:
+      - '995'
+      Xero-Tenant-Id:
+      - "<XERO_TENANT_ID>"
+      Server:
+      - tpzgw-c
+      Expires:
+      - Wed, 10 Jun 2026 12:08:14 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Wed, 10 Jun 2026 12:08:14 GMT
+      Connection:
+      - keep-alive
+      X-Client-Tls-Ver:
+      - tls1.3
+    body:
+      encoding: UTF-8
+      string: "<Response xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n
+        \ <Id>c347212c-fd74-4aab-8764-9d1d525005f3</Id>\r\n  <Status>OK</Status>\r\n
+        \ <ProviderName>nnc-oauth2</ProviderName>\r\n  <DateTimeUTC>2026-06-10T12:08:14.3786854Z</DateTimeUTC>\r\n
+        \ <Contacts>\r\n    <Contact status=\"OK\">\r\n      <ContactID>8b94398d-bf5d-4d8b-a4bd-43a3923a63d5</ContactID>\r\n
+        \     <ContactStatus>ACTIVE</ContactStatus>\r\n      <Name>test-person-120899303</Name>\r\n
+        \     <Addresses>\r\n        <Address>\r\n          <AddressType>STREET</AddressType>\r\n
+        \       </Address>\r\n        <Address>\r\n          <AddressType>POBOX</AddressType>\r\n
+        \       </Address>\r\n      </Addresses>\r\n      <Phones>\r\n        <Phone>\r\n
+        \         <PhoneType>DEFAULT</PhoneType>\r\n        </Phone>\r\n        <Phone>\r\n
+        \         <PhoneType>DDI</PhoneType>\r\n        </Phone>\r\n        <Phone>\r\n
+        \         <PhoneType>FAX</PhoneType>\r\n        </Phone>\r\n        <Phone>\r\n
+        \         <PhoneType>MOBILE</PhoneType>\r\n        </Phone>\r\n      </Phones>\r\n
+        \     <UpdatedDateUTC>2026-06-10T12:08:14.29</UpdatedDateUTC>\r\n      <IsSupplier>false</IsSupplier>\r\n
+        \     <IsCustomer>false</IsCustomer>\r\n    </Contact>\r\n    <Contact status=\"OK\">\r\n
+        \     <ContactID>6c62fa3f-af35-4ce3-8c62-6a41a282dd25</ContactID>\r\n      <ContactStatus>ACTIVE</ContactStatus>\r\n
+        \     <Name>test-person-806105854</Name>\r\n      <Addresses>\r\n        <Address>\r\n
+        \         <AddressType>STREET</AddressType>\r\n        </Address>\r\n        <Address>\r\n
+        \         <AddressType>POBOX</AddressType>\r\n        </Address>\r\n      </Addresses>\r\n
+        \     <Phones>\r\n        <Phone>\r\n          <PhoneType>DEFAULT</PhoneType>\r\n
+        \       </Phone>\r\n        <Phone>\r\n          <PhoneType>DDI</PhoneType>\r\n
+        \       </Phone>\r\n        <Phone>\r\n          <PhoneType>FAX</PhoneType>\r\n
+        \       </Phone>\r\n        <Phone>\r\n          <PhoneType>MOBILE</PhoneType>\r\n
+        \       </Phone>\r\n      </Phones>\r\n      <UpdatedDateUTC>2026-06-10T12:08:14.337</UpdatedDateUTC>\r\n
+        \     <IsSupplier>false</IsSupplier>\r\n      <IsCustomer>false</IsCustomer>\r\n
+        \   </Contact>\r\n  </Contacts>\r\n</Response>"
+  recorded_at: Wed, 10 Jun 2026 12:08:14 GMT
+recorded_with: VCR 6.4.0
