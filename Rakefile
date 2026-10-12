@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rake'
 require 'minitest/test_task'
 require 'rdoc/task'
@@ -5,23 +7,22 @@ require 'rubygems'
 require 'yard'
 require 'bundler/gem_tasks'
 
-desc 'Default: run unit tests.'
-task :default => :test
+desc 'Default: run all tests.'
+task default: :test
 
-desc 'Run unit tests.'
-Minitest::TestTask.create(:test) do |t|
-  t.test_globs = ['test/unit/**/*_test.rb']
-end
+desc 'Run all tests (unit + integration).'
+# Separate processes: the unit suite's WebMock teardown would clash with VCR in-process.
+task test: ['test:unit', 'test:integration']
 
 namespace :test do
-  desc 'Run acceptance/integration tests'
-  Minitest::TestTask.create(:acceptance) do |t|
-    t.test_globs = ['test/acceptance/**/*_test.rb']
-  end
-
   desc 'Run unit tests'
   Minitest::TestTask.create(:unit) do |t|
     t.test_globs = ['test/unit/**/*_test.rb']
+  end
+
+  desc 'Run integration tests (replay recorded cassettes; see test/integration/README.md)'
+  Minitest::TestTask.create(:integration) do |t|
+    t.test_globs = ['test/integration/**/*_test.rb']
   end
 end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Xeroizer
   module Record
     module Payroll
@@ -8,9 +10,9 @@ module Xeroizer
       class LeaveApplication < PayrollBase
         set_primary_key :leave_application_id
 
-        guid          :leave_application_id
-        guid          :employee_id
-        guid          :leave_type_id
+        guid :leave_application_id
+        guid :employee_id
+        guid :leave_type_id
 
         string        :title
         date          :start_date
