@@ -1,11 +1,8 @@
-require "test_helper"
-require "acceptance_test"
+require "integration_test_case"
 
-class AboutGetOnlineInvoiceUrl < Minitest::Test
-  include AcceptanceTest
-
+class OnlineInvoiceTest < IntegrationTestCase
   def setup
-    @client = AcceptanceTestHelpers.oauth2_client
+    @client = oauth2_client
     @invoice = @client.Invoice.all(:where => 'Type=="ACCREC"').first
     @invoice_acc_pay = @client.Invoice.all(:where => 'Type=="ACCPAY"').first
   end
@@ -18,7 +15,7 @@ class AboutGetOnlineInvoiceUrl < Minitest::Test
   end
 
   can "Not request OnlineInvoice of an AccPay invoice" do
-    assert_raises do
+    assert_raises(Xeroizer::InvoiceNotFoundError) do
       @online_invoice_acc_pay = @invoice_acc_pay.online_invoice
     end
   end
