@@ -32,6 +32,7 @@ class IntegrationTestCaseTest < UnitTestCase
       require "integration_test_case"
     RUBY
     env = ENV.keys.grep(/\AXERO_/).to_h { |key| [key, nil] }.merge(
+      "XERO_ENV_FILE" => "/nonexistent/xero.env",
       "XERO_CLIENT_ID" => "dummy_id",
       "XERO_CLIENT_SECRET" => "dummy_secret",
       "XERO_ACCESS_TOKEN" => "dummy_access_token",

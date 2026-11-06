@@ -16,3 +16,4 @@ gemfiles/*.lock
 tmp/
 *~
 TAGS
+.xero.env*

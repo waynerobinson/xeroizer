@@ -1,3 +1,5 @@
+require_relative "support/xero_env"
+XeroEnv.load
 require "test_helper"
 
 # Base class for integration tests. They call the Xero API and are skipped
@@ -30,7 +32,7 @@ if IntegrationTestCase::MISSING_CREDENTIALS.empty?
   begin
     org = IntegrationTestCase.oauth2_client.Organisation.first
   rescue StandardError => e
-    abort "Cannot reach Xero (#{e.class}: #{e.message})."
+    abort "Cannot reach Xero (#{e.class}: #{e.message}). Run `rake xero:token` for fresh tokens."
   end
   abort "The integration tests write data into Xero; #{org.name} is not a Demo Company." unless org.is_demo_company
 end

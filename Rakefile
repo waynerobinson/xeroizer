@@ -29,6 +29,20 @@ end
   'test:integration' => 'Run integration tests against a Xero Demo Company (see test/integration/README.md)',
 }.each { |name, text| Rake::Task[name].clear_comments.add_description(text) }
 
+namespace :xero do
+  desc 'Refresh the integration tests\' Xero tokens, logging in through the browser if needed'
+  task :token do
+    require_relative 'test/support/xero_token'
+    XeroToken.run
+  end
+
+  desc 'Log in to Xero through the browser and save tokens for the integration tests'
+  task :login do
+    require_relative 'test/support/xero_token'
+    XeroToken.run(login: true)
+  end
+end
+
 YARD::Rake::YardocTask.new do |t|
   # t.files   = ['lib/**/*.rb', OTHER_PATHS]   # optional
   # t.options = ['--any', '--extra', '--opts'] # optional
