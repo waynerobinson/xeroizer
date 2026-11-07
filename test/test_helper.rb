@@ -7,21 +7,11 @@ require 'pp'
 
 require File.dirname(__FILE__) + '/../lib/xeroizer.rb'
 
-$: << File.join(File.dirname(__FILE__), "acceptance")
+$: << File.join(File.dirname(__FILE__), "integration")
 
 module TestHelper
 
-  # The integration tests can be run against the Xero test environment.  You must have a company set up in the test
-  # environment, and you must have set up a customer key for that account.
-  #
-  # You can then run the tests against the test environment using the commands (linux or mac):
-  # export STUB_XERO_CALLS=false
-  # rake test
-  #
-
   $VERBOSE=nil
-
-  STUB_XERO_CALLS   = ENV["STUB_XERO_CALLS"].nil? ? true : (ENV["STUB_XERO_CALLS"] == "true") unless defined? STUB_XERO_CALLS
 
   CLIENT_ID     = ENV["XERO_CLIENT_ID"]     || "fake_client_id"     unless defined?(CLIENT_ID)
   CLIENT_SECRET = ENV["XERO_CLIENT_SECRET"] || "fake_client_secret" unless defined?(CLIENT_SECRET)

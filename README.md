@@ -679,17 +679,16 @@ This option adds the unitdp=4 query string parameter to all requests for models 
 Tests
 -----
 
-OAuth2 Tests
-
-The tests within the repository can be run by setting up a [OAuth2 App](https://developer.xero.com/documentation/guides/oauth2/auth-flow/).  You can create an app in the [developer portal](https://developer.xero.com/myapps/), it's suggested that you create it against the [Demo Company (AU)](https://developer.xero.com/documentation/getting-started/development-accounts). Demo Company expires after 28 days, so you will need to reset it and re-connect to it if your Demo Company has expired. Make sure you create the Demo Company in Australia region.
+Unit tests:
 
 ```
-export XERO_CLIENT_ID="asd"
-export XERO_CLIENT_SECRET="asdfg"
-export XERO_ACCESS_TOKEN="sadfsdf"
-export XERO_TENANT_ID="asdfasdfasdfasd"
+bundle exec rake test
+```
 
-rake test
+Integration tests run against a Xero Demo Company; setup is in [test/integration/README.md](test/integration/README.md):
+
+```
+bundle exec rake xero:token test:integration
 ```
 
 ### Contributors
